@@ -56,27 +56,6 @@
 
 ---
 
-## Try it
-
-```bash
-pip install -r requirements.txt       # pulls PyTorch, ~2 min
-cp .env.example .env                  # add your keys
-python3 data/generate_data.py         # synthetic data (one-time)
-python3 agent/neo4j_loader.py         # load the demo graph (one-time)
-./start.sh                            # add --dashboard for the KPI dashboard on :8502
-```
-
-No typing needed: the app has one-click demos for a payment refund failure, an SSO onboarding blocker and an analytics export bug. Open **Diagnostic Agent** in the sidebar to compare all three architectures on a stored case.
-
-**Keys:** the live app needs `GROQ_API_KEY`, `LANGCHAIN_*` and `NEO4J_*`. The research side adds `NEO4J_V2_*`, `TOGETHER_API_KEY` and `TYPESAFE_API_KEY`. See `.env.example`.
-
-**Heads up:**
-
-- Neo4j Aura Free pauses after ~3 idle days. `python3 -m agent.neo4j_health` tells you which instance is asleep.
-- Don't touch the pins (`langchain==0.2.16`, `langchain-core==0.2.43`, `streamlit==1.35.0`, `tenacity==8.5.0`). Never install `typesafe-sdk` or `langchain-openai`; both break the stack. Run `pip check` after installs.
-- Groq's free tier is 8,000 tokens/min, so the CLI demo pauses 62 s between scenarios.
-
-**Tests:** `python3 run_evals.py` runs the 20-case live eval suite (logs to LangSmith). Unit tests live in `agent/*/test_*.py` and call no paid APIs.
 
 ---
 
