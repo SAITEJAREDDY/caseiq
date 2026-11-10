@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="800" height="300" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0 L10 5 L0 10z" fill="#1F2328"/>
+    </marker>
+  </defs>
+  <rect x="1" y="1" width="798" height="298" rx="18" fill="#FFFBF2" stroke="#1F2328" stroke-width="2"/>
+
+  <!-- 1 ticket -->
+  <rect x="22" y="60" width="160" height="150" rx="12" fill="#fff" stroke="#1F2328" stroke-width="2"/>
+  <text x="102" y="88" text-anchor="middle" font-size="15" font-weight="700" fill="#1F2328">1. Read it</text>
+  <circle cx="72" cy="122" r="11" fill="#2F9E44"/>
+  <circle cx="102" cy="122" r="11" fill="#F2C94C"/>
+  <circle cx="132" cy="122" r="11" fill="#E03131"/>
+  <text x="102" y="160" text-anchor="middle" font-size="12.5" fill="#1F2328">Sure? Auto-assign.</text>
+  <text x="102" y="178" text-anchor="middle" font-size="12.5" fill="#1F2328">Kinda sure? Ask.</text>
+  <text x="102" y="196" text-anchor="middle" font-size="12.5" fill="#1F2328">Clueless? Admit it.</text>
+
+  <line x1="184" y1="135" x2="214" y2="135" stroke="#1F2328" stroke-width="2.5" marker-end="url(#a)"/>
+
+  <!-- 2 graph -->
+  <rect x="218" y="60" width="170" height="150" rx="12" fill="#fff" stroke="#1F2328" stroke-width="2"/>
+  <text x="303" y="88" text-anchor="middle" font-size="15" font-weight="700" fill="#1F2328">2. Ask the graph</text>
+  <g stroke="#868E96" stroke-width="2">
+    <line x1="303" y1="140" x2="255" y2="112"/><line x1="303" y1="140" x2="352" y2="112"/>
+    <line x1="303" y1="140" x2="255" y2="172"/><line x1="303" y1="140" x2="352" y2="172"/>
+  </g>
+  <circle cx="303" cy="140" r="12" fill="#E8590C" stroke="#1F2328" stroke-width="1.5"/>
+  <g stroke="#1F2328" stroke-width="1.5">
+    <circle cx="255" cy="112" r="9" fill="#A5D8FF"/><circle cx="352" cy="112" r="9" fill="#B2F2BB"/>
+    <circle cx="255" cy="172" r="9" fill="#FFE066"/><circle cx="352" cy="172" r="9" fill="#D0BFFF"/>
+  </g>
+  <text x="303" y="200" text-anchor="middle" font-size="10.5" fill="#6B7280">customer · cases · agents · KB</text>
+
+  <line x1="390" y1="135" x2="420" y2="135" stroke="#1F2328" stroke-width="2.5" marker-end="url(#a)"/>
+
+  <!-- 3 answers -->
+  <rect x="424" y="60" width="170" height="150" rx="12" fill="#fff" stroke="#1F2328" stroke-width="2"/>
+  <text x="509" y="88" text-anchor="middle" font-size="15" font-weight="700" fill="#1F2328">3. Answer 3 ways</text>
+  <rect x="440" y="102" width="138" height="26" rx="6" fill="#F1F3F5"/>
+  <text x="509" y="120" text-anchor="middle" font-size="12.5" fill="#1F2328">No graph (vibes)</text>
+  <rect x="440" y="134" width="138" height="26" rx="6" fill="#E7F5FF"/>
+  <text x="509" y="152" text-anchor="middle" font-size="12.5" fill="#1F2328">With graph (facts)</text>
+  <rect x="440" y="166" width="138" height="26" rx="6" fill="#EBFBEE"/>
+  <text x="509" y="184" text-anchor="middle" font-size="12.5" fill="#1F2328">Graph + Jev (audited)</text>
+
+  <line x1="596" y1="135" x2="626" y2="135" stroke="#1F2328" stroke-width="2.5" marker-end="url(#a)"/>
+
+  <!-- 4 bouncer -->
+  <rect x="630" y="60" width="150" height="150" rx="12" fill="#fff" stroke="#1F2328" stroke-width="2"/>
+  <text x="705" y="88" text-anchor="middle" font-size="15" font-weight="700" fill="#1F2328">4. The bouncer</text>
+  <circle cx="705" cy="118" r="14" fill="#FFE8CC" stroke="#1F2328" stroke-width="2"/>
+  <rect x="693" y="110" width="24" height="6" rx="2" fill="#1F2328"/>
+  <path d="M683 165 q22 -40 44 0z" fill="#1F2328"/>
+  <text x="705" y="184" text-anchor="middle" font-size="12" fill="#1F2328">Not on the list?</text>
+  <text x="705" y="200" text-anchor="middle" font-size="12" fill="#1F2328">Not getting in.</text>
+
+  <text x="400" y="250" text-anchor="middle" font-size="14" fill="#1F2328">Plain code makes the final call: <tspan font-weight="700">accept</tspan>, <tspan font-weight="700">revise once</tspan>, or <tspan font-weight="700">get a human</tspan>.</text>
+  <text x="400" y="274" text-anchor="middle" font-size="13" fill="#6B7280">If the bouncer is on a break, nobody gets in. Ever.</text>
+  <text x="400" y="40" text-anchor="middle" font-size="18" font-weight="700" fill="#1F2328">How CaseIQ handles a ticket</text>
+</svg>

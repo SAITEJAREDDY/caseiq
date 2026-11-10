@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="800" height="300" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <rect x="1" y="1" width="798" height="298" rx="18" fill="#FFFBF2" stroke="#1F2328" stroke-width="2"/>
+
+  <!-- before -->
+  <rect x="20" y="20" width="370" height="260" rx="12" fill="#F3F0FF" stroke="#1F2328" stroke-width="2"/>
+  <text x="205" y="52" text-anchor="middle" font-size="18" font-weight="700" fill="#1F2328">Before: the agent believed in ghosts</text>
+  <!-- ghost -->
+  <path d="M70 200 v-60 a40 40 0 0 1 80 0 v60 l-13 -12 l-13 12 l-14 -12 l-13 12 l-13 -12z" fill="#fff" stroke="#1F2328" stroke-width="2"/>
+  <circle cx="97" cy="140" r="5" fill="#1F2328"/><circle cx="123" cy="140" r="5" fill="#1F2328"/>
+  <ellipse cx="110" cy="162" rx="7" ry="9" fill="#1F2328"/>
+  <rect x="165" y="90" width="205" height="34" rx="8" fill="#fff" stroke="#1F2328" stroke-width="2"/>
+  <text x="267" y="112" text-anchor="middle" font-size="14" font-family="ui-monospace, Menlo, Consolas, monospace" fill="#1F2328">get_system_logs()</text>
+  <text x="267" y="146" text-anchor="middle" font-size="13" fill="#E03131" font-weight="700">a tool we never built</text>
+  <text x="267" y="176" text-anchor="middle" font-size="13" fill="#1F2328">Called in 244 runs anyway.</text>
+  <text x="205" y="240" text-anchor="middle" font-size="15" font-weight="700" fill="#1F2328">300 of 300 runs used a phantom tool</text>
+
+  <!-- after -->
+  <rect x="410" y="20" width="370" height="260" rx="12" fill="#EBFBEE" stroke="#1F2328" stroke-width="2"/>
+  <text x="595" y="52" text-anchor="middle" font-size="18" font-weight="700" fill="#1F2328">After: same model, tighter leash</text>
+  <g font-size="34" font-weight="800" text-anchor="middle" fill="#2F9E44">
+    <text x="480" y="130">0</text><text x="595" y="130">0</text><text x="705" y="130">95.8%</text>
+  </g>
+  <g font-size="13" text-anchor="middle" fill="#1F2328">
+    <text x="480" y="156">phantom tools</text><text x="595" y="156">invented IDs</text><text x="705" y="156">valid first try</text>
+  </g>
+  <text x="595" y="208" text-anchor="middle" font-size="13" fill="#6B7280">Schema-locked outputs · aliases instead of raw IDs</text>
+  <text x="595" y="226" text-anchor="middle" font-size="13" fill="#6B7280">· validators that reject nonsense before it runs</text>
+  <text x="595" y="260" text-anchor="middle" font-size="15" font-weight="700" fill="#1F2328">Ghosts: evicted.</text>
+</svg>

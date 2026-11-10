@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 260" width="800" height="260" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <rect x="1" y="1" width="798" height="258" rx="18" fill="#FFFBF2" stroke="#1F2328" stroke-width="2"/>
+  <text x="400" y="42" text-anchor="middle" font-size="18" font-weight="700" fill="#1F2328">How much time CaseIQ has to save to pay for itself</text>
+  <text x="400" y="66" text-anchor="middle" font-size="13" fill="#6B7280">$0.03 per case (measured) ÷ $1 per agent-minute ($60/hr) = 1.8 seconds</text>
+
+  <g font-size="14" fill="#1F2328">
+    <text x="30" y="112">CaseIQ break-even</text>
+    <rect x="300" y="96" width="120" height="24" rx="5" fill="#2F9E44"/>
+    <text x="430" y="113" font-weight="700">1.8 s</text>
+
+    <text x="30" y="157">Saying "have you tried turning</text>
+    <text x="30" y="175">it off and on again?"</text>
+    <rect x="300" y="148" width="200" height="24" rx="5" fill="#F2C94C"/>
+    <text x="510" y="165">~3 s</text>
+
+    <text x="30" y="215">Finding Marcus's fix the old way</text>
+    <rect x="300" y="200" width="440" height="24" rx="5" fill="#E03131"/>
+    <path d="M740 200 l12 12 l-12 12" fill="#E03131"/>
+    <text x="520" y="217" text-anchor="middle" font-weight="700" fill="#fff">minutes (bar continues off-screen)</text>
+  </g>
+</svg>
