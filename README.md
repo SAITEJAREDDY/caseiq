@@ -1,388 +1,233 @@
-# CaseIQ: Graph-Powered Support Intelligence
+# CaseIQ
+
+### The story of one support ticket, and what happens when your support team finally gets a memory.
 
 *Microsoft AI Graphs TPM Demo · June 2026*
 
-> **Ticket in. Context out. Fewer "have you tried turning it off and on again?" moments.**
+*(Characters are fictional. Every number labeled "measured" comes from this repo's own runs. Every number labeled "pretend" is a pretend, and we will tell you which is which.)*
 
 ---
 
-## TL;DR (for people with 90 seconds and a meeting at 2)
+## Chapter 1: Monday, 9:02 a.m.
 
-| | |
-|---|---|
-| **Problem** | Support teams spend the first minutes of every case doing archaeology: Which product is this? Who has seen this before? Which agent knows this? Is there a KB article, or are we about to invent one? |
-| **Product** | CaseIQ reads a plain-English ticket, finds the product, walks a Neo4j knowledge graph (customer, similar cases, best-fit agents, proven KB articles), and writes a recommendation grounded in that data. A second model-checker (Jev) audits the answer before anyone trusts it. |
-| **Why a graph?** | Support data is a web of relationships, not a spreadsheet. "Who resolved a similar case on this product, using which article, how fast?" is one traversal in a graph and a small adventure in SQL. |
-| **Status** | Working demo plus an honest research program. **Not production.** Read "The Honest Scoreboard" before you quote any number to your VP. |
-| **Cost to run** | About **$0.001 to $0.03 per case** for the diagnostic agent, depending on how much machinery you switch on. |
+Priya is a support engineer. She has not finished her coffee.
 
----
+A ticket lands from a Gold-tier customer: *"Refunds are failing at checkout and finance is panicking."*
 
-## The Problem, in Numbers You Can Argue With
+Here is what happens next in most support teams, and possibly in yours:
 
-Every support org has the same three leaks. The figures below are **illustrative placeholders: swap in your own**.
+Priya opens four tabs. She asks in Slack, "Anyone seen this before?" Someone says "I think Marcus fixed something like this?" Marcus is on vacation. She searches the knowledge base and finds three articles, one of which has been wrong since 2022. Eventually she finds a similar case, reads it, realizes it was a different product, and starts over.
 
-| Leak | What it looks like | Metric it moves |
-|---|---|---|
-| **Misrouted cases** | Ticket sits in the wrong queue, gets bounced twice | First-contact resolution (FCR), reassignment rate |
-| **Reinvented fixes** | Agent solves a problem the team solved last Tuesday, from scratch | Mean time to resolve (MTTR), cost per case |
-| **Unchecked AI answers** | A confident recommendation that confidently cites an agent who does not exist | Escalation rate, trust, your weekend |
+Nobody did anything *wrong*. The knowledge exists. It is just scattered across people, tickets, and articles, and every new case starts with an archaeology dig.
 
-CaseIQ goes after all three, and it measures itself while doing it.
+That dig is the leak. It is the part of the job that is not support. It is support *logistics*, and it happens ten thousand times a month.
+
+CaseIQ is what happens when you give that logistics problem a memory.
 
 ---
 
-## Use Cases (a.k.a. Where the ROI Comes From)
+## Chapter 2: The same ticket, but with a graph
 
-### 1. Instant product triage: "Which product is this about?"
+Same Monday. Same coffee. Same ticket. This time the ticket goes into CaseIQ.
 
-**Scenario:** A customer writes *"refunds are failing at checkout and finance is panicking."*
+**First, it works out what the ticket is about.** Not with a dropdown, with plain English. A dual-confidence extractor reads the text and decides how sure it is:
 
-**What CaseIQ does:** A dual-confidence extractor reads the text and picks a path:
+- If it is **80% sure or better**, it assigns the product on its own and gets out of the way (🟢).
+- If it is **60 to 79% sure**, it asks Priya to confirm with a single click (🟡).
+- If it is less sure than that, it tries a semantic search against product descriptions. If *that* fails, it hands Priya a manual picker (🔴) instead of pretending to know.
 
-| Confidence | Badge | What happens |
-|---|---|---|
-| 0.80 or higher | 🟢 | Auto-assigns the product. Zero clicks. |
-| 0.60 to 0.79 | 🟡 | Asks the user to confirm. One click. |
-| Below 0.60 | falls back to semantic search | Auto-assign at 0.80+ similarity, confirm at 0.50 to 0.79, otherwise 🔴 manual picker |
+That last part is a feature. The most dangerous thing a triage tool can do is be confidently wrong. CaseIQ is built to say "I don't know, you pick" before it says something wrong with a straight face.
 
-**ROI lever:** Fewer misroutes and no "what product is this?" back-and-forth. A vague ticket degrades gracefully to a human picker instead of being confidently wrong.
+**Then it walks the graph.** Neo4j holds the relationships a spreadsheet cannot: who raised what, about which product, who resolved it, which skills they used, which articles helped. In one four-hop traversal, CaseIQ pulls:
 
----
+1. **The customer's story.** Tier, history, prior cases on this product. (Gold. Third refund issue this year. Handle with care.)
+2. **Similar resolved cases**, same product, fastest fixes first.
+3. **The best human for the job**, ranked by `skill match × 3 + cases resolved + KB articles used × 0.5`. Not "whoever is next in the queue." Whoever has actually fixed this.
+4. **Knowledge articles that actually work.** Only ones with a resolution rate above 70%. The 2022 article that has never helped anyone is not invited.
 
-### 2. Route to the right human, not the next human
+Priya gets a recommendation in seconds, grounded in her own team's history.
 
-**Scenario:** Gold-tier customer, SSO integration blocked, and the on-call agent has never seen SSO.
+**And right next to it, the control group.** Every answer is shown beside a "Without Graph" answer from the same model, with no access to the team's data. That answer sounds perfectly reasonable and says things like "check your payment gateway configuration." You know, advice. It is the difference between a colleague who has read your tickets and a colleague who has read the internet.
 
-**What CaseIQ does:** Ranks agents by `skill match × 3 + cases resolved + KB articles used × 0.5`, so the person who has actually fixed this class of problem floats to the top.
-
-**ROI lever:** Lower MTTR and fewer reassignments. Senior people stop being used as expensive routers.
-
----
-
-### 3. Don't reinvent the fix
-
-**Scenario:** The analytics export is corrupting data. Someone has solved this before.
-
-**What CaseIQ does:** Pulls similar resolved cases (same product, ordered by resolution time) and only KB articles with a **resolution rate above 70%**, ranked by effectiveness. Articles that technically exist but never work do not get recommended.
-
-**ROI lever:** KB deflection, faster first response, and institutional memory that survives people quitting.
+You can try this without typing a word. The app ships with three one-click scenarios: a payment gateway refund failure, an SSO onboarding blocker, and analytics export corruption.
 
 ---
 
-### 4. "Show your work" AI: graph vs. no-graph, side by side
+## Chapter 3: The skeptic in the back row
 
-**Scenario:** Your skeptical director asks, *"Why not just ask the LLM?"*
+Every story needs a skeptic. Ours is Dana, a director, who has seen many AI demos and one very bad AI incident.
 
-**What CaseIQ does:** Every answer is shown three ways, to the same ticket:
+Dana asks the only question that matters: **"What happens when it's wrong?"**
 
-| Column | What it is |
-|---|---|
-| **Without Graph** | A general-knowledge LLM answer (the control group) |
-| **With Graph** | The same model, grounded in retrieved graph data |
-| **With Graph + Jev** | The grounded answer, audited against the data it was written from |
+Good question. Language models are wonderful and also, occasionally, make up an agent who does not exist and quote that agent's imaginary resolution time to three decimal places. So CaseIQ does not trust itself. It has a third column.
 
-**ROI lever:** The graph lift is visible instead of asserted. This is the demo that answers the budget question in the room.
+**Meet Jev**, a typed, probabilistic decision model that acts as a second opinion. Before anyone trusts a recommendation, it is checked against the very data it was written from:
 
----
+- Four plain, deterministic checks. Are the named agents and articles real? Do the quoted resolution times and rates match the graph? Was the evidence actually used? Was enough retrieved?
+- Jev's own signals: unsupported claims, missed evidence, anchoring on weak options, and whether a human should look.
 
-### 5. An AI answer that is allowed to say "a human should look at this"
+Then comes the part Dana likes: **plain code, not a model, makes the call.** Accept it. Ask the model to revise once, with the verifier's complaint in hand. Or send it to a human. And if Jev can't be reached, the answer is **never** auto-accepted. The safety net does not quietly turn itself off.
 
-**Scenario:** The model recommends an agent, quotes a resolution time, and gets one number wrong.
+There is also a rule that a revision can never replace a grounded answer with an ungrounded one. The system is allowed to try harder. It is not allowed to get worse and call it progress.
 
-**What CaseIQ does:** Four deterministic grounding checks (are named agents and articles real, do quoted numbers match, was the evidence used, was enough retrieved) plus Jev's typed signals (unsupported claims, missed evidence, anchoring). Then plain code, not a model, decides: **accept, revise once, or send to human review.** If Jev is unreachable, the answer is **never** auto-accepted.
-
-**ROI lever:** Cheap insurance against the expensive failure. One hallucinated "fix" on a Gold customer costs more than a year of verifier calls.
+Dana nods slowly. That is the highest praise Dana gives.
 
 ---
 
-### 6. Automated QA on AI investigations (the unglamorous money-saver)
+## Chapter 4: The math, told straight
 
-**Scenario:** You want to audit thousands of agent investigations. Reviewing each with a frontier LLM judge adds up fast.
+Then Dana asks the second question: **"What does it cost, and what do I get?"**
 
-**What CaseIQ measured (Phase 8, 150 dev traces):**
+Here is what we *measured*: running the full diagnostic pipeline costs about **$0.03 per case**. A cheaper LLM-only pass is about $0.001, and the graph agent without verification is about $0.02.
 
-| Judge | Cost per 1,000 judgments |
-|---|---|
-| LLM judge | **$3.52** |
-| Jev | **$0.18** (about 20x cheaper) |
+Here is what we are *pretending*, so you can plug in your own numbers. Suppose a team handles **10,000 cases a month**, CaseIQ saves **2 minutes of triage per case**, and an agent's time costs **$60 an hour**.
 
-Jev was a useful supporting signal for **missed evidence (AUC 0.84)** and **distractor anchoring (AUC 0.85)**, plus priority-review triage. Simple deterministic rules matched or beat it on the rest, which we also report, because we like our credibility intact.
+That is 20,000 minutes, or about 333 hours, or roughly **$20,000 a month** of reclaimed time, against about **$300** of model costs. Call it a 66x return on assumptions you are welcome to attack.
 
-**ROI lever:** At 1M judgments, the difference is about **$3,340**. That pays for a lot of coffee.
+But the number to remember is not the 66. It is the **break-even: 1.8 seconds.** At three cents a case and a dollar an agent-minute, CaseIQ pays for itself if it saves Priya less time than it takes to sneeze. If it cannot do that, we should talk about something else.
 
----
+(What this does not count: hosting, engineering time, and the human-review queue. Put those in your own business case. Dana will.)
 
-### 7. A KPI dashboard that makes the finance conversation boring (good)
-
-A separate dashboard tracks 7 sections: technical quality (precision, recall, F1), business value (CSAT, FCR, escalation rate), financial impact (cost per resolution, monthly savings), before vs. after, key insights, formula reference, and extraction confidence distribution.
+There is a second, quieter saving. Auditing AI investigations at scale is expensive if a frontier LLM does the judging. In our Phase 8 runs, Jev judged for about **$0.18 per 1,000 judgments, against $3.52 for the LLM judge.** About twenty times cheaper. At a million judgments, that is roughly $3,340 you did not spend. And it was genuinely useful where it counted: it flagged **missed evidence (AUC 0.84)** and **anchoring on distractors (AUC 0.85)**.
 
 ---
 
-## The ROI Model (bring your own numbers)
+## Chapter 5: The plot twist (where we admit things)
 
-CaseIQ's measured costs are real. The savings side depends on **your** volumes and wages, so here is the formula instead of a made-up victory lap.
+A story with no setbacks is a brochure. Here is the part where the hero trips.
 
-```
-Monthly ROI = (cases × minutes_saved_per_case ÷ 60 × loaded_hourly_cost)
-              − (cases × cost_per_case_of_CaseIQ)
-```
+**The agent we first built was, to put it kindly, creative.** In 300 baseline investigations, **every single one** called at least one tool that does not exist. 244 of them tried to read something called `get_system_logs`, a tool we never built and that the model was simply certain should be there. Every final answer needed a silent repair just to be valid. The agent never once filled in an ID field correctly.
 
-**Worked example. Every input below is an assumption, not a measurement:**
+So we hardened it: schema-constrained decoding, an alias registry so the model never sees raw IDs, and deterministic validators that reject nonsense before it runs. Same model, tighter leash. Result: **every tool name valid, zero invented IDs, 95.8% valid final answers on the first try.**
 
-| Input | Assumed value |
-|---|---|
-| Cases per month | 10,000 *(same size as the demo dataset)* |
-| Triage minutes saved per case | 2 |
-| Loaded agent cost | $60/hour ($1/minute) |
-| CaseIQ cost per case (upper end, full Jev pipeline) | $0.03 *(measured)* |
+That was the happy ending of the chapter. Here is the unhappy one:
 
-- Value: 10,000 × 2 min = 20,000 min ≈ 333 hours ≈ **$20,000/month**
-- Cost: 10,000 × $0.03 = **$300/month**
-- Net: **about $19,700/month** (roughly 66x, on assumptions you should challenge)
+- **Plumbing is good. The brain is not yet.** Root-cause accuracy was **6% (1 of 17 cases)** across all three architectures. The agent abstains a lot, which is better than guessing, but it is not a finished detective.
+- **The cheap option won something.** On issue-category accuracy, plain LLM-only scored **71%**, against 41% for LLM + Graph and 35% with Jev. (The 17 cases were chosen for coverage and deliberately include ones where the graph agent had failed, so this is not a verdict on graphs. It is still humbling.)
+- **The verifier is a nervous hall monitor.** It sent **88%** of cases to human review. It is careful, not clairvoyant.
+- **Early triage is a good idea with a flaw.** Jev can read just the ticket and guess the issue category correctly **77% of the time (27 of 35)**. Handing that hint to the agent lifted its first-answer category from **14 of 35 to 21 of 35** and critical-evidence recall from **59% to 81%**, at the same number of tool calls. But the improvement was not statistically significant (p = 0.12), and the agent **adopted all 8 of the wrong hints without a fight.** It is not reasoning past the hint. It is anchoring on it. Fixing that is on the list.
+- **Everything here is synthetic data, dev cases only.** Real tickets will be messier, angrier, and more misspelled.
 
-**The number to remember is break-even:** at $0.03 per case and $1 per agent-minute, CaseIQ pays for itself if it saves **1.8 seconds per case.** If you can't beat 1.8 seconds, we have a different conversation.
-
-*(Not counted: LLM and graph hosting, engineering time, and the human-review queue. A real business case should include all three.)*
+We wrote this chapter ourselves on purpose. If you are going to put a system between a customer and an answer, you deserve to know where it is weak before it tells you.
 
 ---
 
-## The Honest Scoreboard
+## Chapter 6: How the sausage got made
 
-We would rather lose a hype contest than a trust contest. Everything below is measured on **synthetic data, dev cases only.**
+The demo you click on is only half the repo. The other half is a long research road, and it is worth knowing about because it is why the numbers above can be trusted.
 
-### Wins
+**Phase 0** is the live app: Streamlit, a 12,741-node demo graph, Groq for the model.
 
-| Metric | Result |
-|---|---|
-| Phantom tools / invented IDs after contract hardening (Phase 9A) | **0** (baseline: 244 of 300 traces called a tool that doesn't exist) |
-| First-pass valid final answers, 72 verification cases | **95.8%** |
-| Early triage: Jev's ticket-only category guess | **77% correct (27 of 35)** |
-| Agent's first-answer category, with vs. without early triage | **21 of 35 vs. 14 of 35** (not statistically significant, p = 0.12) |
-| Critical-evidence recall, same number of tool calls | **81% vs. 59%** |
-| Verifier safety behavior | Never auto-accepts when Jev is unreachable. Never ships a worse revision over a grounded answer. |
+**Phases 1 to 3** built a synthetic support universe: 25,000 cases and about two million rows, with **hidden ground truth** so we could grade the agent honestly.
 
-### Things we are not going to hide
+**Phase 4** loaded it into a second Neo4j graph: **116,868 nodes and 325,539 relationships**, read-only for the agent.
 
-| Finding | Reality |
-|---|---|
-| Root-cause accuracy, 3 architectures, 17 cases | **6% (1 of 17), all three.** The agent is weak at root cause. Improving it is the named next step. |
-| Issue-category accuracy, same 17 cases | LLM Only **71%**, LLM + Graph 41%, LLM + Graph + Jev 35%. Yes, the cheap one won. The set deliberately includes cases where the graph agent's stored run was wrong, so this is not a verdict on graphs. |
-| Human review rate | The verifier sent **88%** of cases to review (33 of 35 in the early-triage run). It is cautious, not clairvoyant. |
-| Early triage failure mode | The agent kept the hinted category **in all 8 wrong cases**. The gain comes from Jev's ticket-only accuracy, not from the agent correcting itself. Pure anchoring, so far. |
-| The extra investigation round | Rescued 0 smoke-test cases and roughly doubled the cost. |
-| The main page's "quality score" | Original demo heuristics, not measurements. Treat as scenery. |
+**Phase 5** built the first diagnostic agent with 14 read-only, time-gated tools. This is the one that invented `get_system_logs`. **Phase 6** built the grader: a deterministic evaluator with locked dev, validation, and test splits. The test split has never been opened.
 
-**PM translation:** the *plumbing* (grounding, validation, safe failure, cheap auditing) is solid. The *brain* needs another iteration. Anyone selling you a 90% root-cause accuracy from this repo is selling you something.
+**Phase 7** tested Jev on six single decisions, and found along the way that its answers can depend on how the option keys are *named*, so we scrapped the locked benchmark before ever running it. **Phase 8** used Jev to judge agent traces (that is where the $0.18 vs. $3.52 comes from).
+
+**Phase 9A** hardened the agent. **Phase 9** added the runtime verifier with its one retry round, plus a Diagnostic Agent page that runs LLM Only, LLM + Graph, and LLM + Graph + Jev side by side on the same case. **Phase 9+** added the early-triage hint from Chapter 5.
+
+The rules we held ourselves to:
+
+- Hidden ground truth is read only by evaluators, after a run exists. Import-closure checks and tripwire tests enforce it.
+- The agent's graph access is `MATCH` and `RETURN` only, time-gated by a harness-owned clock.
+- The model sees aliases, never real IDs, because ID structure turned out to sway it.
+- Jev advises. `policy.py` decides.
+- Frozen phases stay frozen, pinned by SHA-256 hashes.
+
+Every phase has its own write-up in [`docs/`](docs/) and the data layers are explained in [`data/README.md`](data/README.md).
 
 ---
 
-## How It Works
+## Epilogue: what happens next
 
-### Live demo app (`app.py`, Phase 0)
+Priya does not get replaced. Priya gets her mornings back, and the interesting tickets, and a team memory that does not go on vacation.
 
-```
-Ticket text
-   │
-   ▼
-Dual-confidence extraction ──► product (🟢 auto / 🟡 confirm / 🔴 manual)
-   │
-   ▼
-Neo4j 4-hop traversal
-   ├─ Customer profile (tier, history, prior cases)
-   ├─ Similar resolved cases (by product, fastest first)
-   ├─ Best-match agents (skill × 3 + resolved + KB × 0.5)
-   └─ KB articles (>70% resolution rate)
-   │
-   ▼
-Three answers: Without Graph │ With Graph │ With Graph + Jev
-```
+For the project itself, the road ahead is short and clear:
 
-**Try it without typing:** three one-click scenarios (Payment Gateway refund failure, SSO onboarding blocked, Analytics export corruption), all Gold tier.
-
-### Diagnostic Agent page (Phases 9A and 9)
-
-Pick a stored dev case and compare:
-
-| Mode | Graph | Jev | Approx. cost per case |
-|---|:-:|:-:|---|
-| LLM Only | no | no | ~$0.001 |
-| LLM + Graph | yes | no | ~$0.02 |
-| LLM + Graph + Jev (default) | yes | yes | ~$0.03 |
-| Compare All | all three side by side | | ~$0.05 |
-
-Jev plays two roles. **Early:** reads the ticket and suggests a provisional issue category before any graph tool runs (guidance only, never evidence). **Late:** verifies the final answer. Plain code (`policy.py`) makes every decision. Jev is a signal, never a judge.
-
-Outcomes: `ACCEPT`, `CONTINUE_INVESTIGATION` (once), `HUMAN_REVIEW`, `PRIORITY_REVIEW`.
+1. **Make the agent a better detective.** This is the one that moves the 6%.
+2. **Teach it to argue with a hint** instead of adopting it.
+3. **Calibrate the verifier** on more than 16 smoke-test cases and retune its hand-set thresholds.
+4. **Run an integrated CaseIQ comparison** once the agent has earned one.
+5. **Pilot it on real, de-identified tickets**, and replace our pretend numbers with yours.
 
 ---
 
-## The Research Program (Phases 1 to 9+)
+## Try it yourself
 
-| Phase | What shipped | Status |
-|---|---|---|
-| 0 | Live demo app (Groq, 12,741-node demo graph) | Working |
-| 1-3 | Synthetic support data with hidden ground truth (25,000 cases, ~2M rows) | Frozen |
-| 4 | Neo4j runtime graph, 116,868 nodes / 325,539 relationships | Frozen |
-| 5 | Baseline diagnostic agent, 14 read-only time-gated tools | Frozen (historical baseline) |
-| 6 | Deterministic evaluator, locked dev / validation / test splits | Frozen |
-| 7 | Jev primitive evaluation (six single decisions) | Closed (locked benchmark never run) |
-| 8 | Jev as agent-trace evaluator (six typed judgments) | Closed |
-| 9A | Contract-hardened agent (same model) | Working; 100-case verification stopped at 72 |
-| 9 | Runtime verifier, one retry round, three-way comparison page | MVP; 16-case smoke test |
-| 9+ | Jev early triage | Working; 35-case dev comparison, descriptive only |
-
-Full detail for every phase lives in [`docs/`](docs/) and [`data/README.md`](data/README.md).
-
----
-
-## Stack
-
-| Layer | Technology |
-|---|---|
-| Graph database | Neo4j AuraDB Free (two instances: demo graph + research graph) |
-| Live-app LLM | `openai/gpt-oss-120b` via Groq |
-| Diagnostic agent LLM | `meta-llama/Llama-3.3-70B-Instruct-Turbo` via Together AI |
-| Verifier / early triage | Jev (`jev-1.13.0`, direct HTTP) |
-| Semantic search | `sentence-transformers` all-MiniLM-L6-v2, cosine similarity |
-| Orchestration | LangChain 0.2.16 (LCEL) |
-| Observability | LangSmith |
-| UI | Streamlit 1.35 |
-| Language | Python 3.11+ (tested on 3.13) |
-
----
-
-## Quick Start
+The whole thing runs on a laptop with a few free-tier accounts.
 
 ```bash
-# 1. Install (first run pulls PyTorch, ~2 min: go refill the coffee)
+# Install (first run pulls PyTorch, about 2 minutes: go refill the coffee)
 pip install -r requirements.txt
 
-# 2. Configure
-cp .env.example .env     # then fill in your keys
+# Add your keys
+cp .env.example .env
 
-# 3. Generate synthetic data (one-time)
-python3 data/generate_data.py          # 2,000 customers, 10,000 cases, 501 KB articles, 150 agents
-
-# 4. Load the demo graph (one-time, idempotent, ~14s)
+# Generate the synthetic data, then load the demo graph (both one-time)
+python3 data/generate_data.py
 python3 agent/neo4j_loader.py
 
-# 5. Run
-./start.sh                             # checks both databases, then starts the app
-./start.sh --dashboard                 # also starts the KPI dashboard on :8502
+# Start everything (add --dashboard for the KPI dashboard on port 8502)
+./start.sh
 ```
 
-**Required `.env` keys (live app):** `GROQ_API_KEY`, `LANGCHAIN_API_KEY`, `LANGCHAIN_TRACING_V2`, `LANGCHAIN_PROJECT`, `NEO4J_URI`, `NEO4J_USERNAME`, `NEO4J_PASSWORD`.
-**Research phases add:** `NEO4J_V2_*`, `TOGETHER_API_KEY`, `TYPESAFE_API_KEY`. All are listed in `.env.example`.
+The live app needs `GROQ_API_KEY`, `LANGCHAIN_API_KEY`, `LANGCHAIN_TRACING_V2`, `LANGCHAIN_PROJECT`, and the three `NEO4J_*` variables. The research half adds `NEO4J_V2_*`, `TOGETHER_API_KEY`, and `TYPESAFE_API_KEY`. Everything is listed in `.env.example`.
 
-> **Aura Free naps.** An instance pauses after about 3 days of silence and is deleted after about 30 paused days. Using the app counts as activity. `python3 -m agent.neo4j_health` tells you who is asleep.
+Open **Diagnostic Agent** in the sidebar to compare the three architectures on a stored case. Stored results open instantly for free. A live run costs about $0.001 (LLM Only), $0.02 (LLM + Graph), or $0.03 (LLM + Graph + Jev) per case.
 
-> **Dependency pins: do not touch.** `langchain==0.2.16`, `langchain-core==0.2.43`, `langchain-community==0.2.16`, `streamlit==1.35.0`, `tenacity==8.5.0`. Never `pip install typesafe-sdk` or `langchain-openai`: both break the stack. Jev is reached through a small direct-HTTP client on purpose. Run `pip check` after any install.
+A few things worth knowing before you start:
 
-### Useful commands
+- **Aura Free naps.** Neo4j's free instances pause after about 3 days of silence and are deleted after about 30 paused days. Using the app counts as activity, and `python3 -m agent.neo4j_health` tells you which one is asleep.
+- **Do not touch the dependency pins.** `langchain==0.2.16`, `langchain-core==0.2.43`, `langchain-community==0.2.16`, `streamlit==1.35.0`, and `tenacity==8.5.0` are a working set. Never `pip install typesafe-sdk` or `langchain-openai`. They quietly break the stack. Jev is reached through a small direct-HTTP client on purpose. Run `pip check` after any install.
+- **Free-text tickets only work on the main page.** The Diagnostic Agent page works on cases already in its graph.
+- **Free tiers have limits.** Groq's free tier is 8,000 tokens per minute, so the CLI demo waits 62 seconds between scenarios. Together returned HTTP 402s when credits ran low, and a sleeping laptop once hung a batch (use `caffeinate -i`; batches resume by tag).
+
+### Checking its work
+
+The live-app eval suite runs 20 test cases across six categories (skill match, confidence calibration, semantic search, graceful degradation, latency under 10 seconds, and resolution time) and logs them to LangSmith:
 
 ```bash
-# One dev case through agent → verifier → policy (~$0.03)
-python3 -m agent.runtime_verifier.run CS00729
-
-# Compare all three architectures on one case (~$0.05)
-python3 -m agent.compare.cli CS00019 --modes llm_only llm_graph llm_graph_jev
-
-# Jev early triage on one case
-python3 -m agent.runtime_verifier.run --early-triage CS00014
-
-# CLI demo of the original app
-python3 agent/main.py --scenario A     # A = Payment, B = SSO, C = Analytics, --all = all three
+python3 run_evals.py             # live
+python3 run_evals.py --dry-run   # stubbed, still logs
 ```
 
----
-
-## Quality Gates
-
-**Live-app eval suite:** 20 test cases across 6 categories, logged to LangSmith.
+Unit tests cover the agent, verifier, early triage, comparison layer, and the main page's third column, none of which calls a paid API:
 
 ```bash
-python3 run_evals.py             # live: Neo4j + Groq + LangSmith
-python3 run_evals.py --dry-run   # stubbed results, still logs
-```
-
-| Category | What it protects |
-|---|---|
-| Skill match | Recommended agents actually cover the required skills |
-| Confidence calibration | High-confidence extractions map to the right product |
-| Semantic search | Product-adjacent descriptions route correctly |
-| Graceful degradation | Nonsense input reaches the manual picker, not a confident guess |
-| Latency | Graph recommendation in under 10 s |
-| Resolution time | Top-ranked agents beat random by at least 1 hour |
-
-**Unit tests** (none call a paid API unless noted in the full docs):
-
-```bash
-python3 -m unittest agent.agent_v3.test_agent_v3                   # 42 tests
-python3 -m unittest agent.runtime_verifier.test_runtime_verifier   # 19 tests
-python3 -m unittest agent.early_triage.test_early_triage           # 36 tests
-python3 -m unittest agent.compare.test_compare                     # 19 tests
-python3 -m unittest agent.test_triage_verifier                     # 25 tests
-python3 -m agent.agent_v3.validate_boundaries                      # 11/11 boundary checks
+python3 -m unittest agent.agent_v3.test_agent_v3
+python3 -m unittest agent.runtime_verifier.test_runtime_verifier
+python3 -m unittest agent.early_triage.test_early_triage
+python3 -m unittest agent.compare.test_compare
+python3 -m unittest agent.test_triage_verifier
+python3 -m agent.agent_v3.validate_boundaries
 pip check
 ```
 
----
-
-## Guardrails (the boring part that keeps you out of an incident review)
-
-- **Hidden truth stays hidden.** Ground truth is read only by evaluators, after a run exists. Enforced by import-closure checks, tripwire tests, and a leakage guard on every Jev request.
-- **Read-only graph.** The agent's Cypher is `MATCH`/`RETURN` only, time-gated by a harness-owned clock.
-- **Opaque IDs.** The model sees aliases, not real identifiers, because Phase 7 found that ID structure can sway a model.
-- **Plain code decides.** Jev advises. `policy.py` rules.
-- **Dev split only.** The locked test split has never been opened.
-- **Frozen means frozen.** Phase 1 to 8 files are pinned by SHA-256 hashes.
-
----
-
-## Known Limitations (the "no surprises" section)
-
-1. **The agent is weak at root cause** (see the scoreboard). Diagnostic quality was deliberately not optimized in Phase 9A.
-2. **The verifier is an MVP.** Thresholds are hand-set. Jev's NORMAL probability never exceeded 0.01 in smoke tests, so it cannot by itself justify an ACCEPT.
-3. **Free-text tickets only work on the main page.** The Diagnostic Agent page works on cases already in its graph.
-4. **Everything is synthetic.** Real tickets are messier, funnier, and more misspelled.
-5. **Early triage is anchoring today.** The agent adopted every wrong hint. Hint wording and thresholds are unvalidated.
-6. **The Jev column on the main page is a demonstration.** On the one real ticket tried end to end, every grounding check passed while Jev flagged unsupported claims at 0.85.
-7. **Provider hiccups are real.** Together returned HTTP 402s when credits ran low, and a sleeping laptop hung a batch (use `caffeinate -i`; batches resume by tag).
-
----
-
-## Roadmap
-
-1. **Improve the agent or model.** The named next step, and the one that moves the 6%.
-2. **Fix the anchoring.** Make the agent challenge an early hint instead of adopting it.
-3. **Calibrate the verifier** on more than 16 cases, then re-tune thresholds.
-4. **Integrated CaseIQ comparison** once the agent earns it.
-5. **Pilot on real, de-identified tickets** and replace the illustrative ROI inputs with measured ones.
-
----
-
-## Project Layout
+### Where things live
 
 ```
-├── app.py                         # Main Streamlit app (live demo)
+├── app.py                         # The live demo
 ├── pages/1_Diagnostic_Agent.py    # LLM Only / LLM + Graph / LLM + Graph + Jev / Compare All
-├── measurement_dashboard.py       # 7-section KPI dashboard
-├── run_evals.py                   # Live-app eval suite (LangSmith)
-├── start.sh                       # Database health check + launcher
+├── measurement_dashboard.py       # The 7-section KPI dashboard
+├── run_evals.py                   # Live-app eval suite
+├── start.sh                       # Checks both databases, then starts the app
 ├── agent/
 │   ├── graph_client.py · llm_client.py · semantic_search.py   # Live app core
-│   ├── triage_verifier.py         # Main page's third column
+│   ├── triage_verifier.py         # The third column
 │   ├── graph_v2/ agent_v2/ eval_v2/ jev_v2/ trace_eval_v2/    # Phases 4 to 8
-│   ├── agent_v3/                  # Phase 9A: contract-hardened agent
-│   ├── early_triage/              # Jev early triage
-│   ├── runtime_verifier/          # Phase 9: checks + policy + retry
-│   └── compare/                   # Three-architecture comparison layer
+│   ├── agent_v3/                  # Phase 9A: the hardened agent
+│   ├── early_triage/              # Early Jev hint
+│   ├── runtime_verifier/          # Late Jev: checks, policy, retry
+│   └── compare/                   # Three-architecture comparison
 ├── config/settings.py             # Env vars and confidence thresholds
-├── docs/                          # Reference docs, one family per phase
-└── data/                          # Synthetic datasets, ground truth, run records
+├── docs/                          # One family of docs per phase
+└── data/                          # Synthetic data, ground truth, run records
 ```
+
+**Built with:** Neo4j AuraDB, Streamlit 1.35, LangChain 0.2.16, LangSmith, `sentence-transformers` (all-MiniLM-L6-v2), `openai/gpt-oss-120b` on Groq for the live app, `meta-llama/Llama-3.3-70B-Instruct-Turbo` on Together AI for the diagnostic agent, and Jev (`jev-1.13.0`) for verification. Python 3.11 or newer, tested on 3.13.
 
 ---
 
-*CaseIQ is a demo and research code base. The ROI model is a template, not a promise. If someone quotes it to you as a guarantee, please send them this README, preferably the Honest Scoreboard.*
+*CaseIQ is a demo and a research code base, not a production system. The ROI math is a template, not a promise. If someone quotes it to you as a guarantee, please send them Chapter 5.*
