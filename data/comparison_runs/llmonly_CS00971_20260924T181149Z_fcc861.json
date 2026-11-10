@@ -1,0 +1,61 @@
+{
+ "run_id": "llmonly_CS00971_20260924T181149Z_fcc861",
+ "case_id": "CS00971",
+ "created_at": "2026-09-24T18:11:49.270991+00:00",
+ "prompt_version": "llm_only_v1",
+ "model_name": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+ "temperature": 0.1,
+ "ticket_shown_to_model": {
+  "title": "Analytics Dashboard API timeouts and empty responses in ME development",
+  "description": "In the Middle East development environment, the Analytics Dashboard is suffering from API connectivity issues. Requests for dashboard widgets frequently result in timeouts, and when responses are eventually returned, they are often empty. This prevents our developers from validating data visualization components. The issue affects 15 users on the dev team and has a moderate business impact as it slows down the integration of new analytics features.",
+  "environment": "development",
+  "region": "ME",
+  "priority": "medium",
+  "reported_business_impact": "moderate",
+  "reported_affected_users": 15,
+  "created_date": "2025-07-04",
+  "customer_tier": "gold",
+  "customer_industry": "SaaS / Technology",
+  "customer_company_size": "small",
+  "reported_product_name": "Analytics Dashboard",
+  "reported_symptoms": [
+   "timeout",
+   "API returns empty response"
+  ]
+ },
+ "n_categories_offered": 18,
+ "n_root_causes_offered": 40,
+ "parsed": {
+  "issue_category": "Integration / API",
+  "root_cause": null,
+  "affected_component": "Analytics Dashboard API",
+  "causal_change": null,
+  "owning_team": null,
+  "confidence": 0.7,
+  "status": "DIAGNOSIS_PROPOSED",
+  "summary": "The issue appears to be related to the Analytics Dashboard API, with symptoms of timeouts and empty responses. However, the root cause is unclear and may require further investigation."
+ },
+ "status": "DIAGNOSIS_PROPOSED",
+ "validation_errors": [],
+ "repair_used": false,
+ "llm_calls": [
+  {
+   "attempt": 0,
+   "latency_ms": 59841.6,
+   "finish_reason": "stop",
+   "raw_output": "{\"issue_category\": \"Integration \\/ API\", \"root_cause\": null, \"affected_component\": \"Analytics Dashboard API\", \"causal_change\": null, \"owning_team\": null, \"confidence\": 0.7, \"status\": \"DIAGNOSIS_PROPOSED\", \"summary\": \"The issue appears to be related to the Analytics Dashboard API, with symptoms of timeouts and empty responses. However, the root cause is unclear and may require further investigation.\"}"
+  }
+ ],
+ "tokens": {
+  "prompt": 731,
+  "completion": 99,
+  "total": 830
+ },
+ "latency_ms": 59841.6,
+ "wall_ms": 59843.0,
+ "cost_usd_estimate": 0.00073,
+ "tool_calls": 0,
+ "evidence_count": 0,
+ "graph_used": false,
+ "jev_used": false
+}

@@ -1,0 +1,279 @@
+{
+  "experiment_id": "exp_trace_eval_smoke_v1b_jev_20260924T010837Z_68befd6d",
+  "name": "trace_eval_smoke_v1b_jev",
+  "created_at": "2026-09-24T01:08:37.004286+00:00",
+  "kind": "smoke",
+  "experiment_type": "trace_eval_jev",
+  "dataset_split": "dev",
+  "case_ids": [
+    "CS00009",
+    "CS00011",
+    "CS00014",
+    "CS00064",
+    "CS00077",
+    "CS00084",
+    "CS00139",
+    "CS00166",
+    "CS00182",
+    "CS00278",
+    "CS00385",
+    "CS01691"
+  ],
+  "num_cases": 12,
+  "run_ids": [
+    "run_CS00009_20260923T064457Z_ca8ec5dd",
+    "run_CS00011_20260923T064511Z_133937b0",
+    "run_CS00014_20260923T064528Z_8dd6dd25",
+    "run_CS00064_20260924T002531Z_5d872c1a",
+    "run_CS00077_20260924T002539Z_7ab9d255",
+    "run_CS00084_20260924T002602Z_b08f3b6b",
+    "run_CS00139_20260924T002605Z_0ff31624",
+    "run_CS00166_20260923T064142Z_74fdbd6d",
+    "run_CS00182_20260924T002622Z_5f94ec09",
+    "run_CS00278_20260923T064228Z_8878a119",
+    "run_CS00385_20260924T002704Z_52ada802",
+    "run_CS01691_20260924T004038Z_336183da"
+  ],
+  "trace_keys": [
+    "run_CS00014_20260923T064528Z_8dd6dd25",
+    "run_CS00385_20260924T002704Z_52ada802",
+    "run_CS01691_20260924T004038Z_336183da",
+    "run_CS00077_20260924T002539Z_7ab9d255",
+    "run_CS00011_20260923T064511Z_133937b0",
+    "run_CS00139_20260924T002605Z_0ff31624",
+    "run_CS00278_20260923T064228Z_8878a119",
+    "run_CS00084_20260924T002602Z_b08f3b6b",
+    "run_CS00064_20260924T002531Z_5d872c1a",
+    "run_CS00166_20260923T064142Z_74fdbd6d",
+    "run_CS00009_20260923T064457Z_ca8ec5dd",
+    "run_CS00182_20260924T002622Z_5f94ec09",
+    "run_CS00385_20260924T002704Z_52ada802#P1:rm1",
+    "run_CS00166_20260923T064142Z_74fdbd6d#P1:rm1",
+    "run_CS00014_20260923T064528Z_8dd6dd25#P2:prom1",
+    "run_CS00182_20260924T002622Z_5f94ec09#P2:prom1",
+    "run_CS00014_20260923T064528Z_8dd6dd25#P3:trunc1",
+    "run_CS00166_20260923T064142Z_74fdbd6d#P3:trunc1",
+    "run_CS00182_20260924T002622Z_5f94ec09#P4:swap1",
+    "run_CS01691_20260924T004038Z_336183da#P4:swap1",
+    "run_CS00139_20260924T002605Z_0ff31624#P5:dup1",
+    "run_CS00014_20260923T064528Z_8dd6dd25#P5:dup1",
+    "run_CS00014_20260923T064528Z_8dd6dd25#P6:alias1",
+    "run_CS00182_20260924T002622Z_5f94ec09#P6:alias1"
+  ],
+  "n_original_traces": 12,
+  "n_variants": 12,
+  "variants": [
+    {
+      "trace_key": "run_CS00385_20260924T002704Z_52ada802#P1:rm1",
+      "perturbation": "P1",
+      "variant_id": "rm1",
+      "base_run_id": "run_CS00385_20260924T002704Z_52ada802",
+      "synthetic": true,
+      "params": {
+        "removed_evidence": "CH030520"
+      },
+      "version": "perturbations_v1"
+    },
+    {
+      "trace_key": "run_CS00166_20260923T064142Z_74fdbd6d#P1:rm1",
+      "perturbation": "P1",
+      "variant_id": "rm1",
+      "base_run_id": "run_CS00166_20260923T064142Z_74fdbd6d",
+      "synthetic": true,
+      "params": {
+        "removed_evidence": "CH030456"
+      },
+      "version": "perturbations_v1"
+    },
+    {
+      "trace_key": "run_CS00014_20260923T064528Z_8dd6dd25#P2:prom1",
+      "perturbation": "P2",
+      "variant_id": "prom1",
+      "base_run_id": "run_CS00014_20260923T064528Z_8dd6dd25",
+      "synthetic": true,
+      "params": {
+        "moved_step_from": 3,
+        "distractor_ids": [
+          "CH011540",
+          "CH011588"
+        ]
+      },
+      "version": "perturbations_v1"
+    },
+    {
+      "trace_key": "run_CS00182_20260924T002622Z_5f94ec09#P2:prom1",
+      "perturbation": "P2",
+      "variant_id": "prom1",
+      "base_run_id": "run_CS00182_20260924T002622Z_5f94ec09",
+      "synthetic": true,
+      "params": {
+        "moved_step_from": 4,
+        "distractor_ids": [
+          "CH027899"
+        ]
+      },
+      "version": "perturbations_v1"
+    },
+    {
+      "trace_key": "run_CS00014_20260923T064528Z_8dd6dd25#P3:trunc1",
+      "perturbation": "P3",
+      "variant_id": "trunc1",
+      "base_run_id": "run_CS00014_20260923T064528Z_8dd6dd25",
+      "synthetic": true,
+      "params": {
+        "truncated_before_step": 3,
+        "kept_diagnostic_steps": 2,
+        "base_already_premature": false
+      },
+      "version": "perturbations_v1"
+    },
+    {
+      "trace_key": "run_CS00166_20260923T064142Z_74fdbd6d#P3:trunc1",
+      "perturbation": "P3",
+      "variant_id": "trunc1",
+      "base_run_id": "run_CS00166_20260923T064142Z_74fdbd6d",
+      "synthetic": true,
+      "params": {
+        "truncated_before_step": 4,
+        "kept_diagnostic_steps": 3,
+        "base_already_premature": true
+      },
+      "version": "perturbations_v1"
+    },
+    {
+      "trace_key": "run_CS00182_20260924T002622Z_5f94ec09#P4:swap1",
+      "perturbation": "P4",
+      "variant_id": "swap1",
+      "base_run_id": "run_CS00182_20260924T002622Z_5f94ec09",
+      "synthetic": true,
+      "params": {
+        "demoted_top": "credential_rotation_issue",
+        "alternative_from_unretrieved_evidence": "firewall_block_issue"
+      },
+      "version": "perturbations_v1"
+    },
+    {
+      "trace_key": "run_CS01691_20260924T004038Z_336183da#P4:swap1",
+      "perturbation": "P4",
+      "variant_id": "swap1",
+      "base_run_id": "run_CS01691_20260924T004038Z_336183da",
+      "synthetic": true,
+      "params": {
+        "demoted_top": "credential_rotation_issue",
+        "alternative_from_unretrieved_evidence": "auth_token_expired_issue"
+      },
+      "version": "perturbations_v1"
+    },
+    {
+      "trace_key": "run_CS00139_20260924T002605Z_0ff31624#P5:dup1",
+      "perturbation": "P5",
+      "variant_id": "dup1",
+      "base_run_id": "run_CS00139_20260924T002605Z_0ff31624",
+      "synthetic": true,
+      "params": {
+        "mode": "insert",
+        "repeated_step": 3,
+        "tool": "get_recent_changes"
+      },
+      "version": "perturbations_v1"
+    },
+    {
+      "trace_key": "run_CS00014_20260923T064528Z_8dd6dd25#P5:dup1",
+      "perturbation": "P5",
+      "variant_id": "dup1",
+      "base_run_id": "run_CS00014_20260923T064528Z_8dd6dd25",
+      "synthetic": true,
+      "params": {
+        "mode": "insert",
+        "repeated_step": 4,
+        "tool": "get_technical_signals"
+      },
+      "version": "perturbations_v1"
+    },
+    {
+      "trace_key": "run_CS00014_20260923T064528Z_8dd6dd25#P6:alias1",
+      "perturbation": "P6",
+      "variant_id": "alias1",
+      "base_run_id": "run_CS00014_20260923T064528Z_8dd6dd25",
+      "synthetic": true,
+      "params": {
+        "alias_salt": "p6"
+      },
+      "version": "perturbations_v1"
+    },
+    {
+      "trace_key": "run_CS00182_20260924T002622Z_5f94ec09#P6:alias1",
+      "perturbation": "P6",
+      "variant_id": "alias1",
+      "base_run_id": "run_CS00182_20260924T002622Z_5f94ec09",
+      "synthetic": true,
+      "params": {
+        "alias_salt": "p6"
+      },
+      "version": "perturbations_v1"
+    }
+  ],
+  "dataset_checksum_digest": "51e4d7d3ff9f9645",
+  "config": {
+    "projection_version": "trace_projection_v1",
+    "alias_scheme": "trace_alias_v1",
+    "reference_label_version": "reference_labels_v1",
+    "review_policy_version": "review_policy_v1",
+    "perturbation_version": "perturbations_v1",
+    "corpus_version": "trace_corpus_v1",
+    "question_versions": {
+      "support": "trace_support_v1",
+      "missed_evidence": "missed_evidence_v1",
+      "distractor_anchor": "distractor_anchor_v1",
+      "premature_close": "premature_close_v1",
+      "final_consistency": "final_consistency_v2",
+      "human_review": "human_review_v1"
+    },
+    "pricing_version": "2026-09-23",
+    "judgments": [
+      "final_consistency"
+    ],
+    "judge": "jev",
+    "workers": 8,
+    "jev_model_requested": "jev-1.13.0",
+    "jev_models_resolved": [
+      "jev-1.13.0"
+    ],
+    "agent": {
+      "homogeneous": true,
+      "distinct_values": {
+        "model_provider": [
+          "together"
+        ],
+        "model_name": [
+          "meta-llama/Llama-3.3-70B-Instruct-Turbo"
+        ],
+        "temperature": [
+          "0.1"
+        ],
+        "prompt_version": [
+          "v1"
+        ],
+        "toolset_version": [
+          "v1"
+        ],
+        "output_schema_version": [
+          "v1"
+        ],
+        "agent_loop_version": [
+          "v1"
+        ],
+        "repair_layer_version": [
+          "v1"
+        ],
+        "graph_version": [
+          "phase4-2500case-2026-09-22"
+        ]
+      }
+    },
+    "pre_registration": {
+      "path": "docs/TRACE_EVAL_PREREGISTRATION.md",
+      "sha256": "ce5a6bdd79527b53ad523e20f7b04cd4ab673a79296c334b7d7bcb58aa6e0930"
+    }
+  }
+}

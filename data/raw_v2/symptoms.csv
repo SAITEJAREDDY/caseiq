@@ -1,0 +1,161 @@
+id,name
+SY001,access denied
+SY002,login failure
+SY003,login loop
+SY004,session expired unexpectedly
+SY005,timeout
+SY006,slow response
+SY007,intermittent failure
+SY008,HTTP 400
+SY009,HTTP 401
+SY010,HTTP 403
+SY011,HTTP 404
+SY012,HTTP 409
+SY013,HTTP 429
+SY014,HTTP 500
+SY015,HTTP 502
+SY016,HTTP 503
+SY017,HTTP 504
+SY018,connection refused
+SY019,connection reset
+SY020,DNS lookup failure
+SY021,certificate warning
+SY022,certificate expired warning
+SY023,TLS handshake error
+SY024,high latency
+SY025,application crash
+SY026,application freeze
+SY027,blank screen
+SY028,white screen of death
+SY029,deployment failure
+SY030,rollback triggered
+SY031,synchronization delay
+SY032,sync stuck
+SY033,provisioning stuck
+SY034,duplicate records
+SY035,missing records
+SY036,missing data
+SY037,corrupted export
+SY038,truncated file
+SY039,garbled characters
+SY040,encoding error
+SY041,data mismatch
+SY042,stale data
+SY043,out of date dashboard
+SY044,report not generating
+SY045,report empty
+SY046,export fails silently
+SY047,webhook not firing
+SY048,webhook retries exhausted
+SY049,API returns empty response
+SY050,API schema error
+SY051,malformed JSON response
+SY052,rate limit exceeded
+SY053,quota exceeded
+SY054,throttling observed
+SY055,queue backlog growing
+SY056,messages stuck in queue
+SY057,notification not delivered
+SY058,email not received
+SY059,SMS not delivered
+SY060,push notification delayed
+SY061,duplicate notification
+SY062,invoice incorrect
+SY063,overcharge
+SY064,undercharge
+SY065,payment declined
+SY066,payment stuck processing
+SY067,refund not reflected
+SY068,chargeback notice received
+SY069,tax amount incorrect
+SY070,currency conversion incorrect
+SY071,subscription not renewed
+SY072,subscription charged twice
+SY073,proration incorrect
+SY074,role not applied
+SY075,permission denied unexpectedly
+SY076,access granted incorrectly
+SY077,user sees wrong data
+SY078,wrong tenant data shown
+SY079,elevated privileges observed
+SY080,MFA prompt not appearing
+SY081,MFA code rejected
+SY082,password reset email missing
+SY083,password reset link expired
+SY084,account locked out
+SY085,account not found
+SY086,duplicate account created
+SY087,SSO redirect loop
+SY088,SSO error page
+SY089,federation metadata mismatch
+SY090,token expired prematurely
+SY091,token refresh failure
+SY092,invalid token error
+SY093,audit log missing entries
+SY094,audit log gap detected
+SY095,compliance report incomplete
+SY096,consent record missing
+SY097,data residency flag mismatch
+SY098,retention policy not applied
+SY099,disk usage critical
+SY100,out of disk space
+SY101,database connection pool exhausted
+SY102,database query timeout
+SY103,database deadlock detected
+SY104,replication lag high
+SY105,backup job failed
+SY106,backup verification failed
+SY107,index corruption detected
+SY108,index rebuild required
+SY109,CPU usage spike
+SY110,memory usage spike
+SY111,memory leak suspected
+SY112,pod restarting repeatedly
+SY113,container OOMKilled
+SY114,service unresponsive
+SY115,service returns 503
+SY116,partial outage reported
+SY117,full outage reported
+SY118,health check failing
+SY119,failover did not occur
+SY120,autoscaling not triggering
+SY121,capacity limit reached
+SY122,upstream dependency timeout
+SY123,upstream dependency error
+SY124,third-party API unavailable
+SY125,vendor status page shows incident
+SY126,feature flag not applying
+SY127,configuration not taking effect
+SY128,environment variable missing
+SY129,config drift detected
+SY130,version mismatch across environments
+SY131,canary rollout stalled
+SY132,migration script error
+SY133,breaking change after upgrade
+SY134,UI element not rendering
+SY135,UI element misaligned
+SY136,form fails to submit
+SY137,form validation error incorrect
+SY138,calculation shows wrong total
+SY139,feature missing after release
+SY140,accessibility warning
+SY141,localization text missing
+SY142,localized text incorrect
+SY143,mobile app crash on launch
+SY144,mobile app crash on specific screen
+SY145,slow mobile app performance
+SY146,push token invalid
+SY147,search returns no results
+SY148,search returns incorrect results
+SY149,sorting/filtering broken
+SY150,pagination broken
+SY151,file upload failure
+SY152,file download failure
+SY153,attachment corrupted
+SY154,large file processing timeout
+SY155,bulk import partially failed
+SY156,bulk import fully failed
+SY157,user reports data loss
+SY158,user reports duplicate charge
+SY159,unexpected logout
+SY160,inconsistent behavior across browsers

@@ -1,0 +1,2918 @@
+{
+ "case_id": "CS00741",
+ "created_at": "2026-09-24T22:25:25.230310+00:00",
+ "config": {
+  "missed_evidence_threshold": 0.75,
+  "distractor_threshold": 0.75,
+  "priority_review_threshold": 0.5,
+  "min_confidence": 0.55,
+  "extra_steps": 4,
+  "premature_min_steps_left": 2,
+  "require_jev_to_accept": true
+ },
+ "early_triage_used": true,
+ "early_triage_config": {
+  "min_probability": 0.3,
+  "moderate_probability": 0.4,
+  "strong_probability": 0.7,
+  "top_alternatives": 3,
+  "timeout_s": 20.0
+ },
+ "early_triage": {
+  "version": "early_triage_v1",
+  "role": "triage_guidance",
+  "source": "jev_early_triage",
+  "question_version": "early_triage_category_v1",
+  "state_version": "early_triage_state_v1",
+  "status": "hint",
+  "fallback": false,
+  "fallback_reason": null,
+  "category_id": "IC13",
+  "category_name": "Billing / Commerce",
+  "probability": 0.99,
+  "margin": 0.98,
+  "uncertainty": "low",
+  "alternatives": [
+   {
+    "category_id": "IC14",
+    "name": "User Experience / Functional Defect",
+    "probability": 0.01
+   },
+   {
+    "category_id": "IC01",
+    "name": "Identity / Authentication",
+    "probability": 0.0
+   },
+   {
+    "category_id": "IC02",
+    "name": "Authorization / Permissions",
+    "probability": 0.0
+   }
+  ],
+  "distribution_top": [
+   {
+    "category_id": "IC13",
+    "name": "Billing / Commerce",
+    "probability": 0.99
+   },
+   {
+    "category_id": "IC14",
+    "name": "User Experience / Functional Defect",
+    "probability": 0.01
+   },
+   {
+    "category_id": "IC01",
+    "name": "Identity / Authentication",
+    "probability": 0.0
+   },
+   {
+    "category_id": "IC02",
+    "name": "Authorization / Permissions",
+    "probability": 0.0
+   }
+  ],
+  "abstain_probability": 0.0,
+  "suggested_tools": [
+   "get_technical_signals",
+   "get_similar_cases",
+   "search_knowledge_base"
+  ],
+  "jev_model": "jev-1.13.0",
+  "input_tokens": 891,
+  "latency_ms": 131.0,
+  "error": null,
+  "config": {
+   "min_probability": 0.3,
+   "moderate_probability": 0.4,
+   "strong_probability": 0.7,
+   "top_alternatives": 3,
+   "timeout_s": 20.0
+  }
+ },
+ "triage_outcome": {
+  "outcome": "confirmed",
+  "hint_shown": true,
+  "suggested_category_id": "IC13",
+  "suggested_category": "Billing / Commerce",
+  "final_category_id": "IC13",
+  "final_category": "Billing / Commerce",
+  "final_in_alternatives": false
+ },
+ "triage_outcome_initial": {
+  "outcome": "confirmed",
+  "hint_shown": true,
+  "suggested_category_id": "IC13",
+  "suggested_category": "Billing / Commerce",
+  "final_category_id": "IC13",
+  "final_category": "Billing / Commerce",
+  "final_in_alternatives": false
+ },
+ "agent_initial_result": {
+  "status": "DIAGNOSIS_PROPOSED",
+  "confidence": 0.6,
+  "evidence_sufficiency": "sufficient",
+  "human_review_required": false,
+  "review_reason": null,
+  "selections": {
+   "issue_category": {
+    "alias": "CATEGORY_GGC",
+    "name": "Billing / Commerce",
+    "source_id": "IC13"
+   },
+   "root_cause": {
+    "alias": "CAUSE_TBF",
+    "name": "product defect",
+    "source_id": "RC01"
+   },
+   "affected_component": {
+    "alias": "COMPONENT_MJB",
+    "name": "Currency Conversion Service",
+    "source_id": "CM050"
+   },
+   "causal_change": null,
+   "owning_team": {
+    "alias": "TEAM_HMD",
+    "name": "Commerce / Billing",
+    "source_id": "TM08"
+   }
+  },
+  "summary": "The billing accuracy issue in the EU-West production environment is likely caused by a product defect in the Currency Conversion Service, which is part of the Payment Gateway v2 product. The affected component is the Currency Conversion Service, and the owning team is the Commerce/Billing team.",
+  "recommended_next_action": "Verify the Currency Conversion Service configuration and update it if necessary to resolve the billing accuracy issue.",
+  "hypotheses": [
+   {
+    "label": "Billing/Commerce issue",
+    "confidence": 0.99,
+    "status": "confirmed"
+   },
+   {
+    "label": "Currency Conversion Service issue",
+    "confidence": 0.6,
+    "status": "confirmed"
+   }
+  ]
+ },
+ "verification_rounds": [
+  {
+   "round": 1,
+   "deterministic_checks": {
+    "D1": {
+     "id": "D1",
+     "name": "valid_final_contract",
+     "passed": true,
+     "applicable": true,
+     "detail": "schema, bounds and every reference are valid"
+    },
+    "D2": {
+     "id": "D2",
+     "name": "evidence_support",
+     "passed": true,
+     "applicable": true,
+     "detail": "4 cited evidence item(s), 1 supported hypothesis(es)"
+    },
+    "D3": {
+     "id": "D3",
+     "name": "final_consistency",
+     "passed": true,
+     "applicable": true,
+     "detail": "consistent with the last stated hypotheses and its own confidence"
+    },
+    "D4": {
+     "id": "D4",
+     "name": "premature_finalization",
+     "passed": true,
+     "applicable": true,
+     "detail": "evidence was retrieved and either a hypothesis is supported or the tool budget is used up"
+    },
+    "all_passed": true
+   },
+   "jev_missed_evidence": 0.76,
+   "jev_distractor_anchor": 0.77,
+   "jev_review": {
+    "label": "PRIORITY_REVIEW",
+    "probabilities": {
+     "REVIEW": 0.21,
+     "NORMAL": 0.0,
+     "PRIORITY_REVIEW": 0.79
+    }
+   },
+   "jev_available": true,
+   "policy_decision": "CONTINUE_INVESTIGATION",
+   "reason": "possible missed evidence; possible anchoring on weak or distracting evidence while stronger competing evidence exists",
+   "triggers": [
+    "jev_missed_evidence",
+    "jev_distractor_anchor"
+   ],
+   "message_to_agent": "Verification result:\nMore investigation required.\nReasons:\n- possible missed evidence\n- possible anchoring on weak or distracting evidence while stronger competing evidence exists\nTools you have not used yet: get_recent_changes, get_deployment_history, get_configuration_history, get_active_incidents, search_knowledge_base, get_team_capability, get_agent_availability.\nContinue investigating using available tools. Do not repeat already completed tool calls unless necessary. You have up to 4 more tool calls; then you will be asked for your final diagnosis again."
+  },
+  {
+   "round": 2,
+   "deterministic_checks": {
+    "D1": {
+     "id": "D1",
+     "name": "valid_final_contract",
+     "passed": true,
+     "applicable": true,
+     "detail": "schema, bounds and every reference are valid"
+    },
+    "D2": {
+     "id": "D2",
+     "name": "evidence_support",
+     "passed": true,
+     "applicable": false,
+     "detail": "no diagnosis was proposed, so there is nothing to support"
+    },
+    "D3": {
+     "id": "D3",
+     "name": "final_consistency",
+     "passed": false,
+     "applicable": true,
+     "detail": "confidence >= 0.8 despite stated uncertainty or insufficient evidence"
+    },
+    "D4": {
+     "id": "D4",
+     "name": "premature_finalization",
+     "passed": true,
+     "applicable": true,
+     "detail": "evidence was retrieved and either a hypothesis is supported or the tool budget is used up"
+    },
+    "all_passed": false
+   },
+   "jev_missed_evidence": 0.75,
+   "jev_distractor_anchor": 0.5,
+   "jev_review": {
+    "label": "REVIEW",
+    "probabilities": {
+     "NORMAL": 0.0,
+     "PRIORITY_REVIEW": 0.44,
+     "REVIEW": 0.56
+    }
+   },
+   "jev_available": true,
+   "policy_decision": "HUMAN_REVIEW",
+   "reason": "still unresolved after the additional investigation round: possible missed evidence",
+   "triggers": [
+    "jev_missed_evidence"
+   ],
+   "message_to_agent": null
+  }
+ ],
+ "policy_decision": "CONTINUE_INVESTIGATION",
+ "additional_investigation_performed": true,
+ "agent_final_result": {
+  "status": "INSUFFICIENT_EVIDENCE",
+  "confidence": 0.99,
+  "evidence_sufficiency": "insufficient",
+  "human_review_required": true,
+  "review_reason": "The investigation budget is exhausted and more evidence is required to determine the root cause and affected component with high confidence.",
+  "selections": {
+   "issue_category": {
+    "alias": "CATEGORY_GGC",
+    "name": "Billing / Commerce",
+    "source_id": "IC13"
+   },
+   "root_cause": null,
+   "affected_component": {
+    "alias": "COMPONENT_MJB",
+    "name": "Currency Conversion Service",
+    "source_id": "CM050"
+   },
+   "causal_change": null,
+   "owning_team": null
+  },
+  "summary": "The case report indicates a Billing/Commerce issue with incorrect tax amounts and total charges. The evidence suggests a possible issue with the Currency Conversion Service, but more investigation is required to determine the root cause and affected component.",
+  "recommended_next_action": "Gather more evidence using available tools to determine the root cause and affected component.",
+  "hypotheses": [
+   {
+    "label": "Billing/Commerce issue",
+    "confidence": 0.99,
+    "status": "active"
+   },
+   {
+    "label": "Currency Conversion Service issue",
+    "confidence": 0.6,
+    "status": "active"
+   }
+  ]
+ },
+ "final_policy_decision": "HUMAN_REVIEW",
+ "final_reason": "still unresolved after the additional investigation round: possible missed evidence",
+ "review_packet": {
+  "decision": "HUMAN_REVIEW",
+  "reason": "still unresolved after the additional investigation round: possible missed evidence",
+  "triggers": [
+   "jev_missed_evidence"
+  ],
+  "agent_diagnosis": {
+   "status": "INSUFFICIENT_EVIDENCE",
+   "confidence": 0.99,
+   "evidence_sufficiency": "insufficient",
+   "human_review_required": true,
+   "review_reason": "The investigation budget is exhausted and more evidence is required to determine the root cause and affected component with high confidence.",
+   "selections": {
+    "issue_category": {
+     "alias": "CATEGORY_GGC",
+     "name": "Billing / Commerce",
+     "source_id": "IC13"
+    },
+    "root_cause": null,
+    "affected_component": {
+     "alias": "COMPONENT_MJB",
+     "name": "Currency Conversion Service",
+     "source_id": "CM050"
+    },
+    "causal_change": null,
+    "owning_team": null
+   },
+   "summary": "The case report indicates a Billing/Commerce issue with incorrect tax amounts and total charges. The evidence suggests a possible issue with the Currency Conversion Service, but more investigation is required to determine the root cause and affected component.",
+   "recommended_next_action": "Gather more evidence using available tools to determine the root cause and affected component.",
+   "hypotheses": [
+    {
+     "label": "Billing/Commerce issue",
+     "confidence": 0.99,
+     "status": "active"
+    },
+    {
+     "label": "Currency Conversion Service issue",
+     "confidence": 0.6,
+     "status": "active"
+    }
+   ]
+  },
+  "key_evidence": [
+   {
+    "alias": "EVIDENCE_XHH",
+    "type": "signal",
+    "summary": "CHECKSUM_MISMATCH: checksum mismatch detected in Currency Conversion Service on COMPONENT_MJB @ 2025-04-21 23:25:00",
+    "source_id": "SG0003636"
+   },
+   {
+    "alias": "EVIDENCE_VKB",
+    "type": "signal",
+    "summary": "DUPLICATE_RECORD_DETECTED: duplicate records detected in Currency Conversion Service on COMPONENT_MJB @ 2025-04-21 23:26:00",
+    "source_id": "SG0003638"
+   },
+   {
+    "alias": "EVIDENCE_WFL",
+    "type": "signal",
+    "summary": "DATA_VALIDATION_FAILED: data validation failures on Currency Conversion Service on COMPONENT_MJB @ 2025-04-21 23:48:00",
+    "source_id": "SG0003637"
+   },
+   {
+    "alias": "EVIDENCE_SLW",
+    "type": "telemetry",
+    "summary": "duplicate_event_rate on COMPONENT_MJB: status abnormal, direction above_baseline, baseline 0.1874, observed 0.063..0.683",
+    "source_id": "CS00741:CM050:duplicate_event_rate"
+   }
+  ],
+  "missed_evidence_probability": 0.75,
+  "distractor_anchor_probability": 0.5,
+  "review_signal": "REVIEW",
+  "contract_failure": null
+ },
+ "latency_s": 258.9,
+ "cost_usd_estimate": 0.03357,
+ "cost_note": "estimate: agent tokens x Together list price + Jev input tokens x Jev list price",
+ "agent_tokens": 36401,
+ "jev_input_tokens": 36542,
+ "agent_run": {
+  "case_id": "CS00741",
+  "stop_reason": "tool_budget_exhausted",
+  "num_tool_calls": 14,
+  "num_llm_calls": 15,
+  "token_usage": {
+   "prompt_tokens": 34074,
+   "completion_tokens": 2327,
+   "total_tokens": 36401
+  },
+  "trace_steps": [
+   {
+    "step": 1,
+    "sim_clock": "2025-04-22 00:00:00",
+    "tool_name": "get_case_context",
+    "args": {},
+    "args_alias": {},
+    "hypotheses": [],
+    "hypothesis_state": [],
+    "rationale": "",
+    "result_summary": {
+     "case_id": "CS00741",
+     "title": "Invoices and tax amounts wrong",
+     "description": "Hi, we're getting complaints about billing accuracy in EU-West production. Some invoices seem incorrect, specifically regarding the tax amounts and total charges. It looks like we are undercharging a few customers. About 37 accounts are affected. We don't have the exact error codes handy but the financial impact is becoming noticeable. Can you check the tax calculation logic?",
+     "environment": "production",
+     "region": "EU-West",
+     "reported_business_impact": "moderate",
+     "reported_affected_users": 37,
+     "priority": "high",
+     "created_date": "2025-04-22",
+     "status": "resolved",
+     "customer_id": "C02200",
+     "customer_tier": "gold",
+     "customer_industry": "Logistics & Transportation",
+     "customer_company_size": "small",
+     "reported_product_id": "P001",
+     "reported_product_name": "Payment Gateway v2",
+     "reported_symptoms": [
+      "invoice incorrect",
+      "undercharge",
+      "tax amount incorrect"
+     ]
+    },
+    "latency_ms": 0.0,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "harness"
+   },
+   {
+    "step": 2,
+    "sim_clock": "2025-04-22 00:15:00",
+    "tool_name": "get_customer_deployment",
+    "args": {},
+    "args_alias": {},
+    "hypotheses": [
+     "Billing/Commerce issue:0.99"
+    ],
+    "hypothesis_state": [
+     {
+      "label": "Billing/Commerce issue",
+      "confidence": 0.99,
+      "status": "active",
+      "supporting_evidence": [],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "result_summary": {
+     "deployments": [
+      {
+       "product_id": "P041",
+       "product_name": "Chargeback Handler",
+       "version": "1.5",
+       "environment": "staging",
+       "region": "EU-West",
+       "status": "active",
+       "deployed_at": "2026-09-03",
+       "product_components": [
+        "CM047",
+        "CM052",
+        "CM053",
+        "CM055",
+        "CM067",
+        "CM078",
+        "CM082",
+        "CM087"
+       ]
+      },
+      {
+       "product_id": "P041",
+       "product_name": "Chargeback Handler",
+       "version": "1.5",
+       "environment": "production",
+       "region": "EU-West",
+       "status": "active",
+       "deployed_at": "2026-05-25",
+       "product_components": [
+        "CM047",
+        "CM052",
+        "CM053",
+        "CM055",
+        "CM067",
+        "CM078",
+        "CM082",
+        "CM087"
+       ]
+      }
+     ]
+    },
+    "latency_ms": 4683.7,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "model"
+   },
+   {
+    "step": 3,
+    "sim_clock": "2025-04-22 00:30:00",
+    "tool_name": "get_technical_signals",
+    "args": {},
+    "args_alias": {},
+    "hypotheses": [
+     "Billing/Commerce issue:0.99"
+    ],
+    "hypothesis_state": [
+     {
+      "label": "Billing/Commerce issue",
+      "confidence": 0.99,
+      "status": "active",
+      "supporting_evidence": [],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "result_summary": {
+     "signals": [
+      {
+       "evidence_id": "SG0003636",
+       "signal_type": "CHECKSUM_MISMATCH",
+       "message": "checksum mismatch detected in Currency Conversion Service",
+       "timestamp": "2025-04-21 23:25:00",
+       "component_id": "CM050"
+      },
+      {
+       "evidence_id": "SG0003638",
+       "signal_type": "DUPLICATE_RECORD_DETECTED",
+       "message": "duplicate records detected in Currency Conversion Service",
+       "timestamp": "2025-04-21 23:26:00",
+       "component_id": "CM050"
+      },
+      {
+       "evidence_id": "SG0003637",
+       "signal_type": "DATA_VALIDATION_FAILED",
+       "message": "data validation failures on Currency Conversion Service",
+       "timestamp": "2025-04-21 23:48:00",
+       "component_id": "CM050"
+      }
+     ],
+     "count": 3
+    },
+    "latency_ms": 3938.7,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "model"
+   },
+   {
+    "step": 4,
+    "sim_clock": "2025-04-22 00:45:00",
+    "tool_name": "get_component_topology",
+    "args": {
+     "component_id": "CM050"
+    },
+    "args_alias": {
+     "component": "COMPONENT_MJB"
+    },
+    "hypotheses": [
+     "Billing/Commerce issue:0.99"
+    ],
+    "hypothesis_state": [
+     {
+      "label": "Billing/Commerce issue",
+      "confidence": 0.99,
+      "status": "active",
+      "supporting_evidence": [],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "result_summary": {
+     "component_id": "CM050",
+     "component_name": "Currency Conversion Service",
+     "upstream_dependencies": [
+      {
+       "name": "Embedding Service",
+       "id": "CM108"
+      },
+      {
+       "name": "Cache Service",
+       "id": "CM134"
+      },
+      {
+       "name": "Primary Database Cluster",
+       "id": "CM151"
+      },
+      {
+       "name": "Central Notification Dispatcher",
+       "id": "CM245"
+      }
+     ],
+     "downstream_dependents": [],
+     "external_dependencies": [
+      "Payment Processor Network",
+      "Tax Calculation Vendor",
+      "Currency Exchange Rate Feed"
+     ],
+     "owning_teams": [
+      {
+       "name": "Commerce / Billing",
+       "id": "TM08"
+      },
+      {
+       "name": "Product Engineering (Payments)",
+       "id": "TM18"
+      }
+     ]
+    },
+    "latency_ms": 27623.8,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "model"
+   },
+   {
+    "step": 5,
+    "sim_clock": "2025-04-22 01:00:00",
+    "tool_name": "get_telemetry",
+    "args": {
+     "component_id": "CM050"
+    },
+    "args_alias": {
+     "component": "COMPONENT_MJB"
+    },
+    "hypotheses": [
+     "Billing/Commerce issue:0.99"
+    ],
+    "hypothesis_state": [
+     {
+      "label": "Billing/Commerce issue",
+      "confidence": 0.99,
+      "status": "active",
+      "supporting_evidence": [],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "result_summary": {
+     "available_metric_categories": [
+      "Data",
+      "Identity"
+     ],
+     "note": "Call again with one of these metric_category values to see actual readings."
+    },
+    "latency_ms": 3295.2,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "model"
+   },
+   {
+    "step": 6,
+    "sim_clock": "2025-04-22 01:15:00",
+    "tool_name": "get_telemetry",
+    "args": {
+     "component_id": "CM050",
+     "metric_category": "Data"
+    },
+    "args_alias": {
+     "component": "COMPONENT_MJB",
+     "metric_category": "Data"
+    },
+    "hypotheses": [
+     "Billing/Commerce issue:0.99"
+    ],
+    "hypothesis_state": [
+     {
+      "label": "Billing/Commerce issue",
+      "confidence": 0.99,
+      "status": "active",
+      "supporting_evidence": [],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "result_summary": {
+     "telemetry_findings": [
+      {
+       "evidence_id": "CS00741:CM050:duplicate_event_rate",
+       "metric_code": "duplicate_event_rate",
+       "component_id": "CM050",
+       "baseline": 0.1874,
+       "observed_min": 0.063,
+       "observed_max": 0.683,
+       "status": "abnormal",
+       "direction": "above_baseline",
+       "anomaly_start": "2025-04-21 23:20:00",
+       "anomaly_end": "2025-04-22 00:00:00"
+      }
+     ],
+     "count": 1
+    },
+    "latency_ms": 28120.2,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "model"
+   },
+   {
+    "step": 7,
+    "sim_clock": "2025-04-22 01:30:00",
+    "tool_name": "get_service_health",
+    "args": {
+     "component_id": "CM050"
+    },
+    "args_alias": {
+     "component": "COMPONENT_MJB"
+    },
+    "hypotheses": [
+     "Billing/Commerce issue:0.99",
+     "Currency Conversion Service issue:0.6"
+    ],
+    "hypothesis_state": [
+     {
+      "label": "Billing/Commerce issue",
+      "confidence": 0.99,
+      "status": "active",
+      "supporting_evidence": [],
+      "contradicting_evidence": []
+     },
+     {
+      "label": "Currency Conversion Service issue",
+      "confidence": 0.6,
+      "status": "active",
+      "supporting_evidence": [
+       "EVIDENCE_XHH",
+       "EVIDENCE_VKB",
+       "EVIDENCE_WFL",
+       "EVIDENCE_SLW"
+      ],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "result_summary": {
+     "health_events": [
+      {
+       "evidence_id": "SHE01023",
+       "started_at": "2025-03-11 18:33:00",
+       "ended_at": "2025-03-11 19:18:00",
+       "severity": "minor",
+       "description": "minor latency spike observed on Currency Conversion Service, self-resolved after 45 minutes."
+      },
+      {
+       "evidence_id": "SHE01012",
+       "started_at": "2024-12-07 16:48:00",
+       "ended_at": "2024-12-07 16:53:00",
+       "severity": "minor",
+       "description": "Brief minor health blip on Currency Conversion Service: elevated error rate for 5 minutes."
+      },
+      {
+       "evidence_id": "SHE01008",
+       "started_at": "2024-11-29 17:46:00",
+       "ended_at": "2024-11-29 18:31:00",
+       "severity": "minor",
+       "description": "minor latency spike observed on Currency Conversion Service, self-resolved after 45 minutes."
+      },
+      {
+       "evidence_id": "SHE01026",
+       "started_at": "2024-11-22 11:24:00",
+       "ended_at": "2024-11-22 11:44:00",
+       "severity": "major",
+       "description": "Automated health check flagged Currency Conversion Service as degraded (major) for 20 minutes."
+      },
+      {
+       "evidence_id": "SHE01013",
+       "started_at": "2024-10-09 17:40:00",
+       "ended_at": "2024-10-09 18:40:00",
+       "severity": "minor",
+       "description": "minor latency spike observed on Currency Conversion Service, self-resolved after 60 minutes."
+      }
+     ],
+     "count": 5
+    },
+    "latency_ms": 5910.2,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "model"
+   },
+   {
+    "step": 8,
+    "sim_clock": "2025-04-22 01:45:00",
+    "tool_name": "get_similar_cases",
+    "args": {},
+    "args_alias": {},
+    "hypotheses": [
+     "Billing/Commerce issue:0.99",
+     "Currency Conversion Service issue:0.6"
+    ],
+    "hypothesis_state": [
+     {
+      "label": "Billing/Commerce issue",
+      "confidence": 0.99,
+      "status": "active",
+      "supporting_evidence": [],
+      "contradicting_evidence": []
+     },
+     {
+      "label": "Currency Conversion Service issue",
+      "confidence": 0.6,
+      "status": "active",
+      "supporting_evidence": [
+       "EVIDENCE_XHH",
+       "EVIDENCE_VKB",
+       "EVIDENCE_WFL",
+       "EVIDENCE_SLW"
+      ],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "result_summary": {
+     "similar_cases": [],
+     "count": 0
+    },
+    "latency_ms": 6716.5,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "model"
+   },
+   {
+    "step": 9,
+    "sim_clock": "2025-04-22 02:00:00",
+    "tool_name": "get_component_topology",
+    "args": {
+     "component_id": "CM055"
+    },
+    "args_alias": {
+     "component": "COMPONENT_DSJ"
+    },
+    "hypotheses": [
+     "Billing/Commerce issue:0.99",
+     "Currency Conversion Service issue:0.6"
+    ],
+    "hypothesis_state": [
+     {
+      "label": "Billing/Commerce issue",
+      "confidence": 0.99,
+      "status": "active",
+      "supporting_evidence": [],
+      "contradicting_evidence": []
+     },
+     {
+      "label": "Currency Conversion Service issue",
+      "confidence": 0.6,
+      "status": "active",
+      "supporting_evidence": [
+       "EVIDENCE_XHH",
+       "EVIDENCE_VKB",
+       "EVIDENCE_WFL",
+       "EVIDENCE_SLW"
+      ],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "result_summary": {
+     "component_id": "CM055",
+     "component_name": "Subscription Billing Engine",
+     "upstream_dependencies": [
+      {
+       "name": "Currency Rate Feed Connector",
+       "id": "CM088"
+      },
+      {
+       "name": "Object Storage Service",
+       "id": "CM154"
+      },
+      {
+       "name": "Time-Series Metrics Store",
+       "id": "CM168"
+      },
+      {
+       "name": "Mobile Push Token Manager",
+       "id": "CM205"
+      },
+      {
+       "name": "Email Delivery Worker",
+       "id": "CM215"
+      },
+      {
+       "name": "Central Notification Dispatcher",
+       "id": "CM245"
+      },
+      {
+       "name": "Vendor Integration Hub",
+       "id": "CM250"
+      }
+     ],
+     "downstream_dependents": [],
+     "external_dependencies": [
+      "Tax Calculation Vendor",
+      "Currency Exchange Rate Feed"
+     ],
+     "owning_teams": [
+      {
+       "name": "Commerce / Billing",
+       "id": "TM08"
+      },
+      {
+       "name": "Product Engineering (Payments)",
+       "id": "TM18"
+      }
+     ]
+    },
+    "latency_ms": 6151.4,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "model"
+   },
+   {
+    "step": 10,
+    "sim_clock": "2025-04-22 02:15:00",
+    "tool_name": "get_technical_signals",
+    "args": {
+     "component_id": "CM055"
+    },
+    "args_alias": {
+     "component": "COMPONENT_DSJ"
+    },
+    "hypotheses": [
+     "Billing/Commerce issue:0.99",
+     "Currency Conversion Service issue:0.6"
+    ],
+    "hypothesis_state": [
+     {
+      "label": "Billing/Commerce issue",
+      "confidence": 0.99,
+      "status": "active",
+      "supporting_evidence": [],
+      "contradicting_evidence": []
+     },
+     {
+      "label": "Currency Conversion Service issue",
+      "confidence": 0.6,
+      "status": "active",
+      "supporting_evidence": [
+       "EVIDENCE_XHH",
+       "EVIDENCE_VKB",
+       "EVIDENCE_WFL",
+       "EVIDENCE_SLW"
+      ],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "result_summary": {
+     "signals": [],
+     "count": 0
+    },
+    "latency_ms": 15388.3,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "model"
+   },
+   {
+    "step": 11,
+    "sim_clock": "2025-04-22 02:30:00",
+    "tool_name": "get_recent_changes",
+    "args": {
+     "component_id": "CM055"
+    },
+    "args_alias": {
+     "component": "COMPONENT_DSJ"
+    },
+    "hypotheses": [
+     "Billing/Commerce issue:0.99",
+     "Currency Conversion Service issue:0.6"
+    ],
+    "hypothesis_state": [
+     {
+      "label": "Billing/Commerce issue",
+      "confidence": 0.99,
+      "status": "active",
+      "supporting_evidence": [],
+      "contradicting_evidence": []
+     },
+     {
+      "label": "Currency Conversion Service issue",
+      "confidence": 0.6,
+      "status": "active",
+      "supporting_evidence": [
+       "EVIDENCE_XHH",
+       "EVIDENCE_VKB",
+       "EVIDENCE_WFL",
+       "EVIDENCE_SLW"
+      ],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "result_summary": {
+     "recent_changes": [],
+     "count": 0
+    },
+    "latency_ms": 3739.3,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "model"
+   },
+   {
+    "step": 12,
+    "sim_clock": "2025-04-22 02:45:00",
+    "tool_name": "get_deployment_history",
+    "args": {
+     "component_id": "CM055"
+    },
+    "args_alias": {
+     "component": "COMPONENT_DSJ"
+    },
+    "hypotheses": [
+     "Billing/Commerce issue:0.99",
+     "Currency Conversion Service issue:0.6"
+    ],
+    "hypothesis_state": [
+     {
+      "label": "Billing/Commerce issue",
+      "confidence": 0.99,
+      "status": "active",
+      "supporting_evidence": [],
+      "contradicting_evidence": []
+     },
+     {
+      "label": "Currency Conversion Service issue",
+      "confidence": 0.6,
+      "status": "active",
+      "supporting_evidence": [
+       "EVIDENCE_XHH",
+       "EVIDENCE_VKB",
+       "EVIDENCE_WFL",
+       "EVIDENCE_SLW"
+      ],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "result_summary": {
+     "deployments": [],
+     "count": 0
+    },
+    "latency_ms": 7701.2,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "model"
+   },
+   {
+    "step": 13,
+    "sim_clock": "2025-04-22 03:00:00",
+    "tool_name": "get_active_incidents",
+    "args": {},
+    "args_alias": {},
+    "hypotheses": [
+     "Billing/Commerce issue:0.99",
+     "Currency Conversion Service issue:0.6"
+    ],
+    "hypothesis_state": [
+     {
+      "label": "Billing/Commerce issue",
+      "confidence": 0.99,
+      "status": "active",
+      "supporting_evidence": [],
+      "contradicting_evidence": []
+     },
+     {
+      "label": "Currency Conversion Service issue",
+      "confidence": 0.6,
+      "status": "active",
+      "supporting_evidence": [
+       "EVIDENCE_XHH",
+       "EVIDENCE_VKB",
+       "EVIDENCE_WFL",
+       "EVIDENCE_SLW"
+      ],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "result_summary": {
+     "incidents": [],
+     "count": 0
+    },
+    "latency_ms": 4611.0,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "model"
+   },
+   {
+    "step": 14,
+    "sim_clock": "2025-04-22 03:15:00",
+    "tool_name": "submit_diagnosis",
+    "args": {},
+    "args_alias": {},
+    "hypotheses": [
+     "Billing/Commerce issue:0.99",
+     "Currency Conversion Service issue:0.6"
+    ],
+    "hypothesis_state": [
+     {
+      "label": "Billing/Commerce issue",
+      "confidence": 0.99,
+      "status": "active",
+      "supporting_evidence": [],
+      "contradicting_evidence": []
+     },
+     {
+      "label": "Currency Conversion Service issue",
+      "confidence": 0.6,
+      "status": "active",
+      "supporting_evidence": [
+       "EVIDENCE_XHH",
+       "EVIDENCE_VKB",
+       "EVIDENCE_WFL",
+       "EVIDENCE_SLW"
+      ],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "result_summary": "submitted (forced)",
+    "latency_ms": 86830.7,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "model"
+   }
+  ],
+  "final_diagnosis": {
+   "hypotheses": [
+    {
+     "label": "Billing/Commerce issue",
+     "description": "",
+     "confidence": 0.99,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    },
+    {
+     "label": "Currency Conversion Service issue",
+     "description": "",
+     "confidence": 0.6,
+     "status": "active",
+     "supporting_evidence": [
+      "SG0003636",
+      "SG0003638",
+      "SG0003637",
+      "CS00741:CM050:duplicate_event_rate"
+     ],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "predicted_product_id": null,
+   "product_confidence": null,
+   "predicted_component_id": "CM050",
+   "component_confidence": 0.6,
+   "predicted_category_id": "IC13",
+   "category_confidence": 0.99,
+   "predicted_subcategory_id": null,
+   "predicted_root_cause_family": null,
+   "root_cause_confidence": null,
+   "predicted_causal_change_id": null,
+   "causal_change_confidence": null,
+   "predicted_severity": null,
+   "severity_confidence": null,
+   "recommended_team_id": null,
+   "routing_confidence": null,
+   "evidence_sufficiency": "insufficient",
+   "overall_confidence": 0.99,
+   "recommended_next_action": "Gather more evidence using available tools to determine the root cause and affected component.",
+   "human_review_required": true,
+   "human_review_reason": "The investigation budget is exhausted and more evidence is required to determine the root cause and affected component with high confidence.",
+   "evidence_summary": "The case report indicates a Billing/Commerce issue with incorrect tax amounts and total charges. The evidence suggests a possible issue with the Currency Conversion Service, but more investigation is required to determine the root cause and affected component.",
+   "unresolved_uncertainties": [
+    "Root cause of the issue",
+    "Affected component"
+   ],
+   "status": "INSUFFICIENT_EVIDENCE",
+   "evidence_ids": [
+    "SG0003636",
+    "SG0003638",
+    "SG0003637",
+    "CS00741:CM050:duplicate_event_rate"
+   ]
+  },
+  "final_status": "INSUFFICIENT_EVIDENCE",
+  "final_alias_form": {
+   "hypotheses": [
+    {
+     "label": "Billing/Commerce issue",
+     "confidence": 0.99,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    },
+    {
+     "label": "Currency Conversion Service issue",
+     "confidence": 0.6,
+     "status": "active",
+     "supporting_evidence": [
+      "EVIDENCE_XHH",
+      "EVIDENCE_VKB",
+      "EVIDENCE_WFL",
+      "EVIDENCE_SLW"
+     ],
+     "contradicting_evidence": []
+    }
+   ],
+   "evidence_ids": [
+    "EVIDENCE_XHH",
+    "EVIDENCE_VKB",
+    "EVIDENCE_WFL",
+    "EVIDENCE_SLW"
+   ],
+   "issue_category": "CATEGORY_GGC",
+   "category_confidence": 0.99,
+   "root_cause": null,
+   "root_cause_confidence": null,
+   "affected_component": "COMPONENT_MJB",
+   "component_confidence": 0.6,
+   "causal_change": null,
+   "causal_change_confidence": null,
+   "owning_team": null,
+   "routing_confidence": null,
+   "confidence": 0.99,
+   "evidence_sufficiency": "insufficient",
+   "human_review_required": true,
+   "review_reason": "The investigation budget is exhausted and more evidence is required to determine the root cause and affected component with high confidence.",
+   "status": "INSUFFICIENT_EVIDENCE",
+   "recommended_next_action": "Gather more evidence using available tools to determine the root cause and affected component.",
+   "unresolved_uncertainties": [
+    "Root cause of the issue",
+    "Affected component"
+   ],
+   "summary": "The case report indicates a Billing/Commerce issue with incorrect tax amounts and total charges. The evidence suggests a possible issue with the Currency Conversion Service, but more investigation is required to determine the root cause and affected component."
+  },
+  "citation_violations": [],
+  "evidence_ids_seen": [
+   "CS00741:CM050:duplicate_event_rate",
+   "SG0003636",
+   "SG0003637",
+   "SG0003638",
+   "SHE01008",
+   "SHE01012",
+   "SHE01013",
+   "SHE01023",
+   "SHE01026"
+  ],
+  "repair_events": [],
+  "tool_proposals": 13,
+  "tool_contract_errors": [],
+  "tool_contract_repairs": [],
+  "final_contract_errors": [],
+  "final_contract_repair": null,
+  "registry_snapshots": [
+   {
+    "step": 1,
+    "n_entities": 59,
+    "counts": {
+     "CATEGORY": 18,
+     "CAUSE": 40,
+     "PRODUCT": 1
+    },
+    "aliases_sha256_16": "cc5705717900fc98"
+   },
+   {
+    "step": 2,
+    "n_entities": 68,
+    "counts": {
+     "CATEGORY": 18,
+     "CAUSE": 40,
+     "PRODUCT": 2,
+     "COMPONENT": 8
+    },
+    "aliases_sha256_16": "8708ef77a62ec61f"
+   },
+   {
+    "step": 3,
+    "n_entities": 72,
+    "counts": {
+     "CATEGORY": 18,
+     "CAUSE": 40,
+     "PRODUCT": 2,
+     "COMPONENT": 9,
+     "EVIDENCE": 3
+    },
+    "aliases_sha256_16": "1680b7ec06abacdc"
+   },
+   {
+    "step": 4,
+    "n_entities": 78,
+    "counts": {
+     "CATEGORY": 18,
+     "CAUSE": 40,
+     "PRODUCT": 2,
+     "COMPONENT": 13,
+     "EVIDENCE": 3,
+     "TEAM": 2
+    },
+    "aliases_sha256_16": "367d35c65333b829"
+   },
+   {
+    "step": 5,
+    "n_entities": 78,
+    "counts": {
+     "CATEGORY": 18,
+     "CAUSE": 40,
+     "PRODUCT": 2,
+     "COMPONENT": 13,
+     "EVIDENCE": 3,
+     "TEAM": 2
+    },
+    "aliases_sha256_16": "367d35c65333b829"
+   },
+   {
+    "step": 6,
+    "n_entities": 79,
+    "counts": {
+     "CATEGORY": 18,
+     "CAUSE": 40,
+     "PRODUCT": 2,
+     "COMPONENT": 13,
+     "EVIDENCE": 4,
+     "TEAM": 2
+    },
+    "aliases_sha256_16": "5894d6593dfec9a0"
+   },
+   {
+    "step": 7,
+    "n_entities": 84,
+    "counts": {
+     "CATEGORY": 18,
+     "CAUSE": 40,
+     "PRODUCT": 2,
+     "COMPONENT": 13,
+     "EVIDENCE": 9,
+     "TEAM": 2
+    },
+    "aliases_sha256_16": "d3715652ddb25040"
+   },
+   {
+    "step": 8,
+    "n_entities": 84,
+    "counts": {
+     "CATEGORY": 18,
+     "CAUSE": 40,
+     "PRODUCT": 2,
+     "COMPONENT": 13,
+     "EVIDENCE": 9,
+     "TEAM": 2
+    },
+    "aliases_sha256_16": "d3715652ddb25040"
+   },
+   {
+    "step": 9,
+    "n_entities": 90,
+    "counts": {
+     "CATEGORY": 18,
+     "CAUSE": 40,
+     "PRODUCT": 2,
+     "COMPONENT": 19,
+     "EVIDENCE": 9,
+     "TEAM": 2
+    },
+    "aliases_sha256_16": "fbb45832d2da5a9d"
+   },
+   {
+    "step": 10,
+    "n_entities": 90,
+    "counts": {
+     "CATEGORY": 18,
+     "CAUSE": 40,
+     "PRODUCT": 2,
+     "COMPONENT": 19,
+     "EVIDENCE": 9,
+     "TEAM": 2
+    },
+    "aliases_sha256_16": "fbb45832d2da5a9d"
+   },
+   {
+    "step": 11,
+    "n_entities": 90,
+    "counts": {
+     "CATEGORY": 18,
+     "CAUSE": 40,
+     "PRODUCT": 2,
+     "COMPONENT": 19,
+     "EVIDENCE": 9,
+     "TEAM": 2
+    },
+    "aliases_sha256_16": "fbb45832d2da5a9d"
+   },
+   {
+    "step": 12,
+    "n_entities": 90,
+    "counts": {
+     "CATEGORY": 18,
+     "CAUSE": 40,
+     "PRODUCT": 2,
+     "COMPONENT": 19,
+     "EVIDENCE": 9,
+     "TEAM": 2
+    },
+    "aliases_sha256_16": "fbb45832d2da5a9d"
+   },
+   {
+    "step": 13,
+    "n_entities": 90,
+    "counts": {
+     "CATEGORY": 18,
+     "CAUSE": 40,
+     "PRODUCT": 2,
+     "COMPONENT": 19,
+     "EVIDENCE": 9,
+     "TEAM": 2
+    },
+    "aliases_sha256_16": "fbb45832d2da5a9d"
+   }
+  ],
+  "alias_mappings": {
+   "CATEGORY_LWC": {
+    "alias": "CATEGORY_LWC",
+    "canonical_id": "IC01",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Identity / Authentication",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-04-22 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_DRC": {
+    "alias": "CATEGORY_DRC",
+    "canonical_id": "IC02",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Authorization / Permissions",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-04-22 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_DRZ": {
+    "alias": "CATEGORY_DRZ",
+    "canonical_id": "IC03",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Networking / Connectivity",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-04-22 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_HGV": {
+    "alias": "CATEGORY_HGV",
+    "canonical_id": "IC04",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Performance / Latency",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-04-22 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_JJF": {
+    "alias": "CATEGORY_JJF",
+    "canonical_id": "IC05",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Reliability / Availability",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-04-22 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_SDK": {
+    "alias": "CATEGORY_SDK",
+    "canonical_id": "IC06",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Deployment / Upgrade",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-04-22 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_KBW": {
+    "alias": "CATEGORY_KBW",
+    "canonical_id": "IC07",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Configuration",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-04-22 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_JMS": {
+    "alias": "CATEGORY_JMS",
+    "canonical_id": "IC08",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Data / Corruption",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-04-22 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_HZL": {
+    "alias": "CATEGORY_HZL",
+    "canonical_id": "IC09",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Integration / API",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-04-22 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_NFW": {
+    "alias": "CATEGORY_NFW",
+    "canonical_id": "IC10",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Provisioning / Onboarding",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-04-22 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_LWX": {
+    "alias": "CATEGORY_LWX",
+    "canonical_id": "IC11",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Security",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-04-22 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_BPV": {
+    "alias": "CATEGORY_BPV",
+    "canonical_id": "IC12",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Compliance",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-04-22 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_GGC": {
+    "alias": "CATEGORY_GGC",
+    "canonical_id": "IC13",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Billing / Commerce",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-04-22 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_JZV": {
+    "alias": "CATEGORY_JZV",
+    "canonical_id": "IC14",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "User Experience / Functional Defect",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-04-22 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_PMR": {
+    "alias": "CATEGORY_PMR",
+    "canonical_id": "IC15",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Storage / Database",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-04-22 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_WSJ": {
+    "alias": "CATEGORY_WSJ",
+    "canonical_id": "IC16",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Capacity / Scaling",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-04-22 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_JSM": {
+    "alias": "CATEGORY_JSM",
+    "canonical_id": "IC17",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Third-Party / Dependency",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-04-22 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_GZB": {
+    "alias": "CATEGORY_GZB",
+    "canonical_id": "IC18",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Unknown / Other",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-04-22 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_TBF": {
+    "alias": "CAUSE_TBF",
+    "canonical_id": "RC01",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "product defect",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-04-22 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_HVJ": {
+    "alias": "CAUSE_HVJ",
+    "canonical_id": "RC02",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "customer configuration error",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-04-22 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_TDD": {
+    "alias": "CAUSE_TDD",
+    "canonical_id": "RC03",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "incorrect permissions",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-04-22 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_DVM": {
+    "alias": "CAUSE_DVM",
+    "canonical_id": "RC04",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "policy misconfiguration",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-04-22 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_CWL": {
+    "alias": "CAUSE_CWL",
+    "canonical_id": "RC05",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "expired certificate",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-04-22 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_SNV": {
+    "alias": "CAUSE_SNV",
+    "canonical_id": "RC06",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "version incompatibility",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-04-22 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_XTC": {
+    "alias": "CAUSE_XTC",
+    "canonical_id": "RC07",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "dependency failure",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-04-22 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_XJF": {
+    "alias": "CAUSE_XJF",
+    "canonical_id": "RC08",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "network configuration error",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-04-22 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_LJX": {
+    "alias": "CAUSE_LJX",
+    "canonical_id": "RC09",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "resource exhaustion",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-04-22 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_JCQ": {
+    "alias": "CAUSE_JCQ",
+    "canonical_id": "RC10",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "database contention",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-04-22 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_ZXD": {
+    "alias": "CAUSE_ZXD",
+    "canonical_id": "RC11",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "bad deployment",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-04-22 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_VDQ": {
+    "alias": "CAUSE_VDQ",
+    "canonical_id": "RC12",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "incomplete migration",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-04-22 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_DNQ": {
+    "alias": "CAUSE_DNQ",
+    "canonical_id": "RC13",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "stale cache",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-04-22 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_RVL": {
+    "alias": "CAUSE_RVL",
+    "canonical_id": "RC14",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "third-party service failure",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-04-22 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_DQM": {
+    "alias": "CAUSE_DQM",
+    "canonical_id": "RC15",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "unsupported configuration",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-04-22 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_JSG": {
+    "alias": "CAUSE_JSG",
+    "canonical_id": "RC16",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "incorrect DNS configuration",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-04-22 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_WBQ": {
+    "alias": "CAUSE_WBQ",
+    "canonical_id": "RC17",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "data quality issue",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-04-22 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_QZT": {
+    "alias": "CAUSE_QZT",
+    "canonical_id": "RC18",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "operator error",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-04-22 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_FJC": {
+    "alias": "CAUSE_FJC",
+    "canonical_id": "RC19",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "capacity limitation",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-04-22 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_GRJ": {
+    "alias": "CAUSE_GRJ",
+    "canonical_id": "RC20",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "known product limitation",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-04-22 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_FTP": {
+    "alias": "CAUSE_FTP",
+    "canonical_id": "RC21",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "race condition",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-04-22 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_GDV": {
+    "alias": "CAUSE_GDV",
+    "canonical_id": "RC22",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "identity provider outage",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-04-22 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_GFB": {
+    "alias": "CAUSE_GFB",
+    "canonical_id": "RC23",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "token expiration handling bug",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-04-22 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_ZVD": {
+    "alias": "CAUSE_ZVD",
+    "canonical_id": "RC24",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "insufficient monitoring/alerting",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-04-22 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_KZW": {
+    "alias": "CAUSE_KZW",
+    "canonical_id": "RC25",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "incorrect load balancer routing",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-04-22 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_TGW": {
+    "alias": "CAUSE_TGW",
+    "canonical_id": "RC26",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "firewall misconfiguration",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-04-22 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_HBS": {
+    "alias": "CAUSE_HBS",
+    "canonical_id": "RC27",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "schema mismatch",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-04-22 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_DBL": {
+    "alias": "CAUSE_DBL",
+    "canonical_id": "RC28",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "breaking API contract change",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-04-22 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_VXM": {
+    "alias": "CAUSE_VXM",
+    "canonical_id": "RC29",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "credential rotation not propagated",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-04-22 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_KDN": {
+    "alias": "CAUSE_KDN",
+    "canonical_id": "RC30",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "stale internal documentation followed",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-04-22 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_MSB": {
+    "alias": "CAUSE_MSB",
+    "canonical_id": "RC31",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "incomplete rollback",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-04-22 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_TVP": {
+    "alias": "CAUSE_TVP",
+    "canonical_id": "RC32",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "infrastructure hardware failure",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-04-22 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_VCP": {
+    "alias": "CAUSE_VCP",
+    "canonical_id": "RC33",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "rate limit misconfiguration",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-04-22 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_MVJ": {
+    "alias": "CAUSE_MVJ",
+    "canonical_id": "RC34",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "insufficient capacity planning",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-04-22 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_FTF": {
+    "alias": "CAUSE_FTF",
+    "canonical_id": "RC35",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "data migration defect",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-04-22 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_JFK": {
+    "alias": "CAUSE_JFK",
+    "canonical_id": "RC36",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "improper access review",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-04-22 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_STH": {
+    "alias": "CAUSE_STH",
+    "canonical_id": "RC37",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "expired API key",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-04-22 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_KJM": {
+    "alias": "CAUSE_KJM",
+    "canonical_id": "RC38",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "clock/time synchronization issue",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-04-22 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_LCW": {
+    "alias": "CAUSE_LCW",
+    "canonical_id": "RC39",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "idempotency/duplicate-processing failure",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-04-22 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_MSK": {
+    "alias": "CAUSE_MSK",
+    "canonical_id": "RC40",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "insufficient information to determine root cause",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-04-22 00:00:00",
+    "summary": ""
+   },
+   "PRODUCT_RTM": {
+    "alias": "PRODUCT_RTM",
+    "canonical_id": "P001",
+    "kind": "PRODUCT",
+    "type": "product",
+    "display_name": "Payment Gateway v2",
+    "source_tool": "get_case_context",
+    "first_observed_step": 1,
+    "first_observed_clock": "2025-04-22 00:00:00",
+    "summary": ""
+   },
+   "PRODUCT_PMQ": {
+    "alias": "PRODUCT_PMQ",
+    "canonical_id": "P041",
+    "kind": "PRODUCT",
+    "type": "product",
+    "display_name": "Chargeback Handler",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2025-04-22 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_XJL": {
+    "alias": "COMPONENT_XJL",
+    "canonical_id": "CM047",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Chargeback Handler",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2025-04-22 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_FWN": {
+    "alias": "COMPONENT_FWN",
+    "canonical_id": "CM052",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Reconciliation Engine",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2025-04-22 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_PTR": {
+    "alias": "COMPONENT_PTR",
+    "canonical_id": "CM053",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Fraud Detection Module",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2025-04-22 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_DSJ": {
+    "alias": "COMPONENT_DSJ",
+    "canonical_id": "CM055",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Subscription Billing Engine",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2025-04-22 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_DCT": {
+    "alias": "COMPONENT_DCT",
+    "canonical_id": "CM067",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Proration Calculator",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2025-04-22 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_NZC": {
+    "alias": "COMPONENT_NZC",
+    "canonical_id": "CM078",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Payment Webhook Dispatcher",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2025-04-22 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_QBQ": {
+    "alias": "COMPONENT_QBQ",
+    "canonical_id": "CM082",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Payment Gateway Router",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2025-04-22 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_VLG": {
+    "alias": "COMPONENT_VLG",
+    "canonical_id": "CM087",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Invoice Dispute Tracker",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2025-04-22 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_MJB": {
+    "alias": "COMPONENT_MJB",
+    "canonical_id": "CM050",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Currency Conversion Service",
+    "source_tool": "get_technical_signals",
+    "first_observed_step": 3,
+    "first_observed_clock": "2025-04-22 00:30:00",
+    "summary": ""
+   },
+   "EVIDENCE_XHH": {
+    "alias": "EVIDENCE_XHH",
+    "canonical_id": "SG0003636",
+    "kind": "EVIDENCE",
+    "type": "signal",
+    "display_name": "",
+    "source_tool": "get_technical_signals",
+    "first_observed_step": 3,
+    "first_observed_clock": "2025-04-22 00:30:00",
+    "summary": "CHECKSUM_MISMATCH: checksum mismatch detected in Currency Conversion Service on COMPONENT_MJB @ 2025-04-21 23:25:00"
+   },
+   "EVIDENCE_VKB": {
+    "alias": "EVIDENCE_VKB",
+    "canonical_id": "SG0003638",
+    "kind": "EVIDENCE",
+    "type": "signal",
+    "display_name": "",
+    "source_tool": "get_technical_signals",
+    "first_observed_step": 3,
+    "first_observed_clock": "2025-04-22 00:30:00",
+    "summary": "DUPLICATE_RECORD_DETECTED: duplicate records detected in Currency Conversion Service on COMPONENT_MJB @ 2025-04-21 23:26:00"
+   },
+   "EVIDENCE_WFL": {
+    "alias": "EVIDENCE_WFL",
+    "canonical_id": "SG0003637",
+    "kind": "EVIDENCE",
+    "type": "signal",
+    "display_name": "",
+    "source_tool": "get_technical_signals",
+    "first_observed_step": 3,
+    "first_observed_clock": "2025-04-22 00:30:00",
+    "summary": "DATA_VALIDATION_FAILED: data validation failures on Currency Conversion Service on COMPONENT_MJB @ 2025-04-21 23:48:00"
+   },
+   "COMPONENT_JVD": {
+    "alias": "COMPONENT_JVD",
+    "canonical_id": "CM108",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Embedding Service",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 4,
+    "first_observed_clock": "2025-04-22 00:45:00",
+    "summary": ""
+   },
+   "COMPONENT_DBJ": {
+    "alias": "COMPONENT_DBJ",
+    "canonical_id": "CM134",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Cache Service",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 4,
+    "first_observed_clock": "2025-04-22 00:45:00",
+    "summary": ""
+   },
+   "COMPONENT_ZCR": {
+    "alias": "COMPONENT_ZCR",
+    "canonical_id": "CM151",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Primary Database Cluster",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 4,
+    "first_observed_clock": "2025-04-22 00:45:00",
+    "summary": ""
+   },
+   "COMPONENT_QCT": {
+    "alias": "COMPONENT_QCT",
+    "canonical_id": "CM245",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Central Notification Dispatcher",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 4,
+    "first_observed_clock": "2025-04-22 00:45:00",
+    "summary": ""
+   },
+   "TEAM_HMD": {
+    "alias": "TEAM_HMD",
+    "canonical_id": "TM08",
+    "kind": "TEAM",
+    "type": "team",
+    "display_name": "Commerce / Billing",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 4,
+    "first_observed_clock": "2025-04-22 00:45:00",
+    "summary": ""
+   },
+   "TEAM_NBM": {
+    "alias": "TEAM_NBM",
+    "canonical_id": "TM18",
+    "kind": "TEAM",
+    "type": "team",
+    "display_name": "Product Engineering (Payments)",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 4,
+    "first_observed_clock": "2025-04-22 00:45:00",
+    "summary": ""
+   },
+   "EVIDENCE_SLW": {
+    "alias": "EVIDENCE_SLW",
+    "canonical_id": "CS00741:CM050:duplicate_event_rate",
+    "kind": "EVIDENCE",
+    "type": "telemetry",
+    "display_name": "",
+    "source_tool": "get_telemetry",
+    "first_observed_step": 6,
+    "first_observed_clock": "2025-04-22 01:15:00",
+    "summary": "duplicate_event_rate on COMPONENT_MJB: status abnormal, direction above_baseline, baseline 0.1874, observed 0.063..0.683"
+   },
+   "EVIDENCE_RGC": {
+    "alias": "EVIDENCE_RGC",
+    "canonical_id": "SHE01023",
+    "kind": "EVIDENCE",
+    "type": "health_event",
+    "display_name": "",
+    "source_tool": "get_service_health",
+    "first_observed_step": 7,
+    "first_observed_clock": "2025-04-22 01:30:00",
+    "summary": "health event severity minor 2025-03-11 18:33:00..2025-03-11 19:18:00: minor latency spike observed on Currency Conversion Service, self-resolved after 45 minutes."
+   },
+   "EVIDENCE_ZXS": {
+    "alias": "EVIDENCE_ZXS",
+    "canonical_id": "SHE01012",
+    "kind": "EVIDENCE",
+    "type": "health_event",
+    "display_name": "",
+    "source_tool": "get_service_health",
+    "first_observed_step": 7,
+    "first_observed_clock": "2025-04-22 01:30:00",
+    "summary": "health event severity minor 2024-12-07 16:48:00..2024-12-07 16:53:00: Brief minor health blip on Currency Conversion Service: elevated error rate for 5 minutes."
+   },
+   "EVIDENCE_FVC": {
+    "alias": "EVIDENCE_FVC",
+    "canonical_id": "SHE01008",
+    "kind": "EVIDENCE",
+    "type": "health_event",
+    "display_name": "",
+    "source_tool": "get_service_health",
+    "first_observed_step": 7,
+    "first_observed_clock": "2025-04-22 01:30:00",
+    "summary": "health event severity minor 2024-11-29 17:46:00..2024-11-29 18:31:00: minor latency spike observed on Currency Conversion Service, self-resolved after 45 minutes."
+   },
+   "EVIDENCE_PSS": {
+    "alias": "EVIDENCE_PSS",
+    "canonical_id": "SHE01026",
+    "kind": "EVIDENCE",
+    "type": "health_event",
+    "display_name": "",
+    "source_tool": "get_service_health",
+    "first_observed_step": 7,
+    "first_observed_clock": "2025-04-22 01:30:00",
+    "summary": "health event severity major 2024-11-22 11:24:00..2024-11-22 11:44:00: Automated health check flagged Currency Conversion Service as degraded (major) for 20 minutes."
+   },
+   "EVIDENCE_GPH": {
+    "alias": "EVIDENCE_GPH",
+    "canonical_id": "SHE01013",
+    "kind": "EVIDENCE",
+    "type": "health_event",
+    "display_name": "",
+    "source_tool": "get_service_health",
+    "first_observed_step": 7,
+    "first_observed_clock": "2025-04-22 01:30:00",
+    "summary": "health event severity minor 2024-10-09 17:40:00..2024-10-09 18:40:00: minor latency spike observed on Currency Conversion Service, self-resolved after 60 minutes."
+   },
+   "COMPONENT_BTC": {
+    "alias": "COMPONENT_BTC",
+    "canonical_id": "CM088",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Currency Rate Feed Connector",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 9,
+    "first_observed_clock": "2025-04-22 02:00:00",
+    "summary": ""
+   },
+   "COMPONENT_LJH": {
+    "alias": "COMPONENT_LJH",
+    "canonical_id": "CM154",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Object Storage Service",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 9,
+    "first_observed_clock": "2025-04-22 02:00:00",
+    "summary": ""
+   },
+   "COMPONENT_BZD": {
+    "alias": "COMPONENT_BZD",
+    "canonical_id": "CM168",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Time-Series Metrics Store",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 9,
+    "first_observed_clock": "2025-04-22 02:00:00",
+    "summary": ""
+   },
+   "COMPONENT_LTQ": {
+    "alias": "COMPONENT_LTQ",
+    "canonical_id": "CM205",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Mobile Push Token Manager",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 9,
+    "first_observed_clock": "2025-04-22 02:00:00",
+    "summary": ""
+   },
+   "COMPONENT_PDW": {
+    "alias": "COMPONENT_PDW",
+    "canonical_id": "CM215",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Email Delivery Worker",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 9,
+    "first_observed_clock": "2025-04-22 02:00:00",
+    "summary": ""
+   },
+   "COMPONENT_TMZ": {
+    "alias": "COMPONENT_TMZ",
+    "canonical_id": "CM250",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Vendor Integration Hub",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 9,
+    "first_observed_clock": "2025-04-22 02:00:00",
+    "summary": ""
+   }
+  },
+  "validation_result": {
+   "first_pass_ok": true,
+   "errors_first": [],
+   "repair_used": false,
+   "final_ok": true,
+   "errors_final": []
+  },
+  "contract_failure": null,
+  "llm_calls": [
+   {
+    "phase": "action",
+    "step": 2,
+    "attempt": 0,
+    "prompt_tokens": 1410,
+    "completion_tokens": 76,
+    "latency_ms": 4562.4,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Billing/Commerce issue\", \"confidence\": 0.99, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_customer_deployment\", \"component\": null, \"metric_category\": null, \"keyword\": null, \"team\": null}"
+   },
+   {
+    "phase": "action",
+    "step": 3,
+    "attempt": 0,
+    "prompt_tokens": 1759,
+    "completion_tokens": 77,
+    "latency_ms": 3820.5,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Billing/Commerce issue\", \"confidence\": 0.99, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_technical_signals\", \"component\": null, \"metric_category\": null, \"keyword\": null, \"team\": null}"
+   },
+   {
+    "phase": "action",
+    "step": 4,
+    "attempt": 0,
+    "prompt_tokens": 1874,
+    "completion_tokens": 79,
+    "latency_ms": 27567.3,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Billing/Commerce issue\", \"confidence\": 0.99, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_component_topology\", \"component\": \"COMPONENT_MJB\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+   },
+   {
+    "phase": "action",
+    "step": 5,
+    "attempt": 0,
+    "prompt_tokens": 1902,
+    "completion_tokens": 80,
+    "latency_ms": 3235.8,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Billing/Commerce issue\", \"confidence\": 0.99, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_telemetry\", \"component\": \"COMPONENT_MJB\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+   },
+   {
+    "phase": "action",
+    "step": 6,
+    "attempt": 0,
+    "prompt_tokens": 1790,
+    "completion_tokens": 81,
+    "latency_ms": 28058.3,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Billing/Commerce issue\", \"confidence\": 0.99, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_telemetry\", \"component\": \"COMPONENT_MJB\", \"metric_category\": \"Data\", \"keyword\": null, \"team\": null}"
+   },
+   {
+    "phase": "action",
+    "step": 7,
+    "attempt": 0,
+    "prompt_tokens": 1956,
+    "completion_tokens": 146,
+    "latency_ms": 5843.4,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Billing/Commerce issue\", \"confidence\": 0.99, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"Currency Conversion Service issue\", \"confidence\": 0.6, \"status\": \"active\", \"supporting_evidence\": [\"EVIDENCE_XHH\", \"EVIDENCE_VKB\", \"EVIDENCE_WFL\", \"EVIDENCE_SLW\"], \"contradicting_evidence\": []}], \"tool\": \"get_service_health\", \"component\": \"COMPONENT_MJB\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+   },
+   {
+    "phase": "action",
+    "step": 8,
+    "attempt": 0,
+    "prompt_tokens": 2595,
+    "completion_tokens": 143,
+    "latency_ms": 6656.6,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Billing/Commerce issue\", \"confidence\": 0.99, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"Currency Conversion Service issue\", \"confidence\": 0.6, \"status\": \"active\", \"supporting_evidence\": [\"EVIDENCE_XHH\", \"EVIDENCE_VKB\", \"EVIDENCE_WFL\", \"EVIDENCE_SLW\"], \"contradicting_evidence\": []}], \"tool\": \"get_similar_cases\", \"component\": null, \"metric_category\": null, \"keyword\": null, \"team\": null}"
+   },
+   {
+    "phase": "action",
+    "step": 9,
+    "attempt": 0,
+    "prompt_tokens": 2227,
+    "completion_tokens": 146,
+    "latency_ms": 6086.9,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Billing/Commerce issue\", \"confidence\": 0.99, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"Currency Conversion Service issue\", \"confidence\": 0.6, \"status\": \"active\", \"supporting_evidence\": [\"EVIDENCE_XHH\", \"EVIDENCE_VKB\", \"EVIDENCE_WFL\", \"EVIDENCE_SLW\"], \"contradicting_evidence\": []}], \"tool\": \"get_component_topology\", \"component\": \"COMPONENT_DSJ\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+   },
+   {
+    "phase": "action",
+    "step": 10,
+    "attempt": 0,
+    "prompt_tokens": 2492,
+    "completion_tokens": 142,
+    "latency_ms": 5329.3,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Billing/Commerce issue\", \"confidence\": 0.99, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"Currency Conversion Service issue\", \"confidence\": 0.6, \"status\": \"active\", \"supporting_evidence\": [\"EVIDENCE_XHH\", \"EVIDENCE_VKB\", \"EVIDENCE_WFL\", \"EVIDENCE_SLW\"], \"contradicting_evidence\": []}], \"tool\": \"submit_diagnosis\", \"component\": null, \"metric_category\": null, \"keyword\": null, \"team\": null}"
+   },
+   {
+    "phase": "final",
+    "step": 10,
+    "attempt": 0,
+    "prompt_tokens": 2974,
+    "completion_tokens": 384,
+    "latency_ms": 46498.9,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Billing/Commerce issue\", \"confidence\": 0.99, \"status\": \"confirmed\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"Currency Conversion Service issue\", \"confidence\": 0.6, \"status\": \"confirmed\", \"supporting_evidence\": [\"EVIDENCE_XHH\", \"EVIDENCE_VKB\", \"EVIDENCE_WFL\", \"EVIDENCE_SLW\"], \"contradicting_evidence\": []}], \"evidence_ids\": [\"EVIDENCE_XHH\", \"EVIDENCE_VKB\", \"EVIDENCE_WFL\", \"EVIDENCE_SLW\"], \"issue_category\": \"CATEGORY_GGC\", \"category_confidence\": 0.99, \"root_cause\": \"CAUSE_TBF\", \"root_cause_confidence\": 0.6, \"affected_component\": \"COMPONENT_MJB\", \"component_confidence\": 0.6, \"causal_change\": null, \"causal_change_confidence\": null, \"owning_team\": \"TEAM_HMD\", \"routing_confidence\": 0.6, \"confidence\": 0.6, \"evidence_sufficiency\": \"sufficient\", \"human_review_required\": false, \"review_reason\": null, \"status\": \"DIAGNOSIS_PROPOSED\", \"recommended_next_action\": \"Verify the Currency Conversion Service configuration and update it if necessary to resolve the billing accuracy issue.\", \"unresolved_uncertainties\": [], \"summary\": \"The billing accuracy issue in the EU-West production environment is likely caused by a product defect in the Currency Conversion Service, which is part of the Payment Gateway v2 product. The affected component is the Currency Conversion Service, and the owning team is the Commerce/Billing team.\"}"
+   },
+   {
+    "phase": "action",
+    "step": 10,
+    "attempt": 0,
+    "prompt_tokens": 2609,
+    "completion_tokens": 149,
+    "latency_ms": 15321.6,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Billing/Commerce issue\", \"confidence\": 0.99, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"Currency Conversion Service issue\", \"confidence\": 0.6, \"status\": \"active\", \"supporting_evidence\": [\"EVIDENCE_XHH\", \"EVIDENCE_VKB\", \"EVIDENCE_WFL\", \"EVIDENCE_SLW\"], \"contradicting_evidence\": []}], \"tool\": \"get_technical_signals\", \"component\": \"COMPONENT_DSJ\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+   },
+   {
+    "phase": "action",
+    "step": 11,
+    "attempt": 0,
+    "prompt_tokens": 2428,
+    "completion_tokens": 146,
+    "latency_ms": 3679.9,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Billing/Commerce issue\", \"confidence\": 0.99, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"Currency Conversion Service issue\", \"confidence\": 0.6, \"status\": \"active\", \"supporting_evidence\": [\"EVIDENCE_XHH\", \"EVIDENCE_VKB\", \"EVIDENCE_WFL\", \"EVIDENCE_SLW\"], \"contradicting_evidence\": []}], \"tool\": \"get_recent_changes\", \"component\": \"COMPONENT_DSJ\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+   },
+   {
+    "phase": "action",
+    "step": 12,
+    "attempt": 0,
+    "prompt_tokens": 2442,
+    "completion_tokens": 147,
+    "latency_ms": 7642.6,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Billing/Commerce issue\", \"confidence\": 0.99, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"Currency Conversion Service issue\", \"confidence\": 0.6, \"status\": \"active\", \"supporting_evidence\": [\"EVIDENCE_XHH\", \"EVIDENCE_VKB\", \"EVIDENCE_WFL\", \"EVIDENCE_SLW\"], \"contradicting_evidence\": []}], \"tool\": \"get_deployment_history\", \"component\": \"COMPONENT_DSJ\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+   },
+   {
+    "phase": "action",
+    "step": 13,
+    "attempt": 0,
+    "prompt_tokens": 2459,
+    "completion_tokens": 143,
+    "latency_ms": 4549.7,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Billing/Commerce issue\", \"confidence\": 0.99, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"Currency Conversion Service issue\", \"confidence\": 0.6, \"status\": \"active\", \"supporting_evidence\": [\"EVIDENCE_XHH\", \"EVIDENCE_VKB\", \"EVIDENCE_WFL\", \"EVIDENCE_SLW\"], \"contradicting_evidence\": []}], \"tool\": \"get_active_incidents\", \"component\": null, \"metric_category\": null, \"keyword\": null, \"team\": null}"
+   },
+   {
+    "phase": "final",
+    "step": 14,
+    "attempt": 0,
+    "prompt_tokens": 3157,
+    "completion_tokens": 388,
+    "latency_ms": 86830.7,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Billing/Commerce issue\", \"confidence\": 0.99, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"Currency Conversion Service issue\", \"confidence\": 0.6, \"status\": \"active\", \"supporting_evidence\": [\"EVIDENCE_XHH\", \"EVIDENCE_VKB\", \"EVIDENCE_WFL\", \"EVIDENCE_SLW\"], \"contradicting_evidence\": []}], \"evidence_ids\": [\"EVIDENCE_XHH\", \"EVIDENCE_VKB\", \"EVIDENCE_WFL\", \"EVIDENCE_SLW\"], \"issue_category\": \"CATEGORY_GGC\", \"category_confidence\": 0.99, \"root_cause\": null, \"root_cause_confidence\": null, \"affected_component\": \"COMPONENT_MJB\", \"component_confidence\": 0.6, \"causal_change\": null, \"causal_change_confidence\": null, \"owning_team\": null, \"routing_confidence\": null, \"confidence\": 0.99, \"evidence_sufficiency\": \"insufficient\", \"human_review_required\": true, \"review_reason\": \"The investigation budget is exhausted and more evidence is required to determine the root cause and affected component with high confidence.\", \"status\": \"INSUFFICIENT_EVIDENCE\", \"recommended_next_action\": \"Gather more evidence using available tools to determine the root cause and affected component.\", \"unresolved_uncertainties\": [\"Root cause of the issue\", \"Affected component\"], \"summary\": \"The case report indicates a Billing/Commerce issue with incorrect tax amounts and total charges. The evidence suggests a possible issue with the Currency Conversion Service, but more investigation is required to determine the root cause and affected component.\"}"
+   }
+  ],
+  "sim_clock_end": "2025-04-22 03:15:00",
+  "tool_budget": 13,
+  "verification_rounds": [
+   {
+    "round": 1,
+    "decision": "CONTINUE_INVESTIGATION",
+    "reason": "possible missed evidence; possible anchoring on weak or distracting evidence while stronger competing evidence exists",
+    "triggers": [
+     "jev_missed_evidence",
+     "jev_distractor_anchor"
+    ],
+    "message": "Verification result:\nMore investigation required.\nReasons:\n- possible missed evidence\n- possible anchoring on weak or distracting evidence while stronger competing evidence exists\nTools you have not used yet: get_recent_changes, get_deployment_history, get_configuration_history, get_active_incidents, search_knowledge_base, get_team_capability, get_agent_availability.\nContinue investigating using available tools. Do not repeat already completed tool calls unless necessary. You have up to 4 more tool calls; then you will be asked for your final diagnosis again.",
+    "deterministic_checks": {
+     "D1": {
+      "id": "D1",
+      "name": "valid_final_contract",
+      "passed": true,
+      "applicable": true,
+      "detail": "schema, bounds and every reference are valid"
+     },
+     "D2": {
+      "id": "D2",
+      "name": "evidence_support",
+      "passed": true,
+      "applicable": true,
+      "detail": "4 cited evidence item(s), 1 supported hypothesis(es)"
+     },
+     "D3": {
+      "id": "D3",
+      "name": "final_consistency",
+      "passed": true,
+      "applicable": true,
+      "detail": "consistent with the last stated hypotheses and its own confidence"
+     },
+     "D4": {
+      "id": "D4",
+      "name": "premature_finalization",
+      "passed": true,
+      "applicable": true,
+      "detail": "evidence was retrieved and either a hypothesis is supported or the tool budget is used up"
+     },
+     "all_passed": true
+    },
+    "jev": {
+     "missed_evidence_probability": 0.76,
+     "distractor_anchor_probability": 0.77,
+     "review_probabilities": {
+      "REVIEW": 0.21,
+      "NORMAL": 0.0,
+      "PRIORITY_REVIEW": 0.79
+     },
+     "review": "PRIORITY_REVIEW",
+     "available": true,
+     "errors": [],
+     "jev_model": "jev-1.13.0",
+     "input_tokens": 16876,
+     "latency_ms": 549.3,
+     "question_versions": {
+      "missed_evidence": "missed_evidence_v1",
+      "distractor_anchor": "distractor_anchor_v1",
+      "review": "human_review_v1"
+     }
+    },
+    "verifier_latency_ms": 1005.9
+   },
+   {
+    "round": 2,
+    "decision": "HUMAN_REVIEW",
+    "reason": "still unresolved after the additional investigation round: possible missed evidence",
+    "triggers": [
+     "jev_missed_evidence"
+    ],
+    "deterministic_checks": {
+     "D1": {
+      "id": "D1",
+      "name": "valid_final_contract",
+      "passed": true,
+      "applicable": true,
+      "detail": "schema, bounds and every reference are valid"
+     },
+     "D2": {
+      "id": "D2",
+      "name": "evidence_support",
+      "passed": true,
+      "applicable": false,
+      "detail": "no diagnosis was proposed, so there is nothing to support"
+     },
+     "D3": {
+      "id": "D3",
+      "name": "final_consistency",
+      "passed": false,
+      "applicable": true,
+      "detail": "confidence >= 0.8 despite stated uncertainty or insufficient evidence"
+     },
+     "D4": {
+      "id": "D4",
+      "name": "premature_finalization",
+      "passed": true,
+      "applicable": true,
+      "detail": "evidence was retrieved and either a hypothesis is supported or the tool budget is used up"
+     },
+     "all_passed": false
+    },
+    "jev": {
+     "missed_evidence_probability": 0.75,
+     "distractor_anchor_probability": 0.5,
+     "review_probabilities": {
+      "NORMAL": 0.0,
+      "PRIORITY_REVIEW": 0.44,
+      "REVIEW": 0.56
+     },
+     "review": "REVIEW",
+     "available": true,
+     "errors": [],
+     "jev_model": "jev-1.13.0",
+     "input_tokens": 18775,
+     "latency_ms": 489.6,
+     "question_versions": {
+      "missed_evidence": "missed_evidence_v1",
+      "distractor_anchor": "distractor_anchor_v1",
+      "review": "human_review_v1"
+     }
+    },
+    "verifier_latency_ms": 914.5
+   }
+  ],
+  "initial_result": {
+   "final_status": "DIAGNOSIS_PROPOSED",
+   "final_alias_form": {
+    "hypotheses": [
+     {
+      "label": "Billing/Commerce issue",
+      "confidence": 0.99,
+      "status": "confirmed",
+      "supporting_evidence": [],
+      "contradicting_evidence": []
+     },
+     {
+      "label": "Currency Conversion Service issue",
+      "confidence": 0.6,
+      "status": "confirmed",
+      "supporting_evidence": [
+       "EVIDENCE_XHH",
+       "EVIDENCE_VKB",
+       "EVIDENCE_WFL",
+       "EVIDENCE_SLW"
+      ],
+      "contradicting_evidence": []
+     }
+    ],
+    "evidence_ids": [
+     "EVIDENCE_XHH",
+     "EVIDENCE_VKB",
+     "EVIDENCE_WFL",
+     "EVIDENCE_SLW"
+    ],
+    "issue_category": "CATEGORY_GGC",
+    "category_confidence": 0.99,
+    "root_cause": "CAUSE_TBF",
+    "root_cause_confidence": 0.6,
+    "affected_component": "COMPONENT_MJB",
+    "component_confidence": 0.6,
+    "causal_change": null,
+    "causal_change_confidence": null,
+    "owning_team": "TEAM_HMD",
+    "routing_confidence": 0.6,
+    "confidence": 0.6,
+    "evidence_sufficiency": "sufficient",
+    "human_review_required": false,
+    "review_reason": null,
+    "status": "DIAGNOSIS_PROPOSED",
+    "recommended_next_action": "Verify the Currency Conversion Service configuration and update it if necessary to resolve the billing accuracy issue.",
+    "unresolved_uncertainties": [],
+    "summary": "The billing accuracy issue in the EU-West production environment is likely caused by a product defect in the Currency Conversion Service, which is part of the Payment Gateway v2 product. The affected component is the Currency Conversion Service, and the owning team is the Commerce/Billing team."
+   },
+   "final_diagnosis": {
+    "hypotheses": [
+     {
+      "label": "Billing/Commerce issue",
+      "description": "",
+      "confidence": 0.99,
+      "status": "confirmed",
+      "supporting_evidence": [],
+      "contradicting_evidence": []
+     },
+     {
+      "label": "Currency Conversion Service issue",
+      "description": "",
+      "confidence": 0.6,
+      "status": "confirmed",
+      "supporting_evidence": [
+       "SG0003636",
+       "SG0003638",
+       "SG0003637",
+       "CS00741:CM050:duplicate_event_rate"
+      ],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "predicted_product_id": null,
+    "product_confidence": null,
+    "predicted_component_id": "CM050",
+    "component_confidence": 0.6,
+    "predicted_category_id": "IC13",
+    "category_confidence": 0.99,
+    "predicted_subcategory_id": null,
+    "predicted_root_cause_family": "product defect",
+    "root_cause_confidence": 0.6,
+    "predicted_causal_change_id": null,
+    "causal_change_confidence": null,
+    "predicted_severity": null,
+    "severity_confidence": null,
+    "recommended_team_id": "TM08",
+    "routing_confidence": 0.6,
+    "evidence_sufficiency": "sufficient",
+    "overall_confidence": 0.6,
+    "recommended_next_action": "Verify the Currency Conversion Service configuration and update it if necessary to resolve the billing accuracy issue.",
+    "human_review_required": false,
+    "human_review_reason": null,
+    "evidence_summary": "The billing accuracy issue in the EU-West production environment is likely caused by a product defect in the Currency Conversion Service, which is part of the Payment Gateway v2 product. The affected component is the Currency Conversion Service, and the owning team is the Commerce/Billing team.",
+    "unresolved_uncertainties": [],
+    "status": "DIAGNOSIS_PROPOSED",
+    "evidence_ids": [
+     "SG0003636",
+     "SG0003638",
+     "SG0003637",
+     "CS00741:CM050:duplicate_event_rate"
+    ]
+   },
+   "validation_result": {
+    "first_pass_ok": true,
+    "errors_first": [],
+    "repair_used": false,
+    "final_ok": true,
+    "errors_final": []
+   },
+   "num_tool_calls": 10,
+   "evidence_ids_seen": [
+    "CS00741:CM050:duplicate_event_rate",
+    "SG0003636",
+    "SG0003637",
+    "SG0003638",
+    "SHE01008",
+    "SHE01012",
+    "SHE01013",
+    "SHE01023",
+    "SHE01026"
+   ],
+   "triage_outcome": {
+    "outcome": "confirmed",
+    "hint_shown": true,
+    "suggested_category_id": "IC13",
+    "suggested_category": "Billing / Commerce",
+    "final_category_id": "IC13",
+    "final_category": "Billing / Commerce",
+    "final_in_alternatives": false
+   }
+  },
+  "additional_investigation_performed": true,
+  "early_triage": {
+   "version": "early_triage_v1",
+   "role": "triage_guidance",
+   "source": "jev_early_triage",
+   "question_version": "early_triage_category_v1",
+   "state_version": "early_triage_state_v1",
+   "status": "hint",
+   "fallback": false,
+   "fallback_reason": null,
+   "category_id": "IC13",
+   "category_name": "Billing / Commerce",
+   "probability": 0.99,
+   "margin": 0.98,
+   "uncertainty": "low",
+   "alternatives": [
+    {
+     "category_id": "IC14",
+     "name": "User Experience / Functional Defect",
+     "probability": 0.01
+    },
+    {
+     "category_id": "IC01",
+     "name": "Identity / Authentication",
+     "probability": 0.0
+    },
+    {
+     "category_id": "IC02",
+     "name": "Authorization / Permissions",
+     "probability": 0.0
+    }
+   ],
+   "distribution_top": [
+    {
+     "category_id": "IC13",
+     "name": "Billing / Commerce",
+     "probability": 0.99
+    },
+    {
+     "category_id": "IC14",
+     "name": "User Experience / Functional Defect",
+     "probability": 0.01
+    },
+    {
+     "category_id": "IC01",
+     "name": "Identity / Authentication",
+     "probability": 0.0
+    },
+    {
+     "category_id": "IC02",
+     "name": "Authorization / Permissions",
+     "probability": 0.0
+    }
+   ],
+   "abstain_probability": 0.0,
+   "suggested_tools": [
+    "get_technical_signals",
+    "get_similar_cases",
+    "search_knowledge_base"
+   ],
+   "jev_model": "jev-1.13.0",
+   "input_tokens": 891,
+   "latency_ms": 131.0,
+   "error": null,
+   "config": {
+    "min_probability": 0.3,
+    "moderate_probability": 0.4,
+    "strong_probability": 0.7,
+    "top_alternatives": 3,
+    "timeout_s": 20.0
+   }
+  },
+  "triage_hint_text": "EARLY TRIAGE HINT (provisional and unverified)\nSource: Jev early triage. It read only the ticket text and basic customer/product details; no tool, log, telemetry or graph evidence had been examined.\nSuggested issue category: CATEGORY_GGC = Billing / Commerce (probability 0.99, low uncertainty).\nThis is a prior, not a finding, and it may be wrong. Test it against the evidence you retrieve, weigh the competing categories, and reject or replace it if the evidence points elsewhere. It is not evidence and cannot be cited. Choose your final issue_category from the evidence.\nSuggested starting points for this category (advisory only: every tool stays available and no category or evidence is ruled out): get_technical_signals; get_similar_cases; search_knowledge_base.",
+  "triage_prompt_version": "early_triage_prompt_v1",
+  "triage_outcome": {
+   "outcome": "confirmed",
+   "hint_shown": true,
+   "suggested_category_id": "IC13",
+   "suggested_category": "Billing / Commerce",
+   "final_category_id": "IC13",
+   "final_category": "Billing / Commerce",
+   "final_in_alternatives": false
+  }
+ }
+}

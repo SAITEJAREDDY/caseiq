@@ -1,0 +1,11 @@
+id,name,domain
+ED01,Primary Identity Provider,identity
+ED02,Payment Processor Network,payments
+ED03,Tax Calculation Vendor,payments
+ED04,Currency Exchange Rate Feed,payments
+ED05,SMS Gateway Vendor,messaging
+ED06,Email Delivery Provider (ESP),messaging
+ED07,Push Notification Service,messaging
+ED08,DNS / CDN Provider,infrastructure
+ED09,Cloud IaaS Provider,infrastructure
+ED10,Fraud Detection Vendor,security

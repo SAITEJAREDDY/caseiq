@@ -1,0 +1,43 @@
+id,name
+RT01,configuration change
+RT02,policy correction
+RT03,permission update
+RT04,service restart
+RT05,certificate renewal
+RT06,rollback
+RT07,product patch
+RT08,version upgrade
+RT09,dependency remediation
+RT10,DNS correction
+RT11,capacity increase
+RT12,database optimization
+RT13,cache clearing
+RT14,feature disablement
+RT15,workaround
+RT16,customer education
+RT17,documentation correction
+RT18,engineering escalation
+RT19,known-issue workaround
+RT20,firewall rule update
+RT21,load balancer reconfiguration
+RT22,credential rotation
+RT23,token/session reset
+RT24,data repair script
+RT25,data re-sync
+RT26,index rebuild
+RT27,backup restoration
+RT28,failover executed
+RT29,monitoring/alert added
+RT30,access review completed
+RT31,API contract fix
+RT32,schema migration
+RT33,queue reprocessing
+RT34,manual reconciliation
+RT35,refund issued
+RT36,billing correction
+RT37,vendor engaged
+RT38,no fix required (as designed)
+RT39,duplicate ticket closed
+RT40,customer-side fix confirmed
+RT41,infrastructure replacement
+RT42,rate limit adjustment

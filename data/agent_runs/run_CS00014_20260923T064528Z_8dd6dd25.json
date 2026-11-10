@@ -1,0 +1,367 @@
+{
+  "run_id": "run_CS00014_20260923T064528Z_8dd6dd25",
+  "case_id": "CS00014",
+  "created_at": "2026-09-23T06:45:28.960960+00:00",
+  "model_provider": "together",
+  "model_name": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "temperature": 0.1,
+  "prompt_version": "v1",
+  "toolset_version": "v1",
+  "output_schema_version": "v1",
+  "agent_loop_version": "v1",
+  "repair_layer_version": "v1",
+  "graph_version": "phase4-2500case-2026-09-22",
+  "sim_clock_step_minutes": 15,
+  "max_tool_calls": 10,
+  "max_repeated_same_tool": 2,
+  "stop_reason": "model_submitted",
+  "num_tool_calls": 5,
+  "num_llm_calls": 5,
+  "token_usage": {
+    "prompt_tokens": 11083,
+    "completion_tokens": 452,
+    "total_tokens": 11535
+  },
+  "approx_cost_usd": 0.001154,
+  "approx_cost_note": "Estimated from a configurable placeholder rate, not exact provider billing -- see config.py",
+  "trace_steps": [
+    {
+      "step": 1,
+      "sim_clock": "2025-09-09 00:00:00",
+      "tool_name": "get_case_context",
+      "args": {
+        "hypotheses": [],
+        "rationale": "Starting the investigation of case CS00014"
+      },
+      "hypotheses": [],
+      "rationale": "Starting the investigation of case CS00014",
+      "result_summary": {
+        "case_id": "CS00014",
+        "title": "Analytics Dashboard API errors and webhook retries in Dev (EU-Central)",
+        "description": "We are seeing webhook retries exhausted, HTTP 429 errors, and API schema errors when using the Analytics Dashboard in our EU-Central development environment. We're not sure if the dashboard is returning these errors due to internal processing issues or if a job scheduler is failing to feed it data correctly. No immediate impact, but blocking development.",
+        "environment": "development",
+        "region": "EU-Central",
+        "reported_business_impact": "none",
+        "reported_affected_users": 0,
+        "priority": "medium",
+        "created_date": "2025-09-09",
+        "status": "resolved",
+        "customer_id": "C02801",
+        "customer_tier": "bronze",
+        "customer_industry": "Telecom",
+        "customer_company_size": "mid",
+        "reported_product_id": "P003",
+        "reported_product_name": "Analytics Dashboard",
+        "reported_symptoms": [
+          "HTTP 429",
+          "webhook retries exhausted",
+          "API schema error"
+        ]
+      },
+      "latency_ms": 814.1,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 2,
+      "sim_clock": "2025-09-09 00:15:00",
+      "tool_name": "get_system_logs",
+      "args": {
+        "hypotheses": [
+          "internal_processing_issue:0.5",
+          "job_scheduler_failure:0.5"
+        ],
+        "rationale": "Checking system logs to see if there are any error messages related to the Analytics Dashboard API or job scheduler"
+      },
+      "hypotheses": [
+        "internal_processing_issue:0.5",
+        "job_scheduler_failure:0.5"
+      ],
+      "rationale": "Checking system logs to see if there are any error messages related to the Analytics Dashboard API or job scheduler",
+      "result_summary": {
+        "error": "unknown tool 'get_system_logs'. Valid tools are: ['get_active_incidents', 'get_agent_availability', 'get_case_context', 'get_component_topology', 'get_configuration_history', 'get_customer_deployment', 'get_deployment_history', 'get_recent_changes', 'get_service_health', 'get_similar_cases', 'get_team_capability', 'get_technical_signals', 'get_telemetry', 'search_knowledge_base', 'submit_diagnosis']"
+      },
+      "latency_ms": 1411.5,
+      "status": "error",
+      "redundant": false
+    },
+    {
+      "step": 3,
+      "sim_clock": "2025-09-09 00:30:00",
+      "tool_name": "get_recent_changes",
+      "args": {
+        "hypotheses": [
+          "internal_processing_issue:0.5",
+          "job_scheduler_failure:0.5"
+        ],
+        "rationale": "Checking recent changes to see if any updates or modifications were made to the Analytics Dashboard or job scheduler"
+      },
+      "hypotheses": [
+        "internal_processing_issue:0.5",
+        "job_scheduler_failure:0.5"
+      ],
+      "rationale": "Checking recent changes to see if any updates or modifications were made to the Analytics Dashboard or job scheduler",
+      "result_summary": {
+        "recent_changes": [
+          {
+            "evidence_id": "CH030406",
+            "change_type": "api_contract_change",
+            "component_id": "CM236",
+            "started_at": "2025-09-08 22:58:00",
+            "completed_at": "2025-09-08 23:36:00",
+            "status": "completed",
+            "initiated_by": "system:automation",
+            "time_proximity_hours": 1.0,
+            "scope_match": "same_customer"
+          },
+          {
+            "evidence_id": "CH011588",
+            "change_type": "credential_rotation",
+            "component_id": "CM095",
+            "started_at": "2025-09-07 06:55:00",
+            "completed_at": "2025-09-07 07:00:00",
+            "status": "completed",
+            "initiated_by": "system:automation",
+            "time_proximity_hours": 41.1,
+            "scope_match": "same_product"
+          },
+          {
+            "evidence_id": "CH011540",
+            "change_type": "credential_rotation",
+            "component_id": "CM095",
+            "started_at": "2025-09-06 09:24:00",
+            "completed_at": "2025-09-06 09:28:00",
+            "status": "completed",
+            "initiated_by": "system:automation",
+            "time_proximity_hours": 62.6,
+            "scope_match": "same_product"
+          }
+        ],
+        "count": 3
+      },
+      "latency_ms": 1538.4,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 4,
+      "sim_clock": "2025-09-09 00:45:00",
+      "tool_name": "get_technical_signals",
+      "args": {
+        "hypotheses": [
+          "internal_processing_issue:0.5",
+          "job_scheduler_failure:0.5",
+          "api_contract_change:0.2"
+        ],
+        "rationale": "Checking technical signals to see if there are any issues related to the Analytics Dashboard API or job scheduler"
+      },
+      "hypotheses": [
+        "internal_processing_issue:0.5",
+        "job_scheduler_failure:0.5",
+        "api_contract_change:0.2"
+      ],
+      "rationale": "Checking technical signals to see if there are any issues related to the Analytics Dashboard API or job scheduler",
+      "result_summary": {
+        "signals": [
+          {
+            "evidence_id": "SG0000075",
+            "signal_type": "HTTP_500",
+            "message": "HTTP 500 spike on Authentication Service",
+            "timestamp": "2025-09-08 21:02:00",
+            "component_id": "CM001"
+          },
+          {
+            "evidence_id": "SG0000076",
+            "signal_type": "DATA_SYNC_LAG",
+            "message": "data sync lag detected on Database Connection Pooler",
+            "timestamp": "2025-09-08 21:16:00",
+            "component_id": "CM153"
+          },
+          {
+            "evidence_id": "SG0000072",
+            "signal_type": "API_SCHEMA_VALIDATION_FAILED",
+            "message": "API schema validation failures on Webhook Dispatch Service",
+            "timestamp": "2025-09-08 22:57:00",
+            "component_id": "CM236"
+          },
+          {
+            "evidence_id": "SG0000073",
+            "signal_type": "API_VERSION_MISMATCH",
+            "message": "API version mismatch detected on Webhook Dispatch Service",
+            "timestamp": "2025-09-08 23:22:00",
+            "component_id": "CM236"
+          },
+          {
+            "evidence_id": "SG0000071",
+            "signal_type": "API_SCHEMA_VALIDATION_FAILED",
+            "message": "API schema validation failures on Webhook Dispatch Service",
+            "timestamp": "2025-09-08 23:31:00",
+            "component_id": "CM236"
+          },
+          {
+            "evidence_id": "SG0000074",
+            "signal_type": "API_VERSION_MISMATCH",
+            "message": "API version mismatch detected on Webhook Dispatch Service",
+            "timestamp": "2025-09-08 23:44:00",
+            "component_id": "CM236"
+          }
+        ],
+        "count": 6
+      },
+      "latency_ms": 1028.7,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 5,
+      "sim_clock": "2025-09-09 01:00:00",
+      "tool_name": "submit_diagnosis",
+      "args": {
+        "hypotheses": [
+          {
+            "label": "api_contract_change",
+            "confidence": 0.8,
+            "supporting_evidence_ids": [
+              "CH030406",
+              "SG0000072",
+              "SG0000073"
+            ],
+            "contradicting_evidence_ids": [],
+            "status": "confirmed"
+          },
+          {
+            "label": "internal_processing_issue",
+            "confidence": 0.2,
+            "supporting_evidence_ids": [
+              "SG0000075"
+            ],
+            "contradicting_evidence_ids": [
+              "CH030406"
+            ],
+            "status": "rejected"
+          },
+          {
+            "label": "job_scheduler_failure",
+            "confidence": 0,
+            "supporting_evidence_ids": [],
+            "contradicting_evidence_ids": [
+              "CH030406"
+            ],
+            "status": "rejected"
+          }
+        ],
+        "evidence_sufficiency": "partial",
+        "human_review_required": false,
+        "recommended_next_action": "inspect API contract configuration"
+      },
+      "hypotheses": [
+        {
+          "label": "api_contract_change",
+          "confidence": 0.8,
+          "supporting_evidence_ids": [
+            "CH030406",
+            "SG0000072",
+            "SG0000073"
+          ],
+          "contradicting_evidence_ids": [],
+          "status": "confirmed"
+        },
+        {
+          "label": "internal_processing_issue",
+          "confidence": 0.2,
+          "supporting_evidence_ids": [
+            "SG0000075"
+          ],
+          "contradicting_evidence_ids": [
+            "CH030406"
+          ],
+          "status": "rejected"
+        },
+        {
+          "label": "job_scheduler_failure",
+          "confidence": 0,
+          "supporting_evidence_ids": [],
+          "contradicting_evidence_ids": [
+            "CH030406"
+          ],
+          "status": "rejected"
+        }
+      ],
+      "rationale": "",
+      "result_summary": "submitted",
+      "latency_ms": 2845.1,
+      "status": "ok",
+      "redundant": false
+    }
+  ],
+  "final_diagnosis": {
+    "hypotheses": [
+      {
+        "label": "api_contract_change",
+        "description": "",
+        "confidence": 0.8,
+        "supporting_evidence": [],
+        "contradicting_evidence": [],
+        "status": "confirmed"
+      },
+      {
+        "label": "internal_processing_issue",
+        "description": "",
+        "confidence": 0.2,
+        "supporting_evidence": [],
+        "contradicting_evidence": [],
+        "status": "rejected"
+      },
+      {
+        "label": "job_scheduler_failure",
+        "description": "",
+        "confidence": 0.0,
+        "supporting_evidence": [],
+        "contradicting_evidence": [],
+        "status": "rejected"
+      }
+    ],
+    "rationale": "",
+    "predicted_product_id": null,
+    "product_confidence": null,
+    "predicted_component_id": null,
+    "component_confidence": null,
+    "predicted_category_id": null,
+    "category_confidence": null,
+    "predicted_subcategory_id": null,
+    "predicted_root_cause_family": null,
+    "root_cause_confidence": null,
+    "predicted_causal_change_id": null,
+    "causal_change_confidence": null,
+    "predicted_severity": null,
+    "severity_confidence": null,
+    "recommended_team_id": null,
+    "routing_confidence": null,
+    "evidence_sufficiency": "partial",
+    "overall_confidence": 0.8,
+    "recommended_next_action": "inspect API contract configuration",
+    "human_review_required": false,
+    "human_review_reason": null,
+    "evidence_summary": "No summary provided by the agent.",
+    "unresolved_uncertainties": []
+  },
+  "citation_violations": [],
+  "evidence_ids_seen": [
+    "CH011540",
+    "CH011588",
+    "CH030406",
+    "SG0000071",
+    "SG0000072",
+    "SG0000073",
+    "SG0000074",
+    "SG0000075",
+    "SG0000076"
+  ],
+  "repair_events": [
+    {
+      "step": 5,
+      "kind": "final_diagnosis_repair",
+      "detail": "direct validation failed (3 validation errors for FinalDiagnosis\nrationale\n  Field required [type=missing, input_value={'hypotheses': [{'label':...contract configuration'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\noverall_confidence\n  Field required [type=missing, input_value={'hypotheses': [{'label':...contract configuration'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\nevidence_summary\n  Field required [type=missing, input_value={'hypotheses': [{'label':...contract configuration'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing); repaired args validated"
+    }
+  ]
+}

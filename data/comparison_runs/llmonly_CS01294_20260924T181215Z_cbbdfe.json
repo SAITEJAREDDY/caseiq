@@ -1,0 +1,60 @@
+{
+ "run_id": "llmonly_CS01294_20260924T181215Z_cbbdfe",
+ "case_id": "CS01294",
+ "created_at": "2026-09-24T18:12:15.885024+00:00",
+ "prompt_version": "llm_only_v1",
+ "model_name": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+ "temperature": 0.1,
+ "ticket_shown_to_model": {
+  "title": "Wrong Tenant Data Displayed in SSO Module",
+  "description": "Users are seeing incorrect tenant data when logging in via the SSO Integration Module in the EU-West production environment. This is affecting a group of users but no specific error codes or timestamps have been captured yet.",
+  "environment": "production",
+  "region": "EU-West",
+  "priority": "medium",
+  "reported_business_impact": "moderate",
+  "reported_affected_users": 38,
+  "created_date": "2026-07-25",
+  "customer_tier": "bronze",
+  "customer_industry": "SaaS / Technology",
+  "customer_company_size": "mid",
+  "reported_product_name": "SSO Integration Module",
+  "reported_symptoms": [
+   "wrong tenant data shown"
+  ]
+ },
+ "n_categories_offered": 18,
+ "n_root_causes_offered": 40,
+ "parsed": {
+  "issue_category": "Data / Corruption",
+  "root_cause": null,
+  "affected_component": "SSO Integration Module",
+  "causal_change": null,
+  "owning_team": null,
+  "confidence": 0.6,
+  "status": "DIAGNOSIS_PROPOSED",
+  "summary": "The issue is likely related to data corruption or incorrect data handling within the SSO Integration Module, but the root cause cannot be determined with the given information."
+ },
+ "status": "DIAGNOSIS_PROPOSED",
+ "validation_errors": [],
+ "repair_used": false,
+ "llm_calls": [
+  {
+   "attempt": 0,
+   "latency_ms": 35805.0,
+   "finish_reason": "stop",
+   "raw_output": "{\"issue_category\": \"Data \\/ Corruption\", \"root_cause\": null, \"affected_component\": \"SSO Integration Module\", \"causal_change\": null, \"owning_team\": null, \"confidence\": 0.6, \"status\": \"DIAGNOSIS_PROPOSED\", \"summary\": \"The issue is likely related to data corruption or incorrect data handling within the SSO Integration Module, but the root cause cannot be determined with the given information.\"}"
+  }
+ ],
+ "tokens": {
+  "prompt": 697,
+  "completion": 98,
+  "total": 795
+ },
+ "latency_ms": 35805.0,
+ "wall_ms": 35812.9,
+ "cost_usd_estimate": 0.0007,
+ "tool_calls": 0,
+ "evidence_count": 0,
+ "graph_used": false,
+ "jev_used": false
+}

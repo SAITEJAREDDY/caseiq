@@ -1,0 +1,400 @@
+{
+  "run_id": "run_CS00477_20260924T002753Z_6477b087",
+  "case_id": "CS00477",
+  "created_at": "2026-09-24T00:27:53.054450+00:00",
+  "model_provider": "together",
+  "model_name": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "temperature": 0.1,
+  "prompt_version": "v1",
+  "toolset_version": "v1",
+  "output_schema_version": "v1",
+  "agent_loop_version": "v1",
+  "repair_layer_version": "v1",
+  "graph_version": "phase4-2500case-2026-09-22",
+  "sim_clock_step_minutes": 15,
+  "max_tool_calls": 10,
+  "max_repeated_same_tool": 2,
+  "stop_reason": "model_submitted",
+  "num_tool_calls": 8,
+  "num_llm_calls": 8,
+  "token_usage": {
+    "prompt_tokens": 15374,
+    "completion_tokens": 901,
+    "total_tokens": 16275
+  },
+  "approx_cost_usd": 0.001628,
+  "approx_cost_note": "Estimated from a configurable placeholder rate, not exact provider billing -- see config.py",
+  "trace_steps": [
+    {
+      "step": 1,
+      "sim_clock": "2025-09-03 00:00:00",
+      "tool_name": "get_case_context",
+      "args": {
+        "hypotheses": [],
+        "rationale": "Starting the investigation of case CS00477"
+      },
+      "hypotheses": [],
+      "rationale": "Starting the investigation of case CS00477",
+      "result_summary": {
+        "case_id": "CS00477",
+        "title": "Bulk import failures and stuck syncs in SSO Integration Module",
+        "description": "We are encountering partial failures during bulk imports in the SSO Integration Module (EU-West sandbox). Furthermore, provisioning is stuck, and the sync process is not completing. This impacts 2 users with a low business impact. We need assistance troubleshooting the import logic and the stuck synchronization states.",
+        "environment": "sandbox",
+        "region": "EU-West",
+        "reported_business_impact": "low",
+        "reported_affected_users": 2,
+        "priority": "low",
+        "created_date": "2025-09-03",
+        "status": "resolved",
+        "customer_id": "C04694",
+        "customer_tier": "silver",
+        "customer_industry": "Manufacturing",
+        "customer_company_size": "small",
+        "reported_product_id": "P002",
+        "reported_product_name": "SSO Integration Module",
+        "reported_symptoms": [
+          "sync stuck",
+          "provisioning stuck",
+          "bulk import partially failed"
+        ]
+      },
+      "latency_ms": 941.1,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 2,
+      "sim_clock": "2025-09-03 00:15:00",
+      "tool_name": "get_system_logs",
+      "args": {
+        "case_id": "CS00477",
+        "start_time": "2025-09-01",
+        "end_time": "2025-09-03",
+        "hypotheses": [
+          "sync_stuck:0.5",
+          "provisioning_stuck:0.5",
+          "bulk_import_partially_failed:0.5"
+        ],
+        "rationale": "To identify any system errors or exceptions that may have occurred during the bulk import and sync process."
+      },
+      "hypotheses": [
+        "sync_stuck:0.5",
+        "provisioning_stuck:0.5",
+        "bulk_import_partially_failed:0.5"
+      ],
+      "rationale": "To identify any system errors or exceptions that may have occurred during the bulk import and sync process.",
+      "result_summary": {
+        "error": "unknown tool 'get_system_logs'. Valid tools are: ['get_active_incidents', 'get_agent_availability', 'get_case_context', 'get_component_topology', 'get_configuration_history', 'get_customer_deployment', 'get_deployment_history', 'get_recent_changes', 'get_service_health', 'get_similar_cases', 'get_team_capability', 'get_technical_signals', 'get_telemetry', 'search_knowledge_base', 'submit_diagnosis']"
+      },
+      "latency_ms": 3500.3,
+      "status": "error",
+      "redundant": false
+    },
+    {
+      "step": 3,
+      "sim_clock": "2025-09-03 00:30:00",
+      "tool_name": "get_recent_changes",
+      "args": {
+        "case_id": "CS00477",
+        "time_window": "1 week",
+        "hypotheses": [
+          "sync_stuck:0.5",
+          "provisioning_stuck:0.5",
+          "bulk_import_partially_failed:0.5"
+        ],
+        "rationale": "To identify any recent changes that may have caused the bulk import failures and stuck syncs in the SSO Integration Module."
+      },
+      "hypotheses": [
+        "sync_stuck:0.5",
+        "provisioning_stuck:0.5",
+        "bulk_import_partially_failed:0.5"
+      ],
+      "rationale": "To identify any recent changes that may have caused the bulk import failures and stuck syncs in the SSO Integration Module.",
+      "result_summary": {
+        "recent_changes": [
+          {
+            "evidence_id": "CH030553",
+            "change_type": "manual_config_change",
+            "component_id": "CM031",
+            "started_at": "2025-09-02 23:38:00",
+            "completed_at": "2025-09-02 23:50:00",
+            "status": "completed",
+            "initiated_by": "agent:support_ops",
+            "time_proximity_hours": 0.4,
+            "scope_match": "same_customer"
+          },
+          {
+            "evidence_id": "CH004070",
+            "change_type": "config_change",
+            "component_id": "CM031",
+            "started_at": "2025-09-02 15:54:00",
+            "completed_at": "2025-09-02 16:01:00",
+            "status": "completed",
+            "initiated_by": "system:automation",
+            "time_proximity_hours": 8.1,
+            "scope_match": "same_component"
+          }
+        ],
+        "count": 2
+      },
+      "latency_ms": 2473.0,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 4,
+      "sim_clock": "2025-09-03 00:45:00",
+      "tool_name": "get_component_topology",
+      "args": {
+        "case_id": "CS00477",
+        "hypotheses": [
+          "sync_stuck:0.5",
+          "provisioning_stuck:0.5",
+          "bulk_import_partially_failed:0.5"
+        ],
+        "rationale": "To understand the component interactions and identify potential bottlenecks or issues in the SSO Integration Module."
+      },
+      "hypotheses": [
+        "sync_stuck:0.5",
+        "provisioning_stuck:0.5",
+        "bulk_import_partially_failed:0.5"
+      ],
+      "rationale": "To understand the component interactions and identify potential bottlenecks or issues in the SSO Integration Module.",
+      "result_summary": {
+        "error": "1 validation error for ComponentScopedArgs\ncomponent_id\n  Field required [type=missing, input_value={'case_id': 'CS00477', 'h...SO Integration Module.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      },
+      "latency_ms": 2864.5,
+      "status": "error",
+      "redundant": false
+    },
+    {
+      "step": 5,
+      "sim_clock": "2025-09-03 01:00:00",
+      "tool_name": "get_telemetry",
+      "args": {
+        "case_id": "CS00477",
+        "component_id": "CM031",
+        "metric": "sync_latency",
+        "hypotheses": [
+          "sync_stuck:0.5",
+          "provisioning_stuck:0.5",
+          "bulk_import_partially_failed:0.5"
+        ],
+        "rationale": "To analyze the sync latency metric for the SSO Integration Module and identify any anomalies or trends that may be related to the stuck syncs and bulk import failures."
+      },
+      "hypotheses": [
+        "sync_stuck:0.5",
+        "provisioning_stuck:0.5",
+        "bulk_import_partially_failed:0.5"
+      ],
+      "rationale": "To analyze the sync latency metric for the SSO Integration Module and identify any anomalies or trends that may be related to the stuck syncs and bulk import failures.",
+      "result_summary": {
+        "available_metric_categories": [],
+        "note": "Call again with one of these metric_category values to see actual readings."
+      },
+      "latency_ms": 2044.9,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 6,
+      "sim_clock": "2025-09-03 01:15:00",
+      "tool_name": "get_telemetry",
+      "args": {
+        "case_id": "CS00477",
+        "component_id": "CM031",
+        "metric_category": "performance",
+        "hypotheses": [
+          "sync_stuck:0.5",
+          "provisioning_stuck:0.5",
+          "bulk_import_partially_failed:0.5"
+        ],
+        "rationale": "To analyze the performance metrics for the SSO Integration Module and identify any anomalies or trends that may be related to the stuck syncs and bulk import failures."
+      },
+      "hypotheses": [
+        "sync_stuck:0.5",
+        "provisioning_stuck:0.5",
+        "bulk_import_partially_failed:0.5"
+      ],
+      "rationale": "To analyze the performance metrics for the SSO Integration Module and identify any anomalies or trends that may be related to the stuck syncs and bulk import failures.",
+      "result_summary": {
+        "error": "unknown metric_category 'performance'",
+        "valid_categories": [
+          "Application",
+          "Capacity",
+          "Compute",
+          "Data",
+          "Database",
+          "Identity",
+          "Integration",
+          "Networking",
+          "Security",
+          "Storage"
+        ]
+      },
+      "latency_ms": 3062.6,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 7,
+      "sim_clock": "2025-09-03 01:30:00",
+      "tool_name": "get_telemetry",
+      "args": {
+        "case_id": "CS00477",
+        "component_id": "CM031",
+        "metric_category": "Integration",
+        "hypotheses": [
+          "sync_stuck:0.5",
+          "provisioning_stuck:0.5",
+          "bulk_import_partially_failed:0.5"
+        ],
+        "rationale": "To analyze the integration metrics for the SSO Integration Module and identify any anomalies or trends that may be related to the stuck syncs and bulk import failures."
+      },
+      "hypotheses": [
+        "sync_stuck:0.5",
+        "provisioning_stuck:0.5",
+        "bulk_import_partially_failed:0.5"
+      ],
+      "rationale": "To analyze the integration metrics for the SSO Integration Module and identify any anomalies or trends that may be related to the stuck syncs and bulk import failures.",
+      "result_summary": {
+        "telemetry_findings": [],
+        "count": 0
+      },
+      "latency_ms": 2612.6,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 8,
+      "sim_clock": "2025-09-03 01:45:00",
+      "tool_name": "submit_diagnosis",
+      "args": {
+        "case_id": "CS00477",
+        "hypotheses": [
+          {
+            "label": "sync_stuck",
+            "confidence": 0.5,
+            "supporting_evidence_ids": [],
+            "contradicting_evidence_ids": [],
+            "status": "pending"
+          },
+          {
+            "label": "provisioning_stuck",
+            "confidence": 0.5,
+            "supporting_evidence_ids": [],
+            "contradicting_evidence_ids": [],
+            "status": "pending"
+          },
+          {
+            "label": "bulk_import_partially_failed",
+            "confidence": 0.5,
+            "supporting_evidence_ids": [],
+            "contradicting_evidence_ids": [],
+            "status": "pending"
+          }
+        ],
+        "evidence_sufficiency": "insufficient",
+        "human_review_required": true,
+        "recommended_next_action": "escalate to engineering",
+        "rationale": "The investigation did not yield sufficient evidence to confirm or reject any of the hypotheses. Further analysis and review by engineering are required to determine the root cause of the issue."
+      },
+      "hypotheses": [
+        {
+          "label": "sync_stuck",
+          "confidence": 0.5,
+          "supporting_evidence_ids": [],
+          "contradicting_evidence_ids": [],
+          "status": "pending"
+        },
+        {
+          "label": "provisioning_stuck",
+          "confidence": 0.5,
+          "supporting_evidence_ids": [],
+          "contradicting_evidence_ids": [],
+          "status": "pending"
+        },
+        {
+          "label": "bulk_import_partially_failed",
+          "confidence": 0.5,
+          "supporting_evidence_ids": [],
+          "contradicting_evidence_ids": [],
+          "status": "pending"
+        }
+      ],
+      "rationale": "The investigation did not yield sufficient evidence to confirm or reject any of the hypotheses. Further analysis and review by engineering are required to determine the root cause of the issue.",
+      "result_summary": "submitted",
+      "latency_ms": 5185.2,
+      "status": "ok",
+      "redundant": false
+    }
+  ],
+  "final_diagnosis": {
+    "hypotheses": [
+      {
+        "label": "sync_stuck",
+        "description": "",
+        "confidence": 0.5,
+        "supporting_evidence": [],
+        "contradicting_evidence": [],
+        "status": "active"
+      },
+      {
+        "label": "provisioning_stuck",
+        "description": "",
+        "confidence": 0.5,
+        "supporting_evidence": [],
+        "contradicting_evidence": [],
+        "status": "active"
+      },
+      {
+        "label": "bulk_import_partially_failed",
+        "description": "",
+        "confidence": 0.5,
+        "supporting_evidence": [],
+        "contradicting_evidence": [],
+        "status": "active"
+      }
+    ],
+    "rationale": "The investigation did not yield sufficient evidence to confirm or reject any of the hypotheses. Further analysis and review by engineering are required to determine the root cause of the issue.",
+    "predicted_product_id": null,
+    "product_confidence": null,
+    "predicted_component_id": null,
+    "component_confidence": null,
+    "predicted_category_id": null,
+    "category_confidence": null,
+    "predicted_subcategory_id": null,
+    "predicted_root_cause_family": null,
+    "root_cause_confidence": null,
+    "predicted_causal_change_id": null,
+    "causal_change_confidence": null,
+    "predicted_severity": null,
+    "severity_confidence": null,
+    "recommended_team_id": null,
+    "routing_confidence": null,
+    "evidence_sufficiency": "insufficient",
+    "overall_confidence": 0.5,
+    "recommended_next_action": "escalate to engineering",
+    "human_review_required": true,
+    "human_review_reason": null,
+    "evidence_summary": "The investigation did not yield sufficient evidence to confirm or reject any of the hypotheses. Further analysis and review by engineering are required to determine the root cause of the issue.",
+    "unresolved_uncertainties": []
+  },
+  "citation_violations": [],
+  "evidence_ids_seen": [
+    "CH004070",
+    "CH030553"
+  ],
+  "repair_events": [
+    {
+      "step": 2,
+      "kind": "hypothesis_normalization",
+      "detail": "tool=get_system_logs: hypotheses arg was str, not a list; coerced"
+    },
+    {
+      "step": 8,
+      "kind": "final_diagnosis_repair",
+      "detail": "direct validation failed (5 validation errors for FinalDiagnosis\nhypotheses.0.status\n  Input should be 'active', 'rejected' or 'confirmed' [type=literal_error, input_value='pending', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/literal_error\nhypotheses.1.status\n  Input should be 'active', 'rejected' or 'confirmed' [type=literal_error, input_value='pending', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/literal_error\nhypotheses.2.status\n  Input should be 'active', 'rejected' or 'confirmed' [type=literal_error, input_value='pending', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/literal_error\noverall_confidence\n  Field required [type=missing, input_value={'case_id': 'CS00477', 'h...ot cause of the issue.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\nevidence_summary\n  Field required [type=missing, input_value={'case_id': 'CS00477', 'h...ot cause of the issue.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing); repaired args validated"
+    }
+  ]
+}

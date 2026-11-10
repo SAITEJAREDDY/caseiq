@@ -1,0 +1,2098 @@
+{
+ "run_id": "run_CS00266_20260924T042412Z_852e3ac9",
+ "case_id": "CS00266",
+ "created_at": "2026-09-24T04:24:12.211506+00:00",
+ "run_tag": "iter50_b",
+ "model_provider": "together",
+ "model_name": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+ "temperature": 0.1,
+ "graph_version": "phase4-2500case-2026-09-22",
+ "sim_clock_step_minutes": 15,
+ "max_tool_calls": 10,
+ "max_repeated_same_tool": 2,
+ "max_tool_contract_repairs": 2,
+ "max_final_contract_repairs": 1,
+ "agent_version": "agent_v3_contract_hardened",
+ "contract_version": "agent_contract_v1.1",
+ "prompt_version": "v3.1",
+ "tool_catalog_version": "tool_catalog_v3",
+ "action_schema_version": "action_v3.1",
+ "final_schema_version": "final_diagnosis_v3.1",
+ "registry_version": "observed_registry_v1",
+ "alias_scheme": "agent_alias_v1",
+ "repair_policy_version": "repair_policy_v1",
+ "decoding": "json_schema_strict",
+ "code_digest": "54bbbe51a58dbb43883bd743c2476a93b418373888d06e2cc60c30dc2b1b7cf2",
+ "toolset_version": "tool_catalog_v3",
+ "output_schema_version": "final_diagnosis_v3.1",
+ "agent_loop_version": "agent_v3_contract_hardened",
+ "repair_layer_version": "repair_policy_v1",
+ "approx_cost_usd": 0.002016,
+ "stop_reason": "tool_budget_exhausted",
+ "num_tool_calls": 11,
+ "num_llm_calls": 10,
+ "token_usage": {
+  "prompt_tokens": 19173,
+  "completion_tokens": 988,
+  "total_tokens": 20161
+ },
+ "trace_steps": [
+  {
+   "step": 1,
+   "sim_clock": "2026-01-10 00:00:00",
+   "tool_name": "get_case_context",
+   "args": {},
+   "args_alias": {},
+   "hypotheses": [],
+   "hypothesis_state": [],
+   "rationale": "",
+   "result_summary": {
+    "case_id": "CS00266",
+    "title": "SSO provisioning stuck",
+    "description": "User provisioning seems to be stuck in the SSO Integration Module in our LATAM production environment. Some users aren't showing up.",
+    "environment": "production",
+    "region": "LATAM",
+    "reported_business_impact": "moderate",
+    "reported_affected_users": 29,
+    "priority": "low",
+    "created_date": "2026-01-10",
+    "status": "resolved",
+    "customer_id": "C03254",
+    "customer_tier": "gold",
+    "customer_industry": "Education",
+    "customer_company_size": "small",
+    "reported_product_id": "P002",
+    "reported_product_name": "SSO Integration Module",
+    "reported_symptoms": [
+     "provisioning stuck"
+    ]
+   },
+   "latency_ms": 0.0,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "harness"
+  },
+  {
+   "step": 2,
+   "sim_clock": "2026-01-10 00:15:00",
+   "tool_name": "get_customer_deployment",
+   "args": {},
+   "args_alias": {},
+   "hypotheses": [
+    "SSO Integration Module misconfiguration:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "SSO Integration Module misconfiguration",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "deployments": [
+     {
+      "product_id": "P002",
+      "product_name": "SSO Integration Module",
+      "version": "2.2",
+      "environment": "production",
+      "region": "US-East",
+      "status": "active",
+      "deployed_at": "2025-02-01",
+      "product_components": [
+       "CM011",
+       "CM019",
+       "CM025",
+       "CM027",
+       "CM031",
+       "CM032",
+       "CM241",
+       "CM246"
+      ]
+     }
+    ]
+   },
+   "latency_ms": 4374.8,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 3,
+   "sim_clock": "2026-01-10 00:30:00",
+   "tool_name": "get_component_topology",
+   "args": {
+    "component_id": "CM011"
+   },
+   "args_alias": {
+    "component": "COMPONENT_HWM"
+   },
+   "hypotheses": [
+    "SSO Integration Module misconfiguration:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "SSO Integration Module misconfiguration",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "component_id": "CM011",
+    "component_name": "SSO Broker",
+    "upstream_dependencies": [],
+    "downstream_dependents": [
+     {
+      "name": "Identity Audit Logger",
+      "id": "CM020"
+     },
+     {
+      "name": "Risk-Based Authentication Engine",
+      "id": "CM022"
+     },
+     {
+      "name": "Device Trust Service",
+      "id": "CM023"
+     },
+     {
+      "name": "Attribute Mapping Service",
+      "id": "CM033"
+     },
+     {
+      "name": "Emergency Access (Break-Glass) Service",
+      "id": "CM040"
+     },
+     {
+      "name": "Reporting Service",
+      "id": "CM091"
+     },
+     {
+      "name": "Dashboard Sharing Service",
+      "id": "CM118"
+     },
+     {
+      "name": "Secret Store",
+      "id": "CM137"
+     },
+     {
+      "name": "TLS Termination Service",
+      "id": "CM149"
+     },
+     {
+      "name": "Accessibility Layer",
+      "id": "CM190"
+     },
+     {
+      "name": "Mobile Push Token Manager",
+      "id": "CM205"
+     },
+     {
+      "name": "Secret & Config Store",
+      "id": "CM230"
+     },
+     {
+      "name": "Directory Sync Connector (Shared)",
+      "id": "CM238"
+     }
+    ],
+    "external_dependencies": [
+     "Primary Identity Provider"
+    ],
+    "owning_teams": [
+     {
+      "name": "Identity",
+      "id": "TM01"
+     },
+     {
+      "name": "Security",
+      "id": "TM07"
+     }
+    ]
+   },
+   "latency_ms": 3313.4,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 4,
+   "sim_clock": "2026-01-10 00:45:00",
+   "tool_name": "get_technical_signals",
+   "args": {},
+   "args_alias": {},
+   "hypotheses": [
+    "SSO Integration Module misconfiguration:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "SSO Integration Module misconfiguration",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "signals": [
+     {
+      "evidence_id": "SG0001295",
+      "signal_type": "CONFIG_DRIFT_DETECTED",
+      "message": "configuration drift detected on Group Sync Service",
+      "timestamp": "2026-01-09 22:41:00",
+      "component_id": "CM032"
+     },
+     {
+      "evidence_id": "SG0001296",
+      "signal_type": "HTTP_504",
+      "message": "HTTP 504 Gateway Timeout on Usage Metering Service",
+      "timestamp": "2026-01-09 23:52:00",
+      "component_id": "CM077"
+     }
+    ],
+    "count": 2
+   },
+   "latency_ms": 4128.5,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 5,
+   "sim_clock": "2026-01-10 01:00:00",
+   "tool_name": "get_component_topology",
+   "args": {
+    "component_id": "CM032"
+   },
+   "args_alias": {
+    "component": "COMPONENT_BHW"
+   },
+   "hypotheses": [
+    "SSO Integration Module misconfiguration:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "SSO Integration Module misconfiguration",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "component_id": "CM032",
+    "component_name": "Group Sync Service",
+    "upstream_dependencies": [
+     {
+      "name": "Authorization/Policy Engine",
+      "id": "CM002"
+     },
+     {
+      "name": "Federation Gateway",
+      "id": "CM010"
+     },
+     {
+      "name": "Login UI",
+      "id": "CM018"
+     },
+     {
+      "name": "Risk-Based Authentication Engine",
+      "id": "CM022"
+     },
+     {
+      "name": "OAuth Authorization Server",
+      "id": "CM027"
+     },
+     {
+      "name": "JWT Issuer Service",
+      "id": "CM029"
+     },
+     {
+      "name": "Step-Up Authentication Service",
+      "id": "CM030"
+     },
+     {
+      "name": "Login Analytics Service",
+      "id": "CM037"
+     },
+     {
+      "name": "Trusted Device Manager",
+      "id": "CM039"
+     },
+     {
+      "name": "SSO Broker (Shared)",
+      "id": "CM237"
+     }
+    ],
+    "downstream_dependents": [],
+    "external_dependencies": [],
+    "owning_teams": [
+     {
+      "name": "Authorization & Access",
+      "id": "TM02"
+     },
+     {
+      "name": "Onboarding & Provisioning",
+      "id": "TM24"
+     }
+    ]
+   },
+   "latency_ms": 3411.1,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 6,
+   "sim_clock": "2026-01-10 01:15:00",
+   "tool_name": "get_technical_signals",
+   "args": {
+    "component_id": "CM032"
+   },
+   "args_alias": {
+    "component": "COMPONENT_BHW"
+   },
+   "hypotheses": [
+    "SSO Integration Module misconfiguration:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "SSO Integration Module misconfiguration",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "signals": [
+     {
+      "evidence_id": "SG0001295",
+      "signal_type": "CONFIG_DRIFT_DETECTED",
+      "message": "configuration drift detected on Group Sync Service",
+      "timestamp": "2026-01-09 22:41:00",
+      "component_id": "CM032"
+     }
+    ],
+    "count": 1
+   },
+   "latency_ms": 3277.2,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 7,
+   "sim_clock": "2026-01-10 01:30:00",
+   "tool_name": "get_recent_changes",
+   "args": {
+    "component_id": "CM032"
+   },
+   "args_alias": {
+    "component": "COMPONENT_BHW"
+   },
+   "hypotheses": [
+    "SSO Integration Module misconfiguration:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "SSO Integration Module misconfiguration",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "recent_changes": [
+     {
+      "evidence_id": "CH030479",
+      "change_type": "manual_config_change",
+      "component_id": "CM032",
+      "started_at": "2026-01-09 23:04:00",
+      "completed_at": "2026-01-09 23:22:00",
+      "status": "completed",
+      "initiated_by": "agent:support_ops",
+      "time_proximity_hours": 0.9,
+      "scope_match": "same_customer"
+     }
+    ],
+    "count": 1
+   },
+   "latency_ms": 2595.4,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 8,
+   "sim_clock": "2026-01-10 01:45:00",
+   "tool_name": "get_configuration_history",
+   "args": {
+    "component_id": "CM032"
+   },
+   "args_alias": {
+    "component": "COMPONENT_BHW"
+   },
+   "hypotheses": [
+    "SSO Integration Module misconfiguration:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "SSO Integration Module misconfiguration",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "configuration_snapshots": [],
+    "count": 0
+   },
+   "latency_ms": 3374.9,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 9,
+   "sim_clock": "2026-01-10 02:00:00",
+   "tool_name": "get_service_health",
+   "args": {
+    "component_id": "CM032"
+   },
+   "args_alias": {
+    "component": "COMPONENT_BHW"
+   },
+   "hypotheses": [
+    "SSO Integration Module misconfiguration:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "SSO Integration Module misconfiguration",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "health_events": [
+     {
+      "evidence_id": "SHE00642",
+      "started_at": "2025-12-26 00:47:00",
+      "ended_at": "2025-12-26 01:07:00",
+      "severity": "minor",
+      "description": "Brief minor health blip on Group Sync Service: elevated error rate for 20 minutes."
+     },
+     {
+      "evidence_id": "SHE00655",
+      "started_at": "2025-12-21 10:19:00",
+      "ended_at": "2025-12-21 10:34:00",
+      "severity": "major",
+      "description": "Automated health check flagged Group Sync Service as degraded (major) for 15 minutes."
+     },
+     {
+      "evidence_id": "SHE00648",
+      "started_at": "2025-12-10 16:17:00",
+      "ended_at": "2025-12-10 16:22:00",
+      "severity": "minor",
+      "description": "Brief minor health blip on Group Sync Service: elevated error rate for 5 minutes."
+     },
+     {
+      "evidence_id": "SHE00645",
+      "started_at": "2025-10-11 05:00:00",
+      "ended_at": "2025-10-11 05:20:00",
+      "severity": "major",
+      "description": "Brief major health blip on Group Sync Service: elevated error rate for 20 minutes."
+     },
+     {
+      "evidence_id": "SHE00644",
+      "started_at": "2025-10-09 10:23:00",
+      "ended_at": "2025-10-09 10:38:00",
+      "severity": "minor",
+      "description": "Transient minor availability dip on Group Sync Service, recovered within 15 minutes."
+     },
+     {
+      "evidence_id": "SHE00639",
+      "started_at": "2025-09-01 17:46:00",
+      "ended_at": "2025-09-01 17:51:00",
+      "severity": "minor",
+      "description": "Automated health check flagged Group Sync Service as degraded (minor) for 5 minutes."
+     },
+     {
+      "evidence_id": "SHE00647",
+      "started_at": "2025-08-10 20:12:00",
+      "ended_at": "2025-08-10 20:32:00",
+      "severity": "minor",
+      "description": "Brief minor health blip on Group Sync Service: elevated error rate for 20 minutes."
+     },
+     {
+      "evidence_id": "SHE00649",
+      "started_at": "2025-08-08 11:12:00",
+      "ended_at": "2025-08-08 11:27:00",
+      "severity": "minor",
+      "description": "Brief minor health blip on Group Sync Service: elevated error rate for 15 minutes."
+     }
+    ],
+    "count": 8
+   },
+   "latency_ms": 2718.9,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 10,
+   "sim_clock": "2026-01-10 02:15:00",
+   "tool_name": "get_active_incidents",
+   "args": {},
+   "args_alias": {},
+   "hypotheses": [
+    "SSO Integration Module misconfiguration:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "SSO Integration Module misconfiguration",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "incidents": [],
+    "count": 0
+   },
+   "latency_ms": 3100.4,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 11,
+   "sim_clock": "2026-01-10 02:30:00",
+   "tool_name": "submit_diagnosis",
+   "args": {},
+   "args_alias": {},
+   "hypotheses": [
+    "SSO Integration Module misconfiguration:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "SSO Integration Module misconfiguration",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": "submitted (forced)",
+   "latency_ms": 42312.6,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  }
+ ],
+ "final_diagnosis": {
+  "hypotheses": [
+   {
+    "label": "SSO Integration Module misconfiguration",
+    "description": "",
+    "confidence": 0.2,
+    "status": "active",
+    "supporting_evidence": [],
+    "contradicting_evidence": []
+   }
+  ],
+  "rationale": "",
+  "predicted_product_id": null,
+  "product_confidence": null,
+  "predicted_component_id": null,
+  "component_confidence": null,
+  "predicted_category_id": null,
+  "category_confidence": null,
+  "predicted_subcategory_id": null,
+  "predicted_root_cause_family": null,
+  "root_cause_confidence": null,
+  "predicted_causal_change_id": null,
+  "causal_change_confidence": null,
+  "predicted_severity": null,
+  "severity_confidence": null,
+  "recommended_team_id": null,
+  "routing_confidence": null,
+  "evidence_sufficiency": "insufficient",
+  "overall_confidence": 0.2,
+  "recommended_next_action": "Human review required to further investigate and diagnose the issue",
+  "human_review_required": true,
+  "human_review_reason": "Investigation budget exhausted, unable to gather sufficient evidence to support a diagnosis",
+  "evidence_summary": "The investigation was unable to gather sufficient evidence to support a diagnosis due to the exhausted investigation budget. Human review is required to further investigate and diagnose the issue.",
+  "unresolved_uncertainties": [
+   "Unable to determine the root cause of the SSO Integration Module misconfiguration due to insufficient evidence"
+  ],
+  "status": "INSUFFICIENT_EVIDENCE",
+  "evidence_ids": []
+ },
+ "final_status": "INSUFFICIENT_EVIDENCE",
+ "final_alias_form": {
+  "hypotheses": [
+   {
+    "label": "SSO Integration Module misconfiguration",
+    "confidence": 0.2,
+    "status": "active",
+    "supporting_evidence": [],
+    "contradicting_evidence": []
+   }
+  ],
+  "evidence_ids": [],
+  "issue_category": null,
+  "category_confidence": null,
+  "root_cause": null,
+  "root_cause_confidence": null,
+  "affected_component": null,
+  "component_confidence": null,
+  "causal_change": null,
+  "causal_change_confidence": null,
+  "owning_team": null,
+  "routing_confidence": null,
+  "confidence": 0.2,
+  "evidence_sufficiency": "insufficient",
+  "human_review_required": true,
+  "review_reason": "Investigation budget exhausted, unable to gather sufficient evidence to support a diagnosis",
+  "status": "INSUFFICIENT_EVIDENCE",
+  "recommended_next_action": "Human review required to further investigate and diagnose the issue",
+  "unresolved_uncertainties": [
+   "Unable to determine the root cause of the SSO Integration Module misconfiguration due to insufficient evidence"
+  ],
+  "summary": "The investigation was unable to gather sufficient evidence to support a diagnosis due to the exhausted investigation budget. Human review is required to further investigate and diagnose the issue."
+ },
+ "citation_violations": [],
+ "evidence_ids_seen": [
+  "CH030479",
+  "SG0001295",
+  "SG0001296",
+  "SHE00639",
+  "SHE00642",
+  "SHE00644",
+  "SHE00645",
+  "SHE00647",
+  "SHE00648",
+  "SHE00649",
+  "SHE00655"
+ ],
+ "repair_events": [],
+ "tool_proposals": 9,
+ "tool_contract_errors": [],
+ "tool_contract_repairs": [],
+ "final_contract_errors": [],
+ "final_contract_repair": null,
+ "registry_snapshots": [
+  {
+   "step": 1,
+   "n_entities": 59,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 1
+   },
+   "aliases_sha256_16": "70786149ff07fbb1"
+  },
+  {
+   "step": 2,
+   "n_entities": 67,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 1,
+    "COMPONENT": 8
+   },
+   "aliases_sha256_16": "93d8aba0b3789d9d"
+  },
+  {
+   "step": 3,
+   "n_entities": 82,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 1,
+    "COMPONENT": 21,
+    "TEAM": 2
+   },
+   "aliases_sha256_16": "1e736da69dc4c822"
+  },
+  {
+   "step": 4,
+   "n_entities": 85,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 1,
+    "COMPONENT": 22,
+    "TEAM": 2,
+    "EVIDENCE": 2
+   },
+   "aliases_sha256_16": "781ff20b9a968639"
+  },
+  {
+   "step": 5,
+   "n_entities": 95,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 1,
+    "COMPONENT": 30,
+    "TEAM": 4,
+    "EVIDENCE": 2
+   },
+   "aliases_sha256_16": "18df7a9a1e89175f"
+  },
+  {
+   "step": 6,
+   "n_entities": 95,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 1,
+    "COMPONENT": 30,
+    "TEAM": 4,
+    "EVIDENCE": 2
+   },
+   "aliases_sha256_16": "18df7a9a1e89175f"
+  },
+  {
+   "step": 7,
+   "n_entities": 96,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 1,
+    "COMPONENT": 30,
+    "TEAM": 4,
+    "EVIDENCE": 2,
+    "CHANGE": 1
+   },
+   "aliases_sha256_16": "98f5388aa3b0a969"
+  },
+  {
+   "step": 8,
+   "n_entities": 96,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 1,
+    "COMPONENT": 30,
+    "TEAM": 4,
+    "EVIDENCE": 2,
+    "CHANGE": 1
+   },
+   "aliases_sha256_16": "98f5388aa3b0a969"
+  },
+  {
+   "step": 9,
+   "n_entities": 104,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 1,
+    "COMPONENT": 30,
+    "TEAM": 4,
+    "EVIDENCE": 10,
+    "CHANGE": 1
+   },
+   "aliases_sha256_16": "4e5ad0a930af7962"
+  },
+  {
+   "step": 10,
+   "n_entities": 104,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 1,
+    "COMPONENT": 30,
+    "TEAM": 4,
+    "EVIDENCE": 10,
+    "CHANGE": 1
+   },
+   "aliases_sha256_16": "4e5ad0a930af7962"
+  }
+ ],
+ "alias_mappings": {
+  "CATEGORY_FHQ": {
+   "alias": "CATEGORY_FHQ",
+   "canonical_id": "IC01",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Identity / Authentication",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-01-10 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_TMD": {
+   "alias": "CATEGORY_TMD",
+   "canonical_id": "IC02",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Authorization / Permissions",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-01-10 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_NBF": {
+   "alias": "CATEGORY_NBF",
+   "canonical_id": "IC03",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Networking / Connectivity",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-01-10 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_RVW": {
+   "alias": "CATEGORY_RVW",
+   "canonical_id": "IC04",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Performance / Latency",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-01-10 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_SJM": {
+   "alias": "CATEGORY_SJM",
+   "canonical_id": "IC05",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Reliability / Availability",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-01-10 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_JQQ": {
+   "alias": "CATEGORY_JQQ",
+   "canonical_id": "IC06",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Deployment / Upgrade",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-01-10 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_NVT": {
+   "alias": "CATEGORY_NVT",
+   "canonical_id": "IC07",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Configuration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-01-10 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_CXM": {
+   "alias": "CATEGORY_CXM",
+   "canonical_id": "IC08",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Data / Corruption",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-01-10 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_JVM": {
+   "alias": "CATEGORY_JVM",
+   "canonical_id": "IC09",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Integration / API",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-01-10 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_JWC": {
+   "alias": "CATEGORY_JWC",
+   "canonical_id": "IC10",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Provisioning / Onboarding",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-01-10 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_MKV": {
+   "alias": "CATEGORY_MKV",
+   "canonical_id": "IC11",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Security",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-01-10 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_LJC": {
+   "alias": "CATEGORY_LJC",
+   "canonical_id": "IC12",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Compliance",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-01-10 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_JBW": {
+   "alias": "CATEGORY_JBW",
+   "canonical_id": "IC13",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Billing / Commerce",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-01-10 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_WMK": {
+   "alias": "CATEGORY_WMK",
+   "canonical_id": "IC14",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "User Experience / Functional Defect",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-01-10 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_NJW": {
+   "alias": "CATEGORY_NJW",
+   "canonical_id": "IC15",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Storage / Database",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-01-10 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_DKG": {
+   "alias": "CATEGORY_DKG",
+   "canonical_id": "IC16",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Capacity / Scaling",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-01-10 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_MQB": {
+   "alias": "CATEGORY_MQB",
+   "canonical_id": "IC17",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Third-Party / Dependency",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-01-10 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_CMK": {
+   "alias": "CATEGORY_CMK",
+   "canonical_id": "IC18",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Unknown / Other",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-01-10 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_BDJ": {
+   "alias": "CAUSE_BDJ",
+   "canonical_id": "RC01",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "product defect",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-01-10 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_GHT": {
+   "alias": "CAUSE_GHT",
+   "canonical_id": "RC02",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "customer configuration error",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-01-10 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_SZQ": {
+   "alias": "CAUSE_SZQ",
+   "canonical_id": "RC03",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "incorrect permissions",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-01-10 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_LLM": {
+   "alias": "CAUSE_LLM",
+   "canonical_id": "RC04",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "policy misconfiguration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-01-10 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_DJT": {
+   "alias": "CAUSE_DJT",
+   "canonical_id": "RC05",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "expired certificate",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-01-10 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_XHQ": {
+   "alias": "CAUSE_XHQ",
+   "canonical_id": "RC06",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "version incompatibility",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-01-10 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_MDN": {
+   "alias": "CAUSE_MDN",
+   "canonical_id": "RC07",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "dependency failure",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-01-10 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_TPX": {
+   "alias": "CAUSE_TPX",
+   "canonical_id": "RC08",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "network configuration error",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-01-10 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_DMW": {
+   "alias": "CAUSE_DMW",
+   "canonical_id": "RC09",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "resource exhaustion",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-01-10 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_DFT": {
+   "alias": "CAUSE_DFT",
+   "canonical_id": "RC10",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "database contention",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-01-10 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_KJZ": {
+   "alias": "CAUSE_KJZ",
+   "canonical_id": "RC11",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "bad deployment",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-01-10 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_QTS": {
+   "alias": "CAUSE_QTS",
+   "canonical_id": "RC12",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "incomplete migration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-01-10 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_MFV": {
+   "alias": "CAUSE_MFV",
+   "canonical_id": "RC13",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "stale cache",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-01-10 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_BHX": {
+   "alias": "CAUSE_BHX",
+   "canonical_id": "RC14",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "third-party service failure",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-01-10 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_STK": {
+   "alias": "CAUSE_STK",
+   "canonical_id": "RC15",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "unsupported configuration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-01-10 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_VVM": {
+   "alias": "CAUSE_VVM",
+   "canonical_id": "RC16",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "incorrect DNS configuration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-01-10 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_BPL": {
+   "alias": "CAUSE_BPL",
+   "canonical_id": "RC17",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "data quality issue",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-01-10 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_TDJ": {
+   "alias": "CAUSE_TDJ",
+   "canonical_id": "RC18",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "operator error",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-01-10 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_MFP": {
+   "alias": "CAUSE_MFP",
+   "canonical_id": "RC19",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "capacity limitation",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-01-10 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_DSK": {
+   "alias": "CAUSE_DSK",
+   "canonical_id": "RC20",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "known product limitation",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-01-10 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_ZNG": {
+   "alias": "CAUSE_ZNG",
+   "canonical_id": "RC21",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "race condition",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-01-10 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_MSG": {
+   "alias": "CAUSE_MSG",
+   "canonical_id": "RC22",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "identity provider outage",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-01-10 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_SXH": {
+   "alias": "CAUSE_SXH",
+   "canonical_id": "RC23",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "token expiration handling bug",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-01-10 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_ZVM": {
+   "alias": "CAUSE_ZVM",
+   "canonical_id": "RC24",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "insufficient monitoring/alerting",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-01-10 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_DXQ": {
+   "alias": "CAUSE_DXQ",
+   "canonical_id": "RC25",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "incorrect load balancer routing",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-01-10 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_KTG": {
+   "alias": "CAUSE_KTG",
+   "canonical_id": "RC26",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "firewall misconfiguration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-01-10 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_JVN": {
+   "alias": "CAUSE_JVN",
+   "canonical_id": "RC27",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "schema mismatch",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-01-10 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_PCX": {
+   "alias": "CAUSE_PCX",
+   "canonical_id": "RC28",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "breaking API contract change",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-01-10 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_XTS": {
+   "alias": "CAUSE_XTS",
+   "canonical_id": "RC29",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "credential rotation not propagated",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-01-10 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_RQT": {
+   "alias": "CAUSE_RQT",
+   "canonical_id": "RC30",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "stale internal documentation followed",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-01-10 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_XWK": {
+   "alias": "CAUSE_XWK",
+   "canonical_id": "RC31",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "incomplete rollback",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-01-10 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_PKT": {
+   "alias": "CAUSE_PKT",
+   "canonical_id": "RC32",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "infrastructure hardware failure",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-01-10 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_DGZ": {
+   "alias": "CAUSE_DGZ",
+   "canonical_id": "RC33",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "rate limit misconfiguration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-01-10 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_LLW": {
+   "alias": "CAUSE_LLW",
+   "canonical_id": "RC34",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "insufficient capacity planning",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-01-10 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_CWD": {
+   "alias": "CAUSE_CWD",
+   "canonical_id": "RC35",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "data migration defect",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-01-10 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_SBD": {
+   "alias": "CAUSE_SBD",
+   "canonical_id": "RC36",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "improper access review",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-01-10 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_XZR": {
+   "alias": "CAUSE_XZR",
+   "canonical_id": "RC37",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "expired API key",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-01-10 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_KRJ": {
+   "alias": "CAUSE_KRJ",
+   "canonical_id": "RC38",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "clock/time synchronization issue",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-01-10 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_GXG": {
+   "alias": "CAUSE_GXG",
+   "canonical_id": "RC39",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "idempotency/duplicate-processing failure",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-01-10 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_SNC": {
+   "alias": "CAUSE_SNC",
+   "canonical_id": "RC40",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "insufficient information to determine root cause",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-01-10 00:00:00",
+   "summary": ""
+  },
+  "PRODUCT_NNX": {
+   "alias": "PRODUCT_NNX",
+   "canonical_id": "P002",
+   "kind": "PRODUCT",
+   "type": "product",
+   "display_name": "SSO Integration Module",
+   "source_tool": "get_case_context",
+   "first_observed_step": 1,
+   "first_observed_clock": "2026-01-10 00:00:00",
+   "summary": ""
+  },
+  "COMPONENT_HWM": {
+   "alias": "COMPONENT_HWM",
+   "canonical_id": "CM011",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "SSO Broker",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-01-10 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_CMJ": {
+   "alias": "COMPONENT_CMJ",
+   "canonical_id": "CM019",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Account Recovery Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-01-10 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_CFP": {
+   "alias": "COMPONENT_CFP",
+   "canonical_id": "CM025",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Social Login Connector",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-01-10 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_KKJ": {
+   "alias": "COMPONENT_KKJ",
+   "canonical_id": "CM027",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "OAuth Authorization Server",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-01-10 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_KMW": {
+   "alias": "COMPONENT_KMW",
+   "canonical_id": "CM031",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Identity Lifecycle Manager",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-01-10 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_BHW": {
+   "alias": "COMPONENT_BHW",
+   "canonical_id": "CM032",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Group Sync Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-01-10 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_GMQ": {
+   "alias": "COMPONENT_GMQ",
+   "canonical_id": "CM241",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Central Message Queue",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-01-10 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_FCN": {
+   "alias": "COMPONENT_FCN",
+   "canonical_id": "CM246",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Central Identity Vault",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-01-10 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_MFJ": {
+   "alias": "COMPONENT_MFJ",
+   "canonical_id": "CM020",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Identity Audit Logger",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-01-10 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_HWR": {
+   "alias": "COMPONENT_HWR",
+   "canonical_id": "CM022",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Risk-Based Authentication Engine",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-01-10 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_QCV": {
+   "alias": "COMPONENT_QCV",
+   "canonical_id": "CM023",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Device Trust Service",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-01-10 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_JFV": {
+   "alias": "COMPONENT_JFV",
+   "canonical_id": "CM033",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Attribute Mapping Service",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-01-10 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_WMV": {
+   "alias": "COMPONENT_WMV",
+   "canonical_id": "CM040",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Emergency Access (Break-Glass) Service",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-01-10 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_BDQ": {
+   "alias": "COMPONENT_BDQ",
+   "canonical_id": "CM091",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Reporting Service",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-01-10 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_STP": {
+   "alias": "COMPONENT_STP",
+   "canonical_id": "CM118",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Dashboard Sharing Service",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-01-10 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_RJN": {
+   "alias": "COMPONENT_RJN",
+   "canonical_id": "CM137",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Secret Store",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-01-10 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_LHP": {
+   "alias": "COMPONENT_LHP",
+   "canonical_id": "CM149",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "TLS Termination Service",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-01-10 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_XWG": {
+   "alias": "COMPONENT_XWG",
+   "canonical_id": "CM190",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Accessibility Layer",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-01-10 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_BJH": {
+   "alias": "COMPONENT_BJH",
+   "canonical_id": "CM205",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Mobile Push Token Manager",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-01-10 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_GMT": {
+   "alias": "COMPONENT_GMT",
+   "canonical_id": "CM230",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Secret & Config Store",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-01-10 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_VQN": {
+   "alias": "COMPONENT_VQN",
+   "canonical_id": "CM238",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Directory Sync Connector (Shared)",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-01-10 00:30:00",
+   "summary": ""
+  },
+  "TEAM_FNV": {
+   "alias": "TEAM_FNV",
+   "canonical_id": "TM01",
+   "kind": "TEAM",
+   "type": "team",
+   "display_name": "Identity",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-01-10 00:30:00",
+   "summary": ""
+  },
+  "TEAM_DDM": {
+   "alias": "TEAM_DDM",
+   "canonical_id": "TM07",
+   "kind": "TEAM",
+   "type": "team",
+   "display_name": "Security",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-01-10 00:30:00",
+   "summary": ""
+  },
+  "EVIDENCE_FGQ": {
+   "alias": "EVIDENCE_FGQ",
+   "canonical_id": "SG0001295",
+   "kind": "EVIDENCE",
+   "type": "signal",
+   "display_name": "",
+   "source_tool": "get_technical_signals",
+   "first_observed_step": 4,
+   "first_observed_clock": "2026-01-10 00:45:00",
+   "summary": "CONFIG_DRIFT_DETECTED: configuration drift detected on Group Sync Service on COMPONENT_BHW @ 2026-01-09 22:41:00"
+  },
+  "COMPONENT_RZM": {
+   "alias": "COMPONENT_RZM",
+   "canonical_id": "CM077",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Usage Metering Service",
+   "source_tool": "get_technical_signals",
+   "first_observed_step": 4,
+   "first_observed_clock": "2026-01-10 00:45:00",
+   "summary": ""
+  },
+  "EVIDENCE_GXH": {
+   "alias": "EVIDENCE_GXH",
+   "canonical_id": "SG0001296",
+   "kind": "EVIDENCE",
+   "type": "signal",
+   "display_name": "",
+   "source_tool": "get_technical_signals",
+   "first_observed_step": 4,
+   "first_observed_clock": "2026-01-10 00:45:00",
+   "summary": "HTTP_504: HTTP 504 Gateway Timeout on Usage Metering Service on COMPONENT_RZM @ 2026-01-09 23:52:00"
+  },
+  "COMPONENT_RRJ": {
+   "alias": "COMPONENT_RRJ",
+   "canonical_id": "CM002",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Authorization/Policy Engine",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 5,
+   "first_observed_clock": "2026-01-10 01:00:00",
+   "summary": ""
+  },
+  "COMPONENT_BWC": {
+   "alias": "COMPONENT_BWC",
+   "canonical_id": "CM010",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Federation Gateway",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 5,
+   "first_observed_clock": "2026-01-10 01:00:00",
+   "summary": ""
+  },
+  "COMPONENT_GPH": {
+   "alias": "COMPONENT_GPH",
+   "canonical_id": "CM018",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Login UI",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 5,
+   "first_observed_clock": "2026-01-10 01:00:00",
+   "summary": ""
+  },
+  "COMPONENT_DWV": {
+   "alias": "COMPONENT_DWV",
+   "canonical_id": "CM029",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "JWT Issuer Service",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 5,
+   "first_observed_clock": "2026-01-10 01:00:00",
+   "summary": ""
+  },
+  "COMPONENT_NHH": {
+   "alias": "COMPONENT_NHH",
+   "canonical_id": "CM030",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Step-Up Authentication Service",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 5,
+   "first_observed_clock": "2026-01-10 01:00:00",
+   "summary": ""
+  },
+  "COMPONENT_CMH": {
+   "alias": "COMPONENT_CMH",
+   "canonical_id": "CM037",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Login Analytics Service",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 5,
+   "first_observed_clock": "2026-01-10 01:00:00",
+   "summary": ""
+  },
+  "COMPONENT_MJM": {
+   "alias": "COMPONENT_MJM",
+   "canonical_id": "CM039",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Trusted Device Manager",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 5,
+   "first_observed_clock": "2026-01-10 01:00:00",
+   "summary": ""
+  },
+  "COMPONENT_KDL": {
+   "alias": "COMPONENT_KDL",
+   "canonical_id": "CM237",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "SSO Broker (Shared)",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 5,
+   "first_observed_clock": "2026-01-10 01:00:00",
+   "summary": ""
+  },
+  "TEAM_SNV": {
+   "alias": "TEAM_SNV",
+   "canonical_id": "TM02",
+   "kind": "TEAM",
+   "type": "team",
+   "display_name": "Authorization & Access",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 5,
+   "first_observed_clock": "2026-01-10 01:00:00",
+   "summary": ""
+  },
+  "TEAM_CMT": {
+   "alias": "TEAM_CMT",
+   "canonical_id": "TM24",
+   "kind": "TEAM",
+   "type": "team",
+   "display_name": "Onboarding & Provisioning",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 5,
+   "first_observed_clock": "2026-01-10 01:00:00",
+   "summary": ""
+  },
+  "CHANGE_TLX": {
+   "alias": "CHANGE_TLX",
+   "canonical_id": "CH030479",
+   "kind": "CHANGE",
+   "type": "change",
+   "display_name": "",
+   "source_tool": "get_recent_changes",
+   "first_observed_step": 7,
+   "first_observed_clock": "2026-01-10 01:30:00",
+   "summary": "manual_config_change on COMPONENT_BHW started 2026-01-09 23:04:00, status completed, 0.9h before case"
+  },
+  "EVIDENCE_RJV": {
+   "alias": "EVIDENCE_RJV",
+   "canonical_id": "SHE00642",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 9,
+   "first_observed_clock": "2026-01-10 02:00:00",
+   "summary": "health event severity minor 2025-12-26 00:47:00..2025-12-26 01:07:00: Brief minor health blip on Group Sync Service: elevated error rate for 20 minutes."
+  },
+  "EVIDENCE_QLC": {
+   "alias": "EVIDENCE_QLC",
+   "canonical_id": "SHE00655",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 9,
+   "first_observed_clock": "2026-01-10 02:00:00",
+   "summary": "health event severity major 2025-12-21 10:19:00..2025-12-21 10:34:00: Automated health check flagged Group Sync Service as degraded (major) for 15 minutes."
+  },
+  "EVIDENCE_XQD": {
+   "alias": "EVIDENCE_XQD",
+   "canonical_id": "SHE00648",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 9,
+   "first_observed_clock": "2026-01-10 02:00:00",
+   "summary": "health event severity minor 2025-12-10 16:17:00..2025-12-10 16:22:00: Brief minor health blip on Group Sync Service: elevated error rate for 5 minutes."
+  },
+  "EVIDENCE_FLH": {
+   "alias": "EVIDENCE_FLH",
+   "canonical_id": "SHE00645",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 9,
+   "first_observed_clock": "2026-01-10 02:00:00",
+   "summary": "health event severity major 2025-10-11 05:00:00..2025-10-11 05:20:00: Brief major health blip on Group Sync Service: elevated error rate for 20 minutes."
+  },
+  "EVIDENCE_RLR": {
+   "alias": "EVIDENCE_RLR",
+   "canonical_id": "SHE00644",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 9,
+   "first_observed_clock": "2026-01-10 02:00:00",
+   "summary": "health event severity minor 2025-10-09 10:23:00..2025-10-09 10:38:00: Transient minor availability dip on Group Sync Service, recovered within 15 minutes."
+  },
+  "EVIDENCE_FCJ": {
+   "alias": "EVIDENCE_FCJ",
+   "canonical_id": "SHE00639",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 9,
+   "first_observed_clock": "2026-01-10 02:00:00",
+   "summary": "health event severity minor 2025-09-01 17:46:00..2025-09-01 17:51:00: Automated health check flagged Group Sync Service as degraded (minor) for 5 minutes."
+  },
+  "EVIDENCE_KSZ": {
+   "alias": "EVIDENCE_KSZ",
+   "canonical_id": "SHE00647",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 9,
+   "first_observed_clock": "2026-01-10 02:00:00",
+   "summary": "health event severity minor 2025-08-10 20:12:00..2025-08-10 20:32:00: Brief minor health blip on Group Sync Service: elevated error rate for 20 minutes."
+  },
+  "EVIDENCE_FJB": {
+   "alias": "EVIDENCE_FJB",
+   "canonical_id": "SHE00649",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 9,
+   "first_observed_clock": "2026-01-10 02:00:00",
+   "summary": "health event severity minor 2025-08-08 11:12:00..2025-08-08 11:27:00: Brief minor health blip on Group Sync Service: elevated error rate for 15 minutes."
+  }
+ },
+ "validation_result": {
+  "first_pass_ok": true,
+  "errors_first": [],
+  "repair_used": false,
+  "final_ok": true,
+  "errors_final": []
+ },
+ "contract_failure": null,
+ "llm_calls": [
+  {
+   "phase": "action",
+   "step": 2,
+   "attempt": 0,
+   "prompt_tokens": 1185,
+   "completion_tokens": 78,
+   "latency_ms": 4261.1,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"SSO Integration Module misconfiguration\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_customer_deployment\", \"component\": null, \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 3,
+   "attempt": 0,
+   "prompt_tokens": 1411,
+   "completion_tokens": 81,
+   "latency_ms": 3264.3,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"SSO Integration Module misconfiguration\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_component_topology\", \"component\": \"COMPONENT_HWM\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 4,
+   "attempt": 0,
+   "prompt_tokens": 1748,
+   "completion_tokens": 79,
+   "latency_ms": 4024.4,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"SSO Integration Module misconfiguration\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_technical_signals\", \"component\": null, \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 5,
+   "attempt": 0,
+   "prompt_tokens": 1692,
+   "completion_tokens": 81,
+   "latency_ms": 3360.1,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"SSO Integration Module misconfiguration\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_component_topology\", \"component\": \"COMPONENT_BHW\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 6,
+   "attempt": 0,
+   "prompt_tokens": 1912,
+   "completion_tokens": 83,
+   "latency_ms": 3230.7,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"SSO Integration Module misconfiguration\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_technical_signals\", \"component\": \"COMPONENT_BHW\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 7,
+   "attempt": 0,
+   "prompt_tokens": 1747,
+   "completion_tokens": 81,
+   "latency_ms": 2546.8,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"SSO Integration Module misconfiguration\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_recent_changes\", \"component\": \"COMPONENT_BHW\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 8,
+   "attempt": 0,
+   "prompt_tokens": 1850,
+   "completion_tokens": 81,
+   "latency_ms": 3319.0,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"SSO Integration Module misconfiguration\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_configuration_history\", \"component\": \"COMPONENT_BHW\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 9,
+   "attempt": 0,
+   "prompt_tokens": 1764,
+   "completion_tokens": 81,
+   "latency_ms": 2620.1,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"SSO Integration Module misconfiguration\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_service_health\", \"component\": \"COMPONENT_BHW\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 10,
+   "attempt": 0,
+   "prompt_tokens": 2892,
+   "completion_tokens": 78,
+   "latency_ms": 3051.0,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"SSO Integration Module misconfiguration\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_active_incidents\", \"component\": null, \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "final",
+   "step": 11,
+   "attempt": 0,
+   "prompt_tokens": 2972,
+   "completion_tokens": 265,
+   "latency_ms": 42312.6,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"SSO Integration Module misconfiguration\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"evidence_ids\": [], \"issue_category\": null, \"category_confidence\": null, \"root_cause\": null, \"root_cause_confidence\": null, \"affected_component\": null, \"component_confidence\": null, \"causal_change\": null, \"causal_change_confidence\": null, \"owning_team\": null, \"routing_confidence\": null, \"confidence\": 0.2, \"evidence_sufficiency\": \"insufficient\", \"human_review_required\": true, \"review_reason\": \"Investigation budget exhausted, unable to gather sufficient evidence to support a diagnosis\", \"status\": \"INSUFFICIENT_EVIDENCE\", \"recommended_next_action\": \"Human review required to further investigate and diagnose the issue\", \"unresolved_uncertainties\": [\"Unable to determine the root cause of the SSO Integration Module misconfiguration due to insufficient evidence\"], \"summary\": \"The investigation was unable to gather sufficient evidence to support a diagnosis due to the exhausted investigation budget. Human review is required to further investigate and diagnose the issue.\"}"
+  }
+ ]
+}

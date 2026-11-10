@@ -1,0 +1,25 @@
+id,name,description
+TM01,Identity,"Owns authentication, SSO, federation, and identity lifecycle services."
+TM02,Authorization & Access,"Owns RBAC, policy engines, and permission/consent management."
+TM03,Networking,"Owns DNS, load balancing, firewalls, TLS, and connectivity infrastructure."
+TM04,Application Platform,"Owns core application services, API layers, and platform runtime."
+TM05,Data Platform,"Owns ingestion, ETL, and data pipeline infrastructure."
+TM06,Database,"Owns database engines, storage performance, and query infrastructure."
+TM07,Security,"Owns credential management, certificates, and security incident response."
+TM08,Commerce / Billing,"Owns payment processing, invoicing, and billing systems."
+TM09,Storage,"Owns object storage, backups, and file/data retention infrastructure."
+TM10,Reliability / SRE,"Owns uptime, incident response, and system health monitoring."
+TM11,Deployment / Release Engineering,"Owns CI/CD, releases, and rollout/rollback tooling."
+TM12,Customer Engineering,Owns customer-specific technical enablement and onboarding support.
+TM13,Integration,"Owns webhook, third-party, and cross-system integration services."
+TM14,Developer Platform / API,"Owns public API design, versioning, and developer-facing tooling."
+TM15,Support Escalation,"Handles ambiguous, unclassified, or cross-team escalations."
+TM16,Product Engineering (Frontend),Owns customer-facing UI products.
+TM17,Product Engineering (Analytics),Owns analytics and reporting products.
+TM18,Product Engineering (Payments),Owns payments product functionality.
+TM19,Compliance & Audit,"Owns audit logging, regulatory compliance, and data residency."
+TM20,Messaging & Notifications,Owns notification delivery across email/SMS/push.
+TM21,Infrastructure / Cloud Ops,"Owns cloud infrastructure, capacity, and scaling operations."
+TM22,Mobile Engineering,Owns native mobile app clients.
+TM23,Third-Party Vendor Management,Coordinates with external vendors and dependency owners.
+TM24,Onboarding & Provisioning,Owns tenant provisioning and enterprise onboarding workflows.

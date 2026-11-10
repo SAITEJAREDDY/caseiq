@@ -1,0 +1,311 @@
+{
+  "run_id": "run_CS00006_20260923T064450Z_145d020a",
+  "case_id": "CS00006",
+  "created_at": "2026-09-23T06:44:50.616447+00:00",
+  "model_provider": "together",
+  "model_name": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "temperature": 0.1,
+  "prompt_version": "v1",
+  "toolset_version": "v1",
+  "output_schema_version": "v1",
+  "agent_loop_version": "v1",
+  "repair_layer_version": "v1",
+  "graph_version": "phase4-2500case-2026-09-22",
+  "sim_clock_step_minutes": 15,
+  "max_tool_calls": 10,
+  "max_repeated_same_tool": 2,
+  "stop_reason": "model_submitted",
+  "num_tool_calls": 8,
+  "num_llm_calls": 8,
+  "token_usage": {
+    "prompt_tokens": 14283,
+    "completion_tokens": 703,
+    "total_tokens": 14986
+  },
+  "approx_cost_usd": 0.001499,
+  "approx_cost_note": "Estimated from a configurable placeholder rate, not exact provider billing -- see config.py",
+  "trace_steps": [
+    {
+      "step": 1,
+      "sim_clock": "2024-10-10 00:00:00",
+      "tool_name": "get_case_context",
+      "args": {
+        "hypotheses": [],
+        "rationale": "Starting the investigation of case CS00006"
+      },
+      "hypotheses": [],
+      "rationale": "Starting the investigation of case CS00006",
+      "result_summary": {
+        "case_id": "CS00006",
+        "title": "Webhook Engine outage in EU-Central",
+        "description": "We are reporting a full outage of the Webhook Engine in the EU-Central production environment. No webhooks are being processed. Currently, this affects about 4 users/teams who rely on these specific integrations, so the business impact is low, but please confirm if this is a known issue.",
+        "environment": "production",
+        "region": "EU-Central",
+        "reported_business_impact": "low",
+        "reported_affected_users": 4,
+        "priority": "low",
+        "created_date": "2024-10-10",
+        "status": "resolved",
+        "customer_id": "C02120",
+        "customer_tier": "bronze",
+        "customer_industry": "Public Sector",
+        "customer_company_size": "small",
+        "reported_product_id": "P013",
+        "reported_product_name": "Webhook Engine",
+        "reported_symptoms": [
+          "full outage reported"
+        ]
+      },
+      "latency_ms": 992.6,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 2,
+      "sim_clock": "2024-10-10 00:15:00",
+      "tool_name": "get_customer_info",
+      "args": {
+        "customer_id": "C02120",
+        "hypotheses": [
+          "webhook_engine_outage:0.8",
+          "environmental_issue:0.2"
+        ],
+        "rationale": "To understand the customer and their setup, which may help in identifying the root cause of the Webhook Engine outage."
+      },
+      "hypotheses": [
+        "webhook_engine_outage:0.8",
+        "environmental_issue:0.2"
+      ],
+      "rationale": "To understand the customer and their setup, which may help in identifying the root cause of the Webhook Engine outage.",
+      "result_summary": {
+        "error": "unknown tool 'get_customer_info'. Valid tools are: ['get_active_incidents', 'get_agent_availability', 'get_case_context', 'get_component_topology', 'get_configuration_history', 'get_customer_deployment', 'get_deployment_history', 'get_recent_changes', 'get_service_health', 'get_similar_cases', 'get_team_capability', 'get_technical_signals', 'get_telemetry', 'search_knowledge_base', 'submit_diagnosis']"
+      },
+      "latency_ms": 1205.7,
+      "status": "error",
+      "redundant": false
+    },
+    {
+      "step": 3,
+      "sim_clock": "2024-10-10 00:30:00",
+      "tool_name": "get_component_topology",
+      "args": {
+        "component_id": "P013",
+        "hypotheses": [
+          "webhook_engine_outage:0.8",
+          "environmental_issue:0.2"
+        ],
+        "rationale": "To understand the architecture and dependencies of the Webhook Engine, which may help in identifying the root cause of the outage."
+      },
+      "hypotheses": [
+        "webhook_engine_outage:0.8",
+        "environmental_issue:0.2"
+      ],
+      "rationale": "To understand the architecture and dependencies of the Webhook Engine, which may help in identifying the root cause of the outage.",
+      "result_summary": {
+        "error": "component P013 not found"
+      },
+      "latency_ms": 853.4,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 4,
+      "sim_clock": "2024-10-10 00:45:00",
+      "tool_name": "get_service_health",
+      "args": {
+        "service_id": "Webhook Engine",
+        "hypotheses": [
+          "webhook_engine_outage:0.8",
+          "environmental_issue:0.2"
+        ],
+        "rationale": "To check the current health and status of the Webhook Engine service, which may provide insights into the outage."
+      },
+      "hypotheses": [
+        "webhook_engine_outage:0.8",
+        "environmental_issue:0.2"
+      ],
+      "rationale": "To check the current health and status of the Webhook Engine service, which may provide insights into the outage.",
+      "result_summary": {
+        "error": "1 validation error for ComponentScopedArgs\ncomponent_id\n  Field required [type=missing, input_value={'service_id': 'Webhook E...ights into the outage.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      },
+      "latency_ms": 851.3,
+      "status": "error",
+      "redundant": false
+    },
+    {
+      "step": 5,
+      "sim_clock": "2024-10-10 01:00:00",
+      "tool_name": "get_recent_changes",
+      "args": {
+        "environment": "production",
+        "region": "EU-Central",
+        "hypotheses": [
+          "webhook_engine_outage:0.8",
+          "environmental_issue:0.2"
+        ],
+        "rationale": "To identify any recent changes or updates that may have caused the Webhook Engine outage."
+      },
+      "hypotheses": [
+        "webhook_engine_outage:0.8",
+        "environmental_issue:0.2"
+      ],
+      "rationale": "To identify any recent changes or updates that may have caused the Webhook Engine outage.",
+      "result_summary": {
+        "recent_changes": [
+          {
+            "evidence_id": "CH017279",
+            "change_type": "network_config_change",
+            "component_id": "CM143",
+            "started_at": "2024-10-07 16:45:00",
+            "completed_at": "2024-10-07 17:13:00",
+            "status": "completed",
+            "initiated_by": "system:automation",
+            "time_proximity_hours": 55.2,
+            "scope_match": "same_product"
+          }
+        ],
+        "count": 1
+      },
+      "latency_ms": 1092.1,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 6,
+      "sim_clock": "2024-10-10 01:15:00",
+      "tool_name": "get_telemetry",
+      "args": {
+        "component_id": "CM143",
+        "evidence_id": "CH017279",
+        "hypotheses": [
+          "webhook_engine_outage:0.8",
+          "environmental_issue:0.2",
+          "network_config_change:0.5"
+        ],
+        "rationale": "To gather telemetry data related to the recent network configuration change, which may provide insights into the Webhook Engine outage."
+      },
+      "hypotheses": [
+        "webhook_engine_outage:0.8",
+        "environmental_issue:0.2",
+        "network_config_change:0.5"
+      ],
+      "rationale": "To gather telemetry data related to the recent network configuration change, which may provide insights into the Webhook Engine outage.",
+      "result_summary": {
+        "available_metric_categories": [
+          "Application",
+          "Integration"
+        ],
+        "note": "Call again with one of these metric_category values to see actual readings."
+      },
+      "latency_ms": 1600.0,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 7,
+      "sim_clock": "2024-10-10 01:30:00",
+      "tool_name": "get_telemetry",
+      "args": {
+        "component_id": "CM143",
+        "evidence_id": "CH017279",
+        "metric_category": "Application",
+        "hypotheses": [
+          "webhook_engine_outage:0.8",
+          "environmental_issue:0.2",
+          "network_config_change:0.5"
+        ],
+        "rationale": "To gather application-level telemetry data related to the recent network configuration change, which may provide insights into the Webhook Engine outage."
+      },
+      "hypotheses": [
+        "webhook_engine_outage:0.8",
+        "environmental_issue:0.2",
+        "network_config_change:0.5"
+      ],
+      "rationale": "To gather application-level telemetry data related to the recent network configuration change, which may provide insights into the Webhook Engine outage.",
+      "result_summary": {
+        "telemetry_findings": [],
+        "count": 0
+      },
+      "latency_ms": 979.3,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 8,
+      "sim_clock": "2024-10-10 01:45:00",
+      "tool_name": "submit_diagnosis",
+      "args": {
+        "case_id": "CS00006",
+        "diagnosis": {
+          "label": "webhook_engine_outage",
+          "confidence": 0.8,
+          "supporting_evidence_ids": [
+            "CH017279"
+          ],
+          "contradicting_evidence_ids": [],
+          "status": "unconfirmed"
+        },
+        "evidence_sufficiency": "partial",
+        "human_review_required": true,
+        "recommended_next_action": "Inspect network configuration changes and review system logs for errors",
+        "hypotheses": [
+          "webhook_engine_outage:0.8",
+          "environmental_issue:0.2",
+          "network_config_change:0.5"
+        ]
+      },
+      "hypotheses": [
+        "webhook_engine_outage:0.8",
+        "environmental_issue:0.2",
+        "network_config_change:0.5"
+      ],
+      "rationale": "",
+      "result_summary": "submitted",
+      "latency_ms": 1337.3,
+      "status": "ok",
+      "redundant": false
+    }
+  ],
+  "final_diagnosis": {
+    "hypotheses": [],
+    "rationale": "",
+    "predicted_product_id": null,
+    "product_confidence": null,
+    "predicted_component_id": null,
+    "component_confidence": null,
+    "predicted_category_id": null,
+    "category_confidence": null,
+    "predicted_subcategory_id": null,
+    "predicted_root_cause_family": null,
+    "root_cause_confidence": null,
+    "predicted_causal_change_id": null,
+    "causal_change_confidence": null,
+    "predicted_severity": null,
+    "severity_confidence": null,
+    "recommended_team_id": null,
+    "routing_confidence": null,
+    "evidence_sufficiency": "partial",
+    "overall_confidence": 0.3,
+    "recommended_next_action": "Inspect network configuration changes and review system logs for errors",
+    "human_review_required": true,
+    "human_review_reason": null,
+    "evidence_summary": "No summary provided by the agent.",
+    "unresolved_uncertainties": []
+  },
+  "citation_violations": [],
+  "evidence_ids_seen": [
+    "CH017279"
+  ],
+  "repair_events": [
+    {
+      "step": 2,
+      "kind": "hypothesis_normalization",
+      "detail": "tool=get_customer_info: hypotheses arg was str, not a list; coerced"
+    },
+    {
+      "step": 8,
+      "kind": "final_diagnosis_repair",
+      "detail": "direct validation failed (6 validation errors for FinalDiagnosis\nhypotheses.0\n  Input should be a valid dictionary or instance of HypothesisUpdate [type=model_type, input_value='webhook_engine_outage:0.8', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/model_type\nhypotheses.1\n  Input should be a valid dictionary or instance of HypothesisUpdate [type=model_type, input_value='environmental_issue:0.2', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/model_type\nhypotheses.2\n  Input should be a valid dictionary or instance of HypothesisUpdate [type=model_type, input_value='network_config_change:0.5', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/model_type\nrationale\n  Field required [type=missing, input_value={'case_id': 'CS00006', 'd...ork_config_change:0.5']}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\noverall_confidence\n  Field required [type=missing, input_value={'case_id': 'CS00006', 'd...ork_config_change:0.5']}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\nevidence_summary\n  Field required [type=missing, input_value={'case_id': 'CS00006', 'd...ork_config_change:0.5']}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing); repaired args validated"
+    }
+  ]
+}

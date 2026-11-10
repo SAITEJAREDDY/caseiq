@@ -1,0 +1,416 @@
+{
+  "run_id": "run_CS00182_20260924T002622Z_5f94ec09",
+  "case_id": "CS00182",
+  "created_at": "2026-09-24T00:26:22.795458+00:00",
+  "model_provider": "together",
+  "model_name": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "temperature": 0.1,
+  "prompt_version": "v1",
+  "toolset_version": "v1",
+  "output_schema_version": "v1",
+  "agent_loop_version": "v1",
+  "repair_layer_version": "v1",
+  "graph_version": "phase4-2500case-2026-09-22",
+  "sim_clock_step_minutes": 15,
+  "max_tool_calls": 10,
+  "max_repeated_same_tool": 2,
+  "stop_reason": "model_submitted",
+  "num_tool_calls": 7,
+  "num_llm_calls": 7,
+  "token_usage": {
+    "prompt_tokens": 13680,
+    "completion_tokens": 870,
+    "total_tokens": 14550
+  },
+  "approx_cost_usd": 0.001455,
+  "approx_cost_note": "Estimated from a configurable placeholder rate, not exact provider billing -- see config.py",
+  "trace_steps": [
+    {
+      "step": 1,
+      "sim_clock": "2024-12-16 00:00:00",
+      "tool_name": "get_case_context",
+      "args": {
+        "hypotheses": [],
+        "rationale": "Starting the investigation of case CS00182"
+      },
+      "hypotheses": [],
+      "rationale": "Starting the investigation of case CS00182",
+      "result_summary": {
+        "case_id": "CS00182",
+        "title": "Analytics Dashboard showing wrong residency flags",
+        "description": "We are seeing a data residency flag mismatch on the Analytics Dashboard in our staging environment (LATAM). This is definitely because of an incomplete rollback from the last deployment. We need this fixed immediately as it's affecting 230 users and has a high business impact.",
+        "environment": "staging",
+        "region": "LATAM",
+        "reported_business_impact": "high",
+        "reported_affected_users": 230,
+        "priority": "medium",
+        "created_date": "2024-12-16",
+        "status": "resolved",
+        "customer_id": "C02009",
+        "customer_tier": "gold",
+        "customer_industry": "Financial Services",
+        "customer_company_size": "mid",
+        "reported_product_id": "P003",
+        "reported_product_name": "Analytics Dashboard",
+        "reported_symptoms": [
+          "data residency flag mismatch"
+        ]
+      },
+      "latency_ms": 853.9,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 2,
+      "sim_clock": "2024-12-16 00:15:00",
+      "tool_name": "get_system_logs",
+      "args": {
+        "hypotheses": [
+          "incomplete_rollback:0.8",
+          "data_residency_flag_mismatch:0.2"
+        ],
+        "rationale": "To investigate the cause of the data residency flag mismatch, we need to check the system logs for any errors or warnings related to the last deployment.",
+        "start_date": "2024-12-15",
+        "end_date": "2024-12-16",
+        "log_level": "ERROR",
+        "log_type": "DEPLOYMENT"
+      },
+      "hypotheses": [
+        "incomplete_rollback:0.8",
+        "data_residency_flag_mismatch:0.2"
+      ],
+      "rationale": "To investigate the cause of the data residency flag mismatch, we need to check the system logs for any errors or warnings related to the last deployment.",
+      "result_summary": {
+        "error": "unknown tool 'get_system_logs'. Valid tools are: ['get_active_incidents', 'get_agent_availability', 'get_case_context', 'get_component_topology', 'get_configuration_history', 'get_customer_deployment', 'get_deployment_history', 'get_recent_changes', 'get_service_health', 'get_similar_cases', 'get_team_capability', 'get_technical_signals', 'get_telemetry', 'search_knowledge_base', 'submit_diagnosis']"
+      },
+      "latency_ms": 3536.6,
+      "status": "error",
+      "redundant": false
+    },
+    {
+      "step": 3,
+      "sim_clock": "2024-12-16 00:30:00",
+      "tool_name": "get_deployment_history",
+      "args": {
+        "hypotheses": [
+          "incomplete_rollback:0.8",
+          "data_residency_flag_mismatch:0.2"
+        ],
+        "rationale": "To investigate the cause of the data residency flag mismatch, we need to check the deployment history for any recent changes or updates that may have caused the issue.",
+        "environment": "staging",
+        "region": "LATAM",
+        "product_id": "P003",
+        "start_date": "2024-12-01",
+        "end_date": "2024-12-16"
+      },
+      "hypotheses": [
+        "incomplete_rollback:0.8",
+        "data_residency_flag_mismatch:0.2"
+      ],
+      "rationale": "To investigate the cause of the data residency flag mismatch, we need to check the deployment history for any recent changes or updates that may have caused the issue.",
+      "result_summary": {
+        "deployments": [],
+        "count": 0
+      },
+      "latency_ms": 1987.8,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 4,
+      "sim_clock": "2024-12-16 00:45:00",
+      "tool_name": "get_recent_changes",
+      "args": {
+        "hypotheses": [
+          "incomplete_rollback:0.8",
+          "data_residency_flag_mismatch:0.2"
+        ],
+        "rationale": "To investigate the cause of the data residency flag mismatch, we need to check for any recent changes or updates that may have caused the issue.",
+        "environment": "staging",
+        "region": "LATAM",
+        "product_id": "P003",
+        "start_date": "2024-12-01",
+        "end_date": "2024-12-16"
+      },
+      "hypotheses": [
+        "incomplete_rollback:0.8",
+        "data_residency_flag_mismatch:0.2"
+      ],
+      "rationale": "To investigate the cause of the data residency flag mismatch, we need to check for any recent changes or updates that may have caused the issue.",
+      "result_summary": {
+        "recent_changes": [
+          {
+            "evidence_id": "CH027899",
+            "change_type": "credential_rotation",
+            "component_id": "CM229",
+            "started_at": "2024-12-15 06:55:00",
+            "completed_at": "2024-12-15 06:56:00",
+            "status": "completed",
+            "initiated_by": "system:automation",
+            "time_proximity_hours": 17.1,
+            "scope_match": "same_component"
+          }
+        ],
+        "count": 1
+      },
+      "latency_ms": 1628.7,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 5,
+      "sim_clock": "2024-12-16 01:00:00",
+      "tool_name": "get_component_topology",
+      "args": {
+        "hypotheses": [
+          "incomplete_rollback:0.8",
+          "data_residency_flag_mismatch:0.2",
+          "credential_rotation_issue:0.1"
+        ],
+        "rationale": "To investigate the cause of the data residency flag mismatch, we need to check the component topology for any dependencies or relationships that may be related to the issue.",
+        "environment": "staging",
+        "region": "LATAM",
+        "product_id": "P003"
+      },
+      "hypotheses": [
+        "incomplete_rollback:0.8",
+        "data_residency_flag_mismatch:0.2",
+        "credential_rotation_issue:0.1"
+      ],
+      "rationale": "To investigate the cause of the data residency flag mismatch, we need to check the component topology for any dependencies or relationships that may be related to the issue.",
+      "result_summary": {
+        "error": "1 validation error for ComponentScopedArgs\ncomponent_id\n  Field required [type=missing, input_value={'hypotheses': ['incomple...', 'product_id': 'P003'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      },
+      "latency_ms": 2202.3,
+      "status": "error",
+      "redundant": false
+    },
+    {
+      "step": 6,
+      "sim_clock": "2024-12-16 01:15:00",
+      "tool_name": "get_component_topology",
+      "args": {
+        "hypotheses": [
+          "incomplete_rollback:0.8",
+          "data_residency_flag_mismatch:0.2",
+          "credential_rotation_issue:0.1"
+        ],
+        "rationale": "To investigate the cause of the data residency flag mismatch, we need to check the component topology for any dependencies or relationships that may be related to the issue.",
+        "environment": "staging",
+        "region": "LATAM",
+        "product_id": "P003",
+        "component_id": "CM229"
+      },
+      "hypotheses": [
+        "incomplete_rollback:0.8",
+        "data_residency_flag_mismatch:0.2",
+        "credential_rotation_issue:0.1"
+      ],
+      "rationale": "To investigate the cause of the data residency flag mismatch, we need to check the component topology for any dependencies or relationships that may be related to the issue.",
+      "result_summary": {
+        "component_id": "CM229",
+        "component_name": "Audit Log Service",
+        "upstream_dependencies": [
+          {
+            "name": "Authentication Service",
+            "id": "CM001"
+          },
+          {
+            "name": "User Directory Service",
+            "id": "CM013"
+          },
+          {
+            "name": "Login UI",
+            "id": "CM018"
+          },
+          {
+            "name": "Step-Up Authentication Service",
+            "id": "CM030"
+          },
+          {
+            "name": "Login Analytics Service",
+            "id": "CM037"
+          },
+          {
+            "name": "Data Warehouse Store",
+            "id": "CM093"
+          },
+          {
+            "name": "Query Engine",
+            "id": "CM098"
+          },
+          {
+            "name": "Backup & Restore Service",
+            "id": "CM150"
+          },
+          {
+            "name": "Database Connection Pooler",
+            "id": "CM153"
+          },
+          {
+            "name": "Time-Series Metrics Store",
+            "id": "CM168"
+          },
+          {
+            "name": "Backup & Disaster Recovery Service",
+            "id": "CM235"
+          },
+          {
+            "name": "File Storage Service",
+            "id": "CM240"
+          }
+        ],
+        "downstream_dependents": [],
+        "external_dependencies": [
+          "Fraud Detection Vendor"
+        ],
+        "owning_teams": [
+          {
+            "name": "Security",
+            "id": "TM07"
+          },
+          {
+            "name": "Compliance & Audit",
+            "id": "TM19"
+          }
+        ]
+      },
+      "latency_ms": 3375.1,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 7,
+      "sim_clock": "2024-12-16 01:30:00",
+      "tool_name": "submit_diagnosis",
+      "args": {
+        "hypotheses": [
+          {
+            "label": "credential_rotation_issue",
+            "confidence": 0.6,
+            "supporting_evidence_ids": [
+              "CH027899"
+            ],
+            "contradicting_evidence_ids": [],
+            "status": "open"
+          },
+          {
+            "label": "incomplete_rollback",
+            "confidence": 0.2,
+            "supporting_evidence_ids": [],
+            "contradicting_evidence_ids": [],
+            "status": "open"
+          },
+          {
+            "label": "data_residency_flag_mismatch",
+            "confidence": 0.2,
+            "supporting_evidence_ids": [],
+            "contradicting_evidence_ids": [],
+            "status": "open"
+          }
+        ],
+        "evidence_sufficiency": "partial",
+        "human_review_required": false,
+        "recommended_next_action": "Inspect credential rotation logs for any errors or inconsistencies.",
+        "rationale": "Based on the recent changes and component topology, it appears that the credential rotation issue may be related to the data residency flag mismatch. However, more evidence is needed to confirm this hypothesis."
+      },
+      "hypotheses": [
+        {
+          "label": "credential_rotation_issue",
+          "confidence": 0.6,
+          "supporting_evidence_ids": [
+            "CH027899"
+          ],
+          "contradicting_evidence_ids": [],
+          "status": "open"
+        },
+        {
+          "label": "incomplete_rollback",
+          "confidence": 0.2,
+          "supporting_evidence_ids": [],
+          "contradicting_evidence_ids": [],
+          "status": "open"
+        },
+        {
+          "label": "data_residency_flag_mismatch",
+          "confidence": 0.2,
+          "supporting_evidence_ids": [],
+          "contradicting_evidence_ids": [],
+          "status": "open"
+        }
+      ],
+      "rationale": "Based on the recent changes and component topology, it appears that the credential rotation issue may be related to the data residency flag mismatch. However, more evidence is needed to confirm this hypothesis.",
+      "result_summary": "submitted",
+      "latency_ms": 2972.1,
+      "status": "ok",
+      "redundant": false
+    }
+  ],
+  "final_diagnosis": {
+    "hypotheses": [
+      {
+        "label": "credential_rotation_issue",
+        "description": "",
+        "confidence": 0.6,
+        "supporting_evidence": [],
+        "contradicting_evidence": [],
+        "status": "active"
+      },
+      {
+        "label": "incomplete_rollback",
+        "description": "",
+        "confidence": 0.2,
+        "supporting_evidence": [],
+        "contradicting_evidence": [],
+        "status": "active"
+      },
+      {
+        "label": "data_residency_flag_mismatch",
+        "description": "",
+        "confidence": 0.2,
+        "supporting_evidence": [],
+        "contradicting_evidence": [],
+        "status": "active"
+      }
+    ],
+    "rationale": "Based on the recent changes and component topology, it appears that the credential rotation issue may be related to the data residency flag mismatch. However, more evidence is needed to confirm this hypothesis.",
+    "predicted_product_id": null,
+    "product_confidence": null,
+    "predicted_component_id": null,
+    "component_confidence": null,
+    "predicted_category_id": null,
+    "category_confidence": null,
+    "predicted_subcategory_id": null,
+    "predicted_root_cause_family": null,
+    "root_cause_confidence": null,
+    "predicted_causal_change_id": null,
+    "causal_change_confidence": null,
+    "predicted_severity": null,
+    "severity_confidence": null,
+    "recommended_team_id": null,
+    "routing_confidence": null,
+    "evidence_sufficiency": "partial",
+    "overall_confidence": 0.6,
+    "recommended_next_action": "Inspect credential rotation logs for any errors or inconsistencies.",
+    "human_review_required": false,
+    "human_review_reason": null,
+    "evidence_summary": "Based on the recent changes and component topology, it appears that the credential rotation issue may be related to the data residency flag mismatch. However, more evidence is needed to confirm this hypothesis.",
+    "unresolved_uncertainties": []
+  },
+  "citation_violations": [],
+  "evidence_ids_seen": [
+    "CH027899"
+  ],
+  "repair_events": [
+    {
+      "step": 2,
+      "kind": "hypothesis_normalization",
+      "detail": "tool=get_system_logs: hypotheses arg was str, not a list; coerced"
+    },
+    {
+      "step": 7,
+      "kind": "final_diagnosis_repair",
+      "detail": "direct validation failed (5 validation errors for FinalDiagnosis\nhypotheses.0.status\n  Input should be 'active', 'rejected' or 'confirmed' [type=literal_error, input_value='open', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/literal_error\nhypotheses.1.status\n  Input should be 'active', 'rejected' or 'confirmed' [type=literal_error, input_value='open', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/literal_error\nhypotheses.2.status\n  Input should be 'active', 'rejected' or 'confirmed' [type=literal_error, input_value='open', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/literal_error\noverall_confidence\n  Field required [type=missing, input_value={'hypotheses': [{'label':...nfirm this hypothesis.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\nevidence_summary\n  Field required [type=missing, input_value={'hypotheses': [{'label':...nfirm this hypothesis.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing); repaired args validated"
+    }
+  ]
+}

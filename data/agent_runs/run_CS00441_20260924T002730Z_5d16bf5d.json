@@ -1,0 +1,312 @@
+{
+  "run_id": "run_CS00441_20260924T002730Z_5d16bf5d",
+  "case_id": "CS00441",
+  "created_at": "2026-09-24T00:27:30.029717+00:00",
+  "model_provider": "together",
+  "model_name": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "temperature": 0.1,
+  "prompt_version": "v1",
+  "toolset_version": "v1",
+  "output_schema_version": "v1",
+  "agent_loop_version": "v1",
+  "repair_layer_version": "v1",
+  "graph_version": "phase4-2500case-2026-09-22",
+  "sim_clock_step_minutes": 15,
+  "max_tool_calls": 10,
+  "max_repeated_same_tool": 2,
+  "stop_reason": "model_submitted",
+  "num_tool_calls": 7,
+  "num_llm_calls": 7,
+  "token_usage": {
+    "prompt_tokens": 13247,
+    "completion_tokens": 466,
+    "total_tokens": 13713
+  },
+  "approx_cost_usd": 0.001371,
+  "approx_cost_note": "Estimated from a configurable placeholder rate, not exact provider billing -- see config.py",
+  "trace_steps": [
+    {
+      "step": 1,
+      "sim_clock": "2025-05-14 00:00:00",
+      "tool_name": "get_case_context",
+      "args": {
+        "hypotheses": [],
+        "rationale": "Starting the investigation of case CS00441"
+      },
+      "hypotheses": [],
+      "rationale": "Starting the investigation of case CS00441",
+      "result_summary": {
+        "case_id": "CS00441",
+        "title": "SSO Integration Module timeouts linked to vendor status page",
+        "description": "Users in the ME production region are experiencing timeouts when using the SSO Integration Module. We checked the vendor status page and there is a known incident listed. This seems to be an upstream dependency issue causing our logins to fail for about 20 users. We need confirmation if there is a workaround on our side or if we just need to wait for the vendor.",
+        "environment": "production",
+        "region": "ME",
+        "reported_business_impact": "moderate",
+        "reported_affected_users": 20,
+        "priority": "low",
+        "created_date": "2025-05-14",
+        "status": "resolved",
+        "customer_id": "C04875",
+        "customer_tier": "bronze",
+        "customer_industry": "Public Sector",
+        "customer_company_size": "mid",
+        "reported_product_id": "P002",
+        "reported_product_name": "SSO Integration Module",
+        "reported_symptoms": [
+          "upstream dependency timeout",
+          "vendor status page shows incident"
+        ]
+      },
+      "latency_ms": 1311.6,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 2,
+      "sim_clock": "2025-05-14 00:15:00",
+      "tool_name": "get_customer_info",
+      "args": {
+        "customer_id": "C04875",
+        "hypotheses": [
+          "vendor_status_page_issue:0.8",
+          "upstream_dependency_timeout:0.7"
+        ],
+        "rationale": "To understand the customer's environment and potential impact of the issue"
+      },
+      "hypotheses": [
+        "vendor_status_page_issue:0.8",
+        "upstream_dependency_timeout:0.7"
+      ],
+      "rationale": "To understand the customer's environment and potential impact of the issue",
+      "result_summary": {
+        "error": "unknown tool 'get_customer_info'. Valid tools are: ['get_active_incidents', 'get_agent_availability', 'get_case_context', 'get_component_topology', 'get_configuration_history', 'get_customer_deployment', 'get_deployment_history', 'get_recent_changes', 'get_service_health', 'get_similar_cases', 'get_team_capability', 'get_technical_signals', 'get_telemetry', 'search_knowledge_base', 'submit_diagnosis']"
+      },
+      "latency_ms": 1542.7,
+      "status": "error",
+      "redundant": false
+    },
+    {
+      "step": 3,
+      "sim_clock": "2025-05-14 00:30:00",
+      "tool_name": "get_component_topology",
+      "args": {
+        "component_id": "P002",
+        "hypotheses": [
+          "vendor_status_page_issue:0.8",
+          "upstream_dependency_timeout:0.7"
+        ],
+        "rationale": "To understand the dependencies of the SSO Integration Module"
+      },
+      "hypotheses": [
+        "vendor_status_page_issue:0.8",
+        "upstream_dependency_timeout:0.7"
+      ],
+      "rationale": "To understand the dependencies of the SSO Integration Module",
+      "result_summary": {
+        "error": "component P002 not found"
+      },
+      "latency_ms": 1151.3,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 4,
+      "sim_clock": "2025-05-14 00:45:00",
+      "tool_name": "get_service_health",
+      "args": {
+        "service_id": "SSO Integration Module",
+        "hypotheses": [
+          "vendor_status_page_issue:0.8",
+          "upstream_dependency_timeout:0.7"
+        ],
+        "rationale": "To check the current health of the SSO Integration Module"
+      },
+      "hypotheses": [
+        "vendor_status_page_issue:0.8",
+        "upstream_dependency_timeout:0.7"
+      ],
+      "rationale": "To check the current health of the SSO Integration Module",
+      "result_summary": {
+        "error": "1 validation error for ComponentScopedArgs\ncomponent_id\n  Field required [type=missing, input_value={'service_id': 'SSO Integ...SSO Integration Module'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      },
+      "latency_ms": 1317.7,
+      "status": "error",
+      "redundant": false
+    },
+    {
+      "step": 5,
+      "sim_clock": "2025-05-14 01:00:00",
+      "tool_name": "get_vendor_status",
+      "args": {
+        "vendor_id": "unknown",
+        "hypotheses": [
+          "vendor_status_page_issue:0.8",
+          "upstream_dependency_timeout:0.7"
+        ],
+        "rationale": "To check the current status of the vendor"
+      },
+      "hypotheses": [
+        "vendor_status_page_issue:0.8",
+        "upstream_dependency_timeout:0.7"
+      ],
+      "rationale": "To check the current status of the vendor",
+      "result_summary": {
+        "error": "unknown tool 'get_vendor_status'. Valid tools are: ['get_active_incidents', 'get_agent_availability', 'get_case_context', 'get_component_topology', 'get_configuration_history', 'get_customer_deployment', 'get_deployment_history', 'get_recent_changes', 'get_service_health', 'get_similar_cases', 'get_team_capability', 'get_technical_signals', 'get_telemetry', 'search_knowledge_base', 'submit_diagnosis']"
+      },
+      "latency_ms": 1366.2,
+      "status": "error",
+      "redundant": false
+    },
+    {
+      "step": 6,
+      "sim_clock": "2025-05-14 01:15:00",
+      "tool_name": "search_knowledge_base",
+      "args": {
+        "query": "SSO Integration Module issues",
+        "hypotheses": [
+          "vendor_status_page_issue:0.8",
+          "upstream_dependency_timeout:0.7"
+        ],
+        "rationale": "To find relevant information in the knowledge base"
+      },
+      "hypotheses": [
+        "vendor_status_page_issue:0.8",
+        "upstream_dependency_timeout:0.7"
+      ],
+      "rationale": "To find relevant information in the knowledge base",
+      "result_summary": {
+        "articles": [
+          {
+            "evidence_id": "KA0526",
+            "title": "Queue Manager: Missing Environment Variables Causing Service Unresponsiveness",
+            "summary": "Addresses service unresponsiveness in Queue Manager caused by missing environment variables, detailing how to identify configuration drift and apply policy corrections.",
+            "resolution_rate": 0.95,
+            "outdated": false
+          },
+          {
+            "evidence_id": "KA0685",
+            "title": "Feedback Collector: Failover Did Not Occur During Infrastructure Hardware Failure",
+            "summary": "Investigate why Feedback Collector failed to failover when the underlying infrastructure experienced a hardware failure, resulting in a full outage.",
+            "resolution_rate": 0.95,
+            "outdated": false
+          },
+          {
+            "evidence_id": "KA0328",
+            "title": "Resolving HTTP 403 and Data Visibility Errors in Permission Engine RBAC",
+            "summary": "This article addresses common RBAC configuration issues leading to HTTP 403 errors or incorrect data visibility. It guides support agents through verifying operator permissions and applying necessary policy corrections.",
+            "resolution_rate": 0.95,
+            "outdated": false
+          },
+          {
+            "evidence_id": "KA0042",
+            "title": "Handling Intermittent Unreproducible Issues and Duplicate Tickets",
+            "summary": "Guidance on managing tickets with insufficient information, operator errors, or duplicate reports across various products.",
+            "resolution_rate": 0.95,
+            "outdated": false
+          },
+          {
+            "evidence_id": "KA0584",
+            "title": "Audit Log Gaps in Tax Calculator and Wallet Service",
+            "summary": "Addresses missing consent records and unapplied retention policies in Tax Calculator and Wallet Service due to operator error or unsupported configurations.",
+            "resolution_rate": 0.95,
+            "outdated": false
+          },
+          {
+            "evidence_id": "KA0204",
+            "title": "Resolving Intermittent Service Failures Due to Unsupported Configurations",
+            "summary": "Troubleshooting steps for applications experiencing intermittent failures, crashes, or unresponsiveness caused by unsupported configurations.",
+            "resolution_rate": 0.95,
+            "outdated": false
+          },
+          {
+            "evidence_id": "KA0055",
+            "title": "Notification Hub: SMS Delivery Failures Due to Downstream Provider Outages",
+            "summary": "Specific resolution for Notification Hub SMS delivery failures traced to third-party API unavailability or upstream dependency timeouts.",
+            "resolution_rate": 0.95,
+            "outdated": false
+          },
+          {
+            "evidence_id": "KA0689",
+            "title": "Addressing Performance Latency and Slow Page Loads in Mobile and Role Manager",
+            "summary": "Guidance for troubleshooting high latency, slow page loads, and database timeouts caused by race conditions, third-party failures, or known product limitations.",
+            "resolution_rate": 0.95,
+            "outdated": false
+          }
+        ],
+        "count": 8
+      },
+      "latency_ms": 1083.3,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 7,
+      "sim_clock": "2025-05-14 01:30:00",
+      "tool_name": "submit_diagnosis",
+      "args": {
+        "case_id": "CS00441",
+        "diagnosis": {
+          "label": "vendor_status_page_issue",
+          "confidence": 0.8,
+          "supporting_evidence_ids": [
+            "KA0055"
+          ],
+          "status": "unconfirmed"
+        },
+        "evidence_sufficiency": "partial",
+        "human_review_required": false,
+        "recommended_next_action": "Inspect the vendor status page for any issues"
+      },
+      "hypotheses": [],
+      "rationale": "",
+      "result_summary": "submitted",
+      "latency_ms": 2078.3,
+      "status": "ok",
+      "redundant": false
+    }
+  ],
+  "final_diagnosis": {
+    "hypotheses": [],
+    "rationale": "",
+    "predicted_product_id": null,
+    "product_confidence": null,
+    "predicted_component_id": null,
+    "component_confidence": null,
+    "predicted_category_id": null,
+    "category_confidence": null,
+    "predicted_subcategory_id": null,
+    "predicted_root_cause_family": null,
+    "root_cause_confidence": null,
+    "predicted_causal_change_id": null,
+    "causal_change_confidence": null,
+    "predicted_severity": null,
+    "severity_confidence": null,
+    "recommended_team_id": null,
+    "routing_confidence": null,
+    "evidence_sufficiency": "partial",
+    "overall_confidence": 0.3,
+    "recommended_next_action": "Inspect the vendor status page for any issues",
+    "human_review_required": false,
+    "human_review_reason": null,
+    "evidence_summary": "No summary provided by the agent.",
+    "unresolved_uncertainties": []
+  },
+  "citation_violations": [],
+  "evidence_ids_seen": [
+    "KA0042",
+    "KA0055",
+    "KA0204",
+    "KA0328",
+    "KA0526",
+    "KA0584",
+    "KA0685",
+    "KA0689"
+  ],
+  "repair_events": [
+    {
+      "step": 7,
+      "kind": "final_diagnosis_repair",
+      "detail": "direct validation failed (4 validation errors for FinalDiagnosis\nhypotheses\n  Field required [type=missing, input_value={'case_id': 'CS00441', 'd...us page for any issues'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\nrationale\n  Field required [type=missing, input_value={'case_id': 'CS00441', 'd...us page for any issues'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\noverall_confidence\n  Field required [type=missing, input_value={'case_id': 'CS00441', 'd...us page for any issues'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\nevidence_summary\n  Field required [type=missing, input_value={'case_id': 'CS00441', 'd...us page for any issues'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing); repaired args validated"
+    }
+  ]
+}

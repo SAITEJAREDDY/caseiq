@@ -1,0 +1,62 @@
+{
+ "run_id": "llmonly_CS01031_20260924T180953Z_de6e11",
+ "case_id": "CS01031",
+ "created_at": "2026-09-24T18:09:53.418467+00:00",
+ "prompt_version": "llm_only_v1",
+ "model_name": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+ "temperature": 0.1,
+ "ticket_shown_to_model": {
+  "title": "Currency Converter: Upstream Dependency Timeouts and Errors",
+  "description": "We are seeing critical issues with the Currency Converter in ANZ production. The vendor status page shows an incident, and we are observing upstream dependency errors and timeouts. This is affecting 20,161 users. Please investigate the connection to the upstream provider and any error handling mechanisms.",
+  "environment": "production",
+  "region": "ANZ",
+  "priority": "high",
+  "reported_business_impact": "critical",
+  "reported_affected_users": 20161,
+  "created_date": "2024-11-24",
+  "customer_tier": "bronze",
+  "customer_industry": "Media & Entertainment",
+  "customer_company_size": "enterprise",
+  "reported_product_name": "Currency Converter",
+  "reported_symptoms": [
+   "upstream dependency timeout",
+   "upstream dependency error",
+   "vendor status page shows incident"
+  ]
+ },
+ "n_categories_offered": 18,
+ "n_root_causes_offered": 40,
+ "parsed": {
+  "issue_category": "Third-Party / Dependency",
+  "root_cause": "third-party service failure",
+  "affected_component": "Currency Converter",
+  "causal_change": null,
+  "owning_team": null,
+  "confidence": 0.8,
+  "status": "DIAGNOSIS_PROPOSED",
+  "summary": "The issue is likely related to a third-party service failure, as indicated by the vendor status page showing an incident and the observation of upstream dependency errors and timeouts in the Currency Converter."
+ },
+ "status": "DIAGNOSIS_PROPOSED",
+ "validation_errors": [],
+ "repair_used": false,
+ "llm_calls": [
+  {
+   "attempt": 0,
+   "latency_ms": 16383.8,
+   "finish_reason": "stop",
+   "raw_output": "{\"issue_category\": \"Third-Party \\/ Dependency\", \"root_cause\": \"third-party service failure\", \"affected_component\": \"Currency Converter\", \"causal_change\": null, \"owning_team\": null, \"confidence\": 0.8, \"status\": \"DIAGNOSIS_PROPOSED\", \"summary\": \"The issue is likely related to a third-party service failure, as indicated by the vendor status page showing an incident and the observation of upstream dependency errors and timeouts in the Currency Converter.\"}"
+  }
+ ],
+ "tokens": {
+  "prompt": 722,
+  "completion": 107,
+  "total": 829
+ },
+ "latency_ms": 16383.8,
+ "wall_ms": 16394.0,
+ "cost_usd_estimate": 0.00073,
+ "tool_calls": 0,
+ "evidence_count": 0,
+ "graph_used": false,
+ "jev_used": false
+}

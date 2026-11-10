@@ -1,0 +1,272 @@
+{
+  "run_id": "run_CS00156_20260924T002607Z_eb947d6e",
+  "case_id": "CS00156",
+  "created_at": "2026-09-24T00:26:07.019701+00:00",
+  "model_provider": "together",
+  "model_name": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "temperature": 0.1,
+  "prompt_version": "v1",
+  "toolset_version": "v1",
+  "output_schema_version": "v1",
+  "agent_loop_version": "v1",
+  "repair_layer_version": "v1",
+  "graph_version": "phase4-2500case-2026-09-22",
+  "sim_clock_step_minutes": 15,
+  "max_tool_calls": 10,
+  "max_repeated_same_tool": 2,
+  "stop_reason": "model_submitted",
+  "num_tool_calls": 8,
+  "num_llm_calls": 8,
+  "token_usage": {
+    "prompt_tokens": 13135,
+    "completion_tokens": 405,
+    "total_tokens": 13540
+  },
+  "approx_cost_usd": 0.001354,
+  "approx_cost_note": "Estimated from a configurable placeholder rate, not exact provider billing -- see config.py",
+  "trace_steps": [
+    {
+      "step": 1,
+      "sim_clock": "2025-06-07 00:00:00",
+      "tool_name": "get_case_context",
+      "args": {
+        "hypotheses": [],
+        "rationale": "Starting the investigation of case CS00156"
+      },
+      "hypotheses": [],
+      "rationale": "Starting the investigation of case CS00156",
+      "result_summary": {
+        "case_id": "CS00156",
+        "title": "Analytics Dashboard issues",
+        "description": "Seeing some weird stuff with the Analytics Dashboard in dev (US-East). Think it might be index corruption? Not sure what's going on but it's broken. Need help.",
+        "environment": "development",
+        "region": "US-East",
+        "reported_business_impact": "none",
+        "reported_affected_users": 0,
+        "priority": "low",
+        "created_date": "2025-06-07",
+        "status": "resolved",
+        "customer_id": "C02122",
+        "customer_tier": "gold",
+        "customer_industry": "Education",
+        "customer_company_size": "small",
+        "reported_product_id": "P003",
+        "reported_product_name": "Analytics Dashboard",
+        "reported_symptoms": [
+          "index corruption detected"
+        ]
+      },
+      "latency_ms": 1341.0,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 2,
+      "sim_clock": "2025-06-07 00:15:00",
+      "tool_name": "get_customer_history",
+      "args": {
+        "hypotheses": [
+          "index_corruption:0.5"
+        ],
+        "rationale": "Checking customer history for similar issues"
+      },
+      "hypotheses": [
+        "index_corruption:0.5"
+      ],
+      "rationale": "Checking customer history for similar issues",
+      "result_summary": {
+        "error": "unknown tool 'get_customer_history'. Valid tools are: ['get_active_incidents', 'get_agent_availability', 'get_case_context', 'get_component_topology', 'get_configuration_history', 'get_customer_deployment', 'get_deployment_history', 'get_recent_changes', 'get_service_health', 'get_similar_cases', 'get_team_capability', 'get_technical_signals', 'get_telemetry', 'search_knowledge_base', 'submit_diagnosis']"
+      },
+      "latency_ms": 1167.7,
+      "status": "error",
+      "redundant": false
+    },
+    {
+      "step": 3,
+      "sim_clock": "2025-06-07 00:30:00",
+      "tool_name": "get_component_topology",
+      "args": {
+        "hypotheses": [
+          "index_corruption:0.5"
+        ],
+        "rationale": "Checking component topology for potential issues"
+      },
+      "hypotheses": [
+        "index_corruption:0.5"
+      ],
+      "rationale": "Checking component topology for potential issues",
+      "result_summary": {
+        "error": "1 validation error for ComponentScopedArgs\ncomponent_id\n  Field required [type=missing, input_value={'hypotheses': ['index_co...y for potential issues'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      },
+      "latency_ms": 4236.4,
+      "status": "error",
+      "redundant": false
+    },
+    {
+      "step": 4,
+      "sim_clock": "2025-06-07 00:45:00",
+      "tool_name": "get_component_topology",
+      "args": {
+        "component_id": "P003",
+        "hypotheses": [
+          "index_corruption:0.5"
+        ],
+        "rationale": "Checking component topology for potential issues"
+      },
+      "hypotheses": [
+        "index_corruption:0.5"
+      ],
+      "rationale": "Checking component topology for potential issues",
+      "result_summary": {
+        "error": "component P003 not found"
+      },
+      "latency_ms": 2424.0,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 5,
+      "sim_clock": "2025-06-07 01:00:00",
+      "tool_name": "get_recent_changes",
+      "args": {
+        "hypotheses": [
+          "index_corruption:0.5"
+        ],
+        "rationale": "Checking recent changes for potential causes"
+      },
+      "hypotheses": [
+        "index_corruption:0.5"
+      ],
+      "rationale": "Checking recent changes for potential causes",
+      "result_summary": {
+        "recent_changes": [],
+        "count": 0
+      },
+      "latency_ms": 661.7,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 6,
+      "sim_clock": "2025-06-07 01:15:00",
+      "tool_name": "get_service_health",
+      "args": {
+        "hypotheses": [
+          "index_corruption:0.5"
+        ],
+        "rationale": "Checking service health for potential issues"
+      },
+      "hypotheses": [
+        "index_corruption:0.5"
+      ],
+      "rationale": "Checking service health for potential issues",
+      "result_summary": {
+        "error": "1 validation error for ComponentScopedArgs\ncomponent_id\n  Field required [type=missing, input_value={'hypotheses': ['index_co...h for potential issues'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      },
+      "latency_ms": 812.7,
+      "status": "error",
+      "redundant": false
+    },
+    {
+      "step": 7,
+      "sim_clock": "2025-06-07 01:30:00",
+      "tool_name": "get_service_health",
+      "args": {
+        "component_id": "P003",
+        "hypotheses": [
+          "index_corruption:0.5"
+        ],
+        "rationale": "Checking service health for potential issues"
+      },
+      "hypotheses": [
+        "index_corruption:0.5"
+      ],
+      "rationale": "Checking service health for potential issues",
+      "result_summary": {
+        "health_events": [],
+        "count": 0
+      },
+      "latency_ms": 1085.4,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 8,
+      "sim_clock": "2025-06-07 01:45:00",
+      "tool_name": "submit_diagnosis",
+      "args": {
+        "case_id": "CS00156",
+        "hypotheses": [
+          {
+            "label": "index_corruption",
+            "confidence": 0.5,
+            "supporting_evidence_ids": [],
+            "contradicting_evidence_ids": [],
+            "status": "open"
+          }
+        ],
+        "evidence_sufficiency": "insufficient",
+        "human_review_required": true,
+        "recommended_next_action": "escalate to engineering"
+      },
+      "hypotheses": [
+        {
+          "label": "index_corruption",
+          "confidence": 0.5,
+          "supporting_evidence_ids": [],
+          "contradicting_evidence_ids": [],
+          "status": "open"
+        }
+      ],
+      "rationale": "",
+      "result_summary": "submitted",
+      "latency_ms": 2012.6,
+      "status": "ok",
+      "redundant": false
+    }
+  ],
+  "final_diagnosis": {
+    "hypotheses": [
+      {
+        "label": "index_corruption",
+        "description": "",
+        "confidence": 0.5,
+        "supporting_evidence": [],
+        "contradicting_evidence": [],
+        "status": "active"
+      }
+    ],
+    "rationale": "",
+    "predicted_product_id": null,
+    "product_confidence": null,
+    "predicted_component_id": null,
+    "component_confidence": null,
+    "predicted_category_id": null,
+    "category_confidence": null,
+    "predicted_subcategory_id": null,
+    "predicted_root_cause_family": null,
+    "root_cause_confidence": null,
+    "predicted_causal_change_id": null,
+    "causal_change_confidence": null,
+    "predicted_severity": null,
+    "severity_confidence": null,
+    "recommended_team_id": null,
+    "routing_confidence": null,
+    "evidence_sufficiency": "insufficient",
+    "overall_confidence": 0.5,
+    "recommended_next_action": "escalate to engineering",
+    "human_review_required": true,
+    "human_review_reason": null,
+    "evidence_summary": "No summary provided by the agent.",
+    "unresolved_uncertainties": []
+  },
+  "citation_violations": [],
+  "evidence_ids_seen": [],
+  "repair_events": [
+    {
+      "step": 8,
+      "kind": "final_diagnosis_repair",
+      "detail": "direct validation failed (4 validation errors for FinalDiagnosis\nhypotheses.0.status\n  Input should be 'active', 'rejected' or 'confirmed' [type=literal_error, input_value='open', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/literal_error\nrationale\n  Field required [type=missing, input_value={'case_id': 'CS00156', 'h...scalate to engineering'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\noverall_confidence\n  Field required [type=missing, input_value={'case_id': 'CS00156', 'h...scalate to engineering'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\nevidence_summary\n  Field required [type=missing, input_value={'case_id': 'CS00156', 'h...scalate to engineering'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing); repaired args validated"
+    }
+  ]
+}

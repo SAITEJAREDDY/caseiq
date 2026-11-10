@@ -1,0 +1,651 @@
+id,component_id,region,started_at,ended_at,severity,status,summary
+INC0001,CM227,EU-West,2025-06-20 23:25:00,2025-06-21 04:25:00,major,resolved,Global API Gateway degradation in EU-West impacting API throughput for 5 hours (major).
+INC0002,CM011,APAC,2026-03-01 22:56:00,2026-03-02 06:56:00,critical,resolved,Critical outage of the SSO Broker in APAC blocking all enterprise logins for 8 hours.
+INC0003,CM244,ANZ,2025-09-25 22:47:00,2025-09-25 23:47:00,major,resolved,Central Rate Limiter failure in ANZ causing temporary API request throttling issues (major).
+INC0004,CM025,global,2026-04-12 23:49:00,2026-04-13 00:19:00,major,resolved,Global Social Login Connector outage preventing third-party authentication for 30 minutes.
+INC0005,CM142,LATAM,2025-04-28 23:03:00,2025-04-29 02:03:00,critical,resolved,Critical circuit breaker misconfiguration in LATAM tripping backend services for 3 hours.
+INC0006,CM244,global,2025-06-02 23:38:00,2025-06-03 00:38:00,major,resolved,Global Central Rate Limiter incident resulting in widespread API request rejections.
+INC0007,CM025,global,2025-06-16 23:03:00,2025-06-17 00:03:00,major,resolved,"Repeated global failure of Social Login Connector services, blocking external auth flows."
+INC0008,CM027,global,2026-02-10 23:44:00,2026-02-11 00:14:00,critical,resolved,"OAuth Authorization Server down globally for 30 minutes, critical impact on token issuance."
+INC0009,CM171,global,2026-08-13 22:36:00,2026-08-13 23:06:00,critical,resolved,Resource Quota Manager outage globally prevented new resource allocations for 30 minutes.
+INC0010,CM011,EU-Central,2026-01-30 23:12:00,2026-01-31 07:12:00,major,resolved,SSO Broker instability in EU-Central caused prolonged authentication delays for 8 hours.
+INC0011,CM025,US-West,2026-07-15 23:27:00,2026-07-16 00:27:00,critical,resolved,Critical Social Login Connector failure in US-West disrupting external login options.
+INC0012,CM250,EU-West,2024-12-08 23:01:00,2024-12-09 01:01:00,critical,resolved,"Vendor Integration Hub in EU-West experienced a critical outage, halting partner data syncs."
+INC0013,CM142,EU-Central,2025-05-21 23:00:00,2025-05-22 01:00:00,critical,resolved,"Circuit Breaker tripped incorrectly in EU-Central, causing cascading service failures for 2 hours."
+INC0014,CM244,LATAM,2024-11-18 22:59:00,2024-11-19 00:59:00,major,resolved,Central Rate Limiter issues in LATAM led to excessive API throttling for 2 hours.
+INC0015,CM100,US-East,2024-10-03 23:16:00,2024-10-03 23:46:00,major,resolved,Job Scheduler failure in US-East delayed critical batch processing tasks for 30 minutes.
+INC0016,CM231,global,2025-12-27 23:20:00,2025-12-28 07:20:00,major,resolved,"Major outage of the global Health Monitoring Service, down for 8 hours."
+INC0017,CM100,global,2025-04-11 23:33:00,2025-04-12 00:33:00,critical,resolved,Critical failure in the global Job Scheduler lasting 60 minutes; task execution halted.
+INC0018,CM227,global,2026-03-20 22:52:00,2026-03-21 01:52:00,critical,resolved,"Global API Gateway experienced a critical 3-hour outage, blocking all inbound API traffic."
+INC0019,CM165,ANZ,2025-01-08 23:19:00,2025-01-09 02:19:00,major,resolved,"Network Policy Manager in ANZ was down for 3 hours (major), impacting regional network configurations."
+INC0020,CM156,EU-Central,2026-04-11 22:50:00,2026-04-11 23:20:00,major,resolved,"Job Queue Worker Pool in EU-Central suffered a 30-minute major incident, delaying background tasks."
+INC0021,CM109,US-East,2025-12-07 23:26:00,2025-12-08 01:26:00,major,resolved,"Report Scheduler in US-East was unavailable for 2 hours, preventing scheduled report generation."
+INC0022,CM241,LATAM,2026-07-21 23:38:00,2026-07-22 04:38:00,critical,resolved,"Central Message Queue in LATAM had a critical outage lasting 5 hours, causing widespread message loss."
+INC0023,CM179,EU-West,2026-04-04 22:39:00,2026-04-05 00:39:00,major,resolved,"Status Page UI in EU-West was down for 2 hours, hiding incident visibility from customers."
+INC0024,CM237,APAC,2026-07-06 22:34:00,2026-07-07 00:34:00,critical,resolved,"SSO Broker (Shared) experienced a critical 2-hour outage in APAC, blocking user authentication."
+INC0025,CM237,EU-Central,2025-09-09 22:46:00,2025-09-10 00:46:00,critical,resolved,Critical authentication failure in EU-Central SSO Broker (Shared) for 2 hours.
+INC0026,CM239,US-West,2025-07-04 23:50:00,2025-07-05 00:50:00,critical,resolved,"Central Reporting Data Store in US-West was critically down for 60 minutes, halting data ingestion."
+INC0027,CM172,ANZ,2025-06-03 23:11:00,2025-06-04 02:11:00,major,resolved,"Internal DNS Zone Manager in ANZ had a 3-hour major outage, affecting internal service resolution."
+INC0028,CM239,US-West,2025-07-31 22:44:00,2025-07-31 23:44:00,major,resolved,Major incident on the Central Reporting Data Store in US-West lasting 60 minutes.
+INC0029,CM027,EU-Central,2026-04-28 23:07:00,2026-04-29 01:07:00,critical,resolved,"OAuth Authorization Server in EU-Central was critically down for 2 hours, breaking API authorization."
+INC0030,CM210,ANZ,2026-05-01 23:17:00,2026-05-01 23:47:00,major,resolved,"Client Error Reporting SDK in ANZ had a 30-minute major issue, reducing error visibility."
+INC0031,CM135,EU-West,2025-12-29 23:37:00,2025-12-30 00:07:00,major,resolved,"Queue Manager degradation in EU-West caused message processing delays for 30 minutes, impacting backend workflows."
+INC0032,CM019,global,2026-09-16 22:44:00,2026-09-17 06:44:00,major,resolved,"Account Recovery Service was down globally for 8 hours, preventing users from resetting passwords or recovering locked accounts."
+INC0033,CM227,APAC,2025-12-13 23:49:00,2025-12-14 00:49:00,critical,resolved,Critical outage of the Global API Gateway in APAC for one hour led to widespread service unavailability and high error rates across the region.
+INC0034,CM025,global,2026-09-13 23:43:00,2026-09-14 00:13:00,critical,resolved,"Social Login Connector failure globally blocked third-party authentication methods for 30 minutes, forcing users to rely on email/password."
+INC0035,CM241,ME,2025-11-21 23:24:00,2025-11-22 01:24:00,critical,resolved,"Central Message Queue in ME experienced a critical 2-hour outage, halting asynchronous communication between core services."
+INC0036,CM170,US-West,2026-03-18 22:42:00,2026-03-18 23:12:00,critical,resolved,"Region Failover Controller in US-West failed critically for 30 minutes, leaving the region unable to automatically route traffic during other incidents."
+INC0037,CM179,global,2025-06-18 23:47:00,2025-06-19 00:17:00,major,resolved,"Status Page UI was down globally for 30 minutes, preventing users from seeing real-time incident updates and service health."
+INC0038,CM025,ANZ,2025-06-01 22:53:00,2025-06-01 23:23:00,major,resolved,"Social Login Connector outage in ANZ disrupted third-party auth for 30 minutes, affecting user login availability in that region."
+INC0039,CM025,US-West,2026-07-02 23:09:00,2026-07-02 23:39:00,major,resolved,Another Social Login Connector incident in US-West caused a 30-minute disruption to third-party authentication flows.
+INC0040,CM100,EU-Central,2025-11-05 22:31:00,2025-11-05 23:01:00,critical,resolved,"Job Scheduler in EU-Central failed critically for 30 minutes, resulting in delayed execution of scheduled backend tasks."
+INC0041,CM100,global,2024-11-26 23:14:00,2024-11-26 23:44:00,major,resolved,Global Job Scheduler degradation for 30 minutes led to inconsistent timing for scheduled processes across all regions.
+INC0042,CM227,global,2024-12-15 22:41:00,2024-12-16 00:41:00,major,resolved,"Global API Gateway saw major issues for two hours, causing elevated latency and partial failures for API consumers worldwide."
+INC0043,CM027,LATAM,2025-10-17 23:40:00,2025-10-18 01:40:00,critical,resolved,"OAuth Authorization Server in LATAM was critically down for 2 hours, blocking token issuance and preventing authenticated access."
+INC0044,CM242,APAC,2025-01-15 22:41:00,2025-01-15 23:41:00,major,resolved,"Central Search Index Service in APAC degraded for 60 minutes, resulting in slow or incomplete search results for users in that region."
+INC0045,CM021,global,2026-08-02 23:39:00,2026-08-03 01:39:00,critical,resolved,"Password Policy Engine failure globally for 2 hours prevented password validation and updates, locking users out of changing credentials."
+INC0046,CM237,global,2024-12-24 23:11:00,2024-12-25 00:11:00,major,resolved,"Global SSO broker is degraded, causing widespread authentication failures for over an hour."
+INC0047,CM226,ANZ,2026-06-28 23:00:00,2026-06-29 00:00:00,critical,resolved,Critical outage in ANZ delivery routing has halted fulfillment for 60 minutes.
+INC0048,CM242,global,2025-11-29 22:42:00,2025-11-29 23:42:00,critical,resolved,"Central search index went down globally, breaking search functionality across all regions for an hour."
+INC0049,CM019,US-East,2024-12-23 22:54:00,2024-12-24 01:54:00,critical,resolved,"Account recovery service is completely down in US-East; users cannot reset passwords, impacting customers for 3 hours."
+INC0050,CM135,EU-West,2025-01-03 22:39:00,2025-01-04 00:39:00,critical,resolved,Queue manager failure in EU-West has stalled backend processing for two hours.
+INC0051,CM025,US-East,2025-11-10 22:32:00,2025-11-10 23:02:00,critical,resolved,"Social login connector dropped in US-East, blocking third-party sign-ins for 30 minutes."
+INC0052,CM100,US-West,2026-09-18 22:52:00,2026-09-19 03:52:00,critical,resolved,Major job scheduler outage in US-West has halted automated tasks for 5 hours.
+INC0053,CM019,global,2025-09-04 23:32:00,2025-09-05 00:02:00,major,resolved,Brief global degradation of account recovery service; minor friction for users trying to regain access.
+INC0054,CM231,global,2025-01-09 22:35:00,2025-01-09 23:05:00,major,resolved,"Health monitoring service is reporting false positives globally, potentially triggering unnecessary alerts."
+INC0055,CM100,LATAM,2025-05-13 22:41:00,2025-05-13 23:41:00,critical,resolved,"LATAM job scheduler is down, pausing data processing pipelines for an hour."
+INC0056,CM025,global,2025-10-12 23:14:00,2025-10-12 23:44:00,major,resolved,"Global social login connector is degraded, causing intermittent 3rd party auth failures."
+INC0057,CM119,APAC,2025-01-30 23:00:00,2025-01-30 23:30:00,major,resolved,Report subscription delivery delayed in APAC due to service issues.
+INC0058,CM241,US-West,2025-01-27 23:16:00,2025-01-28 01:16:00,critical,resolved,Central message queue failure in US-West; async processing is stalled for 2 hours.
+INC0059,CM098,US-East,2024-11-21 23:08:00,2024-11-21 23:38:00,major,resolved,Query engine latency spike in US-East is slowing down API responses for 30 minutes.
+INC0060,CM025,ME,2024-09-21 22:58:00,2024-09-22 00:58:00,critical,resolved,"Social login connector down in ME, preventing users in the region from signing in for 2 hours."
+INC0061,CM027,global,2025-07-12 23:48:00,2025-07-13 02:48:00,critical,resolved,"Global OAuth Authorization Server outage lasted 3 hours, blocking all user logins and API token generation across every region."
+INC0062,CM100,ANZ,2025-04-05 23:27:00,2025-04-06 02:27:00,major,resolved,"The ANZ Job Scheduler experienced a critical failure for 180 minutes, halting all batch processing and scheduled tasks in the region."
+INC0063,CM025,EU-West,2026-03-22 22:34:00,2026-03-22 23:04:00,major,resolved,"EU-West Social Login Connector was down for 30 minutes, preventing users from authenticating via third-party identity providers."
+INC0064,CM011,ANZ,2026-05-21 22:38:00,2026-05-22 01:38:00,major,resolved,"A major issue with the ANZ SSO Broker persisted for 3 hours, causing widespread authentication failures for enterprise users in Australia and New Zealand."
+INC0065,CM019,global,2026-01-09 23:06:00,2026-01-10 07:06:00,critical,resolved,"The global Account Recovery Service was completely offline for 8 hours, leaving users unable to reset passwords or regain access to locked accounts."
+INC0066,CM098,EU-Central,2025-08-03 23:38:00,2025-08-04 00:38:00,critical,resolved,"Critical performance degradation in the EU-Central Query Engine lasted 60 minutes, resulting in significantly slowed data retrieval and reporting."
+INC0067,CM240,EU-Central,2025-01-31 23:38:00,2025-02-01 00:08:00,major,resolved,"EU-Central File Storage Service experienced a 30-minute outage, interrupting file uploads, downloads, and document management features."
+INC0068,CM248,global,2024-12-16 23:47:00,2024-12-17 01:47:00,critical,resolved,"The global Central Log Aggregator failed for 2 hours, causing a complete loss of observability and preventing incident diagnosis across all services."
+INC0069,CM093,ANZ,2024-11-26 22:39:00,2024-11-27 00:39:00,critical,resolved,"ANZ Data Warehouse Store was unavailable for 120 minutes, blocking all analytical queries and business intelligence reporting in the region."
+INC0070,CM011,global,2026-08-31 22:54:00,2026-09-01 00:54:00,critical,resolved,"A critical global SSO Broker outage lasted 2 hours, disrupting single sign-on capabilities for all users across every region."
+INC0071,CM132,global,2024-10-10 22:32:00,2024-10-10 23:02:00,critical,resolved,"Global Load Balancer failure caused a 30-minute period where traffic could not be distributed, leading to widespread service unavailability."
+INC0072,CM124,global,2026-02-09 23:31:00,2026-02-10 00:31:00,major,resolved,"The global Cube/OLAP Engine degraded for 60 minutes, impacting the performance of multidimensional data analysis and complex reporting."
+INC0073,CM153,US-East,2025-12-02 23:49:00,2025-12-03 00:19:00,major,resolved,"US-East Database Connection Pooler issues lasted 30 minutes, causing connection timeouts and intermittent errors for database-dependent services."
+INC0074,CM155,ME,2026-09-16 22:59:00,2026-09-17 06:59:00,critical,resolved,"A critical failure in the ME Message Broker persisted for 8 hours, leading to significant message loss and delays in asynchronous processing."
+INC0075,CM241,APAC,2026-02-24 23:33:00,2026-02-25 02:33:00,critical,resolved,"The APAC Central Message Queue experienced a 3-hour outage, halting all event-driven workflows and background job processing in the region."
+INC0076,CM237,US-East,2025-02-28 23:21:00,2025-03-01 02:21:00,critical,resolved,"SSO Broker outage in US-East persisted for 3 hours, blocking user authentication across the region."
+INC0077,CM247,US-West,2024-10-17 22:33:00,2024-10-17 23:33:00,critical,resolved,"Central Metrics Pipeline crashed in US-West for an hour, causing a blackout in monitoring dashboards."
+INC0078,CM210,LATAM,2026-08-10 23:03:00,2026-08-11 00:03:00,critical,resolved,"Client Error Reporting SDK failed across LATAM, preventing error logs from being sent to backend."
+INC0079,CM024,US-East,2026-08-29 23:38:00,2026-08-30 00:38:00,major,resolved,"Passwordless Auth Service degradation in US-East lasted one hour, affecting major login paths."
+INC0080,CM025,global,2025-10-23 22:33:00,2025-10-24 00:33:00,critical,resolved,"Social Login Connector outage was global and lasted 2 hours, preventing users from signing in via social providers."
+INC0081,CM240,ME,2025-12-08 22:37:00,2025-12-09 00:37:00,critical,resolved,"File Storage Service went offline in ME for 2 hours, blocking file uploads and downloads."
+INC0082,CM241,ME,2025-07-22 23:30:00,2025-07-23 00:00:00,critical,resolved,Central Message Queue failure in ME for 30 minutes halted asynchronous processing.
+INC0083,CM135,ME,2026-01-21 23:29:00,2026-01-21 23:59:00,major,resolved,"Queue Manager issues in ME lasted 30 minutes, impacting message routing."
+INC0084,CM150,global,2026-09-08 22:53:00,2026-09-08 23:23:00,critical,resolved,"Backup & Restore Service experienced a brief global outage (30 mins), pausing scheduled backups."
+INC0085,CM170,US-East,2024-11-05 23:44:00,2024-11-06 04:44:00,major,resolved,"Region Failover Controller in US-East was unstable for 5 hours, delaying disaster recovery operations."
+INC0086,CM227,US-East,2025-05-10 22:47:00,2025-05-10 23:17:00,major,resolved,"Global API Gateway had a 30-minute major incident in US-East, causing intermittent API failures."
+INC0087,CM142,ME,2026-08-09 23:10:00,2026-08-10 01:10:00,major,resolved,"Circuit Breaker misconfiguration in ME lasted 2 hours, incorrectly blocking traffic to downstream services."
+INC0088,CM234,APAC,2024-11-11 22:55:00,2024-11-11 23:55:00,major,resolved,DNS Resolution Service outage in APAC for 1 hour led to widespread connectivity issues for users in the region.
+INC0089,CM109,EU-West,2026-02-27 23:04:00,2026-02-28 00:04:00,critical,resolved,"Report Scheduler failed in EU-West for 60 minutes, preventing scheduled reports from being generated."
+INC0090,CM241,ME,2026-01-28 22:33:00,2026-01-28 23:03:00,critical,resolved,Duplicate alert for Central Message Queue failure in ME (30 mins duration).
+INC0091,CM226,US-West,2025-12-02 23:09:00,2025-12-03 00:09:00,major,resolved,"US-West Delivery Provider Router went down for an hour, preventing order fulfillment and routing updates for customers in that region."
+INC0092,CM011,EU-West,2025-09-10 23:12:00,2025-09-10 23:42:00,critical,resolved,Critical outage in EU-West SSO Broker left users unable to authenticate or access protected resources for 30 minutes.
+INC0093,CM227,EU-West,2026-03-24 23:20:00,2026-03-25 00:20:00,critical,resolved,"Global API Gateway in EU-West experienced a critical failure, blocking API traffic and impacting downstream services for an hour."
+INC0094,CM098,US-West,2025-11-23 22:40:00,2025-11-24 01:40:00,critical,resolved,"US-West Query Engine was completely unavailable for 3 hours, causing widespread timeouts and data retrieval failures for users."
+INC0095,CM237,EU-West,2026-05-14 23:24:00,2026-05-14 23:54:00,major,resolved,"Shared SSO Broker in EU-West degraded for 30 minutes, leading to intermittent login failures and session timeouts."
+INC0096,CM241,EU-Central,2025-10-02 23:29:00,2025-10-02 23:59:00,critical,resolved,"Central Message Queue in EU-Central suffered a critical outage for 30 minutes, halting asynchronous processing and event propagation."
+INC0097,CM143,global,2026-01-27 23:35:00,2026-01-28 00:35:00,critical,resolved,Global DNS Resolver Service failure caused widespread connectivity issues and unreachable domains for an hour across all regions.
+INC0098,CM210,ANZ,2026-02-22 23:10:00,2026-02-23 04:10:00,major,resolved,"Client Error Reporting SDK in ANZ had a major incident lasting 5 hours, resulting in a significant blind spot in our observability data."
+INC0099,CM025,LATAM,2024-09-22 23:25:00,2024-09-23 00:25:00,critical,resolved,"Social Login Connector in LATAM was down for an hour, preventing users from signing in via third-party providers."
+INC0100,CM019,global,2025-03-28 23:36:00,2025-03-29 00:36:00,critical,resolved,Global Account Recovery Service outage for 60 minutes meant users locked out of their accounts couldn't initiate reset procedures.
+INC0101,CM105,EU-Central,2025-01-14 22:54:00,2025-01-15 01:54:00,major,resolved,"EU-Central Alerting Engine experienced a major delay/failure for 3 hours, causing critical alerts to be missed or significantly delayed."
+INC0102,CM100,EU-West,2025-01-16 22:57:00,2025-01-17 01:57:00,major,resolved,"Job Scheduler in EU-West was degraded for 3 hours, leading to delayed batch processing and scheduled task execution."
+INC0103,CM156,LATAM,2026-05-28 23:19:00,2026-05-29 00:19:00,major,resolved,"Job Queue Worker Pool in LATAM hit a major incident for an hour, causing backlog growth and delayed background job completion."
+INC0104,CM025,global,2025-09-23 22:32:00,2025-09-23 23:02:00,major,resolved,"Global Social Login Connector degraded for 30 minutes, causing intermittent errors for users attempting third-party sign-in."
+INC0105,CM237,APAC,2026-02-15 23:39:00,2026-02-16 00:39:00,major,resolved,"Shared SSO Broker in APAC had a major incident for an hour, impacting login stability for users in the region."
+INC0106,CM235,EU-Central,2026-07-09 23:40:00,2026-07-10 00:40:00,major,resolved,"Backup & Disaster Recovery Service in EU-Central degraded for 60 minutes, impacting major backup operations."
+INC0107,CM237,US-East,2025-05-06 23:11:00,2025-05-06 23:41:00,major,resolved,SSO Broker (Shared) outage in US-East caused login failures for 30 minutes.
+INC0108,CM210,US-East,2026-05-06 22:54:00,2026-05-06 23:24:00,critical,resolved,Critical failure in Client Error Reporting SDK in US-East; telemetry collection halted for 30 mins.
+INC0109,CM240,EU-Central,2025-03-28 23:19:00,2025-03-28 23:49:00,critical,resolved,"File Storage Service in EU-Central down for 30 minutes, blocking file access and uploads."
+INC0110,CM210,global,2025-07-28 23:02:00,2025-07-29 01:02:00,critical,resolved,"Global Client Error Reporting SDK outage persisted for 2 hours, silencing error telemetry everywhere."
+INC0111,CM227,US-West,2025-03-18 23:36:00,2025-03-19 02:36:00,major,resolved,"Global API Gateway issues in US-West lasted 3 hours, causing major latency/timeouts for APIs."
+INC0112,CM237,ME,2025-12-30 23:07:00,2025-12-31 02:07:00,major,resolved,"SSO Broker (Shared) in ME region unavailable for 180 minutes, preventing user authentication."
+INC0113,CM146,US-East,2026-07-26 23:11:00,2026-07-27 00:11:00,critical,resolved,"Metrics Pipeline in US-East crashed for 60 minutes, resulting in data loss for monitoring dashboards."
+INC0114,CM098,US-West,2025-09-27 23:08:00,2025-09-28 01:08:00,major,resolved,"Query Engine in US-West suffered major performance degradation for 2 hours, slowing down data retrieval."
+INC0115,CM231,global,2025-06-28 23:34:00,2025-06-29 04:34:00,critical,resolved,"Health Monitoring Service down globally for 5 hours, blinding us to system status during the incident."
+INC0116,CM146,LATAM,2026-04-06 23:13:00,2026-04-06 23:43:00,major,resolved,"Metrics Pipeline in LATAM degraded for 30 minutes, impacting regional observability."
+INC0117,CM025,LATAM,2026-05-22 23:48:00,2026-05-23 00:48:00,major,resolved,Social Login Connector failure in LATAM blocked third-party auth for 1 hour.
+INC0118,CM100,global,2025-11-10 23:12:00,2025-11-11 04:12:00,major,resolved,Global Job Scheduler outage for 5 hours caused massive backlogs in batch processing and scheduled tasks.
+INC0119,CM159,global,2026-08-14 22:51:00,2026-08-14 23:21:00,major,resolved,VPN Gateway issues globally for 30 minutes disrupted remote secure access.
+INC0120,CM025,global,2026-07-29 23:21:00,2026-07-29 23:51:00,critical,resolved,Critical Social Login Connector failure globally halted third-party authentication for 30 minutes.
+INC0121,CM011,EU-Central,2024-10-08 23:49:00,2024-10-09 01:49:00,major,resolved,"SSO Broker in EU-Central degraded for 2h, causing major login issues for users in that region."
+INC0122,CM143,US-East,2026-05-12 22:30:00,2026-05-12 23:30:00,critical,resolved,"Critical DNS Resolver outage in US-East broke service discovery for an hour, likely preventing users from reaching the platform."
+INC0123,CM239,global,2025-07-27 22:48:00,2025-07-27 23:48:00,major,resolved,"Central Reporting Data Store experienced a major global issue for 60 minutes, impacting dashboard data freshness."
+INC0124,CM170,global,2026-07-06 23:50:00,2026-07-07 01:50:00,critical,resolved,Region Failover Controller was down globally for 2h at critical severity; resilience mechanisms were likely unavailable.
+INC0125,CM100,EU-West,2026-02-05 23:19:00,2026-02-06 00:19:00,major,resolved,"Job Scheduler in EU-West had a major failure lasting an hour, delaying batch processing tasks in that region."
+INC0126,CM153,LATAM,2026-05-26 23:03:00,2026-05-26 23:33:00,major,resolved,Database Connection Pooler issues in LATAM caused major performance degradation for 30 minutes.
+INC0127,CM248,global,2025-04-15 23:41:00,2025-04-16 01:41:00,major,resolved,"Central Log Aggregator went down globally for 2h (major), meaning we lost observability during that window."
+INC0128,CM100,global,2025-03-23 22:39:00,2025-03-24 00:39:00,major,resolved,"Global Job Scheduler had a major outage for 2h, halting scheduled tasks across all regions."
+INC0129,CM241,global,2025-09-07 22:34:00,2025-09-07 23:04:00,major,resolved,"Central Message Queue had a brief 30m major incident globally, likely causing some async processing delays."
+INC0130,CM100,US-East,2025-03-30 22:30:00,2025-03-31 06:30:00,major,resolved,"US-East Job Scheduler had a prolonged major incident (8h), resulting in significant backlog of scheduled jobs."
+INC0131,CM012,global,2024-12-18 22:46:00,2024-12-19 01:46:00,critical,resolved,Credential Vault was down globally for 3h at critical severity; this likely blocked authentication and key rotation.
+INC0132,CM241,US-East,2026-07-31 23:48:00,2026-08-01 02:48:00,critical,resolved,"Central Message Queue in US-East had a critical 3h outage, impacting event processing for that region."
+INC0133,CM025,global,2025-05-31 23:41:00,2025-06-01 07:41:00,critical,resolved,"Social Login Connector failed globally for 8h (critical), preventing users from signing in via third-party providers."
+INC0134,CM215,global,2026-02-06 23:29:00,2026-02-07 01:29:00,critical,resolved,"Email Delivery Worker had a critical global outage for 2h, causing a backlog of transactional emails."
+INC0135,CM144,global,2025-07-26 22:34:00,2025-07-26 23:04:00,major,resolved,"Service Registry experienced a major global issue for 30 minutes, potentially disrupting service discovery."
+INC0136,CM151,APAC,2025-12-10 22:58:00,2025-12-10 23:28:00,major,resolved,"Major outage on the Primary Database Cluster in APAC, lasting 30 minutes. Likely caused significant data access failures for regional users."
+INC0137,CM215,ANZ,2025-10-25 22:41:00,2025-10-25 23:11:00,critical,resolved,Critical failure in the Email Delivery Worker for ANZ. Emails were undelivered or delayed for 30 minutes.
+INC0138,CM100,global,2025-09-23 23:46:00,2025-09-24 00:16:00,major,resolved,Global Job Scheduler experienced a major issue for 30 minutes. Scheduled tasks likely failed or were delayed worldwide.
+INC0139,CM237,global,2025-04-02 23:07:00,2025-04-03 01:07:00,critical,resolved,Major incident with the shared SSO Broker affecting global users. Authentication failures persisted for 2 hours.
+INC0140,CM027,APAC,2026-07-23 23:25:00,2026-07-23 23:55:00,critical,resolved,Critical outage of the OAuth Authorization Server in APAC. Users could not authenticate via OAuth for 30 minutes.
+INC0141,CM011,global,2026-09-04 23:30:00,2026-09-05 00:00:00,critical,resolved,Global SSO Broker went down critically for 30 minutes. Widespread login failures reported.
+INC0142,CM019,global,2025-12-04 23:30:00,2025-12-05 01:30:00,major,resolved,Account Recovery Service had a major global outage lasting 2 hours. Users were unable to reset passwords or recover accounts.
+INC0143,CM100,US-East,2025-03-26 22:41:00,2025-03-26 23:11:00,major,resolved,Major issue with the Job Scheduler in US-East for 30 minutes. Regional task execution was impacted.
+INC0144,CM234,global,2025-03-28 23:22:00,2025-03-28 23:52:00,major,resolved,Global DNS Resolution Service experienced a major outage for 30 minutes. Likely caused widespread connectivity and resolution errors.
+INC0145,CM100,global,2025-04-19 22:47:00,2025-04-19 23:47:00,major,resolved,Major global Job Scheduler incident lasting 60 minutes. Scheduled jobs were likely delayed or failed across all regions.
+INC0146,CM210,EU-West,2024-12-16 23:33:00,2024-12-17 02:33:00,major,resolved,Client Error Reporting SDK had a major issue in EU-West for 3 hours. Error telemetry from clients in that region was likely lost.
+INC0147,CM064,ME,2026-07-14 23:49:00,2026-07-15 04:49:00,critical,resolved,"Critical failure in the Payment Retry Worker in ME, lasting 5 hours. Payment processing or retries were severely disrupted."
+INC0148,CM248,US-East,2024-11-03 23:40:00,2024-11-04 00:40:00,critical,resolved,Central Log Aggregator in US-East went down critically for 60 minutes. Logging and monitoring data from that region was likely unavailable.
+INC0149,CM025,global,2025-01-01 22:54:00,2025-01-01 23:54:00,critical,resolved,Critical global outage of the Social Login Connector for 60 minutes. Users could not sign in via social providers.
+INC0150,CM145,global,2025-03-15 22:57:00,2025-03-15 23:57:00,major,resolved,Major global Log Aggregator issue lasting 60 minutes. Likely caused gaps in centralized logging across all regions.
+INC0151,CM105,LATAM,2026-09-17 23:13:00,2026-09-18 01:13:00,major,resolved,"Alerting Engine is degraded in LATAM, causing a two-hour major outage."
+INC0152,CM165,APAC,2025-12-15 23:11:00,2025-12-16 00:11:00,major,resolved,Network Policy Manager failure in APAC impacting routing for 60 minutes.
+INC0153,CM027,global,2025-08-03 23:36:00,2025-08-04 02:36:00,major,resolved,Global OAuth issues blocking logins for 3 hours.
+INC0154,CM147,global,2025-10-31 23:01:00,2025-11-01 02:01:00,major,resolved,Major Container Runtime outage affecting global workloads for 3 hours.
+INC0155,CM166,global,2026-04-25 23:10:00,2026-04-25 23:40:00,major,resolved,Disaster Recovery Orchestrator down globally for 30 minutes.
+INC0156,CM025,ME,2024-10-28 23:43:00,2024-10-29 01:43:00,critical,resolved,"CRITICAL: Social Login Connector is down in ME, blocking users for 2 hours."
+INC0157,CM027,EU-West,2025-12-01 23:40:00,2025-12-02 00:40:00,major,resolved,OAuth issues in EU-West causing 1 hour of login failures.
+INC0158,CM170,global,2025-06-15 23:23:00,2025-06-16 02:23:00,major,resolved,Region Failover Controller is broken globally; major outage for 3 hours.
+INC0159,CM025,global,2025-03-23 22:36:00,2025-03-24 00:36:00,major,resolved,Global Social Login Connector failure lasted 2 hours.
+INC0160,CM210,LATAM,2026-04-18 23:28:00,2026-04-19 00:28:00,critical,resolved,Critical failure in Client Error Reporting SDK in LATAM for 1 hour.
+INC0161,CM100,global,2026-08-26 23:38:00,2026-08-27 00:38:00,major,resolved,Job Scheduler outage globally for 60 minutes.
+INC0162,CM243,US-East,2025-02-02 23:46:00,2025-02-03 00:16:00,major,resolved,US-East CDN Edge Layer down for 30 minutes.
+INC0163,CM025,global,2026-05-24 23:39:00,2026-05-25 04:39:00,major,resolved,Major global outage of Social Login Connector lasting 5 hours.
+INC0164,CM237,ME,2026-08-01 23:23:00,2026-08-02 00:23:00,major,resolved,SSO Broker (Shared) down in ME for 1 hour.
+INC0165,CM237,US-West,2025-01-10 22:38:00,2025-01-11 03:38:00,major,resolved,SSO Broker (Shared) issues in US-West persisting for 5 hours.
+INC0166,CM132,global,2025-04-01 22:51:00,2025-04-01 23:21:00,major,resolved,Global load balancer outage caused widespread routing failures for 30 minutes.
+INC0167,CM147,ANZ,2025-01-09 23:47:00,2025-01-10 01:47:00,major,resolved,Container runtime issues in the ANZ region led to a major disruption lasting 2 hours.
+INC0168,CM100,LATAM,2025-10-18 22:31:00,2025-10-18 23:01:00,critical,resolved,"The LATAM job scheduler hit a critical failure, halting task execution for 30 minutes."
+INC0169,CM019,global,2024-12-25 23:26:00,2024-12-25 23:56:00,major,resolved,Users experienced major account recovery service outages globally for 30 minutes.
+INC0170,CM146,ME,2025-05-30 23:41:00,2025-05-31 00:41:00,major,resolved,The metrics pipeline in the ME region suffered a 60-minute major outage.
+INC0171,CM232,US-West,2024-10-19 22:42:00,2024-10-19 23:42:00,critical,resolved,Critical failure in the US-West global load balancer caused 1 hour of significant service degradation.
+INC0172,CM150,APAC,2026-04-12 23:15:00,2026-04-12 23:45:00,critical,resolved,APAC backup and restore services went down critically for 30 minutes.
+INC0173,CM237,LATAM,2025-05-31 22:58:00,2025-06-01 00:58:00,major,resolved,"The shared SSO broker in LATAM experienced a major 2-hour outage, impacting authentication."
+INC0174,CM237,EU-Central,2025-06-04 23:12:00,2025-06-04 23:42:00,major,resolved,EU-Central saw a 30-minute major disruption in the shared SSO broker service.
+INC0175,CM132,US-East,2025-10-08 23:43:00,2025-10-09 00:13:00,major,resolved,"US-East load balancer had a major failure, causing 30 minutes of connectivity issues."
+INC0176,CM241,global,2025-06-03 23:18:00,2025-06-03 23:48:00,critical,resolved,Global message queue outage critically impacted data processing for 30 minutes.
+INC0177,CM244,US-West,2026-05-26 23:09:00,2026-05-27 00:09:00,major,resolved,"US-West central rate limiter failed majorly for an hour, affecting request throttling."
+INC0178,CM125,EU-West,2025-07-25 22:36:00,2025-07-25 23:06:00,major,resolved,The EU-West data freshness monitor experienced a 30-minute major outage.
+INC0179,CM237,LATAM,2026-01-04 23:09:00,2026-01-05 01:09:00,major,resolved,Another major 2-hour outage for the LATAM shared SSO broker.
+INC0180,CM025,global,2025-08-21 23:47:00,2025-08-22 02:47:00,major,resolved,"Global social login connector faced a major 3-hour outage, blocking third-party auth."
+INC0181,CM245,LATAM,2026-08-16 22:57:00,2026-08-16 23:27:00,critical,resolved,"Critical outage of the Central Notification Dispatcher in LATAM lasting 30 minutes, resulting in users not receiving alerts."
+INC0182,CM100,global,2026-04-04 23:37:00,2026-04-05 01:37:00,critical,resolved,"The global Job Scheduler failed for two hours, causing widespread disruption to scheduled tasks and processing pipelines."
+INC0183,CM100,EU-Central,2025-02-02 22:41:00,2025-02-02 23:41:00,major,resolved,EU-Central Job Scheduler issues led to delayed or missed background jobs for an hour.
+INC0184,CM237,global,2024-10-04 23:31:00,2024-10-05 00:31:00,critical,resolved,"Global authentication services were down for an hour due to a critical SSO Broker failure, preventing users from logging in."
+INC0185,CM025,US-East,2026-06-22 23:16:00,2026-06-23 00:16:00,major,resolved,Social Login Connector issues in US-East prevented third-party logins for about an hour.
+INC0186,CM237,global,2026-07-01 23:45:00,2026-07-02 01:45:00,major,resolved,SSO Broker instability in global caused login failures across all platforms for two hours.
+INC0187,CM100,ANZ,2025-07-09 23:02:00,2025-07-10 07:02:00,critical,resolved,"A critical Job Scheduler outage in ANZ persisted for 8 hours, significantly impacting scheduled operations in the region."
+INC0188,CM025,global,2026-09-03 22:33:00,2026-09-03 23:03:00,major,resolved,Brief global outage of the Social Login Connector stopped users from signing in via social accounts for 30 minutes.
+INC0189,CM027,ME,2025-03-06 23:40:00,2025-03-07 00:10:00,major,resolved,OAuth Authorization Server issues in ME prevented token validation and access for 30 minutes.
+INC0190,CM154,US-West,2025-03-23 22:39:00,2025-03-24 03:39:00,major,resolved,"Object Storage Service in US-West was degraded for 5 hours, causing file upload/download failures."
+INC0191,CM241,LATAM,2025-03-29 23:06:00,2025-03-29 23:36:00,major,resolved,LATAM users experienced message delivery issues due to a 30-minute Central Message Queue outage.
+INC0192,CM159,US-East,2024-11-13 23:03:00,2024-11-13 23:33:00,critical,resolved,Critical VPN Gateway failure in US-East blocked remote access for 30 minutes.
+INC0193,CM164,global,2025-11-09 23:44:00,2025-11-10 01:44:00,critical,resolved,"Global Ingress Controller went dark for 2 hours, effectively taking the platform offline for all users."
+INC0194,CM025,ME,2026-05-01 22:36:00,2026-05-02 01:36:00,major,resolved,"Social Login Connector issues in ME lasted 3 hours, impacting third-party authentication for the region."
+INC0195,CM100,global,2025-06-16 23:20:00,2025-06-17 00:20:00,critical,resolved,"Global Job Scheduler went down for an hour, halting all scheduled tasks."
+INC0196,CM188,EU-West,2025-01-20 23:41:00,2025-01-21 00:11:00,critical,resolved,"CDN Asset Layer in EU-West is down (critical) for 30 minutes, causing widespread asset load failures for users."
+INC0197,CM011,EU-Central,2026-02-27 23:09:00,2026-02-28 01:09:00,critical,resolved,"SSO Broker outage in EU-Central (critical) has lasted 2 hours, completely blocking user login flows."
+INC0198,CM245,APAC,2026-04-08 23:20:00,2026-04-09 00:20:00,critical,resolved,"Central Notification Dispatcher in APAC (critical) has been failing for 60 minutes, resulting in a backlog of undelivered alerts."
+INC0199,CM027,LATAM,2025-11-27 23:46:00,2025-11-28 01:46:00,major,resolved,"OAuth Authorization Server in LATAM (major) is degraded, causing intermittent 403 errors for third-party integrations."
+INC0200,CM025,ME,2026-02-21 23:36:00,2026-02-22 00:06:00,major,resolved,"Social Login Connector in ME (major) is down for 30 minutes, preventing users from signing up via external providers."
+INC0201,CM237,US-East,2026-01-25 23:19:00,2026-01-25 23:49:00,critical,resolved,"Shared SSO Broker in US-East (critical) is unresponsive for 30 minutes, halting authentication for multiple downstream services."
+INC0202,CM246,ANZ,2025-03-28 22:33:00,2025-03-28 23:33:00,major,resolved,"Central Identity Vault in ANZ (major) has been having issues for 60 minutes, causing delays in profile retrieval and updates."
+INC0203,CM043,ME,2025-09-13 22:54:00,2025-09-14 03:54:00,major,resolved,"Legacy LDAP Bridge in ME (major) has been broken for 5 hours, affecting enterprise directory synchronization."
+INC0204,CM025,global,2026-05-22 23:01:00,2026-05-23 01:01:00,major,resolved,Global Social Login Connector (major) outage for 2 hours; users cannot authenticate via social accounts.
+INC0205,CM240,global,2025-10-03 23:27:00,2025-10-04 01:27:00,major,resolved,"File Storage Service is globally degraded (major) for 2 hours, leading to failed uploads and downloads."
+INC0206,CM144,ME,2025-03-01 22:38:00,2025-03-02 03:38:00,critical,resolved,"Service Registry in ME (critical) has been down for 5 hours, causing service discovery failures across the region."
+INC0207,CM246,LATAM,2024-10-28 22:57:00,2024-10-28 23:57:00,major,resolved,"Central Identity Vault in LATAM (major) experienced a 1-hour outage, disrupting identity management operations."
+INC0208,CM237,US-East,2026-03-10 23:20:00,2026-03-11 07:20:00,major,resolved,"Shared SSO Broker in US-East (major) has been unstable for 8 hours, significantly impacting login availability."
+INC0209,CM025,EU-Central,2026-06-27 22:43:00,2026-06-28 00:43:00,major,resolved,"Social Login Connector in EU-Central (major) is failing for 2 hours, blocking social authentication attempts."
+INC0210,CM133,LATAM,2025-06-06 22:46:00,2025-06-06 23:16:00,critical,resolved,"Rate Limiter in LATAM (critical) has been misbehaving for 30 minutes, causing excessive 429 errors for legitimate traffic."
+INC0211,CM142,US-East,2026-02-02 23:43:00,2026-02-03 07:43:00,critical,resolved,Critical outage of the Circuit Breaker in US-East lasting 8 hours. This likely caused cascading failures and unhandled downstream errors.
+INC0212,CM199,global,2026-04-12 23:47:00,2026-04-13 00:17:00,major,resolved,Major incident with the global File Upload Widget for 30 minutes. Users experienced failures uploading files across all regions.
+INC0213,CM098,EU-West,2026-02-25 23:28:00,2026-02-25 23:58:00,major,resolved,"The EU-West Query Engine went down for 30 minutes, classified as major. This resulted in significant search latency or timeouts for EU users."
+INC0214,CM244,global,2024-11-08 23:24:00,2024-11-08 23:54:00,major,resolved,Global Central Rate Limiter failure lasting 30 minutes. This major incident could lead to unthrottled traffic or blocked legitimate requests.
+INC0215,CM027,APAC,2026-03-15 23:31:00,2026-03-16 02:31:00,major,resolved,APAC OAuth Authorization Server experienced a major outage for 3 hours. Users in the region were unable to authenticate or access services.
+INC0216,CM135,global,2025-07-14 23:26:00,2025-07-15 01:26:00,major,resolved,"Global Queue Manager incident lasting 2 hours, severity major. Background jobs and message processing were halted or delayed."
+INC0217,CM042,global,2026-02-10 23:25:00,2026-02-10 23:55:00,critical,resolved,Critical failure in the global Cross-Domain SSO Relay for 30 minutes. This prevented single sign-on transitions between domains.
+INC0218,CM250,global,2026-04-19 23:10:00,2026-04-20 00:10:00,critical,resolved,Vendor Integration Hub suffered a critical global outage for 1 hour. External partner connections and data synchronization were disrupted.
+INC0219,CM027,US-West,2025-05-24 22:33:00,2025-05-24 23:03:00,major,resolved,US-West OAuth Authorization Server had a major incident for 30 minutes. Localized authentication failures impacted users in the West Coast region.
+INC0220,CM100,US-East,2025-07-24 23:01:00,2025-07-25 01:01:00,critical,resolved,The US-East Job Scheduler experienced a critical outage lasting 2 hours. Scheduled tasks and batch processing were completely halted.
+INC0221,CM025,APAC,2026-03-25 23:36:00,2026-03-26 00:06:00,major,resolved,Major incident with the Social Login Connector in APAC for 30 minutes. Users were unable to log in via third-party social providers.
+INC0222,CM168,global,2026-01-07 23:12:00,2026-01-08 00:12:00,major,resolved,"Global Time-Series Metrics Store was down for 1 hour (major). Monitoring data ingestion was interrupted, affecting visibility into system health."
+INC0223,CM135,EU-Central,2025-05-06 23:33:00,2025-05-07 02:33:00,major,resolved,EU-Central Queue Manager had a major incident lasting 3 hours. Asynchronous task processing in the region was significantly degraded.
+INC0224,CM105,EU-Central,2026-05-14 23:17:00,2026-05-15 02:17:00,major,resolved,The Alerting Engine in EU-Central suffered a major outage for 3 hours. Critical system alerts were not generated or delivered to operators.
+INC0225,CM210,ANZ,2025-05-08 23:03:00,2025-05-09 00:03:00,critical,resolved,"Client Error Reporting SDK experienced a critical failure in ANZ for 1 hour. Telemetry regarding user errors was lost, hindering immediate diagnosis."
+INC0226,CM227,global,2024-10-23 22:57:00,2024-10-23 23:27:00,critical,resolved,"Global API Gateway went critical for 30 minutes, causing widespread downtime and blocking all API traffic across every region."
+INC0227,CM025,US-West,2025-07-19 23:08:00,2025-07-19 23:38:00,major,resolved,US-West users are unable to use Social Login Connector due to a major outage lasting 30 minutes.
+INC0228,CM100,global,2025-11-24 23:44:00,2025-11-25 04:44:00,major,resolved,"Job Scheduler experienced a major incident lasting 5 hours, delaying or failing background tasks globally."
+INC0229,CM242,global,2026-05-07 22:59:00,2026-05-08 00:59:00,critical,resolved,"Global search functionality is down. Central Search Index Service was critical for 2 hours, preventing users from retrieving results."
+INC0230,CM237,ME,2025-08-06 23:08:00,2025-08-07 02:08:00,critical,resolved,"SSO Broker (Shared) in ME had a critical outage lasting 3 hours, preventing users in the region from authenticating."
+INC0231,CM132,EU-Central,2025-05-16 23:43:00,2025-05-17 00:13:00,critical,resolved,"A critical Load Balancer failure in EU-Central lasted 30 minutes, likely causing connection timeouts or dropped requests for regional services."
+INC0232,CM042,global,2025-06-17 22:56:00,2025-06-17 23:26:00,major,resolved,"Cross-Domain SSO Relay had a major incident for 30 minutes, interrupting authentication flows between domains."
+INC0233,CM241,global,2025-05-31 22:55:00,2025-05-31 23:55:00,critical,resolved,"Central Message Queue experienced a critical outage globally for 1 hour, causing delays or failures in distributed application processing."
+INC0234,CM111,ME,2024-09-24 23:39:00,2024-09-25 00:39:00,major,resolved,"Data Retention Manager in ME suffered a major outage for 1 hour, impacting scheduled data archiving and deletion processes."
+INC0235,CM241,US-West,2026-02-20 23:13:00,2026-02-21 01:13:00,major,resolved,"Central Message Queue in US-West was down for 2 hours (major), causing backpressure and potential message loss for regional consumers."
+INC0236,CM085,global,2024-11-23 22:34:00,2024-11-24 00:34:00,major,resolved,"Sales Tax Filing Connector experienced a major incident lasting 2 hours, potentially delaying tax compliance reports."
+INC0237,CM027,global,2025-02-06 23:09:00,2025-02-06 23:39:00,critical,resolved,"OAuth Authorization Server went critical for 30 minutes, blocking third-party applications from obtaining tokens."
+INC0238,CM241,APAC,2025-08-18 22:38:00,2025-08-18 23:08:00,critical,resolved,"Central Message Queue in APAC was critical for 30 minutes, disrupting asynchronous processing for that region."
+INC0239,CM150,EU-West,2026-08-29 23:08:00,2026-08-30 02:08:00,major,resolved,"Backup & Restore Service in EU-West had a major outage for 3 hours, preventing successful backups or disaster recovery readiness."
+INC0240,CM144,ANZ,2026-01-10 23:36:00,2026-01-11 02:36:00,critical,resolved,"Service Registry in ANZ was critical for 3 hours, causing service discovery failures and making it difficult for applications to find each other."
+INC0241,CM138,ANZ,2026-04-12 22:56:00,2026-04-12 23:26:00,critical,resolved,"Service Mesh Proxy outage in ANZ region lasting 30 minutes, classified as critical severity."
+INC0242,CM011,APAC,2025-02-08 23:07:00,2025-02-09 00:07:00,major,resolved,"SSO Broker experienced a major failure in APAC for 60 minutes, impacting authentication flows."
+INC0243,CM166,ME,2026-04-01 23:43:00,2026-04-02 04:43:00,critical,resolved,Critical 5-hour outage of the Disaster Recovery Orchestrator in ME region.
+INC0244,CM100,ANZ,2025-04-25 22:47:00,2025-04-25 23:47:00,critical,resolved,"Job Scheduler down in ANZ for 1 hour, resulting in critical operational impact."
+INC0245,CM227,global,2025-01-19 23:06:00,2025-01-19 23:36:00,major,resolved,Global API Gateway suffered a major incident lasting 30 minutes across all regions.
+INC0246,CM150,US-East,2025-10-29 22:36:00,2025-10-29 23:06:00,major,resolved,Backup & Restore Service had a 30-minute major outage in US-East.
+INC0247,CM142,US-West,2025-10-15 23:48:00,2025-10-16 00:48:00,critical,resolved,Critical failure of Circuit Breaker mechanism in US-West for 60 minutes.
+INC0248,CM138,global,2026-09-06 22:37:00,2026-09-06 23:07:00,critical,resolved,"Service Mesh Proxy global outage lasting 30 minutes, classified as critical."
+INC0249,CM210,global,2026-04-19 23:10:00,2026-04-20 01:10:00,major,resolved,"Client Error Reporting SDK down globally for 2 hours, major severity."
+INC0250,CM100,EU-West,2024-11-16 22:56:00,2024-11-17 00:56:00,critical,resolved,Job Scheduler experienced a critical 2-hour outage in EU-West.
+INC0251,CM227,global,2026-03-24 22:38:00,2026-03-24 23:38:00,critical,resolved,Global API Gateway critical incident affecting all regions for 60 minutes.
+INC0252,CM240,LATAM,2026-08-22 22:36:00,2026-08-22 23:06:00,major,resolved,File Storage Service major outage in LATAM lasting 30 minutes.
+INC0253,CM227,APAC,2026-01-15 23:42:00,2026-01-16 07:42:00,major,resolved,"Global API Gateway degraded in APAC for 8 hours, major severity impact."
+INC0254,CM019,ME,2026-07-21 23:14:00,2026-07-22 04:14:00,critical,resolved,Account Recovery Service critical outage in ME region for 5 hours.
+INC0255,CM227,ANZ,2026-09-01 23:25:00,2026-09-01 23:55:00,critical,resolved,Critical 30-minute outage of Global API Gateway in ANZ region.
+INC0256,CM222,EU-West,2026-01-27 23:24:00,2026-01-28 04:24:00,major,resolved,"The Rate-Limited Sender Pool in EU-West degraded for 5 hours, throttling outbound message delivery and causing delays for users."
+INC0257,CM245,ME,2025-03-06 23:08:00,2025-03-06 23:38:00,critical,resolved,A critical outage in the Central Notification Dispatcher (ME) halted all notifications for 30 minutes.
+INC0258,CM227,EU-West,2026-08-11 22:49:00,2026-08-11 23:49:00,major,resolved,Major issues with the EU-West Global API Gateway caused intermittent request failures for one hour.
+INC0259,CM227,US-East,2024-10-01 22:33:00,2024-10-02 01:33:00,critical,resolved,A major outage of the Global API Gateway in US-East prevented all inbound API calls from processing for three hours.
+INC0260,CM105,US-West,2025-01-06 23:38:00,2025-01-07 00:08:00,critical,resolved,"The US-West Alerting Engine went down for 30 minutes, silencing system monitoring and notifications."
+INC0261,CM011,LATAM,2026-04-27 23:29:00,2026-04-28 04:29:00,critical,resolved,A critical failure in the LATAM SSO Broker prevented user logins and authentication for five hours.
+INC0262,CM011,EU-Central,2025-10-01 23:47:00,2025-10-02 00:47:00,critical,resolved,"SSO Broker in EU-Central experienced a critical outage, blocking authentication flows for one hour."
+INC0263,CM082,global,2025-08-26 23:04:00,2025-08-27 07:04:00,critical,resolved,"The global Payment Gateway Router failed for 8 hours, preventing users from completing transactions."
+INC0264,CM132,EU-West,2025-08-03 23:18:00,2025-08-03 23:48:00,critical,resolved,A critical failure in the EU-West Load Balancer caused 30 minutes of service unavailability.
+INC0265,CM019,EU-Central,2025-04-28 22:52:00,2025-04-28 23:52:00,major,resolved,Major issues with the EU-Central Account Recovery Service prevented users from resetting passwords for one hour.
+INC0266,CM086,global,2026-08-05 23:21:00,2026-08-06 00:21:00,critical,resolved,"The global Payment Retry Scheduler went down for an hour, delaying retry attempts for failed transactions."
+INC0267,CM169,ME,2025-07-18 23:30:00,2025-07-19 00:00:00,critical,resolved,A critical outage in the ME Certificate Management Service disrupted secure connections for 30 minutes.
+INC0268,CM025,ANZ,2025-10-04 23:41:00,2025-10-05 02:41:00,major,resolved,"The Social Login Connector in ANZ was degraded for 3 hours, preventing users from authenticating via social accounts."
+INC0269,CM121,global,2026-03-18 22:51:00,2026-03-19 01:51:00,major,resolved,Major disruptions to the global Data Pipeline Orchestrator caused a 3-hour lag in data processing and delivery.
+INC0270,CM027,LATAM,2025-09-20 23:22:00,2025-09-21 00:22:00,major,resolved,"The LATAM OAuth Authorization Server experienced a major outage, preventing third-party app access for one hour."
+INC0271,CM100,global,2026-02-15 23:32:00,2026-02-16 04:32:00,critical,resolved,Global Job Scheduler is down; all scheduled tasks across regions have stalled for 5 hours.
+INC0272,CM241,global,2025-04-05 23:08:00,2025-04-06 00:08:00,critical,resolved,Central Message Queue outage in global region caused 60 minutes of asynchronous task failures.
+INC0273,CM232,global,2025-04-27 22:32:00,2025-04-27 23:02:00,major,resolved,"Global Load Balancer experienced a major issue, impacting traffic distribution for 30 minutes."
+INC0274,CM029,APAC,2025-03-19 22:32:00,2025-03-20 00:32:00,critical,resolved,"JWT Issuer is down in APAC, preventing users in the region from obtaining authentication tokens for 2 hours."
+INC0275,CM121,US-West,2025-09-05 23:14:00,2025-09-06 00:14:00,major,resolved,Data Pipeline Orchestrator failure in US-West delayed data processing jobs by 1 hour.
+INC0276,CM100,APAC,2025-11-14 23:26:00,2025-11-14 23:56:00,major,resolved,"Job Scheduler degraded in APAC region for 30 minutes, causing delays in regional batch processes."
+INC0277,CM024,global,2025-09-01 22:59:00,2025-09-02 03:59:00,critical,resolved,"Passwordless Auth Service is completely unavailable globally, blocking user logins for 5 hours."
+INC0278,CM150,EU-Central,2026-04-26 22:51:00,2026-04-26 23:21:00,critical,resolved,Backup & Restore Service failure in EU-Central interrupted backup operations for 30 minutes.
+INC0279,CM241,US-West,2025-10-13 22:53:00,2025-10-14 00:53:00,major,resolved,US-West Central Message Queue issues caused a 2-hour backlog in regional message processing.
+INC0280,CM004,EU-West,2025-11-05 23:05:00,2025-11-05 23:35:00,major,resolved,"Directory Connector in EU-West is struggling, impacting user lookup and sync performance for 30 minutes."
+INC0281,CM246,ME,2026-08-21 22:33:00,2026-08-21 23:03:00,critical,resolved,"Central Identity Vault is down in ME region, disrupting secure credential management for 30 minutes."
+INC0282,CM234,APAC,2024-10-10 23:08:00,2024-10-10 23:38:00,major,resolved,DNS Resolution Service issues in APAC caused intermittent connectivity problems for 30 minutes.
+INC0283,CM225,global,2024-11-21 23:45:00,2024-11-22 00:45:00,critical,resolved,Global Suppression List Manager outage led to a 1-hour window where unsubscribed users might receive communications.
+INC0284,CM011,ANZ,2025-10-23 23:47:00,2025-10-24 01:47:00,critical,resolved,"SSO Broker is failing in ANZ, blocking federated logins for users in that region for 2 hours."
+INC0285,CM239,global,2025-01-17 23:40:00,2025-01-18 00:10:00,major,resolved,"Central Reporting Data Store experienced a major global issue, delaying report generation for 30 minutes."
+INC0286,CM104,global,2025-01-05 23:49:00,2025-01-06 00:19:00,major,resolved,"Metrics Collector experienced a major global outage for 30 minutes, resulting in temporary loss of observability data."
+INC0287,CM098,EU-Central,2026-03-11 23:29:00,2026-03-11 23:59:00,critical,resolved,Critical failure in the EU-Central Query Engine caused a 30-minute disruption to data retrieval services.
+INC0288,CM024,US-East,2026-05-08 23:09:00,2026-05-09 01:09:00,critical,resolved,"Passwordless Auth Service in US-East suffered a critical outage lasting 2 hours, preventing users from logging in via passwordless methods."
+INC0289,CM100,US-West,2025-02-01 23:00:00,2025-02-02 04:00:00,critical,resolved,"Job Scheduler in US-West experienced a prolonged critical failure (5 hours), causing significant delays in batch processing and scheduled tasks."
+INC0290,CM244,global,2025-03-24 22:55:00,2025-03-24 23:25:00,critical,resolved,"Central Rate Limiter went down globally for 30 minutes, leading to potential traffic throttling issues or unprotected spikes."
+INC0291,CM227,US-West,2024-10-05 23:02:00,2024-10-06 00:02:00,critical,resolved,Critical outage of the Global API Gateway in US-West disrupted external API access for 60 minutes.
+INC0292,CM245,EU-West,2025-10-12 23:27:00,2025-10-12 23:57:00,major,resolved,"Central Notification Dispatcher in EU-West had a major incident lasting 30 minutes, delaying user alerts and notifications."
+INC0293,CM164,APAC,2026-01-18 23:41:00,2026-01-19 01:41:00,major,resolved,Ingress Controller failure in APAC caused a major disruption to incoming traffic routing for 2 hours.
+INC0294,CM019,ME,2026-01-25 22:47:00,2026-01-25 23:17:00,critical,resolved,"Account Recovery Service in the Middle East experienced a critical outage for 30 minutes, blocking users from resetting credentials."
+INC0295,CM027,EU-Central,2025-12-16 23:24:00,2025-12-16 23:54:00,critical,resolved,"OAuth Authorization Server in EU-Central failed critically for 30 minutes, interrupting third-party app logins."
+INC0296,CM027,US-East,2025-02-01 23:29:00,2025-02-02 02:29:00,major,resolved,"Major incident with OAuth Authorization Server in US-East lasted 3 hours, degrading authentication reliability for integrated applications."
+INC0297,CM144,global,2026-04-26 22:34:00,2026-04-26 23:34:00,major,resolved,"Global Service Registry experienced a major outage for 60 minutes, potentially causing service discovery failures across regions."
+INC0298,CM227,global,2025-05-23 23:14:00,2025-05-24 02:14:00,critical,resolved,"Critical global outage of the API Gateway lasted 3 hours, resulting in widespread downtime for external interfaces."
+INC0299,CM025,EU-Central,2026-03-02 22:49:00,2026-03-03 06:49:00,major,resolved,"Social Login Connector in EU-Central suffered a major failure for 8 hours, preventing users from signing in via social providers."
+INC0300,CM239,ME,2025-12-14 23:18:00,2025-12-15 04:18:00,major,resolved,"Central Reporting Data Store in the Middle East had a major incident lasting 5 hours, impacting the availability of analytics and reports."
+INC0301,CM227,ANZ,2026-04-25 23:20:00,2026-04-26 00:20:00,critical,resolved,"Critical outage of the Global API Gateway in ANZ lasting 60 minutes, blocking all inbound traffic."
+INC0302,CM205,global,2026-01-23 23:32:00,2026-01-24 07:32:00,major,resolved,"Mobile Push Token Manager failed globally for 8 hours, causing significant delays in push notifications."
+INC0303,CM025,EU-West,2026-02-09 22:55:00,2026-02-09 23:25:00,critical,resolved,"Social Login Connector went down in EU-West for 30 mins, preventing users from authenticating via social providers."
+INC0304,CM148,ME,2026-08-18 23:38:00,2026-08-19 00:38:00,major,resolved,Network Proxy issues in ME caused major connectivity degradation for 60 minutes.
+INC0305,CM239,ME,2026-04-19 23:14:00,2026-04-20 00:14:00,major,resolved,"Central Reporting Data Store in ME was unavailable for 60 minutes, halting data ingestion and reporting."
+INC0306,CM246,US-West,2024-10-21 22:43:00,2024-10-21 23:13:00,major,resolved,"Brief 30-minute outage of the Central Identity Vault in US-West, impacting credential lookups."
+INC0307,CM100,EU-Central,2025-02-06 22:55:00,2025-02-07 00:55:00,critical,resolved,Job Scheduler failure in EU-Central stopped all scheduled tasks for 2 hours.
+INC0308,CM210,global,2026-04-15 22:32:00,2026-04-16 00:32:00,critical,resolved,"Global outage of Client Error Reporting SDK for 2 hours, resulting in blind spots for client-side errors."
+INC0309,CM105,global,2026-06-20 23:08:00,2026-06-21 00:08:00,critical,resolved,"Alerting Engine went dark globally for 60 minutes, meaning no notifications were sent out."
+INC0310,CM145,global,2025-08-17 22:56:00,2025-08-18 03:56:00,critical,resolved,"Log Aggregator experienced a major 5-hour outage, causing significant loss of observability."
+INC0311,CM148,APAC,2024-11-02 22:43:00,2024-11-03 06:43:00,major,resolved,"Network Proxy in APAC suffered a severe 8-hour degradation, impacting regional throughput."
+INC0312,CM231,EU-Central,2025-02-18 23:13:00,2025-02-19 00:13:00,major,resolved,"Health Monitoring Service in EU-Central was down for 60 minutes, masking potential backend issues."
+INC0313,CM004,ME,2025-10-26 23:44:00,2025-10-27 00:14:00,major,resolved,"Directory Connector in ME failed for 30 minutes, breaking user lookup functionality."
+INC0314,CM011,global,2024-12-12 22:53:00,2024-12-12 23:53:00,major,resolved,Global SSO Broker outage for 1 hour prevented unified sign-in across services.
+INC0315,CM150,LATAM,2024-11-10 22:30:00,2024-11-11 00:30:00,major,resolved,"Backup & Restore Service in LATAM had a 2-hour major incident, delaying disaster recovery readiness."
+INC0316,CM241,US-East,2025-04-13 22:31:00,2025-04-14 00:31:00,critical,resolved,"Central Message Queue went down in US-East for 2 hours, causing critical processing delays across the region."
+INC0317,CM138,global,2026-05-12 23:07:00,2026-05-13 00:07:00,critical,resolved,Global Service Mesh Proxy failure for 60 minutes; critical severity indicates widespread internal service-to-service communication breakdown.
+INC0318,CM023,EU-West,2026-08-05 23:37:00,2026-08-06 07:37:00,critical,resolved,"Device Trust Service in EU-West experienced a massive 8-hour outage, critically impacting device verification and likely blocking many users."
+INC0319,CM237,EU-West,2025-11-14 23:29:00,2025-11-15 01:29:00,critical,resolved,"Shared SSO Broker in EU-West was down for 2 hours, critically disrupting authentication for all tenants in that region."
+INC0320,CM011,global,2025-09-25 23:46:00,2025-09-26 02:46:00,critical,resolved,Global SSO Broker outage lasting 3 hours critically blocked login capabilities for users worldwide.
+INC0321,CM025,global,2025-03-04 23:03:00,2025-03-04 23:33:00,major,resolved,"Social Login Connector had a 30-minute major incident globally, temporarily preventing users from logging in via third-party social providers."
+INC0322,CM011,ANZ,2026-02-03 22:37:00,2026-02-04 03:37:00,critical,resolved,"SSO Broker in ANZ was critically down for 5 hours, leaving users in the Australia and New Zealand region unable to authenticate."
+INC0323,CM100,global,2025-03-30 22:40:00,2025-03-31 00:40:00,major,resolved,"Global Job Scheduler suffered a major 2-hour disruption, likely delaying background tasks and batch processing across all regions."
+INC0324,CM019,global,2025-11-30 22:45:00,2025-12-01 06:45:00,major,resolved,"Account Recovery Service was unavailable globally for 8 hours (major severity), preventing users from resetting passwords or regaining access."
+INC0325,CM237,US-East,2024-12-02 22:40:00,2024-12-02 23:40:00,critical,resolved,"Shared SSO Broker in US-East had a critical 1-hour outage, impacting authentication for all customers hosted in that region."
+INC0326,CM227,US-West,2024-10-13 23:38:00,2024-10-14 00:08:00,major,resolved,"Global API Gateway experienced a major 30-minute incident in US-West, causing intermittent request failures for that region."
+INC0327,CM019,global,2025-10-27 23:40:00,2025-10-28 00:10:00,critical,resolved,"Brief but critical 30-minute outage of the global Account Recovery Service, immediately blocking password resets for users."
+INC0328,CM239,ME,2026-05-06 23:03:00,2026-05-06 23:33:00,critical,resolved,"Central Reporting Data Store in ME was critically down for 30 minutes, halting data retrieval and report generation for the Middle East."
+INC0329,CM030,US-West,2025-07-20 23:33:00,2025-07-21 00:03:00,critical,resolved,"Step-Up Authentication Service in US-West had a critical 30-minute outage, preventing additional verification checks for sensitive actions."
+INC0330,CM011,global,2026-08-13 22:54:00,2026-08-14 00:54:00,critical,resolved,"Another global SSO Broker incident (120 minutes, critical) further disrupting user authentication worldwide."
+INC0331,CM027,global,2025-07-22 23:12:00,2025-07-22 23:42:00,major,resolved,"Global OAuth Authorization Server degraded for 30 minutes, causing widespread login failures."
+INC0332,CM241,EU-West,2026-03-30 22:45:00,2026-03-30 23:15:00,major,resolved,"EU-West Central Message Queue disruption lasted 30 minutes, blocking asynchronous processing."
+INC0333,CM105,ME,2026-02-14 22:57:00,2026-02-15 06:57:00,major,resolved,ME region Alerting Engine down for 8 hours; no new alerts were dispatched.
+INC0334,CM019,US-East,2024-10-20 22:35:00,2024-10-20 23:05:00,major,resolved,US-East Account Recovery Service outage for 30 minutes prevented password resets and lockout resolutions.
+INC0335,CM140,APAC,2025-10-10 23:49:00,2025-10-11 00:19:00,major,resolved,"APAC Health Monitor was unavailable for 30 minutes, halting service status checks."
+INC0336,CM239,global,2026-04-16 22:56:00,2026-04-16 23:26:00,major,resolved,Global Central Reporting Data Store failure for 30 minutes made dashboards stale.
+INC0337,CM150,global,2025-01-18 22:45:00,2025-01-19 03:45:00,major,resolved,"Backup & Restore Service was down globally for 5 hours, pausing disaster recovery capabilities."
+INC0338,CM241,APAC,2025-10-19 22:34:00,2025-10-20 03:34:00,critical,resolved,Critical outage of the APAC Central Message Queue for 5 hours stopped message delivery.
+INC0339,CM025,ANZ,2025-10-13 23:20:00,2025-10-14 01:20:00,major,resolved,"ANZ Social Login Connector failed for 2 hours, preventing third-party account sign-ins."
+INC0340,CM247,global,2025-10-25 22:45:00,2025-10-26 03:45:00,major,resolved,"Global Central Metrics Pipeline was down for 5 hours, resulting in missing telemetry data."
+INC0341,CM247,US-East,2026-01-03 22:36:00,2026-01-03 23:06:00,major,resolved,US-East Central Metrics Pipeline experienced a 30-minute gap in data ingestion.
+INC0342,CM140,LATAM,2025-07-10 23:12:00,2025-07-11 02:12:00,major,resolved,"LATAM Health Monitor was unavailable for 3 hours, causing blind spots in service availability."
+INC0343,CM159,global,2026-02-12 23:01:00,2026-02-13 00:01:00,major,resolved,Global VPN Gateway outage for 1 hour blocked remote access.
+INC0344,CM027,global,2025-12-27 23:26:00,2025-12-27 23:56:00,critical,resolved,Critical global OAuth Authorization Server failure for 30 minutes halted all authentication.
+INC0345,CM019,global,2025-11-07 23:34:00,2025-11-08 00:04:00,major,resolved,"Global Account Recovery Service down for 30 minutes, leaving users unable to regain access."
+INC0346,CM242,EU-West,2025-04-15 23:41:00,2025-04-16 00:41:00,critical,resolved,Central Search Index Service is completely down in EU-West; users are seeing empty or failed search results.
+INC0347,CM215,ME,2026-03-29 23:11:00,2026-03-29 23:41:00,critical,resolved,"Email Delivery Worker in ME has crashed, preventing outbound notifications from being sent."
+INC0348,CM025,ME,2025-01-24 23:49:00,2025-01-25 00:49:00,critical,resolved,Social Login Connector in ME is failing authentication requests for OAuth users.
+INC0349,CM154,EU-Central,2026-04-13 23:31:00,2026-04-14 02:31:00,major,resolved,"Major degradation on Object Storage Service in EU-Central for the last three hours, causing read/write timeouts."
+INC0350,CM235,APAC,2026-03-22 23:16:00,2026-03-23 07:16:00,major,resolved,"Backup & Disaster Recovery Service in APAC is offline. No scheduled backups are running, leaving data at risk."
+INC0351,CM231,US-East,2026-04-20 23:47:00,2026-04-21 01:47:00,critical,resolved,"Health Monitoring Service in US-East is not reporting metrics, leaving us blind to system status."
+INC0352,CM210,EU-West,2025-09-09 22:39:00,2025-09-09 23:09:00,major,resolved,Client Error Reporting SDK in EU-West is failing to send telemetry.
+INC0353,CM144,EU-Central,2025-08-16 23:29:00,2025-08-17 04:29:00,major,resolved,"Service Registry in EU-Central is experiencing issues, potentially causing service discovery failures."
+INC0354,CM043,global,2024-12-26 23:18:00,2024-12-27 00:18:00,major,resolved,Global outage on the Legacy LDAP Bridge; legacy authentication paths are currently failing.
+INC0355,CM241,global,2025-08-15 23:35:00,2025-08-16 00:35:00,critical,resolved,"Central Message Queue is down globally, halting all async processing."
+INC0356,CM025,ANZ,2025-01-08 23:20:00,2025-01-09 00:20:00,critical,resolved,"Social Login Connector in ANZ is failing, blocking OAuth sign-ins."
+INC0357,CM170,ME,2025-06-25 23:33:00,2025-06-26 02:33:00,major,resolved,"Region Failover Controller in ME is degraded, complicating disaster recovery procedures."
+INC0358,CM246,US-East,2025-06-05 23:35:00,2025-06-06 01:35:00,major,resolved,Central Identity Vault in US-East is having trouble issuing tokens.
+INC0359,CM116,global,2025-06-02 23:46:00,2025-06-03 00:46:00,critical,resolved,"Anomaly Detection Engine is failing globally, preventing alert generation for suspicious activity."
+INC0360,CM154,APAC,2025-08-24 22:59:00,2025-08-25 06:59:00,major,resolved,"Object Storage Service in APAC has been majorly degraded for 8 hours, impacting data access."
+INC0361,CM011,global,2025-01-31 23:39:00,2025-02-01 00:39:00,major,resolved,"The global SSO Broker went down for 60 minutes, blocking authentication flows for all users."
+INC0362,CM241,global,2025-07-01 22:53:00,2025-07-01 23:23:00,major,resolved,"Central Message Queue experienced a major outage lasting 30 minutes, halting asynchronous processing."
+INC0363,CM148,US-West,2024-11-21 23:11:00,2024-11-22 01:11:00,major,resolved,"Network Proxy in US-West failed, causing a 2-hour disruption to inbound/outbound traffic."
+INC0364,CM237,global,2025-01-12 23:38:00,2025-01-13 00:08:00,critical,resolved,Critical failure of the Shared SSO Broker (30 min) brought down global identity federation.
+INC0365,CM232,global,2025-01-08 23:09:00,2025-01-08 23:39:00,major,resolved,"The Global Load Balancer dropped traffic for 30 minutes, degrading availability across all regions."
+INC0366,CM027,US-East,2025-05-12 23:17:00,2025-05-13 00:17:00,critical,resolved,"OAuth Authorization Server in US-East was critical for an hour, preventing token issuance."
+INC0367,CM205,LATAM,2026-04-07 22:52:00,2026-04-08 01:52:00,critical,resolved,"Mobile Push Token Manager outage in LATAM lasted 3 hours, silencing notifications for users."
+INC0368,CM100,EU-West,2026-09-11 22:46:00,2026-09-11 23:16:00,critical,resolved,"The EU-West Job Scheduler experienced a critical failure for 30 minutes, delaying batch processes."
+INC0369,CM025,global,2025-04-06 23:25:00,2025-04-07 00:25:00,major,resolved,"Global Social Login Connector went offline for 60 minutes, breaking third-party auth."
+INC0370,CM125,EU-West,2025-01-24 23:20:00,2025-01-25 02:20:00,critical,resolved,"Data Freshness Monitor in EU-West was critical for 3 hours, leading to potential stale data delivery."
+INC0371,CM145,ANZ,2025-02-13 23:05:00,2025-02-14 02:05:00,major,resolved,"Log Aggregator in ANZ suffered a 3-hour major outage, impacting observability."
+INC0372,CM100,global,2026-03-23 23:27:00,2026-03-24 00:27:00,major,resolved,"The global Job Scheduler failed for 60 minutes, pausing scheduled tasks."
+INC0373,CM237,ME,2025-11-05 22:32:00,2025-11-05 23:02:00,critical,resolved,"Shared SSO Broker in ME was critical for 30 minutes, blocking enterprise logins."
+INC0374,CM241,US-East,2025-06-05 23:45:00,2025-06-06 01:45:00,critical,resolved,"Central Message Queue in US-East had a 2-hour critical outage, stalling async workflows."
+INC0375,CM011,US-East,2025-03-05 23:47:00,2025-03-06 01:47:00,major,resolved,"SSO Broker in US-East went down for 120 minutes, affecting regional authentication."
+INC0376,CM179,US-East,2026-09-17 23:30:00,2026-09-18 00:00:00,critical,resolved,Critical outage on the Status Page UI in US-East lasting 30 minutes; users were unable to view system health or incident updates.
+INC0377,CM100,global,2025-06-09 23:35:00,2025-06-10 02:35:00,major,resolved,Major degradation in the global Job Scheduler for 3 hours caused widespread delays in background task execution across all regions.
+INC0378,CM025,US-East,2026-04-20 23:03:00,2026-04-21 00:03:00,critical,resolved,"The Social Login Connector in US-East went down critically for an hour, preventing users from authenticating via third-party social accounts."
+INC0379,CM100,APAC,2025-08-06 23:06:00,2025-08-06 23:36:00,critical,resolved,"APAC Job Scheduler suffered a critical failure for 30 minutes, halting scheduled jobs in that region."
+INC0380,CM210,ME,2024-10-03 23:05:00,2024-10-03 23:35:00,major,resolved,"The Client Error Reporting SDK in the ME region experienced a major issue for 30 minutes, resulting in a gap in error telemetry data."
+INC0381,CM125,global,2024-11-13 23:31:00,2024-11-14 02:31:00,critical,resolved,"A critical failure in the global Data Freshness Monitor lasted 3 hours, potentially leaving downstream systems operating on stale data."
+INC0382,CM100,EU-Central,2026-08-24 23:14:00,2026-08-24 23:44:00,critical,resolved,"EU-Central Job Scheduler was critically down for 30 minutes, disrupting local scheduled workflows."
+INC0383,CM237,EU-Central,2026-02-25 23:05:00,2026-02-26 02:05:00,major,resolved,"Shared SSO Broker in EU-Central had a major performance issue lasting 3 hours, causing slower login times and occasional timeouts for enterprise clients."
+INC0384,CM153,APAC,2026-06-03 22:57:00,2026-06-04 00:57:00,major,resolved,"APAC Database Connection Pooler degraded for 2 hours, leading to increased query latency and connection errors for applications."
+INC0385,CM108,US-East,2025-06-28 22:55:00,2025-06-28 23:55:00,critical,resolved,"The US-East Embedding Service failed critically for an hour, impacting search relevance and AI features that depend on vector generation."
+INC0386,CM247,US-East,2024-09-27 22:56:00,2024-09-27 23:56:00,major,resolved,Major disruption in the US-East Central Metrics Pipeline for 60 minutes caused delays and potential loss of operational monitoring data.
+INC0387,CM237,ANZ,2025-11-26 23:00:00,2025-11-26 23:30:00,critical,resolved,"ANZ region's Shared SSO Broker was critically down for 30 minutes, completely blocking user authentication."
+INC0388,CM170,US-West,2025-11-30 23:41:00,2025-12-01 00:41:00,critical,resolved,A critical failure in the US-West Region Failover Controller for an hour left the region vulnerable to unmanaged outages and traffic imbalances.
+INC0389,CM023,US-East,2025-01-23 22:35:00,2025-01-24 03:35:00,critical,resolved,"The US-East Device Trust Service experienced a prolonged critical outage of 5 hours, resulting in widespread security checks failures and login blocks."
+INC0390,CM207,US-West,2025-11-18 23:12:00,2025-11-19 04:12:00,major,resolved,"US-West Session Timeout Banner had a major issue for 5 hours, failing to warn users about impending session expirations."
+INC0391,CM109,ME,2024-11-08 23:43:00,2024-11-09 00:13:00,critical,resolved,"Report Scheduler failure in ME; reports delayed, severity critical."
+INC0392,CM170,APAC,2025-01-28 22:56:00,2025-01-28 23:26:00,critical,resolved,"Region Failover Controller down in APAC, critical outage lasting 30 minutes."
+INC0393,CM011,global,2026-03-08 22:55:00,2026-03-09 03:55:00,major,resolved,SSO Broker issue globally; users unable to log in for 5 hours (major).
+INC0394,CM125,global,2026-09-09 23:35:00,2026-09-10 00:35:00,major,resolved,"Data Freshness Monitor alert triggered globally, indicating potential staleness (major)."
+INC0395,CM100,US-West,2026-06-26 23:45:00,2026-06-27 00:15:00,critical,resolved,"Job Scheduler outage in US-West; tasks halted, critical severity."
+INC0396,CM232,US-East,2025-12-29 22:45:00,2025-12-30 01:45:00,major,resolved,"Global Load Balancer degraded in US-East, causing uneven traffic distribution."
+INC0397,CM019,ANZ,2025-09-18 22:51:00,2025-09-18 23:21:00,major,resolved,Account Recovery Service failure in ANZ; users unable to reset passwords.
+INC0398,CM241,global,2025-08-22 23:05:00,2025-08-23 00:05:00,critical,resolved,"Central Message Queue down globally; message delivery interrupted, critical."
+INC0399,CM207,US-West,2026-03-23 23:01:00,2026-03-23 23:31:00,critical,resolved,Session Timeout Banner bug in US-West; unexpected logouts reported.
+INC0400,CM216,global,2025-08-25 23:30:00,2025-08-26 00:00:00,major,resolved,SMS Delivery Worker issues globally; text alerts delayed or failing.
+INC0401,CM025,global,2025-08-21 22:41:00,2025-08-21 23:11:00,major,resolved,Social Login Connector failure globally; third-party auth unavailable.
+INC0402,CM237,US-East,2025-06-30 23:09:00,2025-07-01 00:09:00,critical,resolved,Shared SSO Broker down in US-East; critical login failures.
+INC0403,CM146,US-East,2025-02-07 23:48:00,2025-02-08 02:48:00,critical,resolved,Metrics Pipeline broken in US-East; observability blind spot for 3 hours.
+INC0404,CM231,global,2026-02-01 23:17:00,2026-02-02 00:17:00,major,resolved,Health Monitoring Service unresponsive globally; alerts may be missed.
+INC0405,CM025,global,2024-12-23 22:48:00,2024-12-23 23:48:00,critical,resolved,Social Login Connector critical outage globally; users blocked from social auth.
+INC0406,CM011,global,2025-10-30 23:40:00,2025-10-31 00:10:00,major,resolved,"SSO Broker experienced a major failure lasting 30 minutes, causing global authentication disruptions."
+INC0407,CM237,EU-West,2025-12-24 23:19:00,2025-12-25 00:19:00,major,resolved,"Shared SSO Broker in EU-West was down for 60 minutes, resulting in significant login failures for European users."
+INC0408,CM234,US-West,2026-04-09 22:38:00,2026-04-09 23:08:00,critical,resolved,"DNS Resolution Service in US-West suffered a critical outage for 30 minutes, making services unreachable in that region."
+INC0409,CM027,global,2025-09-28 23:42:00,2025-09-29 00:12:00,major,resolved,"OAuth Authorization Server had a 30-minute major incident, preventing token generation and API access globally."
+INC0410,CM247,US-East,2026-03-22 22:35:00,2026-03-22 23:05:00,critical,resolved,"Central Metrics Pipeline in US-East was critically broken for 30 minutes, leading to a loss of observability data."
+INC0411,CM037,US-West,2025-05-30 23:07:00,2025-05-31 00:07:00,critical,resolved,"Login Analytics Service in US-West experienced a critical 60-minute outage, halting user activity tracking."
+INC0412,CM021,global,2026-07-14 22:47:00,2026-07-15 06:47:00,major,resolved,"Password Policy Engine was severely degraded globally for 8 hours, likely blocking password updates or enforcing incorrect rules."
+INC0413,CM170,US-West,2025-02-17 23:07:00,2025-02-18 01:07:00,major,resolved,"Region Failover Controller in US-West failed for 2 hours, preventing automatic traffic shifting during outages."
+INC0414,CM141,US-West,2025-03-31 23:14:00,2025-03-31 23:44:00,critical,resolved,"Autoscaler in US-West had a critical 30-minute issue, potentially causing capacity shortages or inefficiencies."
+INC0415,CM242,global,2024-11-02 23:29:00,2024-11-03 04:29:00,major,resolved,"Central Search Index Service was majorly impacted globally for 5 hours, resulting in delayed or missing search results."
+INC0416,CM036,EU-West,2026-05-04 23:16:00,2026-05-05 01:16:00,major,resolved,"Self-Service Password Reset UI in EU-West was broken for 2 hours, preventing users from recovering their accounts."
+INC0417,CM025,US-West,2024-10-03 22:54:00,2024-10-03 23:24:00,critical,resolved,"Social Login Connector in US-West had a critical 30-minute outage, blocking third-party authentication methods."
+INC0418,CM105,global,2025-07-10 22:58:00,2025-07-11 06:58:00,major,resolved,"Alerting Engine was critically degraded globally for 8 hours, meaning many on-call engineers likely missed notifications."
+INC0419,CM227,US-West,2026-03-17 22:39:00,2026-03-17 23:09:00,critical,resolved,"Global API Gateway in US-West experienced a critical 30-minute failure, causing widespread API request errors."
+INC0420,CM244,ME,2026-03-18 23:17:00,2026-03-18 23:47:00,major,resolved,"Central Rate Limiter in ME had a major 30-minute issue, potentially allowing abuse or blocking legitimate traffic."
+INC0421,CM124,US-West,2026-07-30 23:00:00,2026-07-31 01:00:00,critical,resolved,"US-West Cube/OLAP Engine failure lasting 2 hours with critical severity, likely causing dashboard and reporting outages."
+INC0422,CM242,US-East,2026-07-22 23:18:00,2026-07-23 01:18:00,critical,resolved,Critical incident in US-East Central Search Index Service (120m duration) affecting search availability and latency.
+INC0423,CM237,ME,2025-05-19 22:43:00,2025-05-20 03:43:00,major,resolved,ME region SSO Broker outage for 5 hours (major) impacting login flows for users in that geography.
+INC0424,CM140,US-West,2025-01-27 23:08:00,2025-01-28 01:08:00,critical,resolved,"US-West Health Monitor failure (critical, 120m) reducing visibility into system status and potentially masking other issues."
+INC0425,CM024,global,2026-09-20 23:33:00,2026-09-21 00:33:00,critical,resolved,"Global Passwordless Auth Service outage (critical, 60m) blocking all passwordless login methods for users worldwide."
+INC0426,CM043,US-West,2026-01-13 22:54:00,2026-01-14 01:54:00,major,resolved,"US-West Legacy LDAP Bridge issues (major, 180m) likely affecting legacy authentication integrations and sync."
+INC0427,CM100,US-West,2026-04-17 23:26:00,2026-04-18 01:26:00,major,resolved,"US-West Job Scheduler failure (major, 120m) causing delays in background tasks and automated workflows."
+INC0428,CM025,global,2024-10-27 23:20:00,2024-10-27 23:50:00,major,resolved,"Global Social Login Connector outage (major, 30m) preventing users from signing in via social providers."
+INC0429,CM135,US-West,2025-03-04 22:56:00,2025-03-04 23:26:00,critical,resolved,US-West Queue Manager critical failure (30m) leading to message processing delays or drops.
+INC0430,CM237,global,2026-08-27 22:41:00,2026-08-27 23:11:00,critical,resolved,"Global SSO Broker outage (critical, 30m) causing widespread authentication failures across all regions."
+INC0431,CM232,global,2025-03-01 23:33:00,2025-03-02 01:33:00,critical,resolved,"Global Load Balancer failure (critical, 120m) potentially causing service unavailability or uneven traffic distribution."
+INC0432,CM011,global,2025-06-29 23:46:00,2025-06-30 00:46:00,critical,resolved,"Global SSO Broker incident (critical, 60m) impacting central authentication services worldwide."
+INC0433,CM011,EU-Central,2026-07-27 22:47:00,2026-07-27 23:47:00,critical,resolved,"EU-Central SSO Broker failure (critical, 60m) affecting login availability for European users."
+INC0434,CM242,US-West,2025-07-11 22:38:00,2025-07-11 23:38:00,major,resolved,"US-West Central Search Index Service issues (major, 60m) degrading search functionality in that region."
+INC0435,CM030,global,2026-05-18 22:41:00,2026-05-18 23:11:00,critical,resolved,"Global Step-Up Authentication Service outage (critical, 30m) blocking secondary verification steps for sensitive actions."
+INC0436,CM248,EU-West,2026-06-10 23:01:00,2026-06-10 23:31:00,critical,resolved,"Central Log Aggregator is down in EU-West (critical) for 30 minutes, halting visibility into the region's activity."
+INC0437,CM025,ME,2025-11-16 22:45:00,2025-11-17 00:45:00,critical,resolved,"Social Login Connector in ME is critically down, preventing users from authenticating via external providers."
+INC0438,CM140,EU-Central,2025-05-24 23:14:00,2025-05-25 00:14:00,major,resolved,"Major outage in EU-Central Health Monitor for 1 hour, causing blind spots in system health data for that region."
+INC0439,CM132,EU-Central,2025-02-28 23:03:00,2025-03-01 07:03:00,critical,resolved,"EU-Central Load Balancer is critically down for 8 hours, likely causing widespread connection failures in the region."
+INC0440,CM019,LATAM,2025-05-12 23:34:00,2025-05-13 01:34:00,critical,resolved,"Account Recovery Service is critically down in LATAM for 2 hours, blocking users from regaining access to their accounts."
+INC0441,CM011,global,2026-06-12 23:33:00,2026-06-13 01:33:00,major,resolved,"Global SSO Broker has a major outage lasting 2 hours, impacting single sign-on availability across all regions."
+INC0442,CM199,LATAM,2025-03-11 23:46:00,2025-03-12 00:16:00,major,resolved,LATAM users are reporting issues with the File Upload Widget due to a 30-minute major incident.
+INC0443,CM019,US-West,2025-08-11 22:36:00,2025-08-12 06:36:00,major,resolved,"Account Recovery Service in US-West has been down for 8 hours (major), severely impacting account restoration capabilities."
+INC0444,CM025,ME,2025-09-08 23:07:00,2025-09-09 00:07:00,major,resolved,"Social Login Connector in ME is experiencing a major outage, causing intermittent or failed social auth attempts."
+INC0445,CM025,global,2024-10-31 23:12:00,2024-11-01 02:12:00,critical,resolved,"Global Social Login Connector is critically down for 3 hours, disrupting third-party authentication worldwide."
+INC0446,CM125,global,2025-05-08 23:10:00,2025-05-09 02:10:00,major,resolved,"Data Freshness Monitor is showing a major global incident for 3 hours, raising concerns about data staleness."
+INC0447,CM100,APAC,2026-04-13 22:56:00,2026-04-14 00:56:00,major,resolved,"APAC Job Scheduler is down (major) for 2 hours, causing a backlog of scheduled tasks and delayed processing."
+INC0448,CM146,US-West,2026-02-16 23:10:00,2026-02-17 00:10:00,critical,resolved,"Metrics Pipeline in US-West is critically down for 1 hour, halting the flow of operational metrics from that region."
+INC0449,CM210,global,2026-05-24 22:54:00,2026-05-25 00:54:00,major,resolved,"Client Error Reporting SDK is globally degraded for 2 hours (major), leading to missing crash and error data."
+INC0450,CM222,global,2026-08-04 23:00:00,2026-08-05 00:00:00,major,resolved,"Rate-Limited Sender Pool is experiencing a major global incident for 1 hour, throttling outbound message throughput."
+INC0451,CM025,US-West,2025-01-19 23:15:00,2025-01-19 23:45:00,critical,resolved,"US-West Social Login Connector is down, preventing users from signing in via social providers."
+INC0452,CM100,US-East,2025-05-18 23:16:00,2025-05-18 23:46:00,critical,resolved,Critical failure in the US-East Job Scheduler has halted background processing for the last 30 minutes.
+INC0453,CM105,EU-West,2026-09-15 23:31:00,2026-09-16 04:31:00,critical,resolved,"EU-West Alerting Engine is completely unresponsive for over 5 hours, leaving us blind to system events."
+INC0454,CM019,global,2025-12-06 23:14:00,2025-12-07 01:14:00,critical,resolved,Global outage on Account Recovery Service prevents users from resetting passwords or recovering access.
+INC0455,CM241,EU-Central,2025-08-10 23:18:00,2025-08-10 23:48:00,critical,resolved,"The Central Message Queue in EU-Central is unavailable, likely causing backpressure and dropped messages."
+INC0456,CM100,US-East,2025-09-16 23:28:00,2025-09-17 01:28:00,major,resolved,US-East Job Scheduler is degraded with major errors persisting for the last two hours.
+INC0457,CM219,ANZ,2025-04-10 23:23:00,2025-04-11 02:23:00,major,resolved,Retry and Dead-Letter Queue issues in ANZ are causing message accumulation and potential data loss risks.
+INC0458,CM237,global,2026-08-05 23:44:00,2026-08-06 00:44:00,major,resolved,"Global SSO Broker is majorly degraded, impacting authentication flows across multiple services."
+INC0459,CM019,ANZ,2025-11-17 23:30:00,2025-11-18 02:30:00,critical,resolved,"Account Recovery Service is down in ANZ, blocking user access resets for the region."
+INC0460,CM019,LATAM,2025-07-16 22:55:00,2025-07-17 00:55:00,critical,resolved,Critical outage of Account Recovery Service in LATAM is preventing password resets for users in that region.
+INC0461,CM019,global,2026-03-12 23:21:00,2026-03-13 01:21:00,major,resolved,"Global Account Recovery Service is experiencing major degradation, leading to slower or failed recovery attempts."
+INC0462,CM241,EU-West,2026-05-16 22:45:00,2026-05-16 23:15:00,critical,resolved,"EU-West Central Message Queue is down, halting asynchronous processing in that region."
+INC0463,CM164,US-East,2025-01-04 23:29:00,2025-01-05 02:29:00,major,resolved,"US-East Ingress Controller is degraded, causing increased latency and potential timeouts for incoming traffic."
+INC0464,CM027,EU-West,2026-02-11 23:46:00,2026-02-12 00:16:00,major,resolved,"OAuth Authorization Server in EU-West is majorly degraded, impacting token issuance and user logins."
+INC0465,CM244,LATAM,2026-03-14 22:51:00,2026-03-14 23:51:00,major,resolved,"Central Rate Limiter in LATAM is failing, potentially allowing excessive traffic or blocking legitimate users."
+INC0466,CM100,global,2026-03-28 22:41:00,2026-03-28 23:41:00,major,resolved,"Global Job Scheduler degraded for an hour; batch processing stalled, causing delayed data updates."
+INC0467,CM098,global,2026-03-21 23:30:00,2026-03-22 00:00:00,major,resolved,Major outage in the global Query Engine lasting 30 minutes; users reported slow or failed database lookups.
+INC0468,CM227,ANZ,2025-04-12 23:07:00,2025-04-13 01:07:00,critical,resolved,"Global API Gateway in ANZ experienced a critical failure, blocking external traffic for 2 hours."
+INC0469,CM024,global,2026-03-19 23:09:00,2026-03-20 01:09:00,major,resolved,Passwordless Auth Service outage (global) for 2 hours; users were unable to log in without traditional credentials.
+INC0470,CM027,global,2026-02-01 23:42:00,2026-02-02 00:12:00,major,resolved,OAuth Authorization Server incident prevented third-party app connections for 30 minutes.
+INC0471,CM142,global,2025-08-20 23:07:00,2025-08-20 23:37:00,major,resolved,Global Circuit Breaker triggered major outages across dependent services for 30 minutes.
+INC0472,CM241,EU-Central,2026-05-17 22:30:00,2026-05-17 23:00:00,major,resolved,Central Message Queue in EU-Central had a 30-minute major incident; background jobs stopped processing.
+INC0473,CM237,EU-West,2025-07-26 23:33:00,2025-07-27 00:03:00,major,resolved,SSO Broker (Shared) outage in EU-West caused login failures for enterprise customers for 30 minutes.
+INC0474,CM138,global,2024-10-25 22:49:00,2024-10-26 00:49:00,major,resolved,Major global Service Mesh Proxy failure for 2 hours; inter-service communication was significantly degraded.
+INC0475,CM116,global,2025-08-21 23:25:00,2025-08-22 01:25:00,major,resolved,"Anomaly Detection Engine was down globally for 2 hours, resulting in missed alerts and delayed incident response."
+INC0476,CM239,ANZ,2026-07-25 23:21:00,2026-07-26 00:21:00,major,resolved,Central Reporting Data Store in ANZ had a major incident for 60 minutes; dashboards showed stale or missing data.
+INC0477,CM132,global,2024-11-04 23:31:00,2024-11-05 02:31:00,critical,resolved,"CRITICAL: Global Load Balancer failure lasted 3 hours, causing widespread service unavailability."
+INC0478,CM210,US-West,2026-05-13 22:49:00,2026-05-14 03:49:00,critical,resolved,"Client Error Reporting SDK in US-West failed critically for 5 hours, blinding us to user-facing issues."
+INC0479,CM085,global,2025-12-10 22:39:00,2025-12-10 23:39:00,major,resolved,Sales Tax Filing Connector outage for 1 hour; automated tax filings were delayed for affected merchants.
+INC0480,CM170,global,2025-07-04 22:52:00,2025-07-05 00:52:00,critical,resolved,CRITICAL: Region Failover Controller incident (global) for 2 hours left us unable to reroute traffic during other outages.
+INC0481,CM144,EU-Central,2026-08-18 23:11:00,2026-08-19 02:11:00,major,resolved,"EU-Central Service Registry outage lasted 3 hours, preventing service discovery and causing cascading failures for dependent applications."
+INC0482,CM019,global,2024-09-25 22:52:00,2024-09-26 00:52:00,critical,resolved,"Global Account Recovery Service experienced a 2-hour critical failure, locking users out of password resets and account access."
+INC0483,CM159,LATAM,2026-01-27 22:30:00,2026-01-28 00:30:00,major,resolved,"VPN Gateway in LATAM went down for 120 minutes, cutting off remote access for employees and partners in the region."
+INC0484,CM241,global,2025-02-06 22:30:00,2025-02-07 00:30:00,major,resolved,A 2-hour global Central Message Queue disruption halted async processing and event delivery across services.
+INC0485,CM027,US-West,2025-02-14 22:48:00,2025-02-14 23:18:00,critical,resolved,"US-West OAuth Authorization Server had a 30-minute critical outage, breaking third-party app logins and API authorizations."
+INC0486,CM154,ME,2024-11-19 23:03:00,2024-11-20 02:03:00,major,resolved,"Middle East Object Storage Service was unavailable for 3 hours, impacting file uploads, downloads, and data retrieval."
+INC0487,CM098,global,2026-03-26 23:22:00,2026-03-27 00:22:00,major,resolved,"Global Query Engine faced a 1-hour major incident, resulting in slow or failed search and analytics results for users."
+INC0488,CM250,global,2026-04-14 23:22:00,2026-04-15 01:22:00,major,resolved,"The global Vendor Integration Hub was down for 120 minutes, disrupting data syncs and communications with external partners."
+INC0489,CM247,US-West,2025-07-16 22:58:00,2025-07-17 00:58:00,critical,resolved,"US-West Central Metrics Pipeline experienced a 2-hour critical failure, causing blind spots in monitoring and alerting."
+INC0490,CM225,global,2025-01-09 23:25:00,2025-01-10 07:25:00,critical,resolved,A prolonged 8-hour global outage of the Suppression List Manager led to potential compliance risks and spam delivery issues.
+INC0491,CM154,US-West,2026-06-03 23:04:00,2026-06-04 01:04:00,major,resolved,"US-West Object Storage Service was inaccessible for 2 hours, affecting asset management and file storage operations."
+INC0492,CM011,US-West,2025-05-18 23:46:00,2025-05-19 00:46:00,critical,resolved,"SSO Broker in US-West had a 1-hour critical failure, preventing single sign-on access for internal tools and services."
+INC0493,CM028,global,2026-02-09 23:34:00,2026-02-10 04:34:00,major,resolved,"Global OIDC Provider Service suffered a 5-hour major incident, disrupting user authentication and session management."
+INC0494,CM024,EU-Central,2026-07-02 23:30:00,2026-07-03 00:30:00,major,resolved,"EU-Central Passwordless Auth Service was down for an hour, blocking biometric and device-based login methods."
+INC0495,CM235,EU-West,2026-02-19 22:36:00,2026-02-19 23:06:00,major,resolved,Brief 30-minute major incident on Backup & Disaster Recovery in EU-West impacted data protection workflows.
+INC0496,CM241,EU-West,2026-03-12 22:58:00,2026-03-12 23:58:00,major,resolved,"The Central Message Queue in EU-West went down for an hour, halting async task processing and causing significant delays for users in that region."
+INC0497,CM235,global,2025-09-02 22:43:00,2025-09-02 23:13:00,major,resolved,"Backup & Disaster Recovery Service experienced a global outage lasting 30 minutes, pausing all data protection routines and creating compliance risks."
+INC0498,CM210,LATAM,2025-10-13 23:04:00,2025-10-13 23:34:00,critical,resolved,"The Client Error Reporting SDK failed critically in LATAM for 30 minutes, resulting in a complete loss of visibility into client-side errors for that region."
+INC0499,CM210,global,2026-09-21 22:44:00,2026-09-22 03:44:00,critical,resolved,"A critical failure in the global Client Error Reporting SDK persisted for five hours, blinding us to production errors worldwide during that window."
+INC0500,CM019,global,2025-04-18 23:33:00,2025-04-19 00:33:00,major,resolved,"The Account Recovery Service was unavailable globally for 60 minutes, preventing users from regaining access to locked accounts."
+INC0501,CM030,global,2024-11-22 22:55:00,2024-11-23 06:55:00,major,resolved,"Step-Up Authentication went down globally for eight hours, effectively blocking any high-risk actions or sensitive login attempts requiring 2FA."
+INC0502,CM082,US-East,2026-05-14 23:47:00,2026-05-15 00:17:00,critical,resolved,"The Payment Gateway Router in US-East crashed for 30 minutes, causing immediate checkout failures and revenue loss for North American customers."
+INC0503,CM154,EU-Central,2026-01-12 23:27:00,2026-01-13 01:27:00,major,resolved,"Object Storage in EU-Central was degraded for two hours, impacting file uploads and downloads for services relying on that bucket."
+INC0504,CM025,LATAM,2024-12-24 22:59:00,2024-12-25 00:59:00,major,resolved,"The Social Login Connector failed in LATAM for 120 minutes, forcing users to use traditional credentials and increasing support tickets."
+INC0505,CM153,EU-Central,2024-12-09 22:59:00,2024-12-09 23:29:00,critical,resolved,"The Database Connection Pooler in EU-Central went critical for 30 minutes, causing widespread connection timeouts and database saturation."
+INC0506,CM105,global,2025-10-05 22:58:00,2025-10-06 06:58:00,major,resolved,"The global Alerting Engine was down for 8 hours, meaning on-call engineers missed critical alerts and potential escalations were delayed."
+INC0507,CM100,LATAM,2025-10-30 23:32:00,2025-10-31 04:32:00,critical,resolved,"The Job Scheduler in LATAM experienced a critical outage for 5 hours, halting all automated background tasks and batch processing in the region."
+INC0508,CM025,ANZ,2026-04-16 22:38:00,2026-04-17 01:38:00,critical,resolved,"A critical failure of the Social Login Connector in ANZ lasted 3 hours, significantly disrupting user onboarding and login flows."
+INC0509,CM019,EU-Central,2025-10-25 23:02:00,2025-10-26 00:02:00,major,resolved,"The Account Recovery Service was briefly unavailable in EU-Central for 60 minutes, temporarily locking out users needing password resets."
+INC0510,CM237,EU-Central,2024-10-02 23:27:00,2024-10-03 02:27:00,major,resolved,"The Shared SSO Broker in EU-Central went down for 3 hours, preventing internal and partner users from accessing authenticated services."
+INC0511,CM237,APAC,2025-12-01 23:37:00,2025-12-02 02:37:00,major,resolved,SSO Broker outage in APAC lasting 3 hours; users unable to authenticate.
+INC0512,CM116,LATAM,2025-09-13 23:17:00,2025-09-14 00:17:00,major,resolved,Anomaly Detection Engine down in LATAM for 60m; monitoring blind spots.
+INC0513,CM237,global,2025-11-30 23:27:00,2025-12-01 02:27:00,critical,resolved,"Global SSO Broker failure (critical, 3h); widespread login issues."
+INC0514,CM010,EU-West,2024-11-25 22:57:00,2024-11-25 23:57:00,major,resolved,"Federation Gateway issues in EU-West (major, 1h); auth delays reported."
+INC0515,CM227,global,2024-11-21 23:36:00,2024-11-22 01:36:00,critical,resolved,"Global API Gateway outage (critical, 2h); service-wide API failures."
+INC0516,CM170,global,2026-08-02 22:39:00,2026-08-03 00:39:00,major,resolved,"Region Failover Controller issues globally (major, 2h); potential routing problems."
+INC0517,CM098,US-East,2024-11-25 23:29:00,2024-11-26 00:29:00,major,resolved,"Query Engine degraded in US-East (major, 1h); slow data retrieval."
+INC0518,CM247,US-East,2026-01-07 23:27:00,2026-01-08 04:27:00,critical,resolved,"Central Metrics Pipeline down in US-East (critical, 5h); visibility lost."
+INC0519,CM145,global,2024-10-19 23:09:00,2024-10-20 00:09:00,critical,resolved,"Global Log Aggregator outage (critical, 1h); missing telemetry/logs."
+INC0520,CM241,ME,2025-06-27 22:43:00,2025-06-28 01:43:00,critical,resolved,"Central Message Queue failure in ME (critical, 3h); async processing halted."
+INC0521,CM242,global,2025-10-29 23:28:00,2025-10-30 00:28:00,critical,resolved,"Global Search Index Service outage (critical, 1h); search results unavailable."
+INC0522,CM024,global,2024-11-03 23:14:00,2024-11-03 23:44:00,major,resolved,"Passwordless Auth Service issues globally (major, 30m); login friction."
+INC0523,CM100,EU-Central,2024-12-01 22:41:00,2024-12-01 23:11:00,critical,resolved,"Job Scheduler failure in EU-Central (critical, 30m); background tasks delayed."
+INC0524,CM108,ME,2026-07-27 22:44:00,2026-07-27 23:14:00,major,resolved,"Embedding Service degraded in ME (major, 30m); semantic search impact."
+INC0525,CM210,ANZ,2025-08-25 22:43:00,2025-08-26 01:43:00,critical,resolved,"Client Error Reporting SDK outage in ANZ (critical, 3h); telemetry missing."
+INC0526,CM011,global,2025-10-24 23:46:00,2025-10-25 04:46:00,major,resolved,Global SSO Broker outage lasting 5 hours caused widespread login failures for all users.
+INC0527,CM239,US-East,2025-10-15 23:28:00,2025-10-16 00:28:00,major,resolved,"Central Reporting Data Store in US-East experienced a major incident for 60 minutes, disrupting analytics dashboards."
+INC0528,CM025,EU-West,2025-04-27 23:04:00,2025-04-27 23:34:00,major,resolved,Major disruption to Social Login Connector in EU-West for 30 minutes; users could not authenticate via social providers.
+INC0529,CM241,global,2025-05-31 23:34:00,2025-06-01 00:04:00,major,resolved,"Global Central Message Queue had a 30-minute major incident, likely causing delays in async processing."
+INC0530,CM151,LATAM,2025-02-18 22:34:00,2025-02-19 00:34:00,major,resolved,"Primary Database Cluster in LATAM was down for 2 hours, impacting data availability and write operations in the region."
+INC0531,CM231,US-West,2026-07-18 22:31:00,2026-07-19 00:31:00,critical,resolved,Critical failure of the Health Monitoring Service in US-West for 2 hours; visibility into system status was lost.
+INC0532,CM241,global,2025-02-13 23:16:00,2025-02-14 01:16:00,major,resolved,"Another major incident on the Global Central Message Queue lasted 2 hours, stalling message delivery."
+INC0533,CM239,global,2026-08-08 23:31:00,2026-08-09 00:01:00,critical,resolved,Critical outage of the Global Central Reporting Data Store for 30 minutes halted all reporting functions.
+INC0534,CM025,LATAM,2025-10-31 23:42:00,2025-11-01 02:42:00,critical,resolved,"Social Login Connector in LATAM suffered a critical 3-hour failure, blocking social auth for the region."
+INC0535,CM239,global,2025-05-02 23:46:00,2025-05-03 01:46:00,major,resolved,"Major incident on the Global Central Reporting Data Store persisted for 2 hours, affecting data aggregation."
+INC0536,CM227,global,2025-01-20 22:46:00,2025-01-20 23:16:00,critical,resolved,Critical failure of the Global API Gateway for 30 minutes caused total loss of API connectivity.
+INC0537,CM237,US-West,2025-11-20 22:56:00,2025-11-20 23:26:00,critical,resolved,"Shared SSO Broker in US-West went down critically for 30 minutes, breaking single sign-on for that region."
+INC0538,CM025,ANZ,2026-04-27 23:21:00,2026-04-28 01:21:00,major,resolved,"Major outage of Social Login Connector in ANZ lasted 2 hours, preventing social authentication."
+INC0539,CM240,ANZ,2026-08-05 23:19:00,2026-08-06 00:19:00,critical,resolved,Critical incident on the File Storage Service in ANZ for 60 minutes meant users couldn't upload or download files.
+INC0540,CM140,ME,2025-07-28 22:36:00,2025-07-28 23:06:00,critical,resolved,"Health Monitor in the Middle East (ME) region had a critical 30-minute outage, blinding ops to system health there."
+INC0541,CM025,LATAM,2025-02-04 22:34:00,2025-02-04 23:34:00,critical,resolved,Critical outage of the Social Login Connector in LATAM lasting 60 minutes; users were unable to authenticate via social providers.
+INC0542,CM237,ME,2024-10-21 23:45:00,2024-10-22 00:15:00,major,resolved,"The shared SSO Broker in ME experienced a major incident for 30 minutes, causing intermittent login failures for dependent services."
+INC0543,CM011,LATAM,2025-07-13 22:35:00,2025-07-13 23:35:00,critical,resolved,"SSO Broker in LATAM went down for an hour (critical), effectively blocking all single sign-on traffic in the region."
+INC0544,CM064,global,2026-03-30 23:34:00,2026-03-31 00:34:00,critical,resolved,"Global payment retry processing halted for 60 minutes due to a critical failure in the Payment Retry Worker, leading to transaction backlogs."
+INC0545,CM144,US-East,2025-12-16 23:27:00,2025-12-17 01:27:00,major,resolved,"Major disruption to the US-East Service Registry for 2 hours, impacting service discovery and routing for internal clients."
+INC0546,CM237,global,2025-02-15 23:48:00,2025-02-16 01:48:00,major,resolved,"The global shared SSO Broker suffered a major outage lasting 2 hours, degrading authentication capabilities across all regions."
+INC0547,CM025,ANZ,2026-05-29 23:28:00,2026-05-30 01:28:00,major,resolved,"Social Login Connector in ANZ was unavailable for 2 hours (major), preventing users from logging in with third-party accounts."
+INC0548,CM011,global,2024-09-26 22:53:00,2024-09-27 03:53:00,critical,resolved,"Critical SSO Broker failure globally persisted for 5 hours, resulting in a widespread authentication blackout."
+INC0549,CM100,global,2024-10-31 23:31:00,2024-11-01 01:31:00,major,resolved,"Job Scheduler outage (major) lasted 2 hours globally, causing delays and failures in background task execution."
+INC0550,CM098,EU-West,2024-12-07 23:43:00,2024-12-08 00:13:00,critical,resolved,"EU-West Query Engine experienced a critical 30-minute downtime, rendering search and data retrieval services unavailable."
+INC0551,CM011,LATAM,2025-10-18 23:46:00,2025-10-19 01:46:00,major,resolved,"SSO Broker in LATAM had a major incident lasting 2 hours, leading to significant login instability in the region."
+INC0552,CM019,global,2026-09-03 22:39:00,2026-09-04 01:39:00,critical,resolved,"Global Account Recovery Service failed critically for 3 hours, preventing users from resetting passwords or recovering locked accounts."
+INC0553,CM241,US-East,2026-09-13 22:50:00,2026-09-14 01:50:00,major,resolved,"Major incident with the US-East Central Message Queue lasting 3 hours, causing message backlogs and asynchronous processing delays."
+INC0554,CM100,LATAM,2025-07-28 23:29:00,2025-07-29 01:29:00,critical,resolved,"Critical failure of the LATAM Job Scheduler for 2 hours, halting scheduled tasks and batch processing in the region."
+INC0555,CM246,EU-West,2025-02-08 23:43:00,2025-02-09 00:43:00,critical,resolved,"EU-West Central Identity Vault was down for an hour (critical), blocking secure access to identity credentials and authentication keys."
+INC0556,CM098,global,2024-09-26 23:35:00,2024-09-27 00:35:00,critical,resolved,"Critical outage of the global Query Engine, down for 60 minutes. Users are currently unable to perform any data lookups or searches."
+INC0557,CM187,global,2024-11-22 23:13:00,2024-11-23 02:13:00,critical,resolved,"The Frontend Session Manager is globally down (critical, 3h duration). All logged-in users are experiencing session drops or are unable to maintain active states."
+INC0558,CM019,ME,2026-05-09 22:32:00,2026-05-09 23:02:00,critical,resolved,Account Recovery Service is critical in the ME region for 30 minutes. Users in the Middle East cannot reset passwords or recover accounts.
+INC0559,CM121,APAC,2025-09-15 23:39:00,2025-09-16 00:39:00,major,resolved,Major degradation of the APAC Data Pipeline Orchestrator. Batch jobs are failing or delaying in the Asia-Pacific region.
+INC0560,CM027,global,2026-03-14 23:03:00,2026-03-15 00:03:00,critical,resolved,"Global OAuth Authorization Server outage (critical, 60m). External users cannot sign in via third-party providers."
+INC0561,CM132,global,2025-03-29 22:35:00,2025-03-29 23:35:00,critical,resolved,"Load Balancer failure globally (critical, 60m). Traffic routing is broken, resulting in widespread site unavailability."
+INC0562,CM237,global,2025-12-31 22:44:00,2025-12-31 23:44:00,major,resolved,"Major incident with the shared SSO Broker (global, 60m). Internal authentication flows are disrupted for all employees."
+INC0563,CM188,global,2026-05-02 22:35:00,2026-05-03 01:35:00,critical,resolved,"CDN Asset Layer is down globally for 3 hours (critical). Static content is failing to load, breaking the visual experience and functionality."
+INC0564,CM243,ANZ,2026-04-07 23:35:00,2026-04-08 00:05:00,major,resolved,ANZ region seeing major issues with the CDN Edge Layer. Static asset delivery is degraded locally.
+INC0565,CM005,EU-Central,2025-05-22 22:47:00,2025-05-23 01:47:00,critical,resolved,Provisioning Service is critical in EU-Central for 3 hours. New user/tenant onboarding is completely stalled in that region.
+INC0566,CM125,EU-West,2025-02-05 23:48:00,2025-02-06 00:48:00,critical,resolved,Data Freshness Monitor is critical in EU-West (60m). We are currently unaware of stale data states; reliability risk is high.
+INC0567,CM144,ME,2026-04-03 23:25:00,2026-04-04 02:25:00,major,resolved,"Major outage of the Service Registry in ME (3h). Microservices cannot discover each other, causing cascading failures."
+INC0568,CM025,ANZ,2025-08-20 23:43:00,2025-08-21 04:43:00,major,resolved,Social Login Connector in ANZ is down for 5 hours (major). Local users cannot authenticate via social platforms.
+INC0569,CM011,global,2026-08-07 22:44:00,2026-08-07 23:44:00,major,resolved,Major incident on global SSO Broker (60m). Employee and enterprise customer sign-ons are intermittent or failing.
+INC0570,CM018,ANZ,2025-06-11 23:15:00,2025-06-12 00:15:00,critical,resolved,Login UI is critical in ANZ (60m). Users cannot see the login screen or enter credentials in the region.
+INC0571,CM237,EU-Central,2025-12-16 22:44:00,2025-12-17 06:44:00,major,resolved,EU-Central SSO Broker experienced a major outage lasting 8 hours. Users faced prolonged authentication failures.
+INC0572,CM210,LATAM,2026-02-02 23:42:00,2026-02-03 02:42:00,major,resolved,"Client Error Reporting SDK in LATAM failed for 3 hours, preventing proper error tracking."
+INC0573,CM240,global,2025-06-23 22:37:00,2025-06-23 23:07:00,major,resolved,Global File Storage Service saw a 30-minute major disruption impacting file access.
+INC0574,CM025,APAC,2026-08-03 22:57:00,2026-08-03 23:57:00,critical,resolved,"Social Login Connector in APAC had a critical failure for an hour, blocking social auth sign-ins."
+INC0575,CM043,global,2025-04-13 23:14:00,2025-04-13 23:44:00,critical,resolved,"Legacy LDAP Bridge went down globally for 30 minutes, critically affecting directory services."
+INC0576,CM241,global,2026-05-22 23:09:00,2026-05-23 02:09:00,major,resolved,"The Central Message Queue suffered a 3-hour major incident, causing widespread async processing delays."
+INC0577,CM027,ME,2024-12-04 23:03:00,2024-12-05 04:03:00,major,resolved,OAuth Authorization Server in ME was down for 5 hours due to a major incident.
+INC0578,CM019,global,2026-03-19 22:44:00,2026-03-20 01:44:00,major,resolved,Global Account Recovery Service experienced a 3-hour major outage. Users couldn't recover accounts.
+INC0579,CM170,US-East,2025-11-08 22:49:00,2025-11-09 01:49:00,major,resolved,"US-East Region Failover Controller was in a major state for 3 hours, impacting DR capabilities."
+INC0580,CM140,EU-Central,2025-09-30 22:42:00,2025-09-30 23:42:00,critical,resolved,"Health Monitor in EU-Central had a critical failure for 1 hour, causing blind spots in status reporting."
+INC0581,CM246,US-West,2025-12-08 23:50:00,2025-12-09 01:50:00,major,resolved,Central Identity Vault in US-West saw a 2-hour major incident affecting credential storage.
+INC0582,CM098,LATAM,2025-06-18 22:38:00,2025-06-19 01:38:00,critical,resolved,Query Engine in LATAM faced a critical outage lasting 3 hours. Search and analytics were severely degraded.
+INC0583,CM098,APAC,2025-07-17 23:23:00,2025-07-18 00:23:00,critical,resolved,"APAC Query Engine had a critical failure for 1 hour, impacting data retrieval performance."
+INC0584,CM239,ME,2026-09-09 22:48:00,2026-09-10 01:48:00,major,resolved,Central Reporting Data Store in ME was down for 3 hours (major severity). Reporting features failed.
+INC0585,CM242,global,2025-04-22 22:33:00,2025-04-22 23:03:00,critical,resolved,"Global Central Search Index Service suffered a 30-minute critical outage, halting search capabilities."
+INC0586,CM239,global,2025-07-29 22:45:00,2025-07-30 01:45:00,major,resolved,The Central Reporting Data Store went down globally for 3 hours. Users were unable to access reports or analytics dashboards.
+INC0587,CM011,LATAM,2026-09-20 23:17:00,2026-09-20 23:47:00,major,resolved,SSO Broker failure in LATAM lasting 30 minutes. Customers in the region experienced login interruptions.
+INC0588,CM154,global,2026-03-07 23:13:00,2026-03-08 00:13:00,major,resolved,Global outage of the Object Storage Service for 1 hour. File uploads and downloads were disrupted across all regions.
+INC0589,CM241,global,2026-06-18 22:48:00,2026-06-18 23:48:00,major,resolved,The Central Message Queue experienced a major global disruption lasting 60 minutes. This caused delays in asynchronous processing and data synchronization.
+INC0590,CM237,ANZ,2026-03-21 22:56:00,2026-03-22 03:56:00,critical,resolved,Critical failure of the SSO Broker in ANZ for 5 hours. Users were completely unable to authenticate or access the platform.
+INC0591,CM147,ANZ,2024-10-13 23:41:00,2024-10-14 02:41:00,critical,resolved,Container Runtime issues in ANZ led to a critical 3-hour outage. This resulted in the termination of workloads and service unavailability.
+INC0592,CM098,global,2024-10-13 23:31:00,2024-10-14 02:31:00,critical,resolved,"Global Query Engine failure lasting 3 hours. Database reads and complex queries timed out, breaking application functionality."
+INC0593,CM246,global,2025-11-24 22:38:00,2025-11-24 23:38:00,critical,resolved,The Central Identity Vault suffered a critical global outage for 1 hour. Identity verification services were completely unavailable.
+INC0594,CM166,global,2026-07-06 22:57:00,2026-07-06 23:57:00,critical,resolved,"Critical failure of the Disaster Recovery Orchestrator globally for 1 hour. Failover mechanisms were disabled, increasing risk during this period."
+INC0595,CM105,US-West,2026-09-16 23:22:00,2026-09-17 00:22:00,major,resolved,Alerting Engine experienced a major outage in US-West for 1 hour. No monitoring alerts were generated or delivered during this time.
+INC0596,CM237,global,2025-10-25 23:39:00,2025-10-26 01:39:00,major,resolved,Global SSO Broker issues caused a major 2-hour degradation. Authentication latency increased significantly for users worldwide.
+INC0597,CM025,ME,2026-05-05 23:40:00,2026-05-06 01:40:00,critical,resolved,Social Login Connector failure in the ME region for 2 hours. Users attempting to sign up or login via social providers were blocked.
+INC0598,CM025,APAC,2025-01-03 23:50:00,2025-01-04 00:50:00,major,resolved,APAC Social Login Connector had a major 1-hour outage. Social authentication flows were unreliable or failed in that region.
+INC0599,CM150,US-East,2025-12-18 23:45:00,2025-12-19 00:15:00,major,resolved,Backup & Restore Service experienced a major issue in US-East for 30 minutes. Automated backup jobs failed to complete during the window.
+INC0600,CM159,global,2026-03-12 23:46:00,2026-03-13 00:16:00,critical,resolved,Critical VPN Gateway failure globally lasting 30 minutes. Remote access connections were dropped and unable to reconnect.
+INC0601,CM232,EU-Central,2025-06-26 23:43:00,2025-06-27 00:13:00,major,resolved,"Global Load Balancer outage in EU-Central caused traffic routing failures for 30 minutes, impacting regional availability."
+INC0602,CM025,US-West,2025-08-15 23:16:00,2025-08-16 04:16:00,major,resolved,"Social Login Connector failed in US-West for 5 hours, blocking users from authenticating via third-party providers."
+INC0603,CM225,global,2026-08-09 23:41:00,2026-08-10 04:41:00,major,resolved,"Global suppression list manager went offline for 300 minutes, likely causing email/SMS delivery issues to opted-out users."
+INC0604,CM128,ANZ,2025-08-18 23:32:00,2025-08-19 02:32:00,critical,resolved,"Critical token service failure in ANZ prevented analytics access for 3 hours, disrupting data reporting capabilities."
+INC0605,CM100,US-West,2025-12-13 22:58:00,2025-12-13 23:58:00,critical,resolved,"US-West job scheduler crashed for an hour, halting background task execution and potentially delaying data processing."
+INC0606,CM241,global,2026-02-13 22:46:00,2026-02-14 00:46:00,major,resolved,Global message queue outage for 2 hours likely resulted in data loss or severe delays for asynchronous services.
+INC0607,CM011,ME,2024-12-06 22:45:00,2024-12-06 23:45:00,major,resolved,"SSO Broker disruption in ME lasted 60 minutes, preventing single sign-on access for regional users."
+INC0608,CM027,global,2025-11-07 22:50:00,2025-11-07 23:50:00,major,resolved,Global OAuth authorization server failure for an hour broke third-party integrations and login flows.
+INC0609,CM199,global,2026-09-16 22:59:00,2026-09-16 23:29:00,critical,resolved,Critical file upload widget outage globally for 30 minutes prevented users from uploading content or attachments.
+INC0610,CM248,APAC,2025-09-13 23:33:00,2025-09-14 00:33:00,major,resolved,"APAC log aggregator went down for an hour, causing blind spots in monitoring and troubleshooting capabilities."
+INC0611,CM237,EU-Central,2025-09-28 22:57:00,2025-09-28 23:27:00,major,resolved,"Shared SSO broker issues in EU-Central lasted 30 minutes, impacting authentication for multiple internal services."
+INC0612,CM234,LATAM,2024-12-11 22:30:00,2024-12-12 01:30:00,major,resolved,DNS resolution failures in LATAM for 3 hours made services inaccessible due to name lookup errors.
+INC0613,CM098,US-West,2024-10-14 23:15:00,2024-10-15 01:15:00,major,resolved,"US-West query engine degraded for 2 hours, causing slow or failed data retrieval for user-facing applications."
+INC0614,CM248,global,2024-12-14 22:56:00,2024-12-14 23:26:00,major,resolved,Brief global log aggregator outage (30 mins) interrupted centralized logging and visibility across services.
+INC0615,CM153,US-East,2026-07-07 23:44:00,2026-07-08 00:14:00,major,resolved,US-East database connection pooler failure for 30 minutes caused connection timeouts and app unavailability.
+INC0616,CM154,global,2026-03-21 23:25:00,2026-03-22 01:25:00,major,resolved,Object Storage Service degraded globally for 2 hours (major). Users experienced significant delays and timeouts during file uploads and downloads.
+INC0617,CM105,global,2025-07-02 22:49:00,2025-07-03 00:49:00,critical,resolved,Critical outage of the Alerting Engine lasting 120 minutes. All global alerting and notification pipelines were down.
+INC0618,CM100,US-East,2026-06-22 23:07:00,2026-06-23 01:07:00,major,resolved,"US-East Job Scheduler experienced a major outage, preventing scheduled task execution for 2 hours."
+INC0619,CM100,EU-Central,2026-09-19 23:12:00,2026-09-20 00:12:00,critical,resolved,A critical outage of the EU-Central Job Scheduler halted all scheduled jobs for 60 minutes.
+INC0620,CM231,global,2025-06-09 23:00:00,2025-06-09 23:30:00,major,resolved,"Global Health Monitoring Service degraded for 30 minutes, creating visibility gaps across all monitored environments."
+INC0621,CM250,global,2026-06-27 22:45:00,2026-06-27 23:45:00,major,resolved,"The global Vendor Integration Hub was down for 60 minutes, blocking all outbound and inbound partner integrations."
+INC0622,CM100,EU-West,2025-10-28 23:48:00,2025-10-29 01:48:00,major,resolved,"Job Scheduler in EU-West was unavailable for 2 hours, causing a major backlog of scheduled tasks."
+INC0623,CM164,global,2024-11-29 22:30:00,2024-11-29 23:00:00,major,resolved,"Global Ingress Controller failure caused a 30-minute major outage, preventing external traffic from reaching backend services."
+INC0624,CM241,EU-West,2024-12-19 23:30:00,2024-12-20 04:30:00,major,resolved,A prolonged 5-hour outage of the Central Message Queue in EU-West disrupted all asynchronous communication services.
+INC0625,CM025,APAC,2025-04-26 23:10:00,2025-04-27 00:10:00,major,resolved,Users in APAC were unable to authenticate via social login providers for 60 minutes.
+INC0626,CM237,LATAM,2026-08-12 22:31:00,2026-08-12 23:01:00,major,resolved,"LATAM users encountered a 30-minute major outage with the SSO Broker, resulting in failed login attempts."
+INC0627,CM119,LATAM,2025-12-17 23:38:00,2025-12-18 01:38:00,critical,resolved,"The Report Subscription Service suffered a critical outage in LATAM for 2 hours, preventing report generation and email delivery."
+INC0628,CM025,US-East,2026-05-30 22:45:00,2026-05-30 23:15:00,critical,resolved,"Social Login Connector outage in US-East lasted 30 minutes, impacting login availability for major providers."
+INC0629,CM132,US-West,2024-09-21 22:43:00,2024-09-21 23:13:00,critical,resolved,"US-West Load Balancer failed for 30 minutes, severely degrading traffic distribution and causing widespread timeouts."
+INC0630,CM037,US-West,2024-12-07 23:13:00,2024-12-08 01:13:00,major,resolved,"Login Analytics Service in US-West was unavailable for 2 hours, halting the collection of authentication metrics."
+INC0631,CM140,APAC,2026-08-13 23:35:00,2026-08-14 00:35:00,critical,resolved,Critical outage of the APAC Health Monitor lasting an hour; likely blinded observability for that region.
+INC0632,CM210,EU-Central,2024-12-22 22:50:00,2024-12-22 23:50:00,major,resolved,"EU-Central Client Error Reporting SDK down for 60 minutes, creating a blind spot for user-facing failures."
+INC0633,CM027,global,2026-03-20 23:26:00,2026-03-20 23:56:00,major,resolved,"Global OAuth server experienced major issues for 30 minutes, impacting authentication flows."
+INC0634,CM100,global,2025-01-29 23:21:00,2025-01-29 23:51:00,major,resolved,"Global Job Scheduler degraded for half an hour, likely causing delays in asynchronous tasks."
+INC0635,CM011,LATAM,2025-04-04 23:47:00,2025-04-05 00:17:00,critical,resolved,"LATAM SSO Broker suffered a critical failure for 30 minutes, blocking user logins."
+INC0636,CM244,US-West,2026-08-27 22:53:00,2026-08-27 23:23:00,critical,resolved,"US-West Central Rate Limiter went critical for 30 minutes, potentially causing throttling issues or service unavailability."
+INC0637,CM098,EU-West,2025-05-09 22:43:00,2025-05-10 00:43:00,major,resolved,"EU-West Query Engine was significantly degraded for two hours, impacting data retrieval performance."
+INC0638,CM217,EU-Central,2024-09-26 22:43:00,2024-09-26 23:43:00,critical,resolved,"EU-Central Push Delivery Worker hit a critical failure for an hour, likely stopping notifications."
+INC0639,CM100,US-West,2025-08-07 22:35:00,2025-08-07 23:35:00,major,resolved,"US-West Job Scheduler saw major disruptions for 60 minutes, affecting background processing."
+INC0640,CM237,US-West,2025-03-29 23:35:00,2025-03-30 00:05:00,major,resolved,"US-West Shared SSO Broker had a 30-minute major incident, impacting single sign-on availability."
+INC0641,CM241,LATAM,2025-10-22 23:38:00,2025-10-23 01:38:00,critical,resolved,"LATAM Central Message Queue was down for two hours (critical), likely stalling event processing across the region."
+INC0642,CM025,US-East,2025-05-08 22:44:00,2025-05-08 23:44:00,major,resolved,"US-East Social Login Connector experienced major issues for an hour, hindering third-party authentication."
+INC0643,CM044,global,2025-02-05 22:41:00,2025-02-06 01:41:00,major,resolved,"Global Certificate-Based Auth Module was degraded for three hours, a long-duration major incident impacting secure connections."
+INC0644,CM011,ME,2025-09-23 22:53:00,2025-09-24 00:53:00,critical,resolved,"ME SSO Broker suffered a critical two-hour outage, preventing user access via single sign-on."
+INC0645,CM140,LATAM,2025-03-09 23:48:00,2025-03-10 01:48:00,major,resolved,"LATAM Health Monitor was down for two hours (major), reducing visibility into system status."
+INC0646,CM019,EU-West,2025-10-09 22:44:00,2025-10-09 23:44:00,major,resolved,"Major outage in EU-West impacting Account Recovery Service for an hour, preventing users from restoring access to their accounts."
+INC0647,CM188,global,2025-08-30 23:10:00,2025-08-30 23:40:00,major,resolved,"Global outage on the CDN asset layer for ~30 minutes, preventing users from loading static resources across all regions."
+INC0648,CM125,APAC,2026-05-02 23:49:00,2026-05-03 02:49:00,critical,resolved,"APAC data freshness monitor is failing critical checks; data pipelines are down, making dashboards stale."
+INC0649,CM142,APAC,2025-08-18 23:12:00,2025-08-19 00:12:00,major,resolved,"APAC circuit breaker tripped and didn't reset, leaving users without access for a full hour."
+INC0650,CM011,ANZ,2025-03-19 23:04:00,2025-03-20 01:04:00,critical,resolved,ANZ SSO Broker down for 2h at critical severity; users in the region are completely unable to log in.

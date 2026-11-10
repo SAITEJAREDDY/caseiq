@@ -1,0 +1,251 @@
+id,name,origin_product_category
+CM001,Authentication Service,Identity
+CM002,Authorization/Policy Engine,Identity
+CM003,Token Service,Identity
+CM004,Directory Connector,Identity
+CM005,Provisioning Service,Identity
+CM006,Admin Portal,Identity
+CM007,API Layer,Identity
+CM008,MFA Engine,Identity
+CM009,Session Store,Identity
+CM010,Federation Gateway,Identity
+CM011,SSO Broker,Identity
+CM012,Credential Vault,Identity
+CM013,User Directory Service,Identity
+CM014,Role Manager,Identity
+CM015,Policy Evaluator,Identity
+CM016,Consent Manager,Identity
+CM017,Identity Sync Worker,Identity
+CM018,Login UI,Identity
+CM019,Account Recovery Service,Identity
+CM020,Identity Audit Logger,Identity
+CM021,Password Policy Engine,Identity
+CM022,Risk-Based Authentication Engine,Identity
+CM023,Device Trust Service,Identity
+CM024,Passwordless Auth Service,Identity
+CM025,Social Login Connector,Identity
+CM026,SAML Assertion Service,Identity
+CM027,OAuth Authorization Server,Identity
+CM028,OIDC Provider Service,Identity
+CM029,JWT Issuer Service,Identity
+CM030,Step-Up Authentication Service,Identity
+CM031,Identity Lifecycle Manager,Identity
+CM032,Group Sync Service,Identity
+CM033,Attribute Mapping Service,Identity
+CM034,SCIM Provisioning Connector,Identity
+CM035,Delegated Admin Console,Identity
+CM036,Self-Service Password Reset UI,Identity
+CM037,Login Analytics Service,Identity
+CM038,Auth Fraud Detection Module,Identity
+CM039,Trusted Device Manager,Identity
+CM040,Emergency Access (Break-Glass) Service,Identity
+CM041,Identity Data Export Service,Identity
+CM042,Cross-Domain SSO Relay,Identity
+CM043,Legacy LDAP Bridge,Identity
+CM044,Certificate-Based Auth Module,Identity
+CM045,Transaction Processing Engine,Payments
+CM046,Refund Service,Payments
+CM047,Chargeback Handler,Payments
+CM048,Invoice Generator,Payments
+CM049,Tax Calculation Engine,Payments
+CM050,Currency Conversion Service,Payments
+CM051,Ledger Service,Payments
+CM052,Reconciliation Engine,Payments
+CM053,Fraud Detection Module,Payments
+CM054,Payment Gateway API,Payments
+CM055,Subscription Billing Engine,Payments
+CM056,Dunning Service,Payments
+CM057,Settlement Service,Payments
+CM058,Fee Calculation Engine,Payments
+CM059,Wallet Service,Payments
+CM060,PCI Vault,Payments
+CM061,Receipt Generator,Payments
+CM062,Disputes Workflow Engine,Payments
+CM063,Billing Admin Console,Payments
+CM064,Payment Retry Worker,Payments
+CM065,Card Tokenization Service,Payments
+CM066,Payment Method Manager,Payments
+CM067,Proration Calculator,Payments
+CM068,Revenue Recognition Engine,Payments
+CM069,Merchant Onboarding Service,Payments
+CM070,Payout Service,Payments
+CM071,Multi-Currency Ledger,Payments
+CM072,Billing Notification Service,Payments
+CM073,Invoice PDF Renderer,Payments
+CM074,Tax Jurisdiction Resolver,Payments
+CM075,Chargeback Evidence Uploader,Payments
+CM076,Subscription Plan Catalog,Payments
+CM077,Usage Metering Service,Payments
+CM078,Payment Webhook Dispatcher,Payments
+CM079,Credit/Debit Adjustment Service,Payments
+CM080,Billing Data Export Service,Payments
+CM081,Fraud Rules Engine,Payments
+CM082,Payment Gateway Router,Payments
+CM083,Refund Approval Workflow,Payments
+CM084,Billing Audit Trail Service,Payments
+CM085,Sales Tax Filing Connector,Payments
+CM086,Payment Retry Scheduler,Payments
+CM087,Invoice Dispute Tracker,Payments
+CM088,Currency Rate Feed Connector,Payments
+CM089,Ingestion Service,Analytics
+CM090,Stream Processing Engine,Analytics
+CM091,Reporting Service,Analytics
+CM092,Export Service,Analytics
+CM093,Data Warehouse Store,Analytics
+CM094,Dashboard UI,Analytics
+CM095,Analytics API Gateway,Analytics
+CM096,ETL Pipeline,Analytics
+CM097,Aggregation Engine,Analytics
+CM098,Query Engine,Analytics
+CM099,Visualization Renderer,Analytics
+CM100,Job Scheduler,Analytics
+CM101,Cohort Engine,Analytics
+CM102,Funnel Analysis Engine,Analytics
+CM103,Attribution Engine,Analytics
+CM104,Metrics Collector,Analytics
+CM105,Alerting Engine,Analytics
+CM106,Data Catalog Service,Analytics
+CM107,Result Cache Layer,Analytics
+CM108,Embedding Service,Analytics
+CM109,Report Scheduler,Analytics
+CM110,CSV/Excel Export Worker,Analytics
+CM111,Data Retention Manager,Analytics
+CM112,Custom Query Builder UI,Analytics
+CM113,Real-Time Metrics Stream,Analytics
+CM114,Segment Builder Service,Analytics
+CM115,Data Sampling Engine,Analytics
+CM116,Anomaly Detection Engine,Analytics
+CM117,Data Access Control Layer,Analytics
+CM118,Dashboard Sharing Service,Analytics
+CM119,Report Subscription Service,Analytics
+CM120,Event Schema Registry,Analytics
+CM121,Data Pipeline Orchestrator,Analytics
+CM122,Cross-Product Analytics Connector,Analytics
+CM123,KPI Definition Service,Analytics
+CM124,Cube/OLAP Engine,Analytics
+CM125,Data Freshness Monitor,Analytics
+CM126,Historical Data Backfill Worker,Analytics
+CM127,Report Rendering Cache,Analytics
+CM128,Analytics Access Token Service,Analytics
+CM129,Data Masking Service,Analytics
+CM130,Multi-Tenant Data Partitioning Layer,Analytics
+CM131,Infra API Gateway,Infrastructure
+CM132,Load Balancer,Infrastructure
+CM133,Rate Limiter,Infrastructure
+CM134,Cache Service,Infrastructure
+CM135,Queue Manager,Infrastructure
+CM136,Config Management Service,Infrastructure
+CM137,Secret Store,Infrastructure
+CM138,Service Mesh Proxy,Infrastructure
+CM139,Deploy Orchestrator,Infrastructure
+CM140,Health Monitor,Infrastructure
+CM141,Autoscaler,Infrastructure
+CM142,Circuit Breaker,Infrastructure
+CM143,DNS Resolver Service,Infrastructure
+CM144,Service Registry,Infrastructure
+CM145,Log Aggregator,Infrastructure
+CM146,Metrics Pipeline,Infrastructure
+CM147,Container Runtime,Infrastructure
+CM148,Network Proxy,Infrastructure
+CM149,TLS Termination Service,Infrastructure
+CM150,Backup & Restore Service,Infrastructure
+CM151,Primary Database Cluster,Infrastructure
+CM152,Read Replica Service,Infrastructure
+CM153,Database Connection Pooler,Infrastructure
+CM154,Object Storage Service,Infrastructure
+CM155,Message Broker,Infrastructure
+CM156,Job Queue Worker Pool,Infrastructure
+CM157,Feature Flag Service,Infrastructure
+CM158,Secrets Rotation Service,Infrastructure
+CM159,VPN Gateway,Infrastructure
+CM160,Firewall Rule Engine,Infrastructure
+CM161,CI/CD Pipeline Runner,Infrastructure
+CM162,Artifact Registry,Infrastructure
+CM163,Kubernetes Cluster Manager,Infrastructure
+CM164,Ingress Controller,Infrastructure
+CM165,Network Policy Manager,Infrastructure
+CM166,Disaster Recovery Orchestrator,Infrastructure
+CM167,Search Index Service,Infrastructure
+CM168,Time-Series Metrics Store,Infrastructure
+CM169,Certificate Management Service,Infrastructure
+CM170,Region Failover Controller,Infrastructure
+CM171,Resource Quota Manager,Infrastructure
+CM172,Internal DNS Zone Manager,Infrastructure
+CM173,Customer Portal UI,Frontend
+CM174,Admin Console UI,Frontend
+CM175,Onboarding Wizard UI,Frontend
+CM176,Self-Service Hub UI,Frontend
+CM177,Help Center UI,Frontend
+CM178,Chat Widget,Frontend
+CM179,Status Page UI,Frontend
+CM180,Mobile App Client,Frontend
+CM181,Feedback Widget,Frontend
+CM182,Notification Center UI,Frontend
+CM183,Search UI,Frontend
+CM184,Navigation Shell,Frontend
+CM185,Theming Engine,Frontend
+CM186,Form Renderer,Frontend
+CM187,Frontend Session Manager,Frontend
+CM188,CDN Asset Layer,Frontend
+CM189,Server-Side Rendering Layer,Frontend
+CM190,Accessibility Layer,Frontend
+CM191,Localization Engine,Frontend
+CM192,Push Notification Client,Frontend
+CM193,Client-Side Router,Frontend
+CM194,State Management Store,Frontend
+CM195,Design System Component Library,Frontend
+CM196,Browser Extension Client,Frontend
+CM197,Offline Sync Cache,Frontend
+CM198,In-App Messaging Widget,Frontend
+CM199,File Upload Widget,Frontend
+CM200,Analytics Instrumentation SDK,Frontend
+CM201,A/B Testing Client,Frontend
+CM202,Consent/Cookie Banner Service,Frontend
+CM203,Print/Export View Renderer,Frontend
+CM204,Keyboard Shortcut Manager,Frontend
+CM205,Mobile Push Token Manager,Frontend
+CM206,Deep Link Handler,Frontend
+CM207,Session Timeout Banner,Frontend
+CM208,Onboarding Checklist Widget,Frontend
+CM209,Multi-Tenant Theming Resolver,Frontend
+CM210,Client Error Reporting SDK,Frontend
+CM211,Progressive Web App Shell,Frontend
+CM212,Browser Compatibility Shim,Frontend
+CM213,Notification Hub Engine,Messaging
+CM214,Template Rendering Service,Messaging
+CM215,Email Delivery Worker,Messaging
+CM216,SMS Delivery Worker,Messaging
+CM217,Push Delivery Worker,Messaging
+CM218,Preference Center,Messaging
+CM219,Retry / Dead-Letter Queue,Messaging
+CM220,Delivery Tracking Service,Messaging
+CM221,Messaging Webhook Dispatcher,Messaging
+CM222,Rate-Limited Sender Pool,Messaging
+CM223,Notification Deduplication Service,Messaging
+CM224,Digest/Batching Engine,Messaging
+CM225,Suppression List Manager,Messaging
+CM226,Delivery Provider Router,Messaging
+CM227,Global API Gateway,Shared
+CM228,Enterprise Admin Console,Shared
+CM229,Audit Log Service,Shared
+CM230,Secret & Config Store,Shared
+CM231,Health Monitoring Service,Shared
+CM232,Global Load Balancer,Shared
+CM233,Global Cache Layer,Shared
+CM234,DNS Resolution Service,Shared
+CM235,Backup & Disaster Recovery Service,Shared
+CM236,Webhook Dispatch Service,Shared
+CM237,SSO Broker (Shared),Shared
+CM238,Directory Sync Connector (Shared),Shared
+CM239,Central Reporting Data Store,Shared
+CM240,File Storage Service,Shared
+CM241,Central Message Queue,Shared
+CM242,Central Search Index Service,Shared
+CM243,CDN Edge Layer,Shared
+CM244,Central Rate Limiter,Shared
+CM245,Central Notification Dispatcher,Shared
+CM246,Central Identity Vault,Shared
+CM247,Central Metrics Pipeline,Shared
+CM248,Central Log Aggregator,Shared
+CM249,Central Billing Ledger,Shared
+CM250,Vendor Integration Hub,Shared

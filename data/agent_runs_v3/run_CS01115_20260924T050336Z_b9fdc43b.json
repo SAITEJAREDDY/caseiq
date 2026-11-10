@@ -1,0 +1,2288 @@
+{
+ "run_id": "run_CS01115_20260924T050336Z_b9fdc43b",
+ "case_id": "CS01115",
+ "created_at": "2026-09-24T05:03:36.246413+00:00",
+ "run_tag": "verify100_final",
+ "model_provider": "together",
+ "model_name": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+ "temperature": 0.1,
+ "graph_version": "phase4-2500case-2026-09-22",
+ "sim_clock_step_minutes": 15,
+ "max_tool_calls": 10,
+ "max_repeated_same_tool": 2,
+ "max_tool_contract_repairs": 2,
+ "max_final_contract_repairs": 1,
+ "agent_version": "agent_v3_contract_hardened",
+ "contract_version": "agent_contract_v1.1",
+ "prompt_version": "v3.1",
+ "tool_catalog_version": "tool_catalog_v3",
+ "action_schema_version": "action_v3.1",
+ "final_schema_version": "final_diagnosis_v3.1",
+ "registry_version": "observed_registry_v1",
+ "alias_scheme": "agent_alias_v1",
+ "repair_policy_version": "repair_policy_v1",
+ "decoding": "json_schema_strict",
+ "code_digest": "54bbbe51a58dbb43883bd743c2476a93b418373888d06e2cc60c30dc2b1b7cf2",
+ "toolset_version": "tool_catalog_v3",
+ "output_schema_version": "final_diagnosis_v3.1",
+ "agent_loop_version": "agent_v3_contract_hardened",
+ "repair_layer_version": "repair_policy_v1",
+ "approx_cost_usd": 0.002244,
+ "stop_reason": "model_submitted",
+ "num_tool_calls": 10,
+ "num_llm_calls": 10,
+ "token_usage": {
+  "prompt_tokens": 20885,
+  "completion_tokens": 1554,
+  "total_tokens": 22439
+ },
+ "trace_steps": [
+  {
+   "step": 1,
+   "sim_clock": "2024-12-23 00:00:00",
+   "tool_name": "get_case_context",
+   "args": {},
+   "args_alias": {},
+   "hypotheses": [],
+   "hypothesis_state": [],
+   "rationale": "",
+   "result_summary": {
+    "case_id": "CS01115",
+    "title": "Analytics Dashboard APAC: Audit log gaps detected",
+    "description": "We have noticed gaps in the audit logs within the Analytics Dashboard in the APAC production region. It is unclear whether this is a display issue within the dashboard itself or a problem with the underlying Query Engine not returning the correct records. We need help determining the source of these missing log entries for our 25 affected users.",
+    "environment": "production",
+    "region": "APAC",
+    "reported_business_impact": "moderate",
+    "reported_affected_users": 25,
+    "priority": "medium",
+    "created_date": "2024-12-23",
+    "status": "open",
+    "customer_id": "C00891",
+    "customer_tier": "bronze",
+    "customer_industry": "Retail & E-commerce",
+    "customer_company_size": "mid",
+    "reported_product_id": "P003",
+    "reported_product_name": "Analytics Dashboard",
+    "reported_symptoms": [
+     "audit log gap detected"
+    ]
+   },
+   "latency_ms": 0.0,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "harness"
+  },
+  {
+   "step": 2,
+   "sim_clock": "2024-12-23 00:15:00",
+   "tool_name": "get_customer_deployment",
+   "args": {},
+   "args_alias": {},
+   "hypotheses": [
+    "Audit log gap due to display issue:0.5",
+    "Audit log gap due to Query Engine issue:0.5"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Audit log gap due to display issue",
+     "confidence": 0.5,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    },
+    {
+     "label": "Audit log gap due to Query Engine issue",
+     "confidence": 0.5,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "deployments": [
+     {
+      "product_id": "P017",
+      "product_name": "Active Directory Sync",
+      "version": "3.6",
+      "environment": "production",
+      "region": "APAC",
+      "status": "active",
+      "deployed_at": "2026-08-16",
+      "product_components": [
+       "CM004",
+       "CM011",
+       "CM030",
+       "CM038",
+       "CM040",
+       "CM239"
+      ]
+     },
+     {
+      "product_id": "P003",
+      "product_name": "Analytics Dashboard",
+      "version": "1.5",
+      "environment": "production",
+      "region": "APAC",
+      "status": "active",
+      "deployed_at": "2026-04-27",
+      "product_components": [
+       "CM095",
+       "CM098",
+       "CM100",
+       "CM106",
+       "CM114",
+       "CM120",
+       "CM229",
+       "CM236"
+      ]
+     },
+     {
+      "product_id": "P001",
+      "product_name": "Payment Gateway v2",
+      "version": "1.7",
+      "environment": "production",
+      "region": "APAC",
+      "status": "active",
+      "deployed_at": "2026-01-17",
+      "product_components": [
+       "CM046",
+       "CM050",
+       "CM054",
+       "CM057",
+       "CM074",
+       "CM077",
+       "CM227",
+       "CM229"
+      ]
+     },
+     {
+      "product_id": "P027",
+      "product_name": "Token Service",
+      "version": "3.0",
+      "environment": "production",
+      "region": "APAC",
+      "status": "active",
+      "deployed_at": "2025-11-26",
+      "product_components": [
+       "CM002",
+       "CM007",
+       "CM010",
+       "CM012",
+       "CM013",
+       "CM033",
+       "CM040",
+       "CM231"
+      ]
+     },
+     {
+      "product_id": "P003",
+      "product_name": "Analytics Dashboard",
+      "version": "1.5",
+      "environment": "staging",
+      "region": "APAC",
+      "status": "active",
+      "deployed_at": "2025-01-31",
+      "product_components": [
+       "CM095",
+       "CM098",
+       "CM100",
+       "CM106",
+       "CM114",
+       "CM120",
+       "CM229",
+       "CM236"
+      ]
+     },
+     {
+      "product_id": "P017",
+      "product_name": "Active Directory Sync",
+      "version": "3.6",
+      "environment": "staging",
+      "region": "APAC",
+      "status": "active",
+      "deployed_at": "2024-11-27",
+      "product_components": [
+       "CM004",
+       "CM011",
+       "CM030",
+       "CM038",
+       "CM040",
+       "CM239"
+      ]
+     }
+    ]
+   },
+   "latency_ms": 14195.4,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 3,
+   "sim_clock": "2024-12-23 00:30:00",
+   "tool_name": "get_component_topology",
+   "args": {
+    "component_id": "CM229"
+   },
+   "args_alias": {
+    "component": "COMPONENT_XJV"
+   },
+   "hypotheses": [
+    "Audit log gap due to display issue:0.5",
+    "Audit log gap due to Query Engine issue:0.5"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Audit log gap due to display issue",
+     "confidence": 0.5,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    },
+    {
+     "label": "Audit log gap due to Query Engine issue",
+     "confidence": 0.5,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "component_id": "CM229",
+    "component_name": "Audit Log Service",
+    "upstream_dependencies": [
+     {
+      "name": "Authentication Service",
+      "id": "CM001"
+     },
+     {
+      "name": "User Directory Service",
+      "id": "CM013"
+     },
+     {
+      "name": "Login UI",
+      "id": "CM018"
+     },
+     {
+      "name": "Step-Up Authentication Service",
+      "id": "CM030"
+     },
+     {
+      "name": "Login Analytics Service",
+      "id": "CM037"
+     },
+     {
+      "name": "Data Warehouse Store",
+      "id": "CM093"
+     },
+     {
+      "name": "Query Engine",
+      "id": "CM098"
+     },
+     {
+      "name": "Backup & Restore Service",
+      "id": "CM150"
+     },
+     {
+      "name": "Database Connection Pooler",
+      "id": "CM153"
+     },
+     {
+      "name": "Time-Series Metrics Store",
+      "id": "CM168"
+     },
+     {
+      "name": "Backup & Disaster Recovery Service",
+      "id": "CM235"
+     },
+     {
+      "name": "File Storage Service",
+      "id": "CM240"
+     }
+    ],
+    "downstream_dependents": [],
+    "external_dependencies": [
+     "Fraud Detection Vendor"
+    ],
+    "owning_teams": [
+     {
+      "name": "Security",
+      "id": "TM07"
+     },
+     {
+      "name": "Compliance & Audit",
+      "id": "TM19"
+     }
+    ]
+   },
+   "latency_ms": 5495.0,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 4,
+   "sim_clock": "2024-12-23 00:45:00",
+   "tool_name": "get_technical_signals",
+   "args": {
+    "component_id": "CM098"
+   },
+   "args_alias": {
+    "component": "COMPONENT_MFD"
+   },
+   "hypotheses": [
+    "Audit log gap due to display issue:0.5",
+    "Audit log gap due to Query Engine issue:0.5"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Audit log gap due to display issue",
+     "confidence": 0.5,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    },
+    {
+     "label": "Audit log gap due to Query Engine issue",
+     "confidence": 0.5,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "signals": [],
+    "count": 0
+   },
+   "latency_ms": 11592.3,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 5,
+   "sim_clock": "2024-12-23 01:00:00",
+   "tool_name": "get_recent_changes",
+   "args": {
+    "component_id": "CM098"
+   },
+   "args_alias": {
+    "component": "COMPONENT_MFD"
+   },
+   "hypotheses": [
+    "Audit log gap due to display issue:0.5",
+    "Audit log gap due to Query Engine issue:0.5"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Audit log gap due to display issue",
+     "confidence": 0.5,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    },
+    {
+     "label": "Audit log gap due to Query Engine issue",
+     "confidence": 0.5,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "recent_changes": [],
+    "count": 0
+   },
+   "latency_ms": 7760.2,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 6,
+   "sim_clock": "2024-12-23 01:15:00",
+   "tool_name": "get_technical_signals",
+   "args": {},
+   "args_alias": {},
+   "hypotheses": [
+    "Audit log gap due to display issue:0.5",
+    "Audit log gap due to Query Engine issue:0.5"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Audit log gap due to display issue",
+     "confidence": 0.5,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    },
+    {
+     "label": "Audit log gap due to Query Engine issue",
+     "confidence": 0.5,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "signals": [
+     {
+      "evidence_id": "SG0005455",
+      "signal_type": "POD_RESTART_LOOP",
+      "message": "restart loop detected on Progressive Web App Shell",
+      "timestamp": "2024-12-22 22:32:00",
+      "component_id": "CM211"
+     },
+     {
+      "evidence_id": "SG0005456",
+      "signal_type": "CONFIG_DRIFT_DETECTED",
+      "message": "configuration drift detected on Currency Conversion Service",
+      "timestamp": "2024-12-22 22:45:00",
+      "component_id": "CM050"
+     },
+     {
+      "evidence_id": "SG0005453",
+      "signal_type": "ENV_VAR_MISSING",
+      "message": "required environment variable missing on Audit Log Service",
+      "timestamp": "2024-12-22 22:56:00",
+      "component_id": "CM229"
+     },
+     {
+      "evidence_id": "SG0005457",
+      "signal_type": "DB_QUERY_TIMEOUT",
+      "message": "database query timeouts on Step-Up Authentication Service",
+      "timestamp": "2024-12-22 23:18:00",
+      "component_id": "CM030"
+     },
+     {
+      "evidence_id": "SG0005454",
+      "signal_type": "ROLLBACK_TRIGGERED",
+      "message": "automatic rollback triggered for Suppression List Manager",
+      "timestamp": "2024-12-22 23:33:00",
+      "component_id": "CM225"
+     },
+     {
+      "evidence_id": "SG0005452",
+      "signal_type": "ENV_VAR_MISSING",
+      "message": "required environment variable missing on Audit Log Service",
+      "timestamp": "2024-12-22 23:43:00",
+      "component_id": "CM229"
+     },
+     {
+      "evidence_id": "SG0005451",
+      "signal_type": "ENV_VAR_MISSING",
+      "message": "required environment variable missing on Audit Log Service",
+      "timestamp": "2024-12-22 23:49:00",
+      "component_id": "CM229"
+     }
+    ],
+    "count": 7
+   },
+   "latency_ms": 8389.8,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 7,
+   "sim_clock": "2024-12-23 01:30:00",
+   "tool_name": "get_telemetry",
+   "args": {
+    "component_id": "CM098"
+   },
+   "args_alias": {
+    "component": "COMPONENT_MFD"
+   },
+   "hypotheses": [
+    "Audit log gap due to display issue:0.5",
+    "Audit log gap due to Query Engine issue:0.5"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Audit log gap due to display issue",
+     "confidence": 0.5,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    },
+    {
+     "label": "Audit log gap due to Query Engine issue",
+     "confidence": 0.5,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "available_metric_categories": [
+     "Application",
+     "Security"
+    ],
+    "note": "Call again with one of these metric_category values to see actual readings."
+   },
+   "latency_ms": 6349.4,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 8,
+   "sim_clock": "2024-12-23 01:45:00",
+   "tool_name": "get_telemetry",
+   "args": {
+    "component_id": "CM098",
+    "metric_category": "Application"
+   },
+   "args_alias": {
+    "component": "COMPONENT_MFD",
+    "metric_category": "Application"
+   },
+   "hypotheses": [
+    "Audit log gap due to display issue:0.5",
+    "Audit log gap due to Query Engine issue:0.5"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Audit log gap due to display issue",
+     "confidence": 0.5,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    },
+    {
+     "label": "Audit log gap due to Query Engine issue",
+     "confidence": 0.5,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "telemetry_findings": [],
+    "count": 0
+   },
+   "latency_ms": 8252.1,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 9,
+   "sim_clock": "2024-12-23 02:00:00",
+   "tool_name": "get_service_health",
+   "args": {
+    "component_id": "CM098"
+   },
+   "args_alias": {
+    "component": "COMPONENT_MFD"
+   },
+   "hypotheses": [
+    "Audit log gap due to display issue:0.5",
+    "Audit log gap due to Query Engine issue:0.5"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Audit log gap due to display issue",
+     "confidence": 0.5,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    },
+    {
+     "label": "Audit log gap due to Query Engine issue",
+     "confidence": 0.5,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "health_events": [
+     {
+      "evidence_id": "SHE01977",
+      "started_at": "2024-11-24 03:44:00",
+      "ended_at": "2024-11-24 03:49:00",
+      "severity": "major",
+      "description": "Transient major availability dip on Query Engine, recovered within 5 minutes."
+     },
+     {
+      "evidence_id": "SHE01989",
+      "started_at": "2024-11-23 05:20:00",
+      "ended_at": "2024-11-23 06:20:00",
+      "severity": "major",
+      "description": "major latency spike observed on Query Engine, self-resolved after 60 minutes."
+     },
+     {
+      "evidence_id": "SHE01984",
+      "started_at": "2024-11-19 04:22:00",
+      "ended_at": "2024-11-19 05:07:00",
+      "severity": "minor",
+      "description": "Transient minor availability dip on Query Engine, recovered within 45 minutes."
+     }
+    ],
+    "count": 3
+   },
+   "latency_ms": 6496.5,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 10,
+   "sim_clock": "2024-12-23 02:15:00",
+   "tool_name": "submit_diagnosis",
+   "args": {},
+   "args_alias": {},
+   "hypotheses": [
+    "Audit log gap due to display issue:0.2",
+    "Audit log gap due to Query Engine issue:0.8"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Audit log gap due to display issue",
+     "confidence": 0.2,
+     "status": "rejected",
+     "supporting_evidence": [],
+     "contradicting_evidence": [
+      "EVIDENCE_BQL",
+      "EVIDENCE_WXW",
+      "EVIDENCE_CVN"
+     ]
+    },
+    {
+     "label": "Audit log gap due to Query Engine issue",
+     "confidence": 0.8,
+     "status": "active",
+     "supporting_evidence": [
+      "EVIDENCE_BVJ",
+      "EVIDENCE_DSP",
+      "EVIDENCE_PTJ"
+     ],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": "submitted",
+   "latency_ms": 52891.0,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  }
+ ],
+ "final_diagnosis": {
+  "hypotheses": [
+   {
+    "label": "Audit log gap due to display issue",
+    "description": "",
+    "confidence": 0.2,
+    "status": "rejected",
+    "supporting_evidence": [],
+    "contradicting_evidence": [
+     "SG0005451",
+     "SG0005452",
+     "SG0005453"
+    ]
+   },
+   {
+    "label": "Audit log gap due to Query Engine issue",
+    "description": "",
+    "confidence": 0.8,
+    "status": "active",
+    "supporting_evidence": [
+     "SHE01977",
+     "SHE01989",
+     "SHE01984"
+    ],
+    "contradicting_evidence": []
+   }
+  ],
+  "rationale": "",
+  "predicted_product_id": null,
+  "product_confidence": null,
+  "predicted_component_id": "CM098",
+  "component_confidence": 0.8,
+  "predicted_category_id": "IC08",
+  "category_confidence": 0.8,
+  "predicted_subcategory_id": null,
+  "predicted_root_cause_family": "product defect",
+  "root_cause_confidence": 0.6,
+  "predicted_causal_change_id": null,
+  "causal_change_confidence": null,
+  "predicted_severity": null,
+  "severity_confidence": null,
+  "recommended_team_id": "TM07",
+  "routing_confidence": 0.6,
+  "evidence_sufficiency": "sufficient",
+  "overall_confidence": 0.8,
+  "recommended_next_action": "Verify the Query Engine configuration and check for any recent updates or changes that may have caused the issue.",
+  "human_review_required": false,
+  "human_review_reason": null,
+  "evidence_summary": "The audit log gaps are likely due to an issue with the Query Engine, which may be caused by a product defect or configuration error. The evidence suggests that the Query Engine has experienced availability dips and latency spikes in the past, which could be related to the current issue.",
+  "unresolved_uncertainties": [],
+  "status": "DIAGNOSIS_PROPOSED",
+  "evidence_ids": [
+   "SG0005451",
+   "SG0005452",
+   "SG0005453",
+   "SHE01977",
+   "SHE01989",
+   "SHE01984"
+  ]
+ },
+ "final_status": "DIAGNOSIS_PROPOSED",
+ "final_alias_form": {
+  "hypotheses": [
+   {
+    "label": "Audit log gap due to display issue",
+    "confidence": 0.2,
+    "status": "rejected",
+    "supporting_evidence": [],
+    "contradicting_evidence": [
+     "EVIDENCE_BQL",
+     "EVIDENCE_WXW",
+     "EVIDENCE_CVN"
+    ]
+   },
+   {
+    "label": "Audit log gap due to Query Engine issue",
+    "confidence": 0.8,
+    "status": "active",
+    "supporting_evidence": [
+     "EVIDENCE_BVJ",
+     "EVIDENCE_DSP",
+     "EVIDENCE_PTJ"
+    ],
+    "contradicting_evidence": []
+   }
+  ],
+  "evidence_ids": [
+   "EVIDENCE_BQL",
+   "EVIDENCE_WXW",
+   "EVIDENCE_CVN",
+   "EVIDENCE_BVJ",
+   "EVIDENCE_DSP",
+   "EVIDENCE_PTJ"
+  ],
+  "issue_category": "CATEGORY_MML",
+  "category_confidence": 0.8,
+  "root_cause": "CAUSE_GXJ",
+  "root_cause_confidence": 0.6,
+  "affected_component": "COMPONENT_MFD",
+  "component_confidence": 0.8,
+  "causal_change": null,
+  "causal_change_confidence": null,
+  "owning_team": "TEAM_KQV",
+  "routing_confidence": 0.6,
+  "confidence": 0.8,
+  "evidence_sufficiency": "sufficient",
+  "human_review_required": false,
+  "review_reason": null,
+  "status": "DIAGNOSIS_PROPOSED",
+  "recommended_next_action": "Verify the Query Engine configuration and check for any recent updates or changes that may have caused the issue.",
+  "unresolved_uncertainties": [],
+  "summary": "The audit log gaps are likely due to an issue with the Query Engine, which may be caused by a product defect or configuration error. The evidence suggests that the Query Engine has experienced availability dips and latency spikes in the past, which could be related to the current issue."
+ },
+ "citation_violations": [],
+ "evidence_ids_seen": [
+  "SG0005451",
+  "SG0005452",
+  "SG0005453",
+  "SG0005454",
+  "SG0005455",
+  "SG0005456",
+  "SG0005457",
+  "SHE01977",
+  "SHE01984",
+  "SHE01989"
+ ],
+ "repair_events": [],
+ "tool_proposals": 9,
+ "tool_contract_errors": [],
+ "tool_contract_repairs": [],
+ "final_contract_errors": [],
+ "final_contract_repair": null,
+ "registry_snapshots": [
+  {
+   "step": 1,
+   "n_entities": 59,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 1
+   },
+   "aliases_sha256_16": "1a69b632a44007d4"
+  },
+  {
+   "step": 2,
+   "n_entities": 90,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 4,
+    "COMPONENT": 28
+   },
+   "aliases_sha256_16": "ca9d52a9307692aa"
+  },
+  {
+   "step": 3,
+   "n_entities": 101,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 4,
+    "COMPONENT": 37,
+    "TEAM": 2
+   },
+   "aliases_sha256_16": "53dd7bacfe16933e"
+  },
+  {
+   "step": 4,
+   "n_entities": 101,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 4,
+    "COMPONENT": 37,
+    "TEAM": 2
+   },
+   "aliases_sha256_16": "53dd7bacfe16933e"
+  },
+  {
+   "step": 5,
+   "n_entities": 101,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 4,
+    "COMPONENT": 37,
+    "TEAM": 2
+   },
+   "aliases_sha256_16": "53dd7bacfe16933e"
+  },
+  {
+   "step": 6,
+   "n_entities": 110,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 4,
+    "COMPONENT": 39,
+    "TEAM": 2,
+    "EVIDENCE": 7
+   },
+   "aliases_sha256_16": "f6862d1c127eeb0e"
+  },
+  {
+   "step": 7,
+   "n_entities": 110,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 4,
+    "COMPONENT": 39,
+    "TEAM": 2,
+    "EVIDENCE": 7
+   },
+   "aliases_sha256_16": "f6862d1c127eeb0e"
+  },
+  {
+   "step": 8,
+   "n_entities": 110,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 4,
+    "COMPONENT": 39,
+    "TEAM": 2,
+    "EVIDENCE": 7
+   },
+   "aliases_sha256_16": "f6862d1c127eeb0e"
+  },
+  {
+   "step": 9,
+   "n_entities": 113,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 4,
+    "COMPONENT": 39,
+    "TEAM": 2,
+    "EVIDENCE": 10
+   },
+   "aliases_sha256_16": "1f18a2252afb009a"
+  }
+ ],
+ "alias_mappings": {
+  "CATEGORY_BFV": {
+   "alias": "CATEGORY_BFV",
+   "canonical_id": "IC01",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Identity / Authentication",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-12-23 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_FBJ": {
+   "alias": "CATEGORY_FBJ",
+   "canonical_id": "IC02",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Authorization / Permissions",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-12-23 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_NSR": {
+   "alias": "CATEGORY_NSR",
+   "canonical_id": "IC03",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Networking / Connectivity",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-12-23 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_FHG": {
+   "alias": "CATEGORY_FHG",
+   "canonical_id": "IC04",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Performance / Latency",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-12-23 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_XXK": {
+   "alias": "CATEGORY_XXK",
+   "canonical_id": "IC05",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Reliability / Availability",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-12-23 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_KWM": {
+   "alias": "CATEGORY_KWM",
+   "canonical_id": "IC06",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Deployment / Upgrade",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-12-23 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_ZVX": {
+   "alias": "CATEGORY_ZVX",
+   "canonical_id": "IC07",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Configuration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-12-23 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_MML": {
+   "alias": "CATEGORY_MML",
+   "canonical_id": "IC08",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Data / Corruption",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-12-23 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_ZCK": {
+   "alias": "CATEGORY_ZCK",
+   "canonical_id": "IC09",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Integration / API",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-12-23 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_CDK": {
+   "alias": "CATEGORY_CDK",
+   "canonical_id": "IC10",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Provisioning / Onboarding",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-12-23 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_HFC": {
+   "alias": "CATEGORY_HFC",
+   "canonical_id": "IC11",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Security",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-12-23 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_RRJ": {
+   "alias": "CATEGORY_RRJ",
+   "canonical_id": "IC12",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Compliance",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-12-23 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_QCD": {
+   "alias": "CATEGORY_QCD",
+   "canonical_id": "IC13",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Billing / Commerce",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-12-23 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_XHC": {
+   "alias": "CATEGORY_XHC",
+   "canonical_id": "IC14",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "User Experience / Functional Defect",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-12-23 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_QKB": {
+   "alias": "CATEGORY_QKB",
+   "canonical_id": "IC15",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Storage / Database",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-12-23 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_WHP": {
+   "alias": "CATEGORY_WHP",
+   "canonical_id": "IC16",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Capacity / Scaling",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-12-23 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_PWP": {
+   "alias": "CATEGORY_PWP",
+   "canonical_id": "IC17",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Third-Party / Dependency",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-12-23 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_HXW": {
+   "alias": "CATEGORY_HXW",
+   "canonical_id": "IC18",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Unknown / Other",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-12-23 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_GXJ": {
+   "alias": "CAUSE_GXJ",
+   "canonical_id": "RC01",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "product defect",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-12-23 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_DCS": {
+   "alias": "CAUSE_DCS",
+   "canonical_id": "RC02",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "customer configuration error",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-12-23 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_SSG": {
+   "alias": "CAUSE_SSG",
+   "canonical_id": "RC03",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "incorrect permissions",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-12-23 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_RTX": {
+   "alias": "CAUSE_RTX",
+   "canonical_id": "RC04",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "policy misconfiguration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-12-23 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_BQC": {
+   "alias": "CAUSE_BQC",
+   "canonical_id": "RC05",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "expired certificate",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-12-23 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_QSC": {
+   "alias": "CAUSE_QSC",
+   "canonical_id": "RC06",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "version incompatibility",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-12-23 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_DHB": {
+   "alias": "CAUSE_DHB",
+   "canonical_id": "RC07",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "dependency failure",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-12-23 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_VSV": {
+   "alias": "CAUSE_VSV",
+   "canonical_id": "RC08",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "network configuration error",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-12-23 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_BPQ": {
+   "alias": "CAUSE_BPQ",
+   "canonical_id": "RC09",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "resource exhaustion",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-12-23 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_ZNG": {
+   "alias": "CAUSE_ZNG",
+   "canonical_id": "RC10",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "database contention",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-12-23 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_JFN": {
+   "alias": "CAUSE_JFN",
+   "canonical_id": "RC11",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "bad deployment",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-12-23 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_WDV": {
+   "alias": "CAUSE_WDV",
+   "canonical_id": "RC12",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "incomplete migration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-12-23 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_BWQ": {
+   "alias": "CAUSE_BWQ",
+   "canonical_id": "RC13",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "stale cache",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-12-23 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_SXW": {
+   "alias": "CAUSE_SXW",
+   "canonical_id": "RC14",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "third-party service failure",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-12-23 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_MMS": {
+   "alias": "CAUSE_MMS",
+   "canonical_id": "RC15",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "unsupported configuration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-12-23 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_HDB": {
+   "alias": "CAUSE_HDB",
+   "canonical_id": "RC16",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "incorrect DNS configuration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-12-23 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_CQG": {
+   "alias": "CAUSE_CQG",
+   "canonical_id": "RC17",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "data quality issue",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-12-23 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_PNW": {
+   "alias": "CAUSE_PNW",
+   "canonical_id": "RC18",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "operator error",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-12-23 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_FBR": {
+   "alias": "CAUSE_FBR",
+   "canonical_id": "RC19",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "capacity limitation",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-12-23 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_KBK": {
+   "alias": "CAUSE_KBK",
+   "canonical_id": "RC20",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "known product limitation",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-12-23 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_KQZ": {
+   "alias": "CAUSE_KQZ",
+   "canonical_id": "RC21",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "race condition",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-12-23 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_LLM": {
+   "alias": "CAUSE_LLM",
+   "canonical_id": "RC22",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "identity provider outage",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-12-23 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_TSP": {
+   "alias": "CAUSE_TSP",
+   "canonical_id": "RC23",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "token expiration handling bug",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-12-23 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_GGW": {
+   "alias": "CAUSE_GGW",
+   "canonical_id": "RC24",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "insufficient monitoring/alerting",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-12-23 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_LLF": {
+   "alias": "CAUSE_LLF",
+   "canonical_id": "RC25",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "incorrect load balancer routing",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-12-23 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_HGF": {
+   "alias": "CAUSE_HGF",
+   "canonical_id": "RC26",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "firewall misconfiguration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-12-23 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_LRP": {
+   "alias": "CAUSE_LRP",
+   "canonical_id": "RC27",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "schema mismatch",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-12-23 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_XCZ": {
+   "alias": "CAUSE_XCZ",
+   "canonical_id": "RC28",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "breaking API contract change",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-12-23 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_LHT": {
+   "alias": "CAUSE_LHT",
+   "canonical_id": "RC29",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "credential rotation not propagated",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-12-23 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_JDS": {
+   "alias": "CAUSE_JDS",
+   "canonical_id": "RC30",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "stale internal documentation followed",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-12-23 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_ZFG": {
+   "alias": "CAUSE_ZFG",
+   "canonical_id": "RC31",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "incomplete rollback",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-12-23 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_ZQB": {
+   "alias": "CAUSE_ZQB",
+   "canonical_id": "RC32",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "infrastructure hardware failure",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-12-23 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_CTX": {
+   "alias": "CAUSE_CTX",
+   "canonical_id": "RC33",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "rate limit misconfiguration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-12-23 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_DTS": {
+   "alias": "CAUSE_DTS",
+   "canonical_id": "RC34",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "insufficient capacity planning",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-12-23 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_GVG": {
+   "alias": "CAUSE_GVG",
+   "canonical_id": "RC35",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "data migration defect",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-12-23 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_RDT": {
+   "alias": "CAUSE_RDT",
+   "canonical_id": "RC36",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "improper access review",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-12-23 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_HTW": {
+   "alias": "CAUSE_HTW",
+   "canonical_id": "RC37",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "expired API key",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-12-23 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_ZNH": {
+   "alias": "CAUSE_ZNH",
+   "canonical_id": "RC38",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "clock/time synchronization issue",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-12-23 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_BHG": {
+   "alias": "CAUSE_BHG",
+   "canonical_id": "RC39",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "idempotency/duplicate-processing failure",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-12-23 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_MTM": {
+   "alias": "CAUSE_MTM",
+   "canonical_id": "RC40",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "insufficient information to determine root cause",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-12-23 00:00:00",
+   "summary": ""
+  },
+  "PRODUCT_MBV": {
+   "alias": "PRODUCT_MBV",
+   "canonical_id": "P003",
+   "kind": "PRODUCT",
+   "type": "product",
+   "display_name": "Analytics Dashboard",
+   "source_tool": "get_case_context",
+   "first_observed_step": 1,
+   "first_observed_clock": "2024-12-23 00:00:00",
+   "summary": ""
+  },
+  "PRODUCT_XTV": {
+   "alias": "PRODUCT_XTV",
+   "canonical_id": "P017",
+   "kind": "PRODUCT",
+   "type": "product",
+   "display_name": "Active Directory Sync",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2024-12-23 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_NRM": {
+   "alias": "COMPONENT_NRM",
+   "canonical_id": "CM004",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Directory Connector",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2024-12-23 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_JTX": {
+   "alias": "COMPONENT_JTX",
+   "canonical_id": "CM011",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "SSO Broker",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2024-12-23 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_HDN": {
+   "alias": "COMPONENT_HDN",
+   "canonical_id": "CM030",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Step-Up Authentication Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2024-12-23 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_WCG": {
+   "alias": "COMPONENT_WCG",
+   "canonical_id": "CM038",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Auth Fraud Detection Module",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2024-12-23 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_TGK": {
+   "alias": "COMPONENT_TGK",
+   "canonical_id": "CM040",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Emergency Access (Break-Glass) Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2024-12-23 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_RCM": {
+   "alias": "COMPONENT_RCM",
+   "canonical_id": "CM239",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Central Reporting Data Store",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2024-12-23 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_NLB": {
+   "alias": "COMPONENT_NLB",
+   "canonical_id": "CM095",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Analytics API Gateway",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2024-12-23 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_MFD": {
+   "alias": "COMPONENT_MFD",
+   "canonical_id": "CM098",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Query Engine",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2024-12-23 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_GZX": {
+   "alias": "COMPONENT_GZX",
+   "canonical_id": "CM100",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Job Scheduler",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2024-12-23 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_TCV": {
+   "alias": "COMPONENT_TCV",
+   "canonical_id": "CM106",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Data Catalog Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2024-12-23 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_TQZ": {
+   "alias": "COMPONENT_TQZ",
+   "canonical_id": "CM114",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Segment Builder Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2024-12-23 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_SGC": {
+   "alias": "COMPONENT_SGC",
+   "canonical_id": "CM120",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Event Schema Registry",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2024-12-23 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_XJV": {
+   "alias": "COMPONENT_XJV",
+   "canonical_id": "CM229",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Audit Log Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2024-12-23 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_CKM": {
+   "alias": "COMPONENT_CKM",
+   "canonical_id": "CM236",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Webhook Dispatch Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2024-12-23 00:15:00",
+   "summary": ""
+  },
+  "PRODUCT_XMV": {
+   "alias": "PRODUCT_XMV",
+   "canonical_id": "P001",
+   "kind": "PRODUCT",
+   "type": "product",
+   "display_name": "Payment Gateway v2",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2024-12-23 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_CRN": {
+   "alias": "COMPONENT_CRN",
+   "canonical_id": "CM046",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Refund Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2024-12-23 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_HJJ": {
+   "alias": "COMPONENT_HJJ",
+   "canonical_id": "CM050",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Currency Conversion Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2024-12-23 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_KPR": {
+   "alias": "COMPONENT_KPR",
+   "canonical_id": "CM054",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Payment Gateway API",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2024-12-23 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_JCZ": {
+   "alias": "COMPONENT_JCZ",
+   "canonical_id": "CM057",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Settlement Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2024-12-23 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_WFC": {
+   "alias": "COMPONENT_WFC",
+   "canonical_id": "CM074",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Tax Jurisdiction Resolver",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2024-12-23 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_GZJ": {
+   "alias": "COMPONENT_GZJ",
+   "canonical_id": "CM077",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Usage Metering Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2024-12-23 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_GDF": {
+   "alias": "COMPONENT_GDF",
+   "canonical_id": "CM227",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Global API Gateway",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2024-12-23 00:15:00",
+   "summary": ""
+  },
+  "PRODUCT_CZG": {
+   "alias": "PRODUCT_CZG",
+   "canonical_id": "P027",
+   "kind": "PRODUCT",
+   "type": "product",
+   "display_name": "Token Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2024-12-23 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_CCK": {
+   "alias": "COMPONENT_CCK",
+   "canonical_id": "CM002",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Authorization/Policy Engine",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2024-12-23 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_TJQ": {
+   "alias": "COMPONENT_TJQ",
+   "canonical_id": "CM007",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "API Layer",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2024-12-23 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_LSK": {
+   "alias": "COMPONENT_LSK",
+   "canonical_id": "CM010",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Federation Gateway",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2024-12-23 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_TPN": {
+   "alias": "COMPONENT_TPN",
+   "canonical_id": "CM012",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Credential Vault",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2024-12-23 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_BTS": {
+   "alias": "COMPONENT_BTS",
+   "canonical_id": "CM013",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "User Directory Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2024-12-23 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_BTH": {
+   "alias": "COMPONENT_BTH",
+   "canonical_id": "CM033",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Attribute Mapping Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2024-12-23 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_MJV": {
+   "alias": "COMPONENT_MJV",
+   "canonical_id": "CM231",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Health Monitoring Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2024-12-23 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_RXL": {
+   "alias": "COMPONENT_RXL",
+   "canonical_id": "CM001",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Authentication Service",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2024-12-23 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_HCL": {
+   "alias": "COMPONENT_HCL",
+   "canonical_id": "CM018",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Login UI",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2024-12-23 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_FXZ": {
+   "alias": "COMPONENT_FXZ",
+   "canonical_id": "CM037",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Login Analytics Service",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2024-12-23 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_WDL": {
+   "alias": "COMPONENT_WDL",
+   "canonical_id": "CM093",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Data Warehouse Store",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2024-12-23 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_JHC": {
+   "alias": "COMPONENT_JHC",
+   "canonical_id": "CM150",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Backup & Restore Service",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2024-12-23 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_KNN": {
+   "alias": "COMPONENT_KNN",
+   "canonical_id": "CM153",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Database Connection Pooler",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2024-12-23 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_BLW": {
+   "alias": "COMPONENT_BLW",
+   "canonical_id": "CM168",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Time-Series Metrics Store",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2024-12-23 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_DDC": {
+   "alias": "COMPONENT_DDC",
+   "canonical_id": "CM235",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Backup & Disaster Recovery Service",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2024-12-23 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_DVV": {
+   "alias": "COMPONENT_DVV",
+   "canonical_id": "CM240",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "File Storage Service",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2024-12-23 00:30:00",
+   "summary": ""
+  },
+  "TEAM_KQV": {
+   "alias": "TEAM_KQV",
+   "canonical_id": "TM07",
+   "kind": "TEAM",
+   "type": "team",
+   "display_name": "Security",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2024-12-23 00:30:00",
+   "summary": ""
+  },
+  "TEAM_GQR": {
+   "alias": "TEAM_GQR",
+   "canonical_id": "TM19",
+   "kind": "TEAM",
+   "type": "team",
+   "display_name": "Compliance & Audit",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2024-12-23 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_VRQ": {
+   "alias": "COMPONENT_VRQ",
+   "canonical_id": "CM211",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Progressive Web App Shell",
+   "source_tool": "get_technical_signals",
+   "first_observed_step": 6,
+   "first_observed_clock": "2024-12-23 01:15:00",
+   "summary": ""
+  },
+  "EVIDENCE_ZDV": {
+   "alias": "EVIDENCE_ZDV",
+   "canonical_id": "SG0005455",
+   "kind": "EVIDENCE",
+   "type": "signal",
+   "display_name": "",
+   "source_tool": "get_technical_signals",
+   "first_observed_step": 6,
+   "first_observed_clock": "2024-12-23 01:15:00",
+   "summary": "POD_RESTART_LOOP: restart loop detected on Progressive Web App Shell on COMPONENT_VRQ @ 2024-12-22 22:32:00"
+  },
+  "EVIDENCE_PCW": {
+   "alias": "EVIDENCE_PCW",
+   "canonical_id": "SG0005456",
+   "kind": "EVIDENCE",
+   "type": "signal",
+   "display_name": "",
+   "source_tool": "get_technical_signals",
+   "first_observed_step": 6,
+   "first_observed_clock": "2024-12-23 01:15:00",
+   "summary": "CONFIG_DRIFT_DETECTED: configuration drift detected on Currency Conversion Service on COMPONENT_HJJ @ 2024-12-22 22:45:00"
+  },
+  "EVIDENCE_CVN": {
+   "alias": "EVIDENCE_CVN",
+   "canonical_id": "SG0005453",
+   "kind": "EVIDENCE",
+   "type": "signal",
+   "display_name": "",
+   "source_tool": "get_technical_signals",
+   "first_observed_step": 6,
+   "first_observed_clock": "2024-12-23 01:15:00",
+   "summary": "ENV_VAR_MISSING: required environment variable missing on Audit Log Service on COMPONENT_XJV @ 2024-12-22 22:56:00"
+  },
+  "EVIDENCE_ZRP": {
+   "alias": "EVIDENCE_ZRP",
+   "canonical_id": "SG0005457",
+   "kind": "EVIDENCE",
+   "type": "signal",
+   "display_name": "",
+   "source_tool": "get_technical_signals",
+   "first_observed_step": 6,
+   "first_observed_clock": "2024-12-23 01:15:00",
+   "summary": "DB_QUERY_TIMEOUT: database query timeouts on Step-Up Authentication Service on COMPONENT_HDN @ 2024-12-22 23:18:00"
+  },
+  "COMPONENT_FVR": {
+   "alias": "COMPONENT_FVR",
+   "canonical_id": "CM225",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Suppression List Manager",
+   "source_tool": "get_technical_signals",
+   "first_observed_step": 6,
+   "first_observed_clock": "2024-12-23 01:15:00",
+   "summary": ""
+  },
+  "EVIDENCE_LTJ": {
+   "alias": "EVIDENCE_LTJ",
+   "canonical_id": "SG0005454",
+   "kind": "EVIDENCE",
+   "type": "signal",
+   "display_name": "",
+   "source_tool": "get_technical_signals",
+   "first_observed_step": 6,
+   "first_observed_clock": "2024-12-23 01:15:00",
+   "summary": "ROLLBACK_TRIGGERED: automatic rollback triggered for Suppression List Manager on COMPONENT_FVR @ 2024-12-22 23:33:00"
+  },
+  "EVIDENCE_WXW": {
+   "alias": "EVIDENCE_WXW",
+   "canonical_id": "SG0005452",
+   "kind": "EVIDENCE",
+   "type": "signal",
+   "display_name": "",
+   "source_tool": "get_technical_signals",
+   "first_observed_step": 6,
+   "first_observed_clock": "2024-12-23 01:15:00",
+   "summary": "ENV_VAR_MISSING: required environment variable missing on Audit Log Service on COMPONENT_XJV @ 2024-12-22 23:43:00"
+  },
+  "EVIDENCE_BQL": {
+   "alias": "EVIDENCE_BQL",
+   "canonical_id": "SG0005451",
+   "kind": "EVIDENCE",
+   "type": "signal",
+   "display_name": "",
+   "source_tool": "get_technical_signals",
+   "first_observed_step": 6,
+   "first_observed_clock": "2024-12-23 01:15:00",
+   "summary": "ENV_VAR_MISSING: required environment variable missing on Audit Log Service on COMPONENT_XJV @ 2024-12-22 23:49:00"
+  },
+  "EVIDENCE_BVJ": {
+   "alias": "EVIDENCE_BVJ",
+   "canonical_id": "SHE01977",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 9,
+   "first_observed_clock": "2024-12-23 02:00:00",
+   "summary": "health event severity major 2024-11-24 03:44:00..2024-11-24 03:49:00: Transient major availability dip on Query Engine, recovered within 5 minutes."
+  },
+  "EVIDENCE_DSP": {
+   "alias": "EVIDENCE_DSP",
+   "canonical_id": "SHE01989",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 9,
+   "first_observed_clock": "2024-12-23 02:00:00",
+   "summary": "health event severity major 2024-11-23 05:20:00..2024-11-23 06:20:00: major latency spike observed on Query Engine, self-resolved after 60 minutes."
+  },
+  "EVIDENCE_PTJ": {
+   "alias": "EVIDENCE_PTJ",
+   "canonical_id": "SHE01984",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 9,
+   "first_observed_clock": "2024-12-23 02:00:00",
+   "summary": "health event severity minor 2024-11-19 04:22:00..2024-11-19 05:07:00: Transient minor availability dip on Query Engine, recovered within 45 minutes."
+  }
+ },
+ "validation_result": {
+  "first_pass_ok": true,
+  "errors_first": [],
+  "repair_used": false,
+  "final_ok": true,
+  "errors_final": []
+ },
+ "contract_failure": null,
+ "llm_calls": [
+  {
+   "phase": "action",
+   "step": 2,
+   "attempt": 0,
+   "prompt_tokens": 1228,
+   "completion_tokens": 123,
+   "latency_ms": 14083.5,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Audit log gap due to display issue\", \"confidence\": 0.5, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"Audit log gap due to Query Engine issue\", \"confidence\": 0.5, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_customer_deployment\", \"component\": null, \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 3,
+   "attempt": 0,
+   "prompt_tokens": 2210,
+   "completion_tokens": 126,
+   "latency_ms": 5443.9,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Audit log gap due to display issue\", \"confidence\": 0.5, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"Audit log gap due to Query Engine issue\", \"confidence\": 0.5, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_component_topology\", \"component\": \"COMPONENT_XJV\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 4,
+   "attempt": 0,
+   "prompt_tokens": 1950,
+   "completion_tokens": 128,
+   "latency_ms": 11538.2,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Audit log gap due to display issue\", \"confidence\": 0.5, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"Audit log gap due to Query Engine issue\", \"confidence\": 0.5, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_technical_signals\", \"component\": \"COMPONENT_MFD\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 5,
+   "attempt": 0,
+   "prompt_tokens": 1690,
+   "completion_tokens": 126,
+   "latency_ms": 7708.7,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Audit log gap due to display issue\", \"confidence\": 0.5, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"Audit log gap due to Query Engine issue\", \"confidence\": 0.5, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_recent_changes\", \"component\": \"COMPONENT_MFD\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 6,
+   "attempt": 0,
+   "prompt_tokens": 1704,
+   "completion_tokens": 124,
+   "latency_ms": 8272.9,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Audit log gap due to display issue\", \"confidence\": 0.5, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"Audit log gap due to Query Engine issue\", \"confidence\": 0.5, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_technical_signals\", \"component\": null, \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 7,
+   "attempt": 0,
+   "prompt_tokens": 2478,
+   "completion_tokens": 127,
+   "latency_ms": 6297.5,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Audit log gap due to display issue\", \"confidence\": 0.5, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"Audit log gap due to Query Engine issue\", \"confidence\": 0.5, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_telemetry\", \"component\": \"COMPONENT_MFD\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 8,
+   "attempt": 0,
+   "prompt_tokens": 2080,
+   "completion_tokens": 128,
+   "latency_ms": 8200.8,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Audit log gap due to display issue\", \"confidence\": 0.5, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"Audit log gap due to Query Engine issue\", \"confidence\": 0.5, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_telemetry\", \"component\": \"COMPONENT_MFD\", \"metric_category\": \"Application\", \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 9,
+   "attempt": 0,
+   "prompt_tokens": 2084,
+   "completion_tokens": 126,
+   "latency_ms": 6444.0,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Audit log gap due to display issue\", \"confidence\": 0.5, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"Audit log gap due to Query Engine issue\", \"confidence\": 0.5, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_service_health\", \"component\": \"COMPONENT_MFD\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 10,
+   "attempt": 0,
+   "prompt_tokens": 2500,
+   "completion_tokens": 122,
+   "latency_ms": 10002.2,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Audit log gap due to display issue\", \"confidence\": 0.5, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"Audit log gap due to Query Engine issue\", \"confidence\": 0.5, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"submit_diagnosis\", \"component\": null, \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "final",
+   "step": 10,
+   "attempt": 0,
+   "prompt_tokens": 2961,
+   "completion_tokens": 424,
+   "latency_ms": 52891.0,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Audit log gap due to display issue\", \"confidence\": 0.2, \"status\": \"rejected\", \"supporting_evidence\": [], \"contradicting_evidence\": [\"EVIDENCE_BQL\", \"EVIDENCE_WXW\", \"EVIDENCE_CVN\"]}, {\"label\": \"Audit log gap due to Query Engine issue\", \"confidence\": 0.8, \"status\": \"active\", \"supporting_evidence\": [\"EVIDENCE_BVJ\", \"EVIDENCE_DSP\", \"EVIDENCE_PTJ\"], \"contradicting_evidence\": []}], \"evidence_ids\": [\"EVIDENCE_BQL\", \"EVIDENCE_WXW\", \"EVIDENCE_CVN\", \"EVIDENCE_BVJ\", \"EVIDENCE_DSP\", \"EVIDENCE_PTJ\"], \"issue_category\": \"CATEGORY_MML\", \"category_confidence\": 0.8, \"root_cause\": \"CAUSE_GXJ\", \"root_cause_confidence\": 0.6, \"affected_component\": \"COMPONENT_MFD\", \"component_confidence\": 0.8, \"causal_change\": null, \"causal_change_confidence\": null, \"owning_team\": \"TEAM_KQV\", \"routing_confidence\": 0.6, \"confidence\": 0.8, \"evidence_sufficiency\": \"sufficient\", \"human_review_required\": false, \"review_reason\": null, \"status\": \"DIAGNOSIS_PROPOSED\", \"recommended_next_action\": \"Verify the Query Engine configuration and check for any recent updates or changes that may have caused the issue.\", \"unresolved_uncertainties\": [], \"summary\": \"The audit log gaps are likely due to an issue with the Query Engine, which may be caused by a product defect or configuration error. The evidence suggests that the Query Engine has experienced availability dips and latency spikes in the past, which could be related to the current issue.\"}"
+  }
+ ]
+}

@@ -1,0 +1,61 @@
+{
+ "run_id": "llmonly_CS00729_20260924T180926Z_751f20",
+ "case_id": "CS00729",
+ "created_at": "2026-09-24T18:09:26.605479+00:00",
+ "prompt_version": "llm_only_v1",
+ "model_name": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+ "temperature": 0.1,
+ "ticket_shown_to_model": {
+  "title": "Wrong data visible after login in SSO staging",
+  "description": "Some users in LATAM staging are seeing the wrong data after logging in via SSO. Access seems granted incorrectly. We have about 2k users potentially affected. Please check ASAP.",
+  "environment": "staging",
+  "region": "LATAM",
+  "priority": "high",
+  "reported_business_impact": "critical",
+  "reported_affected_users": 1929,
+  "created_date": "2025-02-19",
+  "customer_tier": "gold",
+  "customer_industry": "Financial Services",
+  "customer_company_size": "enterprise",
+  "reported_product_name": "SSO Integration Module",
+  "reported_symptoms": [
+   "access granted incorrectly",
+   "user sees wrong data"
+  ]
+ },
+ "n_categories_offered": 18,
+ "n_root_causes_offered": 40,
+ "parsed": {
+  "issue_category": "Authorization / Permissions",
+  "root_cause": "incorrect permissions",
+  "affected_component": "SSO Integration Module",
+  "causal_change": null,
+  "owning_team": null,
+  "confidence": 0.7,
+  "status": "DIAGNOSIS_PROPOSED",
+  "summary": "The issue is likely related to incorrect permissions being granted to users after logging in via SSO, resulting in access to wrong data. This is supported by the reported symptoms of 'access granted incorrectly' and 'user sees wrong data'."
+ },
+ "status": "DIAGNOSIS_PROPOSED",
+ "validation_errors": [],
+ "repair_used": false,
+ "llm_calls": [
+  {
+   "attempt": 0,
+   "latency_ms": 24963.5,
+   "finish_reason": "stop",
+   "raw_output": "{\"issue_category\": \"Authorization \\/ Permissions\", \"root_cause\": \"incorrect permissions\", \"affected_component\": \"SSO Integration Module\", \"causal_change\": null, \"owning_team\": null, \"confidence\": 0.7, \"status\": \"DIAGNOSIS_PROPOSED\", \"summary\": \"The issue is likely related to incorrect permissions being granted to users after logging in via SSO, resulting in access to wrong data. This is supported by the reported symptoms of 'access granted incorrectly' and 'user sees wrong data'.\"}"
+  }
+ ],
+ "tokens": {
+  "prompt": 696,
+  "completion": 116,
+  "total": 812
+ },
+ "latency_ms": 24963.5,
+ "wall_ms": 24968.2,
+ "cost_usd_estimate": 0.000715,
+ "tool_calls": 0,
+ "evidence_count": 0,
+ "graph_used": false,
+ "jev_used": false
+}

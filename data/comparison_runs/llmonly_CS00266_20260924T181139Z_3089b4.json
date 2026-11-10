@@ -1,0 +1,60 @@
+{
+ "run_id": "llmonly_CS00266_20260924T181139Z_3089b4",
+ "case_id": "CS00266",
+ "created_at": "2026-09-24T18:11:39.940707+00:00",
+ "prompt_version": "llm_only_v1",
+ "model_name": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+ "temperature": 0.1,
+ "ticket_shown_to_model": {
+  "title": "SSO provisioning stuck",
+  "description": "User provisioning seems to be stuck in the SSO Integration Module in our LATAM production environment. Some users aren't showing up.",
+  "environment": "production",
+  "region": "LATAM",
+  "priority": "low",
+  "reported_business_impact": "moderate",
+  "reported_affected_users": 29,
+  "created_date": "2026-01-10",
+  "customer_tier": "gold",
+  "customer_industry": "Education",
+  "customer_company_size": "small",
+  "reported_product_name": "SSO Integration Module",
+  "reported_symptoms": [
+   "provisioning stuck"
+  ]
+ },
+ "n_categories_offered": 18,
+ "n_root_causes_offered": 40,
+ "parsed": {
+  "issue_category": "Provisioning / Onboarding",
+  "root_cause": null,
+  "affected_component": "SSO Integration Module",
+  "causal_change": null,
+  "owning_team": null,
+  "confidence": 0.8,
+  "status": "DIAGNOSIS_PROPOSED",
+  "summary": "The issue appears to be related to the SSO Integration Module in the LATAM production environment, where user provisioning is stuck, affecting 29 users. However, the root cause is unclear and may require further investigation."
+ },
+ "status": "DIAGNOSIS_PROPOSED",
+ "validation_errors": [],
+ "repair_used": false,
+ "llm_calls": [
+  {
+   "attempt": 0,
+   "latency_ms": 24832.8,
+   "finish_reason": "stop",
+   "raw_output": "{\"issue_category\": \"Provisioning \\/ Onboarding\", \"root_cause\": null, \"affected_component\": \"SSO Integration Module\", \"causal_change\": null, \"owning_team\": null, \"confidence\": 0.8, \"status\": \"DIAGNOSIS_PROPOSED\", \"summary\": \"The issue appears to be related to the SSO Integration Module in the LATAM production environment, where user provisioning is stuck, affecting 29 users. However, the root cause is unclear and may require further investigation.\"}"
+  }
+ ],
+ "tokens": {
+  "prompt": 673,
+  "completion": 113,
+  "total": 786
+ },
+ "latency_ms": 24832.8,
+ "wall_ms": 24840.0,
+ "cost_usd_estimate": 0.000692,
+ "tool_calls": 0,
+ "evidence_count": 0,
+ "graph_used": false,
+ "jev_used": false
+}

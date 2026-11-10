@@ -1,0 +1,2184 @@
+{
+ "run_id": "run_CS02380_20260924T044306Z_69071840",
+ "case_id": "CS02380",
+ "created_at": "2026-09-24T04:43:06.212872+00:00",
+ "run_tag": "iter50_b",
+ "model_provider": "together",
+ "model_name": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+ "temperature": 0.1,
+ "graph_version": "phase4-2500case-2026-09-22",
+ "sim_clock_step_minutes": 15,
+ "max_tool_calls": 10,
+ "max_repeated_same_tool": 2,
+ "max_tool_contract_repairs": 2,
+ "max_final_contract_repairs": 1,
+ "agent_version": "agent_v3_contract_hardened",
+ "contract_version": "agent_contract_v1.1",
+ "prompt_version": "v3.1",
+ "tool_catalog_version": "tool_catalog_v3",
+ "action_schema_version": "action_v3.1",
+ "final_schema_version": "final_diagnosis_v3.1",
+ "registry_version": "observed_registry_v1",
+ "alias_scheme": "agent_alias_v1",
+ "repair_policy_version": "repair_policy_v1",
+ "decoding": "json_schema_strict",
+ "code_digest": "54bbbe51a58dbb43883bd743c2476a93b418373888d06e2cc60c30dc2b1b7cf2",
+ "toolset_version": "tool_catalog_v3",
+ "output_schema_version": "final_diagnosis_v3.1",
+ "agent_loop_version": "agent_v3_contract_hardened",
+ "repair_layer_version": "repair_policy_v1",
+ "approx_cost_usd": 0.002108,
+ "stop_reason": "model_submitted",
+ "num_tool_calls": 10,
+ "num_llm_calls": 10,
+ "token_usage": {
+  "prompt_tokens": 20053,
+  "completion_tokens": 1023,
+  "total_tokens": 21076
+ },
+ "trace_steps": [
+  {
+   "step": 1,
+   "sim_clock": "2025-09-04 00:00:00",
+   "tool_name": "get_case_context",
+   "args": {},
+   "args_alias": {},
+   "hypotheses": [],
+   "hypothesis_state": [],
+   "rationale": "",
+   "result_summary": {
+    "case_id": "CS02380",
+    "title": "SSO Redirect Loop in Active Directory Sync (EU-West)",
+    "description": "Users in the EU-West production region are caught in a login loop when accessing applications synced via Active Directory Sync. The SSO provider redirects back to the application, which then redirects to the provider, creating an infinite cycle. This is affecting approximately 60 users and has moderate business impact as it prevents access to internal tools.",
+    "environment": "production",
+    "region": "EU-West",
+    "reported_business_impact": "moderate",
+    "reported_affected_users": 60,
+    "priority": "medium",
+    "created_date": "2025-09-04",
+    "status": "open",
+    "customer_id": "C03722",
+    "customer_tier": "gold",
+    "customer_industry": "Education",
+    "customer_company_size": "mid",
+    "reported_product_id": "P017",
+    "reported_product_name": "Active Directory Sync",
+    "reported_symptoms": [
+     "login loop",
+     "SSO redirect loop"
+    ]
+   },
+   "latency_ms": 0.0,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "harness"
+  },
+  {
+   "step": 2,
+   "sim_clock": "2025-09-04 00:15:00",
+   "tool_name": "get_customer_deployment",
+   "args": {},
+   "args_alias": {},
+   "hypotheses": [
+    "Active Directory Sync configuration issue:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Active Directory Sync configuration issue",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "deployments": [
+     {
+      "product_id": "P002",
+      "product_name": "SSO Integration Module",
+      "version": "2.2",
+      "environment": "production",
+      "region": "EU-West",
+      "status": "active",
+      "deployed_at": "2026-08-20",
+      "product_components": [
+       "CM011",
+       "CM019",
+       "CM025",
+       "CM027",
+       "CM031",
+       "CM032",
+       "CM241",
+       "CM246"
+      ]
+     },
+     {
+      "product_id": "P001",
+      "product_name": "Payment Gateway v2",
+      "version": "1.8",
+      "environment": "sandbox",
+      "region": "EU-West",
+      "status": "active",
+      "deployed_at": "2026-07-25",
+      "product_components": [
+       "CM046",
+       "CM050",
+       "CM054",
+       "CM057",
+       "CM074",
+       "CM077",
+       "CM227",
+       "CM229"
+      ]
+     },
+     {
+      "product_id": "P003",
+      "product_name": "Analytics Dashboard",
+      "version": "1.3",
+      "environment": "sandbox",
+      "region": "EU-West",
+      "status": "active",
+      "deployed_at": "2026-07-19",
+      "product_components": [
+       "CM095",
+       "CM098",
+       "CM100",
+       "CM106",
+       "CM114",
+       "CM120",
+       "CM229",
+       "CM236"
+      ]
+     },
+     {
+      "product_id": "P017",
+      "product_name": "Active Directory Sync",
+      "version": "4.0",
+      "environment": "sandbox",
+      "region": "EU-West",
+      "status": "active",
+      "deployed_at": "2026-07-07",
+      "product_components": [
+       "CM004",
+       "CM011",
+       "CM030",
+       "CM038",
+       "CM040",
+       "CM239"
+      ]
+     },
+     {
+      "product_id": "P017",
+      "product_name": "Active Directory Sync",
+      "version": "4.0",
+      "environment": "production",
+      "region": "EU-West",
+      "status": "active",
+      "deployed_at": "2025-11-25",
+      "product_components": [
+       "CM004",
+       "CM011",
+       "CM030",
+       "CM038",
+       "CM040",
+       "CM239"
+      ]
+     },
+     {
+      "product_id": "P001",
+      "product_name": "Payment Gateway v2",
+      "version": "1.8",
+      "environment": "production",
+      "region": "EU-West",
+      "status": "active",
+      "deployed_at": "2025-11-13",
+      "product_components": [
+       "CM046",
+       "CM050",
+       "CM054",
+       "CM057",
+       "CM074",
+       "CM077",
+       "CM227",
+       "CM229"
+      ]
+     },
+     {
+      "product_id": "P001",
+      "product_name": "Payment Gateway v2",
+      "version": "1.8",
+      "environment": "staging",
+      "region": "EU-West",
+      "status": "active",
+      "deployed_at": "2025-04-20",
+      "product_components": [
+       "CM046",
+       "CM050",
+       "CM054",
+       "CM057",
+       "CM074",
+       "CM077",
+       "CM227",
+       "CM229"
+      ]
+     },
+     {
+      "product_id": "P003",
+      "product_name": "Analytics Dashboard",
+      "version": "1.3",
+      "environment": "production",
+      "region": "EU-West",
+      "status": "active",
+      "deployed_at": "2025-03-28",
+      "product_components": [
+       "CM095",
+       "CM098",
+       "CM100",
+       "CM106",
+       "CM114",
+       "CM120",
+       "CM229",
+       "CM236"
+      ]
+     }
+    ]
+   },
+   "latency_ms": 5078.9,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 3,
+   "sim_clock": "2025-09-04 00:30:00",
+   "tool_name": "get_component_topology",
+   "args": {
+    "component_id": "CM011"
+   },
+   "args_alias": {
+    "component": "COMPONENT_VBB"
+   },
+   "hypotheses": [
+    "Active Directory Sync configuration issue:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Active Directory Sync configuration issue",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "component_id": "CM011",
+    "component_name": "SSO Broker",
+    "upstream_dependencies": [],
+    "downstream_dependents": [
+     {
+      "name": "Identity Audit Logger",
+      "id": "CM020"
+     },
+     {
+      "name": "Risk-Based Authentication Engine",
+      "id": "CM022"
+     },
+     {
+      "name": "Device Trust Service",
+      "id": "CM023"
+     },
+     {
+      "name": "Attribute Mapping Service",
+      "id": "CM033"
+     },
+     {
+      "name": "Emergency Access (Break-Glass) Service",
+      "id": "CM040"
+     },
+     {
+      "name": "Reporting Service",
+      "id": "CM091"
+     },
+     {
+      "name": "Dashboard Sharing Service",
+      "id": "CM118"
+     },
+     {
+      "name": "Secret Store",
+      "id": "CM137"
+     },
+     {
+      "name": "TLS Termination Service",
+      "id": "CM149"
+     },
+     {
+      "name": "Accessibility Layer",
+      "id": "CM190"
+     },
+     {
+      "name": "Mobile Push Token Manager",
+      "id": "CM205"
+     },
+     {
+      "name": "Secret & Config Store",
+      "id": "CM230"
+     },
+     {
+      "name": "Directory Sync Connector (Shared)",
+      "id": "CM238"
+     }
+    ],
+    "external_dependencies": [
+     "Primary Identity Provider"
+    ],
+    "owning_teams": [
+     {
+      "name": "Identity",
+      "id": "TM01"
+     },
+     {
+      "name": "Security",
+      "id": "TM07"
+     }
+    ]
+   },
+   "latency_ms": 3368.9,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 4,
+   "sim_clock": "2025-09-04 00:45:00",
+   "tool_name": "get_technical_signals",
+   "args": {
+    "component_id": "CM011"
+   },
+   "args_alias": {
+    "component": "COMPONENT_VBB"
+   },
+   "hypotheses": [
+    "Active Directory Sync configuration issue:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Active Directory Sync configuration issue",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "signals": [],
+    "count": 0
+   },
+   "latency_ms": 2633.1,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 5,
+   "sim_clock": "2025-09-04 01:00:00",
+   "tool_name": "get_recent_changes",
+   "args": {
+    "component_id": "CM011"
+   },
+   "args_alias": {
+    "component": "COMPONENT_VBB"
+   },
+   "hypotheses": [
+    "Active Directory Sync configuration issue:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Active Directory Sync configuration issue",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "recent_changes": [],
+    "count": 0
+   },
+   "latency_ms": 2580.0,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 6,
+   "sim_clock": "2025-09-04 01:15:00",
+   "tool_name": "get_deployment_history",
+   "args": {
+    "component_id": "CM011"
+   },
+   "args_alias": {
+    "component": "COMPONENT_VBB"
+   },
+   "hypotheses": [
+    "Active Directory Sync configuration issue:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Active Directory Sync configuration issue",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "deployments": [],
+    "count": 0
+   },
+   "latency_ms": 2734.7,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 7,
+   "sim_clock": "2025-09-04 01:30:00",
+   "tool_name": "get_telemetry",
+   "args": {
+    "component_id": "CM011"
+   },
+   "args_alias": {
+    "component": "COMPONENT_VBB"
+   },
+   "hypotheses": [
+    "Active Directory Sync configuration issue:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Active Directory Sync configuration issue",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "available_metric_categories": [
+     "Identity"
+    ],
+    "note": "Call again with one of these metric_category values to see actual readings."
+   },
+   "latency_ms": 2579.0,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 8,
+   "sim_clock": "2025-09-04 01:45:00",
+   "tool_name": "get_telemetry",
+   "args": {
+    "component_id": "CM011",
+    "metric_category": "Identity"
+   },
+   "args_alias": {
+    "component": "COMPONENT_VBB",
+    "metric_category": "Identity"
+   },
+   "hypotheses": [
+    "Active Directory Sync configuration issue:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Active Directory Sync configuration issue",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "telemetry_findings": [],
+    "count": 0
+   },
+   "latency_ms": 3705.2,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 9,
+   "sim_clock": "2025-09-04 02:00:00",
+   "tool_name": "get_service_health",
+   "args": {
+    "component_id": "CM011"
+   },
+   "args_alias": {
+    "component": "COMPONENT_VBB"
+   },
+   "hypotheses": [
+    "Active Directory Sync configuration issue:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Active Directory Sync configuration issue",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "health_events": [
+     {
+      "evidence_id": "SHE00217",
+      "started_at": "2025-07-31 06:27:00",
+      "ended_at": "2025-07-31 07:12:00",
+      "severity": "major",
+      "description": "Brief major health blip on SSO Broker: elevated error rate for 45 minutes."
+     },
+     {
+      "evidence_id": "SHE00228",
+      "started_at": "2025-07-20 15:35:00",
+      "ended_at": "2025-07-20 16:20:00",
+      "severity": "minor",
+      "description": "minor latency spike observed on SSO Broker, self-resolved after 45 minutes."
+     },
+     {
+      "evidence_id": "SHE00222",
+      "started_at": "2025-07-16 02:23:00",
+      "ended_at": "2025-07-16 02:43:00",
+      "severity": "minor",
+      "description": "Transient minor availability dip on SSO Broker, recovered within 20 minutes."
+     },
+     {
+      "evidence_id": "SHE00213",
+      "started_at": "2025-06-22 03:19:00",
+      "ended_at": "2025-06-22 03:24:00",
+      "severity": "minor",
+      "description": "Transient minor availability dip on SSO Broker, recovered within 5 minutes."
+     },
+     {
+      "evidence_id": "SHE00226",
+      "started_at": "2025-05-06 01:26:00",
+      "ended_at": "2025-05-06 01:46:00",
+      "severity": "critical",
+      "description": "critical latency spike observed on SSO Broker, self-resolved after 20 minutes."
+     },
+     {
+      "evidence_id": "SHE00223",
+      "started_at": "2025-03-22 14:36:00",
+      "ended_at": "2025-03-22 15:21:00",
+      "severity": "minor",
+      "description": "Transient minor availability dip on SSO Broker, recovered within 45 minutes."
+     },
+     {
+      "evidence_id": "SHE00227",
+      "started_at": "2025-03-21 22:23:00",
+      "ended_at": "2025-03-21 22:28:00",
+      "severity": "major",
+      "description": "Automated health check flagged SSO Broker as degraded (major) for 5 minutes."
+     },
+     {
+      "evidence_id": "SHE00221",
+      "started_at": "2025-02-09 06:13:00",
+      "ended_at": "2025-02-09 06:18:00",
+      "severity": "minor",
+      "description": "Transient minor availability dip on SSO Broker, recovered within 5 minutes."
+     }
+    ],
+    "count": 8
+   },
+   "latency_ms": 23021.6,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 10,
+   "sim_clock": "2025-09-04 02:15:00",
+   "tool_name": "submit_diagnosis",
+   "args": {},
+   "args_alias": {},
+   "hypotheses": [
+    "Active Directory Sync configuration issue:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Active Directory Sync configuration issue",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": "submitted",
+   "latency_ms": 64422.3,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  }
+ ],
+ "final_diagnosis": {
+  "hypotheses": [
+   {
+    "label": "Active Directory Sync configuration issue",
+    "description": "",
+    "confidence": 0.2,
+    "status": "active",
+    "supporting_evidence": [],
+    "contradicting_evidence": []
+   }
+  ],
+  "rationale": "",
+  "predicted_product_id": null,
+  "product_confidence": null,
+  "predicted_component_id": null,
+  "component_confidence": null,
+  "predicted_category_id": null,
+  "category_confidence": null,
+  "predicted_subcategory_id": null,
+  "predicted_root_cause_family": null,
+  "root_cause_confidence": null,
+  "predicted_causal_change_id": null,
+  "causal_change_confidence": null,
+  "predicted_severity": null,
+  "severity_confidence": null,
+  "recommended_team_id": null,
+  "routing_confidence": null,
+  "evidence_sufficiency": "insufficient",
+  "overall_confidence": 0.2,
+  "recommended_next_action": "Gather more evidence and investigate further to determine the root cause of the issue.",
+  "human_review_required": true,
+  "human_review_reason": "Insufficient evidence to determine the root cause of the SSO redirect loop issue in Active Directory Sync.",
+  "evidence_summary": "The case report describes an SSO redirect loop issue in Active Directory Sync affecting 60 users in the EU-West production region. Despite some health events and technical signals, the evidence is insufficient to determine the root cause, and human review is required.",
+  "unresolved_uncertainties": [
+   "The root cause of the SSO redirect loop issue is unknown.",
+   "The affected component and owning team are unclear."
+  ],
+  "status": "INSUFFICIENT_EVIDENCE",
+  "evidence_ids": []
+ },
+ "final_status": "INSUFFICIENT_EVIDENCE",
+ "final_alias_form": {
+  "hypotheses": [
+   {
+    "label": "Active Directory Sync configuration issue",
+    "confidence": 0.2,
+    "status": "active",
+    "supporting_evidence": [],
+    "contradicting_evidence": []
+   }
+  ],
+  "evidence_ids": [],
+  "issue_category": null,
+  "category_confidence": null,
+  "root_cause": null,
+  "root_cause_confidence": null,
+  "affected_component": null,
+  "component_confidence": null,
+  "causal_change": null,
+  "causal_change_confidence": null,
+  "owning_team": null,
+  "routing_confidence": null,
+  "confidence": 0.2,
+  "evidence_sufficiency": "insufficient",
+  "human_review_required": true,
+  "review_reason": "Insufficient evidence to determine the root cause of the SSO redirect loop issue in Active Directory Sync.",
+  "status": "INSUFFICIENT_EVIDENCE",
+  "recommended_next_action": "Gather more evidence and investigate further to determine the root cause of the issue.",
+  "unresolved_uncertainties": [
+   "The root cause of the SSO redirect loop issue is unknown.",
+   "The affected component and owning team are unclear."
+  ],
+  "summary": "The case report describes an SSO redirect loop issue in Active Directory Sync affecting 60 users in the EU-West production region. Despite some health events and technical signals, the evidence is insufficient to determine the root cause, and human review is required."
+ },
+ "citation_violations": [],
+ "evidence_ids_seen": [
+  "SHE00213",
+  "SHE00217",
+  "SHE00221",
+  "SHE00222",
+  "SHE00223",
+  "SHE00226",
+  "SHE00227",
+  "SHE00228"
+ ],
+ "repair_events": [],
+ "tool_proposals": 9,
+ "tool_contract_errors": [],
+ "tool_contract_repairs": [],
+ "final_contract_errors": [],
+ "final_contract_repair": null,
+ "registry_snapshots": [
+  {
+   "step": 1,
+   "n_entities": 59,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 1
+   },
+   "aliases_sha256_16": "9b86dc5f220c359e"
+  },
+  {
+   "step": 2,
+   "n_entities": 90,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 4,
+    "COMPONENT": 28
+   },
+   "aliases_sha256_16": "cb6eb984eaa601a5"
+  },
+  {
+   "step": 3,
+   "n_entities": 104,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 4,
+    "COMPONENT": 40,
+    "TEAM": 2
+   },
+   "aliases_sha256_16": "7994fbfe40e50052"
+  },
+  {
+   "step": 4,
+   "n_entities": 104,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 4,
+    "COMPONENT": 40,
+    "TEAM": 2
+   },
+   "aliases_sha256_16": "7994fbfe40e50052"
+  },
+  {
+   "step": 5,
+   "n_entities": 104,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 4,
+    "COMPONENT": 40,
+    "TEAM": 2
+   },
+   "aliases_sha256_16": "7994fbfe40e50052"
+  },
+  {
+   "step": 6,
+   "n_entities": 104,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 4,
+    "COMPONENT": 40,
+    "TEAM": 2
+   },
+   "aliases_sha256_16": "7994fbfe40e50052"
+  },
+  {
+   "step": 7,
+   "n_entities": 104,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 4,
+    "COMPONENT": 40,
+    "TEAM": 2
+   },
+   "aliases_sha256_16": "7994fbfe40e50052"
+  },
+  {
+   "step": 8,
+   "n_entities": 104,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 4,
+    "COMPONENT": 40,
+    "TEAM": 2
+   },
+   "aliases_sha256_16": "7994fbfe40e50052"
+  },
+  {
+   "step": 9,
+   "n_entities": 112,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 4,
+    "COMPONENT": 40,
+    "TEAM": 2,
+    "EVIDENCE": 8
+   },
+   "aliases_sha256_16": "82e33d93fc42fb0d"
+  }
+ ],
+ "alias_mappings": {
+  "CATEGORY_PBW": {
+   "alias": "CATEGORY_PBW",
+   "canonical_id": "IC01",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Identity / Authentication",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-09-04 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_SSL": {
+   "alias": "CATEGORY_SSL",
+   "canonical_id": "IC02",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Authorization / Permissions",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-09-04 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_CLD": {
+   "alias": "CATEGORY_CLD",
+   "canonical_id": "IC03",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Networking / Connectivity",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-09-04 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_MQN": {
+   "alias": "CATEGORY_MQN",
+   "canonical_id": "IC04",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Performance / Latency",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-09-04 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_WLS": {
+   "alias": "CATEGORY_WLS",
+   "canonical_id": "IC05",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Reliability / Availability",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-09-04 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_ZJL": {
+   "alias": "CATEGORY_ZJL",
+   "canonical_id": "IC06",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Deployment / Upgrade",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-09-04 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_ZDR": {
+   "alias": "CATEGORY_ZDR",
+   "canonical_id": "IC07",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Configuration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-09-04 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_CCQ": {
+   "alias": "CATEGORY_CCQ",
+   "canonical_id": "IC08",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Data / Corruption",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-09-04 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_ZZB": {
+   "alias": "CATEGORY_ZZB",
+   "canonical_id": "IC09",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Integration / API",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-09-04 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_RZZ": {
+   "alias": "CATEGORY_RZZ",
+   "canonical_id": "IC10",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Provisioning / Onboarding",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-09-04 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_VCD": {
+   "alias": "CATEGORY_VCD",
+   "canonical_id": "IC11",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Security",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-09-04 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_LCL": {
+   "alias": "CATEGORY_LCL",
+   "canonical_id": "IC12",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Compliance",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-09-04 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_HKP": {
+   "alias": "CATEGORY_HKP",
+   "canonical_id": "IC13",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Billing / Commerce",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-09-04 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_DSJ": {
+   "alias": "CATEGORY_DSJ",
+   "canonical_id": "IC14",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "User Experience / Functional Defect",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-09-04 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_KCK": {
+   "alias": "CATEGORY_KCK",
+   "canonical_id": "IC15",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Storage / Database",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-09-04 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_WVR": {
+   "alias": "CATEGORY_WVR",
+   "canonical_id": "IC16",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Capacity / Scaling",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-09-04 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_NXF": {
+   "alias": "CATEGORY_NXF",
+   "canonical_id": "IC17",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Third-Party / Dependency",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-09-04 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_QNX": {
+   "alias": "CATEGORY_QNX",
+   "canonical_id": "IC18",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Unknown / Other",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-09-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_FDS": {
+   "alias": "CAUSE_FDS",
+   "canonical_id": "RC01",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "product defect",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-09-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_KJM": {
+   "alias": "CAUSE_KJM",
+   "canonical_id": "RC02",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "customer configuration error",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-09-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_VDH": {
+   "alias": "CAUSE_VDH",
+   "canonical_id": "RC03",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "incorrect permissions",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-09-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_GVH": {
+   "alias": "CAUSE_GVH",
+   "canonical_id": "RC04",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "policy misconfiguration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-09-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_MDD": {
+   "alias": "CAUSE_MDD",
+   "canonical_id": "RC05",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "expired certificate",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-09-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_VDC": {
+   "alias": "CAUSE_VDC",
+   "canonical_id": "RC06",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "version incompatibility",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-09-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_FJG": {
+   "alias": "CAUSE_FJG",
+   "canonical_id": "RC07",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "dependency failure",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-09-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_DQQ": {
+   "alias": "CAUSE_DQQ",
+   "canonical_id": "RC08",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "network configuration error",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-09-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_FWT": {
+   "alias": "CAUSE_FWT",
+   "canonical_id": "RC09",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "resource exhaustion",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-09-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_DPF": {
+   "alias": "CAUSE_DPF",
+   "canonical_id": "RC10",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "database contention",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-09-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_TPN": {
+   "alias": "CAUSE_TPN",
+   "canonical_id": "RC11",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "bad deployment",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-09-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_RRX": {
+   "alias": "CAUSE_RRX",
+   "canonical_id": "RC12",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "incomplete migration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-09-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_BZD": {
+   "alias": "CAUSE_BZD",
+   "canonical_id": "RC13",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "stale cache",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-09-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_LHN": {
+   "alias": "CAUSE_LHN",
+   "canonical_id": "RC14",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "third-party service failure",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-09-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_FQV": {
+   "alias": "CAUSE_FQV",
+   "canonical_id": "RC15",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "unsupported configuration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-09-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_KXD": {
+   "alias": "CAUSE_KXD",
+   "canonical_id": "RC16",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "incorrect DNS configuration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-09-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_BXZ": {
+   "alias": "CAUSE_BXZ",
+   "canonical_id": "RC17",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "data quality issue",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-09-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_RXP": {
+   "alias": "CAUSE_RXP",
+   "canonical_id": "RC18",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "operator error",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-09-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_HBX": {
+   "alias": "CAUSE_HBX",
+   "canonical_id": "RC19",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "capacity limitation",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-09-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_TWL": {
+   "alias": "CAUSE_TWL",
+   "canonical_id": "RC20",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "known product limitation",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-09-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_FVS": {
+   "alias": "CAUSE_FVS",
+   "canonical_id": "RC21",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "race condition",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-09-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_BQG": {
+   "alias": "CAUSE_BQG",
+   "canonical_id": "RC22",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "identity provider outage",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-09-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_WKH": {
+   "alias": "CAUSE_WKH",
+   "canonical_id": "RC23",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "token expiration handling bug",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-09-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_RSK": {
+   "alias": "CAUSE_RSK",
+   "canonical_id": "RC24",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "insufficient monitoring/alerting",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-09-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_HCP": {
+   "alias": "CAUSE_HCP",
+   "canonical_id": "RC25",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "incorrect load balancer routing",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-09-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_PXL": {
+   "alias": "CAUSE_PXL",
+   "canonical_id": "RC26",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "firewall misconfiguration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-09-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_GZW": {
+   "alias": "CAUSE_GZW",
+   "canonical_id": "RC27",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "schema mismatch",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-09-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_FMN": {
+   "alias": "CAUSE_FMN",
+   "canonical_id": "RC28",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "breaking API contract change",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-09-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_HZD": {
+   "alias": "CAUSE_HZD",
+   "canonical_id": "RC29",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "credential rotation not propagated",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-09-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_NCT": {
+   "alias": "CAUSE_NCT",
+   "canonical_id": "RC30",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "stale internal documentation followed",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-09-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_TSP": {
+   "alias": "CAUSE_TSP",
+   "canonical_id": "RC31",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "incomplete rollback",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-09-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_PKR": {
+   "alias": "CAUSE_PKR",
+   "canonical_id": "RC32",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "infrastructure hardware failure",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-09-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_MCQ": {
+   "alias": "CAUSE_MCQ",
+   "canonical_id": "RC33",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "rate limit misconfiguration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-09-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_HWP": {
+   "alias": "CAUSE_HWP",
+   "canonical_id": "RC34",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "insufficient capacity planning",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-09-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_PXQ": {
+   "alias": "CAUSE_PXQ",
+   "canonical_id": "RC35",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "data migration defect",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-09-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_GGG": {
+   "alias": "CAUSE_GGG",
+   "canonical_id": "RC36",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "improper access review",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-09-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_HDP": {
+   "alias": "CAUSE_HDP",
+   "canonical_id": "RC37",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "expired API key",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-09-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_FGC": {
+   "alias": "CAUSE_FGC",
+   "canonical_id": "RC38",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "clock/time synchronization issue",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-09-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_LQW": {
+   "alias": "CAUSE_LQW",
+   "canonical_id": "RC39",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "idempotency/duplicate-processing failure",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-09-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_KRH": {
+   "alias": "CAUSE_KRH",
+   "canonical_id": "RC40",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "insufficient information to determine root cause",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-09-04 00:00:00",
+   "summary": ""
+  },
+  "PRODUCT_WRB": {
+   "alias": "PRODUCT_WRB",
+   "canonical_id": "P017",
+   "kind": "PRODUCT",
+   "type": "product",
+   "display_name": "Active Directory Sync",
+   "source_tool": "get_case_context",
+   "first_observed_step": 1,
+   "first_observed_clock": "2025-09-04 00:00:00",
+   "summary": ""
+  },
+  "PRODUCT_CTP": {
+   "alias": "PRODUCT_CTP",
+   "canonical_id": "P002",
+   "kind": "PRODUCT",
+   "type": "product",
+   "display_name": "SSO Integration Module",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-09-04 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_VBB": {
+   "alias": "COMPONENT_VBB",
+   "canonical_id": "CM011",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "SSO Broker",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-09-04 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_QNX": {
+   "alias": "COMPONENT_QNX",
+   "canonical_id": "CM019",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Account Recovery Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-09-04 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_PJV": {
+   "alias": "COMPONENT_PJV",
+   "canonical_id": "CM025",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Social Login Connector",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-09-04 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_TMJ": {
+   "alias": "COMPONENT_TMJ",
+   "canonical_id": "CM027",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "OAuth Authorization Server",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-09-04 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_HFJ": {
+   "alias": "COMPONENT_HFJ",
+   "canonical_id": "CM031",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Identity Lifecycle Manager",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-09-04 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_KZP": {
+   "alias": "COMPONENT_KZP",
+   "canonical_id": "CM032",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Group Sync Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-09-04 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_PNS": {
+   "alias": "COMPONENT_PNS",
+   "canonical_id": "CM241",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Central Message Queue",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-09-04 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_GGH": {
+   "alias": "COMPONENT_GGH",
+   "canonical_id": "CM246",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Central Identity Vault",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-09-04 00:15:00",
+   "summary": ""
+  },
+  "PRODUCT_SGB": {
+   "alias": "PRODUCT_SGB",
+   "canonical_id": "P001",
+   "kind": "PRODUCT",
+   "type": "product",
+   "display_name": "Payment Gateway v2",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-09-04 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_DWB": {
+   "alias": "COMPONENT_DWB",
+   "canonical_id": "CM046",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Refund Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-09-04 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_VWN": {
+   "alias": "COMPONENT_VWN",
+   "canonical_id": "CM050",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Currency Conversion Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-09-04 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_LSN": {
+   "alias": "COMPONENT_LSN",
+   "canonical_id": "CM054",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Payment Gateway API",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-09-04 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_JNV": {
+   "alias": "COMPONENT_JNV",
+   "canonical_id": "CM057",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Settlement Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-09-04 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_MRX": {
+   "alias": "COMPONENT_MRX",
+   "canonical_id": "CM074",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Tax Jurisdiction Resolver",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-09-04 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_JZR": {
+   "alias": "COMPONENT_JZR",
+   "canonical_id": "CM077",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Usage Metering Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-09-04 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_LZK": {
+   "alias": "COMPONENT_LZK",
+   "canonical_id": "CM227",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Global API Gateway",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-09-04 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_FRV": {
+   "alias": "COMPONENT_FRV",
+   "canonical_id": "CM229",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Audit Log Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-09-04 00:15:00",
+   "summary": ""
+  },
+  "PRODUCT_MDF": {
+   "alias": "PRODUCT_MDF",
+   "canonical_id": "P003",
+   "kind": "PRODUCT",
+   "type": "product",
+   "display_name": "Analytics Dashboard",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-09-04 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_ZRV": {
+   "alias": "COMPONENT_ZRV",
+   "canonical_id": "CM095",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Analytics API Gateway",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-09-04 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_TMH": {
+   "alias": "COMPONENT_TMH",
+   "canonical_id": "CM098",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Query Engine",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-09-04 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_GHQ": {
+   "alias": "COMPONENT_GHQ",
+   "canonical_id": "CM100",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Job Scheduler",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-09-04 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_SSJ": {
+   "alias": "COMPONENT_SSJ",
+   "canonical_id": "CM106",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Data Catalog Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-09-04 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_MKF": {
+   "alias": "COMPONENT_MKF",
+   "canonical_id": "CM114",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Segment Builder Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-09-04 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_CVG": {
+   "alias": "COMPONENT_CVG",
+   "canonical_id": "CM120",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Event Schema Registry",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-09-04 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_XWR": {
+   "alias": "COMPONENT_XWR",
+   "canonical_id": "CM236",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Webhook Dispatch Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-09-04 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_VQG": {
+   "alias": "COMPONENT_VQG",
+   "canonical_id": "CM004",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Directory Connector",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-09-04 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_QMH": {
+   "alias": "COMPONENT_QMH",
+   "canonical_id": "CM030",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Step-Up Authentication Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-09-04 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_TVB": {
+   "alias": "COMPONENT_TVB",
+   "canonical_id": "CM038",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Auth Fraud Detection Module",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-09-04 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_QHS": {
+   "alias": "COMPONENT_QHS",
+   "canonical_id": "CM040",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Emergency Access (Break-Glass) Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-09-04 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_FLF": {
+   "alias": "COMPONENT_FLF",
+   "canonical_id": "CM239",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Central Reporting Data Store",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-09-04 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_PFC": {
+   "alias": "COMPONENT_PFC",
+   "canonical_id": "CM020",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Identity Audit Logger",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2025-09-04 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_VND": {
+   "alias": "COMPONENT_VND",
+   "canonical_id": "CM022",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Risk-Based Authentication Engine",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2025-09-04 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_LPS": {
+   "alias": "COMPONENT_LPS",
+   "canonical_id": "CM023",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Device Trust Service",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2025-09-04 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_SGM": {
+   "alias": "COMPONENT_SGM",
+   "canonical_id": "CM033",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Attribute Mapping Service",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2025-09-04 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_CRX": {
+   "alias": "COMPONENT_CRX",
+   "canonical_id": "CM091",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Reporting Service",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2025-09-04 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_ZFW": {
+   "alias": "COMPONENT_ZFW",
+   "canonical_id": "CM118",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Dashboard Sharing Service",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2025-09-04 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_JZN": {
+   "alias": "COMPONENT_JZN",
+   "canonical_id": "CM137",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Secret Store",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2025-09-04 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_RPT": {
+   "alias": "COMPONENT_RPT",
+   "canonical_id": "CM149",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "TLS Termination Service",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2025-09-04 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_HDJ": {
+   "alias": "COMPONENT_HDJ",
+   "canonical_id": "CM190",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Accessibility Layer",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2025-09-04 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_PQR": {
+   "alias": "COMPONENT_PQR",
+   "canonical_id": "CM205",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Mobile Push Token Manager",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2025-09-04 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_SDP": {
+   "alias": "COMPONENT_SDP",
+   "canonical_id": "CM230",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Secret & Config Store",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2025-09-04 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_GWJ": {
+   "alias": "COMPONENT_GWJ",
+   "canonical_id": "CM238",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Directory Sync Connector (Shared)",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2025-09-04 00:30:00",
+   "summary": ""
+  },
+  "TEAM_CVT": {
+   "alias": "TEAM_CVT",
+   "canonical_id": "TM01",
+   "kind": "TEAM",
+   "type": "team",
+   "display_name": "Identity",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2025-09-04 00:30:00",
+   "summary": ""
+  },
+  "TEAM_HFV": {
+   "alias": "TEAM_HFV",
+   "canonical_id": "TM07",
+   "kind": "TEAM",
+   "type": "team",
+   "display_name": "Security",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2025-09-04 00:30:00",
+   "summary": ""
+  },
+  "EVIDENCE_QBS": {
+   "alias": "EVIDENCE_QBS",
+   "canonical_id": "SHE00217",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 9,
+   "first_observed_clock": "2025-09-04 02:00:00",
+   "summary": "health event severity major 2025-07-31 06:27:00..2025-07-31 07:12:00: Brief major health blip on SSO Broker: elevated error rate for 45 minutes."
+  },
+  "EVIDENCE_HBP": {
+   "alias": "EVIDENCE_HBP",
+   "canonical_id": "SHE00228",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 9,
+   "first_observed_clock": "2025-09-04 02:00:00",
+   "summary": "health event severity minor 2025-07-20 15:35:00..2025-07-20 16:20:00: minor latency spike observed on SSO Broker, self-resolved after 45 minutes."
+  },
+  "EVIDENCE_NHX": {
+   "alias": "EVIDENCE_NHX",
+   "canonical_id": "SHE00222",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 9,
+   "first_observed_clock": "2025-09-04 02:00:00",
+   "summary": "health event severity minor 2025-07-16 02:23:00..2025-07-16 02:43:00: Transient minor availability dip on SSO Broker, recovered within 20 minutes."
+  },
+  "EVIDENCE_PCL": {
+   "alias": "EVIDENCE_PCL",
+   "canonical_id": "SHE00213",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 9,
+   "first_observed_clock": "2025-09-04 02:00:00",
+   "summary": "health event severity minor 2025-06-22 03:19:00..2025-06-22 03:24:00: Transient minor availability dip on SSO Broker, recovered within 5 minutes."
+  },
+  "EVIDENCE_VCS": {
+   "alias": "EVIDENCE_VCS",
+   "canonical_id": "SHE00226",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 9,
+   "first_observed_clock": "2025-09-04 02:00:00",
+   "summary": "health event severity critical 2025-05-06 01:26:00..2025-05-06 01:46:00: critical latency spike observed on SSO Broker, self-resolved after 20 minutes."
+  },
+  "EVIDENCE_XGW": {
+   "alias": "EVIDENCE_XGW",
+   "canonical_id": "SHE00223",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 9,
+   "first_observed_clock": "2025-09-04 02:00:00",
+   "summary": "health event severity minor 2025-03-22 14:36:00..2025-03-22 15:21:00: Transient minor availability dip on SSO Broker, recovered within 45 minutes."
+  },
+  "EVIDENCE_PSK": {
+   "alias": "EVIDENCE_PSK",
+   "canonical_id": "SHE00227",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 9,
+   "first_observed_clock": "2025-09-04 02:00:00",
+   "summary": "health event severity major 2025-03-21 22:23:00..2025-03-21 22:28:00: Automated health check flagged SSO Broker as degraded (major) for 5 minutes."
+  },
+  "EVIDENCE_KBL": {
+   "alias": "EVIDENCE_KBL",
+   "canonical_id": "SHE00221",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 9,
+   "first_observed_clock": "2025-09-04 02:00:00",
+   "summary": "health event severity minor 2025-02-09 06:13:00..2025-02-09 06:18:00: Transient minor availability dip on SSO Broker, recovered within 5 minutes."
+  }
+ },
+ "validation_result": {
+  "first_pass_ok": true,
+  "errors_first": [],
+  "repair_used": false,
+  "final_ok": true,
+  "errors_final": []
+ },
+ "contract_failure": null,
+ "llm_calls": [
+  {
+   "phase": "action",
+   "step": 2,
+   "attempt": 0,
+   "prompt_tokens": 1232,
+   "completion_tokens": 77,
+   "latency_ms": 4979.0,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Active Directory Sync configuration issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_customer_deployment\", \"component\": null, \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 3,
+   "attempt": 0,
+   "prompt_tokens": 2413,
+   "completion_tokens": 80,
+   "latency_ms": 3317.8,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Active Directory Sync configuration issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_component_topology\", \"component\": \"COMPONENT_VBB\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 4,
+   "attempt": 0,
+   "prompt_tokens": 1970,
+   "completion_tokens": 82,
+   "latency_ms": 2530.3,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Active Directory Sync configuration issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_technical_signals\", \"component\": \"COMPONENT_VBB\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 5,
+   "attempt": 0,
+   "prompt_tokens": 1692,
+   "completion_tokens": 80,
+   "latency_ms": 2531.1,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Active Directory Sync configuration issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_recent_changes\", \"component\": \"COMPONENT_VBB\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 6,
+   "attempt": 0,
+   "prompt_tokens": 1706,
+   "completion_tokens": 81,
+   "latency_ms": 2688.8,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Active Directory Sync configuration issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_deployment_history\", \"component\": \"COMPONENT_VBB\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 7,
+   "attempt": 0,
+   "prompt_tokens": 1723,
+   "completion_tokens": 81,
+   "latency_ms": 2532.6,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Active Directory Sync configuration issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_telemetry\", \"component\": \"COMPONENT_VBB\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 8,
+   "attempt": 0,
+   "prompt_tokens": 1755,
+   "completion_tokens": 82,
+   "latency_ms": 3657.3,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Active Directory Sync configuration issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_telemetry\", \"component\": \"COMPONENT_VBB\", \"metric_category\": \"Identity\", \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 9,
+   "attempt": 0,
+   "prompt_tokens": 1762,
+   "completion_tokens": 80,
+   "latency_ms": 22966.1,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Active Directory Sync configuration issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_service_health\", \"component\": \"COMPONENT_VBB\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 10,
+   "attempt": 0,
+   "prompt_tokens": 2861,
+   "completion_tokens": 76,
+   "latency_ms": 2474.1,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Active Directory Sync configuration issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"submit_diagnosis\", \"component\": null, \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "final",
+   "step": 10,
+   "attempt": 0,
+   "prompt_tokens": 2939,
+   "completion_tokens": 304,
+   "latency_ms": 64422.3,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Active Directory Sync configuration issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"evidence_ids\": [], \"issue_category\": null, \"category_confidence\": null, \"root_cause\": null, \"root_cause_confidence\": null, \"affected_component\": null, \"component_confidence\": null, \"causal_change\": null, \"causal_change_confidence\": null, \"owning_team\": null, \"routing_confidence\": null, \"confidence\": 0.2, \"evidence_sufficiency\": \"insufficient\", \"human_review_required\": true, \"review_reason\": \"Insufficient evidence to determine the root cause of the SSO redirect loop issue in Active Directory Sync.\", \"status\": \"INSUFFICIENT_EVIDENCE\", \"recommended_next_action\": \"Gather more evidence and investigate further to determine the root cause of the issue.\", \"unresolved_uncertainties\": [\"The root cause of the SSO redirect loop issue is unknown.\", \"The affected component and owning team are unclear.\"], \"summary\": \"The case report describes an SSO redirect loop issue in Active Directory Sync affecting 60 users in the EU-West production region. Despite some health events and technical signals, the evidence is insufficient to determine the root cause, and human review is required.\"}"
+  }
+ ]
+}

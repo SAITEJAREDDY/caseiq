@@ -1,0 +1,453 @@
+{
+  "run_id": "run_CS01818_20260924T004121Z_c2473127",
+  "case_id": "CS01818",
+  "created_at": "2026-09-24T00:41:21.182117+00:00",
+  "model_provider": "together",
+  "model_name": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "temperature": 0.1,
+  "prompt_version": "v1",
+  "toolset_version": "v1",
+  "output_schema_version": "v1",
+  "agent_loop_version": "v1",
+  "repair_layer_version": "v1",
+  "graph_version": "phase4-2500case-2026-09-22",
+  "sim_clock_step_minutes": 15,
+  "max_tool_calls": 10,
+  "max_repeated_same_tool": 2,
+  "stop_reason": "model_submitted",
+  "num_tool_calls": 8,
+  "num_llm_calls": 8,
+  "token_usage": {
+    "prompt_tokens": 16359,
+    "completion_tokens": 972,
+    "total_tokens": 17331
+  },
+  "approx_cost_usd": 0.001733,
+  "approx_cost_note": "Estimated from a configurable placeholder rate, not exact provider billing -- see config.py",
+  "trace_steps": [
+    {
+      "step": 1,
+      "sim_clock": "2026-03-03 00:00:00",
+      "tool_name": "get_case_context",
+      "args": {
+        "hypotheses": [],
+        "rationale": "Starting the investigation of case CS01818"
+      },
+      "hypotheses": [],
+      "rationale": "Starting the investigation of case CS01818",
+      "result_summary": {
+        "case_id": "CS01818",
+        "title": "Upstream dependency timeouts observed in SSO Integration Module (APAC Prod)",
+        "description": "We are seeing intermittent timeouts when the SSO Integration Module in our APAC production environment attempts to communicate with upstream dependencies. No user impact has been reported yet (0 users affected), but we want to flag this for monitoring to prevent future issues. The timeouts seem to correlate with peak usage windows.",
+        "environment": "production",
+        "region": "APAC",
+        "reported_business_impact": "none",
+        "reported_affected_users": 0,
+        "priority": "low",
+        "created_date": "2026-03-03",
+        "status": "resolved",
+        "customer_id": "C03968",
+        "customer_tier": "silver",
+        "customer_industry": "Financial Services",
+        "customer_company_size": "mid",
+        "reported_product_id": "P002",
+        "reported_product_name": "SSO Integration Module",
+        "reported_symptoms": [
+          "upstream dependency timeout"
+        ]
+      },
+      "latency_ms": 1203.6,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 2,
+      "sim_clock": "2026-03-03 00:15:00",
+      "tool_name": "get_system_logs",
+      "args": {
+        "case_id": "CS01818",
+        "start_time": "2026-03-03 00:00:00",
+        "end_time": "2026-03-03 23:59:59",
+        "hypotheses": [
+          "upstream_dependency_timeout:0.5",
+          "peak_usage_correlation:0.3"
+        ],
+        "rationale": "To investigate the reported upstream dependency timeouts in the SSO Integration Module, we need to examine the system logs for any relevant error messages or patterns that could indicate the root cause of the issue."
+      },
+      "hypotheses": [
+        "upstream_dependency_timeout:0.5",
+        "peak_usage_correlation:0.3"
+      ],
+      "rationale": "To investigate the reported upstream dependency timeouts in the SSO Integration Module, we need to examine the system logs for any relevant error messages or patterns that could indicate the root cause of the issue.",
+      "result_summary": {
+        "error": "unknown tool 'get_system_logs'. Valid tools are: ['get_active_incidents', 'get_agent_availability', 'get_case_context', 'get_component_topology', 'get_configuration_history', 'get_customer_deployment', 'get_deployment_history', 'get_recent_changes', 'get_service_health', 'get_similar_cases', 'get_team_capability', 'get_technical_signals', 'get_telemetry', 'search_knowledge_base', 'submit_diagnosis']"
+      },
+      "latency_ms": 4003.7,
+      "status": "error",
+      "redundant": false
+    },
+    {
+      "step": 3,
+      "sim_clock": "2026-03-03 00:30:00",
+      "tool_name": "get_recent_changes",
+      "args": {
+        "case_id": "CS01818",
+        "time_window": "1 week",
+        "hypotheses": [
+          "upstream_dependency_timeout:0.5",
+          "peak_usage_correlation:0.3"
+        ],
+        "rationale": "To investigate the reported upstream dependency timeouts in the SSO Integration Module, we need to examine recent changes that may have contributed to the issue."
+      },
+      "hypotheses": [
+        "upstream_dependency_timeout:0.5",
+        "peak_usage_correlation:0.3"
+      ],
+      "rationale": "To investigate the reported upstream dependency timeouts in the SSO Integration Module, we need to examine recent changes that may have contributed to the issue.",
+      "result_summary": {
+        "recent_changes": [
+          {
+            "evidence_id": "CH001455",
+            "change_type": "api_contract_change",
+            "component_id": "CM011",
+            "started_at": "2026-03-01 04:25:00",
+            "completed_at": "2026-03-01 04:32:00",
+            "status": "completed",
+            "initiated_by": "system:automation",
+            "time_proximity_hours": 43.6,
+            "scope_match": "same_product"
+          },
+          {
+            "evidence_id": "CH004109",
+            "change_type": "network_config_change",
+            "component_id": "CM031",
+            "started_at": "2026-02-28 10:34:00",
+            "completed_at": "2026-02-28 10:46:00",
+            "status": "rolled_back",
+            "initiated_by": "system:automation",
+            "time_proximity_hours": 61.4,
+            "scope_match": "same_product"
+          }
+        ],
+        "count": 2
+      },
+      "latency_ms": 4229.7,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 4,
+      "sim_clock": "2026-03-03 00:45:00",
+      "tool_name": "get_component_topology",
+      "args": {
+        "case_id": "CS01818",
+        "hypotheses": [
+          "upstream_dependency_timeout:0.5",
+          "peak_usage_correlation:0.3",
+          "api_contract_change:0.2"
+        ],
+        "rationale": "To further investigate the reported upstream dependency timeouts in the SSO Integration Module, we need to examine the component topology to understand the relationships between components and identify potential bottlenecks or single points of failure."
+      },
+      "hypotheses": [
+        "upstream_dependency_timeout:0.5",
+        "peak_usage_correlation:0.3",
+        "api_contract_change:0.2"
+      ],
+      "rationale": "To further investigate the reported upstream dependency timeouts in the SSO Integration Module, we need to examine the component topology to understand the relationships between components and identify potential bottlenecks or single points of failure.",
+      "result_summary": {
+        "error": "1 validation error for ComponentScopedArgs\ncomponent_id\n  Field required [type=missing, input_value={'case_id': 'CS01818', 'h...gle points of failure.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      },
+      "latency_ms": 2818.4,
+      "status": "error",
+      "redundant": false
+    },
+    {
+      "step": 5,
+      "sim_clock": "2026-03-03 01:00:00",
+      "tool_name": "get_component_topology",
+      "args": {
+        "case_id": "CS01818",
+        "component_id": "CM011",
+        "hypotheses": [
+          "upstream_dependency_timeout:0.5",
+          "peak_usage_correlation:0.3",
+          "api_contract_change:0.2"
+        ],
+        "rationale": "To further investigate the reported upstream dependency timeouts in the SSO Integration Module, we need to examine the component topology to understand the relationships between components and identify potential bottlenecks or single points of failure."
+      },
+      "hypotheses": [
+        "upstream_dependency_timeout:0.5",
+        "peak_usage_correlation:0.3",
+        "api_contract_change:0.2"
+      ],
+      "rationale": "To further investigate the reported upstream dependency timeouts in the SSO Integration Module, we need to examine the component topology to understand the relationships between components and identify potential bottlenecks or single points of failure.",
+      "result_summary": {
+        "component_id": "CM011",
+        "component_name": "SSO Broker",
+        "upstream_dependencies": [],
+        "downstream_dependents": [
+          {
+            "name": "Identity Audit Logger",
+            "id": "CM020"
+          },
+          {
+            "name": "Risk-Based Authentication Engine",
+            "id": "CM022"
+          },
+          {
+            "name": "Device Trust Service",
+            "id": "CM023"
+          },
+          {
+            "name": "Attribute Mapping Service",
+            "id": "CM033"
+          },
+          {
+            "name": "Emergency Access (Break-Glass) Service",
+            "id": "CM040"
+          },
+          {
+            "name": "Reporting Service",
+            "id": "CM091"
+          },
+          {
+            "name": "Dashboard Sharing Service",
+            "id": "CM118"
+          },
+          {
+            "name": "Secret Store",
+            "id": "CM137"
+          },
+          {
+            "name": "TLS Termination Service",
+            "id": "CM149"
+          },
+          {
+            "name": "Accessibility Layer",
+            "id": "CM190"
+          },
+          {
+            "name": "Mobile Push Token Manager",
+            "id": "CM205"
+          },
+          {
+            "name": "Secret & Config Store",
+            "id": "CM230"
+          },
+          {
+            "name": "Directory Sync Connector (Shared)",
+            "id": "CM238"
+          }
+        ],
+        "external_dependencies": [
+          "Primary Identity Provider"
+        ],
+        "owning_teams": [
+          {
+            "name": "Identity",
+            "id": "TM01"
+          },
+          {
+            "name": "Security",
+            "id": "TM07"
+          }
+        ]
+      },
+      "latency_ms": 3507.1,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 6,
+      "sim_clock": "2026-03-03 01:15:00",
+      "tool_name": "get_telemetry",
+      "args": {
+        "case_id": "CS01818",
+        "component_id": "CM011",
+        "metric": "request_latency",
+        "hypotheses": [
+          "upstream_dependency_timeout:0.5",
+          "peak_usage_correlation:0.3",
+          "api_contract_change:0.2"
+        ],
+        "rationale": "To further investigate the reported upstream dependency timeouts in the SSO Integration Module, we need to examine the telemetry data for the request latency metric to understand the performance characteristics of the component and identify potential bottlenecks or anomalies."
+      },
+      "hypotheses": [
+        "upstream_dependency_timeout:0.5",
+        "peak_usage_correlation:0.3",
+        "api_contract_change:0.2"
+      ],
+      "rationale": "To further investigate the reported upstream dependency timeouts in the SSO Integration Module, we need to examine the telemetry data for the request latency metric to understand the performance characteristics of the component and identify potential bottlenecks or anomalies.",
+      "result_summary": {
+        "available_metric_categories": [
+          "Integration",
+          "Storage"
+        ],
+        "note": "Call again with one of these metric_category values to see actual readings."
+      },
+      "latency_ms": 3832.6,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 7,
+      "sim_clock": "2026-03-03 01:30:00",
+      "tool_name": "get_telemetry",
+      "args": {
+        "case_id": "CS01818",
+        "component_id": "CM011",
+        "metric_category": "Integration",
+        "hypotheses": [
+          "upstream_dependency_timeout:0.5",
+          "peak_usage_correlation:0.3",
+          "api_contract_change:0.2"
+        ],
+        "rationale": "To further investigate the reported upstream dependency timeouts in the SSO Integration Module, we need to examine the telemetry data for the Integration metric category to understand the performance characteristics of the component and identify potential bottlenecks or anomalies."
+      },
+      "hypotheses": [
+        "upstream_dependency_timeout:0.5",
+        "peak_usage_correlation:0.3",
+        "api_contract_change:0.2"
+      ],
+      "rationale": "To further investigate the reported upstream dependency timeouts in the SSO Integration Module, we need to examine the telemetry data for the Integration metric category to understand the performance characteristics of the component and identify potential bottlenecks or anomalies.",
+      "result_summary": {
+        "telemetry_findings": [],
+        "count": 0
+      },
+      "latency_ms": 2166.1,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 8,
+      "sim_clock": "2026-03-03 01:45:00",
+      "tool_name": "submit_diagnosis",
+      "args": {
+        "case_id": "CS01818",
+        "hypotheses": [
+          {
+            "label": "upstream_dependency_timeout",
+            "confidence": 0.5,
+            "supporting_evidence_ids": [],
+            "contradicting_evidence_ids": [],
+            "status": "open"
+          },
+          {
+            "label": "peak_usage_correlation",
+            "confidence": 0.3,
+            "supporting_evidence_ids": [],
+            "contradicting_evidence_ids": [],
+            "status": "open"
+          },
+          {
+            "label": "api_contract_change",
+            "confidence": 0.2,
+            "supporting_evidence_ids": [],
+            "contradicting_evidence_ids": [],
+            "status": "open"
+          }
+        ],
+        "evidence_sufficiency": "partial",
+        "human_review_required": false,
+        "recommended_next_action": "Inspect policy configuration and review recent changes",
+        "rationale": "Based on the investigation, the root cause of the issue is still unclear, but the upstream dependency timeout and peak usage correlation hypotheses are the most plausible. Further inspection of the policy configuration and review of recent changes are needed to confirm the root cause and recommend a solution."
+      },
+      "hypotheses": [
+        {
+          "label": "upstream_dependency_timeout",
+          "confidence": 0.5,
+          "supporting_evidence_ids": [],
+          "contradicting_evidence_ids": [],
+          "status": "open"
+        },
+        {
+          "label": "peak_usage_correlation",
+          "confidence": 0.3,
+          "supporting_evidence_ids": [],
+          "contradicting_evidence_ids": [],
+          "status": "open"
+        },
+        {
+          "label": "api_contract_change",
+          "confidence": 0.2,
+          "supporting_evidence_ids": [],
+          "contradicting_evidence_ids": [],
+          "status": "open"
+        }
+      ],
+      "rationale": "Based on the investigation, the root cause of the issue is still unclear, but the upstream dependency timeout and peak usage correlation hypotheses are the most plausible. Further inspection of the policy configuration and review of recent changes are needed to confirm the root cause and recommend a solution.",
+      "result_summary": "submitted",
+      "latency_ms": 6175.0,
+      "status": "ok",
+      "redundant": false
+    }
+  ],
+  "final_diagnosis": {
+    "hypotheses": [
+      {
+        "label": "upstream_dependency_timeout",
+        "description": "",
+        "confidence": 0.5,
+        "supporting_evidence": [],
+        "contradicting_evidence": [],
+        "status": "active"
+      },
+      {
+        "label": "peak_usage_correlation",
+        "description": "",
+        "confidence": 0.3,
+        "supporting_evidence": [],
+        "contradicting_evidence": [],
+        "status": "active"
+      },
+      {
+        "label": "api_contract_change",
+        "description": "",
+        "confidence": 0.2,
+        "supporting_evidence": [],
+        "contradicting_evidence": [],
+        "status": "active"
+      }
+    ],
+    "rationale": "Based on the investigation, the root cause of the issue is still unclear, but the upstream dependency timeout and peak usage correlation hypotheses are the most plausible. Further inspection of the policy configuration and review of recent changes are needed to confirm the root cause and recommend a solution.",
+    "predicted_product_id": null,
+    "product_confidence": null,
+    "predicted_component_id": null,
+    "component_confidence": null,
+    "predicted_category_id": null,
+    "category_confidence": null,
+    "predicted_subcategory_id": null,
+    "predicted_root_cause_family": null,
+    "root_cause_confidence": null,
+    "predicted_causal_change_id": null,
+    "causal_change_confidence": null,
+    "predicted_severity": null,
+    "severity_confidence": null,
+    "recommended_team_id": null,
+    "routing_confidence": null,
+    "evidence_sufficiency": "partial",
+    "overall_confidence": 0.5,
+    "recommended_next_action": "Inspect policy configuration and review recent changes",
+    "human_review_required": false,
+    "human_review_reason": null,
+    "evidence_summary": "Based on the investigation, the root cause of the issue is still unclear, but the upstream dependency timeout and peak usage correlation hypotheses are the most plausible. Further inspection of the policy configuration and review of recent changes are needed to confirm the root cause and recommend a solution.",
+    "unresolved_uncertainties": []
+  },
+  "citation_violations": [],
+  "evidence_ids_seen": [
+    "CH001455",
+    "CH004109"
+  ],
+  "repair_events": [
+    {
+      "step": 2,
+      "kind": "hypothesis_normalization",
+      "detail": "tool=get_system_logs: hypotheses arg was str, not a list; coerced"
+    },
+    {
+      "step": 8,
+      "kind": "final_diagnosis_repair",
+      "detail": "direct validation failed (5 validation errors for FinalDiagnosis\nhypotheses.0.status\n  Input should be 'active', 'rejected' or 'confirmed' [type=literal_error, input_value='open', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/literal_error\nhypotheses.1.status\n  Input should be 'active', 'rejected' or 'confirmed' [type=literal_error, input_value='open', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/literal_error\nhypotheses.2.status\n  Input should be 'active', 'rejected' or 'confirmed' [type=literal_error, input_value='open', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/literal_error\noverall_confidence\n  Field required [type=missing, input_value={'case_id': 'CS01818', 'h... recommend a solution.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\nevidence_summary\n  Field required [type=missing, input_value={'case_id': 'CS01818', 'h... recommend a solution.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing); repaired args validated"
+    }
+  ]
+}

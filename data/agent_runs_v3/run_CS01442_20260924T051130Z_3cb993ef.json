@@ -1,0 +1,2248 @@
+{
+ "run_id": "run_CS01442_20260924T051130Z_3cb993ef",
+ "case_id": "CS01442",
+ "created_at": "2026-09-24T05:11:30.373783+00:00",
+ "run_tag": "verify100_final",
+ "model_provider": "together",
+ "model_name": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+ "temperature": 0.1,
+ "graph_version": "phase4-2500case-2026-09-22",
+ "sim_clock_step_minutes": 15,
+ "max_tool_calls": 10,
+ "max_repeated_same_tool": 2,
+ "max_tool_contract_repairs": 2,
+ "max_final_contract_repairs": 1,
+ "agent_version": "agent_v3_contract_hardened",
+ "contract_version": "agent_contract_v1.1",
+ "prompt_version": "v3.1",
+ "tool_catalog_version": "tool_catalog_v3",
+ "action_schema_version": "action_v3.1",
+ "final_schema_version": "final_diagnosis_v3.1",
+ "registry_version": "observed_registry_v1",
+ "alias_scheme": "agent_alias_v1",
+ "repair_policy_version": "repair_policy_v1",
+ "decoding": "json_schema_strict",
+ "code_digest": "54bbbe51a58dbb43883bd743c2476a93b418373888d06e2cc60c30dc2b1b7cf2",
+ "toolset_version": "tool_catalog_v3",
+ "output_schema_version": "final_diagnosis_v3.1",
+ "agent_loop_version": "agent_v3_contract_hardened",
+ "repair_layer_version": "repair_policy_v1",
+ "approx_cost_usd": 0.0022,
+ "stop_reason": "model_submitted",
+ "num_tool_calls": 10,
+ "num_llm_calls": 10,
+ "token_usage": {
+  "prompt_tokens": 20194,
+  "completion_tokens": 1810,
+  "total_tokens": 22004
+ },
+ "trace_steps": [
+  {
+   "step": 1,
+   "sim_clock": "2026-06-17 00:00:00",
+   "tool_name": "get_case_context",
+   "args": {},
+   "args_alias": {},
+   "hypotheses": [],
+   "hypothesis_state": [],
+   "rationale": "",
+   "result_summary": {
+    "case_id": "CS01442",
+    "title": "High latency and slow load times on mobile app interface",
+    "description": "Our production mobile application, which uses the Cohort Builder for user segmentation displays, is experiencing severe performance degradation. Users in the US-East region are reporting that the app takes 10-15 seconds to load cohort-specific views, whereas it used to be under 2 seconds. We have confirmed this is affecting approximately 243 active users and is causing significant complaints. The backend metrics show normal CPU usage, but the API responses from the Cohort Builder seem delayed. Please investigate the query performance or caching mechanisms.",
+    "environment": "production",
+    "region": "US-East",
+    "reported_business_impact": "high",
+    "reported_affected_users": 243,
+    "priority": "high",
+    "created_date": "2026-06-17",
+    "status": "resolved",
+    "customer_id": "C03419",
+    "customer_tier": "gold",
+    "customer_industry": "Financial Services",
+    "customer_company_size": "mid",
+    "reported_product_id": "P038",
+    "reported_product_name": "Cohort Builder",
+    "reported_symptoms": [
+     "slow mobile app performance"
+    ]
+   },
+   "latency_ms": 0.0,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "harness"
+  },
+  {
+   "step": 2,
+   "sim_clock": "2026-06-17 00:15:00",
+   "tool_name": "get_customer_deployment",
+   "args": {},
+   "args_alias": {},
+   "hypotheses": [
+    "Network issue:0.2",
+    "Database query performance issue:0.3",
+    "Caching mechanism issue:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Network issue",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    },
+    {
+     "label": "Database query performance issue",
+     "confidence": 0.3,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    },
+    {
+     "label": "Caching mechanism issue",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "deployments": [
+     {
+      "product_id": "P038",
+      "product_name": "Cohort Builder",
+      "version": "1.3",
+      "environment": "staging",
+      "region": "US-East",
+      "status": "active",
+      "deployed_at": "2026-08-12",
+      "product_components": [
+       "CM097",
+       "CM101",
+       "CM107",
+       "CM108",
+       "CM113",
+       "CM116",
+       "CM126",
+       "CM229"
+      ]
+     },
+     {
+      "product_id": "P038",
+      "product_name": "Cohort Builder",
+      "version": "1.3",
+      "environment": "production",
+      "region": "US-East",
+      "status": "active",
+      "deployed_at": "2026-08-05",
+      "product_components": [
+       "CM097",
+       "CM101",
+       "CM107",
+       "CM108",
+       "CM113",
+       "CM116",
+       "CM126",
+       "CM229"
+      ]
+     },
+     {
+      "product_id": "P001",
+      "product_name": "Payment Gateway v2",
+      "version": "2.0",
+      "environment": "staging",
+      "region": "US-East",
+      "status": "active",
+      "deployed_at": "2026-07-18",
+      "product_components": [
+       "CM046",
+       "CM050",
+       "CM054",
+       "CM057",
+       "CM074",
+       "CM077",
+       "CM227",
+       "CM229"
+      ]
+     },
+     {
+      "product_id": "P011",
+      "product_name": "Billing Disputes Handler",
+      "version": "1.0",
+      "environment": "sandbox",
+      "region": "US-East",
+      "status": "active",
+      "deployed_at": "2026-06-20",
+      "product_components": [
+       "CM049",
+       "CM056",
+       "CM068",
+       "CM073",
+       "CM074",
+       "CM075",
+       "CM086",
+       "CM227"
+      ]
+     },
+     {
+      "product_id": "P016",
+      "product_name": "Invoice Service",
+      "version": "1.4",
+      "environment": "staging",
+      "region": "US-East",
+      "status": "active",
+      "deployed_at": "2026-02-17",
+      "product_components": [
+       "CM045",
+       "CM047",
+       "CM051",
+       "CM055",
+       "CM069",
+       "CM070",
+       "CM228"
+      ]
+     },
+     {
+      "product_id": "P011",
+      "product_name": "Billing Disputes Handler",
+      "version": "1.0",
+      "environment": "production",
+      "region": "US-East",
+      "status": "active",
+      "deployed_at": "2026-02-14",
+      "product_components": [
+       "CM049",
+       "CM056",
+       "CM068",
+       "CM073",
+       "CM074",
+       "CM075",
+       "CM086",
+       "CM227"
+      ]
+     },
+     {
+      "product_id": "P016",
+      "product_name": "Invoice Service",
+      "version": "1.4",
+      "environment": "production",
+      "region": "US-East",
+      "status": "active",
+      "deployed_at": "2025-04-15",
+      "product_components": [
+       "CM045",
+       "CM047",
+       "CM051",
+       "CM055",
+       "CM069",
+       "CM070",
+       "CM228"
+      ]
+     },
+     {
+      "product_id": "P001",
+      "product_name": "Payment Gateway v2",
+      "version": "2.0",
+      "environment": "production",
+      "region": "US-East",
+      "status": "active",
+      "deployed_at": "2025-02-22",
+      "product_components": [
+       "CM046",
+       "CM050",
+       "CM054",
+       "CM057",
+       "CM074",
+       "CM077",
+       "CM227",
+       "CM229"
+      ]
+     }
+    ]
+   },
+   "latency_ms": 8076.8,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 3,
+   "sim_clock": "2026-06-17 00:30:00",
+   "tool_name": "get_component_topology",
+   "args": {
+    "component_id": "CM101"
+   },
+   "args_alias": {
+    "component": "COMPONENT_QMH"
+   },
+   "hypotheses": [
+    "Network issue:0.2",
+    "Database query performance issue:0.3",
+    "Caching mechanism issue:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Network issue",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    },
+    {
+     "label": "Database query performance issue",
+     "confidence": 0.3,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    },
+    {
+     "label": "Caching mechanism issue",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "component_id": "CM101",
+    "component_name": "Cohort Engine",
+    "upstream_dependencies": [
+     {
+      "name": "Multi-Tenant Data Partitioning Layer",
+      "id": "CM130"
+     },
+     {
+      "name": "Read Replica Service",
+      "id": "CM152"
+     },
+     {
+      "name": "Database Connection Pooler",
+      "id": "CM153"
+     },
+     {
+      "name": "Search Index Service",
+      "id": "CM167"
+     },
+     {
+      "name": "Central Search Index Service",
+      "id": "CM242"
+     }
+    ],
+    "downstream_dependents": [],
+    "external_dependencies": [],
+    "owning_teams": [
+     {
+      "name": "Data Platform",
+      "id": "TM05"
+     },
+     {
+      "name": "Database",
+      "id": "TM06"
+     }
+    ]
+   },
+   "latency_ms": 15751.5,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 4,
+   "sim_clock": "2026-06-17 00:45:00",
+   "tool_name": "get_technical_signals",
+   "args": {
+    "component_id": "CM101"
+   },
+   "args_alias": {
+    "component": "COMPONENT_QMH"
+   },
+   "hypotheses": [
+    "Network issue:0.2",
+    "Database query performance issue:0.3",
+    "Caching mechanism issue:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Network issue",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    },
+    {
+     "label": "Database query performance issue",
+     "confidence": 0.3,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    },
+    {
+     "label": "Caching mechanism issue",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "signals": [],
+    "count": 0
+   },
+   "latency_ms": 26989.7,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 5,
+   "sim_clock": "2026-06-17 01:00:00",
+   "tool_name": "get_telemetry",
+   "args": {
+    "component_id": "CM101"
+   },
+   "args_alias": {
+    "component": "COMPONENT_QMH"
+   },
+   "hypotheses": [
+    "Network issue:0.2",
+    "Database query performance issue:0.3",
+    "Caching mechanism issue:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Network issue",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    },
+    {
+     "label": "Database query performance issue",
+     "confidence": 0.3,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    },
+    {
+     "label": "Caching mechanism issue",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "available_metric_categories": [
+     "Application",
+     "Compute"
+    ],
+    "note": "Call again with one of these metric_category values to see actual readings."
+   },
+   "latency_ms": 29486.9,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 6,
+   "sim_clock": "2026-06-17 01:15:00",
+   "tool_name": "get_telemetry",
+   "args": {
+    "component_id": "CM101",
+    "metric_category": "Application"
+   },
+   "args_alias": {
+    "component": "COMPONENT_QMH",
+    "metric_category": "Application"
+   },
+   "hypotheses": [
+    "Network issue:0.2",
+    "Database query performance issue:0.3",
+    "Caching mechanism issue:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Network issue",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    },
+    {
+     "label": "Database query performance issue",
+     "confidence": 0.3,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    },
+    {
+     "label": "Caching mechanism issue",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "telemetry_findings": [],
+    "count": 0
+   },
+   "latency_ms": 11355.1,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 7,
+   "sim_clock": "2026-06-17 01:30:00",
+   "tool_name": "get_technical_signals",
+   "args": {
+    "component_id": "CM107"
+   },
+   "args_alias": {
+    "component": "COMPONENT_LRV"
+   },
+   "hypotheses": [
+    "Network issue:0.2",
+    "Database query performance issue:0.3",
+    "Caching mechanism issue:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Network issue",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    },
+    {
+     "label": "Database query performance issue",
+     "confidence": 0.3,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    },
+    {
+     "label": "Caching mechanism issue",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "signals": [],
+    "count": 0
+   },
+   "latency_ms": 19635.9,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 8,
+   "sim_clock": "2026-06-17 01:45:00",
+   "tool_name": "get_recent_changes",
+   "args": {
+    "component_id": "CM101"
+   },
+   "args_alias": {
+    "component": "COMPONENT_QMH"
+   },
+   "hypotheses": [
+    "Network issue:0.2",
+    "Database query performance issue:0.3",
+    "Caching mechanism issue:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Network issue",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    },
+    {
+     "label": "Database query performance issue",
+     "confidence": 0.3,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    },
+    {
+     "label": "Caching mechanism issue",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "recent_changes": [],
+    "count": 0
+   },
+   "latency_ms": 42622.3,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 9,
+   "sim_clock": "2026-06-17 02:00:00",
+   "tool_name": "get_service_health",
+   "args": {
+    "component_id": "CM101"
+   },
+   "args_alias": {
+    "component": "COMPONENT_QMH"
+   },
+   "hypotheses": [
+    "Network issue:0.2",
+    "Database query performance issue:0.3",
+    "Caching mechanism issue:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Network issue",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    },
+    {
+     "label": "Database query performance issue",
+     "confidence": 0.3,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    },
+    {
+     "label": "Caching mechanism issue",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "health_events": [
+     {
+      "evidence_id": "SHE02037",
+      "started_at": "2026-04-05 13:00:00",
+      "ended_at": "2026-04-05 14:00:00",
+      "severity": "critical",
+      "description": "Brief critical health blip on Cohort Engine: elevated error rate for 60 minutes."
+     },
+     {
+      "evidence_id": "SHE02030",
+      "started_at": "2026-03-23 23:28:00",
+      "ended_at": "2026-03-23 23:43:00",
+      "severity": "minor",
+      "description": "Automated health check flagged Cohort Engine as degraded (minor) for 15 minutes."
+     },
+     {
+      "evidence_id": "SHE02036",
+      "started_at": "2026-03-22 02:39:00",
+      "ended_at": "2026-03-22 02:54:00",
+      "severity": "minor",
+      "description": "minor latency spike observed on Cohort Engine, self-resolved after 15 minutes."
+     },
+     {
+      "evidence_id": "SHE02032",
+      "started_at": "2026-03-02 03:45:00",
+      "ended_at": "2026-03-02 04:15:00",
+      "severity": "critical",
+      "description": "critical latency spike observed on Cohort Engine, self-resolved after 30 minutes."
+     },
+     {
+      "evidence_id": "SHE02033",
+      "started_at": "2026-01-06 11:03:00",
+      "ended_at": "2026-01-06 11:48:00",
+      "severity": "critical",
+      "description": "Automated health check flagged Cohort Engine as degraded (critical) for 45 minutes."
+     },
+     {
+      "evidence_id": "SHE02035",
+      "started_at": "2025-11-28 00:46:00",
+      "ended_at": "2025-11-28 01:31:00",
+      "severity": "minor",
+      "description": "Transient minor availability dip on Cohort Engine, recovered within 45 minutes."
+     },
+     {
+      "evidence_id": "SHE02039",
+      "started_at": "2025-10-24 12:51:00",
+      "ended_at": "2025-10-24 13:36:00",
+      "severity": "minor",
+      "description": "minor latency spike observed on Cohort Engine, self-resolved after 45 minutes."
+     },
+     {
+      "evidence_id": "SHE02041",
+      "started_at": "2025-10-06 18:58:00",
+      "ended_at": "2025-10-06 19:08:00",
+      "severity": "minor",
+      "description": "Transient minor availability dip on Cohort Engine, recovered within 10 minutes."
+     }
+    ],
+    "count": 8
+   },
+   "latency_ms": 6349.6,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 10,
+   "sim_clock": "2026-06-17 02:15:00",
+   "tool_name": "submit_diagnosis",
+   "args": {},
+   "args_alias": {},
+   "hypotheses": [
+    "Database query performance issue:0.3"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Database query performance issue",
+     "confidence": 0.3,
+     "status": "active",
+     "supporting_evidence": [
+      "EVIDENCE_GCJ",
+      "EVIDENCE_GJM",
+      "EVIDENCE_XQQ",
+      "EVIDENCE_DTN",
+      "EVIDENCE_XCC",
+      "EVIDENCE_GRL",
+      "EVIDENCE_JVL",
+      "EVIDENCE_RRN"
+     ],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": "submitted",
+   "latency_ms": 48460.8,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  }
+ ],
+ "final_diagnosis": {
+  "hypotheses": [
+   {
+    "label": "Database query performance issue",
+    "description": "",
+    "confidence": 0.3,
+    "status": "active",
+    "supporting_evidence": [
+     "SHE02037",
+     "SHE02030",
+     "SHE02036",
+     "SHE02032",
+     "SHE02033",
+     "SHE02035",
+     "SHE02039",
+     "SHE02041"
+    ],
+    "contradicting_evidence": []
+   }
+  ],
+  "rationale": "",
+  "predicted_product_id": null,
+  "product_confidence": null,
+  "predicted_component_id": "CM101",
+  "component_confidence": 0.3,
+  "predicted_category_id": "IC04",
+  "category_confidence": 0.3,
+  "predicted_subcategory_id": null,
+  "predicted_root_cause_family": "resource exhaustion",
+  "root_cause_confidence": 0.2,
+  "predicted_causal_change_id": null,
+  "causal_change_confidence": null,
+  "predicted_severity": null,
+  "severity_confidence": null,
+  "recommended_team_id": "TM05",
+  "routing_confidence": 0.3,
+  "evidence_sufficiency": "sufficient",
+  "overall_confidence": 0.3,
+  "recommended_next_action": "Investigate database query performance on COMPONENT_QMH",
+  "human_review_required": false,
+  "human_review_reason": null,
+  "evidence_summary": "The investigation suggests a database query performance issue on COMPONENT_QMH, which is owned by TEAM_PSD. The evidence points to a potential resource exhaustion issue (CAUSE_TMD). Further investigation is recommended to confirm the root cause and identify the causal change.",
+  "unresolved_uncertainties": [
+   "Network issue",
+   "Caching mechanism issue"
+  ],
+  "status": "DIAGNOSIS_PROPOSED",
+  "evidence_ids": [
+   "SHE02037",
+   "SHE02030",
+   "SHE02036",
+   "SHE02032",
+   "SHE02033",
+   "SHE02035",
+   "SHE02039",
+   "SHE02041"
+  ]
+ },
+ "final_status": "DIAGNOSIS_PROPOSED",
+ "final_alias_form": {
+  "hypotheses": [
+   {
+    "label": "Database query performance issue",
+    "confidence": 0.3,
+    "status": "active",
+    "supporting_evidence": [
+     "EVIDENCE_GCJ",
+     "EVIDENCE_GJM",
+     "EVIDENCE_XQQ",
+     "EVIDENCE_DTN",
+     "EVIDENCE_XCC",
+     "EVIDENCE_GRL",
+     "EVIDENCE_JVL",
+     "EVIDENCE_RRN"
+    ],
+    "contradicting_evidence": []
+   }
+  ],
+  "evidence_ids": [
+   "EVIDENCE_GCJ",
+   "EVIDENCE_GJM",
+   "EVIDENCE_XQQ",
+   "EVIDENCE_DTN",
+   "EVIDENCE_XCC",
+   "EVIDENCE_GRL",
+   "EVIDENCE_JVL",
+   "EVIDENCE_RRN"
+  ],
+  "issue_category": "CATEGORY_TND",
+  "category_confidence": 0.3,
+  "root_cause": "CAUSE_TMD",
+  "root_cause_confidence": 0.2,
+  "affected_component": "COMPONENT_QMH",
+  "component_confidence": 0.3,
+  "causal_change": null,
+  "causal_change_confidence": null,
+  "owning_team": "TEAM_PSD",
+  "routing_confidence": 0.3,
+  "confidence": 0.3,
+  "evidence_sufficiency": "sufficient",
+  "human_review_required": false,
+  "review_reason": null,
+  "status": "DIAGNOSIS_PROPOSED",
+  "recommended_next_action": "Investigate database query performance on COMPONENT_QMH",
+  "unresolved_uncertainties": [
+   "Network issue",
+   "Caching mechanism issue"
+  ],
+  "summary": "The investigation suggests a database query performance issue on COMPONENT_QMH, which is owned by TEAM_PSD. The evidence points to a potential resource exhaustion issue (CAUSE_TMD). Further investigation is recommended to confirm the root cause and identify the causal change."
+ },
+ "citation_violations": [],
+ "evidence_ids_seen": [
+  "SHE02030",
+  "SHE02032",
+  "SHE02033",
+  "SHE02035",
+  "SHE02036",
+  "SHE02037",
+  "SHE02039",
+  "SHE02041"
+ ],
+ "repair_events": [],
+ "tool_proposals": 9,
+ "tool_contract_errors": [],
+ "tool_contract_repairs": [],
+ "final_contract_errors": [],
+ "final_contract_repair": null,
+ "registry_snapshots": [
+  {
+   "step": 1,
+   "n_entities": 59,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 1
+   },
+   "aliases_sha256_16": "c598b1bffb2d914e"
+  },
+  {
+   "step": 2,
+   "n_entities": 90,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 4,
+    "COMPONENT": 28
+   },
+   "aliases_sha256_16": "3ac3bdc689311de3"
+  },
+  {
+   "step": 3,
+   "n_entities": 97,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 4,
+    "COMPONENT": 33,
+    "TEAM": 2
+   },
+   "aliases_sha256_16": "7491d6df0715bccc"
+  },
+  {
+   "step": 4,
+   "n_entities": 97,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 4,
+    "COMPONENT": 33,
+    "TEAM": 2
+   },
+   "aliases_sha256_16": "7491d6df0715bccc"
+  },
+  {
+   "step": 5,
+   "n_entities": 97,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 4,
+    "COMPONENT": 33,
+    "TEAM": 2
+   },
+   "aliases_sha256_16": "7491d6df0715bccc"
+  },
+  {
+   "step": 6,
+   "n_entities": 97,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 4,
+    "COMPONENT": 33,
+    "TEAM": 2
+   },
+   "aliases_sha256_16": "7491d6df0715bccc"
+  },
+  {
+   "step": 7,
+   "n_entities": 97,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 4,
+    "COMPONENT": 33,
+    "TEAM": 2
+   },
+   "aliases_sha256_16": "7491d6df0715bccc"
+  },
+  {
+   "step": 8,
+   "n_entities": 97,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 4,
+    "COMPONENT": 33,
+    "TEAM": 2
+   },
+   "aliases_sha256_16": "7491d6df0715bccc"
+  },
+  {
+   "step": 9,
+   "n_entities": 105,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 4,
+    "COMPONENT": 33,
+    "TEAM": 2,
+    "EVIDENCE": 8
+   },
+   "aliases_sha256_16": "0fcf1522fff958b5"
+  }
+ ],
+ "alias_mappings": {
+  "CATEGORY_KZH": {
+   "alias": "CATEGORY_KZH",
+   "canonical_id": "IC01",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Identity / Authentication",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-06-17 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_HWG": {
+   "alias": "CATEGORY_HWG",
+   "canonical_id": "IC02",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Authorization / Permissions",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-06-17 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_KZF": {
+   "alias": "CATEGORY_KZF",
+   "canonical_id": "IC03",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Networking / Connectivity",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-06-17 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_TND": {
+   "alias": "CATEGORY_TND",
+   "canonical_id": "IC04",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Performance / Latency",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-06-17 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_PJB": {
+   "alias": "CATEGORY_PJB",
+   "canonical_id": "IC05",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Reliability / Availability",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-06-17 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_THK": {
+   "alias": "CATEGORY_THK",
+   "canonical_id": "IC06",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Deployment / Upgrade",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-06-17 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_NVP": {
+   "alias": "CATEGORY_NVP",
+   "canonical_id": "IC07",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Configuration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-06-17 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_DFL": {
+   "alias": "CATEGORY_DFL",
+   "canonical_id": "IC08",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Data / Corruption",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-06-17 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_BDT": {
+   "alias": "CATEGORY_BDT",
+   "canonical_id": "IC09",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Integration / API",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-06-17 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_VDW": {
+   "alias": "CATEGORY_VDW",
+   "canonical_id": "IC10",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Provisioning / Onboarding",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-06-17 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_HZN": {
+   "alias": "CATEGORY_HZN",
+   "canonical_id": "IC11",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Security",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-06-17 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_PCW": {
+   "alias": "CATEGORY_PCW",
+   "canonical_id": "IC12",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Compliance",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-06-17 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_MZR": {
+   "alias": "CATEGORY_MZR",
+   "canonical_id": "IC13",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Billing / Commerce",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-06-17 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_SVG": {
+   "alias": "CATEGORY_SVG",
+   "canonical_id": "IC14",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "User Experience / Functional Defect",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-06-17 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_CFK": {
+   "alias": "CATEGORY_CFK",
+   "canonical_id": "IC15",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Storage / Database",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-06-17 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_PJT": {
+   "alias": "CATEGORY_PJT",
+   "canonical_id": "IC16",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Capacity / Scaling",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-06-17 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_CBN": {
+   "alias": "CATEGORY_CBN",
+   "canonical_id": "IC17",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Third-Party / Dependency",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-06-17 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_VZS": {
+   "alias": "CATEGORY_VZS",
+   "canonical_id": "IC18",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Unknown / Other",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-06-17 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_JSX": {
+   "alias": "CAUSE_JSX",
+   "canonical_id": "RC01",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "product defect",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-06-17 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_DCG": {
+   "alias": "CAUSE_DCG",
+   "canonical_id": "RC02",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "customer configuration error",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-06-17 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_JXV": {
+   "alias": "CAUSE_JXV",
+   "canonical_id": "RC03",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "incorrect permissions",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-06-17 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_VRN": {
+   "alias": "CAUSE_VRN",
+   "canonical_id": "RC04",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "policy misconfiguration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-06-17 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_JDV": {
+   "alias": "CAUSE_JDV",
+   "canonical_id": "RC05",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "expired certificate",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-06-17 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_QMM": {
+   "alias": "CAUSE_QMM",
+   "canonical_id": "RC06",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "version incompatibility",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-06-17 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_JLH": {
+   "alias": "CAUSE_JLH",
+   "canonical_id": "RC07",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "dependency failure",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-06-17 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_FNG": {
+   "alias": "CAUSE_FNG",
+   "canonical_id": "RC08",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "network configuration error",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-06-17 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_TMD": {
+   "alias": "CAUSE_TMD",
+   "canonical_id": "RC09",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "resource exhaustion",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-06-17 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_XGF": {
+   "alias": "CAUSE_XGF",
+   "canonical_id": "RC10",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "database contention",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-06-17 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_VZF": {
+   "alias": "CAUSE_VZF",
+   "canonical_id": "RC11",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "bad deployment",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-06-17 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_WPF": {
+   "alias": "CAUSE_WPF",
+   "canonical_id": "RC12",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "incomplete migration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-06-17 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_BNB": {
+   "alias": "CAUSE_BNB",
+   "canonical_id": "RC13",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "stale cache",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-06-17 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_CJB": {
+   "alias": "CAUSE_CJB",
+   "canonical_id": "RC14",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "third-party service failure",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-06-17 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_MFL": {
+   "alias": "CAUSE_MFL",
+   "canonical_id": "RC15",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "unsupported configuration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-06-17 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_QXR": {
+   "alias": "CAUSE_QXR",
+   "canonical_id": "RC16",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "incorrect DNS configuration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-06-17 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_WWJ": {
+   "alias": "CAUSE_WWJ",
+   "canonical_id": "RC17",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "data quality issue",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-06-17 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_TJJ": {
+   "alias": "CAUSE_TJJ",
+   "canonical_id": "RC18",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "operator error",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-06-17 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_HTZ": {
+   "alias": "CAUSE_HTZ",
+   "canonical_id": "RC19",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "capacity limitation",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-06-17 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_HZS": {
+   "alias": "CAUSE_HZS",
+   "canonical_id": "RC20",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "known product limitation",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-06-17 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_CPC": {
+   "alias": "CAUSE_CPC",
+   "canonical_id": "RC21",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "race condition",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-06-17 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_QXM": {
+   "alias": "CAUSE_QXM",
+   "canonical_id": "RC22",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "identity provider outage",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-06-17 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_MVG": {
+   "alias": "CAUSE_MVG",
+   "canonical_id": "RC23",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "token expiration handling bug",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-06-17 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_VVH": {
+   "alias": "CAUSE_VVH",
+   "canonical_id": "RC24",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "insufficient monitoring/alerting",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-06-17 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_DPQ": {
+   "alias": "CAUSE_DPQ",
+   "canonical_id": "RC25",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "incorrect load balancer routing",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-06-17 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_LZQ": {
+   "alias": "CAUSE_LZQ",
+   "canonical_id": "RC26",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "firewall misconfiguration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-06-17 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_RJT": {
+   "alias": "CAUSE_RJT",
+   "canonical_id": "RC27",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "schema mismatch",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-06-17 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_SKG": {
+   "alias": "CAUSE_SKG",
+   "canonical_id": "RC28",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "breaking API contract change",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-06-17 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_ZNP": {
+   "alias": "CAUSE_ZNP",
+   "canonical_id": "RC29",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "credential rotation not propagated",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-06-17 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_LSS": {
+   "alias": "CAUSE_LSS",
+   "canonical_id": "RC30",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "stale internal documentation followed",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-06-17 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_ZGW": {
+   "alias": "CAUSE_ZGW",
+   "canonical_id": "RC31",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "incomplete rollback",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-06-17 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_JQW": {
+   "alias": "CAUSE_JQW",
+   "canonical_id": "RC32",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "infrastructure hardware failure",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-06-17 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_MSD": {
+   "alias": "CAUSE_MSD",
+   "canonical_id": "RC33",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "rate limit misconfiguration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-06-17 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_RDS": {
+   "alias": "CAUSE_RDS",
+   "canonical_id": "RC34",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "insufficient capacity planning",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-06-17 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_GFD": {
+   "alias": "CAUSE_GFD",
+   "canonical_id": "RC35",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "data migration defect",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-06-17 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_KPR": {
+   "alias": "CAUSE_KPR",
+   "canonical_id": "RC36",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "improper access review",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-06-17 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_MTF": {
+   "alias": "CAUSE_MTF",
+   "canonical_id": "RC37",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "expired API key",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-06-17 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_MDC": {
+   "alias": "CAUSE_MDC",
+   "canonical_id": "RC38",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "clock/time synchronization issue",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-06-17 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_JMQ": {
+   "alias": "CAUSE_JMQ",
+   "canonical_id": "RC39",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "idempotency/duplicate-processing failure",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-06-17 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_TFL": {
+   "alias": "CAUSE_TFL",
+   "canonical_id": "RC40",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "insufficient information to determine root cause",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-06-17 00:00:00",
+   "summary": ""
+  },
+  "PRODUCT_TCH": {
+   "alias": "PRODUCT_TCH",
+   "canonical_id": "P038",
+   "kind": "PRODUCT",
+   "type": "product",
+   "display_name": "Cohort Builder",
+   "source_tool": "get_case_context",
+   "first_observed_step": 1,
+   "first_observed_clock": "2026-06-17 00:00:00",
+   "summary": ""
+  },
+  "COMPONENT_SWD": {
+   "alias": "COMPONENT_SWD",
+   "canonical_id": "CM097",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Aggregation Engine",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-06-17 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_QMH": {
+   "alias": "COMPONENT_QMH",
+   "canonical_id": "CM101",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Cohort Engine",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-06-17 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_LRV": {
+   "alias": "COMPONENT_LRV",
+   "canonical_id": "CM107",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Result Cache Layer",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-06-17 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_DRR": {
+   "alias": "COMPONENT_DRR",
+   "canonical_id": "CM108",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Embedding Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-06-17 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_MQL": {
+   "alias": "COMPONENT_MQL",
+   "canonical_id": "CM113",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Real-Time Metrics Stream",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-06-17 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_FFM": {
+   "alias": "COMPONENT_FFM",
+   "canonical_id": "CM116",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Anomaly Detection Engine",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-06-17 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_NXT": {
+   "alias": "COMPONENT_NXT",
+   "canonical_id": "CM126",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Historical Data Backfill Worker",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-06-17 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_VLZ": {
+   "alias": "COMPONENT_VLZ",
+   "canonical_id": "CM229",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Audit Log Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-06-17 00:15:00",
+   "summary": ""
+  },
+  "PRODUCT_MPF": {
+   "alias": "PRODUCT_MPF",
+   "canonical_id": "P001",
+   "kind": "PRODUCT",
+   "type": "product",
+   "display_name": "Payment Gateway v2",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-06-17 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_ZHP": {
+   "alias": "COMPONENT_ZHP",
+   "canonical_id": "CM046",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Refund Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-06-17 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_MQT": {
+   "alias": "COMPONENT_MQT",
+   "canonical_id": "CM050",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Currency Conversion Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-06-17 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_MLJ": {
+   "alias": "COMPONENT_MLJ",
+   "canonical_id": "CM054",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Payment Gateway API",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-06-17 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_XDM": {
+   "alias": "COMPONENT_XDM",
+   "canonical_id": "CM057",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Settlement Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-06-17 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_VLL": {
+   "alias": "COMPONENT_VLL",
+   "canonical_id": "CM074",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Tax Jurisdiction Resolver",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-06-17 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_NZS": {
+   "alias": "COMPONENT_NZS",
+   "canonical_id": "CM077",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Usage Metering Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-06-17 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_CMG": {
+   "alias": "COMPONENT_CMG",
+   "canonical_id": "CM227",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Global API Gateway",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-06-17 00:15:00",
+   "summary": ""
+  },
+  "PRODUCT_ZMB": {
+   "alias": "PRODUCT_ZMB",
+   "canonical_id": "P011",
+   "kind": "PRODUCT",
+   "type": "product",
+   "display_name": "Billing Disputes Handler",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-06-17 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_JBH": {
+   "alias": "COMPONENT_JBH",
+   "canonical_id": "CM049",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Tax Calculation Engine",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-06-17 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_BVD": {
+   "alias": "COMPONENT_BVD",
+   "canonical_id": "CM056",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Dunning Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-06-17 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_ZFL": {
+   "alias": "COMPONENT_ZFL",
+   "canonical_id": "CM068",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Revenue Recognition Engine",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-06-17 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_MMP": {
+   "alias": "COMPONENT_MMP",
+   "canonical_id": "CM073",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Invoice PDF Renderer",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-06-17 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_SMH": {
+   "alias": "COMPONENT_SMH",
+   "canonical_id": "CM075",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Chargeback Evidence Uploader",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-06-17 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_WXJ": {
+   "alias": "COMPONENT_WXJ",
+   "canonical_id": "CM086",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Payment Retry Scheduler",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-06-17 00:15:00",
+   "summary": ""
+  },
+  "PRODUCT_NQW": {
+   "alias": "PRODUCT_NQW",
+   "canonical_id": "P016",
+   "kind": "PRODUCT",
+   "type": "product",
+   "display_name": "Invoice Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-06-17 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_VLP": {
+   "alias": "COMPONENT_VLP",
+   "canonical_id": "CM045",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Transaction Processing Engine",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-06-17 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_GFH": {
+   "alias": "COMPONENT_GFH",
+   "canonical_id": "CM047",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Chargeback Handler",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-06-17 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_FRZ": {
+   "alias": "COMPONENT_FRZ",
+   "canonical_id": "CM051",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Ledger Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-06-17 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_WRL": {
+   "alias": "COMPONENT_WRL",
+   "canonical_id": "CM055",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Subscription Billing Engine",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-06-17 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_PQS": {
+   "alias": "COMPONENT_PQS",
+   "canonical_id": "CM069",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Merchant Onboarding Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-06-17 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_GFQ": {
+   "alias": "COMPONENT_GFQ",
+   "canonical_id": "CM070",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Payout Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-06-17 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_BLN": {
+   "alias": "COMPONENT_BLN",
+   "canonical_id": "CM228",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Enterprise Admin Console",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-06-17 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_XTD": {
+   "alias": "COMPONENT_XTD",
+   "canonical_id": "CM130",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Multi-Tenant Data Partitioning Layer",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-06-17 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_ZMS": {
+   "alias": "COMPONENT_ZMS",
+   "canonical_id": "CM152",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Read Replica Service",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-06-17 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_XHL": {
+   "alias": "COMPONENT_XHL",
+   "canonical_id": "CM153",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Database Connection Pooler",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-06-17 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_BPF": {
+   "alias": "COMPONENT_BPF",
+   "canonical_id": "CM167",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Search Index Service",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-06-17 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_KQB": {
+   "alias": "COMPONENT_KQB",
+   "canonical_id": "CM242",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Central Search Index Service",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-06-17 00:30:00",
+   "summary": ""
+  },
+  "TEAM_PSD": {
+   "alias": "TEAM_PSD",
+   "canonical_id": "TM05",
+   "kind": "TEAM",
+   "type": "team",
+   "display_name": "Data Platform",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-06-17 00:30:00",
+   "summary": ""
+  },
+  "TEAM_FDJ": {
+   "alias": "TEAM_FDJ",
+   "canonical_id": "TM06",
+   "kind": "TEAM",
+   "type": "team",
+   "display_name": "Database",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-06-17 00:30:00",
+   "summary": ""
+  },
+  "EVIDENCE_GCJ": {
+   "alias": "EVIDENCE_GCJ",
+   "canonical_id": "SHE02037",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 9,
+   "first_observed_clock": "2026-06-17 02:00:00",
+   "summary": "health event severity critical 2026-04-05 13:00:00..2026-04-05 14:00:00: Brief critical health blip on Cohort Engine: elevated error rate for 60 minutes."
+  },
+  "EVIDENCE_GJM": {
+   "alias": "EVIDENCE_GJM",
+   "canonical_id": "SHE02030",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 9,
+   "first_observed_clock": "2026-06-17 02:00:00",
+   "summary": "health event severity minor 2026-03-23 23:28:00..2026-03-23 23:43:00: Automated health check flagged Cohort Engine as degraded (minor) for 15 minutes."
+  },
+  "EVIDENCE_XQQ": {
+   "alias": "EVIDENCE_XQQ",
+   "canonical_id": "SHE02036",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 9,
+   "first_observed_clock": "2026-06-17 02:00:00",
+   "summary": "health event severity minor 2026-03-22 02:39:00..2026-03-22 02:54:00: minor latency spike observed on Cohort Engine, self-resolved after 15 minutes."
+  },
+  "EVIDENCE_DTN": {
+   "alias": "EVIDENCE_DTN",
+   "canonical_id": "SHE02032",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 9,
+   "first_observed_clock": "2026-06-17 02:00:00",
+   "summary": "health event severity critical 2026-03-02 03:45:00..2026-03-02 04:15:00: critical latency spike observed on Cohort Engine, self-resolved after 30 minutes."
+  },
+  "EVIDENCE_XCC": {
+   "alias": "EVIDENCE_XCC",
+   "canonical_id": "SHE02033",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 9,
+   "first_observed_clock": "2026-06-17 02:00:00",
+   "summary": "health event severity critical 2026-01-06 11:03:00..2026-01-06 11:48:00: Automated health check flagged Cohort Engine as degraded (critical) for 45 minutes."
+  },
+  "EVIDENCE_GRL": {
+   "alias": "EVIDENCE_GRL",
+   "canonical_id": "SHE02035",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 9,
+   "first_observed_clock": "2026-06-17 02:00:00",
+   "summary": "health event severity minor 2025-11-28 00:46:00..2025-11-28 01:31:00: Transient minor availability dip on Cohort Engine, recovered within 45 minutes."
+  },
+  "EVIDENCE_JVL": {
+   "alias": "EVIDENCE_JVL",
+   "canonical_id": "SHE02039",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 9,
+   "first_observed_clock": "2026-06-17 02:00:00",
+   "summary": "health event severity minor 2025-10-24 12:51:00..2025-10-24 13:36:00: minor latency spike observed on Cohort Engine, self-resolved after 45 minutes."
+  },
+  "EVIDENCE_RRN": {
+   "alias": "EVIDENCE_RRN",
+   "canonical_id": "SHE02041",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 9,
+   "first_observed_clock": "2026-06-17 02:00:00",
+   "summary": "health event severity minor 2025-10-06 18:58:00..2025-10-06 19:08:00: Transient minor availability dip on Cohort Engine, recovered within 10 minutes."
+  }
+ },
+ "validation_result": {
+  "first_pass_ok": true,
+  "errors_first": [],
+  "repair_used": false,
+  "final_ok": true,
+  "errors_final": []
+ },
+ "contract_failure": null,
+ "llm_calls": [
+  {
+   "phase": "action",
+   "step": 2,
+   "attempt": 0,
+   "prompt_tokens": 1265,
+   "completion_tokens": 154,
+   "latency_ms": 7970.4,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Network issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"Database query performance issue\", \"confidence\": 0.3, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"Caching mechanism issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_customer_deployment\", \"component\": null, \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 3,
+   "attempt": 0,
+   "prompt_tokens": 2506,
+   "completion_tokens": 157,
+   "latency_ms": 15702.3,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Network issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"Database query performance issue\", \"confidence\": 0.3, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"Caching mechanism issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_component_topology\", \"component\": \"COMPONENT_QMH\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 4,
+   "attempt": 0,
+   "prompt_tokens": 1844,
+   "completion_tokens": 159,
+   "latency_ms": 26939.8,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Network issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"Database query performance issue\", \"confidence\": 0.3, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"Caching mechanism issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_technical_signals\", \"component\": \"COMPONENT_QMH\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 5,
+   "attempt": 0,
+   "prompt_tokens": 1708,
+   "completion_tokens": 158,
+   "latency_ms": 29435.3,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Network issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"Database query performance issue\", \"confidence\": 0.3, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"Caching mechanism issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_telemetry\", \"component\": \"COMPONENT_QMH\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 6,
+   "attempt": 0,
+   "prompt_tokens": 1743,
+   "completion_tokens": 159,
+   "latency_ms": 11302.2,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Network issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"Database query performance issue\", \"confidence\": 0.3, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"Caching mechanism issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_telemetry\", \"component\": \"COMPONENT_QMH\", \"metric_category\": \"Application\", \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 7,
+   "attempt": 0,
+   "prompt_tokens": 1747,
+   "completion_tokens": 159,
+   "latency_ms": 19514.6,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Network issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"Database query performance issue\", \"confidence\": 0.3, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"Caching mechanism issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_technical_signals\", \"component\": \"COMPONENT_LRV\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 8,
+   "attempt": 0,
+   "prompt_tokens": 1762,
+   "completion_tokens": 157,
+   "latency_ms": 42572.1,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Network issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"Database query performance issue\", \"confidence\": 0.3, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"Caching mechanism issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_recent_changes\", \"component\": \"COMPONENT_QMH\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 9,
+   "attempt": 0,
+   "prompt_tokens": 1776,
+   "completion_tokens": 157,
+   "latency_ms": 6300.0,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Network issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"Database query performance issue\", \"confidence\": 0.3, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"Caching mechanism issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_service_health\", \"component\": \"COMPONENT_QMH\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 10,
+   "attempt": 0,
+   "prompt_tokens": 2885,
+   "completion_tokens": 153,
+   "latency_ms": 5649.1,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Network issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"Database query performance issue\", \"confidence\": 0.3, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"Caching mechanism issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"submit_diagnosis\", \"component\": null, \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "final",
+   "step": 10,
+   "attempt": 0,
+   "prompt_tokens": 2958,
+   "completion_tokens": 397,
+   "latency_ms": 48460.8,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Database query performance issue\", \"confidence\": 0.3, \"status\": \"active\", \"supporting_evidence\": [\"EVIDENCE_GCJ\", \"EVIDENCE_GJM\", \"EVIDENCE_XQQ\", \"EVIDENCE_DTN\", \"EVIDENCE_XCC\", \"EVIDENCE_GRL\", \"EVIDENCE_JVL\", \"EVIDENCE_RRN\"], \"contradicting_evidence\": []}], \"evidence_ids\": [\"EVIDENCE_GCJ\", \"EVIDENCE_GJM\", \"EVIDENCE_XQQ\", \"EVIDENCE_DTN\", \"EVIDENCE_XCC\", \"EVIDENCE_GRL\", \"EVIDENCE_JVL\", \"EVIDENCE_RRN\"], \"issue_category\": \"CATEGORY_TND\", \"category_confidence\": 0.3, \"root_cause\": \"CAUSE_TMD\", \"root_cause_confidence\": 0.2, \"affected_component\": \"COMPONENT_QMH\", \"component_confidence\": 0.3, \"causal_change\": null, \"causal_change_confidence\": null, \"owning_team\": \"TEAM_PSD\", \"routing_confidence\": 0.3, \"confidence\": 0.3, \"evidence_sufficiency\": \"sufficient\", \"human_review_required\": false, \"review_reason\": null, \"status\": \"DIAGNOSIS_PROPOSED\", \"recommended_next_action\": \"Investigate database query performance on COMPONENT_QMH\", \"unresolved_uncertainties\": [\"Network issue\", \"Caching mechanism issue\"], \"summary\": \"The investigation suggests a database query performance issue on COMPONENT_QMH, which is owned by TEAM_PSD. The evidence points to a potential resource exhaustion issue (CAUSE_TMD). Further investigation is recommended to confirm the root cause and identify the causal change.\"}"
+  }
+ ]
+}

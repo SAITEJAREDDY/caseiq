@@ -1,0 +1,296 @@
+{
+  "run_id": "run_CS01447_20260924T003814Z_6c773dff",
+  "case_id": "CS01447",
+  "created_at": "2026-09-24T00:38:14.147230+00:00",
+  "model_provider": "together",
+  "model_name": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "temperature": 0.1,
+  "prompt_version": "v1",
+  "toolset_version": "v1",
+  "output_schema_version": "v1",
+  "agent_loop_version": "v1",
+  "repair_layer_version": "v1",
+  "graph_version": "phase4-2500case-2026-09-22",
+  "sim_clock_step_minutes": 15,
+  "max_tool_calls": 10,
+  "max_repeated_same_tool": 2,
+  "stop_reason": "model_submitted",
+  "num_tool_calls": 7,
+  "num_llm_calls": 7,
+  "token_usage": {
+    "prompt_tokens": 13239,
+    "completion_tokens": 744,
+    "total_tokens": 13983
+  },
+  "approx_cost_usd": 0.001398,
+  "approx_cost_note": "Estimated from a configurable placeholder rate, not exact provider billing -- see config.py",
+  "trace_steps": [
+    {
+      "step": 1,
+      "sim_clock": "2024-12-19 00:00:00",
+      "tool_name": "get_case_context",
+      "args": {
+        "hypotheses": [],
+        "rationale": "Starting the investigation of case CS01447"
+      },
+      "hypotheses": [],
+      "rationale": "Starting the investigation of case CS01447",
+      "result_summary": {
+        "case_id": "CS01447",
+        "title": "Certificate expired warning appearing during sandbox payments",
+        "description": "We are receiving 'certificate expired' or 'invalid certificate' warnings when processing payments through the Payment Gateway v2 in our US-East sandbox environment. This is happening for our QA team (20 users) and is causing transaction failures or strict validation errors. We have verified that our client-side certificates are valid and within their expiration dates. This seems to be an issue with the gateway's endpoint certificate or the chain of trust. Please check the SSL/TLS configuration on the sandbox endpoints.",
+        "environment": "sandbox",
+        "region": "US-East",
+        "reported_business_impact": "moderate",
+        "reported_affected_users": 20,
+        "priority": "medium",
+        "created_date": "2024-12-19",
+        "status": "resolved",
+        "customer_id": "C02716",
+        "customer_tier": "gold",
+        "customer_industry": "Public Sector",
+        "customer_company_size": "small",
+        "reported_product_id": "P001",
+        "reported_product_name": "Payment Gateway v2",
+        "reported_symptoms": [
+          "certificate expired warning"
+        ]
+      },
+      "latency_ms": 1198.9,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 2,
+      "sim_clock": "2024-12-19 00:15:00",
+      "tool_name": "get_system_logs",
+      "args": {
+        "case_id": "CS01447",
+        "start_time": "2024-12-19 00:00:00",
+        "end_time": "2024-12-19 23:59:59",
+        "hypotheses": [
+          "certificate_expiration:0.8",
+          "ssl_tls_configuration_issue:0.2"
+        ],
+        "rationale": "To investigate the certificate expiration warning, we need to check the system logs for any errors or warnings related to certificate validation or SSL/TLS configuration."
+      },
+      "hypotheses": [
+        "certificate_expiration:0.8",
+        "ssl_tls_configuration_issue:0.2"
+      ],
+      "rationale": "To investigate the certificate expiration warning, we need to check the system logs for any errors or warnings related to certificate validation or SSL/TLS configuration.",
+      "result_summary": {
+        "error": "unknown tool 'get_system_logs'. Valid tools are: ['get_active_incidents', 'get_agent_availability', 'get_case_context', 'get_component_topology', 'get_configuration_history', 'get_customer_deployment', 'get_deployment_history', 'get_recent_changes', 'get_service_health', 'get_similar_cases', 'get_team_capability', 'get_technical_signals', 'get_telemetry', 'search_knowledge_base', 'submit_diagnosis']"
+      },
+      "latency_ms": 2608.5,
+      "status": "error",
+      "redundant": false
+    },
+    {
+      "step": 3,
+      "sim_clock": "2024-12-19 00:30:00",
+      "tool_name": "get_service_health",
+      "args": {
+        "case_id": "CS01447",
+        "service_name": "Payment Gateway v2",
+        "hypotheses": [
+          "certificate_expiration:0.8",
+          "ssl_tls_configuration_issue:0.2"
+        ],
+        "rationale": "To investigate the certificate expiration warning, we need to check the service health of the Payment Gateway v2 to see if there are any known issues or outages that could be causing the problem."
+      },
+      "hypotheses": [
+        "certificate_expiration:0.8",
+        "ssl_tls_configuration_issue:0.2"
+      ],
+      "rationale": "To investigate the certificate expiration warning, we need to check the service health of the Payment Gateway v2 to see if there are any known issues or outages that could be causing the problem.",
+      "result_summary": {
+        "error": "1 validation error for ComponentScopedArgs\ncomponent_id\n  Field required [type=missing, input_value={'case_id': 'CS01447', 's...e causing the problem.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      },
+      "latency_ms": 1930.9,
+      "status": "error",
+      "redundant": false
+    },
+    {
+      "step": 4,
+      "sim_clock": "2024-12-19 00:45:00",
+      "tool_name": "get_service_health",
+      "args": {
+        "case_id": "CS01447",
+        "service_name": "Payment Gateway v2",
+        "component_id": "P001",
+        "hypotheses": [
+          "certificate_expiration:0.8",
+          "ssl_tls_configuration_issue:0.2"
+        ],
+        "rationale": "To investigate the certificate expiration warning, we need to check the service health of the Payment Gateway v2 to see if there are any known issues or outages that could be causing the problem."
+      },
+      "hypotheses": [
+        "certificate_expiration:0.8",
+        "ssl_tls_configuration_issue:0.2"
+      ],
+      "rationale": "To investigate the certificate expiration warning, we need to check the service health of the Payment Gateway v2 to see if there are any known issues or outages that could be causing the problem.",
+      "result_summary": {
+        "health_events": [],
+        "count": 0
+      },
+      "latency_ms": 2169.6,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 5,
+      "sim_clock": "2024-12-19 01:00:00",
+      "tool_name": "get_recent_changes",
+      "args": {
+        "case_id": "CS01447",
+        "component_id": "P001",
+        "hypotheses": [
+          "certificate_expiration:0.8",
+          "ssl_tls_configuration_issue:0.2"
+        ],
+        "rationale": "To investigate the certificate expiration warning, we need to check for any recent changes to the Payment Gateway v2 that could be causing the problem."
+      },
+      "hypotheses": [
+        "certificate_expiration:0.8",
+        "ssl_tls_configuration_issue:0.2"
+      ],
+      "rationale": "To investigate the certificate expiration warning, we need to check for any recent changes to the Payment Gateway v2 that could be causing the problem.",
+      "result_summary": {
+        "recent_changes": [],
+        "count": 0
+      },
+      "latency_ms": 2664.8,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 6,
+      "sim_clock": "2024-12-19 01:15:00",
+      "tool_name": "get_telemetry",
+      "args": {
+        "case_id": "CS01447",
+        "component_id": "P001",
+        "metric": "connection_errors",
+        "hypotheses": [
+          "certificate_expiration:0.8",
+          "ssl_tls_configuration_issue:0.2"
+        ],
+        "rationale": "To investigate the certificate expiration warning, we need to check the telemetry data for the Payment Gateway v2 to see if there are any connection errors that could be related to the problem."
+      },
+      "hypotheses": [
+        "certificate_expiration:0.8",
+        "ssl_tls_configuration_issue:0.2"
+      ],
+      "rationale": "To investigate the certificate expiration warning, we need to check the telemetry data for the Payment Gateway v2 to see if there are any connection errors that could be related to the problem.",
+      "result_summary": {
+        "available_metric_categories": [],
+        "note": "Call again with one of these metric_category values to see actual readings."
+      },
+      "latency_ms": 2312.3,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 7,
+      "sim_clock": "2024-12-19 01:30:00",
+      "tool_name": "submit_diagnosis",
+      "args": {
+        "case_id": "CS01447",
+        "hypotheses": [
+          {
+            "label": "certificate_expiration",
+            "confidence": 0.8,
+            "supporting_evidence_ids": [],
+            "contradicting_evidence_ids": [],
+            "status": "unconfirmed"
+          },
+          {
+            "label": "ssl_tls_configuration_issue",
+            "confidence": 0.2,
+            "supporting_evidence_ids": [],
+            "contradicting_evidence_ids": [],
+            "status": "unconfirmed"
+          }
+        ],
+        "evidence_sufficiency": "insufficient",
+        "human_review_required": true,
+        "recommended_next_action": "Request additional information from the customer",
+        "rationale": "The investigation did not yield sufficient evidence to confirm or rule out the hypotheses. Additional information is needed to further investigate the case."
+      },
+      "hypotheses": [
+        {
+          "label": "certificate_expiration",
+          "confidence": 0.8,
+          "supporting_evidence_ids": [],
+          "contradicting_evidence_ids": [],
+          "status": "unconfirmed"
+        },
+        {
+          "label": "ssl_tls_configuration_issue",
+          "confidence": 0.2,
+          "supporting_evidence_ids": [],
+          "contradicting_evidence_ids": [],
+          "status": "unconfirmed"
+        }
+      ],
+      "rationale": "The investigation did not yield sufficient evidence to confirm or rule out the hypotheses. Additional information is needed to further investigate the case.",
+      "result_summary": "submitted",
+      "latency_ms": 5553.8,
+      "status": "ok",
+      "redundant": false
+    }
+  ],
+  "final_diagnosis": {
+    "hypotheses": [
+      {
+        "label": "certificate_expiration",
+        "description": "",
+        "confidence": 0.8,
+        "supporting_evidence": [],
+        "contradicting_evidence": [],
+        "status": "active"
+      },
+      {
+        "label": "ssl_tls_configuration_issue",
+        "description": "",
+        "confidence": 0.2,
+        "supporting_evidence": [],
+        "contradicting_evidence": [],
+        "status": "active"
+      }
+    ],
+    "rationale": "The investigation did not yield sufficient evidence to confirm or rule out the hypotheses. Additional information is needed to further investigate the case.",
+    "predicted_product_id": null,
+    "product_confidence": null,
+    "predicted_component_id": null,
+    "component_confidence": null,
+    "predicted_category_id": null,
+    "category_confidence": null,
+    "predicted_subcategory_id": null,
+    "predicted_root_cause_family": null,
+    "root_cause_confidence": null,
+    "predicted_causal_change_id": null,
+    "causal_change_confidence": null,
+    "predicted_severity": null,
+    "severity_confidence": null,
+    "recommended_team_id": null,
+    "routing_confidence": null,
+    "evidence_sufficiency": "insufficient",
+    "overall_confidence": 0.8,
+    "recommended_next_action": "Request additional information from the customer",
+    "human_review_required": true,
+    "human_review_reason": null,
+    "evidence_summary": "The investigation did not yield sufficient evidence to confirm or rule out the hypotheses. Additional information is needed to further investigate the case.",
+    "unresolved_uncertainties": []
+  },
+  "citation_violations": [],
+  "evidence_ids_seen": [],
+  "repair_events": [
+    {
+      "step": 7,
+      "kind": "final_diagnosis_repair",
+      "detail": "direct validation failed (4 validation errors for FinalDiagnosis\nhypotheses.0.status\n  Input should be 'active', 'rejected' or 'confirmed' [type=literal_error, input_value='unconfirmed', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/literal_error\nhypotheses.1.status\n  Input should be 'active', 'rejected' or 'confirmed' [type=literal_error, input_value='unconfirmed', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/literal_error\noverall_confidence\n  Field required [type=missing, input_value={'case_id': 'CS01447', 'h... investigate the case.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\nevidence_summary\n  Field required [type=missing, input_value={'case_id': 'CS01447', 'h... investigate the case.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing); repaired args validated"
+    }
+  ]
+}

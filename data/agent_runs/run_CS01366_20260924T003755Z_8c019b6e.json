@@ -1,0 +1,567 @@
+{
+  "run_id": "run_CS01366_20260924T003755Z_8c019b6e",
+  "case_id": "CS01366",
+  "created_at": "2026-09-24T00:37:55.230357+00:00",
+  "model_provider": "together",
+  "model_name": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "temperature": 0.1,
+  "prompt_version": "v1",
+  "toolset_version": "v1",
+  "output_schema_version": "v1",
+  "agent_loop_version": "v1",
+  "repair_layer_version": "v1",
+  "graph_version": "phase4-2500case-2026-09-22",
+  "sim_clock_step_minutes": 15,
+  "max_tool_calls": 10,
+  "max_repeated_same_tool": 2,
+  "stop_reason": "model_submitted",
+  "num_tool_calls": 7,
+  "num_llm_calls": 7,
+  "token_usage": {
+    "prompt_tokens": 16730,
+    "completion_tokens": 544,
+    "total_tokens": 17274
+  },
+  "approx_cost_usd": 0.001727,
+  "approx_cost_note": "Estimated from a configurable placeholder rate, not exact provider billing -- see config.py",
+  "trace_steps": [
+    {
+      "step": 1,
+      "sim_clock": "2026-02-11 00:00:00",
+      "tool_name": "get_case_context",
+      "args": {
+        "hypotheses": [],
+        "rationale": "Starting the investigation of case CS01366"
+      },
+      "hypotheses": [],
+      "rationale": "Starting the investigation of case CS01366",
+      "result_summary": {
+        "case_id": "CS01366",
+        "title": "SSO Lockouts and Audit Gaps - We are sure this is a firewall misconfiguration",
+        "description": "We are seeing a high volume of account lockouts for our users in the LATAM region. Additionally, the audit logs are missing entries for these events and we are getting certificate warnings when trying to establish connections. 871 users are currently blocked. We have checked the internal services and everything looks fine on that side. This is definitely a firewall misconfiguration blocking the traffic or modifying the headers incorrectly. Please investigate the network edge immediately.",
+        "environment": "production",
+        "region": "LATAM",
+        "reported_business_impact": "high",
+        "reported_affected_users": 871,
+        "priority": "high",
+        "created_date": "2026-02-11",
+        "status": "escalated",
+        "customer_id": "C01555",
+        "customer_tier": "gold",
+        "customer_industry": "Logistics & Transportation",
+        "customer_company_size": "enterprise",
+        "reported_product_id": "P002",
+        "reported_product_name": "SSO Integration Module",
+        "reported_symptoms": [
+          "certificate warning",
+          "account locked out",
+          "audit log missing entries"
+        ]
+      },
+      "latency_ms": 2527.3,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 2,
+      "sim_clock": "2026-02-11 00:15:00",
+      "tool_name": "get_customer_info",
+      "args": {
+        "customer_id": "C01555",
+        "hypotheses": [
+          "firewall_misconfiguration:0.8",
+          "certificate_issue:0.2"
+        ],
+        "rationale": "Gathering more information about the customer to understand their setup and potential causes of the issue"
+      },
+      "hypotheses": [
+        "firewall_misconfiguration:0.8",
+        "certificate_issue:0.2"
+      ],
+      "rationale": "Gathering more information about the customer to understand their setup and potential causes of the issue",
+      "result_summary": {
+        "error": "unknown tool 'get_customer_info'. Valid tools are: ['get_active_incidents', 'get_agent_availability', 'get_case_context', 'get_component_topology', 'get_configuration_history', 'get_customer_deployment', 'get_deployment_history', 'get_recent_changes', 'get_service_health', 'get_similar_cases', 'get_team_capability', 'get_technical_signals', 'get_telemetry', 'search_knowledge_base', 'submit_diagnosis']"
+      },
+      "latency_ms": 2747.6,
+      "status": "error",
+      "redundant": false
+    },
+    {
+      "step": 3,
+      "sim_clock": "2026-02-11 00:30:00",
+      "tool_name": "get_customer_deployment",
+      "args": {
+        "customer_id": "C01555",
+        "hypotheses": [
+          "firewall_misconfiguration:0.8",
+          "certificate_issue:0.2"
+        ],
+        "rationale": "Understanding the customer's deployment to identify potential issues"
+      },
+      "hypotheses": [
+        "firewall_misconfiguration:0.8",
+        "certificate_issue:0.2"
+      ],
+      "rationale": "Understanding the customer's deployment to identify potential issues",
+      "result_summary": {
+        "deployments": [
+          {
+            "product_id": "P011",
+            "product_name": "Billing Disputes Handler",
+            "version": "1.0",
+            "environment": "staging",
+            "region": "ME",
+            "status": "active",
+            "deployed_at": "2026-08-26",
+            "product_components": [
+              "CM049",
+              "CM056",
+              "CM068",
+              "CM073",
+              "CM074",
+              "CM075",
+              "CM086",
+              "CM227"
+            ]
+          },
+          {
+            "product_id": "P034",
+            "product_name": "Queue Manager",
+            "version": "2.1",
+            "environment": "staging",
+            "region": "ME",
+            "status": "active",
+            "deployed_at": "2026-08-12",
+            "product_components": [
+              "CM131",
+              "CM135",
+              "CM138",
+              "CM142",
+              "CM149",
+              "CM152",
+              "CM161",
+              "CM169"
+            ]
+          },
+          {
+            "product_id": "P018",
+            "product_name": "KPI Tracker",
+            "version": "1.4",
+            "environment": "production",
+            "region": "ME",
+            "status": "active",
+            "deployed_at": "2026-08-11",
+            "product_components": [
+              "CM091",
+              "CM092",
+              "CM099",
+              "CM103",
+              "CM106",
+              "CM108",
+              "CM116",
+              "CM125"
+            ]
+          },
+          {
+            "product_id": "P018",
+            "product_name": "KPI Tracker",
+            "version": "1.4",
+            "environment": "sandbox",
+            "region": "ME",
+            "status": "active",
+            "deployed_at": "2026-07-05",
+            "product_components": [
+              "CM091",
+              "CM092",
+              "CM099",
+              "CM103",
+              "CM106",
+              "CM108",
+              "CM116",
+              "CM125"
+            ]
+          },
+          {
+            "product_id": "P011",
+            "product_name": "Billing Disputes Handler",
+            "version": "1.0",
+            "environment": "production",
+            "region": "ME",
+            "status": "active",
+            "deployed_at": "2026-06-16",
+            "product_components": [
+              "CM049",
+              "CM056",
+              "CM068",
+              "CM073",
+              "CM074",
+              "CM075",
+              "CM086",
+              "CM227"
+            ]
+          },
+          {
+            "product_id": "P024",
+            "product_name": "Rate Limiter",
+            "version": "2.0",
+            "environment": "production",
+            "region": "ME",
+            "status": "active",
+            "deployed_at": "2026-06-08",
+            "product_components": [
+              "CM136",
+              "CM141",
+              "CM142",
+              "CM144",
+              "CM150",
+              "CM154",
+              "CM158",
+              "CM159"
+            ]
+          },
+          {
+            "product_id": "P034",
+            "product_name": "Queue Manager",
+            "version": "2.1",
+            "environment": "production",
+            "region": "ME",
+            "status": "active",
+            "deployed_at": "2026-05-20",
+            "product_components": [
+              "CM131",
+              "CM135",
+              "CM138",
+              "CM142",
+              "CM149",
+              "CM152",
+              "CM161",
+              "CM169"
+            ]
+          },
+          {
+            "product_id": "P003",
+            "product_name": "Analytics Dashboard",
+            "version": "1.1",
+            "environment": "production",
+            "region": "ME",
+            "status": "active",
+            "deployed_at": "2026-05-03",
+            "product_components": [
+              "CM095",
+              "CM098",
+              "CM100",
+              "CM106",
+              "CM114",
+              "CM120",
+              "CM229",
+              "CM236"
+            ]
+          }
+        ]
+      },
+      "latency_ms": 2671.9,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 4,
+      "sim_clock": "2026-02-11 00:45:00",
+      "tool_name": "get_component_topology",
+      "args": {
+        "product_id": "P002",
+        "hypotheses": [
+          "firewall_misconfiguration:0.8",
+          "certificate_issue:0.2"
+        ],
+        "rationale": "Understanding the component topology of the SSO Integration Module to identify potential issues"
+      },
+      "hypotheses": [
+        "firewall_misconfiguration:0.8",
+        "certificate_issue:0.2"
+      ],
+      "rationale": "Understanding the component topology of the SSO Integration Module to identify potential issues",
+      "result_summary": {
+        "error": "1 validation error for ComponentScopedArgs\ncomponent_id\n  Field required [type=missing, input_value={'product_id': 'P002', 'h...ntify potential issues'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      },
+      "latency_ms": 1795.1,
+      "status": "error",
+      "redundant": false
+    },
+    {
+      "step": 5,
+      "sim_clock": "2026-02-11 01:00:00",
+      "tool_name": "get_component_topology",
+      "args": {
+        "component_id": "CM227",
+        "hypotheses": [
+          "firewall_misconfiguration:0.8",
+          "certificate_issue:0.2"
+        ],
+        "rationale": "Understanding the component topology of the SSO Integration Module to identify potential issues"
+      },
+      "hypotheses": [
+        "firewall_misconfiguration:0.8",
+        "certificate_issue:0.2"
+      ],
+      "rationale": "Understanding the component topology of the SSO Integration Module to identify potential issues",
+      "result_summary": {
+        "component_id": "CM227",
+        "component_name": "Global API Gateway",
+        "upstream_dependencies": [
+          {
+            "name": "Step-Up Authentication Service",
+            "id": "CM030"
+          },
+          {
+            "name": "Trusted Device Manager",
+            "id": "CM039"
+          },
+          {
+            "name": "Payment Gateway Router",
+            "id": "CM082"
+          },
+          {
+            "name": "Backup & Restore Service",
+            "id": "CM150"
+          },
+          {
+            "name": "Database Connection Pooler",
+            "id": "CM153"
+          },
+          {
+            "name": "DNS Resolution Service",
+            "id": "CM234"
+          },
+          {
+            "name": "File Storage Service",
+            "id": "CM240"
+          },
+          {
+            "name": "Vendor Integration Hub",
+            "id": "CM250"
+          }
+        ],
+        "downstream_dependents": [
+          {
+            "name": "Session Store",
+            "id": "CM009"
+          },
+          {
+            "name": "Login Analytics Service",
+            "id": "CM037"
+          },
+          {
+            "name": "Job Scheduler",
+            "id": "CM100"
+          },
+          {
+            "name": "Embedding Service",
+            "id": "CM108"
+          },
+          {
+            "name": "Dashboard Sharing Service",
+            "id": "CM118"
+          },
+          {
+            "name": "Report Subscription Service",
+            "id": "CM119"
+          },
+          {
+            "name": "Health Monitor",
+            "id": "CM140"
+          },
+          {
+            "name": "Circuit Breaker",
+            "id": "CM142"
+          },
+          {
+            "name": "Log Aggregator",
+            "id": "CM145"
+          },
+          {
+            "name": "Metrics Pipeline",
+            "id": "CM146"
+          },
+          {
+            "name": "Backup & Restore Service",
+            "id": "CM150"
+          },
+          {
+            "name": "Database Connection Pooler",
+            "id": "CM153"
+          },
+          {
+            "name": "Job Queue Worker Pool",
+            "id": "CM156"
+          },
+          {
+            "name": "Disaster Recovery Orchestrator",
+            "id": "CM166"
+          },
+          {
+            "name": "Time-Series Metrics Store",
+            "id": "CM168"
+          },
+          {
+            "name": "Chat Widget",
+            "id": "CM178"
+          },
+          {
+            "name": "Print/Export View Renderer",
+            "id": "CM203"
+          },
+          {
+            "name": "Template Rendering Service",
+            "id": "CM214"
+          },
+          {
+            "name": "Global Cache Layer",
+            "id": "CM233"
+          },
+          {
+            "name": "CDN Edge Layer",
+            "id": "CM243"
+          }
+        ],
+        "external_dependencies": [],
+        "owning_teams": [
+          {
+            "name": "Integration",
+            "id": "TM13"
+          },
+          {
+            "name": "Developer Platform / API",
+            "id": "TM14"
+          }
+        ]
+      },
+      "latency_ms": 1799.7,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 6,
+      "sim_clock": "2026-02-11 01:15:00",
+      "tool_name": "get_recent_changes",
+      "args": {
+        "hypotheses": [
+          "firewall_misconfiguration:0.8",
+          "certificate_issue:0.2"
+        ],
+        "rationale": "Checking for recent changes that may have caused the issue"
+      },
+      "hypotheses": [
+        "firewall_misconfiguration:0.8",
+        "certificate_issue:0.2"
+      ],
+      "rationale": "Checking for recent changes that may have caused the issue",
+      "result_summary": {
+        "recent_changes": [],
+        "count": 0
+      },
+      "latency_ms": 1329.1,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 7,
+      "sim_clock": "2026-02-11 01:30:00",
+      "tool_name": "submit_diagnosis",
+      "args": {
+        "hypotheses": [
+          {
+            "label": "firewall_misconfiguration",
+            "confidence": 0.8,
+            "supporting_evidence_ids": [],
+            "contradicting_evidence_ids": [],
+            "status": "unconfirmed"
+          },
+          {
+            "label": "certificate_issue",
+            "confidence": 0.2,
+            "supporting_evidence_ids": [],
+            "contradicting_evidence_ids": [],
+            "status": "unconfirmed"
+          }
+        ],
+        "evidence_sufficiency": "insufficient",
+        "human_review_required": true,
+        "recommended_next_action": "Inspect firewall configuration and certificate settings",
+        "rationale": "Based on the customer's report and the information gathered, the issue is likely related to firewall misconfiguration or certificate issues, but the evidence is insufficient to confirm the root cause"
+      },
+      "hypotheses": [
+        {
+          "label": "firewall_misconfiguration",
+          "confidence": 0.8,
+          "supporting_evidence_ids": [],
+          "contradicting_evidence_ids": [],
+          "status": "unconfirmed"
+        },
+        {
+          "label": "certificate_issue",
+          "confidence": 0.2,
+          "supporting_evidence_ids": [],
+          "contradicting_evidence_ids": [],
+          "status": "unconfirmed"
+        }
+      ],
+      "rationale": "Based on the customer's report and the information gathered, the issue is likely related to firewall misconfiguration or certificate issues, but the evidence is insufficient to confirm the root cause",
+      "result_summary": "submitted",
+      "latency_ms": 4279.0,
+      "status": "ok",
+      "redundant": false
+    }
+  ],
+  "final_diagnosis": {
+    "hypotheses": [
+      {
+        "label": "firewall_misconfiguration",
+        "description": "",
+        "confidence": 0.8,
+        "supporting_evidence": [],
+        "contradicting_evidence": [],
+        "status": "active"
+      },
+      {
+        "label": "certificate_issue",
+        "description": "",
+        "confidence": 0.2,
+        "supporting_evidence": [],
+        "contradicting_evidence": [],
+        "status": "active"
+      }
+    ],
+    "rationale": "Based on the customer's report and the information gathered, the issue is likely related to firewall misconfiguration or certificate issues, but the evidence is insufficient to confirm the root cause",
+    "predicted_product_id": null,
+    "product_confidence": null,
+    "predicted_component_id": null,
+    "component_confidence": null,
+    "predicted_category_id": null,
+    "category_confidence": null,
+    "predicted_subcategory_id": null,
+    "predicted_root_cause_family": null,
+    "root_cause_confidence": null,
+    "predicted_causal_change_id": null,
+    "causal_change_confidence": null,
+    "predicted_severity": null,
+    "severity_confidence": null,
+    "recommended_team_id": null,
+    "routing_confidence": null,
+    "evidence_sufficiency": "insufficient",
+    "overall_confidence": 0.8,
+    "recommended_next_action": "Inspect firewall configuration and certificate settings",
+    "human_review_required": true,
+    "human_review_reason": null,
+    "evidence_summary": "Based on the customer's report and the information gathered, the issue is likely related to firewall misconfiguration or certificate issues, but the evidence is insufficient to confirm the root cause",
+    "unresolved_uncertainties": []
+  },
+  "citation_violations": [],
+  "evidence_ids_seen": [],
+  "repair_events": [
+    {
+      "step": 7,
+      "kind": "final_diagnosis_repair",
+      "detail": "direct validation failed (4 validation errors for FinalDiagnosis\nhypotheses.0.status\n  Input should be 'active', 'rejected' or 'confirmed' [type=literal_error, input_value='unconfirmed', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/literal_error\nhypotheses.1.status\n  Input should be 'active', 'rejected' or 'confirmed' [type=literal_error, input_value='unconfirmed', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/literal_error\noverall_confidence\n  Field required [type=missing, input_value={'hypotheses': [{'label':...confirm the root cause\"}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\nevidence_summary\n  Field required [type=missing, input_value={'hypotheses': [{'label':...confirm the root cause\"}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing); repaired args validated"
+    }
+  ]
+}

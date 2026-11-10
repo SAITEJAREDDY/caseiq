@@ -1,0 +1,111 @@
+{
+  "split_version": "v1",
+  "generated_at": "2026-09-23T06:33:32.587287+00:00",
+  "seed": 20260923,
+  "proportions": {
+    "dev": 0.4,
+    "validation": 0.3,
+    "test": 0.3
+  },
+  "stratification_key": "difficulty_archetype|evidence_sufficiency",
+  "num_cases": 2500,
+  "overall_counts": {
+    "dev": 999,
+    "validation": 750,
+    "test": 751
+  },
+  "per_stratum_counts": {
+    "clear|sufficient": {
+      "dev": 514,
+      "validation": 386,
+      "test": 385
+    },
+    "wrong_product_mentioned|sufficient": {
+      "dev": 79,
+      "validation": 59,
+      "test": 60
+    },
+    "customer_misdiagnosis|sufficient": {
+      "dev": 120,
+      "validation": 90,
+      "test": 89
+    },
+    "multi_component_symptoms|sufficient": {
+      "dev": 64,
+      "validation": 48,
+      "test": 47
+    },
+    "vague|sufficient": {
+      "dev": 110,
+      "validation": 82,
+      "test": 82
+    },
+    "clear|partially_sufficient": {
+      "dev": 28,
+      "validation": 21,
+      "test": 22
+    },
+    "vague|partially_sufficient": {
+      "dev": 6,
+      "validation": 4,
+      "test": 5
+    },
+    "customer_misdiagnosis|partially_sufficient": {
+      "dev": 9,
+      "validation": 7,
+      "test": 7
+    },
+    "dependency_root_cause|sufficient": {
+      "dev": 43,
+      "validation": 32,
+      "test": 33
+    },
+    "clear|insufficient": {
+      "dev": 10,
+      "validation": 7,
+      "test": 7
+    },
+    "vague|insufficient": {
+      "dev": 2,
+      "validation": 2,
+      "test": 1
+    },
+    "customer_misdiagnosis|insufficient": {
+      "dev": 2,
+      "validation": 2,
+      "test": 2
+    },
+    "multi_component_symptoms|partially_sufficient": {
+      "dev": 4,
+      "validation": 3,
+      "test": 2
+    },
+    "wrong_product_mentioned|partially_sufficient": {
+      "dev": 4,
+      "validation": 3,
+      "test": 4
+    },
+    "dependency_root_cause|partially_sufficient": {
+      "dev": 2,
+      "validation": 2,
+      "test": 2
+    },
+    "wrong_product_mentioned|insufficient": {
+      "dev": 1,
+      "validation": 1,
+      "test": 1
+    },
+    "dependency_root_cause|insufficient": {
+      "dev": 1,
+      "validation": 1,
+      "test": 1
+    },
+    "multi_component_symptoms|insufficient": {
+      "dev": 0,
+      "validation": 0,
+      "test": 1
+    }
+  },
+  "locked": true,
+  "locked_note": "Do not regenerate without an explicit, documented reason -- prompt/tool/agent tuning must never be re-run against a changed split. See docs/EVALUATION_SPLITS.md."
+}

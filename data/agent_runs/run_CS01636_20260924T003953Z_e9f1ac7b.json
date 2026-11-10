@@ -1,0 +1,398 @@
+{
+  "run_id": "run_CS01636_20260924T003953Z_e9f1ac7b",
+  "case_id": "CS01636",
+  "created_at": "2026-09-24T00:39:53.230312+00:00",
+  "model_provider": "together",
+  "model_name": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "temperature": 0.1,
+  "prompt_version": "v1",
+  "toolset_version": "v1",
+  "output_schema_version": "v1",
+  "agent_loop_version": "v1",
+  "repair_layer_version": "v1",
+  "graph_version": "phase4-2500case-2026-09-22",
+  "sim_clock_step_minutes": 15,
+  "max_tool_calls": 10,
+  "max_repeated_same_tool": 2,
+  "stop_reason": "model_submitted",
+  "num_tool_calls": 7,
+  "num_llm_calls": 7,
+  "token_usage": {
+    "prompt_tokens": 13464,
+    "completion_tokens": 796,
+    "total_tokens": 14260
+  },
+  "approx_cost_usd": 0.001426,
+  "approx_cost_note": "Estimated from a configurable placeholder rate, not exact provider billing -- see config.py",
+  "trace_steps": [
+    {
+      "step": 1,
+      "sim_clock": "2025-12-24 00:00:00",
+      "tool_name": "get_case_context",
+      "args": {
+        "hypotheses": [],
+        "rationale": "Starting the investigation of case CS01636"
+      },
+      "hypotheses": [],
+      "rationale": "Starting the investigation of case CS01636",
+      "result_summary": {
+        "case_id": "CS01636",
+        "title": "Webhooks not firing from Analytics Dashboard in EU-Central production",
+        "description": "Hello support, we are experiencing an issue with our Analytics Dashboard in the EU-Central production environment. Since approximately 08:00 UTC today, the webhooks configured for our event tracking are not firing at all. This is affecting about 14 users who rely on this data for daily operations. Could you please investigate why the webhook triggers are failing?",
+        "environment": "production",
+        "region": "EU-Central",
+        "reported_business_impact": "moderate",
+        "reported_affected_users": 14,
+        "priority": "medium",
+        "created_date": "2025-12-24",
+        "status": "resolved",
+        "customer_id": "C03310",
+        "customer_tier": "silver",
+        "customer_industry": "SaaS / Technology",
+        "customer_company_size": "small",
+        "reported_product_id": "P003",
+        "reported_product_name": "Analytics Dashboard",
+        "reported_symptoms": [
+          "webhook not firing"
+        ]
+      },
+      "latency_ms": 1065.2,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 2,
+      "sim_clock": "2025-12-24 00:15:00",
+      "tool_name": "search_logs",
+      "args": {
+        "hypotheses": [
+          "webhook_configuration_issue:0.2",
+          "network_connectivity_issue:0.3",
+          "analytics_dashboard_bug:0.5"
+        ],
+        "start_time": "2025-12-24 08:00:00",
+        "end_time": "2025-12-24 12:00:00",
+        "query": "webhook AND (error OR fail)",
+        "rationale": "To investigate the issue of webhooks not firing from the Analytics Dashboard, we need to check the logs for any errors or failures related to webhooks during the time period when the issue started."
+      },
+      "hypotheses": [
+        "webhook_configuration_issue:0.2",
+        "network_connectivity_issue:0.3",
+        "analytics_dashboard_bug:0.5"
+      ],
+      "rationale": "To investigate the issue of webhooks not firing from the Analytics Dashboard, we need to check the logs for any errors or failures related to webhooks during the time period when the issue started.",
+      "result_summary": {
+        "error": "unknown tool 'search_logs'. Valid tools are: ['get_active_incidents', 'get_agent_availability', 'get_case_context', 'get_component_topology', 'get_configuration_history', 'get_customer_deployment', 'get_deployment_history', 'get_recent_changes', 'get_service_health', 'get_similar_cases', 'get_team_capability', 'get_technical_signals', 'get_telemetry', 'search_knowledge_base', 'submit_diagnosis']"
+      },
+      "latency_ms": 4400.4,
+      "status": "error",
+      "redundant": false
+    },
+    {
+      "step": 3,
+      "sim_clock": "2025-12-24 00:30:00",
+      "tool_name": "get_recent_changes",
+      "args": {
+        "hypotheses": [
+          "webhook_configuration_issue:0.2",
+          "network_connectivity_issue:0.3",
+          "analytics_dashboard_bug:0.5"
+        ],
+        "rationale": "To investigate the issue of webhooks not firing from the Analytics Dashboard, we need to check if there were any recent changes made to the system that could be causing the issue."
+      },
+      "hypotheses": [
+        "webhook_configuration_issue:0.2",
+        "network_connectivity_issue:0.3",
+        "analytics_dashboard_bug:0.5"
+      ],
+      "rationale": "To investigate the issue of webhooks not firing from the Analytics Dashboard, we need to check if there were any recent changes made to the system that could be causing the issue.",
+      "result_summary": {
+        "recent_changes": [],
+        "count": 0
+      },
+      "latency_ms": 4044.1,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 4,
+      "sim_clock": "2025-12-24 00:45:00",
+      "tool_name": "get_service_health",
+      "args": {
+        "hypotheses": [
+          "webhook_configuration_issue:0.2",
+          "network_connectivity_issue:0.3",
+          "analytics_dashboard_bug:0.5"
+        ],
+        "rationale": "To investigate the issue of webhooks not firing from the Analytics Dashboard, we need to check the current health of the service to see if there are any ongoing issues that could be contributing to the problem."
+      },
+      "hypotheses": [
+        "webhook_configuration_issue:0.2",
+        "network_connectivity_issue:0.3",
+        "analytics_dashboard_bug:0.5"
+      ],
+      "rationale": "To investigate the issue of webhooks not firing from the Analytics Dashboard, we need to check the current health of the service to see if there are any ongoing issues that could be contributing to the problem.",
+      "result_summary": {
+        "error": "1 validation error for ComponentScopedArgs\ncomponent_id\n  Field required [type=missing, input_value={'hypotheses': ['webhook_...buting to the problem.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      },
+      "latency_ms": 2229.3,
+      "status": "error",
+      "redundant": false
+    },
+    {
+      "step": 5,
+      "sim_clock": "2025-12-24 01:00:00",
+      "tool_name": "get_component_topology",
+      "args": {
+        "hypotheses": [
+          "webhook_configuration_issue:0.2",
+          "network_connectivity_issue:0.3",
+          "analytics_dashboard_bug:0.5"
+        ],
+        "component_id": "P003",
+        "rationale": "To investigate the issue of webhooks not firing from the Analytics Dashboard, we need to understand the component topology to identify potential points of failure."
+      },
+      "hypotheses": [
+        "webhook_configuration_issue:0.2",
+        "network_connectivity_issue:0.3",
+        "analytics_dashboard_bug:0.5"
+      ],
+      "rationale": "To investigate the issue of webhooks not firing from the Analytics Dashboard, we need to understand the component topology to identify potential points of failure.",
+      "result_summary": {
+        "error": "component P003 not found"
+      },
+      "latency_ms": 1937.1,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 6,
+      "sim_clock": "2025-12-24 01:15:00",
+      "tool_name": "get_customer_deployment",
+      "args": {
+        "hypotheses": [
+          "webhook_configuration_issue:0.2",
+          "network_connectivity_issue:0.3",
+          "analytics_dashboard_bug:0.5"
+        ],
+        "rationale": "To investigate the issue of webhooks not firing from the Analytics Dashboard, we need to understand the customer's deployment to identify potential issues with their setup."
+      },
+      "hypotheses": [
+        "webhook_configuration_issue:0.2",
+        "network_connectivity_issue:0.3",
+        "analytics_dashboard_bug:0.5"
+      ],
+      "rationale": "To investigate the issue of webhooks not firing from the Analytics Dashboard, we need to understand the customer's deployment to identify potential issues with their setup.",
+      "result_summary": {
+        "deployments": [
+          {
+            "product_id": "P040",
+            "product_name": "Status Page",
+            "version": "1.8",
+            "environment": "production",
+            "region": "EU-Central",
+            "status": "active",
+            "deployed_at": "2026-02-28",
+            "product_components": [
+              "CM173",
+              "CM180",
+              "CM182",
+              "CM185",
+              "CM189",
+              "CM192",
+              "CM198",
+              "CM199"
+            ]
+          },
+          {
+            "product_id": "P003",
+            "product_name": "Analytics Dashboard",
+            "version": "1.5",
+            "environment": "production",
+            "region": "EU-Central",
+            "status": "active",
+            "deployed_at": "2026-02-14",
+            "product_components": [
+              "CM095",
+              "CM098",
+              "CM100",
+              "CM106",
+              "CM114",
+              "CM120",
+              "CM229",
+              "CM236"
+            ]
+          },
+          {
+            "product_id": "P002",
+            "product_name": "SSO Integration Module",
+            "version": "1.8",
+            "environment": "staging",
+            "region": "EU-Central",
+            "status": "active",
+            "deployed_at": "2025-08-22",
+            "product_components": [
+              "CM011",
+              "CM019",
+              "CM025",
+              "CM027",
+              "CM031",
+              "CM032",
+              "CM241",
+              "CM246"
+            ]
+          },
+          {
+            "product_id": "P002",
+            "product_name": "SSO Integration Module",
+            "version": "1.8",
+            "environment": "production",
+            "region": "EU-Central",
+            "status": "active",
+            "deployed_at": "2025-03-14",
+            "product_components": [
+              "CM011",
+              "CM019",
+              "CM025",
+              "CM027",
+              "CM031",
+              "CM032",
+              "CM241",
+              "CM246"
+            ]
+          }
+        ]
+      },
+      "latency_ms": 1411.2,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 7,
+      "sim_clock": "2025-12-24 01:30:00",
+      "tool_name": "submit_diagnosis",
+      "args": {
+        "hypotheses": [
+          {
+            "label": "webhook_configuration_issue",
+            "confidence": 0.2,
+            "supporting_evidence": [],
+            "contradicting_evidence": [],
+            "status": "open"
+          },
+          {
+            "label": "network_connectivity_issue",
+            "confidence": 0.3,
+            "supporting_evidence": [],
+            "contradicting_evidence": [],
+            "status": "open"
+          },
+          {
+            "label": "analytics_dashboard_bug",
+            "confidence": 0.5,
+            "supporting_evidence": [],
+            "contradicting_evidence": [],
+            "status": "open"
+          }
+        ],
+        "evidence_sufficiency": "insufficient",
+        "human_review_required": true,
+        "recommended_next_action": "escalate to engineering",
+        "rationale": "Based on the investigation, we were unable to gather sufficient evidence to confirm a root cause for the issue of webhooks not firing from the Analytics Dashboard. The customer's deployment and recent changes do not indicate any obvious issues, but the lack of logs and service health information makes it difficult to determine the cause. Therefore, we recommend escalating the issue to engineering for further review and investigation."
+      },
+      "hypotheses": [
+        {
+          "label": "webhook_configuration_issue",
+          "confidence": 0.2,
+          "supporting_evidence": [],
+          "contradicting_evidence": [],
+          "status": "open"
+        },
+        {
+          "label": "network_connectivity_issue",
+          "confidence": 0.3,
+          "supporting_evidence": [],
+          "contradicting_evidence": [],
+          "status": "open"
+        },
+        {
+          "label": "analytics_dashboard_bug",
+          "confidence": 0.5,
+          "supporting_evidence": [],
+          "contradicting_evidence": [],
+          "status": "open"
+        }
+      ],
+      "rationale": "Based on the investigation, we were unable to gather sufficient evidence to confirm a root cause for the issue of webhooks not firing from the Analytics Dashboard. The customer's deployment and recent changes do not indicate any obvious issues, but the lack of logs and service health information makes it difficult to determine the cause. Therefore, we recommend escalating the issue to engineering for further review and investigation.",
+      "result_summary": "submitted",
+      "latency_ms": 5044.8,
+      "status": "ok",
+      "redundant": false
+    }
+  ],
+  "final_diagnosis": {
+    "hypotheses": [
+      {
+        "label": "webhook_configuration_issue",
+        "description": "",
+        "confidence": 0.2,
+        "supporting_evidence": [],
+        "contradicting_evidence": [],
+        "status": "active"
+      },
+      {
+        "label": "network_connectivity_issue",
+        "description": "",
+        "confidence": 0.3,
+        "supporting_evidence": [],
+        "contradicting_evidence": [],
+        "status": "active"
+      },
+      {
+        "label": "analytics_dashboard_bug",
+        "description": "",
+        "confidence": 0.5,
+        "supporting_evidence": [],
+        "contradicting_evidence": [],
+        "status": "active"
+      }
+    ],
+    "rationale": "Based on the investigation, we were unable to gather sufficient evidence to confirm a root cause for the issue of webhooks not firing from the Analytics Dashboard. The customer's deployment and recent changes do not indicate any obvious issues, but the lack of logs and service health information makes it difficult to determine the cause. Therefore, we recommend escalating the issue to engineering for further review and investigation.",
+    "predicted_product_id": null,
+    "product_confidence": null,
+    "predicted_component_id": null,
+    "component_confidence": null,
+    "predicted_category_id": null,
+    "category_confidence": null,
+    "predicted_subcategory_id": null,
+    "predicted_root_cause_family": null,
+    "root_cause_confidence": null,
+    "predicted_causal_change_id": null,
+    "causal_change_confidence": null,
+    "predicted_severity": null,
+    "severity_confidence": null,
+    "recommended_team_id": null,
+    "routing_confidence": null,
+    "evidence_sufficiency": "insufficient",
+    "overall_confidence": 0.5,
+    "recommended_next_action": "escalate to engineering",
+    "human_review_required": true,
+    "human_review_reason": null,
+    "evidence_summary": "Based on the investigation, we were unable to gather sufficient evidence to confirm a root cause for the issue of webhooks not firing from the Analytics Dashboard. The customer's deployment and recent changes do not indicate any obvious issues, but the lack of logs and service health information makes it difficult to determine the cause. Therefore, we recommend escalating the issue to engineering for further review and investigation.",
+    "unresolved_uncertainties": []
+  },
+  "citation_violations": [],
+  "evidence_ids_seen": [],
+  "repair_events": [
+    {
+      "step": 2,
+      "kind": "hypothesis_normalization",
+      "detail": "tool=search_logs: hypotheses arg was str, not a list; coerced"
+    },
+    {
+      "step": 7,
+      "kind": "final_diagnosis_repair",
+      "detail": "direct validation failed (5 validation errors for FinalDiagnosis\nhypotheses.0.status\n  Input should be 'active', 'rejected' or 'confirmed' [type=literal_error, input_value='open', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/literal_error\nhypotheses.1.status\n  Input should be 'active', 'rejected' or 'confirmed' [type=literal_error, input_value='open', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/literal_error\nhypotheses.2.status\n  Input should be 'active', 'rejected' or 'confirmed' [type=literal_error, input_value='open', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/literal_error\noverall_confidence\n  Field required [type=missing, input_value={'hypotheses': [{'label':...iew and investigation.\"}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\nevidence_summary\n  Field required [type=missing, input_value={'hypotheses': [{'label':...iew and investigation.\"}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing); repaired args validated"
+    }
+  ]
+}

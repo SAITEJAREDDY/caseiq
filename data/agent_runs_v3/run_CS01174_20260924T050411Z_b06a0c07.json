@@ -1,0 +1,2030 @@
+{
+ "run_id": "run_CS01174_20260924T050411Z_b06a0c07",
+ "case_id": "CS01174",
+ "created_at": "2026-09-24T05:04:11.374931+00:00",
+ "run_tag": "verify100_final",
+ "model_provider": "together",
+ "model_name": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+ "temperature": 0.1,
+ "graph_version": "phase4-2500case-2026-09-22",
+ "sim_clock_step_minutes": 15,
+ "max_tool_calls": 10,
+ "max_repeated_same_tool": 2,
+ "max_tool_contract_repairs": 2,
+ "max_final_contract_repairs": 1,
+ "agent_version": "agent_v3_contract_hardened",
+ "contract_version": "agent_contract_v1.1",
+ "prompt_version": "v3.1",
+ "tool_catalog_version": "tool_catalog_v3",
+ "action_schema_version": "action_v3.1",
+ "final_schema_version": "final_diagnosis_v3.1",
+ "registry_version": "observed_registry_v1",
+ "alias_scheme": "agent_alias_v1",
+ "repair_policy_version": "repair_policy_v1",
+ "decoding": "json_schema_strict",
+ "code_digest": "54bbbe51a58dbb43883bd743c2476a93b418373888d06e2cc60c30dc2b1b7cf2",
+ "toolset_version": "tool_catalog_v3",
+ "output_schema_version": "final_diagnosis_v3.1",
+ "agent_loop_version": "agent_v3_contract_hardened",
+ "repair_layer_version": "repair_policy_v1",
+ "approx_cost_usd": 0.002142,
+ "stop_reason": "tool_budget_exhausted",
+ "num_tool_calls": 11,
+ "num_llm_calls": 10,
+ "token_usage": {
+  "prompt_tokens": 20400,
+  "completion_tokens": 1016,
+  "total_tokens": 21416
+ },
+ "trace_steps": [
+  {
+   "step": 1,
+   "sim_clock": "2026-05-18 00:00:00",
+   "tool_name": "get_case_context",
+   "args": {},
+   "args_alias": {},
+   "hypotheses": [],
+   "hypothesis_state": [],
+   "rationale": "",
+   "result_summary": {
+    "case_id": "CS01174",
+    "title": "SSO Integration Module returning HTTP 429 in LATAM",
+    "description": "A small number of users (3) in the LATAM region are reporting HTTP 429 errors when attempting to log in via the SSO Integration Module. The business impact is currently low, but we want to ensure this isn't a precursor to a wider outage. Please advise if there are known issues with rate limiting in this region.",
+    "environment": "production",
+    "region": "LATAM",
+    "reported_business_impact": "low",
+    "reported_affected_users": 3,
+    "priority": "low",
+    "created_date": "2026-05-18",
+    "status": "resolved",
+    "customer_id": "C00791",
+    "customer_tier": "bronze",
+    "customer_industry": "Telecom",
+    "customer_company_size": "small",
+    "reported_product_id": "P002",
+    "reported_product_name": "SSO Integration Module",
+    "reported_symptoms": [
+     "HTTP 429"
+    ]
+   },
+   "latency_ms": 0.0,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "harness"
+  },
+  {
+   "step": 2,
+   "sim_clock": "2026-05-18 00:15:00",
+   "tool_name": "get_customer_deployment",
+   "args": {},
+   "args_alias": {},
+   "hypotheses": [
+    "Rate limiting issue in LATAM region:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Rate limiting issue in LATAM region",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "deployments": [
+     {
+      "product_id": "P002",
+      "product_name": "SSO Integration Module",
+      "version": "3.0",
+      "environment": "staging",
+      "region": "LATAM",
+      "status": "active",
+      "deployed_at": "2025-12-27",
+      "product_components": [
+       "CM011",
+       "CM019",
+       "CM025",
+       "CM027",
+       "CM031",
+       "CM032",
+       "CM241",
+       "CM246"
+      ]
+     },
+     {
+      "product_id": "P002",
+      "product_name": "SSO Integration Module",
+      "version": "3.0",
+      "environment": "production",
+      "region": "LATAM",
+      "status": "active",
+      "deployed_at": "2025-10-12",
+      "product_components": [
+       "CM011",
+       "CM019",
+       "CM025",
+       "CM027",
+       "CM031",
+       "CM032",
+       "CM241",
+       "CM246"
+      ]
+     }
+    ]
+   },
+   "latency_ms": 21083.2,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 3,
+   "sim_clock": "2026-05-18 00:30:00",
+   "tool_name": "get_technical_signals",
+   "args": {},
+   "args_alias": {},
+   "hypotheses": [
+    "Rate limiting issue in LATAM region:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Rate limiting issue in LATAM region",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "signals": [
+     {
+      "evidence_id": "SG0005741",
+      "signal_type": "UPSTREAM_TIMEOUT",
+      "message": "upstream dependency timeouts from Report Rendering Cache",
+      "timestamp": "2026-05-17 20:50:00",
+      "component_id": "CM127"
+     },
+     {
+      "evidence_id": "SG0005738",
+      "signal_type": "MEMORY_PRESSURE",
+      "message": "memory pressure detected on Data Access Control Layer",
+      "timestamp": "2026-05-17 21:43:00",
+      "component_id": "CM117"
+     },
+     {
+      "evidence_id": "SG0005739",
+      "signal_type": "CPU_THROTTLED",
+      "message": "CPU throttling observed on Invoice Generator",
+      "timestamp": "2026-05-17 21:45:00",
+      "component_id": "CM048"
+     },
+     {
+      "evidence_id": "SG0005740",
+      "signal_type": "IDP_UNREACHABLE",
+      "message": "identity provider unreachable from Authentication Service",
+      "timestamp": "2026-05-17 23:26:00",
+      "component_id": "CM001"
+     },
+     {
+      "evidence_id": "SG0005737",
+      "signal_type": "UPSTREAM_TIMEOUT",
+      "message": "upstream dependency timeouts from Authentication Service",
+      "timestamp": "2026-05-17 23:50:00",
+      "component_id": "CM001"
+     }
+    ],
+    "count": 5
+   },
+   "latency_ms": 3890.5,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 4,
+   "sim_clock": "2026-05-18 00:45:00",
+   "tool_name": "get_component_topology",
+   "args": {
+    "component_id": "CM001"
+   },
+   "args_alias": {
+    "component": "COMPONENT_SPH"
+   },
+   "hypotheses": [
+    "Rate limiting issue in LATAM region:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Rate limiting issue in LATAM region",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "component_id": "CM001",
+    "component_name": "Authentication Service",
+    "upstream_dependencies": [],
+    "downstream_dependents": [
+     {
+      "name": "Provisioning Service",
+      "id": "CM005"
+     },
+     {
+      "name": "Trusted Device Manager",
+      "id": "CM039"
+     },
+     {
+      "name": "Card Tokenization Service",
+      "id": "CM065"
+     },
+     {
+      "name": "Dashboard Sharing Service",
+      "id": "CM118"
+     },
+     {
+      "name": "Multi-Tenant Data Partitioning Layer",
+      "id": "CM130"
+     },
+     {
+      "name": "Secret Store",
+      "id": "CM137"
+     },
+     {
+      "name": "Admin Console UI",
+      "id": "CM174"
+     },
+     {
+      "name": "Browser Extension Client",
+      "id": "CM196"
+     },
+     {
+      "name": "Preference Center",
+      "id": "CM218"
+     },
+     {
+      "name": "Audit Log Service",
+      "id": "CM229"
+     },
+     {
+      "name": "Central Message Queue",
+      "id": "CM241"
+     },
+     {
+      "name": "Central Notification Dispatcher",
+      "id": "CM245"
+     }
+    ],
+    "external_dependencies": [
+     "Primary Identity Provider"
+    ],
+    "owning_teams": [
+     {
+      "name": "Identity",
+      "id": "TM01"
+     },
+     {
+      "name": "Security",
+      "id": "TM07"
+     }
+    ]
+   },
+   "latency_ms": 4946.1,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 5,
+   "sim_clock": "2026-05-18 01:00:00",
+   "tool_name": "get_technical_signals",
+   "args": {
+    "component_id": "CM001"
+   },
+   "args_alias": {
+    "component": "COMPONENT_SPH"
+   },
+   "hypotheses": [
+    "Rate limiting issue in LATAM region:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Rate limiting issue in LATAM region",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "signals": [
+     {
+      "evidence_id": "SG0005740",
+      "signal_type": "IDP_UNREACHABLE",
+      "message": "identity provider unreachable from Authentication Service",
+      "timestamp": "2026-05-17 23:26:00",
+      "component_id": "CM001"
+     },
+     {
+      "evidence_id": "SG0005737",
+      "signal_type": "UPSTREAM_TIMEOUT",
+      "message": "upstream dependency timeouts from Authentication Service",
+      "timestamp": "2026-05-17 23:50:00",
+      "component_id": "CM001"
+     }
+    ],
+    "count": 2
+   },
+   "latency_ms": 5297.0,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 6,
+   "sim_clock": "2026-05-18 01:15:00",
+   "tool_name": "get_recent_changes",
+   "args": {
+    "component_id": "CM001"
+   },
+   "args_alias": {
+    "component": "COMPONENT_SPH"
+   },
+   "hypotheses": [
+    "Rate limiting issue in LATAM region:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Rate limiting issue in LATAM region",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "recent_changes": [],
+    "count": 0
+   },
+   "latency_ms": 6703.5,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 7,
+   "sim_clock": "2026-05-18 01:30:00",
+   "tool_name": "get_deployment_history",
+   "args": {
+    "component_id": "CM001"
+   },
+   "args_alias": {
+    "component": "COMPONENT_SPH"
+   },
+   "hypotheses": [
+    "Rate limiting issue in LATAM region:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Rate limiting issue in LATAM region",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "deployments": [],
+    "count": 0
+   },
+   "latency_ms": 6474.0,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 8,
+   "sim_clock": "2026-05-18 01:45:00",
+   "tool_name": "get_service_health",
+   "args": {
+    "component_id": "CM001"
+   },
+   "args_alias": {
+    "component": "COMPONENT_SPH"
+   },
+   "hypotheses": [
+    "Rate limiting issue in LATAM region:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Rate limiting issue in LATAM region",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "health_events": [
+     {
+      "evidence_id": "SHE00008",
+      "started_at": "2026-05-04 03:21:00",
+      "ended_at": "2026-05-04 03:26:00",
+      "severity": "minor",
+      "description": "Brief minor health blip on Authentication Service: elevated error rate for 5 minutes."
+     },
+     {
+      "evidence_id": "SHE00017",
+      "started_at": "2026-03-31 17:08:00",
+      "ended_at": "2026-03-31 17:53:00",
+      "severity": "minor",
+      "description": "Automated health check flagged Authentication Service as degraded (minor) for 45 minutes."
+     },
+     {
+      "evidence_id": "SHE00002",
+      "started_at": "2026-02-25 05:27:00",
+      "ended_at": "2026-02-25 05:47:00",
+      "severity": "minor",
+      "description": "Automated health check flagged Authentication Service as degraded (minor) for 20 minutes."
+     },
+     {
+      "evidence_id": "SHE00001",
+      "started_at": "2026-02-23 06:54:00",
+      "ended_at": "2026-02-23 07:24:00",
+      "severity": "major",
+      "description": "Brief major health blip on Authentication Service: elevated error rate for 30 minutes."
+     },
+     {
+      "evidence_id": "SHE00007",
+      "started_at": "2026-01-20 12:14:00",
+      "ended_at": "2026-01-20 12:29:00",
+      "severity": "major",
+      "description": "major latency spike observed on Authentication Service, self-resolved after 15 minutes."
+     },
+     {
+      "evidence_id": "SHE00018",
+      "started_at": "2025-11-24 19:48:00",
+      "ended_at": "2025-11-24 20:03:00",
+      "severity": "minor",
+      "description": "Brief minor health blip on Authentication Service: elevated error rate for 15 minutes."
+     },
+     {
+      "evidence_id": "SHE00006",
+      "started_at": "2025-11-08 10:07:00",
+      "ended_at": "2025-11-08 10:12:00",
+      "severity": "minor",
+      "description": "Brief minor health blip on Authentication Service: elevated error rate for 5 minutes."
+     },
+     {
+      "evidence_id": "SHE00011",
+      "started_at": "2025-10-25 04:14:00",
+      "ended_at": "2025-10-25 04:24:00",
+      "severity": "minor",
+      "description": "Automated health check flagged Authentication Service as degraded (minor) for 10 minutes."
+     }
+    ],
+    "count": 8
+   },
+   "latency_ms": 3343.6,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 9,
+   "sim_clock": "2026-05-18 02:00:00",
+   "tool_name": "get_telemetry",
+   "args": {
+    "component_id": "CM001"
+   },
+   "args_alias": {
+    "component": "COMPONENT_SPH"
+   },
+   "hypotheses": [
+    "Rate limiting issue in LATAM region:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Rate limiting issue in LATAM region",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "available_metric_categories": [
+     "Identity",
+     "Integration"
+    ],
+    "note": "Call again with one of these metric_category values to see actual readings."
+   },
+   "latency_ms": 3788.1,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 10,
+   "sim_clock": "2026-05-18 02:15:00",
+   "tool_name": "get_telemetry",
+   "args": {
+    "component_id": "CM001",
+    "metric_category": "Identity"
+   },
+   "args_alias": {
+    "component": "COMPONENT_SPH",
+    "metric_category": "Identity"
+   },
+   "hypotheses": [
+    "Rate limiting issue in LATAM region:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Rate limiting issue in LATAM region",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "telemetry_findings": [
+     {
+      "evidence_id": "CS01174:CM001:session_creation_rate",
+      "metric_code": "session_creation_rate",
+      "component_id": "CM001",
+      "baseline": 137.3919,
+      "observed_min": 16.537,
+      "observed_max": 318.624,
+      "status": "normal",
+      "direction": null,
+      "anomaly_start": null,
+      "anomaly_end": null
+     }
+    ],
+    "count": 1
+   },
+   "latency_ms": 5852.7,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 11,
+   "sim_clock": "2026-05-18 02:30:00",
+   "tool_name": "submit_diagnosis",
+   "args": {},
+   "args_alias": {},
+   "hypotheses": [
+    "Rate limiting issue in LATAM region:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Rate limiting issue in LATAM region",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": "submitted (forced)",
+   "latency_ms": 47606.1,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  }
+ ],
+ "final_diagnosis": {
+  "hypotheses": [
+   {
+    "label": "Rate limiting issue in LATAM region",
+    "description": "",
+    "confidence": 0.2,
+    "status": "active",
+    "supporting_evidence": [],
+    "contradicting_evidence": []
+   }
+  ],
+  "rationale": "",
+  "predicted_product_id": null,
+  "product_confidence": null,
+  "predicted_component_id": null,
+  "component_confidence": null,
+  "predicted_category_id": null,
+  "category_confidence": null,
+  "predicted_subcategory_id": null,
+  "predicted_root_cause_family": null,
+  "root_cause_confidence": null,
+  "predicted_causal_change_id": null,
+  "causal_change_confidence": null,
+  "predicted_severity": null,
+  "severity_confidence": null,
+  "recommended_team_id": null,
+  "routing_confidence": null,
+  "evidence_sufficiency": "insufficient",
+  "overall_confidence": 0.2,
+  "recommended_next_action": "Human review required to further investigate the rate limiting issue in the LATAM region.",
+  "human_review_required": true,
+  "human_review_reason": "Investigation budget exhausted, unable to gather sufficient evidence to support or reject hypotheses.",
+  "evidence_summary": "The investigation was unable to gather sufficient evidence to support or reject the hypothesis of a rate limiting issue in the LATAM region. Human review is required to further investigate this issue.",
+  "unresolved_uncertainties": [
+   "Unable to determine the root cause of the HTTP 429 errors due to insufficient evidence."
+  ],
+  "status": "INSUFFICIENT_EVIDENCE",
+  "evidence_ids": []
+ },
+ "final_status": "INSUFFICIENT_EVIDENCE",
+ "final_alias_form": {
+  "hypotheses": [
+   {
+    "label": "Rate limiting issue in LATAM region",
+    "confidence": 0.2,
+    "status": "active",
+    "supporting_evidence": [],
+    "contradicting_evidence": []
+   }
+  ],
+  "evidence_ids": [],
+  "issue_category": null,
+  "category_confidence": null,
+  "root_cause": null,
+  "root_cause_confidence": null,
+  "affected_component": null,
+  "component_confidence": null,
+  "causal_change": null,
+  "causal_change_confidence": null,
+  "owning_team": null,
+  "routing_confidence": null,
+  "confidence": 0.2,
+  "evidence_sufficiency": "insufficient",
+  "human_review_required": true,
+  "review_reason": "Investigation budget exhausted, unable to gather sufficient evidence to support or reject hypotheses.",
+  "status": "INSUFFICIENT_EVIDENCE",
+  "recommended_next_action": "Human review required to further investigate the rate limiting issue in the LATAM region.",
+  "unresolved_uncertainties": [
+   "Unable to determine the root cause of the HTTP 429 errors due to insufficient evidence."
+  ],
+  "summary": "The investigation was unable to gather sufficient evidence to support or reject the hypothesis of a rate limiting issue in the LATAM region. Human review is required to further investigate this issue."
+ },
+ "citation_violations": [],
+ "evidence_ids_seen": [
+  "CS01174:CM001:session_creation_rate",
+  "SG0005737",
+  "SG0005738",
+  "SG0005739",
+  "SG0005740",
+  "SG0005741",
+  "SHE00001",
+  "SHE00002",
+  "SHE00006",
+  "SHE00007",
+  "SHE00008",
+  "SHE00011",
+  "SHE00017",
+  "SHE00018"
+ ],
+ "repair_events": [],
+ "tool_proposals": 9,
+ "tool_contract_errors": [],
+ "tool_contract_repairs": [],
+ "final_contract_errors": [],
+ "final_contract_repair": null,
+ "registry_snapshots": [
+  {
+   "step": 1,
+   "n_entities": 59,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 1
+   },
+   "aliases_sha256_16": "d572bfead03de501"
+  },
+  {
+   "step": 2,
+   "n_entities": 67,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 1,
+    "COMPONENT": 8
+   },
+   "aliases_sha256_16": "6810ef1301513337"
+  },
+  {
+   "step": 3,
+   "n_entities": 76,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 1,
+    "COMPONENT": 12,
+    "EVIDENCE": 5
+   },
+   "aliases_sha256_16": "abc7abb2e0a7e3a1"
+  },
+  {
+   "step": 4,
+   "n_entities": 89,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 1,
+    "COMPONENT": 23,
+    "EVIDENCE": 5,
+    "TEAM": 2
+   },
+   "aliases_sha256_16": "e3c4be86d620ea9a"
+  },
+  {
+   "step": 5,
+   "n_entities": 89,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 1,
+    "COMPONENT": 23,
+    "EVIDENCE": 5,
+    "TEAM": 2
+   },
+   "aliases_sha256_16": "e3c4be86d620ea9a"
+  },
+  {
+   "step": 6,
+   "n_entities": 89,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 1,
+    "COMPONENT": 23,
+    "EVIDENCE": 5,
+    "TEAM": 2
+   },
+   "aliases_sha256_16": "e3c4be86d620ea9a"
+  },
+  {
+   "step": 7,
+   "n_entities": 89,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 1,
+    "COMPONENT": 23,
+    "EVIDENCE": 5,
+    "TEAM": 2
+   },
+   "aliases_sha256_16": "e3c4be86d620ea9a"
+  },
+  {
+   "step": 8,
+   "n_entities": 97,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 1,
+    "COMPONENT": 23,
+    "EVIDENCE": 13,
+    "TEAM": 2
+   },
+   "aliases_sha256_16": "ea5a39a9ab1a3f46"
+  },
+  {
+   "step": 9,
+   "n_entities": 97,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 1,
+    "COMPONENT": 23,
+    "EVIDENCE": 13,
+    "TEAM": 2
+   },
+   "aliases_sha256_16": "ea5a39a9ab1a3f46"
+  },
+  {
+   "step": 10,
+   "n_entities": 98,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 1,
+    "COMPONENT": 23,
+    "EVIDENCE": 14,
+    "TEAM": 2
+   },
+   "aliases_sha256_16": "55b030a9e7b66aa8"
+  }
+ ],
+ "alias_mappings": {
+  "CATEGORY_CZV": {
+   "alias": "CATEGORY_CZV",
+   "canonical_id": "IC01",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Identity / Authentication",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-05-18 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_GPK": {
+   "alias": "CATEGORY_GPK",
+   "canonical_id": "IC02",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Authorization / Permissions",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-05-18 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_FGH": {
+   "alias": "CATEGORY_FGH",
+   "canonical_id": "IC03",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Networking / Connectivity",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-05-18 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_SGV": {
+   "alias": "CATEGORY_SGV",
+   "canonical_id": "IC04",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Performance / Latency",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-05-18 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_VKJ": {
+   "alias": "CATEGORY_VKJ",
+   "canonical_id": "IC05",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Reliability / Availability",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-05-18 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_DHM": {
+   "alias": "CATEGORY_DHM",
+   "canonical_id": "IC06",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Deployment / Upgrade",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-05-18 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_XCS": {
+   "alias": "CATEGORY_XCS",
+   "canonical_id": "IC07",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Configuration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-05-18 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_MGF": {
+   "alias": "CATEGORY_MGF",
+   "canonical_id": "IC08",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Data / Corruption",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-05-18 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_ZLW": {
+   "alias": "CATEGORY_ZLW",
+   "canonical_id": "IC09",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Integration / API",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-05-18 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_FPG": {
+   "alias": "CATEGORY_FPG",
+   "canonical_id": "IC10",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Provisioning / Onboarding",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-05-18 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_PSS": {
+   "alias": "CATEGORY_PSS",
+   "canonical_id": "IC11",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Security",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-05-18 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_WBP": {
+   "alias": "CATEGORY_WBP",
+   "canonical_id": "IC12",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Compliance",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-05-18 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_XGZ": {
+   "alias": "CATEGORY_XGZ",
+   "canonical_id": "IC13",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Billing / Commerce",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-05-18 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_LCC": {
+   "alias": "CATEGORY_LCC",
+   "canonical_id": "IC14",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "User Experience / Functional Defect",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-05-18 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_LFL": {
+   "alias": "CATEGORY_LFL",
+   "canonical_id": "IC15",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Storage / Database",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-05-18 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_PKP": {
+   "alias": "CATEGORY_PKP",
+   "canonical_id": "IC16",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Capacity / Scaling",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-05-18 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_MKX": {
+   "alias": "CATEGORY_MKX",
+   "canonical_id": "IC17",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Third-Party / Dependency",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-05-18 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_RRJ": {
+   "alias": "CATEGORY_RRJ",
+   "canonical_id": "IC18",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Unknown / Other",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-05-18 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_CWJ": {
+   "alias": "CAUSE_CWJ",
+   "canonical_id": "RC01",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "product defect",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-05-18 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_TXX": {
+   "alias": "CAUSE_TXX",
+   "canonical_id": "RC02",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "customer configuration error",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-05-18 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_GRR": {
+   "alias": "CAUSE_GRR",
+   "canonical_id": "RC03",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "incorrect permissions",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-05-18 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_BHF": {
+   "alias": "CAUSE_BHF",
+   "canonical_id": "RC04",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "policy misconfiguration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-05-18 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_MCD": {
+   "alias": "CAUSE_MCD",
+   "canonical_id": "RC05",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "expired certificate",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-05-18 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_RZP": {
+   "alias": "CAUSE_RZP",
+   "canonical_id": "RC06",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "version incompatibility",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-05-18 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_NSM": {
+   "alias": "CAUSE_NSM",
+   "canonical_id": "RC07",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "dependency failure",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-05-18 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_GQB": {
+   "alias": "CAUSE_GQB",
+   "canonical_id": "RC08",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "network configuration error",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-05-18 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_HFK": {
+   "alias": "CAUSE_HFK",
+   "canonical_id": "RC09",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "resource exhaustion",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-05-18 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_PMW": {
+   "alias": "CAUSE_PMW",
+   "canonical_id": "RC10",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "database contention",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-05-18 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_MNK": {
+   "alias": "CAUSE_MNK",
+   "canonical_id": "RC11",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "bad deployment",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-05-18 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_HFC": {
+   "alias": "CAUSE_HFC",
+   "canonical_id": "RC12",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "incomplete migration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-05-18 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_JSL": {
+   "alias": "CAUSE_JSL",
+   "canonical_id": "RC13",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "stale cache",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-05-18 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_DDD": {
+   "alias": "CAUSE_DDD",
+   "canonical_id": "RC14",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "third-party service failure",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-05-18 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_LQS": {
+   "alias": "CAUSE_LQS",
+   "canonical_id": "RC15",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "unsupported configuration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-05-18 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_ZQQ": {
+   "alias": "CAUSE_ZQQ",
+   "canonical_id": "RC16",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "incorrect DNS configuration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-05-18 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_ZWN": {
+   "alias": "CAUSE_ZWN",
+   "canonical_id": "RC17",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "data quality issue",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-05-18 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_RLT": {
+   "alias": "CAUSE_RLT",
+   "canonical_id": "RC18",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "operator error",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-05-18 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_SWP": {
+   "alias": "CAUSE_SWP",
+   "canonical_id": "RC19",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "capacity limitation",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-05-18 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_GDK": {
+   "alias": "CAUSE_GDK",
+   "canonical_id": "RC20",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "known product limitation",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-05-18 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_WCX": {
+   "alias": "CAUSE_WCX",
+   "canonical_id": "RC21",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "race condition",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-05-18 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_ZKX": {
+   "alias": "CAUSE_ZKX",
+   "canonical_id": "RC22",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "identity provider outage",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-05-18 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_HCR": {
+   "alias": "CAUSE_HCR",
+   "canonical_id": "RC23",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "token expiration handling bug",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-05-18 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_QXG": {
+   "alias": "CAUSE_QXG",
+   "canonical_id": "RC24",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "insufficient monitoring/alerting",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-05-18 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_WKR": {
+   "alias": "CAUSE_WKR",
+   "canonical_id": "RC25",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "incorrect load balancer routing",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-05-18 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_LFQ": {
+   "alias": "CAUSE_LFQ",
+   "canonical_id": "RC26",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "firewall misconfiguration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-05-18 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_QJT": {
+   "alias": "CAUSE_QJT",
+   "canonical_id": "RC27",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "schema mismatch",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-05-18 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_FFQ": {
+   "alias": "CAUSE_FFQ",
+   "canonical_id": "RC28",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "breaking API contract change",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-05-18 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_DFS": {
+   "alias": "CAUSE_DFS",
+   "canonical_id": "RC29",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "credential rotation not propagated",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-05-18 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_LMN": {
+   "alias": "CAUSE_LMN",
+   "canonical_id": "RC30",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "stale internal documentation followed",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-05-18 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_PKP": {
+   "alias": "CAUSE_PKP",
+   "canonical_id": "RC31",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "incomplete rollback",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-05-18 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_HCB": {
+   "alias": "CAUSE_HCB",
+   "canonical_id": "RC32",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "infrastructure hardware failure",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-05-18 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_DRV": {
+   "alias": "CAUSE_DRV",
+   "canonical_id": "RC33",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "rate limit misconfiguration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-05-18 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_JHB": {
+   "alias": "CAUSE_JHB",
+   "canonical_id": "RC34",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "insufficient capacity planning",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-05-18 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_PPQ": {
+   "alias": "CAUSE_PPQ",
+   "canonical_id": "RC35",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "data migration defect",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-05-18 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_WJC": {
+   "alias": "CAUSE_WJC",
+   "canonical_id": "RC36",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "improper access review",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-05-18 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_QFR": {
+   "alias": "CAUSE_QFR",
+   "canonical_id": "RC37",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "expired API key",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-05-18 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_BTJ": {
+   "alias": "CAUSE_BTJ",
+   "canonical_id": "RC38",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "clock/time synchronization issue",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-05-18 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_SKN": {
+   "alias": "CAUSE_SKN",
+   "canonical_id": "RC39",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "idempotency/duplicate-processing failure",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-05-18 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_TLW": {
+   "alias": "CAUSE_TLW",
+   "canonical_id": "RC40",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "insufficient information to determine root cause",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-05-18 00:00:00",
+   "summary": ""
+  },
+  "PRODUCT_RBG": {
+   "alias": "PRODUCT_RBG",
+   "canonical_id": "P002",
+   "kind": "PRODUCT",
+   "type": "product",
+   "display_name": "SSO Integration Module",
+   "source_tool": "get_case_context",
+   "first_observed_step": 1,
+   "first_observed_clock": "2026-05-18 00:00:00",
+   "summary": ""
+  },
+  "COMPONENT_FST": {
+   "alias": "COMPONENT_FST",
+   "canonical_id": "CM011",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "SSO Broker",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-05-18 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_MJC": {
+   "alias": "COMPONENT_MJC",
+   "canonical_id": "CM019",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Account Recovery Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-05-18 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_DRV": {
+   "alias": "COMPONENT_DRV",
+   "canonical_id": "CM025",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Social Login Connector",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-05-18 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_XCT": {
+   "alias": "COMPONENT_XCT",
+   "canonical_id": "CM027",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "OAuth Authorization Server",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-05-18 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_PKQ": {
+   "alias": "COMPONENT_PKQ",
+   "canonical_id": "CM031",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Identity Lifecycle Manager",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-05-18 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_WHX": {
+   "alias": "COMPONENT_WHX",
+   "canonical_id": "CM032",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Group Sync Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-05-18 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_HWF": {
+   "alias": "COMPONENT_HWF",
+   "canonical_id": "CM241",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Central Message Queue",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-05-18 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_HNF": {
+   "alias": "COMPONENT_HNF",
+   "canonical_id": "CM246",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Central Identity Vault",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-05-18 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_SCL": {
+   "alias": "COMPONENT_SCL",
+   "canonical_id": "CM127",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Report Rendering Cache",
+   "source_tool": "get_technical_signals",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-05-18 00:30:00",
+   "summary": ""
+  },
+  "EVIDENCE_GDR": {
+   "alias": "EVIDENCE_GDR",
+   "canonical_id": "SG0005741",
+   "kind": "EVIDENCE",
+   "type": "signal",
+   "display_name": "",
+   "source_tool": "get_technical_signals",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-05-18 00:30:00",
+   "summary": "UPSTREAM_TIMEOUT: upstream dependency timeouts from Report Rendering Cache on COMPONENT_SCL @ 2026-05-17 20:50:00"
+  },
+  "COMPONENT_CJN": {
+   "alias": "COMPONENT_CJN",
+   "canonical_id": "CM117",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Data Access Control Layer",
+   "source_tool": "get_technical_signals",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-05-18 00:30:00",
+   "summary": ""
+  },
+  "EVIDENCE_SND": {
+   "alias": "EVIDENCE_SND",
+   "canonical_id": "SG0005738",
+   "kind": "EVIDENCE",
+   "type": "signal",
+   "display_name": "",
+   "source_tool": "get_technical_signals",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-05-18 00:30:00",
+   "summary": "MEMORY_PRESSURE: memory pressure detected on Data Access Control Layer on COMPONENT_CJN @ 2026-05-17 21:43:00"
+  },
+  "COMPONENT_LLN": {
+   "alias": "COMPONENT_LLN",
+   "canonical_id": "CM048",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Invoice Generator",
+   "source_tool": "get_technical_signals",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-05-18 00:30:00",
+   "summary": ""
+  },
+  "EVIDENCE_SSJ": {
+   "alias": "EVIDENCE_SSJ",
+   "canonical_id": "SG0005739",
+   "kind": "EVIDENCE",
+   "type": "signal",
+   "display_name": "",
+   "source_tool": "get_technical_signals",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-05-18 00:30:00",
+   "summary": "CPU_THROTTLED: CPU throttling observed on Invoice Generator on COMPONENT_LLN @ 2026-05-17 21:45:00"
+  },
+  "COMPONENT_SPH": {
+   "alias": "COMPONENT_SPH",
+   "canonical_id": "CM001",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Authentication Service",
+   "source_tool": "get_technical_signals",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-05-18 00:30:00",
+   "summary": ""
+  },
+  "EVIDENCE_FNZ": {
+   "alias": "EVIDENCE_FNZ",
+   "canonical_id": "SG0005740",
+   "kind": "EVIDENCE",
+   "type": "signal",
+   "display_name": "",
+   "source_tool": "get_technical_signals",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-05-18 00:30:00",
+   "summary": "IDP_UNREACHABLE: identity provider unreachable from Authentication Service on COMPONENT_SPH @ 2026-05-17 23:26:00"
+  },
+  "EVIDENCE_SLL": {
+   "alias": "EVIDENCE_SLL",
+   "canonical_id": "SG0005737",
+   "kind": "EVIDENCE",
+   "type": "signal",
+   "display_name": "",
+   "source_tool": "get_technical_signals",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-05-18 00:30:00",
+   "summary": "UPSTREAM_TIMEOUT: upstream dependency timeouts from Authentication Service on COMPONENT_SPH @ 2026-05-17 23:50:00"
+  },
+  "COMPONENT_QFH": {
+   "alias": "COMPONENT_QFH",
+   "canonical_id": "CM005",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Provisioning Service",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 4,
+   "first_observed_clock": "2026-05-18 00:45:00",
+   "summary": ""
+  },
+  "COMPONENT_BVK": {
+   "alias": "COMPONENT_BVK",
+   "canonical_id": "CM039",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Trusted Device Manager",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 4,
+   "first_observed_clock": "2026-05-18 00:45:00",
+   "summary": ""
+  },
+  "COMPONENT_PMK": {
+   "alias": "COMPONENT_PMK",
+   "canonical_id": "CM065",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Card Tokenization Service",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 4,
+   "first_observed_clock": "2026-05-18 00:45:00",
+   "summary": ""
+  },
+  "COMPONENT_MXH": {
+   "alias": "COMPONENT_MXH",
+   "canonical_id": "CM118",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Dashboard Sharing Service",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 4,
+   "first_observed_clock": "2026-05-18 00:45:00",
+   "summary": ""
+  },
+  "COMPONENT_LQX": {
+   "alias": "COMPONENT_LQX",
+   "canonical_id": "CM130",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Multi-Tenant Data Partitioning Layer",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 4,
+   "first_observed_clock": "2026-05-18 00:45:00",
+   "summary": ""
+  },
+  "COMPONENT_PNT": {
+   "alias": "COMPONENT_PNT",
+   "canonical_id": "CM137",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Secret Store",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 4,
+   "first_observed_clock": "2026-05-18 00:45:00",
+   "summary": ""
+  },
+  "COMPONENT_HKD": {
+   "alias": "COMPONENT_HKD",
+   "canonical_id": "CM174",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Admin Console UI",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 4,
+   "first_observed_clock": "2026-05-18 00:45:00",
+   "summary": ""
+  },
+  "COMPONENT_WZD": {
+   "alias": "COMPONENT_WZD",
+   "canonical_id": "CM196",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Browser Extension Client",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 4,
+   "first_observed_clock": "2026-05-18 00:45:00",
+   "summary": ""
+  },
+  "COMPONENT_KMK": {
+   "alias": "COMPONENT_KMK",
+   "canonical_id": "CM218",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Preference Center",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 4,
+   "first_observed_clock": "2026-05-18 00:45:00",
+   "summary": ""
+  },
+  "COMPONENT_WKR": {
+   "alias": "COMPONENT_WKR",
+   "canonical_id": "CM229",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Audit Log Service",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 4,
+   "first_observed_clock": "2026-05-18 00:45:00",
+   "summary": ""
+  },
+  "COMPONENT_VQN": {
+   "alias": "COMPONENT_VQN",
+   "canonical_id": "CM245",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Central Notification Dispatcher",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 4,
+   "first_observed_clock": "2026-05-18 00:45:00",
+   "summary": ""
+  },
+  "TEAM_DMX": {
+   "alias": "TEAM_DMX",
+   "canonical_id": "TM01",
+   "kind": "TEAM",
+   "type": "team",
+   "display_name": "Identity",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 4,
+   "first_observed_clock": "2026-05-18 00:45:00",
+   "summary": ""
+  },
+  "TEAM_WRB": {
+   "alias": "TEAM_WRB",
+   "canonical_id": "TM07",
+   "kind": "TEAM",
+   "type": "team",
+   "display_name": "Security",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 4,
+   "first_observed_clock": "2026-05-18 00:45:00",
+   "summary": ""
+  },
+  "EVIDENCE_MQJ": {
+   "alias": "EVIDENCE_MQJ",
+   "canonical_id": "SHE00008",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 8,
+   "first_observed_clock": "2026-05-18 01:45:00",
+   "summary": "health event severity minor 2026-05-04 03:21:00..2026-05-04 03:26:00: Brief minor health blip on Authentication Service: elevated error rate for 5 minutes."
+  },
+  "EVIDENCE_CCG": {
+   "alias": "EVIDENCE_CCG",
+   "canonical_id": "SHE00017",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 8,
+   "first_observed_clock": "2026-05-18 01:45:00",
+   "summary": "health event severity minor 2026-03-31 17:08:00..2026-03-31 17:53:00: Automated health check flagged Authentication Service as degraded (minor) for 45 minutes."
+  },
+  "EVIDENCE_GXH": {
+   "alias": "EVIDENCE_GXH",
+   "canonical_id": "SHE00002",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 8,
+   "first_observed_clock": "2026-05-18 01:45:00",
+   "summary": "health event severity minor 2026-02-25 05:27:00..2026-02-25 05:47:00: Automated health check flagged Authentication Service as degraded (minor) for 20 minutes."
+  },
+  "EVIDENCE_JCF": {
+   "alias": "EVIDENCE_JCF",
+   "canonical_id": "SHE00001",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 8,
+   "first_observed_clock": "2026-05-18 01:45:00",
+   "summary": "health event severity major 2026-02-23 06:54:00..2026-02-23 07:24:00: Brief major health blip on Authentication Service: elevated error rate for 30 minutes."
+  },
+  "EVIDENCE_TCX": {
+   "alias": "EVIDENCE_TCX",
+   "canonical_id": "SHE00007",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 8,
+   "first_observed_clock": "2026-05-18 01:45:00",
+   "summary": "health event severity major 2026-01-20 12:14:00..2026-01-20 12:29:00: major latency spike observed on Authentication Service, self-resolved after 15 minutes."
+  },
+  "EVIDENCE_QVS": {
+   "alias": "EVIDENCE_QVS",
+   "canonical_id": "SHE00018",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 8,
+   "first_observed_clock": "2026-05-18 01:45:00",
+   "summary": "health event severity minor 2025-11-24 19:48:00..2025-11-24 20:03:00: Brief minor health blip on Authentication Service: elevated error rate for 15 minutes."
+  },
+  "EVIDENCE_ZZN": {
+   "alias": "EVIDENCE_ZZN",
+   "canonical_id": "SHE00006",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 8,
+   "first_observed_clock": "2026-05-18 01:45:00",
+   "summary": "health event severity minor 2025-11-08 10:07:00..2025-11-08 10:12:00: Brief minor health blip on Authentication Service: elevated error rate for 5 minutes."
+  },
+  "EVIDENCE_WJR": {
+   "alias": "EVIDENCE_WJR",
+   "canonical_id": "SHE00011",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 8,
+   "first_observed_clock": "2026-05-18 01:45:00",
+   "summary": "health event severity minor 2025-10-25 04:14:00..2025-10-25 04:24:00: Automated health check flagged Authentication Service as degraded (minor) for 10 minutes."
+  },
+  "EVIDENCE_DTD": {
+   "alias": "EVIDENCE_DTD",
+   "canonical_id": "CS01174:CM001:session_creation_rate",
+   "kind": "EVIDENCE",
+   "type": "telemetry",
+   "display_name": "",
+   "source_tool": "get_telemetry",
+   "first_observed_step": 10,
+   "first_observed_clock": "2026-05-18 02:15:00",
+   "summary": "session_creation_rate on COMPONENT_SPH: status normal, direction , baseline 137.3919, observed 16.537..318.624"
+  }
+ },
+ "validation_result": {
+  "first_pass_ok": true,
+  "errors_first": [],
+  "repair_used": false,
+  "final_ok": true,
+  "errors_final": []
+ },
+ "contract_failure": null,
+ "llm_calls": [
+  {
+   "phase": "action",
+   "step": 2,
+   "attempt": 0,
+   "prompt_tokens": 1233,
+   "completion_tokens": 79,
+   "latency_ms": 20978.0,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Rate limiting issue in LATAM region\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_customer_deployment\", \"component\": null, \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 3,
+   "attempt": 0,
+   "prompt_tokens": 1568,
+   "completion_tokens": 80,
+   "latency_ms": 3790.0,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Rate limiting issue in LATAM region\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_technical_signals\", \"component\": null, \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 4,
+   "attempt": 0,
+   "prompt_tokens": 1916,
+   "completion_tokens": 82,
+   "latency_ms": 4893.1,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Rate limiting issue in LATAM region\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_component_topology\", \"component\": \"COMPONENT_SPH\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 5,
+   "attempt": 0,
+   "prompt_tokens": 2004,
+   "completion_tokens": 84,
+   "latency_ms": 5197.7,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Rate limiting issue in LATAM region\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_technical_signals\", \"component\": \"COMPONENT_SPH\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 6,
+   "attempt": 0,
+   "prompt_tokens": 1870,
+   "completion_tokens": 82,
+   "latency_ms": 6652.8,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Rate limiting issue in LATAM region\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_recent_changes\", \"component\": \"COMPONENT_SPH\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 7,
+   "attempt": 0,
+   "prompt_tokens": 1762,
+   "completion_tokens": 83,
+   "latency_ms": 6376.7,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Rate limiting issue in LATAM region\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_deployment_history\", \"component\": \"COMPONENT_SPH\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 8,
+   "attempt": 0,
+   "prompt_tokens": 1779,
+   "completion_tokens": 82,
+   "latency_ms": 3290.6,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Rate limiting issue in LATAM region\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_service_health\", \"component\": \"COMPONENT_SPH\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 9,
+   "attempt": 0,
+   "prompt_tokens": 2891,
+   "completion_tokens": 83,
+   "latency_ms": 3738.0,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Rate limiting issue in LATAM region\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_telemetry\", \"component\": \"COMPONENT_SPH\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 10,
+   "attempt": 0,
+   "prompt_tokens": 2320,
+   "completion_tokens": 84,
+   "latency_ms": 5753.3,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Rate limiting issue in LATAM region\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_telemetry\", \"component\": \"COMPONENT_SPH\", \"metric_category\": \"Identity\", \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "final",
+   "step": 11,
+   "attempt": 0,
+   "prompt_tokens": 3057,
+   "completion_tokens": 277,
+   "latency_ms": 47606.1,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Rate limiting issue in LATAM region\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"evidence_ids\": [], \"issue_category\": null, \"category_confidence\": null, \"root_cause\": null, \"root_cause_confidence\": null, \"affected_component\": null, \"component_confidence\": null, \"causal_change\": null, \"causal_change_confidence\": null, \"owning_team\": null, \"routing_confidence\": null, \"confidence\": 0.2, \"evidence_sufficiency\": \"insufficient\", \"human_review_required\": true, \"review_reason\": \"Investigation budget exhausted, unable to gather sufficient evidence to support or reject hypotheses.\", \"status\": \"INSUFFICIENT_EVIDENCE\", \"recommended_next_action\": \"Human review required to further investigate the rate limiting issue in the LATAM region.\", \"unresolved_uncertainties\": [\"Unable to determine the root cause of the HTTP 429 errors due to insufficient evidence.\"], \"summary\": \"The investigation was unable to gather sufficient evidence to support or reject the hypothesis of a rate limiting issue in the LATAM region. Human review is required to further investigate this issue.\"}"
+  }
+ ]
+}

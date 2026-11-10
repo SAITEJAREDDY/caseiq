@@ -1,0 +1,41 @@
+id,name
+RC01,product defect
+RC02,customer configuration error
+RC03,incorrect permissions
+RC04,policy misconfiguration
+RC05,expired certificate
+RC06,version incompatibility
+RC07,dependency failure
+RC08,network configuration error
+RC09,resource exhaustion
+RC10,database contention
+RC11,bad deployment
+RC12,incomplete migration
+RC13,stale cache
+RC14,third-party service failure
+RC15,unsupported configuration
+RC16,incorrect DNS configuration
+RC17,data quality issue
+RC18,operator error
+RC19,capacity limitation
+RC20,known product limitation
+RC21,race condition
+RC22,identity provider outage
+RC23,token expiration handling bug
+RC24,insufficient monitoring/alerting
+RC25,incorrect load balancer routing
+RC26,firewall misconfiguration
+RC27,schema mismatch
+RC28,breaking API contract change
+RC29,credential rotation not propagated
+RC30,stale internal documentation followed
+RC31,incomplete rollback
+RC32,infrastructure hardware failure
+RC33,rate limit misconfiguration
+RC34,insufficient capacity planning
+RC35,data migration defect
+RC36,improper access review
+RC37,expired API key
+RC38,clock/time synchronization issue
+RC39,idempotency/duplicate-processing failure
+RC40,insufficient information to determine root cause

@@ -1,0 +1,229 @@
+{
+  "run_id": "run_CS00319_20260924T002647Z_59737523",
+  "case_id": "CS00319",
+  "created_at": "2026-09-24T00:26:47.528346+00:00",
+  "model_provider": "together",
+  "model_name": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "temperature": 0.1,
+  "prompt_version": "v1",
+  "toolset_version": "v1",
+  "output_schema_version": "v1",
+  "agent_loop_version": "v1",
+  "repair_layer_version": "v1",
+  "graph_version": "phase4-2500case-2026-09-22",
+  "sim_clock_step_minutes": 15,
+  "max_tool_calls": 10,
+  "max_repeated_same_tool": 2,
+  "stop_reason": "model_submitted",
+  "num_tool_calls": 7,
+  "num_llm_calls": 7,
+  "token_usage": {
+    "prompt_tokens": 12352,
+    "completion_tokens": 387,
+    "total_tokens": 12739
+  },
+  "approx_cost_usd": 0.001274,
+  "approx_cost_note": "Estimated from a configurable placeholder rate, not exact provider billing -- see config.py",
+  "trace_steps": [
+    {
+      "step": 1,
+      "sim_clock": "2025-05-25 00:00:00",
+      "tool_name": "get_case_context",
+      "args": {
+        "hypotheses": [],
+        "rationale": "Starting the investigation of case CS00319"
+      },
+      "hypotheses": [],
+      "rationale": "Starting the investigation of case CS00319",
+      "result_summary": {
+        "case_id": "CS00319",
+        "title": "SSO Notifications failing - likely third-party outage",
+        "description": "We are noticing that notifications are not being delivered through our SSO Integration Module in production (EU-Central). We believe this is definitely a third-party service failure on their end, as we haven't changed anything on our side. The upstream timeout seems to be caused by their service being down. Please escalate to the vendor as we think their API is unresponsive.",
+        "environment": "production",
+        "region": "EU-Central",
+        "reported_business_impact": "low",
+        "reported_affected_users": 5,
+        "priority": "low",
+        "created_date": "2025-05-25",
+        "status": "resolved",
+        "customer_id": "C03881",
+        "customer_tier": "silver",
+        "customer_industry": "Energy & Utilities",
+        "customer_company_size": "small",
+        "reported_product_id": "P002",
+        "reported_product_name": "SSO Integration Module",
+        "reported_symptoms": [
+          "notification not delivered",
+          "upstream dependency timeout"
+        ]
+      },
+      "latency_ms": 1137.0,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 2,
+      "sim_clock": "2025-05-25 00:15:00",
+      "tool_name": "get_customer_history",
+      "args": {
+        "hypotheses": [
+          "third-party_service_failure:0.8"
+        ],
+        "rationale": "To understand if there have been similar issues in the past with this customer"
+      },
+      "hypotheses": [
+        "third-party_service_failure:0.8"
+      ],
+      "rationale": "To understand if there have been similar issues in the past with this customer",
+      "result_summary": {
+        "error": "unknown tool 'get_customer_history'. Valid tools are: ['get_active_incidents', 'get_agent_availability', 'get_case_context', 'get_component_topology', 'get_configuration_history', 'get_customer_deployment', 'get_deployment_history', 'get_recent_changes', 'get_service_health', 'get_similar_cases', 'get_team_capability', 'get_technical_signals', 'get_telemetry', 'search_knowledge_base', 'submit_diagnosis']"
+      },
+      "latency_ms": 1517.8,
+      "status": "error",
+      "redundant": false
+    },
+    {
+      "step": 3,
+      "sim_clock": "2025-05-25 00:30:00",
+      "tool_name": "get_similar_cases",
+      "args": {
+        "hypotheses": [
+          "third-party_service_failure:0.8"
+        ],
+        "rationale": "To find out if there are similar cases that can provide insight into the current issue"
+      },
+      "hypotheses": [
+        "third-party_service_failure:0.8"
+      ],
+      "rationale": "To find out if there are similar cases that can provide insight into the current issue",
+      "result_summary": {
+        "similar_cases": [],
+        "count": 0
+      },
+      "latency_ms": 934.0,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 4,
+      "sim_clock": "2025-05-25 00:45:00",
+      "tool_name": "get_service_health",
+      "args": {
+        "hypotheses": [
+          "third-party_service_failure:0.8"
+        ],
+        "rationale": "To check the current health of the third-party service"
+      },
+      "hypotheses": [
+        "third-party_service_failure:0.8"
+      ],
+      "rationale": "To check the current health of the third-party service",
+      "result_summary": {
+        "error": "1 validation error for ComponentScopedArgs\ncomponent_id\n  Field required [type=missing, input_value={'hypotheses': ['third-pa...he third-party service'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      },
+      "latency_ms": 2923.0,
+      "status": "error",
+      "redundant": false
+    },
+    {
+      "step": 5,
+      "sim_clock": "2025-05-25 01:00:00",
+      "tool_name": "get_component_topology",
+      "args": {
+        "hypotheses": [
+          "third-party_service_failure:0.8"
+        ],
+        "rationale": "To understand the components involved in the SSO Integration Module"
+      },
+      "hypotheses": [
+        "third-party_service_failure:0.8"
+      ],
+      "rationale": "To understand the components involved in the SSO Integration Module",
+      "result_summary": {
+        "error": "1 validation error for ComponentScopedArgs\ncomponent_id\n  Field required [type=missing, input_value={'hypotheses': ['third-pa...SSO Integration Module'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      },
+      "latency_ms": 1535.3,
+      "status": "error",
+      "redundant": false
+    },
+    {
+      "step": 6,
+      "sim_clock": "2025-05-25 01:15:00",
+      "tool_name": "get_recent_changes",
+      "args": {
+        "hypotheses": [
+          "third-party_service_failure:0.8"
+        ],
+        "rationale": "To identify any recent changes that could be related to the issue"
+      },
+      "hypotheses": [
+        "third-party_service_failure:0.8"
+      ],
+      "rationale": "To identify any recent changes that could be related to the issue",
+      "result_summary": {
+        "recent_changes": [],
+        "count": 0
+      },
+      "latency_ms": 1361.4,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 7,
+      "sim_clock": "2025-05-25 01:30:00",
+      "tool_name": "submit_diagnosis",
+      "args": {
+        "hypotheses": [
+          "third-party_service_failure:0.8"
+        ],
+        "evidence_sufficiency": "insufficient",
+        "human_review_required": true,
+        "recommended_next_action": "Escalate to engineering for further review",
+        "rationale": "The evidence gathered so far is insufficient to confirm the root cause of the issue. Further review by engineering is required to determine the cause and recommend a solution."
+      },
+      "hypotheses": [
+        "third-party_service_failure:0.8"
+      ],
+      "rationale": "The evidence gathered so far is insufficient to confirm the root cause of the issue. Further review by engineering is required to determine the cause and recommend a solution.",
+      "result_summary": "submitted",
+      "latency_ms": 1957.7,
+      "status": "ok",
+      "redundant": false
+    }
+  ],
+  "final_diagnosis": {
+    "hypotheses": [],
+    "rationale": "The evidence gathered so far is insufficient to confirm the root cause of the issue. Further review by engineering is required to determine the cause and recommend a solution.",
+    "predicted_product_id": null,
+    "product_confidence": null,
+    "predicted_component_id": null,
+    "component_confidence": null,
+    "predicted_category_id": null,
+    "category_confidence": null,
+    "predicted_subcategory_id": null,
+    "predicted_root_cause_family": null,
+    "root_cause_confidence": null,
+    "predicted_causal_change_id": null,
+    "causal_change_confidence": null,
+    "predicted_severity": null,
+    "severity_confidence": null,
+    "recommended_team_id": null,
+    "routing_confidence": null,
+    "evidence_sufficiency": "insufficient",
+    "overall_confidence": 0.3,
+    "recommended_next_action": "Escalate to engineering for further review",
+    "human_review_required": true,
+    "human_review_reason": null,
+    "evidence_summary": "The evidence gathered so far is insufficient to confirm the root cause of the issue. Further review by engineering is required to determine the cause and recommend a solution.",
+    "unresolved_uncertainties": []
+  },
+  "citation_violations": [],
+  "evidence_ids_seen": [],
+  "repair_events": [
+    {
+      "step": 7,
+      "kind": "final_diagnosis_repair",
+      "detail": "direct validation failed (3 validation errors for FinalDiagnosis\nhypotheses.0\n  Input should be a valid dictionary or instance of HypothesisUpdate [type=model_type, input_value='third-party_service_failure:0.8', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/model_type\noverall_confidence\n  Field required [type=missing, input_value={'hypotheses': ['third-pa... recommend a solution.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\nevidence_summary\n  Field required [type=missing, input_value={'hypotheses': ['third-pa... recommend a solution.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing); repaired args validated"
+    }
+  ]
+}

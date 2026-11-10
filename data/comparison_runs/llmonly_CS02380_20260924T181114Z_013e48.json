@@ -1,0 +1,61 @@
+{
+ "run_id": "llmonly_CS02380_20260924T181114Z_013e48",
+ "case_id": "CS02380",
+ "created_at": "2026-09-24T18:11:14.987271+00:00",
+ "prompt_version": "llm_only_v1",
+ "model_name": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+ "temperature": 0.1,
+ "ticket_shown_to_model": {
+  "title": "SSO Redirect Loop in Active Directory Sync (EU-West)",
+  "description": "Users in the EU-West production region are caught in a login loop when accessing applications synced via Active Directory Sync. The SSO provider redirects back to the application, which then redirects to the provider, creating an infinite cycle. This is affecting approximately 60 users and has moderate business impact as it prevents access to internal tools.",
+  "environment": "production",
+  "region": "EU-West",
+  "priority": "medium",
+  "reported_business_impact": "moderate",
+  "reported_affected_users": 60,
+  "created_date": "2025-09-04",
+  "customer_tier": "gold",
+  "customer_industry": "Education",
+  "customer_company_size": "mid",
+  "reported_product_name": "Active Directory Sync",
+  "reported_symptoms": [
+   "login loop",
+   "SSO redirect loop"
+  ]
+ },
+ "n_categories_offered": 18,
+ "n_root_causes_offered": 40,
+ "parsed": {
+  "issue_category": "Identity / Authentication",
+  "root_cause": null,
+  "affected_component": "Active Directory Sync",
+  "causal_change": null,
+  "owning_team": null,
+  "confidence": 0.8,
+  "status": "DIAGNOSIS_PROPOSED",
+  "summary": "The issue appears to be related to an SSO redirect loop in the Active Directory Sync application, affecting 60 users in the EU-West production region. While the root cause is unclear, the symptoms suggest an identity or authentication issue."
+ },
+ "status": "DIAGNOSIS_PROPOSED",
+ "validation_errors": [],
+ "repair_used": false,
+ "llm_calls": [
+  {
+   "attempt": 0,
+   "latency_ms": 34363.4,
+   "finish_reason": "stop",
+   "raw_output": "{\"issue_category\": \"Identity \\/ Authentication\", \"root_cause\": null, \"affected_component\": \"Active Directory Sync\", \"causal_change\": null, \"owning_team\": null, \"confidence\": 0.8, \"status\": \"DIAGNOSIS_PROPOSED\", \"summary\": \"The issue appears to be related to an SSO redirect loop in the Active Directory Sync application, affecting 60 users in the EU-West production region. While the root cause is unclear, the symptoms suggest an identity or authentication issue.\"}"
+  }
+ ],
+ "tokens": {
+  "prompt": 721,
+  "completion": 112,
+  "total": 833
+ },
+ "latency_ms": 34363.4,
+ "wall_ms": 34365.1,
+ "cost_usd_estimate": 0.000733,
+ "tool_calls": 0,
+ "evidence_count": 0,
+ "graph_used": false,
+ "jev_used": false
+}

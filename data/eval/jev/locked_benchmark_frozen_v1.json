@@ -1,0 +1,679 @@
+{
+  "phase": 7,
+  "stage": "locked_benchmark_frozen",
+  "freeze_version": "locked_benchmark_frozen_v1",
+  "description": "The exact configuration of the one-shot locked-test benchmark. Every setting is explicit; nothing is 'auto', 'latest' or free. Derived from stage_b_frozen_v1 plus the Stage C selection decisions. Sealed by a manifest of sha256 pins; run_experiment refuses to run on any drift, and the holdout is one-shot (locked_benchmark_run_state.json).",
+  "derived_from": {
+    "freeze_version": "stage_b_frozen_v1",
+    "config_sha256": "0f72b8e2734b37b4bd0518bcc6dd9d376c1e39e9187b4470b3a95c32cc51d788"
+  },
+  "stage_c": {
+    "protocol": "docs/JEV_STAGE_C_PROTOCOL.md",
+    "jev_experiment": "exp_stage_c_validation_jev_20260923T184036Z_fa984004",
+    "llm_experiment": "exp_stage_c_validation_llm_20260923T184040Z_9fc75b1a",
+    "validation_case_ids_sha256": "6f89e2c8036213e41c2454031df1b79f0757413bf43e6f7667c238fc5c0c890a",
+    "note": "Stage C results are immutable inputs to this freeze; nothing here re-derives or edits them."
+  },
+  "split": {
+    "split": "test",
+    "split_version": "case_splits_v1",
+    "cases": "the whole locked test split, every case, in stored (sorted case id) order; no subset",
+    "expected_case_count": 751,
+    "case_count_source": "data/eval/splits/split_manifest_v1.json overall_counts.test (pre-existing manifest metadata; no test id is read to freeze)",
+    "split_file": "data/eval/splits/case_splits_v1.json",
+    "split_manifest": "data/eval/splits/split_manifest_v1.json",
+    "decision_time": "as_of = the case's own created_date (T0, ticket-only)"
+  },
+  "graph": {
+    "nodes": 116868,
+    "relationships": 325539,
+    "note": "checked live before the run starts"
+  },
+  "decisions": {
+    "issue_category": {
+      "primitive": "choice",
+      "question_version": "issue_category_v1",
+      "candidate_generation_version": "v1",
+      "candidate_strategy": "all_canonical_categories (18)",
+      "context_version": null,
+      "state_projection": "issue_category_state: ticket, customer tier/industry/size, reported product, visible signal count and types",
+      "include_in_locked_test": true,
+      "stage_c_class": "supporting_only",
+      "runtime_status": "supporting_signal: stable and calibrated, with a validation automation region; the LLM ties it on accuracy, so its value is cost, latency and calibrated deferral",
+      "reason": "Generalization confirmed on validation (73.0% to 78.4%, ECE 0.030), cheap to measure, and a frozen automation threshold exists that has not yet been tested on unseen data.",
+      "primary_metric": "accuracy",
+      "co_primary_metrics": [],
+      "secondary_metrics": [
+        "candidate_recall",
+        "candidate_count_distribution",
+        "macro_f1",
+        "per_class_precision_recall",
+        "false_confident_rate",
+        "brier",
+        "ece",
+        "reliability_buckets",
+        "automation_grid",
+        "target_error_coverage",
+        "frozen_thresholds",
+        "difficulty_archetype_slices",
+        "evidence_sufficiency_slices",
+        "candidate_size_bins",
+        "failure_categories",
+        "jev_vs_llm_paired_test",
+        "latency_p50_p90_p95",
+        "cost_per_decision_and_per_1000",
+        "contract_failures"
+      ],
+      "threshold_selection": {
+        "policy_version": "threshold_policy_v1",
+        "selected_on": "validation (Stage C Jev experiment)",
+        "population_definition": "every decision of the primitive",
+        "population_n": 750,
+        "tiers": {
+          "standard": {
+            "target_error": 0.05,
+            "selected_threshold": 0.8,
+            "validation_coverage": 0.5426666666666666,
+            "validation_automated": 407,
+            "validation_errors": 19,
+            "validation_observed_error": 0.04668304668304668,
+            "validation_error_upper_95": 0.07175693337012921
+          },
+          "strict": {
+            "target_error": 0.02,
+            "selected_threshold": 0.95,
+            "validation_coverage": 0.32133333333333336,
+            "validation_automated": 241,
+            "validation_errors": 2,
+            "validation_observed_error": 0.008298755186721992,
+            "validation_error_upper_95": 0.0297485089489687
+          }
+        },
+        "validation_grid_table": [
+          {
+            "threshold": 0.7,
+            "population": 750,
+            "automated": 495,
+            "coverage": 0.66,
+            "errors": 41,
+            "observed_error": 0.08282828282828283,
+            "error_upper_95": 0.11044077662937013
+          },
+          {
+            "threshold": 0.8,
+            "population": 750,
+            "automated": 407,
+            "coverage": 0.5426666666666666,
+            "errors": 19,
+            "observed_error": 0.04668304668304668,
+            "error_upper_95": 0.07175693337012921
+          },
+          {
+            "threshold": 0.85,
+            "population": 750,
+            "automated": 368,
+            "coverage": 0.49066666666666664,
+            "errors": 16,
+            "observed_error": 0.043478260869565216,
+            "error_upper_95": 0.0694526838737562
+          },
+          {
+            "threshold": 0.9,
+            "population": 750,
+            "automated": 315,
+            "coverage": 0.42,
+            "errors": 7,
+            "observed_error": 0.022222222222222223,
+            "error_upper_95": 0.04515245730440909
+          },
+          {
+            "threshold": 0.95,
+            "population": 750,
+            "automated": 241,
+            "coverage": 0.32133333333333336,
+            "errors": 2,
+            "observed_error": 0.008298755186721992,
+            "error_upper_95": 0.0297485089489687
+          }
+        ]
+      }
+    },
+    "root_cause": {
+      "primitive": "choice",
+      "question_version": "root_cause_v1",
+      "candidate_generation_version": "v2",
+      "candidate_strategy": "v2_weighted_product_signal_symptom_topology (top 15 + RC40 abstention)",
+      "context_version": "v4_operational",
+      "state_projection": "root_cause_state at v4_operational: ticket, reported product, deployed components, technical evidence, operational events",
+      "include_in_locked_test": true,
+      "stage_c_class": "supporting_only",
+      "runtime_status": "supporting_only: degraded from dev (48.0% to 37.2%) and abstains with RC40 on 40% of decisions; usable only with human review",
+      "reason": "Scientific completeness, not a deployment claim: it re-tests once on unseen data whether the Jev lead over the LLM (+16.5 points on validation) holds, and whether the dev-to-validation drop repeats.",
+      "primary_metric": "accuracy",
+      "co_primary_metrics": [
+        "conditional_accuracy",
+        "committed_accuracy_excluding_RC40"
+      ],
+      "secondary_metrics": [
+        "rc40_abstention_share",
+        "root_cause_by_evidence_quality",
+        "candidate_recall",
+        "candidate_count_distribution",
+        "macro_f1",
+        "per_class_precision_recall",
+        "false_confident_rate",
+        "brier",
+        "ece",
+        "reliability_buckets",
+        "automation_grid",
+        "target_error_coverage",
+        "frozen_thresholds",
+        "difficulty_archetype_slices",
+        "evidence_sufficiency_slices",
+        "candidate_size_bins",
+        "failure_categories",
+        "jev_vs_llm_paired_test",
+        "latency_p50_p90_p95",
+        "cost_per_decision_and_per_1000",
+        "contract_failures"
+      ],
+      "threshold_selection": {
+        "policy_version": "threshold_policy_v1",
+        "selected_on": "validation (Stage C Jev experiment)",
+        "population_definition": "every decision of the primitive",
+        "population_n": 750,
+        "tiers": {
+          "standard": {
+            "target_error": 0.05,
+            "selected_threshold": null,
+            "reason": "no grid threshold met observed error <= 5%, Wilson upper bound <= 10% and >= 50 automated decisions on validation"
+          },
+          "strict": {
+            "target_error": 0.02,
+            "selected_threshold": null,
+            "reason": "no grid threshold met observed error <= 2%, Wilson upper bound <= 4% and >= 50 automated decisions on validation"
+          }
+        },
+        "validation_grid_table": [
+          {
+            "threshold": 0.7,
+            "population": 750,
+            "automated": 274,
+            "coverage": 0.36533333333333334,
+            "errors": 125,
+            "observed_error": 0.4562043795620438,
+            "error_upper_95": 0.515380328151349
+          },
+          {
+            "threshold": 0.8,
+            "population": 750,
+            "automated": 189,
+            "coverage": 0.252,
+            "errors": 72,
+            "observed_error": 0.38095238095238093,
+            "error_upper_95": 0.45190636363365033
+          },
+          {
+            "threshold": 0.85,
+            "population": 750,
+            "automated": 134,
+            "coverage": 0.17866666666666667,
+            "errors": 47,
+            "observed_error": 0.35074626865671643,
+            "error_upper_95": 0.4346798311955979
+          },
+          {
+            "threshold": 0.9,
+            "population": 750,
+            "automated": 84,
+            "coverage": 0.112,
+            "errors": 22,
+            "observed_error": 0.2619047619047619,
+            "error_upper_95": 0.36485138509566806
+          },
+          {
+            "threshold": 0.95,
+            "population": 750,
+            "automated": 36,
+            "coverage": 0.048,
+            "errors": 6,
+            "observed_error": 0.16666666666666666,
+            "error_upper_95": 0.3189111473467432
+          }
+        ]
+      }
+    },
+    "causal_change": {
+      "primitive": "choice",
+      "question_version": "causal_change_v1",
+      "candidate_generation_version": "v3",
+      "candidate_strategy": "changes_plus_deployments_plus_none_option",
+      "key_mode": "canonical",
+      "context_version": null,
+      "state_projection": "causal_change_state: ticket, reported product, deployed components, technical evidence (changes and deployments are offered only as candidates)",
+      "include_in_locked_test": true,
+      "stage_c_class": "candidate_for_locked_benchmark",
+      "runtime_status": "runtime_candidate_conditional: conditional on the locked result; two qualifiers travel with it (JEV-028: 41% of decisions are trivially determined by candidate generation; JEV-025: the change-id artifact is unresolved on validation)",
+      "reason": "The only primitive to clear the pre-registered Stage C rubric: 89.3% [87.2, 91.6] against a 71.3% evidence-blind rule, stable against dev, 0.4% false-confident, candidate recall 100%.",
+      "primary_metric": "accuracy",
+      "co_primary_metrics": [
+        "accuracy_nontrivial",
+        "detection_rate",
+        "no_change_false_positive_rate"
+      ],
+      "secondary_metrics": [
+        "conditional_accuracy",
+        "recency_groups_A_to_E",
+        "distractor_selection_rate",
+        "change_id_artifact_descriptive",
+        "candidate_recall",
+        "candidate_count_distribution",
+        "macro_f1",
+        "per_class_precision_recall",
+        "false_confident_rate",
+        "brier",
+        "ece",
+        "reliability_buckets",
+        "automation_grid",
+        "target_error_coverage",
+        "frozen_thresholds",
+        "difficulty_archetype_slices",
+        "evidence_sufficiency_slices",
+        "candidate_size_bins",
+        "failure_categories",
+        "jev_vs_llm_paired_test",
+        "latency_p50_p90_p95",
+        "cost_per_decision_and_per_1000",
+        "contract_failures"
+      ],
+      "threshold_selection": {
+        "policy_version": "threshold_policy_v1",
+        "selected_on": "validation (Stage C Jev experiment)",
+        "population_definition": "decisions that offered at least one real change (decisions offering only `none` are resolved by candidate generation and excluded)",
+        "population_n": 443,
+        "tiers": {
+          "standard": {
+            "target_error": 0.05,
+            "selected_threshold": 0.8,
+            "validation_coverage": 0.39954853273137697,
+            "validation_automated": 177,
+            "validation_errors": 8,
+            "validation_observed_error": 0.04519774011299435,
+            "validation_error_upper_95": 0.08664075803596241
+          },
+          "strict": {
+            "target_error": 0.02,
+            "selected_threshold": null,
+            "reason": "no grid threshold met observed error <= 2%, Wilson upper bound <= 4% and >= 50 automated decisions on validation"
+          }
+        },
+        "validation_grid_table": [
+          {
+            "threshold": 0.7,
+            "population": 443,
+            "automated": 222,
+            "coverage": 0.5011286681715575,
+            "errors": 13,
+            "observed_error": 0.05855855855855856,
+            "error_upper_95": 0.09759761406124778
+          },
+          {
+            "threshold": 0.8,
+            "population": 443,
+            "automated": 177,
+            "coverage": 0.39954853273137697,
+            "errors": 8,
+            "observed_error": 0.04519774011299435,
+            "error_upper_95": 0.08664075803596241
+          },
+          {
+            "threshold": 0.85,
+            "population": 443,
+            "automated": 137,
+            "coverage": 0.309255079006772,
+            "errors": 5,
+            "observed_error": 0.0364963503649635,
+            "error_upper_95": 0.08259002266866884
+          },
+          {
+            "threshold": 0.9,
+            "population": 443,
+            "automated": 93,
+            "coverage": 0.20993227990970656,
+            "errors": 3,
+            "observed_error": 0.03225806451612903,
+            "error_upper_95": 0.09059533467748004
+          },
+          {
+            "threshold": 0.95,
+            "population": 443,
+            "automated": 41,
+            "coverage": 0.09255079006772009,
+            "errors": 2,
+            "observed_error": 0.04878048780487805,
+            "error_upper_95": 0.16139266962351367
+          }
+        ]
+      }
+    },
+    "owning_team": {
+      "primitive": "choice",
+      "question_version": "owning_team_v1",
+      "candidate_generation_version": "v2",
+      "candidate_strategy": "v2_weighted_deployment_product_signal_symptom_support (top 12)",
+      "context_version": null,
+      "state_projection": "owning_team_state: ticket, reported product, deployed components, evidence summary",
+      "include_in_locked_test": true,
+      "stage_c_class": "supporting_only",
+      "runtime_status": "supporting_only: generalizes and is far ahead of the LLM, but 37.6% primary accuracy and 5.3% false-confident; a routing suggestion with human confirmation at most",
+      "reason": "Scientific completeness: candidate coverage (99.7% to 99.9%) and the Jev lead over the LLM (+23.1 points) generalized on validation and are re-tested once on unseen data.",
+      "primary_metric": "acceptable_accuracy",
+      "co_primary_metrics": [
+        "primary_accuracy"
+      ],
+      "secondary_metrics": [
+        "conditional_primary_accuracy",
+        "conditional_acceptable_accuracy",
+        "primary_candidate_recall",
+        "acceptable_candidate_recall",
+        "high_confidence_routing_errors",
+        "candidate_recall",
+        "candidate_count_distribution",
+        "macro_f1",
+        "per_class_precision_recall",
+        "false_confident_rate",
+        "brier",
+        "ece",
+        "reliability_buckets",
+        "automation_grid",
+        "target_error_coverage",
+        "frozen_thresholds",
+        "difficulty_archetype_slices",
+        "evidence_sufficiency_slices",
+        "candidate_size_bins",
+        "failure_categories",
+        "jev_vs_llm_paired_test",
+        "latency_p50_p90_p95",
+        "cost_per_decision_and_per_1000",
+        "contract_failures"
+      ],
+      "threshold_selection": {
+        "policy_version": "threshold_policy_v1",
+        "selected_on": "validation (Stage C Jev experiment)",
+        "population_definition": "every decision of the primitive",
+        "population_n": 750,
+        "tiers": {
+          "standard": {
+            "target_error": 0.05,
+            "selected_threshold": null,
+            "reason": "no grid threshold met observed error <= 5%, Wilson upper bound <= 10% and >= 50 automated decisions on validation"
+          },
+          "strict": {
+            "target_error": 0.02,
+            "selected_threshold": null,
+            "reason": "no grid threshold met observed error <= 2%, Wilson upper bound <= 4% and >= 50 automated decisions on validation"
+          }
+        },
+        "validation_grid_table": [
+          {
+            "threshold": 0.7,
+            "population": 750,
+            "automated": 279,
+            "coverage": 0.372,
+            "errors": 140,
+            "observed_error": 0.5017921146953405,
+            "error_upper_95": 0.560038667923092
+          },
+          {
+            "threshold": 0.8,
+            "population": 750,
+            "automated": 194,
+            "coverage": 0.25866666666666666,
+            "errors": 94,
+            "observed_error": 0.4845360824742268,
+            "error_upper_95": 0.5544771131983817
+          },
+          {
+            "threshold": 0.85,
+            "population": 750,
+            "automated": 149,
+            "coverage": 0.19866666666666666,
+            "errors": 69,
+            "observed_error": 0.46308724832214765,
+            "error_upper_95": 0.5430735128245805
+          },
+          {
+            "threshold": 0.9,
+            "population": 750,
+            "automated": 96,
+            "coverage": 0.128,
+            "errors": 40,
+            "observed_error": 0.4166666666666667,
+            "error_upper_95": 0.5166321453373298
+          },
+          {
+            "threshold": 0.95,
+            "population": 750,
+            "automated": 52,
+            "coverage": 0.06933333333333333,
+            "errors": 26,
+            "observed_error": 0.5,
+            "error_upper_95": 0.6311436144203009
+          }
+        ]
+      }
+    },
+    "evidence_sufficiency": {
+      "primitive": "choice",
+      "question_version": "evidence_sufficiency_v2",
+      "candidate_generation_version": "v1",
+      "candidate_strategy": "fixed_three_way_evidence_sufficiency",
+      "context_version": null,
+      "state_projection_version": "v2",
+      "state_projection": "evidence_sufficiency_state with the time-gated observable telemetry-anomaly summary (evidence_sufficiency_v2)",
+      "include_in_locked_test": false,
+      "stage_c_class": "weak_deprioritize",
+      "runtime_status": "deprioritize",
+      "reason": "12.4% against a 92.9% majority baseline on validation (the LLM, 41.9%, is also below it). Excluded so the untouched test data stay available to any redesigned version; another measurement of this version would add little.",
+      "primary_metric": "macro_f1",
+      "co_primary_metrics": [],
+      "secondary_metrics": []
+    },
+    "incident_relationship": {
+      "primitive": "noul",
+      "question_version": "incident_relationship_v1",
+      "candidate_generation_version": "v1",
+      "candidate_strategy": "active_incidents_overlapping_case (one Noul question per overlapping incident)",
+      "context_version": null,
+      "state_projection": "incident_relationship_state: ticket, reported product, case signal count, candidate incident",
+      "include_in_locked_test": false,
+      "stage_c_class": "weak_deprioritize",
+      "runtime_status": "deprioritize (borderline insufficient evidence: the sample is interpretable but cannot separate Jev from the baseline)",
+      "reason": "82.6% against a 78.0% 'never related' baseline (lower bound below it); Jev found 8 of 29 related incidents. Excluded to preserve untouched data for a redesign that supplies more true-related incidents.",
+      "primary_metric": "balanced_accuracy",
+      "co_primary_metrics": [],
+      "secondary_metrics": []
+    }
+  },
+  "context_version_note": "context_version is a root-cause-only setting; every other decision ignores it.",
+  "jev": {
+    "model_requested": "jev-1.13.0",
+    "model_resolved_at_freeze": "jev-1.13.0",
+    "api_endpoint": "/v1/systemone",
+    "api_version": "v1",
+    "note": "Pinned to the explicit version id (accepted by the API and resolving identically to the jev-latest alias on 2026-09-23); the alias is not used."
+  },
+  "llm_baseline": {
+    "provider": "together",
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "temperature": 0.1,
+    "max_tokens": 400,
+    "repair_max_attempts": 1
+  },
+  "evaluator_version": "v2.1",
+  "question_set_version": "v2",
+  "candidate_strategy_bundle": "v3",
+  "pricing_version": "2026-09-23",
+  "confidence": {
+    "jev": "the API `confidence` field as delivered (JEV-032: not the probability of the chosen option)",
+    "llm": "the self-reported confidence the model writes (a coarse number with few distinct values)",
+    "comparability": "not comparable across systems; calibration is reported per system and never ranked against the other",
+    "false_confident_threshold": 0.9,
+    "confidence_buckets": [
+      [
+        0.0,
+        0.5
+      ],
+      [
+        0.5,
+        0.6
+      ],
+      [
+        0.6,
+        0.7
+      ],
+      [
+        0.7,
+        0.8
+      ],
+      [
+        0.8,
+        0.9
+      ],
+      [
+        0.9,
+        0.95
+      ],
+      [
+        0.95,
+        1.0001
+      ]
+    ]
+  },
+  "orchestration": {
+    "runner": "parallel_v1",
+    "workers": 8,
+    "case_attempts": 3,
+    "note": "Workers change scheduling, not inputs: each decision's input is built once and sent to both systems. Latencies are therefore measured under 8-way concurrency, as in Stage C."
+  },
+  "run": {
+    "name": "locked_benchmark_run",
+    "command": "python3 -m agent.jev_v2.run_experiment --name locked_benchmark_run --kind locked_benchmark --split test --compare-llm --frozen-config locked_benchmark_frozen_v1",
+    "compare_llm": true,
+    "resume": "only of the same run name under the same configuration, and only to complete cases that did not finish; completed cases are never re-sent"
+  },
+  "statistics": {
+    "bootstrap": {
+      "resamples": 2000,
+      "seed": 20260923,
+      "method": "Phase 6 percentile bootstrap (agent.eval_v2.aggregate._bootstrap_ci)"
+    },
+    "proportion_ci": "Wilson 95%",
+    "difference_vs_validation": "Newcombe hybrid-score 95% interval for two independent proportions (locked minus validation)",
+    "ratio_vs_validation": "seeded parametric bootstrap of locked/validation",
+    "jev_vs_llm": "paired by (case, decision, incident) on identical inputs verified by hash; exact two-sided McNemar test; paired bootstrap 95% interval of the accuracy difference",
+    "reading_labels": "material degradation / plausible sampling variation / improvement / insufficient sample (either side under 30); no fixed percentage threshold; interval-based only",
+    "multiplicity": "no adjustment; p-values are reported unadjusted and marginal values are not interpreted",
+    "reference": "Stage C validation experiments (not dev)"
+  },
+  "analysis": {
+    "reference": {
+      "split": "validation",
+      "jev_experiment": "exp_stage_c_validation_jev_20260923T184036Z_fa984004",
+      "llm_experiment": "exp_stage_c_validation_llm_20260923T184040Z_9fc75b1a"
+    },
+    "slice_dimensions": {
+      "difficulty_archetype": [
+        "clear",
+        "customer_misdiagnosis",
+        "dependency_root_cause",
+        "multi_component_symptoms",
+        "vague",
+        "wrong_product_mentioned"
+      ],
+      "evidence_sufficiency": [
+        "sufficient",
+        "partially_sufficient",
+        "insufficient"
+      ]
+    },
+    "slice_rules": "a slice under 30 decisions is marked small; a slice is flagged 'confidence does not track accuracy' when it has >= 30 decisions and (mean confidence - accuracy) exceeds the overall value by >= 0.10",
+    "candidate_size_bins": "each distinct size when there are six or fewer distinct sizes, otherwise terciles of the locked distribution; empty bins are dropped",
+    "causal_recency_groups": {
+      "A": "true change is the newest candidate",
+      "B": "true change is visible and strictly older than another candidate (ties count as A)",
+      "C": "no causal change",
+      "D": "two or more real candidates offered (cuts across A/B/C)",
+      "E": "true change not offered"
+    },
+    "automation_grid": [
+      0.7,
+      0.8,
+      0.85,
+      0.9,
+      0.95
+    ],
+    "target_error_rates": [
+      0.05,
+      0.02,
+      0.01
+    ],
+    "failure_categories": "invalid output or API error; candidate missing; wrong at confidence >= 0.90; wrong at lower confidence; correct at confidence < 0.50; correct otherwise (+ causal, incident, sufficiency sub-categories as in Stage C)",
+    "capability_rubric": {
+      "T1": "lower 95% bound of accuracy above the best evidence-blind rule",
+      "T2": "no material degradation against validation and candidate recall >= 0.95 (owning team judged on acceptable recall)",
+      "T3": "accuracy >= 0.85 and false-confident rate <= 0.05",
+      "T4": "at least 100 decisions",
+      "headline": "owning team is read on PRIMARY-team accuracy, as in Stage C (acceptable accuracy is the pre-registered primary metric of the report, reported alongside)"
+    },
+    "exploratory_rule": "any analysis not listed in the protocol is exploratory and must be labelled as such; none may be a headline"
+  },
+  "threshold_policy": {
+    "version": "threshold_policy_v1",
+    "grid": [
+      0.7,
+      0.8,
+      0.85,
+      0.9,
+      0.95
+    ],
+    "tiers": {
+      "standard": 0.05,
+      "strict": 0.02
+    },
+    "upper_bound_factor": 2.0,
+    "min_automated": 50,
+    "selected_on": "validation only",
+    "text": "see agent/jev_v2/threshold_policy.py (pinned) and the protocol; thresholds below in each decision's threshold_selection are FIXED and are only evaluated, never re-selected, on the locked run"
+  },
+  "cost_accounting": {
+    "tokens": "provider-returned usage summed over every attempt",
+    "jev_price_per_m_input_usd": 0.042,
+    "jev_price_per_m_output_usd": 0.0,
+    "llm_price_per_m_usd": [
+      1.04,
+      1.04
+    ],
+    "llm_price_note": "ASSUMPTION: the Together pricing page lists no separate Turbo row for the Llama 3.3 70B model id; the Llama 3.3 70B serverless price is applied",
+    "reported": "cost per decision and per 1,000 decisions, per decision type",
+    "pricing_version": "2026-09-23"
+  },
+  "latency": {
+    "measure": "client-side wall-clock milliseconds per request as recorded in each decision record",
+    "percentiles": "P50, P90, P95 (nearest-rank, aggregate._percentile)",
+    "conditions": "8-way concurrency, both systems"
+  },
+  "protocol": {
+    "path": "docs/JEV_LOCKED_BENCHMARK_PROTOCOL.md"
+  },
+  "one_shot": {
+    "marker": "data/eval/jev/locked_benchmark_run_state.json",
+    "rule": "written before the first call; afterwards only --resume of the same run under the same configuration is accepted; any change to this file or any pinned file invalidates the run as a holdout benchmark"
+  },
+  "rationale": {
+    "inclusion": "Inclusion in the locked test (measure once on the final holdout) is separate from runtime candidacy. Evidence sufficiency and incident relationship are excluded to keep untouched data for possible redesigns.",
+    "causal_key_mode": "canonical, the validated configuration. JEV-025 (change-id artifact) is unresolved on validation; switching to opaque keys would run an unvalidated configuration. If the opaque control on validation shows reliance, a new freeze version (opaque keys) is required before any locked run.",
+    "workers": "8, as in Stage C, so latency is measured under the same conditions.",
+    "thresholds": "selected on validation by a versioned policy that never relaxes itself; root cause and owning team have none because no grid threshold came near the policy."
+  }
+}

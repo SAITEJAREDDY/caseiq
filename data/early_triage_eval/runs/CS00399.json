@@ -1,0 +1,3059 @@
+{
+ "case_id": "CS00399",
+ "created_at": "2026-09-24T22:09:37.242934+00:00",
+ "config": {
+  "missed_evidence_threshold": 0.75,
+  "distractor_threshold": 0.75,
+  "priority_review_threshold": 0.5,
+  "min_confidence": 0.55,
+  "extra_steps": 4,
+  "premature_min_steps_left": 2,
+  "require_jev_to_accept": true
+ },
+ "early_triage_used": true,
+ "early_triage_config": {
+  "min_probability": 0.3,
+  "moderate_probability": 0.4,
+  "strong_probability": 0.7,
+  "top_alternatives": 3,
+  "timeout_s": 20.0
+ },
+ "early_triage": {
+  "version": "early_triage_v1",
+  "role": "triage_guidance",
+  "source": "jev_early_triage",
+  "question_version": "early_triage_category_v1",
+  "state_version": "early_triage_state_v1",
+  "status": "hint",
+  "fallback": false,
+  "fallback_reason": null,
+  "category_id": "IC04",
+  "category_name": "Performance / Latency",
+  "probability": 0.74,
+  "margin": 0.54,
+  "uncertainty": "low",
+  "alternatives": [
+   {
+    "category_id": "IC07",
+    "name": "Configuration",
+    "probability": 0.2
+   },
+   {
+    "category_id": "IC05",
+    "name": "Reliability / Availability",
+    "probability": 0.02
+   },
+   {
+    "category_id": "IC01",
+    "name": "Identity / Authentication",
+    "probability": 0.0
+   }
+  ],
+  "distribution_top": [
+   {
+    "category_id": "IC04",
+    "name": "Performance / Latency",
+    "probability": 0.74
+   },
+   {
+    "category_id": "IC07",
+    "name": "Configuration",
+    "probability": 0.2
+   },
+   {
+    "category_id": "IC05",
+    "name": "Reliability / Availability",
+    "probability": 0.02
+   },
+   {
+    "category_id": "IC01",
+    "name": "Identity / Authentication",
+    "probability": 0.0
+   }
+  ],
+  "abstain_probability": 0.04,
+  "suggested_tools": [
+   "get_telemetry (metric_category Application)",
+   "get_technical_signals",
+   "get_deployment_history"
+  ],
+  "jev_model": "jev-1.13.0",
+  "input_tokens": 876,
+  "latency_ms": 123.7,
+  "error": null,
+  "config": {
+   "min_probability": 0.3,
+   "moderate_probability": 0.4,
+   "strong_probability": 0.7,
+   "top_alternatives": 3,
+   "timeout_s": 20.0
+  }
+ },
+ "triage_outcome": {
+  "outcome": "confirmed",
+  "hint_shown": true,
+  "suggested_category_id": "IC04",
+  "suggested_category": "Performance / Latency",
+  "final_category_id": "IC04",
+  "final_category": "Performance / Latency",
+  "final_in_alternatives": false
+ },
+ "triage_outcome_initial": {
+  "outcome": "confirmed",
+  "hint_shown": true,
+  "suggested_category_id": "IC04",
+  "suggested_category": "Performance / Latency",
+  "final_category_id": "IC04",
+  "final_category": "Performance / Latency",
+  "final_in_alternatives": false
+ },
+ "agent_initial_result": {
+  "status": "DIAGNOSIS_PROPOSED",
+  "confidence": 0.6,
+  "evidence_sufficiency": "sufficient",
+  "human_review_required": false,
+  "review_reason": null,
+  "selections": {
+   "issue_category": {
+    "alias": "CATEGORY_CTF",
+    "name": "Performance / Latency",
+    "source_id": "IC04"
+   },
+   "root_cause": {
+    "alias": "CAUSE_GTN",
+    "name": "resource exhaustion",
+    "source_id": "RC09"
+   },
+   "affected_component": {
+    "alias": "COMPONENT_TSV",
+    "name": "Usage Metering Service",
+    "source_id": "CM077"
+   },
+   "causal_change": {
+    "alias": "CHANGE_NBR",
+    "name": "network_config_change on COMPONENT_CKQ started 2026-03-29 16:49:00, status completed, 31.2h before case",
+    "source_id": "CH005895"
+   },
+   "owning_team": {
+    "alias": "TEAM_NKH",
+    "name": "Commerce / Billing",
+    "source_id": "TM08"
+   }
+  },
+  "summary": "The performance/latency issue is likely caused by resource exhaustion (CAUSE_GTN) on the Usage Metering Service (COMPONENT_TSV), which is owned by the Commerce/Billing team (TEAM_NKH). The causal change is a network configuration change (CHANGE_NBR) that occurred 31.2 hours before the case was reported. The evidence suggests that the issue is related to disk space critical, memory pressure, and premature token expiration on the Usage Metering Service.",
+  "recommended_next_action": "Verify the root cause and implement a fix to resolve the performance/latency issue.",
+  "hypotheses": [
+   {
+    "label": "Performance/Latency Issue",
+    "confidence": 0.74,
+    "status": "confirmed"
+   }
+  ]
+ },
+ "verification_rounds": [
+  {
+   "round": 1,
+   "deterministic_checks": {
+    "D1": {
+     "id": "D1",
+     "name": "valid_final_contract",
+     "passed": true,
+     "applicable": true,
+     "detail": "schema, bounds and every reference are valid"
+    },
+    "D2": {
+     "id": "D2",
+     "name": "evidence_support",
+     "passed": true,
+     "applicable": true,
+     "detail": "14 cited evidence item(s), 1 supported hypothesis(es)"
+    },
+    "D3": {
+     "id": "D3",
+     "name": "final_consistency",
+     "passed": true,
+     "applicable": true,
+     "detail": "consistent with the last stated hypotheses and its own confidence"
+    },
+    "D4": {
+     "id": "D4",
+     "name": "premature_finalization",
+     "passed": true,
+     "applicable": true,
+     "detail": "evidence was retrieved and either a hypothesis is supported or the tool budget is used up"
+    },
+    "all_passed": true
+   },
+   "jev_missed_evidence": 0.84,
+   "jev_distractor_anchor": 0.82,
+   "jev_review": {
+    "label": "PRIORITY_REVIEW",
+    "probabilities": {
+     "REVIEW": 0.2,
+     "PRIORITY_REVIEW": 0.8,
+     "NORMAL": 0.0
+    }
+   },
+   "jev_available": true,
+   "policy_decision": "CONTINUE_INVESTIGATION",
+   "reason": "possible missed evidence; possible anchoring on weak or distracting evidence while stronger competing evidence exists",
+   "triggers": [
+    "jev_missed_evidence",
+    "jev_distractor_anchor"
+   ],
+   "message_to_agent": "Verification result:\nMore investigation required.\nReasons:\n- possible missed evidence\n- possible anchoring on weak or distracting evidence while stronger competing evidence exists\nTools you have not used yet: get_configuration_history, get_active_incidents, get_similar_cases, search_knowledge_base, get_team_capability, get_agent_availability.\nContinue investigating using available tools. Do not repeat already completed tool calls unless necessary. You have up to 4 more tool calls; then you will be asked for your final diagnosis again."
+  },
+  {
+   "round": 2,
+   "deterministic_checks": {
+    "D1": {
+     "id": "D1",
+     "name": "valid_final_contract",
+     "passed": true,
+     "applicable": true,
+     "detail": "schema, bounds and every reference are valid"
+    },
+    "D2": {
+     "id": "D2",
+     "name": "evidence_support",
+     "passed": true,
+     "applicable": true,
+     "detail": "5 cited evidence item(s), 1 supported hypothesis(es)"
+    },
+    "D3": {
+     "id": "D3",
+     "name": "final_consistency",
+     "passed": true,
+     "applicable": true,
+     "detail": "consistent with the last stated hypotheses and its own confidence"
+    },
+    "D4": {
+     "id": "D4",
+     "name": "premature_finalization",
+     "passed": true,
+     "applicable": true,
+     "detail": "evidence was retrieved and either a hypothesis is supported or the tool budget is used up"
+    },
+    "all_passed": true
+   },
+   "jev_missed_evidence": 0.46,
+   "jev_distractor_anchor": 0.65,
+   "jev_review": {
+    "label": "PRIORITY_REVIEW",
+    "probabilities": {
+     "REVIEW": 0.39,
+     "NORMAL": 0.0,
+     "PRIORITY_REVIEW": 0.61
+    }
+   },
+   "jev_available": true,
+   "policy_decision": "PRIORITY_REVIEW",
+   "reason": "Jev flags this investigation for priority review",
+   "triggers": [
+    "jev_priority_review"
+   ],
+   "message_to_agent": null
+  }
+ ],
+ "policy_decision": "CONTINUE_INVESTIGATION",
+ "additional_investigation_performed": true,
+ "agent_final_result": {
+  "status": "DIAGNOSIS_PROPOSED",
+  "confidence": 0.74,
+  "evidence_sufficiency": "sufficient",
+  "human_review_required": false,
+  "review_reason": null,
+  "selections": {
+   "issue_category": {
+    "alias": "CATEGORY_CTF",
+    "name": "Performance / Latency",
+    "source_id": "IC04"
+   },
+   "root_cause": {
+    "alias": "CAUSE_GTN",
+    "name": "resource exhaustion",
+    "source_id": "RC09"
+   },
+   "affected_component": {
+    "alias": "COMPONENT_TSV",
+    "name": "Usage Metering Service",
+    "source_id": "CM077"
+   },
+   "causal_change": null,
+   "owning_team": {
+    "alias": "TEAM_NKH",
+    "name": "Commerce / Billing",
+    "source_id": "TM08"
+   }
+  },
+  "summary": "The investigation suggests that the Performance/Latency Issue is likely caused by resource exhaustion on the Usage Metering Service, which is owned by the Commerce/Billing team. The evidence points to a series of technical signals and health events indicating performance degradation and resource constraints on the service. While the exact cause of the resource exhaustion is still unclear, the available evidence supports this hypothesis.",
+  "recommended_next_action": "Monitor the Usage Metering Service for further performance issues and consider optimizing its configuration to prevent resource exhaustion.",
+  "hypotheses": [
+   {
+    "label": "Performance/Latency Issue",
+    "confidence": 0.74,
+    "status": "active"
+   }
+  ]
+ },
+ "final_policy_decision": "PRIORITY_REVIEW",
+ "final_reason": "Jev flags this investigation for priority review",
+ "review_packet": {
+  "decision": "PRIORITY_REVIEW",
+  "reason": "Jev flags this investigation for priority review",
+  "triggers": [
+   "jev_priority_review"
+  ],
+  "agent_diagnosis": {
+   "status": "DIAGNOSIS_PROPOSED",
+   "confidence": 0.74,
+   "evidence_sufficiency": "sufficient",
+   "human_review_required": false,
+   "review_reason": null,
+   "selections": {
+    "issue_category": {
+     "alias": "CATEGORY_CTF",
+     "name": "Performance / Latency",
+     "source_id": "IC04"
+    },
+    "root_cause": {
+     "alias": "CAUSE_GTN",
+     "name": "resource exhaustion",
+     "source_id": "RC09"
+    },
+    "affected_component": {
+     "alias": "COMPONENT_TSV",
+     "name": "Usage Metering Service",
+     "source_id": "CM077"
+    },
+    "causal_change": null,
+    "owning_team": {
+     "alias": "TEAM_NKH",
+     "name": "Commerce / Billing",
+     "source_id": "TM08"
+    }
+   },
+   "summary": "The investigation suggests that the Performance/Latency Issue is likely caused by resource exhaustion on the Usage Metering Service, which is owned by the Commerce/Billing team. The evidence points to a series of technical signals and health events indicating performance degradation and resource constraints on the service. While the exact cause of the resource exhaustion is still unclear, the available evidence supports this hypothesis.",
+   "recommended_next_action": "Monitor the Usage Metering Service for further performance issues and consider optimizing its configuration to prevent resource exhaustion.",
+   "hypotheses": [
+    {
+     "label": "Performance/Latency Issue",
+     "confidence": 0.74,
+     "status": "active"
+    }
+   ]
+  },
+  "key_evidence": [
+   {
+    "alias": "EVIDENCE_VBR",
+    "type": "signal",
+    "summary": "DISK_SPACE_CRITICAL: disk space critical on CSV/Excel Export Worker on COMPONENT_LJN @ 2026-03-30 20:29:00",
+    "source_id": "SG0001939"
+   },
+   {
+    "alias": "EVIDENCE_FCG",
+    "type": "signal",
+    "summary": "MEMORY_PRESSURE: memory pressure detected on Usage Metering Service on COMPONENT_TSV @ 2026-03-30 22:45:00",
+    "source_id": "SG0001937"
+   },
+   {
+    "alias": "EVIDENCE_LQH",
+    "type": "signal",
+    "summary": "AUTH_TOKEN_EXPIRED: premature token expiration on Usage Metering Service on COMPONENT_TSV @ 2026-03-30 23:19:00",
+    "source_id": "SG0001941"
+   },
+   {
+    "alias": "EVIDENCE_XQN",
+    "type": "signal",
+    "summary": "HTTP_500: HTTP 500 spike on Authentication Service on COMPONENT_WBV @ 2026-03-30 23:29:00",
+    "source_id": "SG0001940"
+   },
+   {
+    "alias": "EVIDENCE_RMH",
+    "type": "signal",
+    "summary": "OOM_KILL: OOM kill recorded on Usage Metering Service on COMPONENT_TSV @ 2026-03-30 23:37:00",
+    "source_id": "SG0001938"
+   }
+  ],
+  "missed_evidence_probability": 0.46,
+  "distractor_anchor_probability": 0.65,
+  "review_signal": "PRIORITY_REVIEW",
+  "contract_failure": null
+ },
+ "latency_s": 311.1,
+ "cost_usd_estimate": 0.03996,
+ "cost_note": "estimate: agent tokens x Together list price + Jev input tokens x Jev list price",
+ "agent_tokens": 43432,
+ "jev_input_tokens": 41327,
+ "agent_run": {
+  "case_id": "CS00399",
+  "stop_reason": "tool_budget_exhausted",
+  "num_tool_calls": 14,
+  "num_llm_calls": 16,
+  "token_usage": {
+   "prompt_tokens": 41105,
+   "completion_tokens": 2327,
+   "total_tokens": 43432
+  },
+  "trace_steps": [
+   {
+    "step": 1,
+    "sim_clock": "2026-03-31 00:00:00",
+    "tool_name": "get_case_context",
+    "args": {},
+    "args_alias": {},
+    "hypotheses": [],
+    "hypothesis_state": [],
+    "rationale": "",
+    "result_summary": {
+     "case_id": "CS00399",
+     "title": "Slow Mobile App Performance and Intermittent Failures in EU-Central Staging",
+     "description": "Our mobile app is running very slowly and failing intermittently when using Payment Gateway v2 in staging. We are confident this is caused by a clock/time synchronization issue between your servers and our client devices. Please adjust your server time settings.",
+     "environment": "staging",
+     "region": "EU-Central",
+     "reported_business_impact": "moderate",
+     "reported_affected_users": 17,
+     "priority": "medium",
+     "created_date": "2026-03-31",
+     "status": "resolved",
+     "customer_id": "C03812",
+     "customer_tier": "gold",
+     "customer_industry": "Public Sector",
+     "customer_company_size": "small",
+     "reported_product_id": "P001",
+     "reported_product_name": "Payment Gateway v2",
+     "reported_symptoms": [
+      "intermittent failure",
+      "slow mobile app performance"
+     ]
+    },
+    "latency_ms": 0.0,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "harness"
+   },
+   {
+    "step": 2,
+    "sim_clock": "2026-03-31 00:15:00",
+    "tool_name": "get_customer_deployment",
+    "args": {},
+    "args_alias": {},
+    "hypotheses": [
+     "Performance/Latency Issue:0.74"
+    ],
+    "hypothesis_state": [
+     {
+      "label": "Performance/Latency Issue",
+      "confidence": 0.74,
+      "status": "active",
+      "supporting_evidence": [],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "result_summary": {
+     "deployments": [
+      {
+       "product_id": "P001",
+       "product_name": "Payment Gateway v2",
+       "version": "1.8",
+       "environment": "production",
+       "region": "EU-Central",
+       "status": "active",
+       "deployed_at": "2026-05-16",
+       "product_components": [
+        "CM046",
+        "CM050",
+        "CM054",
+        "CM057",
+        "CM074",
+        "CM077",
+        "CM227",
+        "CM229"
+       ]
+      },
+      {
+       "product_id": "P001",
+       "product_name": "Payment Gateway v2",
+       "version": "1.8",
+       "environment": "sandbox",
+       "region": "EU-Central",
+       "status": "active",
+       "deployed_at": "2026-02-20",
+       "product_components": [
+        "CM046",
+        "CM050",
+        "CM054",
+        "CM057",
+        "CM074",
+        "CM077",
+        "CM227",
+        "CM229"
+       ]
+      },
+      {
+       "product_id": "P001",
+       "product_name": "Payment Gateway v2",
+       "version": "1.8",
+       "environment": "staging",
+       "region": "EU-Central",
+       "status": "active",
+       "deployed_at": "2025-02-01",
+       "product_components": [
+        "CM046",
+        "CM050",
+        "CM054",
+        "CM057",
+        "CM074",
+        "CM077",
+        "CM227",
+        "CM229"
+       ]
+      }
+     ]
+    },
+    "latency_ms": 5203.8,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "model"
+   },
+   {
+    "step": 3,
+    "sim_clock": "2026-03-31 00:30:00",
+    "tool_name": "get_telemetry",
+    "args": {
+     "metric_category": "Application"
+    },
+    "args_alias": {
+     "metric_category": "Application"
+    },
+    "hypotheses": [
+     "Performance/Latency Issue:0.74"
+    ],
+    "hypothesis_state": [
+     {
+      "label": "Performance/Latency Issue",
+      "confidence": 0.74,
+      "status": "active",
+      "supporting_evidence": [],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "result_summary": {
+     "telemetry_findings": [],
+     "count": 0
+    },
+    "latency_ms": 3899.2,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "model"
+   },
+   {
+    "step": 4,
+    "sim_clock": "2026-03-31 00:45:00",
+    "tool_name": "get_technical_signals",
+    "args": {},
+    "args_alias": {},
+    "hypotheses": [
+     "Performance/Latency Issue:0.74"
+    ],
+    "hypothesis_state": [
+     {
+      "label": "Performance/Latency Issue",
+      "confidence": 0.74,
+      "status": "active",
+      "supporting_evidence": [],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "result_summary": {
+     "signals": [
+      {
+       "evidence_id": "SG0001939",
+       "signal_type": "DISK_SPACE_CRITICAL",
+       "message": "disk space critical on CSV/Excel Export Worker",
+       "timestamp": "2026-03-30 20:29:00",
+       "component_id": "CM110"
+      },
+      {
+       "evidence_id": "SG0001937",
+       "signal_type": "MEMORY_PRESSURE",
+       "message": "memory pressure detected on Usage Metering Service",
+       "timestamp": "2026-03-30 22:45:00",
+       "component_id": "CM077"
+      },
+      {
+       "evidence_id": "SG0001941",
+       "signal_type": "AUTH_TOKEN_EXPIRED",
+       "message": "premature token expiration on Usage Metering Service",
+       "timestamp": "2026-03-30 23:19:00",
+       "component_id": "CM077"
+      },
+      {
+       "evidence_id": "SG0001940",
+       "signal_type": "HTTP_500",
+       "message": "HTTP 500 spike on Authentication Service",
+       "timestamp": "2026-03-30 23:29:00",
+       "component_id": "CM001"
+      },
+      {
+       "evidence_id": "SG0001938",
+       "signal_type": "OOM_KILL",
+       "message": "OOM kill recorded on Usage Metering Service",
+       "timestamp": "2026-03-30 23:37:00",
+       "component_id": "CM077"
+      }
+     ],
+     "count": 5
+    },
+    "latency_ms": 5211.1,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "model"
+   },
+   {
+    "step": 5,
+    "sim_clock": "2026-03-31 01:00:00",
+    "tool_name": "get_component_topology",
+    "args": {
+     "component_id": "CM077"
+    },
+    "args_alias": {
+     "component": "COMPONENT_TSV"
+    },
+    "hypotheses": [
+     "Performance/Latency Issue:0.74"
+    ],
+    "hypothesis_state": [
+     {
+      "label": "Performance/Latency Issue",
+      "confidence": 0.74,
+      "status": "active",
+      "supporting_evidence": [],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "result_summary": {
+     "component_id": "CM077",
+     "component_name": "Usage Metering Service",
+     "upstream_dependencies": [
+      {
+       "name": "Social Login Connector",
+       "id": "CM025"
+      },
+      {
+       "name": "Currency Rate Feed Connector",
+       "id": "CM088"
+      },
+      {
+       "name": "Report Subscription Service",
+       "id": "CM119"
+      },
+      {
+       "name": "Cube/OLAP Engine",
+       "id": "CM124"
+      },
+      {
+       "name": "Service Mesh Proxy",
+       "id": "CM138"
+      },
+      {
+       "name": "Autoscaler",
+       "id": "CM141"
+      },
+      {
+       "name": "Read Replica Service",
+       "id": "CM152"
+      },
+      {
+       "name": "Kubernetes Cluster Manager",
+       "id": "CM163"
+      },
+      {
+       "name": "Ingress Controller",
+       "id": "CM164"
+      },
+      {
+       "name": "Browser Extension Client",
+       "id": "CM196"
+      },
+      {
+       "name": "Mobile Push Token Manager",
+       "id": "CM205"
+      },
+      {
+       "name": "Rate-Limited Sender Pool",
+       "id": "CM222"
+      },
+      {
+       "name": "Central Rate Limiter",
+       "id": "CM244"
+      }
+     ],
+     "downstream_dependents": [],
+     "external_dependencies": [],
+     "owning_teams": [
+      {
+       "name": "Commerce / Billing",
+       "id": "TM08"
+      },
+      {
+       "name": "Product Engineering (Payments)",
+       "id": "TM18"
+      }
+     ]
+    },
+    "latency_ms": 3050.9,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "model"
+   },
+   {
+    "step": 6,
+    "sim_clock": "2026-03-31 01:15:00",
+    "tool_name": "get_service_health",
+    "args": {
+     "component_id": "CM077"
+    },
+    "args_alias": {
+     "component": "COMPONENT_TSV"
+    },
+    "hypotheses": [
+     "Performance/Latency Issue:0.74"
+    ],
+    "hypothesis_state": [
+     {
+      "label": "Performance/Latency Issue",
+      "confidence": 0.74,
+      "status": "active",
+      "supporting_evidence": [],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "result_summary": {
+     "health_events": [
+      {
+       "evidence_id": "SHE01546",
+       "started_at": "2026-03-29 06:49:00",
+       "ended_at": "2026-03-29 06:59:00",
+       "severity": "critical",
+       "description": "Automated health check flagged Usage Metering Service as degraded (critical) for 10 minutes."
+      },
+      {
+       "evidence_id": "SHE01540",
+       "started_at": "2026-03-05 06:14:00",
+       "ended_at": "2026-03-05 06:59:00",
+       "severity": "critical",
+       "description": "Brief critical health blip on Usage Metering Service: elevated error rate for 45 minutes."
+      },
+      {
+       "evidence_id": "SHE01558",
+       "started_at": "2026-01-01 17:21:00",
+       "ended_at": "2026-01-01 18:06:00",
+       "severity": "minor",
+       "description": "minor latency spike observed on Usage Metering Service, self-resolved after 45 minutes."
+      },
+      {
+       "evidence_id": "SHE01551",
+       "started_at": "2025-11-27 20:39:00",
+       "ended_at": "2025-11-27 21:39:00",
+       "severity": "minor",
+       "description": "Transient minor availability dip on Usage Metering Service, recovered within 60 minutes."
+      },
+      {
+       "evidence_id": "SHE01554",
+       "started_at": "2025-08-25 12:39:00",
+       "ended_at": "2025-08-25 12:49:00",
+       "severity": "minor",
+       "description": "Brief minor health blip on Usage Metering Service: elevated error rate for 10 minutes."
+      },
+      {
+       "evidence_id": "SHE01556",
+       "started_at": "2025-08-23 07:19:00",
+       "ended_at": "2025-08-23 07:39:00",
+       "severity": "minor",
+       "description": "Brief minor health blip on Usage Metering Service: elevated error rate for 20 minutes."
+      },
+      {
+       "evidence_id": "SHE01538",
+       "started_at": "2025-08-10 06:49:00",
+       "ended_at": "2025-08-10 06:59:00",
+       "severity": "minor",
+       "description": "Transient minor availability dip on Usage Metering Service, recovered within 10 minutes."
+      },
+      {
+       "evidence_id": "SHE01550",
+       "started_at": "2025-07-30 18:46:00",
+       "ended_at": "2025-07-30 19:06:00",
+       "severity": "minor",
+       "description": "minor latency spike observed on Usage Metering Service, self-resolved after 20 minutes."
+      }
+     ],
+     "count": 8
+    },
+    "latency_ms": 3488.5,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "model"
+   },
+   {
+    "step": 7,
+    "sim_clock": "2026-03-31 01:30:00",
+    "tool_name": "get_telemetry",
+    "args": {
+     "metric_category": "Capacity"
+    },
+    "args_alias": {
+     "metric_category": "Capacity"
+    },
+    "hypotheses": [
+     "Performance/Latency Issue:0.74"
+    ],
+    "hypothesis_state": [
+     {
+      "label": "Performance/Latency Issue",
+      "confidence": 0.74,
+      "status": "active",
+      "supporting_evidence": [],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "result_summary": {
+     "telemetry_findings": [],
+     "count": 0
+    },
+    "latency_ms": 5928.3,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "model"
+   },
+   {
+    "step": 8,
+    "sim_clock": "2026-03-31 01:45:00",
+    "tool_name": "get_recent_changes",
+    "args": {},
+    "args_alias": {},
+    "hypotheses": [
+     "Performance/Latency Issue:0.74"
+    ],
+    "hypothesis_state": [
+     {
+      "label": "Performance/Latency Issue",
+      "confidence": 0.74,
+      "status": "active",
+      "supporting_evidence": [],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "result_summary": {
+     "recent_changes": [
+      {
+       "evidence_id": "CH005895",
+       "change_type": "network_config_change",
+       "component_id": "CM046",
+       "started_at": "2026-03-29 16:49:00",
+       "completed_at": "2026-03-29 17:15:00",
+       "status": "completed",
+       "initiated_by": "system:automation",
+       "time_proximity_hours": 31.2,
+       "scope_match": "same_product"
+      }
+     ],
+     "count": 1
+    },
+    "latency_ms": 3698.4,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "model"
+   },
+   {
+    "step": 9,
+    "sim_clock": "2026-03-31 02:00:00",
+    "tool_name": "get_deployment_history",
+    "args": {
+     "component_id": "CM077"
+    },
+    "args_alias": {
+     "component": "COMPONENT_TSV"
+    },
+    "hypotheses": [
+     "Performance/Latency Issue:0.74"
+    ],
+    "hypothesis_state": [
+     {
+      "label": "Performance/Latency Issue",
+      "confidence": 0.74,
+      "status": "active",
+      "supporting_evidence": [],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "result_summary": {
+     "deployments": [],
+     "count": 0
+    },
+    "latency_ms": 4437.9,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "model"
+   },
+   {
+    "step": 10,
+    "sim_clock": "2026-03-31 02:15:00",
+    "tool_name": "get_configuration_history",
+    "args": {
+     "component_id": "CM077"
+    },
+    "args_alias": {
+     "component": "COMPONENT_TSV"
+    },
+    "hypotheses": [
+     "Performance/Latency Issue:0.74"
+    ],
+    "hypothesis_state": [
+     {
+      "label": "Performance/Latency Issue",
+      "confidence": 0.74,
+      "status": "active",
+      "supporting_evidence": [],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "result_summary": {
+     "configuration_snapshots": [],
+     "count": 0
+    },
+    "latency_ms": 4504.3,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "model"
+   },
+   {
+    "step": 11,
+    "sim_clock": "2026-03-31 02:30:00",
+    "tool_name": "get_active_incidents",
+    "args": {},
+    "args_alias": {},
+    "hypotheses": [
+     "Performance/Latency Issue:0.74"
+    ],
+    "hypothesis_state": [
+     {
+      "label": "Performance/Latency Issue",
+      "confidence": 0.74,
+      "status": "active",
+      "supporting_evidence": [],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "result_summary": {
+     "incidents": [
+      {
+       "evidence_id": "INC0544",
+       "region": "global",
+       "started_at": "2026-03-30 23:34:00",
+       "ended_at": "2026-03-31 00:34:00",
+       "severity": "critical",
+       "status": "resolved",
+       "summary": "Global payment retry processing halted for 60 minutes due to a critical failure in the Payment Retry Worker, leading to transaction backlogs.",
+       "affected_components": [
+        "CM064"
+       ]
+      }
+     ],
+     "count": 1
+    },
+    "latency_ms": 3124.5,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "model"
+   },
+   {
+    "step": 12,
+    "sim_clock": "2026-03-31 02:45:00",
+    "tool_name": "get_similar_cases",
+    "args": {},
+    "args_alias": {},
+    "hypotheses": [
+     "Performance/Latency Issue:0.74"
+    ],
+    "hypothesis_state": [
+     {
+      "label": "Performance/Latency Issue",
+      "confidence": 0.74,
+      "status": "active",
+      "supporting_evidence": [],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "result_summary": {
+     "similar_cases": [],
+     "count": 0
+    },
+    "latency_ms": 4749.7,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "model"
+   },
+   {
+    "step": 13,
+    "sim_clock": "2026-03-31 03:00:00",
+    "tool_name": "search_knowledge_base",
+    "args": {
+     "component_id": "CM077",
+     "keyword": "performance optimization"
+    },
+    "args_alias": {
+     "component": "COMPONENT_TSV",
+     "keyword": "performance optimization"
+    },
+    "hypotheses": [
+     "Performance/Latency Issue:0.74"
+    ],
+    "hypothesis_state": [
+     {
+      "label": "Performance/Latency Issue",
+      "confidence": 0.74,
+      "status": "active",
+      "supporting_evidence": [],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "result_summary": {
+     "articles": [],
+     "count": 0
+    },
+    "latency_ms": 5051.5,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "model"
+   },
+   {
+    "step": 14,
+    "sim_clock": "2026-03-31 03:15:00",
+    "tool_name": "submit_diagnosis",
+    "args": {},
+    "args_alias": {},
+    "hypotheses": [
+     "Performance/Latency Issue:0.74"
+    ],
+    "hypothesis_state": [
+     {
+      "label": "Performance/Latency Issue",
+      "confidence": 0.74,
+      "status": "active",
+      "supporting_evidence": [
+       "EVIDENCE_VBR",
+       "EVIDENCE_FCG",
+       "EVIDENCE_LQH",
+       "EVIDENCE_XQN",
+       "EVIDENCE_RMH"
+      ],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "result_summary": "submitted (forced)",
+    "latency_ms": 102538.4,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "model"
+   }
+  ],
+  "final_diagnosis": {
+   "hypotheses": [
+    {
+     "label": "Performance/Latency Issue",
+     "description": "",
+     "confidence": 0.74,
+     "status": "active",
+     "supporting_evidence": [
+      "SG0001939",
+      "SG0001937",
+      "SG0001941",
+      "SG0001940",
+      "SG0001938"
+     ],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "predicted_product_id": null,
+   "product_confidence": null,
+   "predicted_component_id": "CM077",
+   "component_confidence": 0.8,
+   "predicted_category_id": "IC04",
+   "category_confidence": 0.74,
+   "predicted_subcategory_id": null,
+   "predicted_root_cause_family": "resource exhaustion",
+   "root_cause_confidence": 0.6,
+   "predicted_causal_change_id": null,
+   "causal_change_confidence": null,
+   "predicted_severity": null,
+   "severity_confidence": null,
+   "recommended_team_id": "TM08",
+   "routing_confidence": 0.7,
+   "evidence_sufficiency": "sufficient",
+   "overall_confidence": 0.74,
+   "recommended_next_action": "Monitor the Usage Metering Service for further performance issues and consider optimizing its configuration to prevent resource exhaustion.",
+   "human_review_required": false,
+   "human_review_reason": null,
+   "evidence_summary": "The investigation suggests that the Performance/Latency Issue is likely caused by resource exhaustion on the Usage Metering Service, which is owned by the Commerce/Billing team. The evidence points to a series of technical signals and health events indicating performance degradation and resource constraints on the service. While the exact cause of the resource exhaustion is still unclear, the available evidence supports this hypothesis.",
+   "unresolved_uncertainties": [
+    "The exact cause of the resource exhaustion on the Usage Metering Service is still unclear.",
+    "Further investigation is needed to determine if the issue is fully resolved or if it may recur."
+   ],
+   "status": "DIAGNOSIS_PROPOSED",
+   "evidence_ids": [
+    "SG0001939",
+    "SG0001937",
+    "SG0001941",
+    "SG0001940",
+    "SG0001938"
+   ]
+  },
+  "final_status": "DIAGNOSIS_PROPOSED",
+  "final_alias_form": {
+   "hypotheses": [
+    {
+     "label": "Performance/Latency Issue",
+     "confidence": 0.74,
+     "status": "active",
+     "supporting_evidence": [
+      "EVIDENCE_VBR",
+      "EVIDENCE_FCG",
+      "EVIDENCE_LQH",
+      "EVIDENCE_XQN",
+      "EVIDENCE_RMH"
+     ],
+     "contradicting_evidence": []
+    }
+   ],
+   "evidence_ids": [
+    "EVIDENCE_VBR",
+    "EVIDENCE_FCG",
+    "EVIDENCE_LQH",
+    "EVIDENCE_XQN",
+    "EVIDENCE_RMH"
+   ],
+   "issue_category": "CATEGORY_CTF",
+   "category_confidence": 0.74,
+   "root_cause": "CAUSE_GTN",
+   "root_cause_confidence": 0.6,
+   "affected_component": "COMPONENT_TSV",
+   "component_confidence": 0.8,
+   "causal_change": null,
+   "causal_change_confidence": null,
+   "owning_team": "TEAM_NKH",
+   "routing_confidence": 0.7,
+   "confidence": 0.74,
+   "evidence_sufficiency": "sufficient",
+   "human_review_required": false,
+   "review_reason": null,
+   "status": "DIAGNOSIS_PROPOSED",
+   "recommended_next_action": "Monitor the Usage Metering Service for further performance issues and consider optimizing its configuration to prevent resource exhaustion.",
+   "unresolved_uncertainties": [
+    "The exact cause of the resource exhaustion on the Usage Metering Service is still unclear.",
+    "Further investigation is needed to determine if the issue is fully resolved or if it may recur."
+   ],
+   "summary": "The investigation suggests that the Performance/Latency Issue is likely caused by resource exhaustion on the Usage Metering Service, which is owned by the Commerce/Billing team. The evidence points to a series of technical signals and health events indicating performance degradation and resource constraints on the service. While the exact cause of the resource exhaustion is still unclear, the available evidence supports this hypothesis."
+  },
+  "citation_violations": [],
+  "evidence_ids_seen": [
+   "CH005895",
+   "INC0544",
+   "SG0001937",
+   "SG0001938",
+   "SG0001939",
+   "SG0001940",
+   "SG0001941",
+   "SHE01538",
+   "SHE01540",
+   "SHE01546",
+   "SHE01550",
+   "SHE01551",
+   "SHE01554",
+   "SHE01556",
+   "SHE01558"
+  ],
+  "repair_events": [
+   {
+    "step": 10,
+    "kind": "final_contract_repair",
+    "detail": "causal_change_not_cited -> accepted"
+   }
+  ],
+  "tool_proposals": 13,
+  "tool_contract_errors": [],
+  "tool_contract_repairs": [],
+  "final_contract_errors": [
+   {
+    "step": 10,
+    "attempt": 1,
+    "errors": [
+     {
+      "code": "causal_change_not_cited",
+      "field": "evidence_ids",
+      "detail": "the selected causal_change must also be cited in evidence_ids"
+     }
+    ],
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Performance/Latency Issue\", \"confidence\": 0.74, \"status\": \"confirmed\", \"supporting_evidence\": [\"EVIDENCE_VBR\", \"EVIDENCE_FCG\", \"EVIDENCE_LQH\", \"EVIDENCE_XQN\", \"EVIDENCE_RMH\"], \"contradicting_evidence\": []}], \"evidence_ids\": [\"EVIDENCE_VBR\", \"EVIDENCE_FCG\", \"EVIDENCE_LQH\", \"EVIDENCE_XQN\", \"EVIDENCE_RMH\"], \"issue_category\": \"CATEGORY_CTF\", \"category_confidence\": 0.74, \"root_cause\": \"CAUSE_GTN\", \"root_cause_confidence\": 0.6, \"affected_component\": \"COMPONENT_TSV\", \"component_confidence\": 0.8, \"causal_change\": \"CHANGE_NBR\", \"causal_change_confidence\": 0.4, \"owning_team\": \"TEAM_NKH\", \"routing_confidence\": 0.7, \"confidence\": 0.74, \"evidence_sufficiency\": \"sufficient\", \"human_review_required\": false, \"review_reason\": null, \"status\": \"DIAGNOSIS_PROPOSED\", \"recommended_next_action\": \"Monitor the Usage Metering Service for further performance issues and consider optimizing its configuration to prevent resource exhaustion.\", \"unresolved_uncertainties\": [], \"summary\": \"The Usage Metering Service experienced performance issues due to resource exhaustion, which was likely caused by a network configuration change. The service's health events and technical signals support this hypothesis.\"}",
+    "finish_reason": "stop"
+   }
+  ],
+  "final_contract_repair": {
+   "step": 10,
+   "error_codes": [
+    "causal_change_not_cited"
+   ],
+   "outcome": "accepted"
+  },
+  "registry_snapshots": [
+   {
+    "step": 1,
+    "n_entities": 59,
+    "counts": {
+     "CATEGORY": 18,
+     "CAUSE": 40,
+     "PRODUCT": 1
+    },
+    "aliases_sha256_16": "904fbbcff951e637"
+   },
+   {
+    "step": 2,
+    "n_entities": 67,
+    "counts": {
+     "CATEGORY": 18,
+     "CAUSE": 40,
+     "PRODUCT": 1,
+     "COMPONENT": 8
+    },
+    "aliases_sha256_16": "b0f06db29a38b3db"
+   },
+   {
+    "step": 3,
+    "n_entities": 67,
+    "counts": {
+     "CATEGORY": 18,
+     "CAUSE": 40,
+     "PRODUCT": 1,
+     "COMPONENT": 8
+    },
+    "aliases_sha256_16": "b0f06db29a38b3db"
+   },
+   {
+    "step": 4,
+    "n_entities": 74,
+    "counts": {
+     "CATEGORY": 18,
+     "CAUSE": 40,
+     "PRODUCT": 1,
+     "COMPONENT": 10,
+     "EVIDENCE": 5
+    },
+    "aliases_sha256_16": "71d0e489604f4f3e"
+   },
+   {
+    "step": 5,
+    "n_entities": 89,
+    "counts": {
+     "CATEGORY": 18,
+     "CAUSE": 40,
+     "PRODUCT": 1,
+     "COMPONENT": 23,
+     "EVIDENCE": 5,
+     "TEAM": 2
+    },
+    "aliases_sha256_16": "b8b0af787b430b2a"
+   },
+   {
+    "step": 6,
+    "n_entities": 97,
+    "counts": {
+     "CATEGORY": 18,
+     "CAUSE": 40,
+     "PRODUCT": 1,
+     "COMPONENT": 23,
+     "EVIDENCE": 13,
+     "TEAM": 2
+    },
+    "aliases_sha256_16": "2afb71d477e471ab"
+   },
+   {
+    "step": 7,
+    "n_entities": 97,
+    "counts": {
+     "CATEGORY": 18,
+     "CAUSE": 40,
+     "PRODUCT": 1,
+     "COMPONENT": 23,
+     "EVIDENCE": 13,
+     "TEAM": 2
+    },
+    "aliases_sha256_16": "2afb71d477e471ab"
+   },
+   {
+    "step": 8,
+    "n_entities": 98,
+    "counts": {
+     "CATEGORY": 18,
+     "CAUSE": 40,
+     "PRODUCT": 1,
+     "COMPONENT": 23,
+     "EVIDENCE": 13,
+     "TEAM": 2,
+     "CHANGE": 1
+    },
+    "aliases_sha256_16": "22ff2df740089c36"
+   },
+   {
+    "step": 9,
+    "n_entities": 98,
+    "counts": {
+     "CATEGORY": 18,
+     "CAUSE": 40,
+     "PRODUCT": 1,
+     "COMPONENT": 23,
+     "EVIDENCE": 13,
+     "TEAM": 2,
+     "CHANGE": 1
+    },
+    "aliases_sha256_16": "22ff2df740089c36"
+   },
+   {
+    "step": 10,
+    "n_entities": 98,
+    "counts": {
+     "CATEGORY": 18,
+     "CAUSE": 40,
+     "PRODUCT": 1,
+     "COMPONENT": 23,
+     "EVIDENCE": 13,
+     "TEAM": 2,
+     "CHANGE": 1
+    },
+    "aliases_sha256_16": "22ff2df740089c36"
+   },
+   {
+    "step": 11,
+    "n_entities": 100,
+    "counts": {
+     "CATEGORY": 18,
+     "CAUSE": 40,
+     "PRODUCT": 1,
+     "COMPONENT": 24,
+     "EVIDENCE": 13,
+     "TEAM": 2,
+     "CHANGE": 1,
+     "INCIDENT": 1
+    },
+    "aliases_sha256_16": "f53953503f4631a6"
+   },
+   {
+    "step": 12,
+    "n_entities": 100,
+    "counts": {
+     "CATEGORY": 18,
+     "CAUSE": 40,
+     "PRODUCT": 1,
+     "COMPONENT": 24,
+     "EVIDENCE": 13,
+     "TEAM": 2,
+     "CHANGE": 1,
+     "INCIDENT": 1
+    },
+    "aliases_sha256_16": "f53953503f4631a6"
+   },
+   {
+    "step": 13,
+    "n_entities": 100,
+    "counts": {
+     "CATEGORY": 18,
+     "CAUSE": 40,
+     "PRODUCT": 1,
+     "COMPONENT": 24,
+     "EVIDENCE": 13,
+     "TEAM": 2,
+     "CHANGE": 1,
+     "INCIDENT": 1
+    },
+    "aliases_sha256_16": "f53953503f4631a6"
+   }
+  ],
+  "alias_mappings": {
+   "CATEGORY_PZV": {
+    "alias": "CATEGORY_PZV",
+    "canonical_id": "IC01",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Identity / Authentication",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-03-31 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_ZTJ": {
+    "alias": "CATEGORY_ZTJ",
+    "canonical_id": "IC02",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Authorization / Permissions",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-03-31 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_GXW": {
+    "alias": "CATEGORY_GXW",
+    "canonical_id": "IC03",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Networking / Connectivity",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-03-31 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_CTF": {
+    "alias": "CATEGORY_CTF",
+    "canonical_id": "IC04",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Performance / Latency",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-03-31 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_NKC": {
+    "alias": "CATEGORY_NKC",
+    "canonical_id": "IC05",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Reliability / Availability",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-03-31 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_ZCC": {
+    "alias": "CATEGORY_ZCC",
+    "canonical_id": "IC06",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Deployment / Upgrade",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-03-31 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_SMX": {
+    "alias": "CATEGORY_SMX",
+    "canonical_id": "IC07",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Configuration",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-03-31 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_RZR": {
+    "alias": "CATEGORY_RZR",
+    "canonical_id": "IC08",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Data / Corruption",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-03-31 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_DDZ": {
+    "alias": "CATEGORY_DDZ",
+    "canonical_id": "IC09",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Integration / API",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-03-31 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_DHG": {
+    "alias": "CATEGORY_DHG",
+    "canonical_id": "IC10",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Provisioning / Onboarding",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-03-31 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_BPP": {
+    "alias": "CATEGORY_BPP",
+    "canonical_id": "IC11",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Security",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-03-31 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_QMQ": {
+    "alias": "CATEGORY_QMQ",
+    "canonical_id": "IC12",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Compliance",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-03-31 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_SDV": {
+    "alias": "CATEGORY_SDV",
+    "canonical_id": "IC13",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Billing / Commerce",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-03-31 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_GMF": {
+    "alias": "CATEGORY_GMF",
+    "canonical_id": "IC14",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "User Experience / Functional Defect",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-03-31 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_GCK": {
+    "alias": "CATEGORY_GCK",
+    "canonical_id": "IC15",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Storage / Database",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-03-31 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_HGD": {
+    "alias": "CATEGORY_HGD",
+    "canonical_id": "IC16",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Capacity / Scaling",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-03-31 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_HJR": {
+    "alias": "CATEGORY_HJR",
+    "canonical_id": "IC17",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Third-Party / Dependency",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-03-31 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_BHB": {
+    "alias": "CATEGORY_BHB",
+    "canonical_id": "IC18",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Unknown / Other",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-03-31 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_SVZ": {
+    "alias": "CAUSE_SVZ",
+    "canonical_id": "RC01",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "product defect",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-03-31 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_XCX": {
+    "alias": "CAUSE_XCX",
+    "canonical_id": "RC02",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "customer configuration error",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-03-31 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_TJT": {
+    "alias": "CAUSE_TJT",
+    "canonical_id": "RC03",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "incorrect permissions",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-03-31 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_NTN": {
+    "alias": "CAUSE_NTN",
+    "canonical_id": "RC04",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "policy misconfiguration",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-03-31 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_MBP": {
+    "alias": "CAUSE_MBP",
+    "canonical_id": "RC05",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "expired certificate",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-03-31 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_VKQ": {
+    "alias": "CAUSE_VKQ",
+    "canonical_id": "RC06",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "version incompatibility",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-03-31 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_HDZ": {
+    "alias": "CAUSE_HDZ",
+    "canonical_id": "RC07",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "dependency failure",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-03-31 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_KRB": {
+    "alias": "CAUSE_KRB",
+    "canonical_id": "RC08",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "network configuration error",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-03-31 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_GTN": {
+    "alias": "CAUSE_GTN",
+    "canonical_id": "RC09",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "resource exhaustion",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-03-31 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_CLN": {
+    "alias": "CAUSE_CLN",
+    "canonical_id": "RC10",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "database contention",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-03-31 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_KKV": {
+    "alias": "CAUSE_KKV",
+    "canonical_id": "RC11",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "bad deployment",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-03-31 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_TBC": {
+    "alias": "CAUSE_TBC",
+    "canonical_id": "RC12",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "incomplete migration",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-03-31 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_DKC": {
+    "alias": "CAUSE_DKC",
+    "canonical_id": "RC13",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "stale cache",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-03-31 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_FFJ": {
+    "alias": "CAUSE_FFJ",
+    "canonical_id": "RC14",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "third-party service failure",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-03-31 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_DSZ": {
+    "alias": "CAUSE_DSZ",
+    "canonical_id": "RC15",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "unsupported configuration",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-03-31 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_BPQ": {
+    "alias": "CAUSE_BPQ",
+    "canonical_id": "RC16",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "incorrect DNS configuration",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-03-31 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_PRD": {
+    "alias": "CAUSE_PRD",
+    "canonical_id": "RC17",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "data quality issue",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-03-31 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_JLP": {
+    "alias": "CAUSE_JLP",
+    "canonical_id": "RC18",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "operator error",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-03-31 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_GHD": {
+    "alias": "CAUSE_GHD",
+    "canonical_id": "RC19",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "capacity limitation",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-03-31 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_QFT": {
+    "alias": "CAUSE_QFT",
+    "canonical_id": "RC20",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "known product limitation",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-03-31 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_XZQ": {
+    "alias": "CAUSE_XZQ",
+    "canonical_id": "RC21",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "race condition",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-03-31 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_GDJ": {
+    "alias": "CAUSE_GDJ",
+    "canonical_id": "RC22",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "identity provider outage",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-03-31 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_RHP": {
+    "alias": "CAUSE_RHP",
+    "canonical_id": "RC23",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "token expiration handling bug",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-03-31 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_BRD": {
+    "alias": "CAUSE_BRD",
+    "canonical_id": "RC24",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "insufficient monitoring/alerting",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-03-31 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_SVM": {
+    "alias": "CAUSE_SVM",
+    "canonical_id": "RC25",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "incorrect load balancer routing",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-03-31 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_HWS": {
+    "alias": "CAUSE_HWS",
+    "canonical_id": "RC26",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "firewall misconfiguration",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-03-31 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_QPM": {
+    "alias": "CAUSE_QPM",
+    "canonical_id": "RC27",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "schema mismatch",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-03-31 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_HXV": {
+    "alias": "CAUSE_HXV",
+    "canonical_id": "RC28",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "breaking API contract change",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-03-31 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_STH": {
+    "alias": "CAUSE_STH",
+    "canonical_id": "RC29",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "credential rotation not propagated",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-03-31 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_NZB": {
+    "alias": "CAUSE_NZB",
+    "canonical_id": "RC30",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "stale internal documentation followed",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-03-31 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_GPH": {
+    "alias": "CAUSE_GPH",
+    "canonical_id": "RC31",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "incomplete rollback",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-03-31 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_TWV": {
+    "alias": "CAUSE_TWV",
+    "canonical_id": "RC32",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "infrastructure hardware failure",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-03-31 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_JKN": {
+    "alias": "CAUSE_JKN",
+    "canonical_id": "RC33",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "rate limit misconfiguration",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-03-31 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_ZQX": {
+    "alias": "CAUSE_ZQX",
+    "canonical_id": "RC34",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "insufficient capacity planning",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-03-31 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_LPZ": {
+    "alias": "CAUSE_LPZ",
+    "canonical_id": "RC35",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "data migration defect",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-03-31 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_WDX": {
+    "alias": "CAUSE_WDX",
+    "canonical_id": "RC36",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "improper access review",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-03-31 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_GMS": {
+    "alias": "CAUSE_GMS",
+    "canonical_id": "RC37",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "expired API key",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-03-31 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_PSP": {
+    "alias": "CAUSE_PSP",
+    "canonical_id": "RC38",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "clock/time synchronization issue",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-03-31 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_NHC": {
+    "alias": "CAUSE_NHC",
+    "canonical_id": "RC39",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "idempotency/duplicate-processing failure",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-03-31 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_PZN": {
+    "alias": "CAUSE_PZN",
+    "canonical_id": "RC40",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "insufficient information to determine root cause",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-03-31 00:00:00",
+    "summary": ""
+   },
+   "PRODUCT_KCP": {
+    "alias": "PRODUCT_KCP",
+    "canonical_id": "P001",
+    "kind": "PRODUCT",
+    "type": "product",
+    "display_name": "Payment Gateway v2",
+    "source_tool": "get_case_context",
+    "first_observed_step": 1,
+    "first_observed_clock": "2026-03-31 00:00:00",
+    "summary": ""
+   },
+   "COMPONENT_CKQ": {
+    "alias": "COMPONENT_CKQ",
+    "canonical_id": "CM046",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Refund Service",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2026-03-31 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_SSD": {
+    "alias": "COMPONENT_SSD",
+    "canonical_id": "CM050",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Currency Conversion Service",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2026-03-31 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_QCF": {
+    "alias": "COMPONENT_QCF",
+    "canonical_id": "CM054",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Payment Gateway API",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2026-03-31 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_TQZ": {
+    "alias": "COMPONENT_TQZ",
+    "canonical_id": "CM057",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Settlement Service",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2026-03-31 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_HVF": {
+    "alias": "COMPONENT_HVF",
+    "canonical_id": "CM074",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Tax Jurisdiction Resolver",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2026-03-31 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_TSV": {
+    "alias": "COMPONENT_TSV",
+    "canonical_id": "CM077",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Usage Metering Service",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2026-03-31 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_GCH": {
+    "alias": "COMPONENT_GCH",
+    "canonical_id": "CM227",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Global API Gateway",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2026-03-31 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_SBG": {
+    "alias": "COMPONENT_SBG",
+    "canonical_id": "CM229",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Audit Log Service",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2026-03-31 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_LJN": {
+    "alias": "COMPONENT_LJN",
+    "canonical_id": "CM110",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "CSV/Excel Export Worker",
+    "source_tool": "get_technical_signals",
+    "first_observed_step": 4,
+    "first_observed_clock": "2026-03-31 00:45:00",
+    "summary": ""
+   },
+   "EVIDENCE_VBR": {
+    "alias": "EVIDENCE_VBR",
+    "canonical_id": "SG0001939",
+    "kind": "EVIDENCE",
+    "type": "signal",
+    "display_name": "",
+    "source_tool": "get_technical_signals",
+    "first_observed_step": 4,
+    "first_observed_clock": "2026-03-31 00:45:00",
+    "summary": "DISK_SPACE_CRITICAL: disk space critical on CSV/Excel Export Worker on COMPONENT_LJN @ 2026-03-30 20:29:00"
+   },
+   "EVIDENCE_FCG": {
+    "alias": "EVIDENCE_FCG",
+    "canonical_id": "SG0001937",
+    "kind": "EVIDENCE",
+    "type": "signal",
+    "display_name": "",
+    "source_tool": "get_technical_signals",
+    "first_observed_step": 4,
+    "first_observed_clock": "2026-03-31 00:45:00",
+    "summary": "MEMORY_PRESSURE: memory pressure detected on Usage Metering Service on COMPONENT_TSV @ 2026-03-30 22:45:00"
+   },
+   "EVIDENCE_LQH": {
+    "alias": "EVIDENCE_LQH",
+    "canonical_id": "SG0001941",
+    "kind": "EVIDENCE",
+    "type": "signal",
+    "display_name": "",
+    "source_tool": "get_technical_signals",
+    "first_observed_step": 4,
+    "first_observed_clock": "2026-03-31 00:45:00",
+    "summary": "AUTH_TOKEN_EXPIRED: premature token expiration on Usage Metering Service on COMPONENT_TSV @ 2026-03-30 23:19:00"
+   },
+   "COMPONENT_WBV": {
+    "alias": "COMPONENT_WBV",
+    "canonical_id": "CM001",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Authentication Service",
+    "source_tool": "get_technical_signals",
+    "first_observed_step": 4,
+    "first_observed_clock": "2026-03-31 00:45:00",
+    "summary": ""
+   },
+   "EVIDENCE_XQN": {
+    "alias": "EVIDENCE_XQN",
+    "canonical_id": "SG0001940",
+    "kind": "EVIDENCE",
+    "type": "signal",
+    "display_name": "",
+    "source_tool": "get_technical_signals",
+    "first_observed_step": 4,
+    "first_observed_clock": "2026-03-31 00:45:00",
+    "summary": "HTTP_500: HTTP 500 spike on Authentication Service on COMPONENT_WBV @ 2026-03-30 23:29:00"
+   },
+   "EVIDENCE_RMH": {
+    "alias": "EVIDENCE_RMH",
+    "canonical_id": "SG0001938",
+    "kind": "EVIDENCE",
+    "type": "signal",
+    "display_name": "",
+    "source_tool": "get_technical_signals",
+    "first_observed_step": 4,
+    "first_observed_clock": "2026-03-31 00:45:00",
+    "summary": "OOM_KILL: OOM kill recorded on Usage Metering Service on COMPONENT_TSV @ 2026-03-30 23:37:00"
+   },
+   "COMPONENT_GTC": {
+    "alias": "COMPONENT_GTC",
+    "canonical_id": "CM025",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Social Login Connector",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 5,
+    "first_observed_clock": "2026-03-31 01:00:00",
+    "summary": ""
+   },
+   "COMPONENT_SWT": {
+    "alias": "COMPONENT_SWT",
+    "canonical_id": "CM088",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Currency Rate Feed Connector",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 5,
+    "first_observed_clock": "2026-03-31 01:00:00",
+    "summary": ""
+   },
+   "COMPONENT_BVK": {
+    "alias": "COMPONENT_BVK",
+    "canonical_id": "CM119",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Report Subscription Service",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 5,
+    "first_observed_clock": "2026-03-31 01:00:00",
+    "summary": ""
+   },
+   "COMPONENT_MKZ": {
+    "alias": "COMPONENT_MKZ",
+    "canonical_id": "CM124",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Cube/OLAP Engine",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 5,
+    "first_observed_clock": "2026-03-31 01:00:00",
+    "summary": ""
+   },
+   "COMPONENT_RST": {
+    "alias": "COMPONENT_RST",
+    "canonical_id": "CM138",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Service Mesh Proxy",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 5,
+    "first_observed_clock": "2026-03-31 01:00:00",
+    "summary": ""
+   },
+   "COMPONENT_LQQ": {
+    "alias": "COMPONENT_LQQ",
+    "canonical_id": "CM141",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Autoscaler",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 5,
+    "first_observed_clock": "2026-03-31 01:00:00",
+    "summary": ""
+   },
+   "COMPONENT_GCZ": {
+    "alias": "COMPONENT_GCZ",
+    "canonical_id": "CM152",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Read Replica Service",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 5,
+    "first_observed_clock": "2026-03-31 01:00:00",
+    "summary": ""
+   },
+   "COMPONENT_TJV": {
+    "alias": "COMPONENT_TJV",
+    "canonical_id": "CM163",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Kubernetes Cluster Manager",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 5,
+    "first_observed_clock": "2026-03-31 01:00:00",
+    "summary": ""
+   },
+   "COMPONENT_QQP": {
+    "alias": "COMPONENT_QQP",
+    "canonical_id": "CM164",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Ingress Controller",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 5,
+    "first_observed_clock": "2026-03-31 01:00:00",
+    "summary": ""
+   },
+   "COMPONENT_WBF": {
+    "alias": "COMPONENT_WBF",
+    "canonical_id": "CM196",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Browser Extension Client",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 5,
+    "first_observed_clock": "2026-03-31 01:00:00",
+    "summary": ""
+   },
+   "COMPONENT_WRS": {
+    "alias": "COMPONENT_WRS",
+    "canonical_id": "CM205",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Mobile Push Token Manager",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 5,
+    "first_observed_clock": "2026-03-31 01:00:00",
+    "summary": ""
+   },
+   "COMPONENT_ZHZ": {
+    "alias": "COMPONENT_ZHZ",
+    "canonical_id": "CM222",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Rate-Limited Sender Pool",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 5,
+    "first_observed_clock": "2026-03-31 01:00:00",
+    "summary": ""
+   },
+   "COMPONENT_XGX": {
+    "alias": "COMPONENT_XGX",
+    "canonical_id": "CM244",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Central Rate Limiter",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 5,
+    "first_observed_clock": "2026-03-31 01:00:00",
+    "summary": ""
+   },
+   "TEAM_NKH": {
+    "alias": "TEAM_NKH",
+    "canonical_id": "TM08",
+    "kind": "TEAM",
+    "type": "team",
+    "display_name": "Commerce / Billing",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 5,
+    "first_observed_clock": "2026-03-31 01:00:00",
+    "summary": ""
+   },
+   "TEAM_ZPT": {
+    "alias": "TEAM_ZPT",
+    "canonical_id": "TM18",
+    "kind": "TEAM",
+    "type": "team",
+    "display_name": "Product Engineering (Payments)",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 5,
+    "first_observed_clock": "2026-03-31 01:00:00",
+    "summary": ""
+   },
+   "EVIDENCE_ZJW": {
+    "alias": "EVIDENCE_ZJW",
+    "canonical_id": "SHE01546",
+    "kind": "EVIDENCE",
+    "type": "health_event",
+    "display_name": "",
+    "source_tool": "get_service_health",
+    "first_observed_step": 6,
+    "first_observed_clock": "2026-03-31 01:15:00",
+    "summary": "health event severity critical 2026-03-29 06:49:00..2026-03-29 06:59:00: Automated health check flagged Usage Metering Service as degraded (critical) for 10 minutes."
+   },
+   "EVIDENCE_FFF": {
+    "alias": "EVIDENCE_FFF",
+    "canonical_id": "SHE01540",
+    "kind": "EVIDENCE",
+    "type": "health_event",
+    "display_name": "",
+    "source_tool": "get_service_health",
+    "first_observed_step": 6,
+    "first_observed_clock": "2026-03-31 01:15:00",
+    "summary": "health event severity critical 2026-03-05 06:14:00..2026-03-05 06:59:00: Brief critical health blip on Usage Metering Service: elevated error rate for 45 minutes."
+   },
+   "EVIDENCE_XLH": {
+    "alias": "EVIDENCE_XLH",
+    "canonical_id": "SHE01558",
+    "kind": "EVIDENCE",
+    "type": "health_event",
+    "display_name": "",
+    "source_tool": "get_service_health",
+    "first_observed_step": 6,
+    "first_observed_clock": "2026-03-31 01:15:00",
+    "summary": "health event severity minor 2026-01-01 17:21:00..2026-01-01 18:06:00: minor latency spike observed on Usage Metering Service, self-resolved after 45 minutes."
+   },
+   "EVIDENCE_GMM": {
+    "alias": "EVIDENCE_GMM",
+    "canonical_id": "SHE01551",
+    "kind": "EVIDENCE",
+    "type": "health_event",
+    "display_name": "",
+    "source_tool": "get_service_health",
+    "first_observed_step": 6,
+    "first_observed_clock": "2026-03-31 01:15:00",
+    "summary": "health event severity minor 2025-11-27 20:39:00..2025-11-27 21:39:00: Transient minor availability dip on Usage Metering Service, recovered within 60 minutes."
+   },
+   "EVIDENCE_ZWN": {
+    "alias": "EVIDENCE_ZWN",
+    "canonical_id": "SHE01554",
+    "kind": "EVIDENCE",
+    "type": "health_event",
+    "display_name": "",
+    "source_tool": "get_service_health",
+    "first_observed_step": 6,
+    "first_observed_clock": "2026-03-31 01:15:00",
+    "summary": "health event severity minor 2025-08-25 12:39:00..2025-08-25 12:49:00: Brief minor health blip on Usage Metering Service: elevated error rate for 10 minutes."
+   },
+   "EVIDENCE_PZS": {
+    "alias": "EVIDENCE_PZS",
+    "canonical_id": "SHE01556",
+    "kind": "EVIDENCE",
+    "type": "health_event",
+    "display_name": "",
+    "source_tool": "get_service_health",
+    "first_observed_step": 6,
+    "first_observed_clock": "2026-03-31 01:15:00",
+    "summary": "health event severity minor 2025-08-23 07:19:00..2025-08-23 07:39:00: Brief minor health blip on Usage Metering Service: elevated error rate for 20 minutes."
+   },
+   "EVIDENCE_HKK": {
+    "alias": "EVIDENCE_HKK",
+    "canonical_id": "SHE01538",
+    "kind": "EVIDENCE",
+    "type": "health_event",
+    "display_name": "",
+    "source_tool": "get_service_health",
+    "first_observed_step": 6,
+    "first_observed_clock": "2026-03-31 01:15:00",
+    "summary": "health event severity minor 2025-08-10 06:49:00..2025-08-10 06:59:00: Transient minor availability dip on Usage Metering Service, recovered within 10 minutes."
+   },
+   "EVIDENCE_TXQ": {
+    "alias": "EVIDENCE_TXQ",
+    "canonical_id": "SHE01550",
+    "kind": "EVIDENCE",
+    "type": "health_event",
+    "display_name": "",
+    "source_tool": "get_service_health",
+    "first_observed_step": 6,
+    "first_observed_clock": "2026-03-31 01:15:00",
+    "summary": "health event severity minor 2025-07-30 18:46:00..2025-07-30 19:06:00: minor latency spike observed on Usage Metering Service, self-resolved after 20 minutes."
+   },
+   "CHANGE_NBR": {
+    "alias": "CHANGE_NBR",
+    "canonical_id": "CH005895",
+    "kind": "CHANGE",
+    "type": "change",
+    "display_name": "",
+    "source_tool": "get_recent_changes",
+    "first_observed_step": 8,
+    "first_observed_clock": "2026-03-31 01:45:00",
+    "summary": "network_config_change on COMPONENT_CKQ started 2026-03-29 16:49:00, status completed, 31.2h before case"
+   },
+   "COMPONENT_LJQ": {
+    "alias": "COMPONENT_LJQ",
+    "canonical_id": "CM064",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Payment Retry Worker",
+    "source_tool": "get_active_incidents",
+    "first_observed_step": 11,
+    "first_observed_clock": "2026-03-31 02:30:00",
+    "summary": ""
+   },
+   "INCIDENT_NJP": {
+    "alias": "INCIDENT_NJP",
+    "canonical_id": "INC0544",
+    "kind": "INCIDENT",
+    "type": "incident",
+    "display_name": "",
+    "source_tool": "get_active_incidents",
+    "first_observed_step": 11,
+    "first_observed_clock": "2026-03-31 02:30:00",
+    "summary": "incident severity critical, status resolved, 2026-03-30 23:34:00..2026-03-31 00:34:00, affects ['COMPONENT_LJQ']: Global payment retry processing halted for 60 minutes due to a critical failure in the Payment Retry Worker, leading to transaction backlogs."
+   }
+  },
+  "validation_result": {
+   "first_pass_ok": true,
+   "errors_first": [],
+   "repair_used": false,
+   "final_ok": true,
+   "errors_final": []
+  },
+  "contract_failure": null,
+  "llm_calls": [
+   {
+    "phase": "action",
+    "step": 2,
+    "attempt": 0,
+    "prompt_tokens": 1417,
+    "completion_tokens": 77,
+    "latency_ms": 5086.8,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Performance/Latency Issue\", \"confidence\": 0.74, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_customer_deployment\", \"component\": null, \"metric_category\": null, \"keyword\": null, \"team\": null}"
+   },
+   {
+    "phase": "action",
+    "step": 3,
+    "attempt": 0,
+    "prompt_tokens": 1877,
+    "completion_tokens": 78,
+    "latency_ms": 3842.0,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Performance/Latency Issue\", \"confidence\": 0.74, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_telemetry\", \"component\": null, \"metric_category\": \"Application\", \"keyword\": null, \"team\": null}"
+   },
+   {
+    "phase": "action",
+    "step": 4,
+    "attempt": 0,
+    "prompt_tokens": 1553,
+    "completion_tokens": 78,
+    "latency_ms": 5021.8,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Performance/Latency Issue\", \"confidence\": 0.74, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_technical_signals\", \"component\": null, \"metric_category\": null, \"keyword\": null, \"team\": null}"
+   },
+   {
+    "phase": "action",
+    "step": 5,
+    "attempt": 0,
+    "prompt_tokens": 2115,
+    "completion_tokens": 80,
+    "latency_ms": 2990.1,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Performance/Latency Issue\", \"confidence\": 0.74, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_component_topology\", \"component\": \"COMPONENT_TSV\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+   },
+   {
+    "phase": "action",
+    "step": 6,
+    "attempt": 0,
+    "prompt_tokens": 2243,
+    "completion_tokens": 80,
+    "latency_ms": 3419.1,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Performance/Latency Issue\", \"confidence\": 0.74, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_service_health\", \"component\": \"COMPONENT_TSV\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+   },
+   {
+    "phase": "action",
+    "step": 7,
+    "attempt": 0,
+    "prompt_tokens": 3086,
+    "completion_tokens": 78,
+    "latency_ms": 5807.2,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Performance/Latency Issue\", \"confidence\": 0.74, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_telemetry\", \"component\": null, \"metric_category\": \"Capacity\", \"keyword\": null, \"team\": null}"
+   },
+   {
+    "phase": "action",
+    "step": 8,
+    "attempt": 0,
+    "prompt_tokens": 2485,
+    "completion_tokens": 76,
+    "latency_ms": 3637.8,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Performance/Latency Issue\", \"confidence\": 0.74, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_recent_changes\", \"component\": null, \"metric_category\": null, \"keyword\": null, \"team\": null}"
+   },
+   {
+    "phase": "action",
+    "step": 9,
+    "attempt": 0,
+    "prompt_tokens": 2644,
+    "completion_tokens": 81,
+    "latency_ms": 4381.2,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Performance/Latency Issue\", \"confidence\": 0.74, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_deployment_history\", \"component\": \"COMPONENT_TSV\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+   },
+   {
+    "phase": "action",
+    "step": 10,
+    "attempt": 0,
+    "prompt_tokens": 2560,
+    "completion_tokens": 76,
+    "latency_ms": 5736.1,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Performance/Latency Issue\", \"confidence\": 0.74, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"submit_diagnosis\", \"component\": null, \"metric_category\": null, \"keyword\": null, \"team\": null}"
+   },
+   {
+    "phase": "final",
+    "step": 10,
+    "attempt": 0,
+    "prompt_tokens": 3239,
+    "completion_tokens": 351,
+    "latency_ms": 60473.2,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Performance/Latency Issue\", \"confidence\": 0.74, \"status\": \"confirmed\", \"supporting_evidence\": [\"EVIDENCE_VBR\", \"EVIDENCE_FCG\", \"EVIDENCE_LQH\", \"EVIDENCE_XQN\", \"EVIDENCE_RMH\"], \"contradicting_evidence\": []}], \"evidence_ids\": [\"EVIDENCE_VBR\", \"EVIDENCE_FCG\", \"EVIDENCE_LQH\", \"EVIDENCE_XQN\", \"EVIDENCE_RMH\"], \"issue_category\": \"CATEGORY_CTF\", \"category_confidence\": 0.74, \"root_cause\": \"CAUSE_GTN\", \"root_cause_confidence\": 0.6, \"affected_component\": \"COMPONENT_TSV\", \"component_confidence\": 0.8, \"causal_change\": \"CHANGE_NBR\", \"causal_change_confidence\": 0.4, \"owning_team\": \"TEAM_NKH\", \"routing_confidence\": 0.7, \"confidence\": 0.74, \"evidence_sufficiency\": \"sufficient\", \"human_review_required\": false, \"review_reason\": null, \"status\": \"DIAGNOSIS_PROPOSED\", \"recommended_next_action\": \"Monitor the Usage Metering Service for further performance issues and consider optimizing its configuration to prevent resource exhaustion.\", \"unresolved_uncertainties\": [], \"summary\": \"The Usage Metering Service experienced performance issues due to resource exhaustion, which was likely caused by a network configuration change. The service's health events and technical signals support this hypothesis.\"}"
+   },
+   {
+    "phase": "final",
+    "step": 10,
+    "attempt": 1,
+    "prompt_tokens": 3307,
+    "completion_tokens": 536,
+    "latency_ms": 87499.1,
+    "finish_reason": "stop",
+    "http_retries": 1,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Performance/Latency Issue\", \"confidence\": 0.74, \"status\": \"confirmed\", \"supporting_evidence\": [\"EVIDENCE_VBR\", \"EVIDENCE_FCG\", \"EVIDENCE_LQH\", \"EVIDENCE_XQN\", \"EVIDENCE_RMH\", \"EVIDENCE_ZJW\", \"EVIDENCE_FFF\", \"EVIDENCE_XLH\", \"EVIDENCE_GMM\", \"EVIDENCE_ZWN\", \"EVIDENCE_PZS\", \"EVIDENCE_HKK\", \"EVIDENCE_TXQ\"], \"contradicting_evidence\": []}], \"evidence_ids\": [\"EVIDENCE_VBR\", \"EVIDENCE_FCG\", \"EVIDENCE_LQH\", \"EVIDENCE_XQN\", \"EVIDENCE_RMH\", \"EVIDENCE_ZJW\", \"EVIDENCE_FFF\", \"EVIDENCE_XLH\", \"EVIDENCE_GMM\", \"EVIDENCE_ZWN\", \"EVIDENCE_PZS\", \"EVIDENCE_HKK\", \"EVIDENCE_TXQ\", \"CHANGE_NBR\"], \"issue_category\": \"CATEGORY_CTF\", \"category_confidence\": 0.74, \"root_cause\": \"CAUSE_GTN\", \"root_cause_confidence\": 0.6, \"affected_component\": \"COMPONENT_TSV\", \"component_confidence\": 0.8, \"causal_change\": \"CHANGE_NBR\", \"causal_change_confidence\": 0.4, \"owning_team\": \"TEAM_NKH\", \"routing_confidence\": 0.5, \"confidence\": 0.6, \"evidence_sufficiency\": \"sufficient\", \"human_review_required\": false, \"review_reason\": null, \"status\": \"DIAGNOSIS_PROPOSED\", \"recommended_next_action\": \"Verify the root cause and implement a fix to resolve the performance/latency issue.\", \"unresolved_uncertainties\": [], \"summary\": \"The performance/latency issue is likely caused by resource exhaustion (CAUSE_GTN) on the Usage Metering Service (COMPONENT_TSV), which is owned by the Commerce/Billing team (TEAM_NKH). The causal change is a network configuration change (CHANGE_NBR) that occurred 31.2 hours before the case was reported. The evidence suggests that the issue is related to disk space critical, memory pressure, and premature token expiration on the Usage Metering Service.\"}"
+   },
+   {
+    "phase": "action",
+    "step": 10,
+    "attempt": 0,
+    "prompt_tokens": 2673,
+    "completion_tokens": 80,
+    "latency_ms": 4436.6,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Performance/Latency Issue\", \"confidence\": 0.74, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_configuration_history\", \"component\": \"COMPONENT_TSV\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+   },
+   {
+    "phase": "action",
+    "step": 11,
+    "attempt": 0,
+    "prompt_tokens": 2688,
+    "completion_tokens": 77,
+    "latency_ms": 2991.1,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Performance/Latency Issue\", \"confidence\": 0.74, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_active_incidents\", \"component\": null, \"metric_category\": null, \"keyword\": null, \"team\": null}"
+   },
+   {
+    "phase": "action",
+    "step": 12,
+    "attempt": 0,
+    "prompt_tokens": 2900,
+    "completion_tokens": 77,
+    "latency_ms": 4625.5,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Performance/Latency Issue\", \"confidence\": 0.74, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_similar_cases\", \"component\": null, \"metric_category\": null, \"keyword\": null, \"team\": null}"
+   },
+   {
+    "phase": "action",
+    "step": 13,
+    "attempt": 0,
+    "prompt_tokens": 2806,
+    "completion_tokens": 83,
+    "latency_ms": 4990.9,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Performance/Latency Issue\", \"confidence\": 0.74, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"search_knowledge_base\", \"component\": \"COMPONENT_TSV\", \"metric_category\": null, \"keyword\": \"performance optimization\", \"team\": null}"
+   },
+   {
+    "phase": "final",
+    "step": 14,
+    "attempt": 0,
+    "prompt_tokens": 3512,
+    "completion_tokens": 419,
+    "latency_ms": 102538.4,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Performance/Latency Issue\", \"confidence\": 0.74, \"status\": \"active\", \"supporting_evidence\": [\"EVIDENCE_VBR\", \"EVIDENCE_FCG\", \"EVIDENCE_LQH\", \"EVIDENCE_XQN\", \"EVIDENCE_RMH\"], \"contradicting_evidence\": []}], \"evidence_ids\": [\"EVIDENCE_VBR\", \"EVIDENCE_FCG\", \"EVIDENCE_LQH\", \"EVIDENCE_XQN\", \"EVIDENCE_RMH\"], \"issue_category\": \"CATEGORY_CTF\", \"category_confidence\": 0.74, \"root_cause\": \"CAUSE_GTN\", \"root_cause_confidence\": 0.6, \"affected_component\": \"COMPONENT_TSV\", \"component_confidence\": 0.8, \"causal_change\": null, \"causal_change_confidence\": null, \"owning_team\": \"TEAM_NKH\", \"routing_confidence\": 0.7, \"confidence\": 0.74, \"evidence_sufficiency\": \"sufficient\", \"human_review_required\": false, \"review_reason\": null, \"status\": \"DIAGNOSIS_PROPOSED\", \"recommended_next_action\": \"Monitor the Usage Metering Service for further performance issues and consider optimizing its configuration to prevent resource exhaustion.\", \"unresolved_uncertainties\": [\"The exact cause of the resource exhaustion on the Usage Metering Service is still unclear.\", \"Further investigation is needed to determine if the issue is fully resolved or if it may recur.\"], \"summary\": \"The investigation suggests that the Performance/Latency Issue is likely caused by resource exhaustion on the Usage Metering Service, which is owned by the Commerce/Billing team. The evidence points to a series of technical signals and health events indicating performance degradation and resource constraints on the service. While the exact cause of the resource exhaustion is still unclear, the available evidence supports this hypothesis.\"}"
+   }
+  ],
+  "sim_clock_end": "2026-03-31 03:15:00",
+  "tool_budget": 13,
+  "verification_rounds": [
+   {
+    "round": 1,
+    "decision": "CONTINUE_INVESTIGATION",
+    "reason": "possible missed evidence; possible anchoring on weak or distracting evidence while stronger competing evidence exists",
+    "triggers": [
+     "jev_missed_evidence",
+     "jev_distractor_anchor"
+    ],
+    "message": "Verification result:\nMore investigation required.\nReasons:\n- possible missed evidence\n- possible anchoring on weak or distracting evidence while stronger competing evidence exists\nTools you have not used yet: get_configuration_history, get_active_incidents, get_similar_cases, search_knowledge_base, get_team_capability, get_agent_availability.\nContinue investigating using available tools. Do not repeat already completed tool calls unless necessary. You have up to 4 more tool calls; then you will be asked for your final diagnosis again.",
+    "deterministic_checks": {
+     "D1": {
+      "id": "D1",
+      "name": "valid_final_contract",
+      "passed": true,
+      "applicable": true,
+      "detail": "schema, bounds and every reference are valid"
+     },
+     "D2": {
+      "id": "D2",
+      "name": "evidence_support",
+      "passed": true,
+      "applicable": true,
+      "detail": "14 cited evidence item(s), 1 supported hypothesis(es)"
+     },
+     "D3": {
+      "id": "D3",
+      "name": "final_consistency",
+      "passed": true,
+      "applicable": true,
+      "detail": "consistent with the last stated hypotheses and its own confidence"
+     },
+     "D4": {
+      "id": "D4",
+      "name": "premature_finalization",
+      "passed": true,
+      "applicable": true,
+      "detail": "evidence was retrieved and either a hypothesis is supported or the tool budget is used up"
+     },
+     "all_passed": true
+    },
+    "jev": {
+     "missed_evidence_probability": 0.84,
+     "distractor_anchor_probability": 0.82,
+     "review_probabilities": {
+      "REVIEW": 0.2,
+      "PRIORITY_REVIEW": 0.8,
+      "NORMAL": 0.0
+     },
+     "review": "PRIORITY_REVIEW",
+     "available": true,
+     "errors": [],
+     "jev_model": "jev-1.13.0",
+     "input_tokens": 19285,
+     "latency_ms": 534.3,
+     "question_versions": {
+      "missed_evidence": "missed_evidence_v1",
+      "distractor_anchor": "distractor_anchor_v1",
+      "review": "human_review_v1"
+     }
+    },
+    "verifier_latency_ms": 1036.1
+   },
+   {
+    "round": 2,
+    "decision": "PRIORITY_REVIEW",
+    "reason": "Jev flags this investigation for priority review",
+    "triggers": [
+     "jev_priority_review"
+    ],
+    "deterministic_checks": {
+     "D1": {
+      "id": "D1",
+      "name": "valid_final_contract",
+      "passed": true,
+      "applicable": true,
+      "detail": "schema, bounds and every reference are valid"
+     },
+     "D2": {
+      "id": "D2",
+      "name": "evidence_support",
+      "passed": true,
+      "applicable": true,
+      "detail": "5 cited evidence item(s), 1 supported hypothesis(es)"
+     },
+     "D3": {
+      "id": "D3",
+      "name": "final_consistency",
+      "passed": true,
+      "applicable": true,
+      "detail": "consistent with the last stated hypotheses and its own confidence"
+     },
+     "D4": {
+      "id": "D4",
+      "name": "premature_finalization",
+      "passed": true,
+      "applicable": true,
+      "detail": "evidence was retrieved and either a hypothesis is supported or the tool budget is used up"
+     },
+     "all_passed": true
+    },
+    "jev": {
+     "missed_evidence_probability": 0.46,
+     "distractor_anchor_probability": 0.65,
+     "review_probabilities": {
+      "REVIEW": 0.39,
+      "NORMAL": 0.0,
+      "PRIORITY_REVIEW": 0.61
+     },
+     "review": "PRIORITY_REVIEW",
+     "available": true,
+     "errors": [],
+     "jev_model": "jev-1.13.0",
+     "input_tokens": 21166,
+     "latency_ms": 547.8,
+     "question_versions": {
+      "missed_evidence": "missed_evidence_v1",
+      "distractor_anchor": "distractor_anchor_v1",
+      "review": "human_review_v1"
+     }
+    },
+    "verifier_latency_ms": 1056.7
+   }
+  ],
+  "initial_result": {
+   "final_status": "DIAGNOSIS_PROPOSED",
+   "final_alias_form": {
+    "hypotheses": [
+     {
+      "label": "Performance/Latency Issue",
+      "confidence": 0.74,
+      "status": "confirmed",
+      "supporting_evidence": [
+       "EVIDENCE_VBR",
+       "EVIDENCE_FCG",
+       "EVIDENCE_LQH",
+       "EVIDENCE_XQN",
+       "EVIDENCE_RMH",
+       "EVIDENCE_ZJW",
+       "EVIDENCE_FFF",
+       "EVIDENCE_XLH",
+       "EVIDENCE_GMM",
+       "EVIDENCE_ZWN",
+       "EVIDENCE_PZS",
+       "EVIDENCE_HKK",
+       "EVIDENCE_TXQ"
+      ],
+      "contradicting_evidence": []
+     }
+    ],
+    "evidence_ids": [
+     "EVIDENCE_VBR",
+     "EVIDENCE_FCG",
+     "EVIDENCE_LQH",
+     "EVIDENCE_XQN",
+     "EVIDENCE_RMH",
+     "EVIDENCE_ZJW",
+     "EVIDENCE_FFF",
+     "EVIDENCE_XLH",
+     "EVIDENCE_GMM",
+     "EVIDENCE_ZWN",
+     "EVIDENCE_PZS",
+     "EVIDENCE_HKK",
+     "EVIDENCE_TXQ",
+     "CHANGE_NBR"
+    ],
+    "issue_category": "CATEGORY_CTF",
+    "category_confidence": 0.74,
+    "root_cause": "CAUSE_GTN",
+    "root_cause_confidence": 0.6,
+    "affected_component": "COMPONENT_TSV",
+    "component_confidence": 0.8,
+    "causal_change": "CHANGE_NBR",
+    "causal_change_confidence": 0.4,
+    "owning_team": "TEAM_NKH",
+    "routing_confidence": 0.5,
+    "confidence": 0.6,
+    "evidence_sufficiency": "sufficient",
+    "human_review_required": false,
+    "review_reason": null,
+    "status": "DIAGNOSIS_PROPOSED",
+    "recommended_next_action": "Verify the root cause and implement a fix to resolve the performance/latency issue.",
+    "unresolved_uncertainties": [],
+    "summary": "The performance/latency issue is likely caused by resource exhaustion (CAUSE_GTN) on the Usage Metering Service (COMPONENT_TSV), which is owned by the Commerce/Billing team (TEAM_NKH). The causal change is a network configuration change (CHANGE_NBR) that occurred 31.2 hours before the case was reported. The evidence suggests that the issue is related to disk space critical, memory pressure, and premature token expiration on the Usage Metering Service."
+   },
+   "final_diagnosis": {
+    "hypotheses": [
+     {
+      "label": "Performance/Latency Issue",
+      "description": "",
+      "confidence": 0.74,
+      "status": "confirmed",
+      "supporting_evidence": [
+       "SG0001939",
+       "SG0001937",
+       "SG0001941",
+       "SG0001940",
+       "SG0001938",
+       "SHE01546",
+       "SHE01540",
+       "SHE01558",
+       "SHE01551",
+       "SHE01554",
+       "SHE01556",
+       "SHE01538",
+       "SHE01550"
+      ],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "predicted_product_id": null,
+    "product_confidence": null,
+    "predicted_component_id": "CM077",
+    "component_confidence": 0.8,
+    "predicted_category_id": "IC04",
+    "category_confidence": 0.74,
+    "predicted_subcategory_id": null,
+    "predicted_root_cause_family": "resource exhaustion",
+    "root_cause_confidence": 0.6,
+    "predicted_causal_change_id": "CH005895",
+    "causal_change_confidence": 0.4,
+    "predicted_severity": null,
+    "severity_confidence": null,
+    "recommended_team_id": "TM08",
+    "routing_confidence": 0.5,
+    "evidence_sufficiency": "sufficient",
+    "overall_confidence": 0.6,
+    "recommended_next_action": "Verify the root cause and implement a fix to resolve the performance/latency issue.",
+    "human_review_required": false,
+    "human_review_reason": null,
+    "evidence_summary": "The performance/latency issue is likely caused by resource exhaustion (CAUSE_GTN) on the Usage Metering Service (COMPONENT_TSV), which is owned by the Commerce/Billing team (TEAM_NKH). The causal change is a network configuration change (CHANGE_NBR) that occurred 31.2 hours before the case was reported. The evidence suggests that the issue is related to disk space critical, memory pressure, and premature token expiration on the Usage Metering Service.",
+    "unresolved_uncertainties": [],
+    "status": "DIAGNOSIS_PROPOSED",
+    "evidence_ids": [
+     "SG0001939",
+     "SG0001937",
+     "SG0001941",
+     "SG0001940",
+     "SG0001938",
+     "SHE01546",
+     "SHE01540",
+     "SHE01558",
+     "SHE01551",
+     "SHE01554",
+     "SHE01556",
+     "SHE01538",
+     "SHE01550",
+     "CH005895"
+    ]
+   },
+   "validation_result": {
+    "first_pass_ok": false,
+    "errors_first": [
+     {
+      "code": "causal_change_not_cited",
+      "field": "evidence_ids",
+      "detail": "the selected causal_change must also be cited in evidence_ids"
+     }
+    ],
+    "repair_used": true,
+    "final_ok": true,
+    "errors_final": []
+   },
+   "num_tool_calls": 10,
+   "evidence_ids_seen": [
+    "CH005895",
+    "SG0001937",
+    "SG0001938",
+    "SG0001939",
+    "SG0001940",
+    "SG0001941",
+    "SHE01538",
+    "SHE01540",
+    "SHE01546",
+    "SHE01550",
+    "SHE01551",
+    "SHE01554",
+    "SHE01556",
+    "SHE01558"
+   ],
+   "triage_outcome": {
+    "outcome": "confirmed",
+    "hint_shown": true,
+    "suggested_category_id": "IC04",
+    "suggested_category": "Performance / Latency",
+    "final_category_id": "IC04",
+    "final_category": "Performance / Latency",
+    "final_in_alternatives": false
+   }
+  },
+  "additional_investigation_performed": true,
+  "early_triage": {
+   "version": "early_triage_v1",
+   "role": "triage_guidance",
+   "source": "jev_early_triage",
+   "question_version": "early_triage_category_v1",
+   "state_version": "early_triage_state_v1",
+   "status": "hint",
+   "fallback": false,
+   "fallback_reason": null,
+   "category_id": "IC04",
+   "category_name": "Performance / Latency",
+   "probability": 0.74,
+   "margin": 0.54,
+   "uncertainty": "low",
+   "alternatives": [
+    {
+     "category_id": "IC07",
+     "name": "Configuration",
+     "probability": 0.2
+    },
+    {
+     "category_id": "IC05",
+     "name": "Reliability / Availability",
+     "probability": 0.02
+    },
+    {
+     "category_id": "IC01",
+     "name": "Identity / Authentication",
+     "probability": 0.0
+    }
+   ],
+   "distribution_top": [
+    {
+     "category_id": "IC04",
+     "name": "Performance / Latency",
+     "probability": 0.74
+    },
+    {
+     "category_id": "IC07",
+     "name": "Configuration",
+     "probability": 0.2
+    },
+    {
+     "category_id": "IC05",
+     "name": "Reliability / Availability",
+     "probability": 0.02
+    },
+    {
+     "category_id": "IC01",
+     "name": "Identity / Authentication",
+     "probability": 0.0
+    }
+   ],
+   "abstain_probability": 0.04,
+   "suggested_tools": [
+    "get_telemetry (metric_category Application)",
+    "get_technical_signals",
+    "get_deployment_history"
+   ],
+   "jev_model": "jev-1.13.0",
+   "input_tokens": 876,
+   "latency_ms": 123.7,
+   "error": null,
+   "config": {
+    "min_probability": 0.3,
+    "moderate_probability": 0.4,
+    "strong_probability": 0.7,
+    "top_alternatives": 3,
+    "timeout_s": 20.0
+   }
+  },
+  "triage_hint_text": "EARLY TRIAGE HINT (provisional and unverified)\nSource: Jev early triage. It read only the ticket text and basic customer/product details; no tool, log, telemetry or graph evidence had been examined.\nSuggested issue category: CATEGORY_CTF = Performance / Latency (probability 0.74, low uncertainty).\nOther categories Jev considered: CATEGORY_SMX = Configuration (0.20).\nThis is a prior, not a finding, and it may be wrong. Test it against the evidence you retrieve, weigh the competing categories, and reject or replace it if the evidence points elsewhere. It is not evidence and cannot be cited. Choose your final issue_category from the evidence.\nSuggested starting points for this category (advisory only: every tool stays available and no category or evidence is ruled out): get_telemetry (metric_category Application); get_technical_signals; get_deployment_history.",
+  "triage_prompt_version": "early_triage_prompt_v1",
+  "triage_outcome": {
+   "outcome": "confirmed",
+   "hint_shown": true,
+   "suggested_category_id": "IC04",
+   "suggested_category": "Performance / Latency",
+   "final_category_id": "IC04",
+   "final_category": "Performance / Latency",
+   "final_in_alternatives": false
+  }
+ }
+}

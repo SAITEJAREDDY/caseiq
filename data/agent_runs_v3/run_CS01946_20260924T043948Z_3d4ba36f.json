@@ -1,0 +1,1904 @@
+{
+ "run_id": "run_CS01946_20260924T043948Z_3d4ba36f",
+ "case_id": "CS01946",
+ "created_at": "2026-09-24T04:39:48.183278+00:00",
+ "run_tag": "iter50_b",
+ "model_provider": "together",
+ "model_name": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+ "temperature": 0.1,
+ "graph_version": "phase4-2500case-2026-09-22",
+ "sim_clock_step_minutes": 15,
+ "max_tool_calls": 10,
+ "max_repeated_same_tool": 2,
+ "max_tool_contract_repairs": 2,
+ "max_final_contract_repairs": 1,
+ "agent_version": "agent_v3_contract_hardened",
+ "contract_version": "agent_contract_v1.1",
+ "prompt_version": "v3.1",
+ "tool_catalog_version": "tool_catalog_v3",
+ "action_schema_version": "action_v3.1",
+ "final_schema_version": "final_diagnosis_v3.1",
+ "registry_version": "observed_registry_v1",
+ "alias_scheme": "agent_alias_v1",
+ "repair_policy_version": "repair_policy_v1",
+ "decoding": "json_schema_strict",
+ "code_digest": "54bbbe51a58dbb43883bd743c2476a93b418373888d06e2cc60c30dc2b1b7cf2",
+ "toolset_version": "tool_catalog_v3",
+ "output_schema_version": "final_diagnosis_v3.1",
+ "agent_loop_version": "agent_v3_contract_hardened",
+ "repair_layer_version": "repair_policy_v1",
+ "approx_cost_usd": 0.001942,
+ "stop_reason": "model_submitted",
+ "num_tool_calls": 10,
+ "num_llm_calls": 10,
+ "token_usage": {
+  "prompt_tokens": 17974,
+  "completion_tokens": 1449,
+  "total_tokens": 19423
+ },
+ "trace_steps": [
+  {
+   "step": 1,
+   "sim_clock": "2026-04-20 00:00:00",
+   "tool_name": "get_case_context",
+   "args": {},
+   "args_alias": {},
+   "hypotheses": [],
+   "hypothesis_state": [],
+   "rationale": "",
+   "result_summary": {
+    "case_id": "CS01946",
+    "title": "Cohort Builder Outage and Restarts in LATAM",
+    "description": "The Cohort Builder is down in our LATAM production environment. We are seeing pods restarting repeatedly, causing a full outage for this feature. This impacts 49 users and has a moderate business impact. We need to get the Cohort Builder back online ASAP.",
+    "environment": "production",
+    "region": "LATAM",
+    "reported_business_impact": "moderate",
+    "reported_affected_users": 49,
+    "priority": "medium",
+    "created_date": "2026-04-20",
+    "status": "open",
+    "customer_id": "C01432",
+    "customer_tier": "silver",
+    "customer_industry": "Telecom",
+    "customer_company_size": "small",
+    "reported_product_id": "P038",
+    "reported_product_name": "Cohort Builder",
+    "reported_symptoms": [
+     "pod restarting repeatedly",
+     "full outage reported"
+    ]
+   },
+   "latency_ms": 0.0,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "harness"
+  },
+  {
+   "step": 2,
+   "sim_clock": "2026-04-20 00:15:00",
+   "tool_name": "get_customer_deployment",
+   "args": {},
+   "args_alias": {},
+   "hypotheses": [
+    "Cohort Builder configuration issue:0.2",
+    "Cohort Builder deployment issue:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Cohort Builder configuration issue",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    },
+    {
+     "label": "Cohort Builder deployment issue",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "deployments": [
+     {
+      "product_id": "P038",
+      "product_name": "Cohort Builder",
+      "version": "1.3",
+      "environment": "staging",
+      "region": "LATAM",
+      "status": "active",
+      "deployed_at": "2026-07-25",
+      "product_components": [
+       "CM097",
+       "CM101",
+       "CM107",
+       "CM108",
+       "CM113",
+       "CM116",
+       "CM126",
+       "CM229"
+      ]
+     },
+     {
+      "product_id": "P038",
+      "product_name": "Cohort Builder",
+      "version": "1.3",
+      "environment": "production",
+      "region": "LATAM",
+      "status": "active",
+      "deployed_at": "2025-11-05",
+      "product_components": [
+       "CM097",
+       "CM101",
+       "CM107",
+       "CM108",
+       "CM113",
+       "CM116",
+       "CM126",
+       "CM229"
+      ]
+     },
+     {
+      "product_id": "P003",
+      "product_name": "Analytics Dashboard",
+      "version": "1.2",
+      "environment": "production",
+      "region": "LATAM",
+      "status": "active",
+      "deployed_at": "2025-09-06",
+      "product_components": [
+       "CM095",
+       "CM098",
+       "CM100",
+       "CM106",
+       "CM114",
+       "CM120",
+       "CM229",
+       "CM236"
+      ]
+     }
+    ]
+   },
+   "latency_ms": 5785.2,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 3,
+   "sim_clock": "2026-04-20 00:30:00",
+   "tool_name": "get_component_topology",
+   "args": {
+    "component_id": "CM101"
+   },
+   "args_alias": {
+    "component": "COMPONENT_VLJ"
+   },
+   "hypotheses": [
+    "Cohort Builder configuration issue:0.2",
+    "Cohort Builder deployment issue:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Cohort Builder configuration issue",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    },
+    {
+     "label": "Cohort Builder deployment issue",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "component_id": "CM101",
+    "component_name": "Cohort Engine",
+    "upstream_dependencies": [
+     {
+      "name": "Multi-Tenant Data Partitioning Layer",
+      "id": "CM130"
+     },
+     {
+      "name": "Read Replica Service",
+      "id": "CM152"
+     },
+     {
+      "name": "Database Connection Pooler",
+      "id": "CM153"
+     },
+     {
+      "name": "Search Index Service",
+      "id": "CM167"
+     },
+     {
+      "name": "Central Search Index Service",
+      "id": "CM242"
+     }
+    ],
+    "downstream_dependents": [],
+    "external_dependencies": [],
+    "owning_teams": [
+     {
+      "name": "Data Platform",
+      "id": "TM05"
+     },
+     {
+      "name": "Database",
+      "id": "TM06"
+     }
+    ]
+   },
+   "latency_ms": 8336.9,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 4,
+   "sim_clock": "2026-04-20 00:45:00",
+   "tool_name": "get_technical_signals",
+   "args": {
+    "component_id": "CM101"
+   },
+   "args_alias": {
+    "component": "COMPONENT_VLJ"
+   },
+   "hypotheses": [
+    "Cohort Builder configuration issue:0.2",
+    "Cohort Builder deployment issue:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Cohort Builder configuration issue",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    },
+    {
+     "label": "Cohort Builder deployment issue",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "signals": [],
+    "count": 0
+   },
+   "latency_ms": 4879.1,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 5,
+   "sim_clock": "2026-04-20 01:00:00",
+   "tool_name": "get_recent_changes",
+   "args": {
+    "component_id": "CM101"
+   },
+   "args_alias": {
+    "component": "COMPONENT_VLJ"
+   },
+   "hypotheses": [
+    "Cohort Builder configuration issue:0.2",
+    "Cohort Builder deployment issue:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Cohort Builder configuration issue",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    },
+    {
+     "label": "Cohort Builder deployment issue",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "recent_changes": [],
+    "count": 0
+   },
+   "latency_ms": 5066.8,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 6,
+   "sim_clock": "2026-04-20 01:15:00",
+   "tool_name": "get_deployment_history",
+   "args": {
+    "component_id": "CM101"
+   },
+   "args_alias": {
+    "component": "COMPONENT_VLJ"
+   },
+   "hypotheses": [
+    "Cohort Builder configuration issue:0.2",
+    "Cohort Builder deployment issue:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Cohort Builder configuration issue",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    },
+    {
+     "label": "Cohort Builder deployment issue",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "deployments": [],
+    "count": 0
+   },
+   "latency_ms": 4502.4,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 7,
+   "sim_clock": "2026-04-20 01:30:00",
+   "tool_name": "get_telemetry",
+   "args": {
+    "component_id": "CM101"
+   },
+   "args_alias": {
+    "component": "COMPONENT_VLJ"
+   },
+   "hypotheses": [
+    "Cohort Builder configuration issue:0.2",
+    "Cohort Builder deployment issue:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Cohort Builder configuration issue",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    },
+    {
+     "label": "Cohort Builder deployment issue",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "available_metric_categories": [
+     "Application"
+    ],
+    "note": "Call again with one of these metric_category values to see actual readings."
+   },
+   "latency_ms": 5118.9,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 8,
+   "sim_clock": "2026-04-20 01:45:00",
+   "tool_name": "get_telemetry",
+   "args": {
+    "component_id": "CM101",
+    "metric_category": "Application"
+   },
+   "args_alias": {
+    "component": "COMPONENT_VLJ",
+    "metric_category": "Application"
+   },
+   "hypotheses": [
+    "Cohort Builder configuration issue:0.2",
+    "Cohort Builder deployment issue:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Cohort Builder configuration issue",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    },
+    {
+     "label": "Cohort Builder deployment issue",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "telemetry_findings": [],
+    "count": 0
+   },
+   "latency_ms": 6466.9,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 9,
+   "sim_clock": "2026-04-20 02:00:00",
+   "tool_name": "get_service_health",
+   "args": {
+    "component_id": "CM101"
+   },
+   "args_alias": {
+    "component": "COMPONENT_VLJ"
+   },
+   "hypotheses": [
+    "Cohort Builder configuration issue:0.2",
+    "Cohort Builder deployment issue:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Cohort Builder configuration issue",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    },
+    {
+     "label": "Cohort Builder deployment issue",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "health_events": [
+     {
+      "evidence_id": "SHE02037",
+      "started_at": "2026-04-05 13:00:00",
+      "ended_at": "2026-04-05 14:00:00",
+      "severity": "critical",
+      "description": "Brief critical health blip on Cohort Engine: elevated error rate for 60 minutes."
+     },
+     {
+      "evidence_id": "SHE02030",
+      "started_at": "2026-03-23 23:28:00",
+      "ended_at": "2026-03-23 23:43:00",
+      "severity": "minor",
+      "description": "Automated health check flagged Cohort Engine as degraded (minor) for 15 minutes."
+     },
+     {
+      "evidence_id": "SHE02036",
+      "started_at": "2026-03-22 02:39:00",
+      "ended_at": "2026-03-22 02:54:00",
+      "severity": "minor",
+      "description": "minor latency spike observed on Cohort Engine, self-resolved after 15 minutes."
+     },
+     {
+      "evidence_id": "SHE02032",
+      "started_at": "2026-03-02 03:45:00",
+      "ended_at": "2026-03-02 04:15:00",
+      "severity": "critical",
+      "description": "critical latency spike observed on Cohort Engine, self-resolved after 30 minutes."
+     },
+     {
+      "evidence_id": "SHE02033",
+      "started_at": "2026-01-06 11:03:00",
+      "ended_at": "2026-01-06 11:48:00",
+      "severity": "critical",
+      "description": "Automated health check flagged Cohort Engine as degraded (critical) for 45 minutes."
+     },
+     {
+      "evidence_id": "SHE02035",
+      "started_at": "2025-11-28 00:46:00",
+      "ended_at": "2025-11-28 01:31:00",
+      "severity": "minor",
+      "description": "Transient minor availability dip on Cohort Engine, recovered within 45 minutes."
+     },
+     {
+      "evidence_id": "SHE02039",
+      "started_at": "2025-10-24 12:51:00",
+      "ended_at": "2025-10-24 13:36:00",
+      "severity": "minor",
+      "description": "minor latency spike observed on Cohort Engine, self-resolved after 45 minutes."
+     },
+     {
+      "evidence_id": "SHE02041",
+      "started_at": "2025-10-06 18:58:00",
+      "ended_at": "2025-10-06 19:08:00",
+      "severity": "minor",
+      "description": "Transient minor availability dip on Cohort Engine, recovered within 10 minutes."
+     }
+    ],
+    "count": 8
+   },
+   "latency_ms": 6656.3,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 10,
+   "sim_clock": "2026-04-20 02:15:00",
+   "tool_name": "submit_diagnosis",
+   "args": {},
+   "args_alias": {},
+   "hypotheses": [
+    "Cohort Builder configuration issue:0.2",
+    "Cohort Builder deployment issue:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Cohort Builder configuration issue",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    },
+    {
+     "label": "Cohort Builder deployment issue",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": "submitted",
+   "latency_ms": 53860.6,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  }
+ ],
+ "final_diagnosis": {
+  "hypotheses": [
+   {
+    "label": "Cohort Builder configuration issue",
+    "description": "",
+    "confidence": 0.2,
+    "status": "active",
+    "supporting_evidence": [],
+    "contradicting_evidence": []
+   },
+   {
+    "label": "Cohort Builder deployment issue",
+    "description": "",
+    "confidence": 0.2,
+    "status": "active",
+    "supporting_evidence": [],
+    "contradicting_evidence": []
+   }
+  ],
+  "rationale": "",
+  "predicted_product_id": null,
+  "product_confidence": null,
+  "predicted_component_id": null,
+  "component_confidence": null,
+  "predicted_category_id": null,
+  "category_confidence": null,
+  "predicted_subcategory_id": null,
+  "predicted_root_cause_family": null,
+  "root_cause_confidence": null,
+  "predicted_causal_change_id": null,
+  "causal_change_confidence": null,
+  "predicted_severity": null,
+  "severity_confidence": null,
+  "recommended_team_id": null,
+  "routing_confidence": null,
+  "evidence_sufficiency": "insufficient",
+  "overall_confidence": 0.2,
+  "recommended_next_action": "Gather more evidence and investigate further to determine the root cause of the issue.",
+  "human_review_required": true,
+  "human_review_reason": "Insufficient evidence to determine the root cause of the Cohort Builder outage in the LATAM production environment.",
+  "evidence_summary": "The Cohort Builder is down in the LATAM production environment, causing a moderate business impact. The root cause is still unknown, and more evidence is needed to determine the affected component and owning team.",
+  "unresolved_uncertainties": [
+   "The root cause of the Cohort Builder outage is still unknown.",
+   "The affected component and owning team are not confirmed."
+  ],
+  "status": "INSUFFICIENT_EVIDENCE",
+  "evidence_ids": []
+ },
+ "final_status": "INSUFFICIENT_EVIDENCE",
+ "final_alias_form": {
+  "hypotheses": [
+   {
+    "label": "Cohort Builder configuration issue",
+    "confidence": 0.2,
+    "status": "active",
+    "supporting_evidence": [],
+    "contradicting_evidence": []
+   },
+   {
+    "label": "Cohort Builder deployment issue",
+    "confidence": 0.2,
+    "status": "active",
+    "supporting_evidence": [],
+    "contradicting_evidence": []
+   }
+  ],
+  "evidence_ids": [],
+  "issue_category": null,
+  "category_confidence": null,
+  "root_cause": null,
+  "root_cause_confidence": null,
+  "affected_component": null,
+  "component_confidence": null,
+  "causal_change": null,
+  "causal_change_confidence": null,
+  "owning_team": null,
+  "routing_confidence": null,
+  "confidence": 0.2,
+  "evidence_sufficiency": "insufficient",
+  "human_review_required": true,
+  "review_reason": "Insufficient evidence to determine the root cause of the Cohort Builder outage in the LATAM production environment.",
+  "status": "INSUFFICIENT_EVIDENCE",
+  "recommended_next_action": "Gather more evidence and investigate further to determine the root cause of the issue.",
+  "unresolved_uncertainties": [
+   "The root cause of the Cohort Builder outage is still unknown.",
+   "The affected component and owning team are not confirmed."
+  ],
+  "summary": "The Cohort Builder is down in the LATAM production environment, causing a moderate business impact. The root cause is still unknown, and more evidence is needed to determine the affected component and owning team."
+ },
+ "citation_violations": [],
+ "evidence_ids_seen": [
+  "SHE02030",
+  "SHE02032",
+  "SHE02033",
+  "SHE02035",
+  "SHE02036",
+  "SHE02037",
+  "SHE02039",
+  "SHE02041"
+ ],
+ "repair_events": [],
+ "tool_proposals": 9,
+ "tool_contract_errors": [],
+ "tool_contract_repairs": [],
+ "final_contract_errors": [],
+ "final_contract_repair": null,
+ "registry_snapshots": [
+  {
+   "step": 1,
+   "n_entities": 59,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 1
+   },
+   "aliases_sha256_16": "d932f98b9bcdc19c"
+  },
+  {
+   "step": 2,
+   "n_entities": 75,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 2,
+    "COMPONENT": 15
+   },
+   "aliases_sha256_16": "dbd7dc0901f20dae"
+  },
+  {
+   "step": 3,
+   "n_entities": 82,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 2,
+    "COMPONENT": 20,
+    "TEAM": 2
+   },
+   "aliases_sha256_16": "82ea4ce47c5afe82"
+  },
+  {
+   "step": 4,
+   "n_entities": 82,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 2,
+    "COMPONENT": 20,
+    "TEAM": 2
+   },
+   "aliases_sha256_16": "82ea4ce47c5afe82"
+  },
+  {
+   "step": 5,
+   "n_entities": 82,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 2,
+    "COMPONENT": 20,
+    "TEAM": 2
+   },
+   "aliases_sha256_16": "82ea4ce47c5afe82"
+  },
+  {
+   "step": 6,
+   "n_entities": 82,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 2,
+    "COMPONENT": 20,
+    "TEAM": 2
+   },
+   "aliases_sha256_16": "82ea4ce47c5afe82"
+  },
+  {
+   "step": 7,
+   "n_entities": 82,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 2,
+    "COMPONENT": 20,
+    "TEAM": 2
+   },
+   "aliases_sha256_16": "82ea4ce47c5afe82"
+  },
+  {
+   "step": 8,
+   "n_entities": 82,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 2,
+    "COMPONENT": 20,
+    "TEAM": 2
+   },
+   "aliases_sha256_16": "82ea4ce47c5afe82"
+  },
+  {
+   "step": 9,
+   "n_entities": 90,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 2,
+    "COMPONENT": 20,
+    "TEAM": 2,
+    "EVIDENCE": 8
+   },
+   "aliases_sha256_16": "3c15e59be4c07eff"
+  }
+ ],
+ "alias_mappings": {
+  "CATEGORY_BTQ": {
+   "alias": "CATEGORY_BTQ",
+   "canonical_id": "IC01",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Identity / Authentication",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-04-20 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_HCR": {
+   "alias": "CATEGORY_HCR",
+   "canonical_id": "IC02",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Authorization / Permissions",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-04-20 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_SRR": {
+   "alias": "CATEGORY_SRR",
+   "canonical_id": "IC03",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Networking / Connectivity",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-04-20 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_FBJ": {
+   "alias": "CATEGORY_FBJ",
+   "canonical_id": "IC04",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Performance / Latency",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-04-20 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_ZHK": {
+   "alias": "CATEGORY_ZHK",
+   "canonical_id": "IC05",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Reliability / Availability",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-04-20 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_TVX": {
+   "alias": "CATEGORY_TVX",
+   "canonical_id": "IC06",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Deployment / Upgrade",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-04-20 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_XJH": {
+   "alias": "CATEGORY_XJH",
+   "canonical_id": "IC07",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Configuration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-04-20 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_QNP": {
+   "alias": "CATEGORY_QNP",
+   "canonical_id": "IC08",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Data / Corruption",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-04-20 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_HDK": {
+   "alias": "CATEGORY_HDK",
+   "canonical_id": "IC09",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Integration / API",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-04-20 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_MTV": {
+   "alias": "CATEGORY_MTV",
+   "canonical_id": "IC10",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Provisioning / Onboarding",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-04-20 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_MTD": {
+   "alias": "CATEGORY_MTD",
+   "canonical_id": "IC11",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Security",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-04-20 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_VGB": {
+   "alias": "CATEGORY_VGB",
+   "canonical_id": "IC12",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Compliance",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-04-20 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_CRW": {
+   "alias": "CATEGORY_CRW",
+   "canonical_id": "IC13",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Billing / Commerce",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-04-20 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_GTN": {
+   "alias": "CATEGORY_GTN",
+   "canonical_id": "IC14",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "User Experience / Functional Defect",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-04-20 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_BZN": {
+   "alias": "CATEGORY_BZN",
+   "canonical_id": "IC15",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Storage / Database",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-04-20 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_CMN": {
+   "alias": "CATEGORY_CMN",
+   "canonical_id": "IC16",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Capacity / Scaling",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-04-20 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_HVK": {
+   "alias": "CATEGORY_HVK",
+   "canonical_id": "IC17",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Third-Party / Dependency",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-04-20 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_WJH": {
+   "alias": "CATEGORY_WJH",
+   "canonical_id": "IC18",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Unknown / Other",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-04-20 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_KJM": {
+   "alias": "CAUSE_KJM",
+   "canonical_id": "RC01",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "product defect",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-04-20 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_NXJ": {
+   "alias": "CAUSE_NXJ",
+   "canonical_id": "RC02",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "customer configuration error",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-04-20 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_RMJ": {
+   "alias": "CAUSE_RMJ",
+   "canonical_id": "RC03",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "incorrect permissions",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-04-20 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_SNW": {
+   "alias": "CAUSE_SNW",
+   "canonical_id": "RC04",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "policy misconfiguration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-04-20 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_DRB": {
+   "alias": "CAUSE_DRB",
+   "canonical_id": "RC05",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "expired certificate",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-04-20 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_XGK": {
+   "alias": "CAUSE_XGK",
+   "canonical_id": "RC06",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "version incompatibility",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-04-20 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_WHS": {
+   "alias": "CAUSE_WHS",
+   "canonical_id": "RC07",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "dependency failure",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-04-20 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_BSH": {
+   "alias": "CAUSE_BSH",
+   "canonical_id": "RC08",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "network configuration error",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-04-20 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_XFG": {
+   "alias": "CAUSE_XFG",
+   "canonical_id": "RC09",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "resource exhaustion",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-04-20 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_TGS": {
+   "alias": "CAUSE_TGS",
+   "canonical_id": "RC10",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "database contention",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-04-20 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_BDJ": {
+   "alias": "CAUSE_BDJ",
+   "canonical_id": "RC11",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "bad deployment",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-04-20 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_ZJK": {
+   "alias": "CAUSE_ZJK",
+   "canonical_id": "RC12",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "incomplete migration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-04-20 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_GRP": {
+   "alias": "CAUSE_GRP",
+   "canonical_id": "RC13",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "stale cache",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-04-20 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_DBN": {
+   "alias": "CAUSE_DBN",
+   "canonical_id": "RC14",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "third-party service failure",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-04-20 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_QQS": {
+   "alias": "CAUSE_QQS",
+   "canonical_id": "RC15",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "unsupported configuration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-04-20 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_BVZ": {
+   "alias": "CAUSE_BVZ",
+   "canonical_id": "RC16",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "incorrect DNS configuration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-04-20 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_NZG": {
+   "alias": "CAUSE_NZG",
+   "canonical_id": "RC17",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "data quality issue",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-04-20 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_MHG": {
+   "alias": "CAUSE_MHG",
+   "canonical_id": "RC18",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "operator error",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-04-20 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_TPZ": {
+   "alias": "CAUSE_TPZ",
+   "canonical_id": "RC19",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "capacity limitation",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-04-20 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_BZC": {
+   "alias": "CAUSE_BZC",
+   "canonical_id": "RC20",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "known product limitation",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-04-20 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_JQC": {
+   "alias": "CAUSE_JQC",
+   "canonical_id": "RC21",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "race condition",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-04-20 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_WCQ": {
+   "alias": "CAUSE_WCQ",
+   "canonical_id": "RC22",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "identity provider outage",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-04-20 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_CJH": {
+   "alias": "CAUSE_CJH",
+   "canonical_id": "RC23",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "token expiration handling bug",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-04-20 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_GKG": {
+   "alias": "CAUSE_GKG",
+   "canonical_id": "RC24",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "insufficient monitoring/alerting",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-04-20 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_GXX": {
+   "alias": "CAUSE_GXX",
+   "canonical_id": "RC25",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "incorrect load balancer routing",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-04-20 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_NXT": {
+   "alias": "CAUSE_NXT",
+   "canonical_id": "RC26",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "firewall misconfiguration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-04-20 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_SPK": {
+   "alias": "CAUSE_SPK",
+   "canonical_id": "RC27",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "schema mismatch",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-04-20 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_VWQ": {
+   "alias": "CAUSE_VWQ",
+   "canonical_id": "RC28",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "breaking API contract change",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-04-20 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_KKR": {
+   "alias": "CAUSE_KKR",
+   "canonical_id": "RC29",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "credential rotation not propagated",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-04-20 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_TQK": {
+   "alias": "CAUSE_TQK",
+   "canonical_id": "RC30",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "stale internal documentation followed",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-04-20 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_CNT": {
+   "alias": "CAUSE_CNT",
+   "canonical_id": "RC31",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "incomplete rollback",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-04-20 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_RTD": {
+   "alias": "CAUSE_RTD",
+   "canonical_id": "RC32",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "infrastructure hardware failure",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-04-20 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_FLX": {
+   "alias": "CAUSE_FLX",
+   "canonical_id": "RC33",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "rate limit misconfiguration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-04-20 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_QHD": {
+   "alias": "CAUSE_QHD",
+   "canonical_id": "RC34",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "insufficient capacity planning",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-04-20 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_JVM": {
+   "alias": "CAUSE_JVM",
+   "canonical_id": "RC35",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "data migration defect",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-04-20 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_FTQ": {
+   "alias": "CAUSE_FTQ",
+   "canonical_id": "RC36",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "improper access review",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-04-20 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_QJG": {
+   "alias": "CAUSE_QJG",
+   "canonical_id": "RC37",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "expired API key",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-04-20 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_TTG": {
+   "alias": "CAUSE_TTG",
+   "canonical_id": "RC38",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "clock/time synchronization issue",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-04-20 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_XDD": {
+   "alias": "CAUSE_XDD",
+   "canonical_id": "RC39",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "idempotency/duplicate-processing failure",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-04-20 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_WWT": {
+   "alias": "CAUSE_WWT",
+   "canonical_id": "RC40",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "insufficient information to determine root cause",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-04-20 00:00:00",
+   "summary": ""
+  },
+  "PRODUCT_BVX": {
+   "alias": "PRODUCT_BVX",
+   "canonical_id": "P038",
+   "kind": "PRODUCT",
+   "type": "product",
+   "display_name": "Cohort Builder",
+   "source_tool": "get_case_context",
+   "first_observed_step": 1,
+   "first_observed_clock": "2026-04-20 00:00:00",
+   "summary": ""
+  },
+  "COMPONENT_CKF": {
+   "alias": "COMPONENT_CKF",
+   "canonical_id": "CM097",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Aggregation Engine",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-04-20 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_VLJ": {
+   "alias": "COMPONENT_VLJ",
+   "canonical_id": "CM101",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Cohort Engine",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-04-20 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_HVH": {
+   "alias": "COMPONENT_HVH",
+   "canonical_id": "CM107",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Result Cache Layer",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-04-20 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_FJT": {
+   "alias": "COMPONENT_FJT",
+   "canonical_id": "CM108",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Embedding Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-04-20 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_GBT": {
+   "alias": "COMPONENT_GBT",
+   "canonical_id": "CM113",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Real-Time Metrics Stream",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-04-20 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_QJJ": {
+   "alias": "COMPONENT_QJJ",
+   "canonical_id": "CM116",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Anomaly Detection Engine",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-04-20 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_LQM": {
+   "alias": "COMPONENT_LQM",
+   "canonical_id": "CM126",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Historical Data Backfill Worker",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-04-20 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_DSM": {
+   "alias": "COMPONENT_DSM",
+   "canonical_id": "CM229",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Audit Log Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-04-20 00:15:00",
+   "summary": ""
+  },
+  "PRODUCT_RXP": {
+   "alias": "PRODUCT_RXP",
+   "canonical_id": "P003",
+   "kind": "PRODUCT",
+   "type": "product",
+   "display_name": "Analytics Dashboard",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-04-20 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_HMH": {
+   "alias": "COMPONENT_HMH",
+   "canonical_id": "CM095",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Analytics API Gateway",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-04-20 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_KSC": {
+   "alias": "COMPONENT_KSC",
+   "canonical_id": "CM098",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Query Engine",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-04-20 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_VRJ": {
+   "alias": "COMPONENT_VRJ",
+   "canonical_id": "CM100",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Job Scheduler",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-04-20 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_QGS": {
+   "alias": "COMPONENT_QGS",
+   "canonical_id": "CM106",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Data Catalog Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-04-20 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_QXV": {
+   "alias": "COMPONENT_QXV",
+   "canonical_id": "CM114",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Segment Builder Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-04-20 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_XQR": {
+   "alias": "COMPONENT_XQR",
+   "canonical_id": "CM120",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Event Schema Registry",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-04-20 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_ZWF": {
+   "alias": "COMPONENT_ZWF",
+   "canonical_id": "CM236",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Webhook Dispatch Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-04-20 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_GRZ": {
+   "alias": "COMPONENT_GRZ",
+   "canonical_id": "CM130",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Multi-Tenant Data Partitioning Layer",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-04-20 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_DHR": {
+   "alias": "COMPONENT_DHR",
+   "canonical_id": "CM152",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Read Replica Service",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-04-20 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_GLM": {
+   "alias": "COMPONENT_GLM",
+   "canonical_id": "CM153",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Database Connection Pooler",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-04-20 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_HDN": {
+   "alias": "COMPONENT_HDN",
+   "canonical_id": "CM167",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Search Index Service",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-04-20 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_STP": {
+   "alias": "COMPONENT_STP",
+   "canonical_id": "CM242",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Central Search Index Service",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-04-20 00:30:00",
+   "summary": ""
+  },
+  "TEAM_TDS": {
+   "alias": "TEAM_TDS",
+   "canonical_id": "TM05",
+   "kind": "TEAM",
+   "type": "team",
+   "display_name": "Data Platform",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-04-20 00:30:00",
+   "summary": ""
+  },
+  "TEAM_GPV": {
+   "alias": "TEAM_GPV",
+   "canonical_id": "TM06",
+   "kind": "TEAM",
+   "type": "team",
+   "display_name": "Database",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-04-20 00:30:00",
+   "summary": ""
+  },
+  "EVIDENCE_WBP": {
+   "alias": "EVIDENCE_WBP",
+   "canonical_id": "SHE02037",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 9,
+   "first_observed_clock": "2026-04-20 02:00:00",
+   "summary": "health event severity critical 2026-04-05 13:00:00..2026-04-05 14:00:00: Brief critical health blip on Cohort Engine: elevated error rate for 60 minutes."
+  },
+  "EVIDENCE_BGB": {
+   "alias": "EVIDENCE_BGB",
+   "canonical_id": "SHE02030",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 9,
+   "first_observed_clock": "2026-04-20 02:00:00",
+   "summary": "health event severity minor 2026-03-23 23:28:00..2026-03-23 23:43:00: Automated health check flagged Cohort Engine as degraded (minor) for 15 minutes."
+  },
+  "EVIDENCE_HLS": {
+   "alias": "EVIDENCE_HLS",
+   "canonical_id": "SHE02036",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 9,
+   "first_observed_clock": "2026-04-20 02:00:00",
+   "summary": "health event severity minor 2026-03-22 02:39:00..2026-03-22 02:54:00: minor latency spike observed on Cohort Engine, self-resolved after 15 minutes."
+  },
+  "EVIDENCE_QRD": {
+   "alias": "EVIDENCE_QRD",
+   "canonical_id": "SHE02032",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 9,
+   "first_observed_clock": "2026-04-20 02:00:00",
+   "summary": "health event severity critical 2026-03-02 03:45:00..2026-03-02 04:15:00: critical latency spike observed on Cohort Engine, self-resolved after 30 minutes."
+  },
+  "EVIDENCE_WWK": {
+   "alias": "EVIDENCE_WWK",
+   "canonical_id": "SHE02033",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 9,
+   "first_observed_clock": "2026-04-20 02:00:00",
+   "summary": "health event severity critical 2026-01-06 11:03:00..2026-01-06 11:48:00: Automated health check flagged Cohort Engine as degraded (critical) for 45 minutes."
+  },
+  "EVIDENCE_ZHW": {
+   "alias": "EVIDENCE_ZHW",
+   "canonical_id": "SHE02035",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 9,
+   "first_observed_clock": "2026-04-20 02:00:00",
+   "summary": "health event severity minor 2025-11-28 00:46:00..2025-11-28 01:31:00: Transient minor availability dip on Cohort Engine, recovered within 45 minutes."
+  },
+  "EVIDENCE_WDT": {
+   "alias": "EVIDENCE_WDT",
+   "canonical_id": "SHE02039",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 9,
+   "first_observed_clock": "2026-04-20 02:00:00",
+   "summary": "health event severity minor 2025-10-24 12:51:00..2025-10-24 13:36:00: minor latency spike observed on Cohort Engine, self-resolved after 45 minutes."
+  },
+  "EVIDENCE_GVZ": {
+   "alias": "EVIDENCE_GVZ",
+   "canonical_id": "SHE02041",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 9,
+   "first_observed_clock": "2026-04-20 02:00:00",
+   "summary": "health event severity minor 2025-10-06 18:58:00..2025-10-06 19:08:00: Transient minor availability dip on Cohort Engine, recovered within 10 minutes."
+  }
+ },
+ "validation_result": {
+  "first_pass_ok": true,
+  "errors_first": [],
+  "repair_used": false,
+  "final_ok": true,
+  "errors_final": []
+ },
+ "contract_failure": null,
+ "llm_calls": [
+  {
+   "phase": "action",
+   "step": 2,
+   "attempt": 0,
+   "prompt_tokens": 1225,
+   "completion_tokens": 120,
+   "latency_ms": 5687.9,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Cohort Builder configuration issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"Cohort Builder deployment issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_customer_deployment\", \"component\": null, \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 3,
+   "attempt": 0,
+   "prompt_tokens": 1769,
+   "completion_tokens": 124,
+   "latency_ms": 8287.5,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Cohort Builder configuration issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"Cohort Builder deployment issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_component_topology\", \"component\": \"COMPONENT_VLJ\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 4,
+   "attempt": 0,
+   "prompt_tokens": 1663,
+   "completion_tokens": 126,
+   "latency_ms": 4766.6,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Cohort Builder configuration issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"Cohort Builder deployment issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_technical_signals\", \"component\": \"COMPONENT_VLJ\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 5,
+   "attempt": 0,
+   "prompt_tokens": 1527,
+   "completion_tokens": 124,
+   "latency_ms": 5018.9,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Cohort Builder configuration issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"Cohort Builder deployment issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_recent_changes\", \"component\": \"COMPONENT_VLJ\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 6,
+   "attempt": 0,
+   "prompt_tokens": 1542,
+   "completion_tokens": 125,
+   "latency_ms": 4454.5,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Cohort Builder configuration issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"Cohort Builder deployment issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_deployment_history\", \"component\": \"COMPONENT_VLJ\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 7,
+   "attempt": 0,
+   "prompt_tokens": 1560,
+   "completion_tokens": 125,
+   "latency_ms": 5025.4,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Cohort Builder configuration issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"Cohort Builder deployment issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_telemetry\", \"component\": \"COMPONENT_VLJ\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 8,
+   "attempt": 0,
+   "prompt_tokens": 1593,
+   "completion_tokens": 126,
+   "latency_ms": 6420.3,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Cohort Builder configuration issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"Cohort Builder deployment issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_telemetry\", \"component\": \"COMPONENT_VLJ\", \"metric_category\": \"Application\", \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 9,
+   "attempt": 0,
+   "prompt_tokens": 1601,
+   "completion_tokens": 124,
+   "latency_ms": 6557.4,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Cohort Builder configuration issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"Cohort Builder deployment issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_service_health\", \"component\": \"COMPONENT_VLJ\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 10,
+   "attempt": 0,
+   "prompt_tokens": 2710,
+   "completion_tokens": 119,
+   "latency_ms": 5759.4,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Cohort Builder configuration issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"Cohort Builder deployment issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"submit_diagnosis\", \"component\": null, \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "final",
+   "step": 10,
+   "attempt": 0,
+   "prompt_tokens": 2784,
+   "completion_tokens": 336,
+   "latency_ms": 53860.6,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Cohort Builder configuration issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"Cohort Builder deployment issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"evidence_ids\": [], \"issue_category\": null, \"category_confidence\": null, \"root_cause\": null, \"root_cause_confidence\": null, \"affected_component\": null, \"component_confidence\": null, \"causal_change\": null, \"causal_change_confidence\": null, \"owning_team\": null, \"routing_confidence\": null, \"confidence\": 0.2, \"evidence_sufficiency\": \"insufficient\", \"human_review_required\": true, \"review_reason\": \"Insufficient evidence to determine the root cause of the Cohort Builder outage in the LATAM production environment.\", \"status\": \"INSUFFICIENT_EVIDENCE\", \"recommended_next_action\": \"Gather more evidence and investigate further to determine the root cause of the issue.\", \"unresolved_uncertainties\": [\"The root cause of the Cohort Builder outage is still unknown.\", \"The affected component and owning team are not confirmed.\"], \"summary\": \"The Cohort Builder is down in the LATAM production environment, causing a moderate business impact. The root cause is still unknown, and more evidence is needed to determine the affected component and owning team.\"}"
+  }
+ ]
+}

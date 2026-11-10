@@ -1,0 +1,134 @@
+{
+ "purpose": "Phase 9 smoke set: 17 dev cases, chosen for coverage (evaluator-side selection from iter50 stored runs; never seen by the runtime)",
+ "seed": 20260925,
+ "cases": [
+  {
+   "case_id": "CS01031",
+   "why": "low-evidence",
+   "stratum": "low_evidence",
+   "status": "DIAGNOSIS_PROPOSED",
+   "outcome": "WRONG",
+   "conf": 0.5
+  },
+  {
+   "case_id": "CS00278",
+   "why": "low-evidence",
+   "stratum": "low_evidence",
+   "status": "INSUFFICIENT_EVIDENCE",
+   "outcome": "WRONG",
+   "conf": 0.1
+  },
+  {
+   "case_id": "CS02492",
+   "why": "low-evidence",
+   "stratum": "low_evidence",
+   "status": "INSUFFICIENT_EVIDENCE",
+   "outcome": "WRONG",
+   "conf": 0.2
+  },
+  {
+   "case_id": "CS00752",
+   "why": "low-evidence",
+   "stratum": "low_evidence",
+   "status": "DIAGNOSIS_PROPOSED",
+   "outcome": "WRONG",
+   "conf": 0.4
+  },
+  {
+   "case_id": "CS01839",
+   "why": "clear/proposed",
+   "stratum": "clear",
+   "status": "DIAGNOSIS_PROPOSED",
+   "outcome": "WRONG",
+   "conf": 0.4
+  },
+  {
+   "case_id": "CS01523",
+   "why": "clear/proposed",
+   "stratum": "clear",
+   "status": "DIAGNOSIS_PROPOSED",
+   "outcome": "WRONG",
+   "conf": 0.8
+  },
+  {
+   "case_id": "CS01877",
+   "why": "clear/proposed",
+   "stratum": "clear",
+   "status": "DIAGNOSIS_PROPOSED",
+   "outcome": "WRONG",
+   "conf": 0.5
+  },
+  {
+   "case_id": "CS02380",
+   "why": "distractor-type",
+   "stratum": "dependency",
+   "status": "INSUFFICIENT_EVIDENCE",
+   "outcome": "WRONG",
+   "conf": 0.2
+  },
+  {
+   "case_id": "CS00273",
+   "why": "distractor-type",
+   "stratum": "customer_misdiagnosis",
+   "status": "INSUFFICIENT_EVIDENCE",
+   "outcome": "WRONG",
+   "conf": 0.5
+  },
+  {
+   "case_id": "CS00971",
+   "why": "distractor-type",
+   "stratum": "dependency",
+   "status": "DIAGNOSIS_PROPOSED",
+   "outcome": "WRONG",
+   "conf": 0.3
+  },
+  {
+   "case_id": "CS00011",
+   "why": "ambiguous",
+   "stratum": "ambiguous",
+   "status": "DIAGNOSIS_PROPOSED",
+   "outcome": "WRONG",
+   "conf": 0.4
+  },
+  {
+   "case_id": "CS00266",
+   "why": "ambiguous",
+   "stratum": "ambiguous",
+   "status": "INSUFFICIENT_EVIDENCE",
+   "outcome": "WRONG",
+   "conf": 0.2
+  },
+  {
+   "case_id": "CS01294",
+   "why": "ambiguous",
+   "stratum": "ambiguous",
+   "status": "INSUFFICIENT_EVIDENCE",
+   "outcome": "WRONG",
+   "conf": 0.2
+  },
+  {
+   "case_id": "CS00729",
+   "why": "correct-diagnosis",
+   "stratum": "ambiguous",
+   "status": "DIAGNOSIS_PROPOSED",
+   "outcome": "CORRECT",
+   "conf": 0.6
+  },
+  {
+   "case_id": "CS01454",
+   "why": "wrong-diagnosis (proposed)",
+   "stratum": "customer_misdiagnosis",
+   "status": "DIAGNOSIS_PROPOSED",
+   "outcome": "WRONG",
+   "conf": 0.5
+  },
+  {
+   "case_id": "CS02420",
+   "why": "wrong-diagnosis (proposed)",
+   "stratum": "ambiguous",
+   "status": "DIAGNOSIS_PROPOSED",
+   "outcome": "WRONG",
+   "conf": 0.6
+  }
+ ]
+}

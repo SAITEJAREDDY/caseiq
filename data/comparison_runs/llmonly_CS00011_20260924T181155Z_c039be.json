@@ -1,0 +1,61 @@
+{
+ "run_id": "llmonly_CS00011_20260924T181155Z_c039be",
+ "case_id": "CS00011",
+ "created_at": "2026-09-24T18:11:55.124722+00:00",
+ "prompt_version": "llm_only_v1",
+ "model_name": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+ "temperature": 0.1,
+ "ticket_shown_to_model": {
+  "title": "Data residency and compliance issues in Analytics Dashboard",
+  "description": "There are mismatches in data residency flags and the compliance report is incomplete in the Analytics Dashboard. We aren't sure which datasets are affected or when this started. Needs review.",
+  "environment": "production",
+  "region": "US-West",
+  "priority": "medium",
+  "reported_business_impact": "moderate",
+  "reported_affected_users": 42,
+  "created_date": "2025-02-13",
+  "customer_tier": "silver",
+  "customer_industry": "Education",
+  "customer_company_size": "small",
+  "reported_product_name": "Analytics Dashboard",
+  "reported_symptoms": [
+   "compliance report incomplete",
+   "data residency flag mismatch"
+  ]
+ },
+ "n_categories_offered": 18,
+ "n_root_causes_offered": 40,
+ "parsed": {
+  "issue_category": "Compliance",
+  "root_cause": null,
+  "affected_component": "Analytics Dashboard",
+  "causal_change": null,
+  "owning_team": null,
+  "confidence": 0.8,
+  "status": "DIAGNOSIS_PROPOSED",
+  "summary": "The issue appears to be related to compliance and data residency in the Analytics Dashboard, but the root cause is unclear due to insufficient information."
+ },
+ "status": "DIAGNOSIS_PROPOSED",
+ "validation_errors": [],
+ "repair_used": false,
+ "llm_calls": [
+  {
+   "attempt": 0,
+   "latency_ms": 48396.2,
+   "finish_reason": "stop",
+   "raw_output": "{\"issue_category\": \"Compliance\", \"root_cause\": null, \"affected_component\": \"Analytics Dashboard\", \"causal_change\": null, \"owning_team\": null, \"confidence\": 0.8, \"status\": \"DIAGNOSIS_PROPOSED\", \"summary\": \"The issue appears to be related to compliance and data residency in the Analytics Dashboard, but the root cause is unclear due to insufficient information.\"}"
+  }
+ ],
+ "tokens": {
+  "prompt": 690,
+  "completion": 91,
+  "total": 781
+ },
+ "latency_ms": 48396.2,
+ "wall_ms": 48399.1,
+ "cost_usd_estimate": 0.000687,
+ "tool_calls": 0,
+ "evidence_count": 0,
+ "graph_used": false,
+ "jev_used": false
+}

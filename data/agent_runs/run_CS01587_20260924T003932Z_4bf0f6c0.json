@@ -1,0 +1,439 @@
+{
+  "run_id": "run_CS01587_20260924T003932Z_4bf0f6c0",
+  "case_id": "CS01587",
+  "created_at": "2026-09-24T00:39:32.450821+00:00",
+  "model_provider": "together",
+  "model_name": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "temperature": 0.1,
+  "prompt_version": "v1",
+  "toolset_version": "v1",
+  "output_schema_version": "v1",
+  "agent_loop_version": "v1",
+  "repair_layer_version": "v1",
+  "graph_version": "phase4-2500case-2026-09-22",
+  "sim_clock_step_minutes": 15,
+  "max_tool_calls": 10,
+  "max_repeated_same_tool": 2,
+  "stop_reason": "model_submitted",
+  "num_tool_calls": 6,
+  "num_llm_calls": 6,
+  "token_usage": {
+    "prompt_tokens": 12961,
+    "completion_tokens": 762,
+    "total_tokens": 13723
+  },
+  "approx_cost_usd": 0.001372,
+  "approx_cost_note": "Estimated from a configurable placeholder rate, not exact provider billing -- see config.py",
+  "trace_steps": [
+    {
+      "step": 1,
+      "sim_clock": "2026-01-19 00:00:00",
+      "tool_name": "get_case_context",
+      "args": {
+        "hypotheses": [],
+        "rationale": "Starting the investigation of case CS01587"
+      },
+      "hypotheses": [],
+      "rationale": "Starting the investigation of case CS01587",
+      "result_summary": {
+        "case_id": "CS01587",
+        "title": "Token Service: Corrupted Export and Missing Records",
+        "description": "When exporting token usage data from the Token Service in our APAC production environment, the file appears corrupted. Additionally, when we try to view individual user token histories, some records are missing entirely. This is affecting about 52 users who are trying to audit their usage. The export fails validation, and the UI shows gaps in the data tables. We need the export to be clean and the data to be complete.",
+        "environment": "production",
+        "region": "APAC",
+        "reported_business_impact": "moderate",
+        "reported_affected_users": 52,
+        "priority": "medium",
+        "created_date": "2026-01-19",
+        "status": "resolved",
+        "customer_id": "C03555",
+        "customer_tier": "gold",
+        "customer_industry": "Media & Entertainment",
+        "customer_company_size": "mid",
+        "reported_product_id": "P027",
+        "reported_product_name": "Token Service",
+        "reported_symptoms": [
+          "missing records",
+          "corrupted export"
+        ]
+      },
+      "latency_ms": 1803.6,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 2,
+      "sim_clock": "2026-01-19 00:15:00",
+      "tool_name": "get_system_logs",
+      "args": {
+        "hypotheses": [
+          "data_corruption:0.4",
+          "export_service_issue:0.3",
+          "database_connection_problem:0.3"
+        ],
+        "rationale": "To investigate the corrupted export and missing records in the Token Service, we need to examine the system logs for any errors or anomalies that might be related to the issue.",
+        "start_time": "2026-01-19 00:00:00",
+        "end_time": "2026-01-19 23:59:59",
+        "log_level": "ERROR",
+        "log_type": "system"
+      },
+      "hypotheses": [
+        "data_corruption:0.4",
+        "export_service_issue:0.3",
+        "database_connection_problem:0.3"
+      ],
+      "rationale": "To investigate the corrupted export and missing records in the Token Service, we need to examine the system logs for any errors or anomalies that might be related to the issue.",
+      "result_summary": {
+        "error": "unknown tool 'get_system_logs'. Valid tools are: ['get_active_incidents', 'get_agent_availability', 'get_case_context', 'get_component_topology', 'get_configuration_history', 'get_customer_deployment', 'get_deployment_history', 'get_recent_changes', 'get_service_health', 'get_similar_cases', 'get_team_capability', 'get_technical_signals', 'get_telemetry', 'search_knowledge_base', 'submit_diagnosis']"
+      },
+      "latency_ms": 6854.0,
+      "status": "error",
+      "redundant": false
+    },
+    {
+      "step": 3,
+      "sim_clock": "2026-01-19 00:30:00",
+      "tool_name": "get_recent_changes",
+      "args": {
+        "hypotheses": [
+          "data_corruption:0.4",
+          "export_service_issue:0.3",
+          "database_connection_problem:0.3"
+        ],
+        "rationale": "To investigate the corrupted export and missing records in the Token Service, we need to examine recent changes that might be related to the issue.",
+        "start_time": "2026-01-15 00:00:00",
+        "end_time": "2026-01-19 23:59:59"
+      },
+      "hypotheses": [
+        "data_corruption:0.4",
+        "export_service_issue:0.3",
+        "database_connection_problem:0.3"
+      ],
+      "rationale": "To investigate the corrupted export and missing records in the Token Service, we need to examine recent changes that might be related to the issue.",
+      "result_summary": {
+        "recent_changes": [
+          {
+            "evidence_id": "CH000209",
+            "change_type": "config_change",
+            "component_id": "CM002",
+            "started_at": "2026-01-18 07:07:00",
+            "completed_at": "2026-01-18 07:15:00",
+            "status": "completed",
+            "initiated_by": "system:automation",
+            "time_proximity_hours": 16.9,
+            "scope_match": "same_product"
+          },
+          {
+            "evidence_id": "CH001635",
+            "change_type": "data_pipeline_change",
+            "component_id": "CM012",
+            "started_at": "2026-01-18 05:17:00",
+            "completed_at": "2026-01-18 06:57:00",
+            "status": "completed",
+            "initiated_by": "system:automation",
+            "time_proximity_hours": 18.7,
+            "scope_match": "same_product"
+          }
+        ],
+        "count": 2
+      },
+      "latency_ms": 2082.3,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 4,
+      "sim_clock": "2026-01-19 00:45:00",
+      "tool_name": "get_service_health",
+      "args": {
+        "hypotheses": [
+          "data_corruption:0.4",
+          "export_service_issue:0.3",
+          "database_connection_problem:0.3"
+        ],
+        "rationale": "To investigate the corrupted export and missing records in the Token Service, we need to examine the current health of the service.",
+        "service_id": "SVC001",
+        "start_time": "2026-01-19 00:00:00",
+        "end_time": "2026-01-19 23:59:59"
+      },
+      "hypotheses": [
+        "data_corruption:0.4",
+        "export_service_issue:0.3",
+        "database_connection_problem:0.3"
+      ],
+      "rationale": "To investigate the corrupted export and missing records in the Token Service, we need to examine the current health of the service.",
+      "result_summary": {
+        "error": "1 validation error for ComponentScopedArgs\ncomponent_id\n  Field required [type=missing, input_value={'hypotheses': ['data_cor...: '2026-01-19 23:59:59'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      },
+      "latency_ms": 2626.2,
+      "status": "error",
+      "redundant": false
+    },
+    {
+      "step": 5,
+      "sim_clock": "2026-01-19 01:00:00",
+      "tool_name": "get_component_topology",
+      "args": {
+        "hypotheses": [
+          "data_corruption:0.4",
+          "export_service_issue:0.3",
+          "database_connection_problem:0.3"
+        ],
+        "rationale": "To investigate the corrupted export and missing records in the Token Service, we need to examine the component topology.",
+        "component_id": "CM002"
+      },
+      "hypotheses": [
+        "data_corruption:0.4",
+        "export_service_issue:0.3",
+        "database_connection_problem:0.3"
+      ],
+      "rationale": "To investigate the corrupted export and missing records in the Token Service, we need to examine the component topology.",
+      "result_summary": {
+        "component_id": "CM002",
+        "component_name": "Authorization/Policy Engine",
+        "upstream_dependencies": [
+          {
+            "name": "Session Store",
+            "id": "CM009"
+          },
+          {
+            "name": "Password Policy Engine",
+            "id": "CM021"
+          },
+          {
+            "name": "JWT Issuer Service",
+            "id": "CM029"
+          },
+          {
+            "name": "Login Analytics Service",
+            "id": "CM037"
+          },
+          {
+            "name": "SSO Broker (Shared)",
+            "id": "CM237"
+          }
+        ],
+        "downstream_dependents": [
+          {
+            "name": "Provisioning Service",
+            "id": "CM005"
+          },
+          {
+            "name": "API Layer",
+            "id": "CM007"
+          },
+          {
+            "name": "Identity Audit Logger",
+            "id": "CM020"
+          },
+          {
+            "name": "Step-Up Authentication Service",
+            "id": "CM030"
+          },
+          {
+            "name": "Group Sync Service",
+            "id": "CM032"
+          },
+          {
+            "name": "SCIM Provisioning Connector",
+            "id": "CM034"
+          },
+          {
+            "name": "Trusted Device Manager",
+            "id": "CM039"
+          },
+          {
+            "name": "Chargeback Evidence Uploader",
+            "id": "CM075"
+          },
+          {
+            "name": "Fraud Rules Engine",
+            "id": "CM081"
+          },
+          {
+            "name": "Event Schema Registry",
+            "id": "CM120"
+          },
+          {
+            "name": "Ingress Controller",
+            "id": "CM164"
+          },
+          {
+            "name": "Certificate Management Service",
+            "id": "CM169"
+          },
+          {
+            "name": "Form Renderer",
+            "id": "CM186"
+          },
+          {
+            "name": "Server-Side Rendering Layer",
+            "id": "CM189"
+          },
+          {
+            "name": "State Management Store",
+            "id": "CM194"
+          },
+          {
+            "name": "Onboarding Checklist Widget",
+            "id": "CM208"
+          }
+        ],
+        "external_dependencies": [
+          "Primary Identity Provider"
+        ],
+        "owning_teams": [
+          {
+            "name": "Identity",
+            "id": "TM01"
+          },
+          {
+            "name": "Authorization & Access",
+            "id": "TM02"
+          }
+        ]
+      },
+      "latency_ms": 1705.4,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 6,
+      "sim_clock": "2026-01-19 01:15:00",
+      "tool_name": "submit_diagnosis",
+      "args": {
+        "hypotheses": [
+          {
+            "label": "data_corruption",
+            "confidence": 0.4,
+            "supporting_evidence_ids": [
+              "CH000209"
+            ],
+            "contradicting_evidence_ids": [],
+            "status": "open"
+          },
+          {
+            "label": "export_service_issue",
+            "confidence": 0.3,
+            "supporting_evidence_ids": [
+              "CH001635"
+            ],
+            "contradicting_evidence_ids": [],
+            "status": "open"
+          },
+          {
+            "label": "database_connection_problem",
+            "confidence": 0.3,
+            "supporting_evidence_ids": [],
+            "contradicting_evidence_ids": [],
+            "status": "open"
+          }
+        ],
+        "evidence_sufficiency": "partial",
+        "human_review_required": false,
+        "recommended_next_action": "Inspect policy configuration and recent changes to identify potential causes of data corruption and export service issues",
+        "additional_comments": "The investigation has identified potential issues with data corruption and export service, but further analysis is needed to determine the root cause. The recent changes to the policy configuration and data pipeline may be contributing factors. It is recommended to inspect the policy configuration and recent changes to identify potential causes of the issue."
+      },
+      "hypotheses": [
+        {
+          "label": "data_corruption",
+          "confidence": 0.4,
+          "supporting_evidence_ids": [
+            "CH000209"
+          ],
+          "contradicting_evidence_ids": [],
+          "status": "open"
+        },
+        {
+          "label": "export_service_issue",
+          "confidence": 0.3,
+          "supporting_evidence_ids": [
+            "CH001635"
+          ],
+          "contradicting_evidence_ids": [],
+          "status": "open"
+        },
+        {
+          "label": "database_connection_problem",
+          "confidence": 0.3,
+          "supporting_evidence_ids": [],
+          "contradicting_evidence_ids": [],
+          "status": "open"
+        }
+      ],
+      "rationale": "",
+      "result_summary": "submitted",
+      "latency_ms": 8542.4,
+      "status": "ok",
+      "redundant": false
+    }
+  ],
+  "final_diagnosis": {
+    "hypotheses": [
+      {
+        "label": "data_corruption",
+        "description": "",
+        "confidence": 0.4,
+        "supporting_evidence": [],
+        "contradicting_evidence": [],
+        "status": "active"
+      },
+      {
+        "label": "export_service_issue",
+        "description": "",
+        "confidence": 0.3,
+        "supporting_evidence": [],
+        "contradicting_evidence": [],
+        "status": "active"
+      },
+      {
+        "label": "database_connection_problem",
+        "description": "",
+        "confidence": 0.3,
+        "supporting_evidence": [],
+        "contradicting_evidence": [],
+        "status": "active"
+      }
+    ],
+    "rationale": "",
+    "predicted_product_id": null,
+    "product_confidence": null,
+    "predicted_component_id": null,
+    "component_confidence": null,
+    "predicted_category_id": null,
+    "category_confidence": null,
+    "predicted_subcategory_id": null,
+    "predicted_root_cause_family": null,
+    "root_cause_confidence": null,
+    "predicted_causal_change_id": null,
+    "causal_change_confidence": null,
+    "predicted_severity": null,
+    "severity_confidence": null,
+    "recommended_team_id": null,
+    "routing_confidence": null,
+    "evidence_sufficiency": "partial",
+    "overall_confidence": 0.4,
+    "recommended_next_action": "Inspect policy configuration and recent changes to identify potential causes of data corruption and export service issues",
+    "human_review_required": false,
+    "human_review_reason": null,
+    "evidence_summary": "No summary provided by the agent.",
+    "unresolved_uncertainties": []
+  },
+  "citation_violations": [],
+  "evidence_ids_seen": [
+    "CH000209",
+    "CH001635"
+  ],
+  "repair_events": [
+    {
+      "step": 2,
+      "kind": "hypothesis_normalization",
+      "detail": "tool=get_system_logs: hypotheses arg was str, not a list; coerced"
+    },
+    {
+      "step": 6,
+      "kind": "final_diagnosis_repair",
+      "detail": "direct validation failed (6 validation errors for FinalDiagnosis\nhypotheses.0.status\n  Input should be 'active', 'rejected' or 'confirmed' [type=literal_error, input_value='open', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/literal_error\nhypotheses.1.status\n  Input should be 'active', 'rejected' or 'confirmed' [type=literal_error, input_value='open', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/literal_error\nhypotheses.2.status\n  Input should be 'active', 'rejected' or 'confirmed' [type=literal_error, input_value='open', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/literal_error\nrationale\n  Field required [type=missing, input_value={'hypotheses': [{'label':...l causes of the issue.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\noverall_confidence\n  Field required [type=missing, input_value={'hypotheses': [{'label':...l causes of the issue.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\nevidence_summary\n  Field required [type=missing, input_value={'hypotheses': [{'label':...l causes of the issue.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing); repaired args validated"
+    }
+  ]
+}

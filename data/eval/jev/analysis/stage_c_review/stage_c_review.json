@@ -1,0 +1,1095 @@
+{
+  "audit": [
+    {
+      "check": "registry holds exactly one validation Jev experiment and one validation LLM experiment",
+      "passed": true,
+      "detail": "['exp_stage_c_validation_jev_20260923T184036Z_fa984004', 'exp_stage_c_validation_llm_20260923T184040Z_9fc75b1a']"
+    },
+    {
+      "check": "Jev: split is validation and kind is validation",
+      "passed": true,
+      "detail": "validation/validation"
+    },
+    {
+      "check": "Jev: ran under stage_b_frozen_v1, verified against its manifest (not --pre-freeze)",
+      "passed": true,
+      "detail": "{'name': 'stage_b_frozen_v1', 'config_sha256': '0f72b8e2734b37b4bd0518bcc6dd9d376c1e39e9187b4470b3a95c32cc51d788', 'status': 'verified_against_manifest'}"
+    },
+    {
+      "check": "Jev: recorded config digest equals the Stage B config file and its manifest",
+      "passed": true,
+      "detail": "0f72b8e2734b37b4"
+    },
+    {
+      "check": "Jev: candidate-generation versions equal the frozen ones",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Jev: root-cause context is the frozen v4_operational",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Jev: causal key mode is the frozen canonical",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Jev: evaluator, question-set, candidate bundle and pricing versions equal the frozen ones",
+      "passed": true,
+      "detail": "v2.1/v2/v3/2026-09-23"
+    },
+    {
+      "check": "Jev: orchestration completed with no failed cases",
+      "passed": true,
+      "detail": "{'runner': 'parallel_v1', 'workers': 8, 'failed_cases': []}"
+    },
+    {
+      "check": "LLM: split is validation and kind is validation",
+      "passed": true,
+      "detail": "validation/validation"
+    },
+    {
+      "check": "LLM: ran under stage_b_frozen_v1, verified against its manifest (not --pre-freeze)",
+      "passed": true,
+      "detail": "{'name': 'stage_b_frozen_v1', 'config_sha256': '0f72b8e2734b37b4bd0518bcc6dd9d376c1e39e9187b4470b3a95c32cc51d788', 'status': 'verified_against_manifest'}"
+    },
+    {
+      "check": "LLM: recorded config digest equals the Stage B config file and its manifest",
+      "passed": true,
+      "detail": "0f72b8e2734b37b4"
+    },
+    {
+      "check": "LLM: candidate-generation versions equal the frozen ones",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "LLM: root-cause context is the frozen v4_operational",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "LLM: causal key mode is the frozen canonical",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "LLM: evaluator, question-set, candidate bundle and pricing versions equal the frozen ones",
+      "passed": true,
+      "detail": "v2.1/v2/v3/2026-09-23"
+    },
+    {
+      "check": "LLM: orchestration completed with no failed cases",
+      "passed": true,
+      "detail": "{'runner': 'parallel_v1', 'workers': 8, 'failed_cases': []}"
+    },
+    {
+      "check": "Jev: requested model is the frozen jev-1.13.0",
+      "passed": true,
+      "detail": "jev-1.13.0"
+    },
+    {
+      "check": "LLM: model, temperature, max tokens and repair allowance equal the frozen ones",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Jev: every decision resolved to the frozen model version",
+      "passed": true,
+      "detail": "{'jev-1.13.0': 3882}"
+    },
+    {
+      "check": "Jev: every record carries the frozen question and candidate-generation version of its decision",
+      "passed": true,
+      "detail": "[('causal_change', 'causal_change_v1', 'v3'), ('evidence_sufficiency', 'evidence_sufficiency_v2', 'v1'), ('incident_relationship', 'incident_relationship_v1', 'v1'), ('issue_category', 'issue_category_v1', 'v1'), ('owning_team', 'owning_team_v1', 'v2'), ('root_cause', 'root_cause_v1', 'v2')]"
+    },
+    {
+      "check": "LLM: every record carries the frozen question and candidate-generation version of its decision",
+      "passed": true,
+      "detail": "[('causal_change', 'causal_change_v1', 'v3'), ('evidence_sufficiency', 'evidence_sufficiency_v2', 'v1'), ('incident_relationship', 'incident_relationship_v1', 'v1'), ('issue_category', 'issue_category_v1', 'v1'), ('owning_team', 'owning_team_v1', 'v2'), ('root_cause', 'root_cause_v1', 'v2')]"
+    },
+    {
+      "check": "Jev and LLM experiments contain exactly the validation split (750 cases, same order)",
+      "passed": true,
+      "detail": "750"
+    },
+    {
+      "check": "case-id digest recorded on the run equals the digest of the validation ids",
+      "passed": true,
+      "detail": "6f89e2c8036213e4"
+    },
+    {
+      "check": "decision files contain no case outside the experiment's case list",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "decision counts: 750 per choice decision, incident decisions equal for both systems",
+      "passed": true,
+      "detail": "{'issue_category': 750, 'root_cause': 750, 'causal_change': 750, 'owning_team': 750, 'evidence_sufficiency': 750, 'incident_relationship': 132}"
+    },
+    {
+      "check": "pre-registered Stage C protocol digest recorded on the run matches the file today",
+      "passed": true,
+      "detail": "4c950c80104804ba"
+    },
+    {
+      "check": "Stage C experiments, report and protocol are byte-identical to what the locked freeze pinned (immutable)",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "registry: no experiment carries dataset_split 'test' or kind 'locked_benchmark'",
+      "passed": true,
+      "detail": "{('regression_suite', 'smoke'): 2, ('dev', 'smoke'): 2, ('explicit_case_ids', 'smoke'): 2, ('dev', 'engineering'): 15, ('validation', 'validation'): 2}"
+    },
+    {
+      "check": "registry: every case id used by all 23 registered experiments is in the dev or validation split",
+      "passed": true,
+      "detail": "0 outside"
+    },
+    {
+      "check": "Stage C checkpoint holds exactly the validation case ids",
+      "passed": true,
+      "detail": "750"
+    },
+    {
+      "check": "no locked run-state marker exists (the locked holdout has not started)",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "no access log exists to consult (none is kept by the split loader); the evidence is the registry, the marker and the guard checks",
+      "passed": true,
+      "detail": "the split loader keeps no log; see Phase 7 boundary validator checks [8], [9], [10]"
+    }
+  ],
+  "authoritative": {
+    "accuracy_rows": [
+      {
+        "metric": "Issue category accuracy",
+        "dev": {
+          "k": 73,
+          "n": 100,
+          "rate": 0.73,
+          "stored_ci": [
+            0.64,
+            0.82
+          ]
+        },
+        "validation": {
+          "k": 588,
+          "n": 750,
+          "rate": 0.784,
+          "stored_ci": [
+            0.7533333333333333,
+            0.8133333333333334
+          ]
+        },
+        "delta": {
+          "diff": 0.05400000000000005,
+          "ci_low": -0.02923719001651745,
+          "ci_high": 0.15238122418471484
+        },
+        "ratio": {
+          "ratio": 1.073972602739726,
+          "ci_low": 0.9563786008230452,
+          "ci_high": 1.235978835978836
+        },
+        "reading": "plausible sampling variation"
+      },
+      {
+        "metric": "Root cause accuracy",
+        "dev": {
+          "k": 48,
+          "n": 100,
+          "rate": 0.48,
+          "stored_ci": [
+            0.38,
+            0.58
+          ]
+        },
+        "validation": {
+          "k": 279,
+          "n": 750,
+          "rate": 0.372,
+          "stored_ci": [
+            0.3373333333333333,
+            0.408
+          ]
+        },
+        "delta": {
+          "diff": -0.10799999999999998,
+          "ci_low": -0.2105843318967158,
+          "ci_high": -0.006367411126983524
+        },
+        "ratio": {
+          "ratio": 0.775,
+          "ci_low": 0.6269005847953217,
+          "ci_high": 1.0048780487804878
+        },
+        "reading": "material degradation"
+      },
+      {
+        "metric": "Causal change accuracy",
+        "dev": {
+          "k": 92,
+          "n": 100,
+          "rate": 0.92,
+          "stored_ci": [
+            0.87,
+            0.97
+          ]
+        },
+        "validation": {
+          "k": 670,
+          "n": 750,
+          "rate": 0.8933333333333333,
+          "stored_ci": [
+            0.872,
+            0.916
+          ]
+        },
+        "delta": {
+          "diff": -0.026666666666666727,
+          "ci_low": -0.07244977393379279,
+          "ci_high": 0.046151595915489715
+        },
+        "ratio": {
+          "ratio": 0.9710144927536232,
+          "ci_low": 0.9195876288659794,
+          "ci_high": 1.0403100775193799
+        },
+        "reading": "plausible sampling variation"
+      },
+      {
+        "metric": "Owning team primary accuracy",
+        "dev": {
+          "k": 36,
+          "n": 100,
+          "rate": 0.36,
+          "stored_ci": null
+        },
+        "validation": {
+          "k": 282,
+          "n": 750,
+          "rate": 0.376,
+          "stored_ci": null
+        },
+        "delta": {
+          "diff": 0.016000000000000014,
+          "ci_low": -0.0873819852359172,
+          "ci_high": 0.11012529614383453
+        },
+        "ratio": {
+          "ratio": 1.0444444444444445,
+          "ci_low": 0.8060606060606061,
+          "ci_high": 1.4476190476190474
+        },
+        "reading": "plausible sampling variation"
+      },
+      {
+        "metric": "Owning team acceptable accuracy",
+        "dev": {
+          "k": 49,
+          "n": 100,
+          "rate": 0.49,
+          "stored_ci": null
+        },
+        "validation": {
+          "k": 396,
+          "n": 750,
+          "rate": 0.528,
+          "stored_ci": null
+        },
+        "delta": {
+          "diff": 0.038000000000000034,
+          "ci_low": -0.0649399904173719,
+          "ci_high": 0.14014703545359453
+        },
+        "ratio": {
+          "ratio": 1.0775510204081633,
+          "ci_low": 0.8881355932203391,
+          "ci_high": 1.3666666666666665
+        },
+        "reading": "plausible sampling variation"
+      },
+      {
+        "metric": "Evidence sufficiency accuracy",
+        "dev": {
+          "k": 14,
+          "n": 100,
+          "rate": 0.14,
+          "stored_ci": [
+            0.08,
+            0.21
+          ]
+        },
+        "validation": {
+          "k": 93,
+          "n": 750,
+          "rate": 0.124,
+          "stored_ci": [
+            0.10133333333333333,
+            0.148
+          ]
+        },
+        "delta": {
+          "diff": -0.016000000000000014,
+          "ci_low": -0.10021458294600528,
+          "ci_high": 0.04439480481512287
+        },
+        "ratio": {
+          "ratio": 0.8857142857142857,
+          "ci_low": 0.5587301587301587,
+          "ci_high": 1.633333333333333
+        },
+        "reading": "plausible sampling variation"
+      },
+      {
+        "metric": "Incident relationship accuracy",
+        "dev": {
+          "k": 12,
+          "n": 17,
+          "rate": 0.7058823529411765,
+          "stored_ci": [
+            0.47058823529411764,
+            0.8823529411764706
+          ]
+        },
+        "validation": {
+          "k": 109,
+          "n": 132,
+          "rate": 0.8257575757575758,
+          "stored_ci": [
+            0.7651515151515151,
+            0.8863636363636364
+          ]
+        },
+        "delta": {
+          "diff": 0.11987522281639929,
+          "ci_low": -0.05746697931446537,
+          "ci_high": 0.3634393054470203
+        },
+        "ratio": {
+          "ratio": 1.1698232323232323,
+          "ci_low": 0.9015151515151515,
+          "ci_high": 1.7869318181818183
+        },
+        "reading": "insufficient sample"
+      }
+    ],
+    "recall_rows": [
+      {
+        "metric": "Issue category candidate recall",
+        "dev": {
+          "k": 100,
+          "n": 100,
+          "rate": 1.0,
+          "stored_ci": null
+        },
+        "validation": {
+          "k": 750,
+          "n": 750,
+          "rate": 1.0,
+          "stored_ci": null
+        },
+        "delta": {
+          "diff": 0.0,
+          "ci_low": -0.0050960307841858565,
+          "ci_high": 0.03699480747600192
+        },
+        "ratio": {
+          "ratio": 1.0,
+          "ci_low": 1.0,
+          "ci_high": 1.0
+        },
+        "reading": "plausible sampling variation",
+        "candidate_counts": {
+          "dev": {
+            "avg_candidate_count": 18.0,
+            "median_candidate_count": 18.0,
+            "p90_candidate_count": 18
+          },
+          "validation": {
+            "avg_candidate_count": 18.0,
+            "median_candidate_count": 18.0,
+            "p90_candidate_count": 18
+          }
+        }
+      },
+      {
+        "metric": "Root cause candidate recall",
+        "dev": {
+          "k": 100,
+          "n": 100,
+          "rate": 1.0,
+          "stored_ci": null
+        },
+        "validation": {
+          "k": 740,
+          "n": 750,
+          "rate": 0.9866666666666667,
+          "stored_ci": null
+        },
+        "delta": {
+          "diff": -0.013333333333333308,
+          "ci_low": -0.024368625487637297,
+          "ci_high": 0.024156976012304876
+        },
+        "ratio": {
+          "ratio": 0.9866666666666667,
+          "ci_low": 0.9786666666666667,
+          "ci_high": 0.9946666666666667
+        },
+        "reading": "plausible sampling variation",
+        "candidate_counts": {
+          "dev": {
+            "avg_candidate_count": 15.88,
+            "median_candidate_count": 16.0,
+            "p90_candidate_count": 16
+          },
+          "validation": {
+            "avg_candidate_count": 15.916,
+            "median_candidate_count": 16.0,
+            "p90_candidate_count": 16
+          }
+        }
+      },
+      {
+        "metric": "Causal change candidate recall",
+        "dev": {
+          "k": 100,
+          "n": 100,
+          "rate": 1.0,
+          "stored_ci": null
+        },
+        "validation": {
+          "k": 750,
+          "n": 750,
+          "rate": 1.0,
+          "stored_ci": null
+        },
+        "delta": {
+          "diff": 0.0,
+          "ci_low": -0.0050960307841858565,
+          "ci_high": 0.03699480747600192
+        },
+        "ratio": {
+          "ratio": 1.0,
+          "ci_low": 1.0,
+          "ci_high": 1.0
+        },
+        "reading": "plausible sampling variation",
+        "candidate_counts": {
+          "dev": {
+            "avg_candidate_count": 1.8,
+            "median_candidate_count": 2.0,
+            "p90_candidate_count": 3
+          },
+          "validation": {
+            "avg_candidate_count": 1.8213333333333332,
+            "median_candidate_count": 2.0,
+            "p90_candidate_count": 3
+          }
+        }
+      },
+      {
+        "metric": "Owning team primary candidate recall",
+        "dev": {
+          "k": 99,
+          "n": 100,
+          "rate": 0.99,
+          "stored_ci": null
+        },
+        "validation": {
+          "k": 748,
+          "n": 750,
+          "rate": 0.9973333333333333,
+          "stored_ci": null
+        },
+        "delta": {
+          "diff": 0.007333333333333303,
+          "ci_low": -0.0034755056346538835,
+          "ci_high": 0.05186292346811448
+        },
+        "ratio": {
+          "ratio": 1.0074074074074073,
+          "ci_low": 0.9946666666666667,
+          "ci_high": 1.0309278350515465
+        },
+        "reading": "plausible sampling variation"
+      },
+      {
+        "metric": "Owning team acceptable candidate recall",
+        "dev": {
+          "k": 100,
+          "n": 100,
+          "rate": 1.0,
+          "stored_ci": null
+        },
+        "validation": {
+          "k": 749,
+          "n": 750,
+          "rate": 0.9986666666666667,
+          "stored_ci": null
+        },
+        "delta": {
+          "diff": -0.0013333333333332975,
+          "ci_low": -0.0075137092313165565,
+          "ci_high": 0.0356777628462843
+        },
+        "ratio": {
+          "ratio": 0.9986666666666667,
+          "ci_low": 0.996,
+          "ci_high": 1.0
+        },
+        "reading": "plausible sampling variation"
+      }
+    ],
+    "dev_causal_runs": {
+      "causal v3 run": {
+        "accuracy": 0.92,
+        "n": 100
+      },
+      "causal v3 repeat run": {
+        "accuracy": 0.91,
+        "n": 100
+      },
+      "final dev comparison run": {
+        "accuracy": 0.92,
+        "n": 100
+      }
+    }
+  },
+  "cross_check": [
+    {
+      "metric": "Issue category accuracy",
+      "stored_equals_recomputed": true
+    },
+    {
+      "metric": "Root cause accuracy",
+      "stored_equals_recomputed": true
+    },
+    {
+      "metric": "Causal change accuracy",
+      "stored_equals_recomputed": true
+    },
+    {
+      "metric": "Owning team primary accuracy",
+      "stored_equals_recomputed": true
+    },
+    {
+      "metric": "Owning team acceptable accuracy",
+      "stored_equals_recomputed": true
+    },
+    {
+      "metric": "Evidence sufficiency accuracy",
+      "stored_equals_recomputed": true
+    },
+    {
+      "metric": "Incident relationship accuracy",
+      "stored_equals_recomputed": true
+    },
+    {
+      "metric": "Root cause candidate recall",
+      "stored_equals_recomputed": true
+    },
+    {
+      "metric": "Causal change candidate recall",
+      "stored_equals_recomputed": true
+    },
+    {
+      "metric": "Owning team primary candidate recall",
+      "stored_equals_recomputed": true
+    },
+    {
+      "metric": "Owning team acceptable candidate recall",
+      "stored_equals_recomputed": true
+    }
+  ],
+  "operations": {
+    "dev (sequential)": {
+      "jev": {
+        "issue_category": {
+          "n": 100,
+          "p50_ms": 165.60000000000002,
+          "p90_ms": 264.3,
+          "p95_ms": 412.8,
+          "cost_per_decision_usd": 3.680796e-05,
+          "cost_per_1000_usd": 0.03680796,
+          "first_attempt_valid": 100,
+          "repair_required": 0,
+          "unrecoverable": 0,
+          "api_errors": 0
+        },
+        "root_cause": {
+          "n": 100,
+          "p50_ms": 173.3,
+          "p90_ms": 309.1,
+          "p95_ms": 468.2,
+          "cost_per_decision_usd": 6.211464000000001e-05,
+          "cost_per_1000_usd": 0.06211464000000001,
+          "first_attempt_valid": 100,
+          "repair_required": 0,
+          "unrecoverable": 0,
+          "api_errors": 0
+        },
+        "causal_change": {
+          "n": 100,
+          "p50_ms": 168.85,
+          "p90_ms": 264.6,
+          "p95_ms": 302.3,
+          "cost_per_decision_usd": 5.048274e-05,
+          "cost_per_1000_usd": 0.05048274,
+          "first_attempt_valid": 100,
+          "repair_required": 0,
+          "unrecoverable": 0,
+          "api_errors": 0
+        },
+        "owning_team": {
+          "n": 100,
+          "p50_ms": 173.85,
+          "p90_ms": 234.9,
+          "p95_ms": 287.5,
+          "cost_per_decision_usd": 5.4180840000000004e-05,
+          "cost_per_1000_usd": 0.05418084,
+          "first_attempt_valid": 100,
+          "repair_required": 0,
+          "unrecoverable": 0,
+          "api_errors": 0
+        },
+        "evidence_sufficiency": {
+          "n": 100,
+          "p50_ms": 171.3,
+          "p90_ms": 269.6,
+          "p95_ms": 314.9,
+          "cost_per_decision_usd": 5.139918e-05,
+          "cost_per_1000_usd": 0.05139918,
+          "first_attempt_valid": 100,
+          "repair_required": 0,
+          "unrecoverable": 0,
+          "api_errors": 0
+        },
+        "incident_relationship": {
+          "n": 17,
+          "p50_ms": 156.0,
+          "p90_ms": 200.8,
+          "p95_ms": 296.5,
+          "cost_per_decision_usd": 2.687258823529412e-05,
+          "cost_per_1000_usd": 0.02687258823529412,
+          "first_attempt_valid": 17,
+          "repair_required": 0,
+          "unrecoverable": 0,
+          "api_errors": 0
+        }
+      },
+      "llm": {
+        "issue_category": {
+          "n": 100,
+          "p50_ms": 808.35,
+          "p90_ms": 1259.6,
+          "p95_ms": 1346.7,
+          "cost_per_decision_usd": 0.0005771688,
+          "cost_per_1000_usd": 0.5771688,
+          "first_attempt_valid": 100,
+          "repair_required": 0,
+          "unrecoverable": 0,
+          "api_errors": 0
+        },
+        "root_cause": {
+          "n": 100,
+          "p50_ms": 815.85,
+          "p90_ms": 1246.7,
+          "p95_ms": 1374.2,
+          "cost_per_decision_usd": 0.000986024,
+          "cost_per_1000_usd": 0.986024,
+          "first_attempt_valid": 100,
+          "repair_required": 0,
+          "unrecoverable": 0,
+          "api_errors": 0
+        },
+        "causal_change": {
+          "n": 100,
+          "p50_ms": 783.3,
+          "p90_ms": 1567.9,
+          "p95_ms": 1722.0,
+          "cost_per_decision_usd": 0.0008308352000000001,
+          "cost_per_1000_usd": 0.8308352000000001,
+          "first_attempt_valid": 100,
+          "repair_required": 0,
+          "unrecoverable": 0,
+          "api_errors": 0
+        },
+        "owning_team": {
+          "n": 100,
+          "p50_ms": 801.25,
+          "p90_ms": 1303.3,
+          "p95_ms": 1579.2,
+          "cost_per_decision_usd": 0.0008575736,
+          "cost_per_1000_usd": 0.8575736,
+          "first_attempt_valid": 100,
+          "repair_required": 0,
+          "unrecoverable": 0,
+          "api_errors": 0
+        },
+        "evidence_sufficiency": {
+          "n": 100,
+          "p50_ms": 789.0,
+          "p90_ms": 1304.5,
+          "p95_ms": 1698.7,
+          "cost_per_decision_usd": 0.000880724,
+          "cost_per_1000_usd": 0.8807240000000001,
+          "first_attempt_valid": 100,
+          "repair_required": 0,
+          "unrecoverable": 0,
+          "api_errors": 0
+        },
+        "incident_relationship": {
+          "n": 17,
+          "p50_ms": 649.4,
+          "p90_ms": 1357.5,
+          "p95_ms": 2941.5,
+          "cost_per_decision_usd": 0.0004329458823529412,
+          "cost_per_1000_usd": 0.43294588235294124,
+          "first_attempt_valid": 17,
+          "repair_required": 0,
+          "unrecoverable": 0,
+          "api_errors": 0
+        }
+      }
+    },
+    "validation (8 workers)": {
+      "jev": {
+        "issue_category": {
+          "n": 750,
+          "p50_ms": 193.85000000000002,
+          "p90_ms": 1005.3,
+          "p95_ms": 1169.6,
+          "cost_per_decision_usd": 3.6553552000000004e-05,
+          "cost_per_1000_usd": 0.036553552,
+          "first_attempt_valid": 750,
+          "repair_required": 0,
+          "unrecoverable": 0,
+          "api_errors": 0
+        },
+        "root_cause": {
+          "n": 750,
+          "p50_ms": 188.8,
+          "p90_ms": 956.4,
+          "p95_ms": 1103.5,
+          "cost_per_decision_usd": 6.0666536000000005e-05,
+          "cost_per_1000_usd": 0.06066653600000001,
+          "first_attempt_valid": 750,
+          "repair_required": 0,
+          "unrecoverable": 0,
+          "api_errors": 0
+        },
+        "causal_change": {
+          "n": 750,
+          "p50_ms": 195.25,
+          "p90_ms": 1042.8,
+          "p95_ms": 1200.0,
+          "cost_per_decision_usd": 4.9092512000000004e-05,
+          "cost_per_1000_usd": 0.049092512000000005,
+          "first_attempt_valid": 750,
+          "repair_required": 0,
+          "unrecoverable": 0,
+          "api_errors": 0
+        },
+        "owning_team": {
+          "n": 750,
+          "p50_ms": 196.0,
+          "p90_ms": 1021.4,
+          "p95_ms": 1173.4,
+          "cost_per_decision_usd": 5.267992800000001e-05,
+          "cost_per_1000_usd": 0.05267992800000001,
+          "first_attempt_valid": 750,
+          "repair_required": 0,
+          "unrecoverable": 0,
+          "api_errors": 0
+        },
+        "evidence_sufficiency": {
+          "n": 750,
+          "p50_ms": 201.05,
+          "p90_ms": 1013.4,
+          "p95_ms": 1178.8,
+          "cost_per_decision_usd": 5.0404648000000007e-05,
+          "cost_per_1000_usd": 0.050404648,
+          "first_attempt_valid": 750,
+          "repair_required": 0,
+          "unrecoverable": 0,
+          "api_errors": 0
+        },
+        "incident_relationship": {
+          "n": 132,
+          "p50_ms": 201.55,
+          "p90_ms": 919.6,
+          "p95_ms": 1230.5,
+          "cost_per_decision_usd": 2.6719636363636363e-05,
+          "cost_per_1000_usd": 0.026719636363636362,
+          "first_attempt_valid": 132,
+          "repair_required": 0,
+          "unrecoverable": 0,
+          "api_errors": 0
+        }
+      },
+      "llm": {
+        "issue_category": {
+          "n": 750,
+          "p50_ms": 1037.0500000000002,
+          "p90_ms": 2160.7,
+          "p95_ms": 3482.6,
+          "cost_per_decision_usd": 0.0005723314133333333,
+          "cost_per_1000_usd": 0.5723314133333333,
+          "first_attempt_valid": 750,
+          "repair_required": 0,
+          "unrecoverable": 0,
+          "api_errors": 0
+        },
+        "root_cause": {
+          "n": 750,
+          "p50_ms": 1005.8499999999999,
+          "p90_ms": 2381.4,
+          "p95_ms": 3909.7,
+          "cost_per_decision_usd": 0.0009621275733333334,
+          "cost_per_1000_usd": 0.9621275733333334,
+          "first_attempt_valid": 750,
+          "repair_required": 0,
+          "unrecoverable": 0,
+          "api_errors": 0
+        },
+        "causal_change": {
+          "n": 750,
+          "p50_ms": 1002.45,
+          "p90_ms": 2371.6,
+          "p95_ms": 3691.3,
+          "cost_per_decision_usd": 0.0008083490133333333,
+          "cost_per_1000_usd": 0.8083490133333333,
+          "first_attempt_valid": 750,
+          "repair_required": 0,
+          "unrecoverable": 0,
+          "api_errors": 0
+        },
+        "owning_team": {
+          "n": 750,
+          "p50_ms": 992.9,
+          "p90_ms": 2102.8,
+          "p95_ms": 3148.4,
+          "cost_per_decision_usd": 0.0008332549333333333,
+          "cost_per_1000_usd": 0.8332549333333333,
+          "first_attempt_valid": 750,
+          "repair_required": 0,
+          "unrecoverable": 0,
+          "api_errors": 0
+        },
+        "evidence_sufficiency": {
+          "n": 750,
+          "p50_ms": 999.45,
+          "p90_ms": 2332.0,
+          "p95_ms": 3680.2,
+          "cost_per_decision_usd": 0.0008630724266666667,
+          "cost_per_1000_usd": 0.8630724266666667,
+          "first_attempt_valid": 750,
+          "repair_required": 0,
+          "unrecoverable": 0,
+          "api_errors": 0
+        },
+        "incident_relationship": {
+          "n": 132,
+          "p50_ms": 864.25,
+          "p90_ms": 2014.0,
+          "p95_ms": 2953.7,
+          "cost_per_decision_usd": 0.0004291654545454546,
+          "cost_per_1000_usd": 0.4291654545454546,
+          "first_attempt_valid": 132,
+          "repair_required": 0,
+          "unrecoverable": 0,
+          "api_errors": 0
+        }
+      }
+    }
+  },
+  "paired": {
+    "dev": {
+      "causal_change": {
+        "both_correct": 78,
+        "only_jev_correct": 14,
+        "only_llm_correct": 2,
+        "neither_correct": 6,
+        "mcnemar_exact_p": 0.004180908203125,
+        "jev_minus_llm_ci": {
+          "n": 100,
+          "diff": 0.12,
+          "ci_low": 0.05,
+          "ci_high": 0.2
+        },
+        "n_pairs": 100
+      },
+      "evidence_sufficiency": {
+        "both_correct": 13,
+        "only_jev_correct": 1,
+        "only_llm_correct": 30,
+        "neither_correct": 56,
+        "mcnemar_exact_p": 2.9802322387695312e-08,
+        "jev_minus_llm_ci": {
+          "n": 100,
+          "diff": -0.29,
+          "ci_low": -0.39,
+          "ci_high": -0.2
+        },
+        "n_pairs": 100
+      },
+      "incident_relationship": {
+        "both_correct": 12,
+        "only_jev_correct": 0,
+        "only_llm_correct": 2,
+        "neither_correct": 3,
+        "mcnemar_exact_p": 0.5,
+        "jev_minus_llm_ci": {
+          "n": 17,
+          "diff": -0.11764705882352941,
+          "ci_low": -0.29411764705882354,
+          "ci_high": 0.0
+        },
+        "n_pairs": 17
+      },
+      "issue_category": {
+        "both_correct": 67,
+        "only_jev_correct": 6,
+        "only_llm_correct": 9,
+        "neither_correct": 18,
+        "mcnemar_exact_p": 0.60723876953125,
+        "jev_minus_llm_ci": {
+          "n": 100,
+          "diff": -0.03,
+          "ci_low": -0.11,
+          "ci_high": 0.04
+        },
+        "n_pairs": 100
+      },
+      "owning_team": {
+        "both_correct": 4,
+        "only_jev_correct": 32,
+        "only_llm_correct": 7,
+        "neither_correct": 57,
+        "mcnemar_exact_p": 7.025478407740593e-05,
+        "jev_minus_llm_ci": {
+          "n": 100,
+          "diff": 0.25,
+          "ci_low": 0.14,
+          "ci_high": 0.36
+        },
+        "n_pairs": 100
+      },
+      "root_cause": {
+        "both_correct": 22,
+        "only_jev_correct": 26,
+        "only_llm_correct": 2,
+        "neither_correct": 50,
+        "mcnemar_exact_p": 3.032386302947998e-06,
+        "jev_minus_llm_ci": {
+          "n": 100,
+          "diff": 0.24,
+          "ci_low": 0.15,
+          "ci_high": 0.33
+        },
+        "n_pairs": 100
+      }
+    },
+    "validation": {
+      "causal_change": {
+        "both_correct": 597,
+        "only_jev_correct": 73,
+        "only_llm_correct": 39,
+        "neither_correct": 41,
+        "mcnemar_exact_p": 0.0016946822547182485,
+        "jev_minus_llm_ci": {
+          "n": 750,
+          "diff": 0.04533333333333334,
+          "ci_low": 0.018666666666666668,
+          "ci_high": 0.072
+        },
+        "n_pairs": 750
+      },
+      "evidence_sufficiency": {
+        "both_correct": 85,
+        "only_jev_correct": 8,
+        "only_llm_correct": 229,
+        "neither_correct": 428,
+        "mcnemar_exact_p": 2.05509182748597e-57,
+        "jev_minus_llm_ci": {
+          "n": 750,
+          "diff": -0.2946666666666667,
+          "ci_low": -0.3293333333333333,
+          "ci_high": -0.25866666666666666
+        },
+        "n_pairs": 750
+      },
+      "incident_relationship": {
+        "both_correct": 104,
+        "only_jev_correct": 5,
+        "only_llm_correct": 0,
+        "neither_correct": 23,
+        "mcnemar_exact_p": 0.0625,
+        "jev_minus_llm_ci": {
+          "n": 132,
+          "diff": 0.03787878787878788,
+          "ci_low": 0.007575757575757576,
+          "ci_high": 0.06818181818181818
+        },
+        "n_pairs": 132
+      },
+      "issue_category": {
+        "both_correct": 536,
+        "only_jev_correct": 52,
+        "only_llm_correct": 59,
+        "neither_correct": 103,
+        "mcnemar_exact_p": 0.5692202278035747,
+        "jev_minus_llm_ci": {
+          "n": 750,
+          "diff": -0.009333333333333334,
+          "ci_low": -0.037333333333333336,
+          "ci_high": 0.018666666666666668
+        },
+        "n_pairs": 750
+      },
+      "owning_team": {
+        "both_correct": 48,
+        "only_jev_correct": 234,
+        "only_llm_correct": 61,
+        "neither_correct": 407,
+        "mcnemar_exact_p": 4.790870420235725e-25,
+        "jev_minus_llm_ci": {
+          "n": 750,
+          "diff": 0.23066666666666666,
+          "ci_low": 0.18933333333333333,
+          "ci_high": 0.272
+        },
+        "n_pairs": 750
+      },
+      "root_cause": {
+        "both_correct": 120,
+        "only_jev_correct": 159,
+        "only_llm_correct": 35,
+        "neither_correct": 436,
+        "mcnemar_exact_p": 4.4390516872296355e-20,
+        "jev_minus_llm_ci": {
+          "n": 750,
+          "diff": 0.16533333333333333,
+          "ci_low": 0.13066666666666665,
+          "ci_high": 0.20133333333333334
+        },
+        "n_pairs": 750
+      }
+    }
+  },
+  "experiments": {
+    "stage_c_jev": "exp_stage_c_validation_jev_20260923T184036Z_fa984004",
+    "stage_c_llm": "exp_stage_c_validation_llm_20260923T184040Z_9fc75b1a",
+    "dev_jev": "exp_stage_b_final_dev100_jev_20260923T173652Z_c5a41b24",
+    "dev_llm": "exp_stage_b_final_dev100_llm_20260923T173653Z_766e73ff"
+  }
+}

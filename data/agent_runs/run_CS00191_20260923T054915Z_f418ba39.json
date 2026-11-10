@@ -1,0 +1,164 @@
+{
+  "run_id": "run_CS00191_20260923T054915Z_f418ba39",
+  "case_id": "CS00191",
+  "created_at": "2026-09-23T05:49:15.149389+00:00",
+  "model_provider": "groq",
+  "model_name": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "temperature": 0.1,
+  "prompt_version": "v1",
+  "toolset_version": "v1",
+  "output_schema_version": "v1",
+  "graph_version": "phase4-2500case-2026-09-22",
+  "sim_clock_step_minutes": 15,
+  "max_tool_calls": 10,
+  "max_repeated_same_tool": 2,
+  "stop_reason": "model_submitted",
+  "num_tool_calls": 5,
+  "num_llm_calls": 5,
+  "token_usage": {
+    "prompt_tokens": 10126,
+    "completion_tokens": 426,
+    "total_tokens": 10552
+  },
+  "approx_cost_usd": 0.001055,
+  "approx_cost_note": "Estimated from a configurable placeholder rate, not exact provider billing -- see config.py",
+  "trace_steps": [
+    {
+      "step": 1,
+      "sim_clock": "2024-10-11 00:00:00",
+      "tool_name": "get_case_context",
+      "args": {
+        "hypotheses": [],
+        "rationale": "Starting the investigation of case CS00191"
+      },
+      "hypotheses": [],
+      "rationale": "Starting the investigation of case CS00191",
+      "result_summary": {
+        "case_id": "CS00191",
+        "title": "Wrong tenant data shown and access denied errors in SSO Production",
+        "description": "Users in our US-East production environment are reporting that the SSO Integration Module is displaying data from the wrong tenant. Additionally, they are receiving unexpected 'permission denied' and 'access denied' errors when trying to perform actions that should be authorized. This is affecting 297 users with high business impact. We need to isolate if this is a session caching issue or a permission mapping error.",
+        "environment": "production",
+        "region": "US-East",
+        "reported_business_impact": "high",
+        "reported_affected_users": 297,
+        "priority": "high",
+        "created_date": "2024-10-11",
+        "status": "open",
+        "customer_id": "C00131",
+        "customer_tier": "bronze",
+        "customer_industry": "Energy & Utilities",
+        "customer_company_size": "enterprise",
+        "reported_product_id": "P002",
+        "reported_product_name": "SSO Integration Module",
+        "reported_symptoms": [
+          "access denied",
+          "permission denied unexpectedly",
+          "wrong tenant data shown"
+        ]
+      },
+      "latency_ms": 1386.2,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 2,
+      "sim_clock": "2024-10-11 00:15:00",
+      "tool_name": "get_system_logs",
+      "args": {
+        "case_id": "CS00191",
+        "start_time": "2024-10-10",
+        "end_time": "2024-10-12",
+        "hypotheses": "[\"session_caching_issue:0.5\", \"permission_mapping_error:0.5\"]",
+        "rationale": "To investigate the reported issues of wrong tenant data and access denied errors, we need to examine the system logs for any relevant error messages or patterns that could indicate the root cause."
+      },
+      "hypotheses": "[\"session_caching_issue:0.5\", \"permission_mapping_error:0.5\"]",
+      "rationale": "To investigate the reported issues of wrong tenant data and access denied errors, we need to examine the system logs for any relevant error messages or patterns that could indicate the root cause.",
+      "result_summary": {
+        "error": "unknown tool 'get_system_logs'"
+      },
+      "latency_ms": 2215.2,
+      "status": "error",
+      "redundant": false
+    },
+    {
+      "step": 3,
+      "sim_clock": "2024-10-11 00:30:00",
+      "tool_name": "get_case_context",
+      "args": {},
+      "hypotheses": [],
+      "rationale": "",
+      "result_summary": {
+        "error": "2 validation errors for NoExtraArgs\nhypotheses\n  Field required [type=missing, input_value={}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\nrationale\n  Field required [type=missing, input_value={}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      },
+      "latency_ms": 2049.2,
+      "status": "error",
+      "redundant": false
+    },
+    {
+      "step": 4,
+      "sim_clock": "2024-10-11 00:45:00",
+      "tool_name": "get_customer_info",
+      "args": {
+        "case_id": "CS00191",
+        "hypotheses": [
+          "session_caching_issue:0.5",
+          "permission_mapping_error:0.5"
+        ],
+        "rationale": "To better understand the customer's environment and potential contributing factors, we need to gather more information about the customer."
+      },
+      "hypotheses": [
+        "session_caching_issue:0.5",
+        "permission_mapping_error:0.5"
+      ],
+      "rationale": "To better understand the customer's environment and potential contributing factors, we need to gather more information about the customer.",
+      "result_summary": {
+        "error": "unknown tool 'get_customer_info'"
+      },
+      "latency_ms": 2215.5,
+      "status": "error",
+      "redundant": false
+    },
+    {
+      "step": 5,
+      "sim_clock": "2024-10-11 01:00:00",
+      "tool_name": "submit_diagnosis",
+      "args": {},
+      "hypotheses": [],
+      "rationale": "",
+      "result_summary": "submitted",
+      "latency_ms": 2305.9,
+      "status": "ok",
+      "redundant": false
+    }
+  ],
+  "final_diagnosis": {
+    "hypotheses": [],
+    "rationale": "Fallback: submit_diagnosis args failed validation: 7 validation errors for FinalDiagnosis\nhypotheses\n  Field required [type=missing, input_value={}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\nrationale\n  Field required [type=missing, input_value={}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\nevidence_sufficiency\n  Field required [type=missing, input_value={}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\noverall_confidence\n  Field required [type=missing, input_value={}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\nrecommended_next_action\n  Field required [type=missing, input_value={}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\nhuman_review_required\n  Field required [type=missing, input_value={}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\nevidence_summary\n  Field required [type=missing, input_value={}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing",
+    "predicted_product_id": null,
+    "product_confidence": null,
+    "predicted_component_id": null,
+    "component_confidence": null,
+    "predicted_category_id": null,
+    "category_confidence": null,
+    "predicted_subcategory_id": null,
+    "predicted_root_cause_family": null,
+    "root_cause_confidence": null,
+    "predicted_causal_change_id": null,
+    "causal_change_confidence": null,
+    "predicted_severity": null,
+    "severity_confidence": null,
+    "recommended_team_id": null,
+    "routing_confidence": null,
+    "evidence_sufficiency": "insufficient",
+    "overall_confidence": 0.0,
+    "recommended_next_action": "escalate to engineering for manual investigation",
+    "human_review_required": true,
+    "human_review_reason": "submit_diagnosis args failed validation: 7 validation errors for FinalDiagnosis\nhypotheses\n  Field required [type=missing, input_value={}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\nrationale\n  Field required [type=missing, input_value={}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\nevidence_sufficiency\n  Field required [type=missing, input_value={}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\noverall_confidence\n  Field required [type=missing, input_value={}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\nrecommended_next_action\n  Field required [type=missing, input_value={}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\nhuman_review_required\n  Field required [type=missing, input_value={}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\nevidence_summary\n  Field required [type=missing, input_value={}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing",
+    "evidence_summary": "The agent could not complete a normal investigation loop.",
+    "unresolved_uncertainties": [
+      "submit_diagnosis args failed validation: 7 validation errors for FinalDiagnosis\nhypotheses\n  Field required [type=missing, input_value={}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\nrationale\n  Field required [type=missing, input_value={}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\nevidence_sufficiency\n  Field required [type=missing, input_value={}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\noverall_confidence\n  Field required [type=missing, input_value={}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\nrecommended_next_action\n  Field required [type=missing, input_value={}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\nhuman_review_required\n  Field required [type=missing, input_value={}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\nevidence_summary\n  Field required [type=missing, input_value={}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+    ]
+  },
+  "citation_violations": [],
+  "evidence_ids_seen": []
+}

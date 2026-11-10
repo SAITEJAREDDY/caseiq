@@ -1,0 +1,64 @@
+{
+  "cohort": {
+    "baseline_experiment_id": "exp_stage_b_dev_100_v2_20260923T083737Z_8eabb9a5",
+    "n_cases": 100,
+    "split": "dev"
+  },
+  "v2_reproduces_stored_stage_b_v2_candidate_keys": "100/100",
+  "candidate_generation_v2": {
+    "n": 100,
+    "candidate_recall": 0.94,
+    "n_missing_true_candidate": 6,
+    "cases_missing_true_candidate": [
+      "CS00001",
+      "CS00006",
+      "CS00075",
+      "CS00122",
+      "CS00145",
+      "CS00165"
+    ],
+    "avg_candidate_count_incl_none": 1.73,
+    "median_candidate_count_incl_none": 2.0,
+    "p90_candidate_count_incl_none": 3,
+    "avg_real_candidates": 0.73,
+    "cases_with_zero_real_candidates": 44,
+    "cases_with_deployment_candidate": 0,
+    "share_with_deployment_candidate": 0.0,
+    "cases_with_duplicate_suppression": 0,
+    "duplicates_suppressed_total": 0,
+    "future_events_dropped_total": 0
+  },
+  "candidate_generation_v3": {
+    "n": 100,
+    "candidate_recall": 1.0,
+    "n_missing_true_candidate": 0,
+    "cases_missing_true_candidate": [],
+    "avg_candidate_count_incl_none": 1.8,
+    "median_candidate_count_incl_none": 2.0,
+    "p90_candidate_count_incl_none": 3,
+    "avg_real_candidates": 0.8,
+    "cases_with_zero_real_candidates": 39,
+    "cases_with_deployment_candidate": 7,
+    "share_with_deployment_candidate": 0.07,
+    "cases_with_duplicate_suppression": 0,
+    "duplicates_suppressed_total": 0,
+    "future_events_dropped_total": 0
+  },
+  "remaining_ceiling_v3": {
+    "cases_still_missing_true_candidate": [],
+    "note": "empty means every true causal change is observably represented at T0"
+  },
+  "structural_artifacts_v3": {
+    "true_causal_change_id_number_range": [
+      30400,
+      30469
+    ],
+    "non_true_candidate_id_number_range": [
+      1302,
+      27899
+    ],
+    "id_number_separates_true_from_non_true_perfectly": true,
+    "cases_with_visible_deployment": 7,
+    "of_which_deployment_is_the_true_cause": 6
+  }
+}

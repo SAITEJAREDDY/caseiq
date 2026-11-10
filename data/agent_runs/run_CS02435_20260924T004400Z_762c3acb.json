@@ -1,0 +1,360 @@
+{
+  "run_id": "run_CS02435_20260924T004400Z_762c3acb",
+  "case_id": "CS02435",
+  "created_at": "2026-09-24T00:44:00.462147+00:00",
+  "model_provider": "together",
+  "model_name": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "temperature": 0.1,
+  "prompt_version": "v1",
+  "toolset_version": "v1",
+  "output_schema_version": "v1",
+  "agent_loop_version": "v1",
+  "repair_layer_version": "v1",
+  "graph_version": "phase4-2500case-2026-09-22",
+  "sim_clock_step_minutes": 15,
+  "max_tool_calls": 10,
+  "max_repeated_same_tool": 2,
+  "stop_reason": "model_submitted",
+  "num_tool_calls": 7,
+  "num_llm_calls": 7,
+  "token_usage": {
+    "prompt_tokens": 13342,
+    "completion_tokens": 624,
+    "total_tokens": 13966
+  },
+  "approx_cost_usd": 0.001397,
+  "approx_cost_note": "Estimated from a configurable placeholder rate, not exact provider billing -- see config.py",
+  "trace_steps": [
+    {
+      "step": 1,
+      "sim_clock": "2024-11-01 00:00:00",
+      "tool_name": "get_case_context",
+      "args": {
+        "hypotheses": [],
+        "rationale": "Starting the investigation of case CS02435"
+      },
+      "hypotheses": [],
+      "rationale": "Starting the investigation of case CS02435",
+      "result_summary": {
+        "case_id": "CS02435",
+        "title": "Attribution Engine crashing without failover in LATAM Dev",
+        "description": "Our Attribution Engine in the development environment (LATAM) is crashing. When the primary instance goes down, the failover mechanism does not trigger, leaving the application unavailable.\n\nThis is impacting our dev team (approx. 28 users) who rely on this service for testing. Please check why the failover configuration isn't working as expected when the application crashes.",
+        "environment": "development",
+        "region": "LATAM",
+        "reported_business_impact": "moderate",
+        "reported_affected_users": 28,
+        "priority": "high",
+        "created_date": "2024-11-01",
+        "status": "resolved",
+        "customer_id": "C01584",
+        "customer_tier": "silver",
+        "customer_industry": "Public Sector",
+        "customer_company_size": "mid",
+        "reported_product_id": "P043",
+        "reported_product_name": "Attribution Engine",
+        "reported_symptoms": [
+          "application crash",
+          "failover did not occur"
+        ]
+      },
+      "latency_ms": 777.7,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 2,
+      "sim_clock": "2024-11-01 00:15:00",
+      "tool_name": "get_system_logs",
+      "args": {
+        "hypotheses": [
+          "failover_configuration_issue:0.5",
+          "application_crash:0.5"
+        ],
+        "rationale": "To investigate the crash and failover issue of the Attribution Engine in the LATAM development environment, we need to analyze the system logs for any error messages or patterns that could indicate the cause of the problem."
+      },
+      "hypotheses": [
+        "failover_configuration_issue:0.5",
+        "application_crash:0.5"
+      ],
+      "rationale": "To investigate the crash and failover issue of the Attribution Engine in the LATAM development environment, we need to analyze the system logs for any error messages or patterns that could indicate the cause of the problem.",
+      "result_summary": {
+        "error": "unknown tool 'get_system_logs'. Valid tools are: ['get_active_incidents', 'get_agent_availability', 'get_case_context', 'get_component_topology', 'get_configuration_history', 'get_customer_deployment', 'get_deployment_history', 'get_recent_changes', 'get_service_health', 'get_similar_cases', 'get_team_capability', 'get_technical_signals', 'get_telemetry', 'search_knowledge_base', 'submit_diagnosis']"
+      },
+      "latency_ms": 1542.3,
+      "status": "error",
+      "redundant": false
+    },
+    {
+      "step": 3,
+      "sim_clock": "2024-11-01 00:30:00",
+      "tool_name": "get_recent_changes",
+      "args": {
+        "hypotheses": [
+          "failover_configuration_issue:0.5",
+          "application_crash:0.5"
+        ],
+        "rationale": "To investigate the crash and failover issue of the Attribution Engine in the LATAM development environment, we need to identify any recent changes that could have caused the problem."
+      },
+      "hypotheses": [
+        "failover_configuration_issue:0.5",
+        "application_crash:0.5"
+      ],
+      "rationale": "To investigate the crash and failover issue of the Attribution Engine in the LATAM development environment, we need to identify any recent changes that could have caused the problem.",
+      "result_summary": {
+        "recent_changes": [
+          {
+            "evidence_id": "CH028660",
+            "change_type": "config_change",
+            "component_id": "CM236",
+            "started_at": "2024-10-29 03:33:00",
+            "completed_at": "2024-10-29 03:37:00",
+            "status": "completed",
+            "initiated_by": "system:automation",
+            "time_proximity_hours": 68.5,
+            "scope_match": "same_product"
+          }
+        ],
+        "count": 1
+      },
+      "latency_ms": 1119.8,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 4,
+      "sim_clock": "2024-11-01 00:45:00",
+      "tool_name": "get_configuration_history",
+      "args": {
+        "hypotheses": [
+          "failover_configuration_issue:0.6",
+          "application_crash:0.4"
+        ],
+        "rationale": "To further investigate the crash and failover issue of the Attribution Engine in the LATAM development environment, we need to analyze the configuration history to see if any changes were made to the failover configuration."
+      },
+      "hypotheses": [
+        "failover_configuration_issue:0.6",
+        "application_crash:0.4"
+      ],
+      "rationale": "To further investigate the crash and failover issue of the Attribution Engine in the LATAM development environment, we need to analyze the configuration history to see if any changes were made to the failover configuration.",
+      "result_summary": {
+        "configuration_snapshots": [],
+        "count": 0
+      },
+      "latency_ms": 1412.8,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 5,
+      "sim_clock": "2024-11-01 01:00:00",
+      "tool_name": "get_component_topology",
+      "args": {
+        "hypotheses": [
+          "failover_configuration_issue:0.6",
+          "application_crash:0.4"
+        ],
+        "rationale": "To further investigate the crash and failover issue of the Attribution Engine in the LATAM development environment, we need to analyze the component topology to see if there are any issues with the failover mechanism."
+      },
+      "hypotheses": [
+        "failover_configuration_issue:0.6",
+        "application_crash:0.4"
+      ],
+      "rationale": "To further investigate the crash and failover issue of the Attribution Engine in the LATAM development environment, we need to analyze the component topology to see if there are any issues with the failover mechanism.",
+      "result_summary": {
+        "error": "1 validation error for ComponentScopedArgs\ncomponent_id\n  Field required [type=missing, input_value={'hypotheses': ['failover...he failover mechanism.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      },
+      "latency_ms": 1197.3,
+      "status": "error",
+      "redundant": false
+    },
+    {
+      "step": 6,
+      "sim_clock": "2024-11-01 01:15:00",
+      "tool_name": "get_component_topology",
+      "args": {
+        "component_id": "CM236",
+        "hypotheses": [
+          "failover_configuration_issue:0.6",
+          "application_crash:0.4"
+        ],
+        "rationale": "To further investigate the crash and failover issue of the Attribution Engine in the LATAM development environment, we need to analyze the component topology to see if there are any issues with the failover mechanism."
+      },
+      "hypotheses": [
+        "failover_configuration_issue:0.6",
+        "application_crash:0.4"
+      ],
+      "rationale": "To further investigate the crash and failover issue of the Attribution Engine in the LATAM development environment, we need to analyze the component topology to see if there are any issues with the failover mechanism.",
+      "result_summary": {
+        "component_id": "CM236",
+        "component_name": "Webhook Dispatch Service",
+        "upstream_dependencies": [
+          {
+            "name": "Federation Gateway",
+            "id": "CM010"
+          },
+          {
+            "name": "Service Registry",
+            "id": "CM144"
+          },
+          {
+            "name": "Ingress Controller",
+            "id": "CM164"
+          },
+          {
+            "name": "Internal DNS Zone Manager",
+            "id": "CM172"
+          },
+          {
+            "name": "Global Load Balancer",
+            "id": "CM232"
+          },
+          {
+            "name": "SSO Broker (Shared)",
+            "id": "CM237"
+          }
+        ],
+        "downstream_dependents": [
+          {
+            "name": "Receipt Generator",
+            "id": "CM061"
+          },
+          {
+            "name": "Reporting Service",
+            "id": "CM091"
+          },
+          {
+            "name": "Customer Portal UI",
+            "id": "CM173"
+          },
+          {
+            "name": "Help Center UI",
+            "id": "CM177"
+          },
+          {
+            "name": "Deep Link Handler",
+            "id": "CM206"
+          }
+        ],
+        "external_dependencies": [],
+        "owning_teams": [
+          {
+            "name": "Integration",
+            "id": "TM13"
+          },
+          {
+            "name": "Developer Platform / API",
+            "id": "TM14"
+          }
+        ]
+      },
+      "latency_ms": 1117.6,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 7,
+      "sim_clock": "2024-11-01 01:30:00",
+      "tool_name": "submit_diagnosis",
+      "args": {
+        "hypotheses": [
+          {
+            "label": "failover_configuration_issue",
+            "confidence": 0.6,
+            "supporting_evidence_ids": [
+              "CH028660"
+            ],
+            "contradicting_evidence_ids": [],
+            "status": "unconfirmed"
+          },
+          {
+            "label": "application_crash",
+            "confidence": 0.4,
+            "supporting_evidence_ids": [],
+            "contradicting_evidence_ids": [],
+            "status": "unconfirmed"
+          }
+        ],
+        "evidence_sufficiency": "partial",
+        "human_review_required": false,
+        "recommended_next_action": "Inspect failover configuration and review system logs for any error messages related to the Attribution Engine in the LATAM development environment."
+      },
+      "hypotheses": [
+        {
+          "label": "failover_configuration_issue",
+          "confidence": 0.6,
+          "supporting_evidence_ids": [
+            "CH028660"
+          ],
+          "contradicting_evidence_ids": [],
+          "status": "unconfirmed"
+        },
+        {
+          "label": "application_crash",
+          "confidence": 0.4,
+          "supporting_evidence_ids": [],
+          "contradicting_evidence_ids": [],
+          "status": "unconfirmed"
+        }
+      ],
+      "rationale": "",
+      "result_summary": "submitted",
+      "latency_ms": 2898.5,
+      "status": "ok",
+      "redundant": false
+    }
+  ],
+  "final_diagnosis": {
+    "hypotheses": [
+      {
+        "label": "failover_configuration_issue",
+        "description": "",
+        "confidence": 0.6,
+        "supporting_evidence": [],
+        "contradicting_evidence": [],
+        "status": "active"
+      },
+      {
+        "label": "application_crash",
+        "description": "",
+        "confidence": 0.4,
+        "supporting_evidence": [],
+        "contradicting_evidence": [],
+        "status": "active"
+      }
+    ],
+    "rationale": "",
+    "predicted_product_id": null,
+    "product_confidence": null,
+    "predicted_component_id": null,
+    "component_confidence": null,
+    "predicted_category_id": null,
+    "category_confidence": null,
+    "predicted_subcategory_id": null,
+    "predicted_root_cause_family": null,
+    "root_cause_confidence": null,
+    "predicted_causal_change_id": null,
+    "causal_change_confidence": null,
+    "predicted_severity": null,
+    "severity_confidence": null,
+    "recommended_team_id": null,
+    "routing_confidence": null,
+    "evidence_sufficiency": "partial",
+    "overall_confidence": 0.6,
+    "recommended_next_action": "Inspect failover configuration and review system logs for any error messages related to the Attribution Engine in the LATAM development environment.",
+    "human_review_required": false,
+    "human_review_reason": null,
+    "evidence_summary": "No summary provided by the agent.",
+    "unresolved_uncertainties": []
+  },
+  "citation_violations": [],
+  "evidence_ids_seen": [
+    "CH028660"
+  ],
+  "repair_events": [
+    {
+      "step": 7,
+      "kind": "final_diagnosis_repair",
+      "detail": "direct validation failed (5 validation errors for FinalDiagnosis\nhypotheses.0.status\n  Input should be 'active', 'rejected' or 'confirmed' [type=literal_error, input_value='unconfirmed', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/literal_error\nhypotheses.1.status\n  Input should be 'active', 'rejected' or 'confirmed' [type=literal_error, input_value='unconfirmed', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/literal_error\nrationale\n  Field required [type=missing, input_value={'hypotheses': [{'label':...velopment environment.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\noverall_confidence\n  Field required [type=missing, input_value={'hypotheses': [{'label':...velopment environment.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\nevidence_summary\n  Field required [type=missing, input_value={'hypotheses': [{'label':...velopment environment.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing); repaired args validated"
+    }
+  ]
+}

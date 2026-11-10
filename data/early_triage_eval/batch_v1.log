@@ -1,0 +1,43 @@
+72 cases in the list (sha 45ebf605734e); 72 to run
+  CS00014: ok triage=hint/confirmed first=ACCEPT final=ACCEPT 116.6s
+  CS00154: ok triage=hint/confirmed first=PRIORITY_REVIEW final=PRIORITY_REVIEW 82.3s
+  CS00034: ok triage=hint/confirmed first=CONTINUE_INVESTIGATION final=PRIORITY_REVIEW 236.1s
+  CS00182: infra_failure harness_error ProviderSchemaError: 422: {
+  "id": "p2cXXeE-4YNCb4-a40508de9a66dee2",
+  "error": {
+    "message": "Input validation error: grammar is not valid: failed to compile grammar",
+    "type": "invalid_request_error",
+    "param
+  CS00210: ok triage=hint/confirmed first=CONTINUE_INVESTIGATION final=HUMAN_REVIEW 191.7s
+  CS00028: ok triage=hint/confirmed first=CONTINUE_INVESTIGATION final=HUMAN_REVIEW 450.6s
+  CS00151: ok triage=hint/confirmed first=CONTINUE_INVESTIGATION final=PRIORITY_REVIEW 518.8s
+  CS00332: ok triage=hint/dropped first=CONTINUE_INVESTIGATION final=HUMAN_REVIEW 248.9s
+  CS00258: ok triage=hint/confirmed first=CONTINUE_INVESTIGATION final=PRIORITY_REVIEW 412.4s
+  CS00319: ok triage=hint/no_final_answer first=CONTINUE_INVESTIGATION final=HUMAN_REVIEW 408.1s
+  CS00386: ok triage=hint/no_final_answer first=CONTINUE_INVESTIGATION final=HUMAN_REVIEW 413.1s
+  CS00399: ok triage=hint/confirmed first=CONTINUE_INVESTIGATION final=PRIORITY_REVIEW 311.1s
+  CS00387: ok triage=hint/confirmed first=CONTINUE_INVESTIGATION final=HUMAN_REVIEW 345.8s
+  CS00430: ok triage=hint/dropped first=HUMAN_REVIEW final=HUMAN_REVIEW 114.5s
+  CS00420: ok triage=hint/confirmed first=CONTINUE_INVESTIGATION final=HUMAN_REVIEW 295.5s
+  CS00475: ok triage=hint/confirmed first=PRIORITY_REVIEW final=PRIORITY_REVIEW 138.1s
+  CS00472: ok triage=hint/confirmed first=CONTINUE_INVESTIGATION final=ACCEPT 260.8s
+  CS00441: ok triage=hint/dropped first=CONTINUE_INVESTIGATION final=HUMAN_REVIEW 300.7s
+  CS00517: ok triage=hint/confirmed first=CONTINUE_INVESTIGATION final=PRIORITY_REVIEW 209.6s
+  CS00539: ok triage=hint/confirmed first=CONTINUE_INVESTIGATION final=HUMAN_REVIEW 220.2s
+  CS00624: ok triage=hint/confirmed first=PRIORITY_REVIEW final=PRIORITY_REVIEW 109.2s
+  CS00569: ok triage=hint/dropped first=CONTINUE_INVESTIGATION final=HUMAN_REVIEW 168.5s
+  CS00552: ok triage=hint/confirmed first=CONTINUE_INVESTIGATION final=HUMAN_REVIEW 201.5s
+  CS00661: ok triage=hint/confirmed first=CONTINUE_INVESTIGATION final=HUMAN_REVIEW 194.2s
+  CS00740: ok triage=hint/confirmed first=PRIORITY_REVIEW final=PRIORITY_REVIEW 126.7s
+  CS00670: ok triage=hint/confirmed first=CONTINUE_INVESTIGATION final=HUMAN_REVIEW 313.1s
+  CS00680: ok triage=hint/confirmed first=CONTINUE_INVESTIGATION final=PRIORITY_REVIEW 287.0s
+  CS00708: ok triage=hint/no_final_answer first=CONTINUE_INVESTIGATION final=HUMAN_REVIEW 321.5s
+  CS00748: ok triage=hint/confirmed first=PRIORITY_REVIEW final=PRIORITY_REVIEW 164.6s
+  CS00763: ok triage=hint/dropped first=CONTINUE_INVESTIGATION final=HUMAN_REVIEW 189.5s
+  CS00741: ok triage=hint/confirmed first=CONTINUE_INVESTIGATION final=HUMAN_REVIEW 258.9s
+  CS00770: ok triage=hint/confirmed first=CONTINUE_INVESTIGATION final=PRIORITY_REVIEW 301.1s
+  CS00808: ok triage=hint/confirmed first=CONTINUE_INVESTIGATION final=HUMAN_REVIEW 258.2s
+  CS00838: ok triage=hint/confirmed first=CONTINUE_INVESTIGATION final=HUMAN_REVIEW 267.3s
+  CS00900: ok triage=hint/dropped first=CONTINUE_INVESTIGATION final=HUMAN_REVIEW 144.1s
+  CS00812: ok triage=hint/confirmed first=CONTINUE_INVESTIGATION final=HUMAN_REVIEW 412.6s
+  CS00856: ok triage=hint/confirmed first=CONTINUE_INVESTIGATION final=HUMAN_REVIEW 307.3s

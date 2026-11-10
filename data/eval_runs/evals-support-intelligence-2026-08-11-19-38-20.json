@@ -1,0 +1,41 @@
+{
+  "experiment_name": "evals-support-intelligence-2026-08-11-19-38-20",
+  "project": "support-intelligence-poc",
+  "dataset": "support-intelligence-evals",
+  "run_type": "live",
+  "ran_at": "2026-08-11 19:38:20",
+  "elapsed_seconds": 32.1,
+  "total_passed": 13,
+  "total_tests": 20,
+  "pass_rate": 0.65,
+  "categories": [
+    {"id": "eval_1_skill_match", "name": "Skill Match", "passed": 0, "total": 3, "pass_rate": 0.0},
+    {"id": "eval_2_confidence_calibration", "name": "Confidence Calibration", "passed": 3, "total": 3, "pass_rate": 1.0},
+    {"id": "eval_3_semantic_search", "name": "Semantic Search", "passed": 1, "total": 5, "pass_rate": 0.2},
+    {"id": "eval_4_graceful_degradation", "name": "Graceful Degradation", "passed": 3, "total": 3, "pass_rate": 1.0},
+    {"id": "eval_5_latency", "name": "Latency", "passed": 3, "total": 3, "pass_rate": 1.0},
+    {"id": "eval_6_resolution_time", "name": "Resolution Time", "passed": 3, "total": 3, "pass_rate": 1.0}
+  ],
+  "results": [
+    {"category": "Skill Match", "label": "Payment Gateway - SK001 + SK002 coverage", "passed": false, "score": 50.0, "metric": "50"},
+    {"category": "Skill Match", "label": "SSO Module - SK007 + SK009 coverage", "passed": false, "score": 50.0, "metric": "50"},
+    {"category": "Skill Match", "label": "Analytics Dashboard - SK014 + SK013 coverage", "passed": false, "score": 50.0, "metric": "50"},
+    {"category": "Confidence Calibration", "label": "Explicit Payment Gateway mention", "passed": true, "score": 0.95, "metric": "95%"},
+    {"category": "Confidence Calibration", "label": "Explicit SSO mention", "passed": true, "score": 0.95, "metric": "95%"},
+    {"category": "Confidence Calibration", "label": "Explicit Analytics mention", "passed": true, "score": 0.96, "metric": "96%"},
+    {"category": "Semantic Search", "label": "Payment keywords - no product name", "passed": false, "score": 0.3031, "metric": "30%"},
+    {"category": "Semantic Search", "label": "Auth / login keywords - no product name", "passed": false, "score": 0.2967, "metric": "30%"},
+    {"category": "Semantic Search", "label": "Reporting keywords - no product name", "passed": true, "score": 0.6462, "metric": "65%"},
+    {"category": "Semantic Search", "label": "SAML / federated identity", "passed": false, "score": 0.2423, "metric": "24%"},
+    {"category": "Semantic Search", "label": "Revenue / billing theme", "passed": false, "score": 0.4408, "metric": "44%"},
+    {"category": "Graceful Degradation", "label": "Pure urgency - no content", "passed": true, "score": null, "metric": ""},
+    {"category": "Graceful Degradation", "label": "Gibberish input", "passed": true, "score": null, "metric": ""},
+    {"category": "Graceful Degradation", "label": "Vague break complaint", "passed": true, "score": null, "metric": ""},
+    {"category": "Latency", "label": "Scenario A - Payment Gateway", "passed": true, "score": 0.30, "metric": "0.30s"},
+    {"category": "Latency", "label": "Scenario B - SSO Module", "passed": true, "score": 0.36, "metric": "0.36s"},
+    {"category": "Latency", "label": "Scenario C - Analytics", "passed": true, "score": 0.27, "metric": "0.27s"},
+    {"category": "Resolution Time", "label": "Payment Gateway resolved cases", "passed": true, "score": 72.4, "metric": "72.4% faster"},
+    {"category": "Resolution Time", "label": "SSO Module resolved cases", "passed": true, "score": 74.7, "metric": "74.7% faster"},
+    {"category": "Resolution Time", "label": "Analytics resolved cases", "passed": true, "score": 66.8, "metric": "66.8% faster"}
+  ]
+}

@@ -1,0 +1,2252 @@
+{
+ "run_id": "run_CS01363_20260924T043547Z_27fb5246",
+ "case_id": "CS01363",
+ "created_at": "2026-09-24T04:35:47.233626+00:00",
+ "run_tag": "iter50_b",
+ "model_provider": "together",
+ "model_name": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+ "temperature": 0.1,
+ "graph_version": "phase4-2500case-2026-09-22",
+ "sim_clock_step_minutes": 15,
+ "max_tool_calls": 10,
+ "max_repeated_same_tool": 2,
+ "max_tool_contract_repairs": 2,
+ "max_final_contract_repairs": 1,
+ "agent_version": "agent_v3_contract_hardened",
+ "contract_version": "agent_contract_v1.1",
+ "prompt_version": "v3.1",
+ "tool_catalog_version": "tool_catalog_v3",
+ "action_schema_version": "action_v3.1",
+ "final_schema_version": "final_diagnosis_v3.1",
+ "registry_version": "observed_registry_v1",
+ "alias_scheme": "agent_alias_v1",
+ "repair_policy_version": "repair_policy_v1",
+ "decoding": "json_schema_strict",
+ "code_digest": "54bbbe51a58dbb43883bd743c2476a93b418373888d06e2cc60c30dc2b1b7cf2",
+ "toolset_version": "tool_catalog_v3",
+ "output_schema_version": "final_diagnosis_v3.1",
+ "agent_loop_version": "agent_v3_contract_hardened",
+ "repair_layer_version": "repair_policy_v1",
+ "approx_cost_usd": 0.002726,
+ "stop_reason": "model_submitted",
+ "num_tool_calls": 10,
+ "num_llm_calls": 11,
+ "token_usage": {
+  "prompt_tokens": 25462,
+  "completion_tokens": 1798,
+  "total_tokens": 27260
+ },
+ "trace_steps": [
+  {
+   "step": 1,
+   "sim_clock": "2025-08-29 00:00:00",
+   "tool_name": "get_case_context",
+   "args": {},
+   "args_alias": {},
+   "hypotheses": [],
+   "hypothesis_state": [],
+   "rationale": "",
+   "result_summary": {
+    "case_id": "CS01363",
+    "title": "Certificate expired warning in Secret Store",
+    "description": "We are seeing 'certificate expired' warnings in our Secret Store in the APAC production environment. We believe this is definitely a capacity limitation issue where the store is full and can't process the renewal requests properly. We need this resolved as it's affecting about 54 users and causing moderate business impact.",
+    "environment": "production",
+    "region": "APAC",
+    "reported_business_impact": "moderate",
+    "reported_affected_users": 54,
+    "priority": "medium",
+    "created_date": "2025-08-29",
+    "status": "resolved",
+    "customer_id": "C04084",
+    "customer_tier": "silver",
+    "customer_industry": "Insurance",
+    "customer_company_size": "small",
+    "reported_product_id": "P044",
+    "reported_product_name": "Secret Store",
+    "reported_symptoms": [
+     "certificate expired warning"
+    ]
+   },
+   "latency_ms": 0.0,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "harness"
+  },
+  {
+   "step": 2,
+   "sim_clock": "2025-08-29 00:15:00",
+   "tool_name": "get_customer_deployment",
+   "args": {},
+   "args_alias": {},
+   "hypotheses": [
+    "Capacity limitation issue:0.5"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Capacity limitation issue",
+     "confidence": 0.5,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "deployments": [
+     {
+      "product_id": "P018",
+      "product_name": "KPI Tracker",
+      "version": "1.8",
+      "environment": "production",
+      "region": "APAC",
+      "status": "active",
+      "deployed_at": "2026-06-10",
+      "product_components": [
+       "CM091",
+       "CM092",
+       "CM099",
+       "CM103",
+       "CM106",
+       "CM108",
+       "CM116",
+       "CM125"
+      ]
+     },
+     {
+      "product_id": "P044",
+      "product_name": "Secret Store",
+      "version": "4.3",
+      "environment": "production",
+      "region": "APAC",
+      "status": "active",
+      "deployed_at": "2026-04-19",
+      "product_components": [
+       "CM134",
+       "CM137",
+       "CM139",
+       "CM144",
+       "CM147",
+       "CM148",
+       "CM163",
+       "CM168"
+      ]
+     },
+     {
+      "product_id": "P030",
+      "product_name": "Help Center",
+      "version": "2.1",
+      "environment": "staging",
+      "region": "APAC",
+      "status": "active",
+      "deployed_at": "2025-11-30",
+      "product_components": [
+       "CM174",
+       "CM187",
+       "CM191",
+       "CM199",
+       "CM200",
+       "CM204",
+       "CM210",
+       "CM211"
+      ]
+     },
+     {
+      "product_id": "P018",
+      "product_name": "KPI Tracker",
+      "version": "1.8",
+      "environment": "staging",
+      "region": "APAC",
+      "status": "active",
+      "deployed_at": "2025-08-15",
+      "product_components": [
+       "CM091",
+       "CM092",
+       "CM099",
+       "CM103",
+       "CM106",
+       "CM108",
+       "CM116",
+       "CM125"
+      ]
+     },
+     {
+      "product_id": "P030",
+      "product_name": "Help Center",
+      "version": "2.1",
+      "environment": "production",
+      "region": "APAC",
+      "status": "active",
+      "deployed_at": "2025-03-11",
+      "product_components": [
+       "CM174",
+       "CM187",
+       "CM191",
+       "CM199",
+       "CM200",
+       "CM204",
+       "CM210",
+       "CM211"
+      ]
+     }
+    ]
+   },
+   "latency_ms": 2307.6,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 3,
+   "sim_clock": "2025-08-29 00:30:00",
+   "tool_name": "get_component_topology",
+   "args": {
+    "component_id": "CM137"
+   },
+   "args_alias": {
+    "component": "COMPONENT_NJV"
+   },
+   "hypotheses": [
+    "Capacity limitation issue:0.5"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Capacity limitation issue",
+     "confidence": 0.5,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "component_id": "CM137",
+    "component_name": "Secret Store",
+    "upstream_dependencies": [
+     {
+      "name": "Authentication Service",
+      "id": "CM001"
+     },
+     {
+      "name": "Token Service",
+      "id": "CM003"
+     },
+     {
+      "name": "SSO Broker",
+      "id": "CM011"
+     },
+     {
+      "name": "Login UI",
+      "id": "CM018"
+     },
+     {
+      "name": "OIDC Provider Service",
+      "id": "CM028"
+     }
+    ],
+    "downstream_dependents": [],
+    "external_dependencies": [
+     "Fraud Detection Vendor"
+    ],
+    "owning_teams": [
+     {
+      "name": "Identity",
+      "id": "TM01"
+     },
+     {
+      "name": "Security",
+      "id": "TM07"
+     }
+    ]
+   },
+   "latency_ms": 2338.1,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 4,
+   "sim_clock": "2025-08-29 00:45:00",
+   "tool_name": "get_technical_signals",
+   "args": {
+    "component_id": "CM137"
+   },
+   "args_alias": {
+    "component": "COMPONENT_NJV"
+   },
+   "hypotheses": [
+    "Capacity limitation issue:0.5"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Capacity limitation issue",
+     "confidence": 0.5,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "signals": [
+     {
+      "evidence_id": "SG0006633",
+      "signal_type": "HTTP_401",
+      "message": "HTTP 401 Unauthorized spike on Secret Store",
+      "timestamp": "2025-08-28 22:32:00",
+      "component_id": "CM137"
+     },
+     {
+      "evidence_id": "SG0006632",
+      "signal_type": "HTTP_401",
+      "message": "HTTP 401 Unauthorized spike on Secret Store",
+      "timestamp": "2025-08-28 23:23:00",
+      "component_id": "CM137"
+     },
+     {
+      "evidence_id": "SG0006634",
+      "signal_type": "CREDENTIAL_ROTATION_FAILED",
+      "message": "credential rotation failed to propagate to Secret Store",
+      "timestamp": "2025-08-28 23:23:00",
+      "component_id": "CM137"
+     },
+     {
+      "evidence_id": "SG0006631",
+      "signal_type": "HTTP_401",
+      "message": "HTTP 401 Unauthorized spike on Secret Store",
+      "timestamp": "2025-08-28 23:42:00",
+      "component_id": "CM137"
+     }
+    ],
+    "count": 4
+   },
+   "latency_ms": 2686.5,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 5,
+   "sim_clock": "2025-08-29 01:00:00",
+   "tool_name": "get_recent_changes",
+   "args": {
+    "component_id": "CM137"
+   },
+   "args_alias": {
+    "component": "COMPONENT_NJV"
+   },
+   "hypotheses": [
+    "Capacity limitation issue:0.5",
+    "Credential rotation issue:0.3"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Capacity limitation issue",
+     "confidence": 0.5,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    },
+    {
+     "label": "Credential rotation issue",
+     "confidence": 0.3,
+     "status": "active",
+     "supporting_evidence": [
+      "EVIDENCE_TVS"
+     ],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "recent_changes": [
+     {
+      "evidence_id": "CH030810",
+      "change_type": "credential_rotation",
+      "component_id": "CM137",
+      "started_at": "2025-08-28 21:01:00",
+      "completed_at": "2025-08-28 21:06:00",
+      "status": "completed",
+      "initiated_by": "system:automation",
+      "time_proximity_hours": 3.0,
+      "scope_match": "same_customer"
+     }
+    ],
+    "count": 1
+   },
+   "latency_ms": 5195.8,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 6,
+   "sim_clock": "2025-08-29 01:15:00",
+   "tool_name": "get_service_health",
+   "args": {
+    "component_id": "CM137"
+   },
+   "args_alias": {
+    "component": "COMPONENT_NJV"
+   },
+   "hypotheses": [
+    "Capacity limitation issue:0.5",
+    "Credential rotation issue:0.6"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Capacity limitation issue",
+     "confidence": 0.5,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    },
+    {
+     "label": "Credential rotation issue",
+     "confidence": 0.6,
+     "status": "active",
+     "supporting_evidence": [
+      "EVIDENCE_TVS",
+      "CHANGE_FHC"
+     ],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "health_events": [
+     {
+      "evidence_id": "SHE02775",
+      "started_at": "2025-08-20 12:41:00",
+      "ended_at": "2025-08-20 12:51:00",
+      "severity": "minor",
+      "description": "minor latency spike observed on Secret Store, self-resolved after 10 minutes."
+     },
+     {
+      "evidence_id": "SHE02783",
+      "started_at": "2025-06-13 01:25:00",
+      "ended_at": "2025-06-13 01:30:00",
+      "severity": "minor",
+      "description": "Brief minor health blip on Secret Store: elevated error rate for 5 minutes."
+     },
+     {
+      "evidence_id": "SHE02781",
+      "started_at": "2025-06-03 06:37:00",
+      "ended_at": "2025-06-03 06:47:00",
+      "severity": "major",
+      "description": "Brief major health blip on Secret Store: elevated error rate for 10 minutes."
+     },
+     {
+      "evidence_id": "SHE02770",
+      "started_at": "2025-05-09 23:50:00",
+      "ended_at": "2025-05-09 23:55:00",
+      "severity": "minor",
+      "description": "Brief minor health blip on Secret Store: elevated error rate for 5 minutes."
+     },
+     {
+      "evidence_id": "SHE02767",
+      "started_at": "2025-01-26 16:17:00",
+      "ended_at": "2025-01-26 17:02:00",
+      "severity": "minor",
+      "description": "minor latency spike observed on Secret Store, self-resolved after 45 minutes."
+     },
+     {
+      "evidence_id": "SHE02769",
+      "started_at": "2025-01-21 21:31:00",
+      "ended_at": "2025-01-21 22:31:00",
+      "severity": "major",
+      "description": "Transient major availability dip on Secret Store, recovered within 60 minutes."
+     },
+     {
+      "evidence_id": "SHE02776",
+      "started_at": "2025-01-10 09:11:00",
+      "ended_at": "2025-01-10 09:41:00",
+      "severity": "minor",
+      "description": "Automated health check flagged Secret Store as degraded (minor) for 30 minutes."
+     },
+     {
+      "evidence_id": "SHE02778",
+      "started_at": "2024-12-15 20:25:00",
+      "ended_at": "2024-12-15 20:55:00",
+      "severity": "minor",
+      "description": "Automated health check flagged Secret Store as degraded (minor) for 30 minutes."
+     }
+    ],
+    "count": 8
+   },
+   "latency_ms": 4571.7,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 7,
+   "sim_clock": "2025-08-29 01:30:00",
+   "tool_name": "get_telemetry",
+   "args": {
+    "component_id": "CM137"
+   },
+   "args_alias": {
+    "component": "COMPONENT_NJV"
+   },
+   "hypotheses": [
+    "Capacity limitation issue:0.5",
+    "Credential rotation issue:0.6"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Capacity limitation issue",
+     "confidence": 0.5,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    },
+    {
+     "label": "Credential rotation issue",
+     "confidence": 0.6,
+     "status": "active",
+     "supporting_evidence": [
+      "EVIDENCE_TVS",
+      "CHANGE_FHC"
+     ],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "available_metric_categories": [
+     "Identity"
+    ],
+    "note": "Call again with one of these metric_category values to see actual readings."
+   },
+   "latency_ms": 3907.6,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 8,
+   "sim_clock": "2025-08-29 01:45:00",
+   "tool_name": "get_telemetry",
+   "args": {
+    "component_id": "CM137",
+    "metric_category": "Identity"
+   },
+   "args_alias": {
+    "component": "COMPONENT_NJV",
+    "metric_category": "Identity"
+   },
+   "hypotheses": [
+    "Capacity limitation issue:0.5",
+    "Credential rotation issue:0.6"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Capacity limitation issue",
+     "confidence": 0.5,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    },
+    {
+     "label": "Credential rotation issue",
+     "confidence": 0.6,
+     "status": "active",
+     "supporting_evidence": [
+      "EVIDENCE_TVS",
+      "CHANGE_FHC"
+     ],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "telemetry_findings": [
+     {
+      "evidence_id": "CS01363:CM137:auth_success_rate_pct",
+      "metric_code": "auth_success_rate_pct",
+      "component_id": "CM137",
+      "baseline": 98.8933,
+      "observed_min": 96.4,
+      "observed_max": 99.424,
+      "status": "abnormal",
+      "direction": "below_baseline",
+      "anomaly_start": "2025-08-28 23:00:00",
+      "anomaly_end": "2025-08-29 00:00:00"
+     }
+    ],
+    "count": 1
+   },
+   "latency_ms": 4073.8,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 9,
+   "sim_clock": "2025-08-29 02:00:00",
+   "tool_name": "get_team_capability",
+   "args": {
+    "component_id": "CM137"
+   },
+   "args_alias": {
+    "component": "COMPONENT_NJV"
+   },
+   "hypotheses": [
+    "Capacity limitation issue:0.5",
+    "Credential rotation issue:0.6"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Capacity limitation issue",
+     "confidence": 0.5,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    },
+    {
+     "label": "Credential rotation issue",
+     "confidence": 0.6,
+     "status": "active",
+     "supporting_evidence": [
+      "EVIDENCE_TVS",
+      "CHANGE_FHC"
+     ],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "teams": [
+     {
+      "team_id": "TM07",
+      "team_name": "Security",
+      "role": "primary",
+      "weight": 3.0
+     },
+     {
+      "team_id": "TM01",
+      "team_name": "Identity",
+      "role": "secondary",
+      "weight": 1.0
+     }
+    ],
+    "skills": []
+   },
+   "latency_ms": 4219.2,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 10,
+   "sim_clock": "2025-08-29 02:15:00",
+   "tool_name": "submit_diagnosis",
+   "args": {},
+   "args_alias": {},
+   "hypotheses": [
+    "Credential rotation issue:0.6",
+    "Capacity limitation issue:0.5"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Credential rotation issue",
+     "confidence": 0.6,
+     "status": "confirmed",
+     "supporting_evidence": [
+      "EVIDENCE_TVS",
+      "CHANGE_FHC"
+     ],
+     "contradicting_evidence": []
+    },
+    {
+     "label": "Capacity limitation issue",
+     "confidence": 0.5,
+     "status": "rejected",
+     "supporting_evidence": [],
+     "contradicting_evidence": [
+      "EVIDENCE_DBK"
+     ]
+    }
+   ],
+   "rationale": "",
+   "result_summary": "submitted",
+   "latency_ms": 49276.6,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  }
+ ],
+ "final_diagnosis": {
+  "hypotheses": [
+   {
+    "label": "Credential rotation issue",
+    "description": "",
+    "confidence": 0.6,
+    "status": "confirmed",
+    "supporting_evidence": [
+     "SG0006634",
+     "CH030810"
+    ],
+    "contradicting_evidence": []
+   },
+   {
+    "label": "Capacity limitation issue",
+    "description": "",
+    "confidence": 0.5,
+    "status": "rejected",
+    "supporting_evidence": [],
+    "contradicting_evidence": [
+     "CS01363:CM137:auth_success_rate_pct"
+    ]
+   }
+  ],
+  "rationale": "",
+  "predicted_product_id": null,
+  "product_confidence": null,
+  "predicted_component_id": "CM137",
+  "component_confidence": 0.6,
+  "predicted_category_id": "IC01",
+  "category_confidence": 0.6,
+  "predicted_subcategory_id": null,
+  "predicted_root_cause_family": "credential rotation not propagated",
+  "root_cause_confidence": 0.6,
+  "predicted_causal_change_id": "CH030810",
+  "causal_change_confidence": 0.6,
+  "predicted_severity": null,
+  "severity_confidence": null,
+  "recommended_team_id": "TM01",
+  "routing_confidence": 0.6,
+  "evidence_sufficiency": "sufficient",
+  "overall_confidence": 0.6,
+  "recommended_next_action": "Verify the credential rotation configuration for Secret Store and ensure it is properly propagated to all components.",
+  "human_review_required": false,
+  "human_review_reason": null,
+  "evidence_summary": "The case is related to a credential rotation issue in the Secret Store, which is causing authentication problems. The root cause is likely a credential rotation not being properly propagated to the Secret Store component. The recommended next action is to verify the credential rotation configuration and ensure it is properly propagated to all components.",
+  "unresolved_uncertainties": [],
+  "status": "DIAGNOSIS_PROPOSED",
+  "evidence_ids": [
+   "SG0006634",
+   "CH030810",
+   "CS01363:CM137:auth_success_rate_pct"
+  ]
+ },
+ "final_status": "DIAGNOSIS_PROPOSED",
+ "final_alias_form": {
+  "hypotheses": [
+   {
+    "label": "Credential rotation issue",
+    "confidence": 0.6,
+    "status": "confirmed",
+    "supporting_evidence": [
+     "EVIDENCE_TVS",
+     "CHANGE_FHC"
+    ],
+    "contradicting_evidence": []
+   },
+   {
+    "label": "Capacity limitation issue",
+    "confidence": 0.5,
+    "status": "rejected",
+    "supporting_evidence": [],
+    "contradicting_evidence": [
+     "EVIDENCE_DBK"
+    ]
+   }
+  ],
+  "evidence_ids": [
+   "EVIDENCE_TVS",
+   "CHANGE_FHC",
+   "EVIDENCE_DBK"
+  ],
+  "issue_category": "CATEGORY_BGF",
+  "category_confidence": 0.6,
+  "root_cause": "CAUSE_JRT",
+  "root_cause_confidence": 0.6,
+  "affected_component": "COMPONENT_NJV",
+  "component_confidence": 0.6,
+  "causal_change": "CHANGE_FHC",
+  "causal_change_confidence": 0.6,
+  "owning_team": "TEAM_DNJ",
+  "routing_confidence": 0.6,
+  "confidence": 0.6,
+  "evidence_sufficiency": "sufficient",
+  "human_review_required": false,
+  "review_reason": null,
+  "status": "DIAGNOSIS_PROPOSED",
+  "recommended_next_action": "Verify the credential rotation configuration for Secret Store and ensure it is properly propagated to all components.",
+  "unresolved_uncertainties": [],
+  "summary": "The case is related to a credential rotation issue in the Secret Store, which is causing authentication problems. The root cause is likely a credential rotation not being properly propagated to the Secret Store component. The recommended next action is to verify the credential rotation configuration and ensure it is properly propagated to all components."
+ },
+ "citation_violations": [],
+ "evidence_ids_seen": [
+  "CH030810",
+  "CS01363:CM137:auth_success_rate_pct",
+  "SG0006631",
+  "SG0006632",
+  "SG0006633",
+  "SG0006634",
+  "SHE02767",
+  "SHE02769",
+  "SHE02770",
+  "SHE02775",
+  "SHE02776",
+  "SHE02778",
+  "SHE02781",
+  "SHE02783"
+ ],
+ "repair_events": [
+  {
+   "step": 10,
+   "kind": "final_contract_repair",
+   "detail": "duplicate_evidence -> accepted"
+  }
+ ],
+ "tool_proposals": 9,
+ "tool_contract_errors": [],
+ "tool_contract_repairs": [],
+ "final_contract_errors": [
+  {
+   "step": 10,
+   "attempt": 1,
+   "errors": [
+    {
+     "code": "duplicate_evidence",
+     "field": "evidence_ids",
+     "detail": "the same evidence alias appears twice"
+    }
+   ],
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Credential rotation issue\", \"confidence\": 0.6, \"status\": \"confirmed\", \"supporting_evidence\": [\"EVIDENCE_TVS\", \"CHANGE_FHC\"], \"contradicting_evidence\": []}], \"evidence_ids\": [\"EVIDENCE_TVS\", \"CHANGE_FHC\", \"EVIDENCE_WGP\", \"EVIDENCE_WHF\", \"EVIDENCE_TVS\", \"EVIDENCE_TSJ\", \"EVIDENCE_DVF\", \"EVIDENCE_LGN\", \"EVIDENCE_KZS\", \"EVIDENCE_GKM\", \"EVIDENCE_WMJ\", \"EVIDENCE_FBP\", \"EVIDENCE_ZSQ\", \"EVIDENCE_GZG\", \"EVIDENCE_DBK\"], \"issue_category\": \"CATEGORY_BGF\", \"category_confidence\": 0.6, \"root_cause\": \"CAUSE_JRT\", \"root_cause_confidence\": 0.6, \"affected_component\": \"COMPONENT_NJV\", \"component_confidence\": 0.6, \"causal_change\": \"CHANGE_FHC\", \"causal_change_confidence\": 0.6, \"owning_team\": \"TEAM_DNJ\", \"routing_confidence\": 0.6, \"confidence\": 0.6, \"evidence_sufficiency\": \"sufficient\", \"human_review_required\": false, \"review_reason\": null, \"status\": \"DIAGNOSIS_PROPOSED\", \"recommended_next_action\": \"Verify the credential rotation process for the Secret Store and ensure that it is properly configured to handle the rotation of credentials.\", \"unresolved_uncertainties\": [], \"summary\": \"The issue is likely related to a credential rotation issue, which is causing the 'certificate expired' warnings in the Secret Store. The evidence suggests that the credential rotation process failed to propagate to the Secret Store, leading to the expiration of the certificate. The recommended next action is to verify the credential rotation process and ensure that it is properly configured.\"}",
+   "finish_reason": "stop"
+  }
+ ],
+ "final_contract_repair": {
+  "step": 10,
+  "error_codes": [
+   "duplicate_evidence"
+  ],
+  "outcome": "accepted"
+ },
+ "registry_snapshots": [
+  {
+   "step": 1,
+   "n_entities": 59,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 1
+   },
+   "aliases_sha256_16": "84595525b5bfcfa6"
+  },
+  {
+   "step": 2,
+   "n_entities": 85,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 3,
+    "COMPONENT": 24
+   },
+   "aliases_sha256_16": "012c6d93f67cf82f"
+  },
+  {
+   "step": 3,
+   "n_entities": 92,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 3,
+    "COMPONENT": 29,
+    "TEAM": 2
+   },
+   "aliases_sha256_16": "4193ac81cf7eeec0"
+  },
+  {
+   "step": 4,
+   "n_entities": 96,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 3,
+    "COMPONENT": 29,
+    "TEAM": 2,
+    "EVIDENCE": 4
+   },
+   "aliases_sha256_16": "80c4b70c5f838d1e"
+  },
+  {
+   "step": 5,
+   "n_entities": 97,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 3,
+    "COMPONENT": 29,
+    "TEAM": 2,
+    "EVIDENCE": 4,
+    "CHANGE": 1
+   },
+   "aliases_sha256_16": "3ab13747c7a1cb4e"
+  },
+  {
+   "step": 6,
+   "n_entities": 105,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 3,
+    "COMPONENT": 29,
+    "TEAM": 2,
+    "EVIDENCE": 12,
+    "CHANGE": 1
+   },
+   "aliases_sha256_16": "516b56c61dc12118"
+  },
+  {
+   "step": 7,
+   "n_entities": 105,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 3,
+    "COMPONENT": 29,
+    "TEAM": 2,
+    "EVIDENCE": 12,
+    "CHANGE": 1
+   },
+   "aliases_sha256_16": "516b56c61dc12118"
+  },
+  {
+   "step": 8,
+   "n_entities": 106,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 3,
+    "COMPONENT": 29,
+    "TEAM": 2,
+    "EVIDENCE": 13,
+    "CHANGE": 1
+   },
+   "aliases_sha256_16": "e3069ff445d346ff"
+  },
+  {
+   "step": 9,
+   "n_entities": 106,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 3,
+    "COMPONENT": 29,
+    "TEAM": 2,
+    "EVIDENCE": 13,
+    "CHANGE": 1
+   },
+   "aliases_sha256_16": "e3069ff445d346ff"
+  }
+ ],
+ "alias_mappings": {
+  "CATEGORY_BGF": {
+   "alias": "CATEGORY_BGF",
+   "canonical_id": "IC01",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Identity / Authentication",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-29 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_VZZ": {
+   "alias": "CATEGORY_VZZ",
+   "canonical_id": "IC02",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Authorization / Permissions",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-29 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_MTM": {
+   "alias": "CATEGORY_MTM",
+   "canonical_id": "IC03",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Networking / Connectivity",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-29 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_DLB": {
+   "alias": "CATEGORY_DLB",
+   "canonical_id": "IC04",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Performance / Latency",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-29 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_WXK": {
+   "alias": "CATEGORY_WXK",
+   "canonical_id": "IC05",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Reliability / Availability",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-29 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_JXB": {
+   "alias": "CATEGORY_JXB",
+   "canonical_id": "IC06",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Deployment / Upgrade",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-29 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_DMC": {
+   "alias": "CATEGORY_DMC",
+   "canonical_id": "IC07",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Configuration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-29 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_QVJ": {
+   "alias": "CATEGORY_QVJ",
+   "canonical_id": "IC08",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Data / Corruption",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-29 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_MDP": {
+   "alias": "CATEGORY_MDP",
+   "canonical_id": "IC09",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Integration / API",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-29 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_RLV": {
+   "alias": "CATEGORY_RLV",
+   "canonical_id": "IC10",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Provisioning / Onboarding",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-29 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_LCT": {
+   "alias": "CATEGORY_LCT",
+   "canonical_id": "IC11",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Security",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-29 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_ZVD": {
+   "alias": "CATEGORY_ZVD",
+   "canonical_id": "IC12",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Compliance",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-29 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_PLS": {
+   "alias": "CATEGORY_PLS",
+   "canonical_id": "IC13",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Billing / Commerce",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-29 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_KJB": {
+   "alias": "CATEGORY_KJB",
+   "canonical_id": "IC14",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "User Experience / Functional Defect",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-29 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_MGL": {
+   "alias": "CATEGORY_MGL",
+   "canonical_id": "IC15",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Storage / Database",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-29 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_TCP": {
+   "alias": "CATEGORY_TCP",
+   "canonical_id": "IC16",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Capacity / Scaling",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-29 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_LBC": {
+   "alias": "CATEGORY_LBC",
+   "canonical_id": "IC17",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Third-Party / Dependency",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-29 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_VDM": {
+   "alias": "CATEGORY_VDM",
+   "canonical_id": "IC18",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Unknown / Other",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-29 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_MKR": {
+   "alias": "CAUSE_MKR",
+   "canonical_id": "RC01",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "product defect",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-29 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_WCD": {
+   "alias": "CAUSE_WCD",
+   "canonical_id": "RC02",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "customer configuration error",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-29 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_CBC": {
+   "alias": "CAUSE_CBC",
+   "canonical_id": "RC03",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "incorrect permissions",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-29 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_HPF": {
+   "alias": "CAUSE_HPF",
+   "canonical_id": "RC04",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "policy misconfiguration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-29 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_KVB": {
+   "alias": "CAUSE_KVB",
+   "canonical_id": "RC05",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "expired certificate",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-29 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_ZHH": {
+   "alias": "CAUSE_ZHH",
+   "canonical_id": "RC06",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "version incompatibility",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-29 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_SWS": {
+   "alias": "CAUSE_SWS",
+   "canonical_id": "RC07",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "dependency failure",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-29 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_SJC": {
+   "alias": "CAUSE_SJC",
+   "canonical_id": "RC08",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "network configuration error",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-29 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_PSX": {
+   "alias": "CAUSE_PSX",
+   "canonical_id": "RC09",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "resource exhaustion",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-29 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_BHM": {
+   "alias": "CAUSE_BHM",
+   "canonical_id": "RC10",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "database contention",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-29 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_FMZ": {
+   "alias": "CAUSE_FMZ",
+   "canonical_id": "RC11",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "bad deployment",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-29 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_JHT": {
+   "alias": "CAUSE_JHT",
+   "canonical_id": "RC12",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "incomplete migration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-29 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_STN": {
+   "alias": "CAUSE_STN",
+   "canonical_id": "RC13",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "stale cache",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-29 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_DBF": {
+   "alias": "CAUSE_DBF",
+   "canonical_id": "RC14",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "third-party service failure",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-29 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_NXM": {
+   "alias": "CAUSE_NXM",
+   "canonical_id": "RC15",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "unsupported configuration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-29 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_GQC": {
+   "alias": "CAUSE_GQC",
+   "canonical_id": "RC16",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "incorrect DNS configuration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-29 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_HHT": {
+   "alias": "CAUSE_HHT",
+   "canonical_id": "RC17",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "data quality issue",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-29 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_MZV": {
+   "alias": "CAUSE_MZV",
+   "canonical_id": "RC18",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "operator error",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-29 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_WRX": {
+   "alias": "CAUSE_WRX",
+   "canonical_id": "RC19",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "capacity limitation",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-29 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_PJP": {
+   "alias": "CAUSE_PJP",
+   "canonical_id": "RC20",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "known product limitation",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-29 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_LDR": {
+   "alias": "CAUSE_LDR",
+   "canonical_id": "RC21",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "race condition",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-29 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_LBV": {
+   "alias": "CAUSE_LBV",
+   "canonical_id": "RC22",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "identity provider outage",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-29 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_GLW": {
+   "alias": "CAUSE_GLW",
+   "canonical_id": "RC23",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "token expiration handling bug",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-29 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_GTP": {
+   "alias": "CAUSE_GTP",
+   "canonical_id": "RC24",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "insufficient monitoring/alerting",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-29 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_HFF": {
+   "alias": "CAUSE_HFF",
+   "canonical_id": "RC25",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "incorrect load balancer routing",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-29 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_XXP": {
+   "alias": "CAUSE_XXP",
+   "canonical_id": "RC26",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "firewall misconfiguration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-29 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_RPF": {
+   "alias": "CAUSE_RPF",
+   "canonical_id": "RC27",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "schema mismatch",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-29 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_MTG": {
+   "alias": "CAUSE_MTG",
+   "canonical_id": "RC28",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "breaking API contract change",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-29 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_JRT": {
+   "alias": "CAUSE_JRT",
+   "canonical_id": "RC29",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "credential rotation not propagated",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-29 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_TBH": {
+   "alias": "CAUSE_TBH",
+   "canonical_id": "RC30",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "stale internal documentation followed",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-29 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_VGV": {
+   "alias": "CAUSE_VGV",
+   "canonical_id": "RC31",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "incomplete rollback",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-29 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_DRQ": {
+   "alias": "CAUSE_DRQ",
+   "canonical_id": "RC32",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "infrastructure hardware failure",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-29 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_JGK": {
+   "alias": "CAUSE_JGK",
+   "canonical_id": "RC33",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "rate limit misconfiguration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-29 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_TZS": {
+   "alias": "CAUSE_TZS",
+   "canonical_id": "RC34",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "insufficient capacity planning",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-29 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_GVG": {
+   "alias": "CAUSE_GVG",
+   "canonical_id": "RC35",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "data migration defect",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-29 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_SXB": {
+   "alias": "CAUSE_SXB",
+   "canonical_id": "RC36",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "improper access review",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-29 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_MBQ": {
+   "alias": "CAUSE_MBQ",
+   "canonical_id": "RC37",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "expired API key",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-29 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_ZCG": {
+   "alias": "CAUSE_ZCG",
+   "canonical_id": "RC38",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "clock/time synchronization issue",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-29 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_FVN": {
+   "alias": "CAUSE_FVN",
+   "canonical_id": "RC39",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "idempotency/duplicate-processing failure",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-29 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_DCW": {
+   "alias": "CAUSE_DCW",
+   "canonical_id": "RC40",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "insufficient information to determine root cause",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-29 00:00:00",
+   "summary": ""
+  },
+  "PRODUCT_JZM": {
+   "alias": "PRODUCT_JZM",
+   "canonical_id": "P044",
+   "kind": "PRODUCT",
+   "type": "product",
+   "display_name": "Secret Store",
+   "source_tool": "get_case_context",
+   "first_observed_step": 1,
+   "first_observed_clock": "2025-08-29 00:00:00",
+   "summary": ""
+  },
+  "PRODUCT_WCR": {
+   "alias": "PRODUCT_WCR",
+   "canonical_id": "P018",
+   "kind": "PRODUCT",
+   "type": "product",
+   "display_name": "KPI Tracker",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-29 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_KKC": {
+   "alias": "COMPONENT_KKC",
+   "canonical_id": "CM091",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Reporting Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-29 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_GZW": {
+   "alias": "COMPONENT_GZW",
+   "canonical_id": "CM092",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Export Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-29 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_FWT": {
+   "alias": "COMPONENT_FWT",
+   "canonical_id": "CM099",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Visualization Renderer",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-29 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_WDJ": {
+   "alias": "COMPONENT_WDJ",
+   "canonical_id": "CM103",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Attribution Engine",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-29 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_HFS": {
+   "alias": "COMPONENT_HFS",
+   "canonical_id": "CM106",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Data Catalog Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-29 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_TJD": {
+   "alias": "COMPONENT_TJD",
+   "canonical_id": "CM108",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Embedding Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-29 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_ZFT": {
+   "alias": "COMPONENT_ZFT",
+   "canonical_id": "CM116",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Anomaly Detection Engine",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-29 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_GNV": {
+   "alias": "COMPONENT_GNV",
+   "canonical_id": "CM125",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Data Freshness Monitor",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-29 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_FRR": {
+   "alias": "COMPONENT_FRR",
+   "canonical_id": "CM134",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Cache Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-29 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_NJV": {
+   "alias": "COMPONENT_NJV",
+   "canonical_id": "CM137",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Secret Store",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-29 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_MHW": {
+   "alias": "COMPONENT_MHW",
+   "canonical_id": "CM139",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Deploy Orchestrator",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-29 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_VLR": {
+   "alias": "COMPONENT_VLR",
+   "canonical_id": "CM144",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Service Registry",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-29 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_JNQ": {
+   "alias": "COMPONENT_JNQ",
+   "canonical_id": "CM147",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Container Runtime",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-29 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_NZG": {
+   "alias": "COMPONENT_NZG",
+   "canonical_id": "CM148",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Network Proxy",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-29 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_MCZ": {
+   "alias": "COMPONENT_MCZ",
+   "canonical_id": "CM163",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Kubernetes Cluster Manager",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-29 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_VGZ": {
+   "alias": "COMPONENT_VGZ",
+   "canonical_id": "CM168",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Time-Series Metrics Store",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-29 00:15:00",
+   "summary": ""
+  },
+  "PRODUCT_LNC": {
+   "alias": "PRODUCT_LNC",
+   "canonical_id": "P030",
+   "kind": "PRODUCT",
+   "type": "product",
+   "display_name": "Help Center",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-29 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_WQR": {
+   "alias": "COMPONENT_WQR",
+   "canonical_id": "CM174",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Admin Console UI",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-29 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_BCZ": {
+   "alias": "COMPONENT_BCZ",
+   "canonical_id": "CM187",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Frontend Session Manager",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-29 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_BXB": {
+   "alias": "COMPONENT_BXB",
+   "canonical_id": "CM191",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Localization Engine",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-29 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_ZLP": {
+   "alias": "COMPONENT_ZLP",
+   "canonical_id": "CM199",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "File Upload Widget",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-29 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_BXQ": {
+   "alias": "COMPONENT_BXQ",
+   "canonical_id": "CM200",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Analytics Instrumentation SDK",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-29 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_ZNP": {
+   "alias": "COMPONENT_ZNP",
+   "canonical_id": "CM204",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Keyboard Shortcut Manager",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-29 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_GTM": {
+   "alias": "COMPONENT_GTM",
+   "canonical_id": "CM210",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Client Error Reporting SDK",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-29 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_DZW": {
+   "alias": "COMPONENT_DZW",
+   "canonical_id": "CM211",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Progressive Web App Shell",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-29 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_HHW": {
+   "alias": "COMPONENT_HHW",
+   "canonical_id": "CM001",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Authentication Service",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2025-08-29 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_GKL": {
+   "alias": "COMPONENT_GKL",
+   "canonical_id": "CM003",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Token Service",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2025-08-29 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_QTC": {
+   "alias": "COMPONENT_QTC",
+   "canonical_id": "CM011",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "SSO Broker",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2025-08-29 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_VCN": {
+   "alias": "COMPONENT_VCN",
+   "canonical_id": "CM018",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Login UI",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2025-08-29 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_DFR": {
+   "alias": "COMPONENT_DFR",
+   "canonical_id": "CM028",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "OIDC Provider Service",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2025-08-29 00:30:00",
+   "summary": ""
+  },
+  "TEAM_DNJ": {
+   "alias": "TEAM_DNJ",
+   "canonical_id": "TM01",
+   "kind": "TEAM",
+   "type": "team",
+   "display_name": "Identity",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2025-08-29 00:30:00",
+   "summary": ""
+  },
+  "TEAM_WNN": {
+   "alias": "TEAM_WNN",
+   "canonical_id": "TM07",
+   "kind": "TEAM",
+   "type": "team",
+   "display_name": "Security",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2025-08-29 00:30:00",
+   "summary": ""
+  },
+  "EVIDENCE_WGP": {
+   "alias": "EVIDENCE_WGP",
+   "canonical_id": "SG0006633",
+   "kind": "EVIDENCE",
+   "type": "signal",
+   "display_name": "",
+   "source_tool": "get_technical_signals",
+   "first_observed_step": 4,
+   "first_observed_clock": "2025-08-29 00:45:00",
+   "summary": "HTTP_401: HTTP 401 Unauthorized spike on Secret Store on COMPONENT_NJV @ 2025-08-28 22:32:00"
+  },
+  "EVIDENCE_WHF": {
+   "alias": "EVIDENCE_WHF",
+   "canonical_id": "SG0006632",
+   "kind": "EVIDENCE",
+   "type": "signal",
+   "display_name": "",
+   "source_tool": "get_technical_signals",
+   "first_observed_step": 4,
+   "first_observed_clock": "2025-08-29 00:45:00",
+   "summary": "HTTP_401: HTTP 401 Unauthorized spike on Secret Store on COMPONENT_NJV @ 2025-08-28 23:23:00"
+  },
+  "EVIDENCE_TVS": {
+   "alias": "EVIDENCE_TVS",
+   "canonical_id": "SG0006634",
+   "kind": "EVIDENCE",
+   "type": "signal",
+   "display_name": "",
+   "source_tool": "get_technical_signals",
+   "first_observed_step": 4,
+   "first_observed_clock": "2025-08-29 00:45:00",
+   "summary": "CREDENTIAL_ROTATION_FAILED: credential rotation failed to propagate to Secret Store on COMPONENT_NJV @ 2025-08-28 23:23:00"
+  },
+  "EVIDENCE_TSJ": {
+   "alias": "EVIDENCE_TSJ",
+   "canonical_id": "SG0006631",
+   "kind": "EVIDENCE",
+   "type": "signal",
+   "display_name": "",
+   "source_tool": "get_technical_signals",
+   "first_observed_step": 4,
+   "first_observed_clock": "2025-08-29 00:45:00",
+   "summary": "HTTP_401: HTTP 401 Unauthorized spike on Secret Store on COMPONENT_NJV @ 2025-08-28 23:42:00"
+  },
+  "CHANGE_FHC": {
+   "alias": "CHANGE_FHC",
+   "canonical_id": "CH030810",
+   "kind": "CHANGE",
+   "type": "change",
+   "display_name": "",
+   "source_tool": "get_recent_changes",
+   "first_observed_step": 5,
+   "first_observed_clock": "2025-08-29 01:00:00",
+   "summary": "credential_rotation on COMPONENT_NJV started 2025-08-28 21:01:00, status completed, 3.0h before case"
+  },
+  "EVIDENCE_DVF": {
+   "alias": "EVIDENCE_DVF",
+   "canonical_id": "SHE02775",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 6,
+   "first_observed_clock": "2025-08-29 01:15:00",
+   "summary": "health event severity minor 2025-08-20 12:41:00..2025-08-20 12:51:00: minor latency spike observed on Secret Store, self-resolved after 10 minutes."
+  },
+  "EVIDENCE_LGN": {
+   "alias": "EVIDENCE_LGN",
+   "canonical_id": "SHE02783",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 6,
+   "first_observed_clock": "2025-08-29 01:15:00",
+   "summary": "health event severity minor 2025-06-13 01:25:00..2025-06-13 01:30:00: Brief minor health blip on Secret Store: elevated error rate for 5 minutes."
+  },
+  "EVIDENCE_KZS": {
+   "alias": "EVIDENCE_KZS",
+   "canonical_id": "SHE02781",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 6,
+   "first_observed_clock": "2025-08-29 01:15:00",
+   "summary": "health event severity major 2025-06-03 06:37:00..2025-06-03 06:47:00: Brief major health blip on Secret Store: elevated error rate for 10 minutes."
+  },
+  "EVIDENCE_GKM": {
+   "alias": "EVIDENCE_GKM",
+   "canonical_id": "SHE02770",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 6,
+   "first_observed_clock": "2025-08-29 01:15:00",
+   "summary": "health event severity minor 2025-05-09 23:50:00..2025-05-09 23:55:00: Brief minor health blip on Secret Store: elevated error rate for 5 minutes."
+  },
+  "EVIDENCE_WMJ": {
+   "alias": "EVIDENCE_WMJ",
+   "canonical_id": "SHE02767",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 6,
+   "first_observed_clock": "2025-08-29 01:15:00",
+   "summary": "health event severity minor 2025-01-26 16:17:00..2025-01-26 17:02:00: minor latency spike observed on Secret Store, self-resolved after 45 minutes."
+  },
+  "EVIDENCE_FBP": {
+   "alias": "EVIDENCE_FBP",
+   "canonical_id": "SHE02769",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 6,
+   "first_observed_clock": "2025-08-29 01:15:00",
+   "summary": "health event severity major 2025-01-21 21:31:00..2025-01-21 22:31:00: Transient major availability dip on Secret Store, recovered within 60 minutes."
+  },
+  "EVIDENCE_ZSQ": {
+   "alias": "EVIDENCE_ZSQ",
+   "canonical_id": "SHE02776",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 6,
+   "first_observed_clock": "2025-08-29 01:15:00",
+   "summary": "health event severity minor 2025-01-10 09:11:00..2025-01-10 09:41:00: Automated health check flagged Secret Store as degraded (minor) for 30 minutes."
+  },
+  "EVIDENCE_GZG": {
+   "alias": "EVIDENCE_GZG",
+   "canonical_id": "SHE02778",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 6,
+   "first_observed_clock": "2025-08-29 01:15:00",
+   "summary": "health event severity minor 2024-12-15 20:25:00..2024-12-15 20:55:00: Automated health check flagged Secret Store as degraded (minor) for 30 minutes."
+  },
+  "EVIDENCE_DBK": {
+   "alias": "EVIDENCE_DBK",
+   "canonical_id": "CS01363:CM137:auth_success_rate_pct",
+   "kind": "EVIDENCE",
+   "type": "telemetry",
+   "display_name": "",
+   "source_tool": "get_telemetry",
+   "first_observed_step": 8,
+   "first_observed_clock": "2025-08-29 01:45:00",
+   "summary": "auth_success_rate_pct on COMPONENT_NJV: status abnormal, direction below_baseline, baseline 98.8933, observed 96.4..99.424"
+  }
+ },
+ "validation_result": {
+  "first_pass_ok": false,
+  "errors_first": [
+   {
+    "code": "duplicate_evidence",
+    "field": "evidence_ids",
+    "detail": "the same evidence alias appears twice"
+   }
+  ],
+  "repair_used": true,
+  "final_ok": true,
+  "errors_final": []
+ },
+ "contract_failure": null,
+ "llm_calls": [
+  {
+   "phase": "action",
+   "step": 2,
+   "attempt": 0,
+   "prompt_tokens": 1218,
+   "completion_tokens": 75,
+   "latency_ms": 2210.2,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Capacity limitation issue\", \"confidence\": 0.5, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_customer_deployment\", \"component\": null, \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 3,
+   "attempt": 0,
+   "prompt_tokens": 2032,
+   "completion_tokens": 78,
+   "latency_ms": 2290.5,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Capacity limitation issue\", \"confidence\": 0.5, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_component_topology\", \"component\": \"COMPONENT_NJV\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 4,
+   "attempt": 0,
+   "prompt_tokens": 1692,
+   "completion_tokens": 80,
+   "latency_ms": 2630.9,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Capacity limitation issue\", \"confidence\": 0.5, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_technical_signals\", \"component\": \"COMPONENT_NJV\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 5,
+   "attempt": 0,
+   "prompt_tokens": 1983,
+   "completion_tokens": 123,
+   "latency_ms": 5150.2,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Capacity limitation issue\", \"confidence\": 0.5, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"Credential rotation issue\", \"confidence\": 0.3, \"status\": \"active\", \"supporting_evidence\": [\"EVIDENCE_TVS\"], \"contradicting_evidence\": []}], \"tool\": \"get_recent_changes\", \"component\": \"COMPONENT_NJV\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 6,
+   "attempt": 0,
+   "prompt_tokens": 1922,
+   "completion_tokens": 128,
+   "latency_ms": 4523.0,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Capacity limitation issue\", \"confidence\": 0.5, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"Credential rotation issue\", \"confidence\": 0.6, \"status\": \"active\", \"supporting_evidence\": [\"EVIDENCE_TVS\", \"CHANGE_FHC\"], \"contradicting_evidence\": []}], \"tool\": \"get_service_health\", \"component\": \"COMPONENT_NJV\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 7,
+   "attempt": 0,
+   "prompt_tokens": 2937,
+   "completion_tokens": 129,
+   "latency_ms": 3860.3,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Capacity limitation issue\", \"confidence\": 0.5, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"Credential rotation issue\", \"confidence\": 0.6, \"status\": \"active\", \"supporting_evidence\": [\"EVIDENCE_TVS\", \"CHANGE_FHC\"], \"contradicting_evidence\": []}], \"tool\": \"get_telemetry\", \"component\": \"COMPONENT_NJV\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 8,
+   "attempt": 0,
+   "prompt_tokens": 2366,
+   "completion_tokens": 130,
+   "latency_ms": 4026.5,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Capacity limitation issue\", \"confidence\": 0.5, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"Credential rotation issue\", \"confidence\": 0.6, \"status\": \"active\", \"supporting_evidence\": [\"EVIDENCE_TVS\", \"CHANGE_FHC\"], \"contradicting_evidence\": []}], \"tool\": \"get_telemetry\", \"component\": \"COMPONENT_NJV\", \"metric_category\": \"Identity\", \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 9,
+   "attempt": 0,
+   "prompt_tokens": 2537,
+   "completion_tokens": 128,
+   "latency_ms": 4147.9,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Capacity limitation issue\", \"confidence\": 0.5, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"Credential rotation issue\", \"confidence\": 0.6, \"status\": \"active\", \"supporting_evidence\": [\"EVIDENCE_TVS\", \"CHANGE_FHC\"], \"contradicting_evidence\": []}], \"tool\": \"get_team_capability\", \"component\": \"COMPONENT_NJV\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 10,
+   "attempt": 0,
+   "prompt_tokens": 2493,
+   "completion_tokens": 124,
+   "latency_ms": 4465.8,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Capacity limitation issue\", \"confidence\": 0.5, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"Credential rotation issue\", \"confidence\": 0.6, \"status\": \"active\", \"supporting_evidence\": [\"EVIDENCE_TVS\", \"CHANGE_FHC\"], \"contradicting_evidence\": []}], \"tool\": \"submit_diagnosis\", \"component\": null, \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "final",
+   "step": 10,
+   "attempt": 0,
+   "prompt_tokens": 3111,
+   "completion_tokens": 429,
+   "latency_ms": 49276.6,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Credential rotation issue\", \"confidence\": 0.6, \"status\": \"confirmed\", \"supporting_evidence\": [\"EVIDENCE_TVS\", \"CHANGE_FHC\"], \"contradicting_evidence\": []}], \"evidence_ids\": [\"EVIDENCE_TVS\", \"CHANGE_FHC\", \"EVIDENCE_WGP\", \"EVIDENCE_WHF\", \"EVIDENCE_TVS\", \"EVIDENCE_TSJ\", \"EVIDENCE_DVF\", \"EVIDENCE_LGN\", \"EVIDENCE_KZS\", \"EVIDENCE_GKM\", \"EVIDENCE_WMJ\", \"EVIDENCE_FBP\", \"EVIDENCE_ZSQ\", \"EVIDENCE_GZG\", \"EVIDENCE_DBK\"], \"issue_category\": \"CATEGORY_BGF\", \"category_confidence\": 0.6, \"root_cause\": \"CAUSE_JRT\", \"root_cause_confidence\": 0.6, \"affected_component\": \"COMPONENT_NJV\", \"component_confidence\": 0.6, \"causal_change\": \"CHANGE_FHC\", \"causal_change_confidence\": 0.6, \"owning_team\": \"TEAM_DNJ\", \"routing_confidence\": 0.6, \"confidence\": 0.6, \"evidence_sufficiency\": \"sufficient\", \"human_review_required\": false, \"review_reason\": null, \"status\": \"DIAGNOSIS_PROPOSED\", \"recommended_next_action\": \"Verify the credential rotation process for the Secret Store and ensure that it is properly configured to handle the rotation of credentials.\", \"unresolved_uncertainties\": [], \"summary\": \"The issue is likely related to a credential rotation issue, which is causing the 'certificate expired' warnings in the Secret Store. The evidence suggests that the credential rotation process failed to propagate to the Secret Store, leading to the expiration of the certificate. The recommended next action is to verify the credential rotation process and ensure that it is properly configured.\"}"
+  },
+  {
+   "phase": "final",
+   "step": 10,
+   "attempt": 1,
+   "prompt_tokens": 3171,
+   "completion_tokens": 374,
+   "latency_ms": 43249.8,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Credential rotation issue\", \"confidence\": 0.6, \"status\": \"confirmed\", \"supporting_evidence\": [\"EVIDENCE_TVS\", \"CHANGE_FHC\"], \"contradicting_evidence\": []}, {\"label\": \"Capacity limitation issue\", \"confidence\": 0.5, \"status\": \"rejected\", \"supporting_evidence\": [], \"contradicting_evidence\": [\"EVIDENCE_DBK\"]}], \"evidence_ids\": [\"EVIDENCE_TVS\", \"CHANGE_FHC\", \"EVIDENCE_DBK\"], \"issue_category\": \"CATEGORY_BGF\", \"category_confidence\": 0.6, \"root_cause\": \"CAUSE_JRT\", \"root_cause_confidence\": 0.6, \"affected_component\": \"COMPONENT_NJV\", \"component_confidence\": 0.6, \"causal_change\": \"CHANGE_FHC\", \"causal_change_confidence\": 0.6, \"owning_team\": \"TEAM_DNJ\", \"routing_confidence\": 0.6, \"confidence\": 0.6, \"evidence_sufficiency\": \"sufficient\", \"human_review_required\": false, \"review_reason\": null, \"status\": \"DIAGNOSIS_PROPOSED\", \"recommended_next_action\": \"Verify the credential rotation configuration for Secret Store and ensure it is properly propagated to all components.\", \"unresolved_uncertainties\": [], \"summary\": \"The case is related to a credential rotation issue in the Secret Store, which is causing authentication problems. The root cause is likely a credential rotation not being properly propagated to the Secret Store component. The recommended next action is to verify the credential rotation configuration and ensure it is properly propagated to all components.\"}"
+  }
+ ]
+}

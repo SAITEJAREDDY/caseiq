@@ -1,0 +1,86 @@
+id,name,category
+SK001,Payment Processing,technical
+SK002,Refund Handling,billing
+SK003,Chargeback Resolution,billing
+SK004,Invoice Management,billing
+SK005,Subscription Billing,billing
+SK006,Tax & Compliance,billing
+SK007,SSO Configuration,technical
+SK008,OAuth & Token Management,technical
+SK009,LDAP / Active Directory,technical
+SK010,MFA & Security,technical
+SK011,Identity Troubleshooting,technical
+SK012,Permission Management,technical
+SK013,Dashboard Analytics,technical
+SK014,Data Export & ETL,technical
+SK015,Report Configuration,technical
+SK016,KPI & Metrics Setup,product
+SK017,Event Tracking,technical
+SK018,API Integration,technical
+SK019,Webhook Debugging,technical
+SK020,Rate Limiting & Throttling,technical
+SK021,Load Balancing,technical
+SK022,Cache Management,technical
+SK023,Queue & Async Processing,technical
+SK024,Performance Tuning,technical
+SK025,Enterprise Onboarding,product
+SK026,Customer Portal Setup,product
+SK027,Mobile App Support,product
+SK028,Notification Configuration,technical
+SK029,Escalation Management,product
+SK030,Audit & Compliance Logging,technical
+SK031,Secret & Config Management,technical
+SK032,Deploy & Release Management,technical
+SK033,Infrastructure Debug,technical
+SK034,Billing Dispute Resolution,billing
+SK035,Account Management,product
+SK036,SLA Management,product
+SK037,Enterprise Support,product
+SK038,Data Pipeline Debugging,technical
+SK039,Security Incident Response,technical
+SK040,Product Training,product
+SK041,OIDC,technical
+SK042,SAML,technical
+SK043,RBAC,technical
+SK044,Conditional Access,technical
+SK045,DNS,technical
+SK046,TCP/IP,technical
+SK047,TLS/SSL,technical
+SK048,API Troubleshooting,technical
+SK049,Python,technical
+SK050,SQL,technical
+SK051,Database Performance Tuning,technical
+SK052,Distributed Systems,technical
+SK053,Kubernetes,technical
+SK054,Cloud Networking,technical
+SK055,Observability & Monitoring,technical
+SK056,Storage Systems,technical
+SK057,Identity Federation,technical
+SK058,Incident Management,product
+SK059,Deployment Troubleshooting,technical
+SK060,Log Analysis,technical
+SK061,Terraform / IaC,technical
+SK062,CI/CD Pipelines,technical
+SK063,Linux Administration,technical
+SK064,Windows Server Administration,technical
+SK065,iOS Platform Debugging,technical
+SK066,Android Platform Debugging,technical
+SK067,Accessibility (a11y),product
+SK068,Localization / i18n,product
+SK069,Search & Indexing,technical
+SK070,PCI Compliance,billing
+SK071,Fraud Detection Analysis,billing
+SK072,Vendor / Third-Party Coordination,product
+SK073,Capacity Planning,technical
+SK074,Root Cause Analysis,technical
+SK075,Firewall & Network Security,technical
+SK076,Certificate / PKI Management,technical
+SK077,Data Residency & Privacy,billing
+SK078,Customer Communication,product
+SK079,JSON / Data Serialization,technical
+SK080,Message Queue Systems,technical
+SK081,Caching Systems,technical
+SK082,Regex / Scripting,technical
+SK083,GraphQL / REST API Design,technical
+SK084,Disaster Recovery Planning,technical
+SK085,Change Management,product

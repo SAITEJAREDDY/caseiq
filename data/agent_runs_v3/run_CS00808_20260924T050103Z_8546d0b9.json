@@ -1,0 +1,2721 @@
+{
+ "run_id": "run_CS00808_20260924T050103Z_8546d0b9",
+ "case_id": "CS00808",
+ "created_at": "2026-09-24T05:01:03.787155+00:00",
+ "run_tag": "verify100_final",
+ "model_provider": "together",
+ "model_name": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+ "temperature": 0.1,
+ "graph_version": "phase4-2500case-2026-09-22",
+ "sim_clock_step_minutes": 15,
+ "max_tool_calls": 10,
+ "max_repeated_same_tool": 2,
+ "max_tool_contract_repairs": 2,
+ "max_final_contract_repairs": 1,
+ "agent_version": "agent_v3_contract_hardened",
+ "contract_version": "agent_contract_v1.1",
+ "prompt_version": "v3.1",
+ "tool_catalog_version": "tool_catalog_v3",
+ "action_schema_version": "action_v3.1",
+ "final_schema_version": "final_diagnosis_v3.1",
+ "registry_version": "observed_registry_v1",
+ "alias_scheme": "agent_alias_v1",
+ "repair_policy_version": "repair_policy_v1",
+ "decoding": "json_schema_strict",
+ "code_digest": "54bbbe51a58dbb43883bd743c2476a93b418373888d06e2cc60c30dc2b1b7cf2",
+ "toolset_version": "tool_catalog_v3",
+ "output_schema_version": "final_diagnosis_v3.1",
+ "agent_loop_version": "agent_v3_contract_hardened",
+ "repair_layer_version": "repair_policy_v1",
+ "approx_cost_usd": 0.002347,
+ "stop_reason": "model_submitted",
+ "num_tool_calls": 10,
+ "num_llm_calls": 10,
+ "token_usage": {
+  "prompt_tokens": 22447,
+  "completion_tokens": 1024,
+  "total_tokens": 23471
+ },
+ "trace_steps": [
+  {
+   "step": 1,
+   "sim_clock": "2026-09-07 00:00:00",
+   "tool_name": "get_case_context",
+   "args": {},
+   "args_alias": {},
+   "hypotheses": [],
+   "hypothesis_state": [],
+   "rationale": "",
+   "result_summary": {
+    "case_id": "CS00808",
+    "title": "Data loss and missing records in Cohort Builder (ME Sandbox)",
+    "description": "We are reporting a critical data integrity issue in the Cohort Builder tool within the ME sandbox environment. Users are experiencing data mismatches and, in many cases, actual data loss. Specific records that should exist in the cohorts are completely missing. This affects 22,918 users and requires immediate investigation to recover or restore the missing data.",
+    "environment": "sandbox",
+    "region": "ME",
+    "reported_business_impact": "critical",
+    "reported_affected_users": 22918,
+    "priority": "high",
+    "created_date": "2026-09-07",
+    "status": "resolved",
+    "customer_id": "C02260",
+    "customer_tier": "silver",
+    "customer_industry": "Insurance",
+    "customer_company_size": "enterprise",
+    "reported_product_id": "P038",
+    "reported_product_name": "Cohort Builder",
+    "reported_symptoms": [
+     "missing records",
+     "data mismatch",
+     "user reports data loss"
+    ]
+   },
+   "latency_ms": 0.0,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "harness"
+  },
+  {
+   "step": 2,
+   "sim_clock": "2026-09-07 00:15:00",
+   "tool_name": "get_customer_deployment",
+   "args": {},
+   "args_alias": {},
+   "hypotheses": [
+    "Data loss due to software bug:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Data loss due to software bug",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "deployments": [
+     {
+      "product_id": "P007",
+      "product_name": "Customer Portal",
+      "version": "4.1",
+      "environment": "production",
+      "region": "ME",
+      "status": "active",
+      "deployed_at": "2026-09-04",
+      "product_components": [
+       "CM179",
+       "CM188",
+       "CM195",
+       "CM198",
+       "CM200",
+       "CM212",
+       "CM232"
+      ]
+     },
+     {
+      "product_id": "P006",
+      "product_name": "API Gateway",
+      "version": "2.5",
+      "environment": "staging",
+      "region": "ME",
+      "status": "active",
+      "deployed_at": "2026-08-10",
+      "product_components": [
+       "CM139",
+       "CM142",
+       "CM146",
+       "CM155",
+       "CM156",
+       "CM158",
+       "CM170",
+       "CM239"
+      ]
+     },
+     {
+      "product_id": "P002",
+      "product_name": "SSO Integration Module",
+      "version": "2.2",
+      "environment": "staging",
+      "region": "ME",
+      "status": "active",
+      "deployed_at": "2026-07-12",
+      "product_components": [
+       "CM011",
+       "CM019",
+       "CM025",
+       "CM027",
+       "CM031",
+       "CM032",
+       "CM241",
+       "CM246"
+      ]
+     },
+     {
+      "product_id": "P039",
+      "product_name": "Config Manager",
+      "version": "2.6",
+      "environment": "production",
+      "region": "ME",
+      "status": "active",
+      "deployed_at": "2026-07-05",
+      "product_components": [
+       "CM132",
+       "CM134",
+       "CM137",
+       "CM140",
+       "CM144",
+       "CM157",
+       "CM164",
+       "CM167"
+      ]
+     },
+     {
+      "product_id": "P042",
+      "product_name": "Session Controller",
+      "version": "1.4",
+      "environment": "production",
+      "region": "ME",
+      "status": "active",
+      "deployed_at": "2026-05-28",
+      "product_components": [
+       "CM023",
+       "CM025",
+       "CM027",
+       "CM032",
+       "CM037",
+       "CM040",
+       "CM042",
+       "CM244"
+      ]
+     },
+     {
+      "product_id": "P013",
+      "product_name": "Webhook Engine",
+      "version": "1.6",
+      "environment": "production",
+      "region": "ME",
+      "status": "active",
+      "deployed_at": "2026-04-27",
+      "product_components": [
+       "CM135",
+       "CM143",
+       "CM146",
+       "CM151",
+       "CM156",
+       "CM165",
+       "CM172",
+       "CM232"
+      ]
+     },
+     {
+      "product_id": "P003",
+      "product_name": "Analytics Dashboard",
+      "version": "1.4",
+      "environment": "production",
+      "region": "ME",
+      "status": "active",
+      "deployed_at": "2026-04-26",
+      "product_components": [
+       "CM095",
+       "CM098",
+       "CM100",
+       "CM106",
+       "CM114",
+       "CM120",
+       "CM229",
+       "CM236"
+      ]
+     },
+     {
+      "product_id": "P042",
+      "product_name": "Session Controller",
+      "version": "1.4",
+      "environment": "staging",
+      "region": "ME",
+      "status": "active",
+      "deployed_at": "2026-04-07",
+      "product_components": [
+       "CM023",
+       "CM025",
+       "CM027",
+       "CM032",
+       "CM037",
+       "CM040",
+       "CM042",
+       "CM244"
+      ]
+     }
+    ]
+   },
+   "latency_ms": 9274.3,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 3,
+   "sim_clock": "2026-09-07 00:30:00",
+   "tool_name": "get_component_topology",
+   "args": {
+    "component_id": "CM239"
+   },
+   "args_alias": {
+    "component": "COMPONENT_FNJ"
+   },
+   "hypotheses": [
+    "Data loss due to software bug:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Data loss due to software bug",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "component_id": "CM239",
+    "component_name": "Central Reporting Data Store",
+    "upstream_dependencies": [
+     {
+      "name": "Cube/OLAP Engine",
+      "id": "CM124"
+     },
+     {
+      "name": "Cache Service",
+      "id": "CM134"
+     },
+     {
+      "name": "Primary Database Cluster",
+      "id": "CM151"
+     },
+     {
+      "name": "Read Replica Service",
+      "id": "CM152"
+     },
+     {
+      "name": "Database Connection Pooler",
+      "id": "CM153"
+     },
+     {
+      "name": "File Storage Service",
+      "id": "CM240"
+     }
+    ],
+    "downstream_dependents": [
+     {
+      "name": "Session Store",
+      "id": "CM009"
+     },
+     {
+      "name": "Identity Audit Logger",
+      "id": "CM020"
+     },
+     {
+      "name": "Transaction Processing Engine",
+      "id": "CM045"
+     },
+     {
+      "name": "Reconciliation Engine",
+      "id": "CM052"
+     },
+     {
+      "name": "PCI Vault",
+      "id": "CM060"
+     },
+     {
+      "name": "Billing Audit Trail Service",
+      "id": "CM084"
+     },
+     {
+      "name": "Ingestion Service",
+      "id": "CM089"
+     },
+     {
+      "name": "Stream Processing Engine",
+      "id": "CM090"
+     },
+     {
+      "name": "Export Service",
+      "id": "CM092"
+     },
+     {
+      "name": "Aggregation Engine",
+      "id": "CM097"
+     },
+     {
+      "name": "Query Engine",
+      "id": "CM098"
+     },
+     {
+      "name": "Job Scheduler",
+      "id": "CM100"
+     },
+     {
+      "name": "Funnel Analysis Engine",
+      "id": "CM102"
+     },
+     {
+      "name": "Attribution Engine",
+      "id": "CM103"
+     },
+     {
+      "name": "Alerting Engine",
+      "id": "CM105"
+     },
+     {
+      "name": "Embedding Service",
+      "id": "CM108"
+     },
+     {
+      "name": "Data Masking Service",
+      "id": "CM129"
+     },
+     {
+      "name": "Log Aggregator",
+      "id": "CM145"
+     },
+     {
+      "name": "Metrics Pipeline",
+      "id": "CM146"
+     },
+     {
+      "name": "Analytics Instrumentation SDK",
+      "id": "CM200"
+     },
+     {
+      "name": "Delivery Tracking Service",
+      "id": "CM220"
+     },
+     {
+      "name": "Suppression List Manager",
+      "id": "CM225"
+     },
+     {
+      "name": "CDN Edge Layer",
+      "id": "CM243"
+     },
+     {
+      "name": "Central Log Aggregator",
+      "id": "CM248"
+     }
+    ],
+    "external_dependencies": [],
+    "owning_teams": [
+     {
+      "name": "Database",
+      "id": "TM06"
+     },
+     {
+      "name": "Storage",
+      "id": "TM09"
+     }
+    ]
+   },
+   "latency_ms": 5937.8,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 4,
+   "sim_clock": "2026-09-07 00:45:00",
+   "tool_name": "get_technical_signals",
+   "args": {
+    "component_id": "CM239"
+   },
+   "args_alias": {
+    "component": "COMPONENT_FNJ"
+   },
+   "hypotheses": [
+    "Data loss due to software bug:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Data loss due to software bug",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "signals": [],
+    "count": 0
+   },
+   "latency_ms": 5219.1,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 5,
+   "sim_clock": "2026-09-07 01:00:00",
+   "tool_name": "get_telemetry",
+   "args": {},
+   "args_alias": {},
+   "hypotheses": [
+    "Data loss due to software bug:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Data loss due to software bug",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "available_metric_categories": [
+     "Data",
+     "Security"
+    ],
+    "note": "Call again with one of these metric_category values to see actual readings."
+   },
+   "latency_ms": 4951.0,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 6,
+   "sim_clock": "2026-09-07 01:15:00",
+   "tool_name": "get_telemetry",
+   "args": {
+    "metric_category": "Data"
+   },
+   "args_alias": {
+    "metric_category": "Data"
+   },
+   "hypotheses": [
+    "Data loss due to software bug:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Data loss due to software bug",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "telemetry_findings": [
+     {
+      "evidence_id": "CS00808:CM116:duplicate_event_rate",
+      "metric_code": "duplicate_event_rate",
+      "component_id": "CM116",
+      "baseline": 0.223,
+      "observed_min": 0.182,
+      "observed_max": 0.671,
+      "status": "abnormal",
+      "direction": "above_baseline",
+      "anomaly_start": "2026-09-06 22:00:00",
+      "anomaly_end": "2026-09-07 00:00:00"
+     }
+    ],
+    "count": 1
+   },
+   "latency_ms": 4043.9,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 7,
+   "sim_clock": "2026-09-07 01:30:00",
+   "tool_name": "get_component_topology",
+   "args": {
+    "component_id": "CM116"
+   },
+   "args_alias": {
+    "component": "COMPONENT_KBS"
+   },
+   "hypotheses": [
+    "Data loss due to software bug:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Data loss due to software bug",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "component_id": "CM116",
+    "component_name": "Anomaly Detection Engine",
+    "upstream_dependencies": [
+     {
+      "name": "Query Engine",
+      "id": "CM098"
+     },
+     {
+      "name": "Network Proxy",
+      "id": "CM148"
+     },
+     {
+      "name": "Backup & Restore Service",
+      "id": "CM150"
+     },
+     {
+      "name": "Object Storage Service",
+      "id": "CM154"
+     },
+     {
+      "name": "Search Index Service",
+      "id": "CM167"
+     },
+     {
+      "name": "Time-Series Metrics Store",
+      "id": "CM168"
+     },
+     {
+      "name": "Certificate Management Service",
+      "id": "CM169"
+     },
+     {
+      "name": "Resource Quota Manager",
+      "id": "CM171"
+     },
+     {
+      "name": "Rate-Limited Sender Pool",
+      "id": "CM222"
+     },
+     {
+      "name": "File Storage Service",
+      "id": "CM240"
+     },
+     {
+      "name": "Central Search Index Service",
+      "id": "CM242"
+     }
+    ],
+    "downstream_dependents": [],
+    "external_dependencies": [],
+    "owning_teams": [
+     {
+      "name": "Data Platform",
+      "id": "TM05"
+     },
+     {
+      "name": "Reliability / SRE",
+      "id": "TM10"
+     }
+    ]
+   },
+   "latency_ms": 31434.5,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 8,
+   "sim_clock": "2026-09-07 01:45:00",
+   "tool_name": "get_technical_signals",
+   "args": {
+    "component_id": "CM116"
+   },
+   "args_alias": {
+    "component": "COMPONENT_KBS"
+   },
+   "hypotheses": [
+    "Data loss due to software bug:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Data loss due to software bug",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "signals": [],
+    "count": 0
+   },
+   "latency_ms": 3366.5,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 9,
+   "sim_clock": "2026-09-07 02:00:00",
+   "tool_name": "get_recent_changes",
+   "args": {
+    "component_id": "CM239"
+   },
+   "args_alias": {
+    "component": "COMPONENT_FNJ"
+   },
+   "hypotheses": [
+    "Data loss due to software bug:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Data loss due to software bug",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "recent_changes": [],
+    "count": 0
+   },
+   "latency_ms": 25915.8,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 10,
+   "sim_clock": "2026-09-07 02:15:00",
+   "tool_name": "submit_diagnosis",
+   "args": {},
+   "args_alias": {},
+   "hypotheses": [
+    "Data loss due to software bug:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Data loss due to software bug",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [
+      "EVIDENCE_KRR"
+     ],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": "submitted",
+   "latency_ms": 43007.5,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  }
+ ],
+ "final_diagnosis": {
+  "hypotheses": [
+   {
+    "label": "Data loss due to software bug",
+    "description": "",
+    "confidence": 0.2,
+    "status": "active",
+    "supporting_evidence": [
+     "CS00808:CM116:duplicate_event_rate"
+    ],
+    "contradicting_evidence": []
+   }
+  ],
+  "rationale": "",
+  "predicted_product_id": null,
+  "product_confidence": null,
+  "predicted_component_id": "CM239",
+  "component_confidence": 0.6,
+  "predicted_category_id": "IC08",
+  "category_confidence": 0.5,
+  "predicted_subcategory_id": null,
+  "predicted_root_cause_family": "product defect",
+  "root_cause_confidence": 0.3,
+  "predicted_causal_change_id": null,
+  "causal_change_confidence": null,
+  "predicted_severity": null,
+  "severity_confidence": null,
+  "recommended_team_id": "TM05",
+  "routing_confidence": 0.4,
+  "evidence_sufficiency": "sufficient",
+  "overall_confidence": 0.4,
+  "recommended_next_action": "Verify software bug fix and test data recovery",
+  "human_review_required": false,
+  "human_review_reason": null,
+  "evidence_summary": "Data loss in Cohort Builder due to potential software bug, affecting 22,918 users. Evidence suggests abnormal duplicate event rate on COMPONENT_KBS. Recommended next action is to verify software bug fix and test data recovery.",
+  "unresolved_uncertainties": [
+   "Specific software bug causing data loss",
+   "Full extent of data loss and recovery requirements"
+  ],
+  "status": "DIAGNOSIS_PROPOSED",
+  "evidence_ids": [
+   "CS00808:CM116:duplicate_event_rate"
+  ]
+ },
+ "final_status": "DIAGNOSIS_PROPOSED",
+ "final_alias_form": {
+  "hypotheses": [
+   {
+    "label": "Data loss due to software bug",
+    "confidence": 0.2,
+    "status": "active",
+    "supporting_evidence": [
+     "EVIDENCE_KRR"
+    ],
+    "contradicting_evidence": []
+   }
+  ],
+  "evidence_ids": [
+   "EVIDENCE_KRR"
+  ],
+  "issue_category": "CATEGORY_DZV",
+  "category_confidence": 0.5,
+  "root_cause": "CAUSE_GRM",
+  "root_cause_confidence": 0.3,
+  "affected_component": "COMPONENT_FNJ",
+  "component_confidence": 0.6,
+  "causal_change": null,
+  "causal_change_confidence": null,
+  "owning_team": "TEAM_KCJ",
+  "routing_confidence": 0.4,
+  "confidence": 0.4,
+  "evidence_sufficiency": "sufficient",
+  "human_review_required": false,
+  "review_reason": null,
+  "status": "DIAGNOSIS_PROPOSED",
+  "recommended_next_action": "Verify software bug fix and test data recovery",
+  "unresolved_uncertainties": [
+   "Specific software bug causing data loss",
+   "Full extent of data loss and recovery requirements"
+  ],
+  "summary": "Data loss in Cohort Builder due to potential software bug, affecting 22,918 users. Evidence suggests abnormal duplicate event rate on COMPONENT_KBS. Recommended next action is to verify software bug fix and test data recovery."
+ },
+ "citation_violations": [],
+ "evidence_ids_seen": [
+  "CS00808:CM116:duplicate_event_rate"
+ ],
+ "repair_events": [],
+ "tool_proposals": 9,
+ "tool_contract_errors": [],
+ "tool_contract_repairs": [],
+ "final_contract_errors": [],
+ "final_contract_repair": null,
+ "registry_snapshots": [
+  {
+   "step": 1,
+   "n_entities": 59,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 1
+   },
+   "aliases_sha256_16": "f30aeb1c4fd459ae"
+  },
+  {
+   "step": 2,
+   "n_entities": 115,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 8,
+    "COMPONENT": 49
+   },
+   "aliases_sha256_16": "b3434197f82f4913"
+  },
+  {
+   "step": 3,
+   "n_entities": 141,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 8,
+    "COMPONENT": 73,
+    "TEAM": 2
+   },
+   "aliases_sha256_16": "83fcd32222d66076"
+  },
+  {
+   "step": 4,
+   "n_entities": 141,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 8,
+    "COMPONENT": 73,
+    "TEAM": 2
+   },
+   "aliases_sha256_16": "83fcd32222d66076"
+  },
+  {
+   "step": 5,
+   "n_entities": 141,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 8,
+    "COMPONENT": 73,
+    "TEAM": 2
+   },
+   "aliases_sha256_16": "83fcd32222d66076"
+  },
+  {
+   "step": 6,
+   "n_entities": 143,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 8,
+    "COMPONENT": 74,
+    "TEAM": 2,
+    "EVIDENCE": 1
+   },
+   "aliases_sha256_16": "1639270c3889ca1c"
+  },
+  {
+   "step": 7,
+   "n_entities": 153,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 8,
+    "COMPONENT": 82,
+    "TEAM": 4,
+    "EVIDENCE": 1
+   },
+   "aliases_sha256_16": "78e26d721cbf5292"
+  },
+  {
+   "step": 8,
+   "n_entities": 153,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 8,
+    "COMPONENT": 82,
+    "TEAM": 4,
+    "EVIDENCE": 1
+   },
+   "aliases_sha256_16": "78e26d721cbf5292"
+  },
+  {
+   "step": 9,
+   "n_entities": 153,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 8,
+    "COMPONENT": 82,
+    "TEAM": 4,
+    "EVIDENCE": 1
+   },
+   "aliases_sha256_16": "78e26d721cbf5292"
+  }
+ ],
+ "alias_mappings": {
+  "CATEGORY_HPF": {
+   "alias": "CATEGORY_HPF",
+   "canonical_id": "IC01",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Identity / Authentication",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-09-07 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_WBN": {
+   "alias": "CATEGORY_WBN",
+   "canonical_id": "IC02",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Authorization / Permissions",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-09-07 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_RSM": {
+   "alias": "CATEGORY_RSM",
+   "canonical_id": "IC03",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Networking / Connectivity",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-09-07 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_QRQ": {
+   "alias": "CATEGORY_QRQ",
+   "canonical_id": "IC04",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Performance / Latency",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-09-07 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_FLZ": {
+   "alias": "CATEGORY_FLZ",
+   "canonical_id": "IC05",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Reliability / Availability",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-09-07 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_STG": {
+   "alias": "CATEGORY_STG",
+   "canonical_id": "IC06",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Deployment / Upgrade",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-09-07 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_RLD": {
+   "alias": "CATEGORY_RLD",
+   "canonical_id": "IC07",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Configuration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-09-07 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_DZV": {
+   "alias": "CATEGORY_DZV",
+   "canonical_id": "IC08",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Data / Corruption",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-09-07 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_WXF": {
+   "alias": "CATEGORY_WXF",
+   "canonical_id": "IC09",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Integration / API",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-09-07 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_TDQ": {
+   "alias": "CATEGORY_TDQ",
+   "canonical_id": "IC10",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Provisioning / Onboarding",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-09-07 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_GFJ": {
+   "alias": "CATEGORY_GFJ",
+   "canonical_id": "IC11",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Security",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-09-07 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_LKW": {
+   "alias": "CATEGORY_LKW",
+   "canonical_id": "IC12",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Compliance",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-09-07 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_NVL": {
+   "alias": "CATEGORY_NVL",
+   "canonical_id": "IC13",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Billing / Commerce",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-09-07 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_WXN": {
+   "alias": "CATEGORY_WXN",
+   "canonical_id": "IC14",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "User Experience / Functional Defect",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-09-07 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_DLQ": {
+   "alias": "CATEGORY_DLQ",
+   "canonical_id": "IC15",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Storage / Database",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-09-07 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_RMD": {
+   "alias": "CATEGORY_RMD",
+   "canonical_id": "IC16",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Capacity / Scaling",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-09-07 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_MJD": {
+   "alias": "CATEGORY_MJD",
+   "canonical_id": "IC17",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Third-Party / Dependency",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-09-07 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_RSK": {
+   "alias": "CATEGORY_RSK",
+   "canonical_id": "IC18",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Unknown / Other",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-09-07 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_GRM": {
+   "alias": "CAUSE_GRM",
+   "canonical_id": "RC01",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "product defect",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-09-07 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_ZFD": {
+   "alias": "CAUSE_ZFD",
+   "canonical_id": "RC02",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "customer configuration error",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-09-07 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_SVM": {
+   "alias": "CAUSE_SVM",
+   "canonical_id": "RC03",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "incorrect permissions",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-09-07 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_RSJ": {
+   "alias": "CAUSE_RSJ",
+   "canonical_id": "RC04",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "policy misconfiguration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-09-07 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_LFC": {
+   "alias": "CAUSE_LFC",
+   "canonical_id": "RC05",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "expired certificate",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-09-07 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_JCM": {
+   "alias": "CAUSE_JCM",
+   "canonical_id": "RC06",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "version incompatibility",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-09-07 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_ZDF": {
+   "alias": "CAUSE_ZDF",
+   "canonical_id": "RC07",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "dependency failure",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-09-07 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_PZN": {
+   "alias": "CAUSE_PZN",
+   "canonical_id": "RC08",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "network configuration error",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-09-07 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_PGS": {
+   "alias": "CAUSE_PGS",
+   "canonical_id": "RC09",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "resource exhaustion",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-09-07 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_SXX": {
+   "alias": "CAUSE_SXX",
+   "canonical_id": "RC10",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "database contention",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-09-07 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_NGK": {
+   "alias": "CAUSE_NGK",
+   "canonical_id": "RC11",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "bad deployment",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-09-07 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_RZG": {
+   "alias": "CAUSE_RZG",
+   "canonical_id": "RC12",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "incomplete migration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-09-07 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_XNV": {
+   "alias": "CAUSE_XNV",
+   "canonical_id": "RC13",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "stale cache",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-09-07 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_QCF": {
+   "alias": "CAUSE_QCF",
+   "canonical_id": "RC14",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "third-party service failure",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-09-07 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_DNZ": {
+   "alias": "CAUSE_DNZ",
+   "canonical_id": "RC15",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "unsupported configuration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-09-07 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_SHM": {
+   "alias": "CAUSE_SHM",
+   "canonical_id": "RC16",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "incorrect DNS configuration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-09-07 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_ZHD": {
+   "alias": "CAUSE_ZHD",
+   "canonical_id": "RC17",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "data quality issue",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-09-07 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_BSR": {
+   "alias": "CAUSE_BSR",
+   "canonical_id": "RC18",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "operator error",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-09-07 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_NVL": {
+   "alias": "CAUSE_NVL",
+   "canonical_id": "RC19",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "capacity limitation",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-09-07 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_QMM": {
+   "alias": "CAUSE_QMM",
+   "canonical_id": "RC20",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "known product limitation",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-09-07 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_NBD": {
+   "alias": "CAUSE_NBD",
+   "canonical_id": "RC21",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "race condition",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-09-07 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_KSZ": {
+   "alias": "CAUSE_KSZ",
+   "canonical_id": "RC22",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "identity provider outage",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-09-07 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_WLJ": {
+   "alias": "CAUSE_WLJ",
+   "canonical_id": "RC23",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "token expiration handling bug",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-09-07 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_LKT": {
+   "alias": "CAUSE_LKT",
+   "canonical_id": "RC24",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "insufficient monitoring/alerting",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-09-07 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_QJP": {
+   "alias": "CAUSE_QJP",
+   "canonical_id": "RC25",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "incorrect load balancer routing",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-09-07 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_TGQ": {
+   "alias": "CAUSE_TGQ",
+   "canonical_id": "RC26",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "firewall misconfiguration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-09-07 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_FCG": {
+   "alias": "CAUSE_FCG",
+   "canonical_id": "RC27",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "schema mismatch",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-09-07 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_KCQ": {
+   "alias": "CAUSE_KCQ",
+   "canonical_id": "RC28",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "breaking API contract change",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-09-07 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_WNP": {
+   "alias": "CAUSE_WNP",
+   "canonical_id": "RC29",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "credential rotation not propagated",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-09-07 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_VGD": {
+   "alias": "CAUSE_VGD",
+   "canonical_id": "RC30",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "stale internal documentation followed",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-09-07 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_KWL": {
+   "alias": "CAUSE_KWL",
+   "canonical_id": "RC31",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "incomplete rollback",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-09-07 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_MQV": {
+   "alias": "CAUSE_MQV",
+   "canonical_id": "RC32",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "infrastructure hardware failure",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-09-07 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_JMM": {
+   "alias": "CAUSE_JMM",
+   "canonical_id": "RC33",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "rate limit misconfiguration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-09-07 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_TPZ": {
+   "alias": "CAUSE_TPZ",
+   "canonical_id": "RC34",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "insufficient capacity planning",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-09-07 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_WLP": {
+   "alias": "CAUSE_WLP",
+   "canonical_id": "RC35",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "data migration defect",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-09-07 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_VLT": {
+   "alias": "CAUSE_VLT",
+   "canonical_id": "RC36",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "improper access review",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-09-07 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_NCV": {
+   "alias": "CAUSE_NCV",
+   "canonical_id": "RC37",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "expired API key",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-09-07 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_GGF": {
+   "alias": "CAUSE_GGF",
+   "canonical_id": "RC38",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "clock/time synchronization issue",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-09-07 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_RBG": {
+   "alias": "CAUSE_RBG",
+   "canonical_id": "RC39",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "idempotency/duplicate-processing failure",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-09-07 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_SWR": {
+   "alias": "CAUSE_SWR",
+   "canonical_id": "RC40",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "insufficient information to determine root cause",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2026-09-07 00:00:00",
+   "summary": ""
+  },
+  "PRODUCT_CCB": {
+   "alias": "PRODUCT_CCB",
+   "canonical_id": "P038",
+   "kind": "PRODUCT",
+   "type": "product",
+   "display_name": "Cohort Builder",
+   "source_tool": "get_case_context",
+   "first_observed_step": 1,
+   "first_observed_clock": "2026-09-07 00:00:00",
+   "summary": ""
+  },
+  "PRODUCT_HLS": {
+   "alias": "PRODUCT_HLS",
+   "canonical_id": "P007",
+   "kind": "PRODUCT",
+   "type": "product",
+   "display_name": "Customer Portal",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-09-07 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_PBW": {
+   "alias": "COMPONENT_PBW",
+   "canonical_id": "CM179",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Status Page UI",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-09-07 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_QKD": {
+   "alias": "COMPONENT_QKD",
+   "canonical_id": "CM188",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "CDN Asset Layer",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-09-07 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_XXV": {
+   "alias": "COMPONENT_XXV",
+   "canonical_id": "CM195",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Design System Component Library",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-09-07 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_KHQ": {
+   "alias": "COMPONENT_KHQ",
+   "canonical_id": "CM198",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "In-App Messaging Widget",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-09-07 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_MBZ": {
+   "alias": "COMPONENT_MBZ",
+   "canonical_id": "CM200",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Analytics Instrumentation SDK",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-09-07 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_KLM": {
+   "alias": "COMPONENT_KLM",
+   "canonical_id": "CM212",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Browser Compatibility Shim",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-09-07 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_KFT": {
+   "alias": "COMPONENT_KFT",
+   "canonical_id": "CM232",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Global Load Balancer",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-09-07 00:15:00",
+   "summary": ""
+  },
+  "PRODUCT_HVR": {
+   "alias": "PRODUCT_HVR",
+   "canonical_id": "P006",
+   "kind": "PRODUCT",
+   "type": "product",
+   "display_name": "API Gateway",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-09-07 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_QMJ": {
+   "alias": "COMPONENT_QMJ",
+   "canonical_id": "CM139",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Deploy Orchestrator",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-09-07 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_GFP": {
+   "alias": "COMPONENT_GFP",
+   "canonical_id": "CM142",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Circuit Breaker",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-09-07 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_GWZ": {
+   "alias": "COMPONENT_GWZ",
+   "canonical_id": "CM146",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Metrics Pipeline",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-09-07 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_WWT": {
+   "alias": "COMPONENT_WWT",
+   "canonical_id": "CM155",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Message Broker",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-09-07 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_QHH": {
+   "alias": "COMPONENT_QHH",
+   "canonical_id": "CM156",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Job Queue Worker Pool",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-09-07 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_VSR": {
+   "alias": "COMPONENT_VSR",
+   "canonical_id": "CM158",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Secrets Rotation Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-09-07 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_ZSG": {
+   "alias": "COMPONENT_ZSG",
+   "canonical_id": "CM170",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Region Failover Controller",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-09-07 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_FNJ": {
+   "alias": "COMPONENT_FNJ",
+   "canonical_id": "CM239",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Central Reporting Data Store",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-09-07 00:15:00",
+   "summary": ""
+  },
+  "PRODUCT_PKT": {
+   "alias": "PRODUCT_PKT",
+   "canonical_id": "P002",
+   "kind": "PRODUCT",
+   "type": "product",
+   "display_name": "SSO Integration Module",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-09-07 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_LKP": {
+   "alias": "COMPONENT_LKP",
+   "canonical_id": "CM011",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "SSO Broker",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-09-07 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_GQN": {
+   "alias": "COMPONENT_GQN",
+   "canonical_id": "CM019",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Account Recovery Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-09-07 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_KXF": {
+   "alias": "COMPONENT_KXF",
+   "canonical_id": "CM025",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Social Login Connector",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-09-07 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_MJB": {
+   "alias": "COMPONENT_MJB",
+   "canonical_id": "CM027",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "OAuth Authorization Server",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-09-07 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_VBL": {
+   "alias": "COMPONENT_VBL",
+   "canonical_id": "CM031",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Identity Lifecycle Manager",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-09-07 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_DVV": {
+   "alias": "COMPONENT_DVV",
+   "canonical_id": "CM032",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Group Sync Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-09-07 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_KTX": {
+   "alias": "COMPONENT_KTX",
+   "canonical_id": "CM241",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Central Message Queue",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-09-07 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_WDK": {
+   "alias": "COMPONENT_WDK",
+   "canonical_id": "CM246",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Central Identity Vault",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-09-07 00:15:00",
+   "summary": ""
+  },
+  "PRODUCT_TNB": {
+   "alias": "PRODUCT_TNB",
+   "canonical_id": "P039",
+   "kind": "PRODUCT",
+   "type": "product",
+   "display_name": "Config Manager",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-09-07 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_WKB": {
+   "alias": "COMPONENT_WKB",
+   "canonical_id": "CM132",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Load Balancer",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-09-07 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_MMX": {
+   "alias": "COMPONENT_MMX",
+   "canonical_id": "CM134",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Cache Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-09-07 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_RPM": {
+   "alias": "COMPONENT_RPM",
+   "canonical_id": "CM137",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Secret Store",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-09-07 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_CVN": {
+   "alias": "COMPONENT_CVN",
+   "canonical_id": "CM140",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Health Monitor",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-09-07 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_JNV": {
+   "alias": "COMPONENT_JNV",
+   "canonical_id": "CM144",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Service Registry",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-09-07 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_SJN": {
+   "alias": "COMPONENT_SJN",
+   "canonical_id": "CM157",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Feature Flag Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-09-07 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_GPM": {
+   "alias": "COMPONENT_GPM",
+   "canonical_id": "CM164",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Ingress Controller",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-09-07 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_WTH": {
+   "alias": "COMPONENT_WTH",
+   "canonical_id": "CM167",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Search Index Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-09-07 00:15:00",
+   "summary": ""
+  },
+  "PRODUCT_FJW": {
+   "alias": "PRODUCT_FJW",
+   "canonical_id": "P042",
+   "kind": "PRODUCT",
+   "type": "product",
+   "display_name": "Session Controller",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-09-07 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_VWR": {
+   "alias": "COMPONENT_VWR",
+   "canonical_id": "CM023",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Device Trust Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-09-07 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_XKX": {
+   "alias": "COMPONENT_XKX",
+   "canonical_id": "CM037",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Login Analytics Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-09-07 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_CZB": {
+   "alias": "COMPONENT_CZB",
+   "canonical_id": "CM040",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Emergency Access (Break-Glass) Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-09-07 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_GBZ": {
+   "alias": "COMPONENT_GBZ",
+   "canonical_id": "CM042",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Cross-Domain SSO Relay",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-09-07 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_WJP": {
+   "alias": "COMPONENT_WJP",
+   "canonical_id": "CM244",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Central Rate Limiter",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-09-07 00:15:00",
+   "summary": ""
+  },
+  "PRODUCT_VFK": {
+   "alias": "PRODUCT_VFK",
+   "canonical_id": "P013",
+   "kind": "PRODUCT",
+   "type": "product",
+   "display_name": "Webhook Engine",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-09-07 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_WSJ": {
+   "alias": "COMPONENT_WSJ",
+   "canonical_id": "CM135",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Queue Manager",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-09-07 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_FWM": {
+   "alias": "COMPONENT_FWM",
+   "canonical_id": "CM143",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "DNS Resolver Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-09-07 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_XLF": {
+   "alias": "COMPONENT_XLF",
+   "canonical_id": "CM151",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Primary Database Cluster",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-09-07 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_SJJ": {
+   "alias": "COMPONENT_SJJ",
+   "canonical_id": "CM165",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Network Policy Manager",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-09-07 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_PQH": {
+   "alias": "COMPONENT_PQH",
+   "canonical_id": "CM172",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Internal DNS Zone Manager",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-09-07 00:15:00",
+   "summary": ""
+  },
+  "PRODUCT_KTJ": {
+   "alias": "PRODUCT_KTJ",
+   "canonical_id": "P003",
+   "kind": "PRODUCT",
+   "type": "product",
+   "display_name": "Analytics Dashboard",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-09-07 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_QZF": {
+   "alias": "COMPONENT_QZF",
+   "canonical_id": "CM095",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Analytics API Gateway",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-09-07 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_XXN": {
+   "alias": "COMPONENT_XXN",
+   "canonical_id": "CM098",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Query Engine",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-09-07 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_NRB": {
+   "alias": "COMPONENT_NRB",
+   "canonical_id": "CM100",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Job Scheduler",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-09-07 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_XNH": {
+   "alias": "COMPONENT_XNH",
+   "canonical_id": "CM106",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Data Catalog Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-09-07 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_VPJ": {
+   "alias": "COMPONENT_VPJ",
+   "canonical_id": "CM114",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Segment Builder Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-09-07 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_VCM": {
+   "alias": "COMPONENT_VCM",
+   "canonical_id": "CM120",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Event Schema Registry",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-09-07 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_VJT": {
+   "alias": "COMPONENT_VJT",
+   "canonical_id": "CM229",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Audit Log Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-09-07 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_GJL": {
+   "alias": "COMPONENT_GJL",
+   "canonical_id": "CM236",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Webhook Dispatch Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2026-09-07 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_HHN": {
+   "alias": "COMPONENT_HHN",
+   "canonical_id": "CM124",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Cube/OLAP Engine",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-09-07 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_SNQ": {
+   "alias": "COMPONENT_SNQ",
+   "canonical_id": "CM152",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Read Replica Service",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-09-07 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_TWM": {
+   "alias": "COMPONENT_TWM",
+   "canonical_id": "CM153",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Database Connection Pooler",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-09-07 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_FPR": {
+   "alias": "COMPONENT_FPR",
+   "canonical_id": "CM240",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "File Storage Service",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-09-07 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_JQN": {
+   "alias": "COMPONENT_JQN",
+   "canonical_id": "CM009",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Session Store",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-09-07 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_QFQ": {
+   "alias": "COMPONENT_QFQ",
+   "canonical_id": "CM020",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Identity Audit Logger",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-09-07 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_RTZ": {
+   "alias": "COMPONENT_RTZ",
+   "canonical_id": "CM045",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Transaction Processing Engine",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-09-07 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_WQL": {
+   "alias": "COMPONENT_WQL",
+   "canonical_id": "CM052",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Reconciliation Engine",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-09-07 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_DBK": {
+   "alias": "COMPONENT_DBK",
+   "canonical_id": "CM060",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "PCI Vault",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-09-07 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_PLG": {
+   "alias": "COMPONENT_PLG",
+   "canonical_id": "CM084",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Billing Audit Trail Service",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-09-07 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_WJK": {
+   "alias": "COMPONENT_WJK",
+   "canonical_id": "CM089",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Ingestion Service",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-09-07 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_GFQ": {
+   "alias": "COMPONENT_GFQ",
+   "canonical_id": "CM090",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Stream Processing Engine",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-09-07 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_GBJ": {
+   "alias": "COMPONENT_GBJ",
+   "canonical_id": "CM092",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Export Service",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-09-07 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_QCD": {
+   "alias": "COMPONENT_QCD",
+   "canonical_id": "CM097",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Aggregation Engine",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-09-07 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_MSX": {
+   "alias": "COMPONENT_MSX",
+   "canonical_id": "CM102",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Funnel Analysis Engine",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-09-07 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_DWN": {
+   "alias": "COMPONENT_DWN",
+   "canonical_id": "CM103",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Attribution Engine",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-09-07 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_VFW": {
+   "alias": "COMPONENT_VFW",
+   "canonical_id": "CM105",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Alerting Engine",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-09-07 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_WPZ": {
+   "alias": "COMPONENT_WPZ",
+   "canonical_id": "CM108",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Embedding Service",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-09-07 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_KRL": {
+   "alias": "COMPONENT_KRL",
+   "canonical_id": "CM129",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Data Masking Service",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-09-07 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_HHR": {
+   "alias": "COMPONENT_HHR",
+   "canonical_id": "CM145",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Log Aggregator",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-09-07 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_HJX": {
+   "alias": "COMPONENT_HJX",
+   "canonical_id": "CM220",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Delivery Tracking Service",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-09-07 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_PFV": {
+   "alias": "COMPONENT_PFV",
+   "canonical_id": "CM225",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Suppression List Manager",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-09-07 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_NLD": {
+   "alias": "COMPONENT_NLD",
+   "canonical_id": "CM243",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "CDN Edge Layer",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-09-07 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_TPK": {
+   "alias": "COMPONENT_TPK",
+   "canonical_id": "CM248",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Central Log Aggregator",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-09-07 00:30:00",
+   "summary": ""
+  },
+  "TEAM_HXQ": {
+   "alias": "TEAM_HXQ",
+   "canonical_id": "TM06",
+   "kind": "TEAM",
+   "type": "team",
+   "display_name": "Database",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-09-07 00:30:00",
+   "summary": ""
+  },
+  "TEAM_JQN": {
+   "alias": "TEAM_JQN",
+   "canonical_id": "TM09",
+   "kind": "TEAM",
+   "type": "team",
+   "display_name": "Storage",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2026-09-07 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_KBS": {
+   "alias": "COMPONENT_KBS",
+   "canonical_id": "CM116",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Anomaly Detection Engine",
+   "source_tool": "get_telemetry",
+   "first_observed_step": 6,
+   "first_observed_clock": "2026-09-07 01:15:00",
+   "summary": ""
+  },
+  "EVIDENCE_KRR": {
+   "alias": "EVIDENCE_KRR",
+   "canonical_id": "CS00808:CM116:duplicate_event_rate",
+   "kind": "EVIDENCE",
+   "type": "telemetry",
+   "display_name": "",
+   "source_tool": "get_telemetry",
+   "first_observed_step": 6,
+   "first_observed_clock": "2026-09-07 01:15:00",
+   "summary": "duplicate_event_rate on COMPONENT_KBS: status abnormal, direction above_baseline, baseline 0.223, observed 0.182..0.671"
+  },
+  "COMPONENT_DQV": {
+   "alias": "COMPONENT_DQV",
+   "canonical_id": "CM148",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Network Proxy",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 7,
+   "first_observed_clock": "2026-09-07 01:30:00",
+   "summary": ""
+  },
+  "COMPONENT_ZVW": {
+   "alias": "COMPONENT_ZVW",
+   "canonical_id": "CM150",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Backup & Restore Service",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 7,
+   "first_observed_clock": "2026-09-07 01:30:00",
+   "summary": ""
+  },
+  "COMPONENT_XBW": {
+   "alias": "COMPONENT_XBW",
+   "canonical_id": "CM154",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Object Storage Service",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 7,
+   "first_observed_clock": "2026-09-07 01:30:00",
+   "summary": ""
+  },
+  "COMPONENT_LTN": {
+   "alias": "COMPONENT_LTN",
+   "canonical_id": "CM168",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Time-Series Metrics Store",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 7,
+   "first_observed_clock": "2026-09-07 01:30:00",
+   "summary": ""
+  },
+  "COMPONENT_WDZ": {
+   "alias": "COMPONENT_WDZ",
+   "canonical_id": "CM169",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Certificate Management Service",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 7,
+   "first_observed_clock": "2026-09-07 01:30:00",
+   "summary": ""
+  },
+  "COMPONENT_MLP": {
+   "alias": "COMPONENT_MLP",
+   "canonical_id": "CM171",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Resource Quota Manager",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 7,
+   "first_observed_clock": "2026-09-07 01:30:00",
+   "summary": ""
+  },
+  "COMPONENT_RQW": {
+   "alias": "COMPONENT_RQW",
+   "canonical_id": "CM222",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Rate-Limited Sender Pool",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 7,
+   "first_observed_clock": "2026-09-07 01:30:00",
+   "summary": ""
+  },
+  "COMPONENT_WPN": {
+   "alias": "COMPONENT_WPN",
+   "canonical_id": "CM242",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Central Search Index Service",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 7,
+   "first_observed_clock": "2026-09-07 01:30:00",
+   "summary": ""
+  },
+  "TEAM_KCJ": {
+   "alias": "TEAM_KCJ",
+   "canonical_id": "TM05",
+   "kind": "TEAM",
+   "type": "team",
+   "display_name": "Data Platform",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 7,
+   "first_observed_clock": "2026-09-07 01:30:00",
+   "summary": ""
+  },
+  "TEAM_SSX": {
+   "alias": "TEAM_SSX",
+   "canonical_id": "TM10",
+   "kind": "TEAM",
+   "type": "team",
+   "display_name": "Reliability / SRE",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 7,
+   "first_observed_clock": "2026-09-07 01:30:00",
+   "summary": ""
+  }
+ },
+ "validation_result": {
+  "first_pass_ok": true,
+  "errors_first": [],
+  "repair_used": false,
+  "final_ok": true,
+  "errors_final": []
+ },
+ "contract_failure": null,
+ "llm_calls": [
+  {
+   "phase": "action",
+   "step": 2,
+   "attempt": 0,
+   "prompt_tokens": 1240,
+   "completion_tokens": 78,
+   "latency_ms": 9166.5,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Data loss due to software bug\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_customer_deployment\", \"component\": null, \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 3,
+   "attempt": 0,
+   "prompt_tokens": 2635,
+   "completion_tokens": 81,
+   "latency_ms": 5880.8,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Data loss due to software bug\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_component_topology\", \"component\": \"COMPONENT_FNJ\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 4,
+   "attempt": 0,
+   "prompt_tokens": 2566,
+   "completion_tokens": 83,
+   "latency_ms": 5054.2,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Data loss due to software bug\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_technical_signals\", \"component\": \"COMPONENT_FNJ\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 5,
+   "attempt": 0,
+   "prompt_tokens": 2003,
+   "completion_tokens": 78,
+   "latency_ms": 4898.8,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Data loss due to software bug\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_telemetry\", \"component\": null, \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 6,
+   "attempt": 0,
+   "prompt_tokens": 2034,
+   "completion_tokens": 79,
+   "latency_ms": 3941.5,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Data loss due to software bug\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_telemetry\", \"component\": null, \"metric_category\": \"Data\", \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 7,
+   "attempt": 0,
+   "prompt_tokens": 2195,
+   "completion_tokens": 81,
+   "latency_ms": 31382.0,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Data loss due to software bug\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_component_topology\", \"component\": \"COMPONENT_KBS\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 8,
+   "attempt": 0,
+   "prompt_tokens": 2451,
+   "completion_tokens": 83,
+   "latency_ms": 3313.0,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Data loss due to software bug\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_technical_signals\", \"component\": \"COMPONENT_KBS\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 9,
+   "attempt": 0,
+   "prompt_tokens": 2205,
+   "completion_tokens": 81,
+   "latency_ms": 25852.9,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Data loss due to software bug\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_recent_changes\", \"component\": \"COMPONENT_FNJ\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 10,
+   "attempt": 0,
+   "prompt_tokens": 2219,
+   "completion_tokens": 77,
+   "latency_ms": 4082.9,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Data loss due to software bug\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"submit_diagnosis\", \"component\": null, \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "final",
+   "step": 10,
+   "attempt": 0,
+   "prompt_tokens": 2899,
+   "completion_tokens": 303,
+   "latency_ms": 43007.5,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Data loss due to software bug\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [\"EVIDENCE_KRR\"], \"contradicting_evidence\": []}], \"evidence_ids\": [\"EVIDENCE_KRR\"], \"issue_category\": \"CATEGORY_DZV\", \"category_confidence\": 0.5, \"root_cause\": \"CAUSE_GRM\", \"root_cause_confidence\": 0.3, \"affected_component\": \"COMPONENT_FNJ\", \"component_confidence\": 0.6, \"causal_change\": null, \"causal_change_confidence\": null, \"owning_team\": \"TEAM_KCJ\", \"routing_confidence\": 0.4, \"confidence\": 0.4, \"evidence_sufficiency\": \"sufficient\", \"human_review_required\": false, \"review_reason\": null, \"status\": \"DIAGNOSIS_PROPOSED\", \"recommended_next_action\": \"Verify software bug fix and test data recovery\", \"unresolved_uncertainties\": [\"Specific software bug causing data loss\", \"Full extent of data loss and recovery requirements\"], \"summary\": \"Data loss in Cohort Builder due to potential software bug, affecting 22,918 users. Evidence suggests abnormal duplicate event rate on COMPONENT_KBS. Recommended next action is to verify software bug fix and test data recovery.\"}"
+  }
+ ]
+}

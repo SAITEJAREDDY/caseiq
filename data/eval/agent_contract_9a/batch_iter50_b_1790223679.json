@@ -1,0 +1,210 @@
+{
+ "tag": "iter50_b",
+ "cohort": "iter50",
+ "cohort_sha256": "ae2b1e6d3a0f08a319d00613400c3d1cf0c1544d8bc487816b3110c3e7ea895c",
+ "started": "2026-09-23T21:21:19",
+ "cases": {
+  "CS00017": {
+   "status": "ok",
+   "detail": "run_CS00017_20260924T042253Z_77b6affa"
+  },
+  "CS00170": {
+   "status": "ok",
+   "detail": "run_CS00170_20260924T042259Z_3c37d751"
+  },
+  "CS00083": {
+   "status": "ok",
+   "detail": "run_CS00083_20260924T042303Z_e0a0681b"
+  },
+  "CS00011": {
+   "status": "ok",
+   "detail": "run_CS00011_20260924T042333Z_b6d0a851"
+  },
+  "CS00266": {
+   "status": "ok",
+   "detail": "run_CS00266_20260924T042412Z_852e3ac9"
+  },
+  "CS00273": {
+   "status": "ok",
+   "detail": "run_CS00273_20260924T042436Z_4f8741fc"
+  },
+  "CS00195": {
+   "status": "ok",
+   "detail": "run_CS00195_20260924T042451Z_48fd27db"
+  },
+  "CS00278": {
+   "status": "ok",
+   "detail": "run_CS00278_20260924T042518Z_2337db83"
+  },
+  "CS00290": {
+   "status": "ok",
+   "detail": "run_CS00290_20260924T042524Z_290fa117"
+  },
+  "CS00315": {
+   "status": "ok",
+   "detail": "run_CS00315_20260924T042628Z_5acc30ca"
+  },
+  "CS00349": {
+   "status": "ok",
+   "detail": "run_CS00349_20260924T042634Z_cd160d41"
+  },
+  "CS00438": {
+   "status": "ok",
+   "detail": "run_CS00438_20260924T042720Z_e5dc37b6"
+  },
+  "CS00557": {
+   "status": "ok",
+   "detail": "run_CS00557_20260924T042737Z_39cffbc5"
+  },
+  "CS00630": {
+   "status": "ok",
+   "detail": "run_CS00630_20260924T042808Z_8e4d91a9"
+  },
+  "CS00729": {
+   "status": "ok",
+   "detail": "run_CS00729_20260924T042838Z_080f889b"
+  },
+  "CS00732": {
+   "status": "ok",
+   "detail": "run_CS00732_20260924T042846Z_9610ff8a"
+  },
+  "CS00607": {
+   "status": "ok",
+   "detail": "run_CS00607_20260924T042919Z_c35279a4"
+  },
+  "CS00742": {
+   "status": "ok",
+   "detail": "run_CS00742_20260924T042958Z_3059f513"
+  },
+  "CS00746": {
+   "status": "ok",
+   "detail": "run_CS00746_20260924T043046Z_a25f2a0b"
+  },
+  "CS00752": {
+   "status": "ok",
+   "detail": "run_CS00752_20260924T043054Z_4ba4c620"
+  },
+  "CS00793": {
+   "status": "ok",
+   "detail": "run_CS00793_20260924T043137Z_adf07420"
+  },
+  "CS00796": {
+   "status": "ok",
+   "detail": "run_CS00796_20260924T043200Z_0bb9b550"
+  },
+  "CS00971": {
+   "status": "ok",
+   "detail": "run_CS00971_20260924T043216Z_fa94f1e9"
+  },
+  "CS00965": {
+   "status": "ok",
+   "detail": "run_CS00965_20260924T043225Z_c7abb22e"
+  },
+  "CS01294": {
+   "status": "ok",
+   "detail": "run_CS01294_20260924T043340Z_2431e98b"
+  },
+  "CS01031": {
+   "status": "ok",
+   "detail": "run_CS01031_20260924T043340Z_4e0ba882"
+  },
+  "CS01311": {
+   "status": "ok",
+   "detail": "run_CS01311_20260924T043344Z_a4667cc6"
+  },
+  "CS01091": {
+   "status": "ok",
+   "detail": "run_CS01091_20260924T043346Z_58ba90bb"
+  },
+  "CS01454": {
+   "status": "ok",
+   "detail": "run_CS01454_20260924T043457Z_21bc13df"
+  },
+  "CS01523": {
+   "status": "ok",
+   "detail": "run_CS01523_20260924T043516Z_4ea6d0a9"
+  },
+  "CS01480": {
+   "status": "ok",
+   "detail": "run_CS01480_20260924T043530Z_a7d4237c"
+  },
+  "CS01363": {
+   "status": "ok",
+   "detail": "run_CS01363_20260924T043547Z_27fb5246"
+  },
+  "CS01535": {
+   "status": "ok",
+   "detail": "run_CS01535_20260924T043636Z_a56ea28b"
+  },
+  "CS01691": {
+   "status": "ok",
+   "detail": "run_CS01691_20260924T043726Z_0f4d1f66"
+  },
+  "CS01839": {
+   "status": "ok",
+   "detail": "run_CS01839_20260924T043801Z_aa376037"
+  },
+  "CS01877": {
+   "status": "ok",
+   "detail": "run_CS01877_20260924T043808Z_634f4441"
+  },
+  "CS01911": {
+   "status": "ok",
+   "detail": "run_CS01911_20260924T043848Z_fac1fa3a"
+  },
+  "CS01928": {
+   "status": "ok",
+   "detail": "run_CS01928_20260924T043852Z_7762a4b3"
+  },
+  "CS01946": {
+   "status": "ok",
+   "detail": "run_CS01946_20260924T043948Z_3d4ba36f"
+  },
+  "CS01982": {
+   "status": "ok",
+   "detail": "run_CS01982_20260924T043949Z_fe393342"
+  },
+  "CS01989": {
+   "status": "ok",
+   "detail": "run_CS01989_20260924T043955Z_70800b42"
+  },
+  "CS02153": {
+   "status": "ok",
+   "detail": "run_CS02153_20260924T044107Z_cafe1fde"
+  },
+  "CS02098": {
+   "status": "ok",
+   "detail": "run_CS02098_20260924T044113Z_a778a142"
+  },
+  "CS02082": {
+   "status": "ok",
+   "detail": "run_CS02082_20260924T044157Z_024a1c14"
+  },
+  "CS02346": {
+   "status": "ok",
+   "detail": "run_CS02346_20260924T044236Z_4d07b018"
+  },
+  "CS02330": {
+   "status": "ok",
+   "detail": "run_CS02330_20260924T044246Z_6f00f49e"
+  },
+  "CS02380": {
+   "status": "ok",
+   "detail": "run_CS02380_20260924T044306Z_69071840"
+  },
+  "CS02492": {
+   "status": "ok",
+   "detail": "run_CS02492_20260924T044359Z_985ff068"
+  },
+  "CS02420": {
+   "status": "ok",
+   "detail": "run_CS02420_20260924T044400Z_113b5fa7"
+  },
+  "CS02425": {
+   "status": "ok",
+   "detail": "run_CS02425_20260924T044506Z_e3505d6e"
+  }
+ },
+ "elapsed_s": 1426.8,
+ "n_ok": 50
+}

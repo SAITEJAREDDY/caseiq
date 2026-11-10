@@ -1,0 +1,626 @@
+{
+  "run_id": "run_CS00191_20260923T051507Z_7eeeab25",
+  "case_id": "CS00191",
+  "created_at": "2026-09-23T05:15:07.366177+00:00",
+  "model_provider": "groq",
+  "model_name": "openai/gpt-oss-120b",
+  "temperature": 0.1,
+  "prompt_version": "v1",
+  "toolset_version": "v1",
+  "output_schema_version": "v1",
+  "graph_version": "phase4-2500case-2026-09-22",
+  "sim_clock_step_minutes": 15,
+  "max_tool_calls": 10,
+  "max_repeated_same_tool": 2,
+  "stop_reason": "tool_budget_exhausted",
+  "num_tool_calls": 10,
+  "num_llm_calls": 10,
+  "token_usage": {
+    "prompt_tokens": 43437,
+    "completion_tokens": 2462,
+    "total_tokens": 45899
+  },
+  "approx_cost_usd": 0.00459,
+  "approx_cost_note": "Estimated from a configurable placeholder rate, not exact provider billing -- see config.py",
+  "trace_steps": [
+    {
+      "step": 1,
+      "sim_clock": "2024-10-11 00:00:00",
+      "tool_name": "get_case_context",
+      "args": {
+        "hypotheses": [],
+        "rationale": "Obtain the customer's reported symptoms and context for case CS00191."
+      },
+      "hypotheses": [],
+      "rationale": "Obtain the customer's reported symptoms and context for case CS00191.",
+      "result_summary": {
+        "case_id": "CS00191",
+        "title": "Wrong tenant data shown and access denied errors in SSO Production",
+        "description": "Users in our US-East production environment are reporting that the SSO Integration Module is displaying data from the wrong tenant. Additionally, they are receiving unexpected 'permission denied' and 'access denied' errors when trying to perform actions that should be authorized. This is affecting 297 users with high business impact. We need to isolate if this is a session caching issue or a permission mapping error.",
+        "environment": "production",
+        "region": "US-East",
+        "reported_business_impact": "high",
+        "reported_affected_users": 297,
+        "priority": "high",
+        "created_date": "2024-10-11",
+        "status": "open",
+        "customer_id": "C00131",
+        "customer_tier": "bronze",
+        "customer_industry": "Energy & Utilities",
+        "customer_company_size": "enterprise",
+        "reported_product_id": "P002",
+        "reported_product_name": "SSO Integration Module",
+        "reported_symptoms": [
+          "access denied",
+          "permission denied unexpectedly",
+          "wrong tenant data shown"
+        ]
+      },
+      "latency_ms": 741.5,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 2,
+      "sim_clock": "2024-10-11 00:15:00",
+      "tool_name": "get_customer_deployment",
+      "args": {
+        "hypotheses": [
+          "session_caching_issue:0.4",
+          "permission_mapping_error:0.5",
+          "tenant_isolation_bug:0.3",
+          "recent_deployment_change:0.3",
+          "recent_policy_change:0.2",
+          "configuration_change:0.2"
+        ],
+        "rationale": "Identify deployed version, components, and environment details for SSO Integration Module."
+      },
+      "hypotheses": [
+        "session_caching_issue:0.4",
+        "permission_mapping_error:0.5",
+        "tenant_isolation_bug:0.3",
+        "recent_deployment_change:0.3",
+        "recent_policy_change:0.2",
+        "configuration_change:0.2"
+      ],
+      "rationale": "Identify deployed version, components, and environment details for SSO Integration Module.",
+      "result_summary": {
+        "deployments": [
+          {
+            "product_id": "P013",
+            "product_name": "Webhook Engine",
+            "version": "1.6",
+            "environment": "staging",
+            "region": "US-East",
+            "status": "active",
+            "deployed_at": "2026-06-13",
+            "product_components": [
+              "CM135",
+              "CM143",
+              "CM146",
+              "CM151",
+              "CM156",
+              "CM165",
+              "CM172",
+              "CM232"
+            ]
+          },
+          {
+            "product_id": "P013",
+            "product_name": "Webhook Engine",
+            "version": "1.6",
+            "environment": "production",
+            "region": "US-East",
+            "status": "active",
+            "deployed_at": "2026-03-13",
+            "product_components": [
+              "CM135",
+              "CM143",
+              "CM146",
+              "CM151",
+              "CM156",
+              "CM165",
+              "CM172",
+              "CM232"
+            ]
+          },
+          {
+            "product_id": "P019",
+            "product_name": "Load Balancer",
+            "version": "1.4",
+            "environment": "production",
+            "region": "US-East",
+            "status": "active",
+            "deployed_at": "2026-01-10",
+            "product_components": [
+              "CM135",
+              "CM136",
+              "CM138",
+              "CM139",
+              "CM150",
+              "CM153",
+              "CM164",
+              "CM237"
+            ]
+          },
+          {
+            "product_id": "P045",
+            "product_name": "Mobile App",
+            "version": "4.3",
+            "environment": "sandbox",
+            "region": "US-East",
+            "status": "active",
+            "deployed_at": "2025-12-08",
+            "product_components": [
+              "CM173",
+              "CM176",
+              "CM184",
+              "CM188",
+              "CM192",
+              "CM194",
+              "CM196",
+              "CM197"
+            ]
+          },
+          {
+            "product_id": "P002",
+            "product_name": "SSO Integration Module",
+            "version": "3.0",
+            "environment": "production",
+            "region": "US-East",
+            "status": "active",
+            "deployed_at": "2025-05-18",
+            "product_components": [
+              "CM011",
+              "CM019",
+              "CM025",
+              "CM027",
+              "CM031",
+              "CM032",
+              "CM241",
+              "CM246"
+            ]
+          },
+          {
+            "product_id": "P007",
+            "product_name": "Customer Portal",
+            "version": "4.2",
+            "environment": "production",
+            "region": "US-East",
+            "status": "active",
+            "deployed_at": "2025-01-08",
+            "product_components": [
+              "CM179",
+              "CM188",
+              "CM195",
+              "CM198",
+              "CM200",
+              "CM212",
+              "CM232"
+            ]
+          },
+          {
+            "product_id": "P045",
+            "product_name": "Mobile App",
+            "version": "4.3",
+            "environment": "production",
+            "region": "US-East",
+            "status": "active",
+            "deployed_at": "2024-12-12",
+            "product_components": [
+              "CM173",
+              "CM176",
+              "CM184",
+              "CM188",
+              "CM192",
+              "CM194",
+              "CM196",
+              "CM197"
+            ]
+          }
+        ]
+      },
+      "latency_ms": 1013.6,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 3,
+      "sim_clock": "2024-10-11 00:30:00",
+      "tool_name": "get_technical_signals",
+      "args": {
+        "hypotheses": [
+          "session_caching_issue:0.4",
+          "permission_mapping_error:0.5",
+          "tenant_isolation_bug:0.3",
+          "recent_deployment_change:0.3",
+          "recent_policy_change:0.2",
+          "configuration_change:0.2"
+        ],
+        "rationale": "Retrieve any observed errors like auth failures, tenant mismatches, etc."
+      },
+      "hypotheses": [
+        "session_caching_issue:0.4",
+        "permission_mapping_error:0.5",
+        "tenant_isolation_bug:0.3",
+        "recent_deployment_change:0.3",
+        "recent_policy_change:0.2",
+        "configuration_change:0.2"
+      ],
+      "rationale": "Retrieve any observed errors like auth failures, tenant mismatches, etc.",
+      "result_summary": {
+        "signals": [
+          {
+            "evidence_id": "SG0000944",
+            "signal_type": "DB_QUERY_TIMEOUT",
+            "message": "database query timeouts on Design System Component Library",
+            "timestamp": "2024-10-10 21:32:00",
+            "component_id": "CM195"
+          },
+          {
+            "evidence_id": "SG0000943",
+            "signal_type": "HTTP_403",
+            "message": "HTTP 403 Forbidden spike on Group Sync Service",
+            "timestamp": "2024-10-10 22:37:00",
+            "component_id": "CM032"
+          },
+          {
+            "evidence_id": "SG0000945",
+            "signal_type": "MESSAGE_DEAD_LETTERED",
+            "message": "messages routed to dead-letter queue from Payment Gateway Router",
+            "timestamp": "2024-10-10 22:50:00",
+            "component_id": "CM082"
+          }
+        ],
+        "count": 3
+      },
+      "latency_ms": 14868.0,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 4,
+      "sim_clock": "2024-10-11 00:45:00",
+      "tool_name": "get_telemetry",
+      "args": {
+        "component_id": "CM032",
+        "hypotheses": [
+          "session_caching_issue:0.4",
+          "permission_mapping_error:0.5",
+          "tenant_isolation_bug:0.3",
+          "recent_deployment_change:0.3",
+          "recent_policy_change:0.2",
+          "configuration_change:0.2"
+        ],
+        "metric_category": null,
+        "rationale": "Identify which telemetry categories have data for the Group Sync Service component."
+      },
+      "hypotheses": [
+        "session_caching_issue:0.4",
+        "permission_mapping_error:0.5",
+        "tenant_isolation_bug:0.3",
+        "recent_deployment_change:0.3",
+        "recent_policy_change:0.2",
+        "configuration_change:0.2"
+      ],
+      "rationale": "Identify which telemetry categories have data for the Group Sync Service component.",
+      "result_summary": {
+        "available_metric_categories": [],
+        "note": "Call again with one of these metric_category values to see actual readings."
+      },
+      "latency_ms": 33046.9,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 5,
+      "sim_clock": "2024-10-11 01:00:00",
+      "tool_name": "get_recent_changes",
+      "args": {
+        "component_id": "CM032",
+        "hypotheses": [
+          "session_caching_issue:0.4",
+          "permission_mapping_error:0.5",
+          "tenant_isolation_bug:0.3",
+          "recent_deployment_change:0.3",
+          "recent_policy_change:0.2",
+          "configuration_change:0.2"
+        ],
+        "rationale": "Check for recent policy or config changes affecting Group Sync Service."
+      },
+      "hypotheses": [
+        "session_caching_issue:0.4",
+        "permission_mapping_error:0.5",
+        "tenant_isolation_bug:0.3",
+        "recent_deployment_change:0.3",
+        "recent_policy_change:0.2",
+        "configuration_change:0.2"
+      ],
+      "rationale": "Check for recent policy or config changes affecting Group Sync Service.",
+      "result_summary": {
+        "error": "{code: Neo.ClientError.Statement.SyntaxError} {message: Variable `comp` not defined (line 4, column 9 (offset: 137))\n\"    AND comp.id = $component_id\"\n         ^}"
+      },
+      "latency_ms": 19376.6,
+      "status": "error",
+      "redundant": false
+    },
+    {
+      "step": 6,
+      "sim_clock": "2024-10-11 01:15:00",
+      "tool_name": "get_recent_changes",
+      "args": {
+        "hypotheses": [
+          "session_caching_issue:0.4",
+          "permission_mapping_error:0.5",
+          "tenant_isolation_bug:0.3",
+          "recent_deployment_change:0.3",
+          "recent_policy_change:0.2",
+          "configuration_change:0.2"
+        ],
+        "rationale": "Retrieve recent non-deployment changes across environment to see any policy/config updates."
+      },
+      "hypotheses": [
+        "session_caching_issue:0.4",
+        "permission_mapping_error:0.5",
+        "tenant_isolation_bug:0.3",
+        "recent_deployment_change:0.3",
+        "recent_policy_change:0.2",
+        "configuration_change:0.2"
+      ],
+      "rationale": "Retrieve recent non-deployment changes across environment to see any policy/config updates.",
+      "result_summary": {
+        "recent_changes": [
+          {
+            "evidence_id": "CH030460",
+            "change_type": "policy_change",
+            "component_id": "CM032",
+            "started_at": "2024-10-10 23:26:00",
+            "completed_at": "2024-10-10 23:33:00",
+            "status": "completed",
+            "initiated_by": "agent:support_ops",
+            "time_proximity_hours": 0.6,
+            "scope_match": "same_customer"
+          },
+          {
+            "evidence_id": "CH003378",
+            "change_type": "manual_config_change",
+            "component_id": "CM025",
+            "started_at": "2024-10-08 11:49:00",
+            "completed_at": "2024-10-08 12:08:00",
+            "status": "completed",
+            "initiated_by": "agent:support_ops",
+            "time_proximity_hours": 60.2,
+            "scope_match": "same_product"
+          }
+        ],
+        "count": 2
+      },
+      "latency_ms": 33981.4,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 7,
+      "sim_clock": "2024-10-11 01:30:00",
+      "tool_name": "get_component_topology",
+      "args": {
+        "component_id": "CM032",
+        "hypotheses": [
+          "session_caching_issue:0.4",
+          "permission_mapping_error:0.5",
+          "tenant_isolation_bug:0.3",
+          "recent_deployment_change:0.3",
+          "recent_policy_change:0.2",
+          "configuration_change:0.2"
+        ],
+        "rationale": "Understand dependencies of Group Sync Service component to see if tenant data source or auth checks are involved."
+      },
+      "hypotheses": [
+        "session_caching_issue:0.4",
+        "permission_mapping_error:0.5",
+        "tenant_isolation_bug:0.3",
+        "recent_deployment_change:0.3",
+        "recent_policy_change:0.2",
+        "configuration_change:0.2"
+      ],
+      "rationale": "Understand dependencies of Group Sync Service component to see if tenant data source or auth checks are involved.",
+      "result_summary": {
+        "component_id": "CM032",
+        "component_name": "Group Sync Service",
+        "upstream_dependencies": [
+          {
+            "name": "Authorization/Policy Engine",
+            "id": "CM002"
+          },
+          {
+            "name": "Federation Gateway",
+            "id": "CM010"
+          },
+          {
+            "name": "Login UI",
+            "id": "CM018"
+          },
+          {
+            "name": "Risk-Based Authentication Engine",
+            "id": "CM022"
+          },
+          {
+            "name": "OAuth Authorization Server",
+            "id": "CM027"
+          },
+          {
+            "name": "JWT Issuer Service",
+            "id": "CM029"
+          },
+          {
+            "name": "Step-Up Authentication Service",
+            "id": "CM030"
+          },
+          {
+            "name": "Login Analytics Service",
+            "id": "CM037"
+          },
+          {
+            "name": "Trusted Device Manager",
+            "id": "CM039"
+          },
+          {
+            "name": "SSO Broker (Shared)",
+            "id": "CM237"
+          }
+        ],
+        "downstream_dependents": [],
+        "external_dependencies": [],
+        "owning_teams": [
+          {
+            "name": "Authorization & Access",
+            "id": "TM02"
+          },
+          {
+            "name": "Onboarding & Provisioning",
+            "id": "TM24"
+          }
+        ]
+      },
+      "latency_ms": 31378.9,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 8,
+      "sim_clock": "2024-10-11 01:45:00",
+      "tool_name": "get_deployment_history",
+      "args": {
+        "component_id": null,
+        "hypotheses": [
+          "session_caching_issue:0.4",
+          "permission_mapping_error:0.5",
+          "tenant_isolation_bug:0.3",
+          "recent_deployment_change:0.3",
+          "recent_policy_change:0.2",
+          "configuration_change:0.2"
+        ],
+        "rationale": "Check recent deployments of SSO Integration Module for version changes that could cause bug."
+      },
+      "hypotheses": [
+        "session_caching_issue:0.4",
+        "permission_mapping_error:0.5",
+        "tenant_isolation_bug:0.3",
+        "recent_deployment_change:0.3",
+        "recent_policy_change:0.2",
+        "configuration_change:0.2"
+      ],
+      "rationale": "Check recent deployments of SSO Integration Module for version changes that could cause bug.",
+      "result_summary": {
+        "deployments": [],
+        "count": 0
+      },
+      "latency_ms": 41349.0,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 9,
+      "sim_clock": "2024-10-11 02:00:00",
+      "tool_name": "get_telemetry",
+      "args": {
+        "component_id": "CM032",
+        "hypotheses": [
+          "session_caching_issue:0.4",
+          "permission_mapping_error:0.5",
+          "tenant_isolation_bug:0.3",
+          "recent_deployment_change:0.3",
+          "recent_policy_change:0.2",
+          "configuration_change:0.2"
+        ],
+        "metric_category": "Identity",
+        "rationale": "Check identity-related metrics (auth failures, token issues) for Group Sync Service."
+      },
+      "hypotheses": [
+        "session_caching_issue:0.4",
+        "permission_mapping_error:0.5",
+        "tenant_isolation_bug:0.3",
+        "recent_deployment_change:0.3",
+        "recent_policy_change:0.2",
+        "configuration_change:0.2"
+      ],
+      "rationale": "Check identity-related metrics (auth failures, token issues) for Group Sync Service.",
+      "result_summary": {
+        "telemetry_findings": [],
+        "count": 0
+      },
+      "latency_ms": 41620.8,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 10,
+      "sim_clock": "2024-10-11 02:15:00",
+      "tool_name": "get_configuration_history",
+      "args": {
+        "component_id": "CM032",
+        "hypotheses": [
+          "session_caching_issue:0.4",
+          "permission_mapping_error:0.5",
+          "tenant_isolation_bug:0.3",
+          "recent_deployment_change:0.3",
+          "recent_policy_change:0.2",
+          "configuration_change:0.2"
+        ],
+        "rationale": "Inspect config snapshots for policy or auth settings that changed recently."
+      },
+      "hypotheses": [
+        "session_caching_issue:0.4",
+        "permission_mapping_error:0.5",
+        "tenant_isolation_bug:0.3",
+        "recent_deployment_change:0.3",
+        "recent_policy_change:0.2",
+        "configuration_change:0.2"
+      ],
+      "rationale": "Inspect config snapshots for policy or auth settings that changed recently.",
+      "result_summary": {
+        "configuration_snapshots": [],
+        "count": 0
+      },
+      "latency_ms": 42567.7,
+      "status": "ok",
+      "redundant": false
+    }
+  ],
+  "final_diagnosis": {
+    "hypotheses": [],
+    "rationale": "Fallback: tool_budget_exhausted and forced submit failed: Error code: 400 - {'error': {'message': 'Failed to parse tool call arguments as JSON', 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '{\"name\": \"submit_diagnosis\", \"arguments\": {\\n  \"category_confidence\": null,\\n  \"causal_change_confidence\": null,\\n  \"component_confidence\": null,\\n  \"evidence_sufficiency\": \"partial\",\\n  \"evidence_summary\": \"A recent policy change (CH030460) on Group Sync Service (CM032) coincides with a spike in HTTP 403 errors (SG0000943) and the reported wrong-tenant data and access denied symptoms.\",\\n  \"human_review_reason\": null,\\n  \"human_review_required\": false,\\n  \"hypotheses\": [\\n    {\\n      \"label\": \"recent_policy_change\",\\n      \"confidence\": 0.7,\\n      \"supporting_evidence\": [\"CH030460\"],\\n      \"contradicting_evidence\": [],\\n      \"description\": \"A policy change on Group Sync Service introduced the issue.\",\\n      \"status\": \"active\"\\n    },\\n    {\\n      \"label\": \"permission_mapping_error\",\\n      \"confidence\": 0.6,\\n      \"supporting_evidence\": [\"SG0000943\"],\\n      \"contradicting_evidence\": [],\\n      \"description\": \"Incorrect permission mapping caused access denied errors.\",\\n      \"status\": \"active\"\\n    },\\n    {\\n      \"label\": \"tenant_isolation_bug\",\\n      \"confidence\": 0.5,\\n      \"supporting_evidence\": [\"SG0000943\"],\\n      \"contradicting_evidence\": [],\\n      \"description\": \"Tenant isolation failure resulted in wrong tenant data being shown.\",\\n      \"status\": \"active\"\\n    },\\n    {\\n      \"label\": \"session_caching_issue\",\\n      \"confidence\": 0.2,\\n      \"supporting_evidence\": [],\\n      \"contradicting_evidence\": [],\\n      \"description\": \"Potential stale session cache causing mismatched tenant data.\",\\n      \"status\": \"active\"\\n    },\\n    {\\n      \"label\": \"configuration_change\",\\n     \"}'}}",
+    "predicted_product_id": null,
+    "product_confidence": null,
+    "predicted_component_id": null,
+    "component_confidence": null,
+    "predicted_category_id": null,
+    "category_confidence": null,
+    "predicted_subcategory_id": null,
+    "predicted_root_cause_family": null,
+    "root_cause_confidence": null,
+    "predicted_causal_change_id": null,
+    "causal_change_confidence": null,
+    "predicted_severity": null,
+    "severity_confidence": null,
+    "recommended_team_id": null,
+    "routing_confidence": null,
+    "evidence_sufficiency": "insufficient",
+    "overall_confidence": 0.0,
+    "recommended_next_action": "escalate to engineering for manual investigation",
+    "human_review_required": true,
+    "human_review_reason": "tool_budget_exhausted and forced submit failed: Error code: 400 - {'error': {'message': 'Failed to parse tool call arguments as JSON', 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '{\"name\": \"submit_diagnosis\", \"arguments\": {\\n  \"category_confidence\": null,\\n  \"causal_change_confidence\": null,\\n  \"component_confidence\": null,\\n  \"evidence_sufficiency\": \"partial\",\\n  \"evidence_summary\": \"A recent policy change (CH030460) on Group Sync Service (CM032) coincides with a spike in HTTP 403 errors (SG0000943) and the reported wrong-tenant data and access denied symptoms.\",\\n  \"human_review_reason\": null,\\n  \"human_review_required\": false,\\n  \"hypotheses\": [\\n    {\\n      \"label\": \"recent_policy_change\",\\n      \"confidence\": 0.7,\\n      \"supporting_evidence\": [\"CH030460\"],\\n      \"contradicting_evidence\": [],\\n      \"description\": \"A policy change on Group Sync Service introduced the issue.\",\\n      \"status\": \"active\"\\n    },\\n    {\\n      \"label\": \"permission_mapping_error\",\\n      \"confidence\": 0.6,\\n      \"supporting_evidence\": [\"SG0000943\"],\\n      \"contradicting_evidence\": [],\\n      \"description\": \"Incorrect permission mapping caused access denied errors.\",\\n      \"status\": \"active\"\\n    },\\n    {\\n      \"label\": \"tenant_isolation_bug\",\\n      \"confidence\": 0.5,\\n      \"supporting_evidence\": [\"SG0000943\"],\\n      \"contradicting_evidence\": [],\\n      \"description\": \"Tenant isolation failure resulted in wrong tenant data being shown.\",\\n      \"status\": \"active\"\\n    },\\n    {\\n      \"label\": \"session_caching_issue\",\\n      \"confidence\": 0.2,\\n      \"supporting_evidence\": [],\\n      \"contradicting_evidence\": [],\\n      \"description\": \"Potential stale session cache causing mismatched tenant data.\",\\n      \"status\": \"active\"\\n    },\\n    {\\n      \"label\": \"configuration_change\",\\n     \"}'}}",
+    "evidence_summary": "The agent could not complete a normal investigation loop.",
+    "unresolved_uncertainties": [
+      "tool_budget_exhausted and forced submit failed: Error code: 400 - {'error': {'message': 'Failed to parse tool call arguments as JSON', 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '{\"name\": \"submit_diagnosis\", \"arguments\": {\\n  \"category_confidence\": null,\\n  \"causal_change_confidence\": null,\\n  \"component_confidence\": null,\\n  \"evidence_sufficiency\": \"partial\",\\n  \"evidence_summary\": \"A recent policy change (CH030460) on Group Sync Service (CM032) coincides with a spike in HTTP 403 errors (SG0000943) and the reported wrong-tenant data and access denied symptoms.\",\\n  \"human_review_reason\": null,\\n  \"human_review_required\": false,\\n  \"hypotheses\": [\\n    {\\n      \"label\": \"recent_policy_change\",\\n      \"confidence\": 0.7,\\n      \"supporting_evidence\": [\"CH030460\"],\\n      \"contradicting_evidence\": [],\\n      \"description\": \"A policy change on Group Sync Service introduced the issue.\",\\n      \"status\": \"active\"\\n    },\\n    {\\n      \"label\": \"permission_mapping_error\",\\n      \"confidence\": 0.6,\\n      \"supporting_evidence\": [\"SG0000943\"],\\n      \"contradicting_evidence\": [],\\n      \"description\": \"Incorrect permission mapping caused access denied errors.\",\\n      \"status\": \"active\"\\n    },\\n    {\\n      \"label\": \"tenant_isolation_bug\",\\n      \"confidence\": 0.5,\\n      \"supporting_evidence\": [\"SG0000943\"],\\n      \"contradicting_evidence\": [],\\n      \"description\": \"Tenant isolation failure resulted in wrong tenant data being shown.\",\\n      \"status\": \"active\"\\n    },\\n    {\\n      \"label\": \"session_caching_issue\",\\n      \"confidence\": 0.2,\\n      \"supporting_evidence\": [],\\n      \"contradicting_evidence\": [],\\n      \"description\": \"Potential stale session cache causing mismatched tenant data.\",\\n      \"status\": \"active\"\\n    },\\n    {\\n      \"label\": \"configuration_change\",\\n     \"}'}}"
+    ]
+  },
+  "citation_violations": [],
+  "evidence_ids_seen": [
+    "CH003378",
+    "CH030460",
+    "SG0000943",
+    "SG0000944",
+    "SG0000945"
+  ]
+}

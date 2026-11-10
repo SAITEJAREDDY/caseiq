@@ -1,0 +1,62 @@
+{
+ "run_id": "llmonly_CS00278_20260924T181040Z_024bf0",
+ "case_id": "CS00278",
+ "created_at": "2026-09-24T18:10:40.510293+00:00",
+ "prompt_version": "llm_only_v1",
+ "model_name": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+ "temperature": 0.1,
+ "ticket_shown_to_model": {
+  "title": "Full Outage of Analytics Dashboard - Service Unresponsive / 503 Errors",
+  "description": "We are reporting a full outage of the Analytics Dashboard in the production US-West environment. The service is completely unresponsive for users. Direct API calls and web interface attempts are returning HTTP 503 Service Unavailable errors.\n\nThis affects approximately 77 users and has a moderate business impact as analytics data cannot be accessed. The outage appears to have started recently. We need confirmation of the status and an estimated time to resolution.",
+  "environment": "production",
+  "region": "US-West",
+  "priority": "high",
+  "reported_business_impact": "moderate",
+  "reported_affected_users": 77,
+  "created_date": "2025-02-02",
+  "customer_tier": "silver",
+  "customer_industry": "Energy & Utilities",
+  "customer_company_size": "mid",
+  "reported_product_name": "Analytics Dashboard",
+  "reported_symptoms": [
+   "service unresponsive",
+   "service returns 503",
+   "full outage reported"
+  ]
+ },
+ "n_categories_offered": 18,
+ "n_root_causes_offered": 40,
+ "parsed": {
+  "issue_category": "Reliability / Availability",
+  "root_cause": null,
+  "affected_component": "Analytics Dashboard",
+  "causal_change": null,
+  "owning_team": null,
+  "confidence": 0.8,
+  "status": "DIAGNOSIS_PROPOSED",
+  "summary": "The Analytics Dashboard in the production US-West environment is experiencing a full outage, with users receiving 503 Service Unavailable errors. The cause is currently unknown, but it appears to be related to the reliability and availability of the service."
+ },
+ "status": "DIAGNOSIS_PROPOSED",
+ "validation_errors": [],
+ "repair_used": false,
+ "llm_calls": [
+  {
+   "attempt": 0,
+   "latency_ms": 63521.7,
+   "finish_reason": "stop",
+   "raw_output": "{\"issue_category\": \"Reliability \\/ Availability\", \"root_cause\": null, \"affected_component\": \"Analytics Dashboard\", \"causal_change\": null, \"owning_team\": null, \"confidence\": 0.8, \"status\": \"DIAGNOSIS_PROPOSED\", \"summary\": \"The Analytics Dashboard in the production US-West environment is experiencing a full outage, with users receiving 503 Service Unavailable errors. The cause is currently unknown, but it appears to be related to the reliability and availability of the service.\"}"
+  }
+ ],
+ "tokens": {
+  "prompt": 752,
+  "completion": 112,
+  "total": 864
+ },
+ "latency_ms": 63521.7,
+ "wall_ms": 63525.9,
+ "cost_usd_estimate": 0.00076,
+ "tool_calls": 0,
+ "evidence_count": 0,
+ "graph_used": false,
+ "jev_used": false
+}

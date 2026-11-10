@@ -1,0 +1,353 @@
+{
+  "run_id": "run_CS00455_20260924T002743Z_ef18a8fd",
+  "case_id": "CS00455",
+  "created_at": "2026-09-24T00:27:43.959328+00:00",
+  "model_provider": "together",
+  "model_name": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "temperature": 0.1,
+  "prompt_version": "v1",
+  "toolset_version": "v1",
+  "output_schema_version": "v1",
+  "agent_loop_version": "v1",
+  "repair_layer_version": "v1",
+  "graph_version": "phase4-2500case-2026-09-22",
+  "sim_clock_step_minutes": 15,
+  "max_tool_calls": 10,
+  "max_repeated_same_tool": 2,
+  "stop_reason": "model_submitted",
+  "num_tool_calls": 7,
+  "num_llm_calls": 7,
+  "token_usage": {
+    "prompt_tokens": 13837,
+    "completion_tokens": 664,
+    "total_tokens": 14501
+  },
+  "approx_cost_usd": 0.00145,
+  "approx_cost_note": "Estimated from a configurable placeholder rate, not exact provider billing -- see config.py",
+  "trace_steps": [
+    {
+      "step": 1,
+      "sim_clock": "2026-02-17 00:00:00",
+      "tool_name": "get_case_context",
+      "args": {
+        "hypotheses": [],
+        "rationale": "Starting the investigation of case CS00455"
+      },
+      "hypotheses": [],
+      "rationale": "Starting the investigation of case CS00455",
+      "result_summary": {
+        "case_id": "CS00455",
+        "title": "Data residency flag mismatch and missing consent records in Analytics Dashboard (Dev, ANZ)",
+        "description": "In our development environment (ANZ region), the Analytics Dashboard is showing a mismatch in data residency flags. Additionally, several consent records appear to be missing from the user profile views. This is impacting our ability to verify compliance features for 843 test users. The dashboard is not reflecting the correct consent status, which is a high-priority issue for our compliance team.",
+        "environment": "development",
+        "region": "ANZ",
+        "reported_business_impact": "high",
+        "reported_affected_users": 843,
+        "priority": "medium",
+        "created_date": "2026-02-17",
+        "status": "resolved",
+        "customer_id": "C04201",
+        "customer_tier": "bronze",
+        "customer_industry": "Manufacturing",
+        "customer_company_size": "mid",
+        "reported_product_id": "P003",
+        "reported_product_name": "Analytics Dashboard",
+        "reported_symptoms": [
+          "consent record missing",
+          "data residency flag mismatch"
+        ]
+      },
+      "latency_ms": 1983.6,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 2,
+      "sim_clock": "2026-02-17 00:15:00",
+      "tool_name": "get_system_logs",
+      "args": {
+        "hypotheses": [
+          "data_residency_flag_mismatch:0.5",
+          "missing_consent_records:0.5"
+        ],
+        "rationale": "To investigate the data residency flag mismatch and missing consent records, we need to review the system logs for any errors or anomalies related to these issues."
+      },
+      "hypotheses": [
+        "data_residency_flag_mismatch:0.5",
+        "missing_consent_records:0.5"
+      ],
+      "rationale": "To investigate the data residency flag mismatch and missing consent records, we need to review the system logs for any errors or anomalies related to these issues.",
+      "result_summary": {
+        "error": "unknown tool 'get_system_logs'. Valid tools are: ['get_active_incidents', 'get_agent_availability', 'get_case_context', 'get_component_topology', 'get_configuration_history', 'get_customer_deployment', 'get_deployment_history', 'get_recent_changes', 'get_service_health', 'get_similar_cases', 'get_team_capability', 'get_technical_signals', 'get_telemetry', 'search_knowledge_base', 'submit_diagnosis']"
+      },
+      "latency_ms": 2208.7,
+      "status": "error",
+      "redundant": false
+    },
+    {
+      "step": 3,
+      "sim_clock": "2026-02-17 00:30:00",
+      "tool_name": "get_recent_changes",
+      "args": {
+        "hypotheses": [
+          "data_residency_flag_mismatch:0.5",
+          "missing_consent_records:0.5"
+        ],
+        "rationale": "To investigate the data residency flag mismatch and missing consent records, we need to review recent changes made to the system, which may have caused these issues."
+      },
+      "hypotheses": [
+        "data_residency_flag_mismatch:0.5",
+        "missing_consent_records:0.5"
+      ],
+      "rationale": "To investigate the data residency flag mismatch and missing consent records, we need to review recent changes made to the system, which may have caused these issues.",
+      "result_summary": {
+        "recent_changes": [
+          {
+            "evidence_id": "CH030543",
+            "change_type": "manual_config_change",
+            "component_id": "CM106",
+            "started_at": "2026-02-16 21:42:00",
+            "completed_at": "2026-02-16 21:52:00",
+            "status": "completed",
+            "initiated_by": "agent:support_ops",
+            "time_proximity_hours": 2.3,
+            "scope_match": "same_customer"
+          },
+          {
+            "evidence_id": "CH013921",
+            "change_type": "config_change",
+            "component_id": "CM114",
+            "started_at": "2026-02-16 13:31:00",
+            "completed_at": "2026-02-16 13:42:00",
+            "status": "completed",
+            "initiated_by": "agent:support_ops",
+            "time_proximity_hours": 10.5,
+            "scope_match": "same_product"
+          }
+        ],
+        "count": 2
+      },
+      "latency_ms": 1767.2,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 4,
+      "sim_clock": "2026-02-17 00:45:00",
+      "tool_name": "get_component_topology",
+      "args": {
+        "hypotheses": [
+          "data_residency_flag_mismatch:0.5",
+          "missing_consent_records:0.5"
+        ],
+        "rationale": "To further investigate the data residency flag mismatch and missing consent records, we need to review the component topology to understand the relationships between components and identify potential points of failure."
+      },
+      "hypotheses": [
+        "data_residency_flag_mismatch:0.5",
+        "missing_consent_records:0.5"
+      ],
+      "rationale": "To further investigate the data residency flag mismatch and missing consent records, we need to review the component topology to understand the relationships between components and identify potential points of failure.",
+      "result_summary": {
+        "error": "1 validation error for ComponentScopedArgs\ncomponent_id\n  Field required [type=missing, input_value={'hypotheses': ['data_res...ial points of failure.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      },
+      "latency_ms": 1833.2,
+      "status": "error",
+      "redundant": false
+    },
+    {
+      "step": 5,
+      "sim_clock": "2026-02-17 01:00:00",
+      "tool_name": "get_component_topology",
+      "args": {
+        "component_id": "CM106",
+        "hypotheses": [
+          "data_residency_flag_mismatch:0.5",
+          "missing_consent_records:0.5"
+        ],
+        "rationale": "To further investigate the data residency flag mismatch and missing consent records, we need to review the component topology to understand the relationships between components and identify potential points of failure."
+      },
+      "hypotheses": [
+        "data_residency_flag_mismatch:0.5",
+        "missing_consent_records:0.5"
+      ],
+      "rationale": "To further investigate the data residency flag mismatch and missing consent records, we need to review the component topology to understand the relationships between components and identify potential points of failure.",
+      "result_summary": {
+        "component_id": "CM106",
+        "component_name": "Data Catalog Service",
+        "upstream_dependencies": [
+          {
+            "name": "Data Retention Manager",
+            "id": "CM111"
+          },
+          {
+            "name": "Database Connection Pooler",
+            "id": "CM153"
+          },
+          {
+            "name": "Time-Series Metrics Store",
+            "id": "CM168"
+          },
+          {
+            "name": "File Storage Service",
+            "id": "CM240"
+          },
+          {
+            "name": "Central Search Index Service",
+            "id": "CM242"
+          }
+        ],
+        "downstream_dependents": [],
+        "external_dependencies": [],
+        "owning_teams": [
+          {
+            "name": "Data Platform",
+            "id": "TM05"
+          },
+          {
+            "name": "Compliance & Audit",
+            "id": "TM19"
+          }
+        ]
+      },
+      "latency_ms": 1361.2,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 6,
+      "sim_clock": "2026-02-17 01:15:00",
+      "tool_name": "get_telemetry",
+      "args": {
+        "component_id": "CM106",
+        "hypotheses": [
+          "data_residency_flag_mismatch:0.5",
+          "missing_consent_records:0.5"
+        ],
+        "rationale": "To further investigate the data residency flag mismatch and missing consent records, we need to review the telemetry data for the Data Catalog Service to identify any anomalies or errors that may be related to these issues."
+      },
+      "hypotheses": [
+        "data_residency_flag_mismatch:0.5",
+        "missing_consent_records:0.5"
+      ],
+      "rationale": "To further investigate the data residency flag mismatch and missing consent records, we need to review the telemetry data for the Data Catalog Service to identify any anomalies or errors that may be related to these issues.",
+      "result_summary": {
+        "available_metric_categories": [],
+        "note": "Call again with one of these metric_category values to see actual readings."
+      },
+      "latency_ms": 1842.1,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 7,
+      "sim_clock": "2026-02-17 01:30:00",
+      "tool_name": "submit_diagnosis",
+      "args": {
+        "hypotheses": [
+          {
+            "label": "data_residency_flag_mismatch",
+            "confidence": 0.5,
+            "supporting_evidence_ids": [
+              "CH030543"
+            ],
+            "contradicting_evidence_ids": [],
+            "status": "open"
+          },
+          {
+            "label": "missing_consent_records",
+            "confidence": 0.5,
+            "supporting_evidence_ids": [
+              "CH013921"
+            ],
+            "contradicting_evidence_ids": [],
+            "status": "open"
+          }
+        ],
+        "evidence_sufficiency": "partial",
+        "human_review_required": true,
+        "recommended_next_action": "Route to Data Platform team for further investigation",
+        "rationale": "Based on the available evidence, it appears that there may be issues with the data residency flag and missing consent records. However, the evidence is not sufficient to confirm the root cause, and human review is required to further investigate and resolve the issue."
+      },
+      "hypotheses": [
+        {
+          "label": "data_residency_flag_mismatch",
+          "confidence": 0.5,
+          "supporting_evidence_ids": [
+            "CH030543"
+          ],
+          "contradicting_evidence_ids": [],
+          "status": "open"
+        },
+        {
+          "label": "missing_consent_records",
+          "confidence": 0.5,
+          "supporting_evidence_ids": [
+            "CH013921"
+          ],
+          "contradicting_evidence_ids": [],
+          "status": "open"
+        }
+      ],
+      "rationale": "Based on the available evidence, it appears that there may be issues with the data residency flag and missing consent records. However, the evidence is not sufficient to confirm the root cause, and human review is required to further investigate and resolve the issue.",
+      "result_summary": "submitted",
+      "latency_ms": 5075.4,
+      "status": "ok",
+      "redundant": false
+    }
+  ],
+  "final_diagnosis": {
+    "hypotheses": [
+      {
+        "label": "data_residency_flag_mismatch",
+        "description": "",
+        "confidence": 0.5,
+        "supporting_evidence": [],
+        "contradicting_evidence": [],
+        "status": "active"
+      },
+      {
+        "label": "missing_consent_records",
+        "description": "",
+        "confidence": 0.5,
+        "supporting_evidence": [],
+        "contradicting_evidence": [],
+        "status": "active"
+      }
+    ],
+    "rationale": "Based on the available evidence, it appears that there may be issues with the data residency flag and missing consent records. However, the evidence is not sufficient to confirm the root cause, and human review is required to further investigate and resolve the issue.",
+    "predicted_product_id": null,
+    "product_confidence": null,
+    "predicted_component_id": null,
+    "component_confidence": null,
+    "predicted_category_id": null,
+    "category_confidence": null,
+    "predicted_subcategory_id": null,
+    "predicted_root_cause_family": null,
+    "root_cause_confidence": null,
+    "predicted_causal_change_id": null,
+    "causal_change_confidence": null,
+    "predicted_severity": null,
+    "severity_confidence": null,
+    "recommended_team_id": null,
+    "routing_confidence": null,
+    "evidence_sufficiency": "partial",
+    "overall_confidence": 0.5,
+    "recommended_next_action": "Route to Data Platform team for further investigation",
+    "human_review_required": true,
+    "human_review_reason": null,
+    "evidence_summary": "Based on the available evidence, it appears that there may be issues with the data residency flag and missing consent records. However, the evidence is not sufficient to confirm the root cause, and human review is required to further investigate and resolve the issue.",
+    "unresolved_uncertainties": []
+  },
+  "citation_violations": [],
+  "evidence_ids_seen": [
+    "CH013921",
+    "CH030543"
+  ],
+  "repair_events": [
+    {
+      "step": 7,
+      "kind": "final_diagnosis_repair",
+      "detail": "direct validation failed (4 validation errors for FinalDiagnosis\nhypotheses.0.status\n  Input should be 'active', 'rejected' or 'confirmed' [type=literal_error, input_value='open', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/literal_error\nhypotheses.1.status\n  Input should be 'active', 'rejected' or 'confirmed' [type=literal_error, input_value='open', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/literal_error\noverall_confidence\n  Field required [type=missing, input_value={'hypotheses': [{'label':...and resolve the issue.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\nevidence_summary\n  Field required [type=missing, input_value={'hypotheses': [{'label':...and resolve the issue.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing); repaired args validated"
+    }
+  ]
+}

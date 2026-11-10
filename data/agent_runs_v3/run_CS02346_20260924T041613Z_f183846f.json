@@ -1,0 +1,2373 @@
+{
+ "run_id": "run_CS02346_20260924T041613Z_f183846f",
+ "case_id": "CS02346",
+ "created_at": "2026-09-24T04:16:13.621366+00:00",
+ "run_tag": "iter50_a",
+ "model_provider": "together",
+ "model_name": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+ "temperature": 0.1,
+ "graph_version": "phase4-2500case-2026-09-22",
+ "sim_clock_step_minutes": 15,
+ "max_tool_calls": 10,
+ "max_repeated_same_tool": 2,
+ "max_tool_contract_repairs": 2,
+ "max_final_contract_repairs": 1,
+ "agent_version": "agent_v3_contract_hardened",
+ "contract_version": "agent_contract_v1",
+ "prompt_version": "v3.0",
+ "tool_catalog_version": "tool_catalog_v3",
+ "action_schema_version": "action_v3",
+ "final_schema_version": "final_diagnosis_v3",
+ "registry_version": "observed_registry_v1",
+ "alias_scheme": "agent_alias_v1",
+ "repair_policy_version": "repair_policy_v1",
+ "decoding": "json_schema_strict",
+ "code_digest": "b502290a7136316ef60e8b071f556eb8997ef7b8b8f02e64d74dd640300a7378",
+ "toolset_version": "tool_catalog_v3",
+ "output_schema_version": "final_diagnosis_v3",
+ "agent_loop_version": "agent_v3_contract_hardened",
+ "repair_layer_version": "repair_policy_v1",
+ "approx_cost_usd": 0.002219,
+ "stop_reason": "tool_budget_exhausted",
+ "num_tool_calls": 11,
+ "num_llm_calls": 10,
+ "token_usage": {
+  "prompt_tokens": 21602,
+  "completion_tokens": 589,
+  "total_tokens": 22191
+ },
+ "trace_steps": [
+  {
+   "step": 1,
+   "sim_clock": "2025-08-15 00:00:00",
+   "tool_name": "get_case_context",
+   "args": {},
+   "args_alias": {},
+   "hypotheses": [],
+   "hypothesis_state": [],
+   "rationale": "",
+   "result_summary": {
+    "case_id": "CS02346",
+    "title": "CRITICAL: Payment Gateway Capacity/Quota Exhaustion in EU-West",
+    "description": "We are experiencing a critical outage with Payment Gateway v2 in the EU-West production environment. Transactions are failing with messages indicating 'capacity limit reached' and 'quota exceeded'. This is affecting 8,701 users and is directly blocking revenue generation. We need immediate assistance to increase our limits or resolve the underlying capacity issue to restore service.",
+    "environment": "production",
+    "region": "EU-West",
+    "reported_business_impact": "critical",
+    "reported_affected_users": 8701,
+    "priority": "medium",
+    "created_date": "2025-08-15",
+    "status": "resolved",
+    "customer_id": "C00591",
+    "customer_tier": "bronze",
+    "customer_industry": "Education",
+    "customer_company_size": "enterprise",
+    "reported_product_id": "P001",
+    "reported_product_name": "Payment Gateway v2",
+    "reported_symptoms": [
+     "quota exceeded",
+     "capacity limit reached"
+    ]
+   },
+   "latency_ms": 0.0,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "harness"
+  },
+  {
+   "step": 2,
+   "sim_clock": "2025-08-15 00:15:00",
+   "tool_name": "get_customer_deployment",
+   "args": {},
+   "args_alias": {},
+   "hypotheses": [],
+   "hypothesis_state": [],
+   "rationale": "",
+   "result_summary": {
+    "deployments": [
+     {
+      "product_id": "P023",
+      "product_name": "Event Tracker",
+      "version": "1.6",
+      "environment": "staging",
+      "region": "EU-West",
+      "status": "active",
+      "deployed_at": "2026-08-14",
+      "product_components": [
+       "CM091",
+       "CM094",
+       "CM105",
+       "CM112",
+       "CM113",
+       "CM125",
+       "CM128",
+       "CM241"
+      ]
+     },
+     {
+      "product_id": "P019",
+      "product_name": "Load Balancer",
+      "version": "1.3",
+      "environment": "production",
+      "region": "EU-West",
+      "status": "active",
+      "deployed_at": "2026-07-25",
+      "product_components": [
+       "CM135",
+       "CM136",
+       "CM138",
+       "CM139",
+       "CM150",
+       "CM153",
+       "CM164",
+       "CM237"
+      ]
+     },
+     {
+      "product_id": "P001",
+      "product_name": "Payment Gateway v2",
+      "version": "2.1",
+      "environment": "sandbox",
+      "region": "EU-West",
+      "status": "active",
+      "deployed_at": "2026-07-18",
+      "product_components": [
+       "CM046",
+       "CM050",
+       "CM054",
+       "CM057",
+       "CM074",
+       "CM077",
+       "CM227",
+       "CM229"
+      ]
+     },
+     {
+      "product_id": "P023",
+      "product_name": "Event Tracker",
+      "version": "1.6",
+      "environment": "production",
+      "region": "EU-West",
+      "status": "active",
+      "deployed_at": "2026-07-13",
+      "product_components": [
+       "CM091",
+       "CM094",
+       "CM105",
+       "CM112",
+       "CM113",
+       "CM125",
+       "CM128",
+       "CM241"
+      ]
+     },
+     {
+      "product_id": "P008",
+      "product_name": "Refund Manager",
+      "version": "1.3",
+      "environment": "production",
+      "region": "EU-West",
+      "status": "decommissioned",
+      "deployed_at": "2026-02-22",
+      "product_components": [
+       "CM047",
+       "CM062",
+       "CM069",
+       "CM080",
+       "CM085",
+       "CM234",
+       "CM236",
+       "CM242"
+      ]
+     },
+     {
+      "product_id": "P024",
+      "product_name": "Rate Limiter",
+      "version": "1.1",
+      "environment": "production",
+      "region": "EU-West",
+      "status": "active",
+      "deployed_at": "2026-02-15",
+      "product_components": [
+       "CM136",
+       "CM141",
+       "CM142",
+       "CM144",
+       "CM150",
+       "CM154",
+       "CM158",
+       "CM159"
+      ]
+     },
+     {
+      "product_id": "P048",
+      "product_name": "Metrics Engine",
+      "version": "2.3",
+      "environment": "production",
+      "region": "EU-West",
+      "status": "active",
+      "deployed_at": "2026-01-10",
+      "product_components": [
+       "CM096",
+       "CM099",
+       "CM102",
+       "CM103",
+       "CM108",
+       "CM111",
+       "CM125",
+       "CM245"
+      ]
+     },
+     {
+      "product_id": "P023",
+      "product_name": "Event Tracker",
+      "version": "1.6",
+      "environment": "sandbox",
+      "region": "EU-West",
+      "status": "active",
+      "deployed_at": "2025-12-16",
+      "product_components": [
+       "CM091",
+       "CM094",
+       "CM105",
+       "CM112",
+       "CM113",
+       "CM125",
+       "CM128",
+       "CM241"
+      ]
+     }
+    ]
+   },
+   "latency_ms": 1375.5,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 3,
+   "sim_clock": "2025-08-15 00:30:00",
+   "tool_name": "get_component_topology",
+   "args": {
+    "component_id": "CM054"
+   },
+   "args_alias": {
+    "component": "COMPONENT_BJR"
+   },
+   "hypotheses": [],
+   "hypothesis_state": [],
+   "rationale": "",
+   "result_summary": {
+    "component_id": "CM054",
+    "component_name": "Payment Gateway API",
+    "upstream_dependencies": [
+     {
+      "name": "SAML Assertion Service",
+      "id": "CM026"
+     },
+     {
+      "name": "Step-Up Authentication Service",
+      "id": "CM030"
+     },
+     {
+      "name": "Login Analytics Service",
+      "id": "CM037"
+     },
+     {
+      "name": "Cross-Domain SSO Relay",
+      "id": "CM042"
+     },
+     {
+      "name": "Data Warehouse Store",
+      "id": "CM093"
+     },
+     {
+      "name": "Data Retention Manager",
+      "id": "CM111"
+     },
+     {
+      "name": "Load Balancer",
+      "id": "CM132"
+     },
+     {
+      "name": "Read Replica Service",
+      "id": "CM152"
+     },
+     {
+      "name": "Session Timeout Banner",
+      "id": "CM207"
+     },
+     {
+      "name": "Email Delivery Worker",
+      "id": "CM215"
+     },
+     {
+      "name": "Suppression List Manager",
+      "id": "CM225"
+     }
+    ],
+    "downstream_dependents": [
+     {
+      "name": "Chargeback Evidence Uploader",
+      "id": "CM075"
+     },
+     {
+      "name": "Help Center UI",
+      "id": "CM177"
+     },
+     {
+      "name": "Theming Engine",
+      "id": "CM185"
+     },
+     {
+      "name": "State Management Store",
+      "id": "CM194"
+     }
+    ],
+    "external_dependencies": [],
+    "owning_teams": [
+     {
+      "name": "Integration",
+      "id": "TM13"
+     },
+     {
+      "name": "Developer Platform / API",
+      "id": "TM14"
+     }
+    ]
+   },
+   "latency_ms": 3168.5,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 4,
+   "sim_clock": "2025-08-15 00:45:00",
+   "tool_name": "get_telemetry",
+   "args": {
+    "component_id": "CM054"
+   },
+   "args_alias": {
+    "component": "COMPONENT_BJR"
+   },
+   "hypotheses": [],
+   "hypothesis_state": [],
+   "rationale": "",
+   "result_summary": {
+    "available_metric_categories": [
+     "Capacity"
+    ],
+    "note": "Call again with one of these metric_category values to see actual readings."
+   },
+   "latency_ms": 13277.2,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 5,
+   "sim_clock": "2025-08-15 01:00:00",
+   "tool_name": "get_telemetry",
+   "args": {
+    "component_id": "CM054",
+    "metric_category": "Capacity"
+   },
+   "args_alias": {
+    "component": "COMPONENT_BJR",
+    "metric_category": "Capacity"
+   },
+   "hypotheses": [],
+   "hypothesis_state": [],
+   "rationale": "",
+   "result_summary": {
+    "telemetry_findings": [],
+    "count": 0
+   },
+   "latency_ms": 2268.9,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 6,
+   "sim_clock": "2025-08-15 01:15:00",
+   "tool_name": "get_technical_signals",
+   "args": {
+    "component_id": "CM054"
+   },
+   "args_alias": {
+    "component": "COMPONENT_BJR"
+   },
+   "hypotheses": [],
+   "hypothesis_state": [],
+   "rationale": "",
+   "result_summary": {
+    "signals": [],
+    "count": 0
+   },
+   "latency_ms": 3699.2,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 7,
+   "sim_clock": "2025-08-15 01:30:00",
+   "tool_name": "get_recent_changes",
+   "args": {
+    "component_id": "CM054"
+   },
+   "args_alias": {
+    "component": "COMPONENT_BJR"
+   },
+   "hypotheses": [],
+   "hypothesis_state": [],
+   "rationale": "",
+   "result_summary": {
+    "recent_changes": [],
+    "count": 0
+   },
+   "latency_ms": 1231.6,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 8,
+   "sim_clock": "2025-08-15 01:45:00",
+   "tool_name": "get_recent_changes",
+   "args": {},
+   "args_alias": {},
+   "hypotheses": [],
+   "hypothesis_state": [],
+   "rationale": "",
+   "result_summary": {
+    "recent_changes": [
+     {
+      "evidence_id": "CH005927",
+      "change_type": "policy_change",
+      "component_id": "CM046",
+      "started_at": "2025-08-14 22:50:00",
+      "completed_at": "2025-08-14 23:00:00",
+      "status": "completed",
+      "initiated_by": "system:automation",
+      "time_proximity_hours": 1.2,
+      "scope_match": "same_product"
+     }
+    ],
+    "count": 1
+   },
+   "latency_ms": 4049.5,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 9,
+   "sim_clock": "2025-08-15 02:00:00",
+   "tool_name": "get_service_health",
+   "args": {
+    "component_id": "CM054"
+   },
+   "args_alias": {
+    "component": "COMPONENT_BJR"
+   },
+   "hypotheses": [],
+   "hypothesis_state": [],
+   "rationale": "",
+   "result_summary": {
+    "health_events": [
+     {
+      "evidence_id": "SHE01103",
+      "started_at": "2025-08-05 01:38:00",
+      "ended_at": "2025-08-05 01:58:00",
+      "severity": "minor",
+      "description": "Automated health check flagged Payment Gateway API as degraded (minor) for 20 minutes."
+     },
+     {
+      "evidence_id": "SHE01100",
+      "started_at": "2025-08-02 19:09:00",
+      "ended_at": "2025-08-02 19:14:00",
+      "severity": "minor",
+      "description": "Automated health check flagged Payment Gateway API as degraded (minor) for 5 minutes."
+     },
+     {
+      "evidence_id": "SHE01090",
+      "started_at": "2025-07-26 04:53:00",
+      "ended_at": "2025-07-26 05:03:00",
+      "severity": "minor",
+      "description": "Transient minor availability dip on Payment Gateway API, recovered within 10 minutes."
+     },
+     {
+      "evidence_id": "SHE01093",
+      "started_at": "2025-06-21 14:29:00",
+      "ended_at": "2025-06-21 15:14:00",
+      "severity": "minor",
+      "description": "minor latency spike observed on Payment Gateway API, self-resolved after 45 minutes."
+     },
+     {
+      "evidence_id": "SHE01110",
+      "started_at": "2025-06-03 08:31:00",
+      "ended_at": "2025-06-03 09:31:00",
+      "severity": "minor",
+      "description": "Brief minor health blip on Payment Gateway API: elevated error rate for 60 minutes."
+     },
+     {
+      "evidence_id": "SHE01104",
+      "started_at": "2025-05-02 18:38:00",
+      "ended_at": "2025-05-02 18:43:00",
+      "severity": "major",
+      "description": "Automated health check flagged Payment Gateway API as degraded (major) for 5 minutes."
+     },
+     {
+      "evidence_id": "SHE01095",
+      "started_at": "2025-03-29 20:00:00",
+      "ended_at": "2025-03-29 20:05:00",
+      "severity": "minor",
+      "description": "Brief minor health blip on Payment Gateway API: elevated error rate for 5 minutes."
+     },
+     {
+      "evidence_id": "SHE01101",
+      "started_at": "2025-02-22 02:19:00",
+      "ended_at": "2025-02-22 03:19:00",
+      "severity": "minor",
+      "description": "Brief minor health blip on Payment Gateway API: elevated error rate for 60 minutes."
+     }
+    ],
+    "count": 8
+   },
+   "latency_ms": 1507.6,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 10,
+   "sim_clock": "2025-08-15 02:15:00",
+   "tool_name": "get_active_incidents",
+   "args": {},
+   "args_alias": {},
+   "hypotheses": [],
+   "hypothesis_state": [],
+   "rationale": "",
+   "result_summary": {
+    "incidents": [],
+    "count": 0
+   },
+   "latency_ms": 1940.3,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 11,
+   "sim_clock": "2025-08-15 02:30:00",
+   "tool_name": "submit_diagnosis",
+   "args": {},
+   "args_alias": {},
+   "hypotheses": [],
+   "hypothesis_state": [],
+   "rationale": "",
+   "result_summary": "submitted (forced)",
+   "latency_ms": 60567.1,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  }
+ ],
+ "final_diagnosis": {
+  "hypotheses": [],
+  "rationale": "",
+  "predicted_product_id": null,
+  "product_confidence": null,
+  "predicted_component_id": null,
+  "component_confidence": null,
+  "predicted_category_id": null,
+  "category_confidence": null,
+  "predicted_subcategory_id": null,
+  "predicted_root_cause_family": null,
+  "root_cause_confidence": null,
+  "predicted_causal_change_id": null,
+  "causal_change_confidence": null,
+  "predicted_severity": null,
+  "severity_confidence": null,
+  "recommended_team_id": null,
+  "routing_confidence": null,
+  "evidence_sufficiency": "insufficient",
+  "overall_confidence": 0,
+  "recommended_next_action": "Review case and gather additional evidence to determine root cause and propose a diagnosis",
+  "human_review_required": true,
+  "human_review_reason": "Investigation budget exhausted, unable to gather sufficient evidence to propose a diagnosis",
+  "evidence_summary": "The investigation budget has been exhausted, and insufficient evidence has been gathered to propose a diagnosis. Human review is required to further investigate the case and determine the root cause.",
+  "unresolved_uncertainties": [
+   "Unable to determine root cause due to insufficient evidence",
+   "Unable to identify affected component or owning team due to lack of information"
+  ],
+  "status": "HUMAN_REVIEW_REQUIRED",
+  "evidence_ids": []
+ },
+ "final_status": "HUMAN_REVIEW_REQUIRED",
+ "final_alias_form": {
+  "hypotheses": [],
+  "evidence_ids": [],
+  "issue_category": null,
+  "category_confidence": null,
+  "root_cause": null,
+  "root_cause_confidence": null,
+  "affected_component": null,
+  "component_confidence": null,
+  "causal_change": null,
+  "causal_change_confidence": null,
+  "owning_team": null,
+  "routing_confidence": null,
+  "confidence": 0,
+  "evidence_sufficiency": "insufficient",
+  "human_review_required": true,
+  "review_reason": "Investigation budget exhausted, unable to gather sufficient evidence to propose a diagnosis",
+  "status": "HUMAN_REVIEW_REQUIRED",
+  "recommended_next_action": "Review case and gather additional evidence to determine root cause and propose a diagnosis",
+  "unresolved_uncertainties": [
+   "Unable to determine root cause due to insufficient evidence",
+   "Unable to identify affected component or owning team due to lack of information"
+  ],
+  "summary": "The investigation budget has been exhausted, and insufficient evidence has been gathered to propose a diagnosis. Human review is required to further investigate the case and determine the root cause."
+ },
+ "citation_violations": [],
+ "evidence_ids_seen": [
+  "CH005927",
+  "SHE01090",
+  "SHE01093",
+  "SHE01095",
+  "SHE01100",
+  "SHE01101",
+  "SHE01103",
+  "SHE01104",
+  "SHE01110"
+ ],
+ "repair_events": [],
+ "tool_proposals": 9,
+ "tool_contract_errors": [],
+ "tool_contract_repairs": [],
+ "final_contract_errors": [],
+ "final_contract_repair": null,
+ "registry_snapshots": [
+  {
+   "step": 1,
+   "n_entities": 59,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 1
+   },
+   "aliases_sha256_16": "923ae5d125285faf"
+  },
+  {
+   "step": 2,
+   "n_entities": 109,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 6,
+    "COMPONENT": 45
+   },
+   "aliases_sha256_16": "42e482348c08d7ba"
+  },
+  {
+   "step": 3,
+   "n_entities": 125,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 6,
+    "COMPONENT": 59,
+    "TEAM": 2
+   },
+   "aliases_sha256_16": "e04e9460ed66d977"
+  },
+  {
+   "step": 4,
+   "n_entities": 125,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 6,
+    "COMPONENT": 59,
+    "TEAM": 2
+   },
+   "aliases_sha256_16": "e04e9460ed66d977"
+  },
+  {
+   "step": 5,
+   "n_entities": 125,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 6,
+    "COMPONENT": 59,
+    "TEAM": 2
+   },
+   "aliases_sha256_16": "e04e9460ed66d977"
+  },
+  {
+   "step": 6,
+   "n_entities": 125,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 6,
+    "COMPONENT": 59,
+    "TEAM": 2
+   },
+   "aliases_sha256_16": "e04e9460ed66d977"
+  },
+  {
+   "step": 7,
+   "n_entities": 125,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 6,
+    "COMPONENT": 59,
+    "TEAM": 2
+   },
+   "aliases_sha256_16": "e04e9460ed66d977"
+  },
+  {
+   "step": 8,
+   "n_entities": 126,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 6,
+    "COMPONENT": 59,
+    "TEAM": 2,
+    "CHANGE": 1
+   },
+   "aliases_sha256_16": "97dedafde1038c76"
+  },
+  {
+   "step": 9,
+   "n_entities": 134,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 6,
+    "COMPONENT": 59,
+    "TEAM": 2,
+    "CHANGE": 1,
+    "EVIDENCE": 8
+   },
+   "aliases_sha256_16": "a0af8dd4a1447ac5"
+  },
+  {
+   "step": 10,
+   "n_entities": 134,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 6,
+    "COMPONENT": 59,
+    "TEAM": 2,
+    "CHANGE": 1,
+    "EVIDENCE": 8
+   },
+   "aliases_sha256_16": "a0af8dd4a1447ac5"
+  }
+ ],
+ "alias_mappings": {
+  "CATEGORY_JCD": {
+   "alias": "CATEGORY_JCD",
+   "canonical_id": "IC01",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Identity / Authentication",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-15 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_BGC": {
+   "alias": "CATEGORY_BGC",
+   "canonical_id": "IC02",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Authorization / Permissions",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-15 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_FTV": {
+   "alias": "CATEGORY_FTV",
+   "canonical_id": "IC03",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Networking / Connectivity",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-15 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_JXT": {
+   "alias": "CATEGORY_JXT",
+   "canonical_id": "IC04",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Performance / Latency",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-15 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_ZPD": {
+   "alias": "CATEGORY_ZPD",
+   "canonical_id": "IC05",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Reliability / Availability",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-15 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_JKX": {
+   "alias": "CATEGORY_JKX",
+   "canonical_id": "IC06",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Deployment / Upgrade",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-15 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_GBN": {
+   "alias": "CATEGORY_GBN",
+   "canonical_id": "IC07",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Configuration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-15 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_FWL": {
+   "alias": "CATEGORY_FWL",
+   "canonical_id": "IC08",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Data / Corruption",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-15 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_QHZ": {
+   "alias": "CATEGORY_QHZ",
+   "canonical_id": "IC09",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Integration / API",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-15 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_DWP": {
+   "alias": "CATEGORY_DWP",
+   "canonical_id": "IC10",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Provisioning / Onboarding",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-15 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_DBT": {
+   "alias": "CATEGORY_DBT",
+   "canonical_id": "IC11",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Security",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-15 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_DSZ": {
+   "alias": "CATEGORY_DSZ",
+   "canonical_id": "IC12",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Compliance",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-15 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_FDC": {
+   "alias": "CATEGORY_FDC",
+   "canonical_id": "IC13",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Billing / Commerce",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-15 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_QVR": {
+   "alias": "CATEGORY_QVR",
+   "canonical_id": "IC14",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "User Experience / Functional Defect",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-15 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_QHH": {
+   "alias": "CATEGORY_QHH",
+   "canonical_id": "IC15",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Storage / Database",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-15 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_HLT": {
+   "alias": "CATEGORY_HLT",
+   "canonical_id": "IC16",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Capacity / Scaling",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-15 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_CPR": {
+   "alias": "CATEGORY_CPR",
+   "canonical_id": "IC17",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Third-Party / Dependency",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-15 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_VWW": {
+   "alias": "CATEGORY_VWW",
+   "canonical_id": "IC18",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Unknown / Other",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-15 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_XGH": {
+   "alias": "CAUSE_XGH",
+   "canonical_id": "RC01",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "product defect",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-15 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_NFL": {
+   "alias": "CAUSE_NFL",
+   "canonical_id": "RC02",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "customer configuration error",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-15 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_PPF": {
+   "alias": "CAUSE_PPF",
+   "canonical_id": "RC03",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "incorrect permissions",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-15 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_MFN": {
+   "alias": "CAUSE_MFN",
+   "canonical_id": "RC04",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "policy misconfiguration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-15 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_FLW": {
+   "alias": "CAUSE_FLW",
+   "canonical_id": "RC05",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "expired certificate",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-15 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_TMX": {
+   "alias": "CAUSE_TMX",
+   "canonical_id": "RC06",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "version incompatibility",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-15 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_QMD": {
+   "alias": "CAUSE_QMD",
+   "canonical_id": "RC07",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "dependency failure",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-15 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_PFG": {
+   "alias": "CAUSE_PFG",
+   "canonical_id": "RC08",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "network configuration error",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-15 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_DQC": {
+   "alias": "CAUSE_DQC",
+   "canonical_id": "RC09",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "resource exhaustion",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-15 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_FXW": {
+   "alias": "CAUSE_FXW",
+   "canonical_id": "RC10",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "database contention",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-15 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_XTJ": {
+   "alias": "CAUSE_XTJ",
+   "canonical_id": "RC11",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "bad deployment",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-15 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_RMV": {
+   "alias": "CAUSE_RMV",
+   "canonical_id": "RC12",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "incomplete migration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-15 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_KQQ": {
+   "alias": "CAUSE_KQQ",
+   "canonical_id": "RC13",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "stale cache",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-15 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_XPV": {
+   "alias": "CAUSE_XPV",
+   "canonical_id": "RC14",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "third-party service failure",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-15 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_RTZ": {
+   "alias": "CAUSE_RTZ",
+   "canonical_id": "RC15",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "unsupported configuration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-15 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_LFM": {
+   "alias": "CAUSE_LFM",
+   "canonical_id": "RC16",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "incorrect DNS configuration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-15 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_KJP": {
+   "alias": "CAUSE_KJP",
+   "canonical_id": "RC17",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "data quality issue",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-15 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_LHS": {
+   "alias": "CAUSE_LHS",
+   "canonical_id": "RC18",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "operator error",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-15 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_HDG": {
+   "alias": "CAUSE_HDG",
+   "canonical_id": "RC19",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "capacity limitation",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-15 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_GCG": {
+   "alias": "CAUSE_GCG",
+   "canonical_id": "RC20",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "known product limitation",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-15 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_VJZ": {
+   "alias": "CAUSE_VJZ",
+   "canonical_id": "RC21",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "race condition",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-15 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_GXZ": {
+   "alias": "CAUSE_GXZ",
+   "canonical_id": "RC22",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "identity provider outage",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-15 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_WCW": {
+   "alias": "CAUSE_WCW",
+   "canonical_id": "RC23",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "token expiration handling bug",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-15 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_JJH": {
+   "alias": "CAUSE_JJH",
+   "canonical_id": "RC24",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "insufficient monitoring/alerting",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-15 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_NDD": {
+   "alias": "CAUSE_NDD",
+   "canonical_id": "RC25",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "incorrect load balancer routing",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-15 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_ZWQ": {
+   "alias": "CAUSE_ZWQ",
+   "canonical_id": "RC26",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "firewall misconfiguration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-15 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_PTB": {
+   "alias": "CAUSE_PTB",
+   "canonical_id": "RC27",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "schema mismatch",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-15 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_GDF": {
+   "alias": "CAUSE_GDF",
+   "canonical_id": "RC28",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "breaking API contract change",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-15 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_BZT": {
+   "alias": "CAUSE_BZT",
+   "canonical_id": "RC29",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "credential rotation not propagated",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-15 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_GQC": {
+   "alias": "CAUSE_GQC",
+   "canonical_id": "RC30",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "stale internal documentation followed",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-15 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_XQV": {
+   "alias": "CAUSE_XQV",
+   "canonical_id": "RC31",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "incomplete rollback",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-15 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_ZTL": {
+   "alias": "CAUSE_ZTL",
+   "canonical_id": "RC32",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "infrastructure hardware failure",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-15 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_XLL": {
+   "alias": "CAUSE_XLL",
+   "canonical_id": "RC33",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "rate limit misconfiguration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-15 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_MPF": {
+   "alias": "CAUSE_MPF",
+   "canonical_id": "RC34",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "insufficient capacity planning",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-15 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_PHZ": {
+   "alias": "CAUSE_PHZ",
+   "canonical_id": "RC35",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "data migration defect",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-15 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_TTD": {
+   "alias": "CAUSE_TTD",
+   "canonical_id": "RC36",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "improper access review",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-15 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_TLR": {
+   "alias": "CAUSE_TLR",
+   "canonical_id": "RC37",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "expired API key",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-15 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_CWH": {
+   "alias": "CAUSE_CWH",
+   "canonical_id": "RC38",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "clock/time synchronization issue",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-15 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_BHV": {
+   "alias": "CAUSE_BHV",
+   "canonical_id": "RC39",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "idempotency/duplicate-processing failure",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-15 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_ZCN": {
+   "alias": "CAUSE_ZCN",
+   "canonical_id": "RC40",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "insufficient information to determine root cause",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-15 00:00:00",
+   "summary": ""
+  },
+  "PRODUCT_GWQ": {
+   "alias": "PRODUCT_GWQ",
+   "canonical_id": "P001",
+   "kind": "PRODUCT",
+   "type": "product",
+   "display_name": "Payment Gateway v2",
+   "source_tool": "get_case_context",
+   "first_observed_step": 1,
+   "first_observed_clock": "2025-08-15 00:00:00",
+   "summary": ""
+  },
+  "PRODUCT_HSL": {
+   "alias": "PRODUCT_HSL",
+   "canonical_id": "P023",
+   "kind": "PRODUCT",
+   "type": "product",
+   "display_name": "Event Tracker",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-15 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_MNX": {
+   "alias": "COMPONENT_MNX",
+   "canonical_id": "CM091",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Reporting Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-15 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_LJV": {
+   "alias": "COMPONENT_LJV",
+   "canonical_id": "CM094",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Dashboard UI",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-15 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_CWL": {
+   "alias": "COMPONENT_CWL",
+   "canonical_id": "CM105",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Alerting Engine",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-15 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_HCP": {
+   "alias": "COMPONENT_HCP",
+   "canonical_id": "CM112",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Custom Query Builder UI",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-15 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_MTL": {
+   "alias": "COMPONENT_MTL",
+   "canonical_id": "CM113",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Real-Time Metrics Stream",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-15 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_DZB": {
+   "alias": "COMPONENT_DZB",
+   "canonical_id": "CM125",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Data Freshness Monitor",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-15 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_RBN": {
+   "alias": "COMPONENT_RBN",
+   "canonical_id": "CM128",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Analytics Access Token Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-15 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_HNZ": {
+   "alias": "COMPONENT_HNZ",
+   "canonical_id": "CM241",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Central Message Queue",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-15 00:15:00",
+   "summary": ""
+  },
+  "PRODUCT_DKK": {
+   "alias": "PRODUCT_DKK",
+   "canonical_id": "P019",
+   "kind": "PRODUCT",
+   "type": "product",
+   "display_name": "Load Balancer",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-15 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_PKC": {
+   "alias": "COMPONENT_PKC",
+   "canonical_id": "CM135",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Queue Manager",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-15 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_LZK": {
+   "alias": "COMPONENT_LZK",
+   "canonical_id": "CM136",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Config Management Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-15 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_JRP": {
+   "alias": "COMPONENT_JRP",
+   "canonical_id": "CM138",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Service Mesh Proxy",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-15 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_PJL": {
+   "alias": "COMPONENT_PJL",
+   "canonical_id": "CM139",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Deploy Orchestrator",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-15 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_BLS": {
+   "alias": "COMPONENT_BLS",
+   "canonical_id": "CM150",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Backup & Restore Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-15 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_SWG": {
+   "alias": "COMPONENT_SWG",
+   "canonical_id": "CM153",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Database Connection Pooler",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-15 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_JVG": {
+   "alias": "COMPONENT_JVG",
+   "canonical_id": "CM164",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Ingress Controller",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-15 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_XQK": {
+   "alias": "COMPONENT_XQK",
+   "canonical_id": "CM237",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "SSO Broker (Shared)",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-15 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_BCP": {
+   "alias": "COMPONENT_BCP",
+   "canonical_id": "CM046",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Refund Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-15 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_PDT": {
+   "alias": "COMPONENT_PDT",
+   "canonical_id": "CM050",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Currency Conversion Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-15 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_BJR": {
+   "alias": "COMPONENT_BJR",
+   "canonical_id": "CM054",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Payment Gateway API",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-15 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_WNV": {
+   "alias": "COMPONENT_WNV",
+   "canonical_id": "CM057",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Settlement Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-15 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_CFD": {
+   "alias": "COMPONENT_CFD",
+   "canonical_id": "CM074",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Tax Jurisdiction Resolver",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-15 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_XKQ": {
+   "alias": "COMPONENT_XKQ",
+   "canonical_id": "CM077",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Usage Metering Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-15 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_VQP": {
+   "alias": "COMPONENT_VQP",
+   "canonical_id": "CM227",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Global API Gateway",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-15 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_GWV": {
+   "alias": "COMPONENT_GWV",
+   "canonical_id": "CM229",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Audit Log Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-15 00:15:00",
+   "summary": ""
+  },
+  "PRODUCT_MKB": {
+   "alias": "PRODUCT_MKB",
+   "canonical_id": "P008",
+   "kind": "PRODUCT",
+   "type": "product",
+   "display_name": "Refund Manager",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-15 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_KNB": {
+   "alias": "COMPONENT_KNB",
+   "canonical_id": "CM047",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Chargeback Handler",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-15 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_WMF": {
+   "alias": "COMPONENT_WMF",
+   "canonical_id": "CM062",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Disputes Workflow Engine",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-15 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_VQC": {
+   "alias": "COMPONENT_VQC",
+   "canonical_id": "CM069",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Merchant Onboarding Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-15 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_QDL": {
+   "alias": "COMPONENT_QDL",
+   "canonical_id": "CM080",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Billing Data Export Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-15 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_FPT": {
+   "alias": "COMPONENT_FPT",
+   "canonical_id": "CM085",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Sales Tax Filing Connector",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-15 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_SDX": {
+   "alias": "COMPONENT_SDX",
+   "canonical_id": "CM234",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "DNS Resolution Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-15 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_LRN": {
+   "alias": "COMPONENT_LRN",
+   "canonical_id": "CM236",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Webhook Dispatch Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-15 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_FNF": {
+   "alias": "COMPONENT_FNF",
+   "canonical_id": "CM242",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Central Search Index Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-15 00:15:00",
+   "summary": ""
+  },
+  "PRODUCT_LGC": {
+   "alias": "PRODUCT_LGC",
+   "canonical_id": "P024",
+   "kind": "PRODUCT",
+   "type": "product",
+   "display_name": "Rate Limiter",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-15 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_LDJ": {
+   "alias": "COMPONENT_LDJ",
+   "canonical_id": "CM141",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Autoscaler",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-15 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_DQZ": {
+   "alias": "COMPONENT_DQZ",
+   "canonical_id": "CM142",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Circuit Breaker",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-15 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_KPT": {
+   "alias": "COMPONENT_KPT",
+   "canonical_id": "CM144",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Service Registry",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-15 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_GVT": {
+   "alias": "COMPONENT_GVT",
+   "canonical_id": "CM154",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Object Storage Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-15 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_KCQ": {
+   "alias": "COMPONENT_KCQ",
+   "canonical_id": "CM158",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Secrets Rotation Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-15 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_ZCR": {
+   "alias": "COMPONENT_ZCR",
+   "canonical_id": "CM159",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "VPN Gateway",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-15 00:15:00",
+   "summary": ""
+  },
+  "PRODUCT_RDF": {
+   "alias": "PRODUCT_RDF",
+   "canonical_id": "P048",
+   "kind": "PRODUCT",
+   "type": "product",
+   "display_name": "Metrics Engine",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-15 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_QVZ": {
+   "alias": "COMPONENT_QVZ",
+   "canonical_id": "CM096",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "ETL Pipeline",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-15 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_JJQ": {
+   "alias": "COMPONENT_JJQ",
+   "canonical_id": "CM099",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Visualization Renderer",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-15 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_QCK": {
+   "alias": "COMPONENT_QCK",
+   "canonical_id": "CM102",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Funnel Analysis Engine",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-15 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_MCN": {
+   "alias": "COMPONENT_MCN",
+   "canonical_id": "CM103",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Attribution Engine",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-15 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_BZT": {
+   "alias": "COMPONENT_BZT",
+   "canonical_id": "CM108",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Embedding Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-15 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_DXS": {
+   "alias": "COMPONENT_DXS",
+   "canonical_id": "CM111",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Data Retention Manager",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-15 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_NLV": {
+   "alias": "COMPONENT_NLV",
+   "canonical_id": "CM245",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Central Notification Dispatcher",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-15 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_HVG": {
+   "alias": "COMPONENT_HVG",
+   "canonical_id": "CM026",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "SAML Assertion Service",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2025-08-15 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_ZLK": {
+   "alias": "COMPONENT_ZLK",
+   "canonical_id": "CM030",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Step-Up Authentication Service",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2025-08-15 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_MQM": {
+   "alias": "COMPONENT_MQM",
+   "canonical_id": "CM037",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Login Analytics Service",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2025-08-15 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_FJN": {
+   "alias": "COMPONENT_FJN",
+   "canonical_id": "CM042",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Cross-Domain SSO Relay",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2025-08-15 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_XVL": {
+   "alias": "COMPONENT_XVL",
+   "canonical_id": "CM093",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Data Warehouse Store",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2025-08-15 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_HZM": {
+   "alias": "COMPONENT_HZM",
+   "canonical_id": "CM132",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Load Balancer",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2025-08-15 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_VNJ": {
+   "alias": "COMPONENT_VNJ",
+   "canonical_id": "CM152",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Read Replica Service",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2025-08-15 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_LPQ": {
+   "alias": "COMPONENT_LPQ",
+   "canonical_id": "CM207",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Session Timeout Banner",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2025-08-15 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_JHQ": {
+   "alias": "COMPONENT_JHQ",
+   "canonical_id": "CM215",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Email Delivery Worker",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2025-08-15 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_PLH": {
+   "alias": "COMPONENT_PLH",
+   "canonical_id": "CM225",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Suppression List Manager",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2025-08-15 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_BRB": {
+   "alias": "COMPONENT_BRB",
+   "canonical_id": "CM075",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Chargeback Evidence Uploader",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2025-08-15 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_HGZ": {
+   "alias": "COMPONENT_HGZ",
+   "canonical_id": "CM177",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Help Center UI",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2025-08-15 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_LWS": {
+   "alias": "COMPONENT_LWS",
+   "canonical_id": "CM185",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Theming Engine",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2025-08-15 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_MSR": {
+   "alias": "COMPONENT_MSR",
+   "canonical_id": "CM194",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "State Management Store",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2025-08-15 00:30:00",
+   "summary": ""
+  },
+  "TEAM_KQT": {
+   "alias": "TEAM_KQT",
+   "canonical_id": "TM13",
+   "kind": "TEAM",
+   "type": "team",
+   "display_name": "Integration",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2025-08-15 00:30:00",
+   "summary": ""
+  },
+  "TEAM_DKC": {
+   "alias": "TEAM_DKC",
+   "canonical_id": "TM14",
+   "kind": "TEAM",
+   "type": "team",
+   "display_name": "Developer Platform / API",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2025-08-15 00:30:00",
+   "summary": ""
+  },
+  "CHANGE_SHR": {
+   "alias": "CHANGE_SHR",
+   "canonical_id": "CH005927",
+   "kind": "CHANGE",
+   "type": "change",
+   "display_name": "",
+   "source_tool": "get_recent_changes",
+   "first_observed_step": 8,
+   "first_observed_clock": "2025-08-15 01:45:00",
+   "summary": "policy_change on COMPONENT_BCP started 2025-08-14 22:50:00, status completed, 1.2h before case"
+  },
+  "EVIDENCE_JKW": {
+   "alias": "EVIDENCE_JKW",
+   "canonical_id": "SHE01103",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 9,
+   "first_observed_clock": "2025-08-15 02:00:00",
+   "summary": "health event severity minor 2025-08-05 01:38:00..2025-08-05 01:58:00: Automated health check flagged Payment Gateway API as degraded (minor) for 20 minutes."
+  },
+  "EVIDENCE_SBZ": {
+   "alias": "EVIDENCE_SBZ",
+   "canonical_id": "SHE01100",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 9,
+   "first_observed_clock": "2025-08-15 02:00:00",
+   "summary": "health event severity minor 2025-08-02 19:09:00..2025-08-02 19:14:00: Automated health check flagged Payment Gateway API as degraded (minor) for 5 minutes."
+  },
+  "EVIDENCE_RKC": {
+   "alias": "EVIDENCE_RKC",
+   "canonical_id": "SHE01090",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 9,
+   "first_observed_clock": "2025-08-15 02:00:00",
+   "summary": "health event severity minor 2025-07-26 04:53:00..2025-07-26 05:03:00: Transient minor availability dip on Payment Gateway API, recovered within 10 minutes."
+  },
+  "EVIDENCE_DQL": {
+   "alias": "EVIDENCE_DQL",
+   "canonical_id": "SHE01093",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 9,
+   "first_observed_clock": "2025-08-15 02:00:00",
+   "summary": "health event severity minor 2025-06-21 14:29:00..2025-06-21 15:14:00: minor latency spike observed on Payment Gateway API, self-resolved after 45 minutes."
+  },
+  "EVIDENCE_DMM": {
+   "alias": "EVIDENCE_DMM",
+   "canonical_id": "SHE01110",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 9,
+   "first_observed_clock": "2025-08-15 02:00:00",
+   "summary": "health event severity minor 2025-06-03 08:31:00..2025-06-03 09:31:00: Brief minor health blip on Payment Gateway API: elevated error rate for 60 minutes."
+  },
+  "EVIDENCE_KTR": {
+   "alias": "EVIDENCE_KTR",
+   "canonical_id": "SHE01104",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 9,
+   "first_observed_clock": "2025-08-15 02:00:00",
+   "summary": "health event severity major 2025-05-02 18:38:00..2025-05-02 18:43:00: Automated health check flagged Payment Gateway API as degraded (major) for 5 minutes."
+  },
+  "EVIDENCE_GVJ": {
+   "alias": "EVIDENCE_GVJ",
+   "canonical_id": "SHE01095",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 9,
+   "first_observed_clock": "2025-08-15 02:00:00",
+   "summary": "health event severity minor 2025-03-29 20:00:00..2025-03-29 20:05:00: Brief minor health blip on Payment Gateway API: elevated error rate for 5 minutes."
+  },
+  "EVIDENCE_MGC": {
+   "alias": "EVIDENCE_MGC",
+   "canonical_id": "SHE01101",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 9,
+   "first_observed_clock": "2025-08-15 02:00:00",
+   "summary": "health event severity minor 2025-02-22 02:19:00..2025-02-22 03:19:00: Brief minor health blip on Payment Gateway API: elevated error rate for 60 minutes."
+  }
+ },
+ "validation_result": {
+  "first_pass_ok": true,
+  "errors_first": [],
+  "repair_used": false,
+  "final_ok": true,
+  "errors_final": []
+ },
+ "contract_failure": null,
+ "llm_calls": [
+  {
+   "phase": "action",
+   "step": 2,
+   "attempt": 0,
+   "prompt_tokens": 1203,
+   "completion_tokens": 37,
+   "latency_ms": 1266.0,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [], \"tool\": \"get_customer_deployment\", \"component\": null, \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 3,
+   "attempt": 0,
+   "prompt_tokens": 2560,
+   "completion_tokens": 40,
+   "latency_ms": 3099.3,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [], \"tool\": \"get_component_topology\", \"component\": \"COMPONENT_BJR\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 4,
+   "attempt": 0,
+   "prompt_tokens": 2147,
+   "completion_tokens": 41,
+   "latency_ms": 13223.8,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [], \"tool\": \"get_telemetry\", \"component\": \"COMPONENT_BJR\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 5,
+   "attempt": 0,
+   "prompt_tokens": 1849,
+   "completion_tokens": 42,
+   "latency_ms": 2217.5,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [], \"tool\": \"get_telemetry\", \"component\": \"COMPONENT_BJR\", \"metric_category\": \"Capacity\", \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 6,
+   "attempt": 0,
+   "prompt_tokens": 1856,
+   "completion_tokens": 42,
+   "latency_ms": 3642.5,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [], \"tool\": \"get_technical_signals\", \"component\": \"COMPONENT_BJR\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 7,
+   "attempt": 0,
+   "prompt_tokens": 1871,
+   "completion_tokens": 40,
+   "latency_ms": 1131.8,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [], \"tool\": \"get_recent_changes\", \"component\": \"COMPONENT_BJR\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 8,
+   "attempt": 0,
+   "prompt_tokens": 1885,
+   "completion_tokens": 36,
+   "latency_ms": 3998.4,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [], \"tool\": \"get_recent_changes\", \"component\": null, \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 9,
+   "attempt": 0,
+   "prompt_tokens": 2038,
+   "completion_tokens": 40,
+   "latency_ms": 1457.7,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [], \"tool\": \"get_service_health\", \"component\": \"COMPONENT_BJR\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 10,
+   "attempt": 0,
+   "prompt_tokens": 3063,
+   "completion_tokens": 38,
+   "latency_ms": 1891.0,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [], \"tool\": \"get_active_incidents\", \"component\": null, \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "final",
+   "step": 11,
+   "attempt": 0,
+   "prompt_tokens": 3130,
+   "completion_tokens": 233,
+   "latency_ms": 60567.1,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [], \"evidence_ids\": [], \"issue_category\": null, \"category_confidence\": null, \"root_cause\": null, \"root_cause_confidence\": null, \"affected_component\": null, \"component_confidence\": null, \"causal_change\": null, \"causal_change_confidence\": null, \"owning_team\": null, \"routing_confidence\": null, \"confidence\": 0, \"evidence_sufficiency\": \"insufficient\", \"human_review_required\": true, \"review_reason\": \"Investigation budget exhausted, unable to gather sufficient evidence to propose a diagnosis\", \"status\": \"HUMAN_REVIEW_REQUIRED\", \"recommended_next_action\": \"Review case and gather additional evidence to determine root cause and propose a diagnosis\", \"unresolved_uncertainties\": [\"Unable to determine root cause due to insufficient evidence\", \"Unable to identify affected component or owning team due to lack of information\"], \"summary\": \"The investigation budget has been exhausted, and insufficient evidence has been gathered to propose a diagnosis. Human review is required to further investigate the case and determine the root cause.\"}"
+  }
+ ]
+}

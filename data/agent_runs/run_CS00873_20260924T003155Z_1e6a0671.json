@@ -1,0 +1,371 @@
+{
+  "run_id": "run_CS00873_20260924T003155Z_1e6a0671",
+  "case_id": "CS00873",
+  "created_at": "2026-09-24T00:31:55.071508+00:00",
+  "model_provider": "together",
+  "model_name": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "temperature": 0.1,
+  "prompt_version": "v1",
+  "toolset_version": "v1",
+  "output_schema_version": "v1",
+  "agent_loop_version": "v1",
+  "repair_layer_version": "v1",
+  "graph_version": "phase4-2500case-2026-09-22",
+  "sim_clock_step_minutes": 15,
+  "max_tool_calls": 10,
+  "max_repeated_same_tool": 2,
+  "stop_reason": "model_submitted",
+  "num_tool_calls": 6,
+  "num_llm_calls": 6,
+  "token_usage": {
+    "prompt_tokens": 11926,
+    "completion_tokens": 577,
+    "total_tokens": 12503
+  },
+  "approx_cost_usd": 0.00125,
+  "approx_cost_note": "Estimated from a configurable placeholder rate, not exact provider billing -- see config.py",
+  "trace_steps": [
+    {
+      "step": 1,
+      "sim_clock": "2025-07-20 00:00:00",
+      "tool_name": "get_case_context",
+      "args": {
+        "hypotheses": [],
+        "rationale": "Starting the investigation of case CS00873"
+      },
+      "hypotheses": [],
+      "rationale": "Starting the investigation of case CS00873",
+      "result_summary": {
+        "case_id": "CS00873",
+        "title": "SSO users receiving 'Permission Denied' despite correct roles",
+        "description": "Since yesterday, users in our LATAM production environment who log in via SSO are receiving 'Permission Denied' errors when accessing specific modules. Upon investigation, we noticed that the correct user roles are not being applied to the session tokens, even though the IdP assertion contains the correct group memberships. This impacts approximately 760 users and is preventing them from completing their workflows.",
+        "environment": "production",
+        "region": "LATAM",
+        "reported_business_impact": "high",
+        "reported_affected_users": 760,
+        "priority": "high",
+        "created_date": "2025-07-20",
+        "status": "escalated",
+        "customer_id": "C02010",
+        "customer_tier": "gold",
+        "customer_industry": "Financial Services",
+        "customer_company_size": "enterprise",
+        "reported_product_id": "P002",
+        "reported_product_name": "SSO Integration Module",
+        "reported_symptoms": [
+          "role not applied",
+          "permission denied unexpectedly"
+        ]
+      },
+      "latency_ms": 3358.0,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 2,
+      "sim_clock": "2025-07-20 00:15:00",
+      "tool_name": "get_customer_history",
+      "args": {
+        "hypotheses": [
+          "sso_configuration_issue:0.4",
+          "idp_assertion_mismatch:0.3",
+          "role_mapping_error:0.3"
+        ],
+        "rationale": "To understand if similar issues have occurred in the past and to identify potential patterns or correlations"
+      },
+      "hypotheses": [
+        "sso_configuration_issue:0.4",
+        "idp_assertion_mismatch:0.3",
+        "role_mapping_error:0.3"
+      ],
+      "rationale": "To understand if similar issues have occurred in the past and to identify potential patterns or correlations",
+      "result_summary": {
+        "error": "unknown tool 'get_customer_history'. Valid tools are: ['get_active_incidents', 'get_agent_availability', 'get_case_context', 'get_component_topology', 'get_configuration_history', 'get_customer_deployment', 'get_deployment_history', 'get_recent_changes', 'get_service_health', 'get_similar_cases', 'get_team_capability', 'get_technical_signals', 'get_telemetry', 'search_knowledge_base', 'submit_diagnosis']"
+      },
+      "latency_ms": 3261.5,
+      "status": "error",
+      "redundant": false
+    },
+    {
+      "step": 3,
+      "sim_clock": "2025-07-20 00:30:00",
+      "tool_name": "get_recent_changes",
+      "args": {
+        "hypotheses": [
+          "sso_configuration_issue:0.4",
+          "idp_assertion_mismatch:0.3",
+          "role_mapping_error:0.3"
+        ],
+        "rationale": "To identify any recent changes that could be related to the issue"
+      },
+      "hypotheses": [
+        "sso_configuration_issue:0.4",
+        "idp_assertion_mismatch:0.3",
+        "role_mapping_error:0.3"
+      ],
+      "rationale": "To identify any recent changes that could be related to the issue",
+      "result_summary": {
+        "recent_changes": [
+          {
+            "evidence_id": "CH030675",
+            "change_type": "permission_change",
+            "component_id": "CM032",
+            "started_at": "2025-07-19 21:09:00",
+            "completed_at": "2025-07-19 21:11:00",
+            "status": "completed",
+            "initiated_by": "agent:support_ops",
+            "time_proximity_hours": 2.9,
+            "scope_match": "same_customer"
+          }
+        ],
+        "count": 1
+      },
+      "latency_ms": 2821.2,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 4,
+      "sim_clock": "2025-07-20 00:45:00",
+      "tool_name": "get_component_topology",
+      "args": {
+        "hypotheses": [
+          "sso_configuration_issue:0.4",
+          "idp_assertion_mismatch:0.3",
+          "role_mapping_error:0.3"
+        ],
+        "rationale": "To understand the component interactions and identify potential failure points"
+      },
+      "hypotheses": [
+        "sso_configuration_issue:0.4",
+        "idp_assertion_mismatch:0.3",
+        "role_mapping_error:0.3"
+      ],
+      "rationale": "To understand the component interactions and identify potential failure points",
+      "result_summary": {
+        "error": "1 validation error for ComponentScopedArgs\ncomponent_id\n  Field required [type=missing, input_value={'hypotheses': ['sso_conf...tential failure points'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      },
+      "latency_ms": 1842.2,
+      "status": "error",
+      "redundant": false
+    },
+    {
+      "step": 5,
+      "sim_clock": "2025-07-20 01:00:00",
+      "tool_name": "get_component_topology",
+      "args": {
+        "component_id": "CM032",
+        "hypotheses": [
+          "sso_configuration_issue:0.4",
+          "idp_assertion_mismatch:0.3",
+          "role_mapping_error:0.3"
+        ],
+        "rationale": "To understand the component interactions and identify potential failure points"
+      },
+      "hypotheses": [
+        "sso_configuration_issue:0.4",
+        "idp_assertion_mismatch:0.3",
+        "role_mapping_error:0.3"
+      ],
+      "rationale": "To understand the component interactions and identify potential failure points",
+      "result_summary": {
+        "component_id": "CM032",
+        "component_name": "Group Sync Service",
+        "upstream_dependencies": [
+          {
+            "name": "Authorization/Policy Engine",
+            "id": "CM002"
+          },
+          {
+            "name": "Federation Gateway",
+            "id": "CM010"
+          },
+          {
+            "name": "Login UI",
+            "id": "CM018"
+          },
+          {
+            "name": "Risk-Based Authentication Engine",
+            "id": "CM022"
+          },
+          {
+            "name": "OAuth Authorization Server",
+            "id": "CM027"
+          },
+          {
+            "name": "JWT Issuer Service",
+            "id": "CM029"
+          },
+          {
+            "name": "Step-Up Authentication Service",
+            "id": "CM030"
+          },
+          {
+            "name": "Login Analytics Service",
+            "id": "CM037"
+          },
+          {
+            "name": "Trusted Device Manager",
+            "id": "CM039"
+          },
+          {
+            "name": "SSO Broker (Shared)",
+            "id": "CM237"
+          }
+        ],
+        "downstream_dependents": [],
+        "external_dependencies": [],
+        "owning_teams": [
+          {
+            "name": "Authorization & Access",
+            "id": "TM02"
+          },
+          {
+            "name": "Onboarding & Provisioning",
+            "id": "TM24"
+          }
+        ]
+      },
+      "latency_ms": 3212.3,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 6,
+      "sim_clock": "2025-07-20 01:15:00",
+      "tool_name": "submit_diagnosis",
+      "args": {
+        "case_id": "CS00873",
+        "diagnosis": {
+          "label": "sso_configuration_issue",
+          "confidence": 0.7,
+          "supporting_evidence_ids": [
+            "CH030675"
+          ],
+          "contradicting_evidence_ids": [],
+          "status": "proposed"
+        },
+        "evidence_sufficiency": "partial",
+        "human_review_required": false,
+        "recommended_next_action": "Inspect policy configuration and verify recent changes",
+        "hypotheses": [
+          {
+            "label": "sso_configuration_issue",
+            "confidence": 0.7,
+            "supporting_evidence_ids": [
+              "CH030675"
+            ],
+            "contradicting_evidence_ids": [],
+            "status": "proposed"
+          },
+          {
+            "label": "idp_assertion_mismatch",
+            "confidence": 0.2,
+            "supporting_evidence_ids": [],
+            "contradicting_evidence_ids": [],
+            "status": "rejected"
+          },
+          {
+            "label": "role_mapping_error",
+            "confidence": 0.1,
+            "supporting_evidence_ids": [],
+            "contradicting_evidence_ids": [],
+            "status": "rejected"
+          }
+        ]
+      },
+      "hypotheses": [
+        {
+          "label": "sso_configuration_issue",
+          "confidence": 0.7,
+          "supporting_evidence_ids": [
+            "CH030675"
+          ],
+          "contradicting_evidence_ids": [],
+          "status": "proposed"
+        },
+        {
+          "label": "idp_assertion_mismatch",
+          "confidence": 0.2,
+          "supporting_evidence_ids": [],
+          "contradicting_evidence_ids": [],
+          "status": "rejected"
+        },
+        {
+          "label": "role_mapping_error",
+          "confidence": 0.1,
+          "supporting_evidence_ids": [],
+          "contradicting_evidence_ids": [],
+          "status": "rejected"
+        }
+      ],
+      "rationale": "",
+      "result_summary": "submitted",
+      "latency_ms": 5479.3,
+      "status": "ok",
+      "redundant": false
+    }
+  ],
+  "final_diagnosis": {
+    "hypotheses": [
+      {
+        "label": "sso_configuration_issue",
+        "description": "",
+        "confidence": 0.7,
+        "supporting_evidence": [],
+        "contradicting_evidence": [],
+        "status": "active"
+      },
+      {
+        "label": "idp_assertion_mismatch",
+        "description": "",
+        "confidence": 0.2,
+        "supporting_evidence": [],
+        "contradicting_evidence": [],
+        "status": "rejected"
+      },
+      {
+        "label": "role_mapping_error",
+        "description": "",
+        "confidence": 0.1,
+        "supporting_evidence": [],
+        "contradicting_evidence": [],
+        "status": "rejected"
+      }
+    ],
+    "rationale": "",
+    "predicted_product_id": null,
+    "product_confidence": null,
+    "predicted_component_id": null,
+    "component_confidence": null,
+    "predicted_category_id": null,
+    "category_confidence": null,
+    "predicted_subcategory_id": null,
+    "predicted_root_cause_family": null,
+    "root_cause_confidence": null,
+    "predicted_causal_change_id": null,
+    "causal_change_confidence": null,
+    "predicted_severity": null,
+    "severity_confidence": null,
+    "recommended_team_id": null,
+    "routing_confidence": null,
+    "evidence_sufficiency": "partial",
+    "overall_confidence": 0.7,
+    "recommended_next_action": "Inspect policy configuration and verify recent changes",
+    "human_review_required": false,
+    "human_review_reason": null,
+    "evidence_summary": "No summary provided by the agent.",
+    "unresolved_uncertainties": []
+  },
+  "citation_violations": [],
+  "evidence_ids_seen": [
+    "CH030675"
+  ],
+  "repair_events": [
+    {
+      "step": 6,
+      "kind": "final_diagnosis_repair",
+      "detail": "direct validation failed (4 validation errors for FinalDiagnosis\nhypotheses.0.status\n  Input should be 'active', 'rejected' or 'confirmed' [type=literal_error, input_value='proposed', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/literal_error\nrationale\n  Field required [type=missing, input_value={'case_id': 'CS00873', 'd... 'status': 'rejected'}]}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\noverall_confidence\n  Field required [type=missing, input_value={'case_id': 'CS00873', 'd... 'status': 'rejected'}]}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\nevidence_summary\n  Field required [type=missing, input_value={'case_id': 'CS00873', 'd... 'status': 'rejected'}]}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing); repaired args validated"
+    }
+  ]
+}

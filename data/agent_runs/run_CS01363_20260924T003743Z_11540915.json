@@ -1,0 +1,342 @@
+{
+  "run_id": "run_CS01363_20260924T003743Z_11540915",
+  "case_id": "CS01363",
+  "created_at": "2026-09-24T00:37:43.033346+00:00",
+  "model_provider": "together",
+  "model_name": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "temperature": 0.1,
+  "prompt_version": "v1",
+  "toolset_version": "v1",
+  "output_schema_version": "v1",
+  "agent_loop_version": "v1",
+  "repair_layer_version": "v1",
+  "graph_version": "phase4-2500case-2026-09-22",
+  "sim_clock_step_minutes": 15,
+  "max_tool_calls": 10,
+  "max_repeated_same_tool": 2,
+  "stop_reason": "model_submitted",
+  "num_tool_calls": 6,
+  "num_llm_calls": 6,
+  "token_usage": {
+    "prompt_tokens": 12308,
+    "completion_tokens": 596,
+    "total_tokens": 12904
+  },
+  "approx_cost_usd": 0.00129,
+  "approx_cost_note": "Estimated from a configurable placeholder rate, not exact provider billing -- see config.py",
+  "trace_steps": [
+    {
+      "step": 1,
+      "sim_clock": "2025-08-29 00:00:00",
+      "tool_name": "get_case_context",
+      "args": {
+        "hypotheses": [],
+        "rationale": "Starting the investigation of case CS01363"
+      },
+      "hypotheses": [],
+      "rationale": "Starting the investigation of case CS01363",
+      "result_summary": {
+        "case_id": "CS01363",
+        "title": "Certificate expired warning in Secret Store",
+        "description": "We are seeing 'certificate expired' warnings in our Secret Store in the APAC production environment. We believe this is definitely a capacity limitation issue where the store is full and can't process the renewal requests properly. We need this resolved as it's affecting about 54 users and causing moderate business impact.",
+        "environment": "production",
+        "region": "APAC",
+        "reported_business_impact": "moderate",
+        "reported_affected_users": 54,
+        "priority": "medium",
+        "created_date": "2025-08-29",
+        "status": "resolved",
+        "customer_id": "C04084",
+        "customer_tier": "silver",
+        "customer_industry": "Insurance",
+        "customer_company_size": "small",
+        "reported_product_id": "P044",
+        "reported_product_name": "Secret Store",
+        "reported_symptoms": [
+          "certificate expired warning"
+        ]
+      },
+      "latency_ms": 11698.7,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 2,
+      "sim_clock": "2025-08-29 00:15:00",
+      "tool_name": "get_system_logs",
+      "args": {
+        "case_id": "CS01363",
+        "start_time": "2025-08-29 00:00:00",
+        "end_time": "2025-08-29 23:59:59",
+        "hypotheses": [
+          "capacity_limitation_issue:0.6",
+          "certificate_expiration_issue:0.4"
+        ],
+        "rationale": "To investigate the certificate expired warning in the Secret Store, we need to check the system logs for any errors or warnings related to certificate expiration or capacity limitations."
+      },
+      "hypotheses": [
+        "capacity_limitation_issue:0.6",
+        "certificate_expiration_issue:0.4"
+      ],
+      "rationale": "To investigate the certificate expired warning in the Secret Store, we need to check the system logs for any errors or warnings related to certificate expiration or capacity limitations.",
+      "result_summary": {
+        "error": "unknown tool 'get_system_logs'. Valid tools are: ['get_active_incidents', 'get_agent_availability', 'get_case_context', 'get_component_topology', 'get_configuration_history', 'get_customer_deployment', 'get_deployment_history', 'get_recent_changes', 'get_service_health', 'get_similar_cases', 'get_team_capability', 'get_technical_signals', 'get_telemetry', 'search_knowledge_base', 'submit_diagnosis']"
+      },
+      "latency_ms": 2111.2,
+      "status": "error",
+      "redundant": false
+    },
+    {
+      "step": 3,
+      "sim_clock": "2025-08-29 00:30:00",
+      "tool_name": "get_recent_changes",
+      "args": {
+        "case_id": "CS01363",
+        "hypotheses": [
+          "capacity_limitation_issue:0.6",
+          "certificate_expiration_issue:0.4"
+        ],
+        "rationale": "To investigate the certificate expired warning in the Secret Store, we need to check the recent changes made to the system."
+      },
+      "hypotheses": [
+        "capacity_limitation_issue:0.6",
+        "certificate_expiration_issue:0.4"
+      ],
+      "rationale": "To investigate the certificate expired warning in the Secret Store, we need to check the recent changes made to the system.",
+      "result_summary": {
+        "recent_changes": [
+          {
+            "evidence_id": "CH030810",
+            "change_type": "credential_rotation",
+            "component_id": "CM137",
+            "started_at": "2025-08-28 21:01:00",
+            "completed_at": "2025-08-28 21:06:00",
+            "status": "completed",
+            "initiated_by": "system:automation",
+            "time_proximity_hours": 3.0,
+            "scope_match": "same_customer"
+          }
+        ],
+        "count": 1
+      },
+      "latency_ms": 2644.1,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 4,
+      "sim_clock": "2025-08-29 00:45:00",
+      "tool_name": "get_component_topology",
+      "args": {
+        "case_id": "CS01363",
+        "hypotheses": [
+          "capacity_limitation_issue:0.6",
+          "certificate_expiration_issue:0.4"
+        ],
+        "rationale": "To investigate the certificate expired warning in the Secret Store, we need to check the component topology to see if there are any issues with the certificate renewal process."
+      },
+      "hypotheses": [
+        "capacity_limitation_issue:0.6",
+        "certificate_expiration_issue:0.4"
+      ],
+      "rationale": "To investigate the certificate expired warning in the Secret Store, we need to check the component topology to see if there are any issues with the certificate renewal process.",
+      "result_summary": {
+        "error": "1 validation error for ComponentScopedArgs\ncomponent_id\n  Field required [type=missing, input_value={'case_id': 'CS01363', 'h...icate renewal process.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      },
+      "latency_ms": 1249.2,
+      "status": "error",
+      "redundant": false
+    },
+    {
+      "step": 5,
+      "sim_clock": "2025-08-29 01:00:00",
+      "tool_name": "get_customer_deployment",
+      "args": {
+        "case_id": "CS01363",
+        "hypotheses": [
+          "capacity_limitation_issue:0.6",
+          "certificate_expiration_issue:0.4"
+        ],
+        "rationale": "To investigate the certificate expired warning in the Secret Store, we need to check the customer deployment to see if there are any issues with the certificate configuration."
+      },
+      "hypotheses": [
+        "capacity_limitation_issue:0.6",
+        "certificate_expiration_issue:0.4"
+      ],
+      "rationale": "To investigate the certificate expired warning in the Secret Store, we need to check the customer deployment to see if there are any issues with the certificate configuration.",
+      "result_summary": {
+        "deployments": [
+          {
+            "product_id": "P018",
+            "product_name": "KPI Tracker",
+            "version": "1.8",
+            "environment": "production",
+            "region": "APAC",
+            "status": "active",
+            "deployed_at": "2026-06-10",
+            "product_components": [
+              "CM091",
+              "CM092",
+              "CM099",
+              "CM103",
+              "CM106",
+              "CM108",
+              "CM116",
+              "CM125"
+            ]
+          },
+          {
+            "product_id": "P044",
+            "product_name": "Secret Store",
+            "version": "4.3",
+            "environment": "production",
+            "region": "APAC",
+            "status": "active",
+            "deployed_at": "2026-04-19",
+            "product_components": [
+              "CM134",
+              "CM137",
+              "CM139",
+              "CM144",
+              "CM147",
+              "CM148",
+              "CM163",
+              "CM168"
+            ]
+          },
+          {
+            "product_id": "P030",
+            "product_name": "Help Center",
+            "version": "2.1",
+            "environment": "staging",
+            "region": "APAC",
+            "status": "active",
+            "deployed_at": "2025-11-30",
+            "product_components": [
+              "CM174",
+              "CM187",
+              "CM191",
+              "CM199",
+              "CM200",
+              "CM204",
+              "CM210",
+              "CM211"
+            ]
+          },
+          {
+            "product_id": "P018",
+            "product_name": "KPI Tracker",
+            "version": "1.8",
+            "environment": "staging",
+            "region": "APAC",
+            "status": "active",
+            "deployed_at": "2025-08-15",
+            "product_components": [
+              "CM091",
+              "CM092",
+              "CM099",
+              "CM103",
+              "CM106",
+              "CM108",
+              "CM116",
+              "CM125"
+            ]
+          },
+          {
+            "product_id": "P030",
+            "product_name": "Help Center",
+            "version": "2.1",
+            "environment": "production",
+            "region": "APAC",
+            "status": "active",
+            "deployed_at": "2025-03-11",
+            "product_components": [
+              "CM174",
+              "CM187",
+              "CM191",
+              "CM199",
+              "CM200",
+              "CM204",
+              "CM210",
+              "CM211"
+            ]
+          }
+        ]
+      },
+      "latency_ms": 1194.0,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 6,
+      "sim_clock": "2025-08-29 01:15:00",
+      "tool_name": "submit_diagnosis",
+      "args": {
+        "case_id": "CS01363",
+        "diagnosis": {
+          "label": "certificate_expiration_issue",
+          "confidence": 0.8,
+          "supporting_evidence_ids": [
+            "CH030810"
+          ],
+          "contradicting_evidence_ids": [],
+          "status": "unconfirmed"
+        },
+        "recommended_next_action": "Validate the certificate configuration for the Secret Store deployment",
+        "evidence_sufficiency": "partial",
+        "human_review_required": false,
+        "hypotheses": [
+          "capacity_limitation_issue:0.2",
+          "certificate_expiration_issue:0.8"
+        ],
+        "rationale": "Based on the recent changes and customer deployment, it is likely that the certificate expiration issue is the root cause of the problem. However, further validation is required to confirm the diagnosis."
+      },
+      "hypotheses": [
+        "capacity_limitation_issue:0.2",
+        "certificate_expiration_issue:0.8"
+      ],
+      "rationale": "Based on the recent changes and customer deployment, it is likely that the certificate expiration issue is the root cause of the problem. However, further validation is required to confirm the diagnosis.",
+      "result_summary": "submitted",
+      "latency_ms": 6926.0,
+      "status": "ok",
+      "redundant": false
+    }
+  ],
+  "final_diagnosis": {
+    "hypotheses": [],
+    "rationale": "Based on the recent changes and customer deployment, it is likely that the certificate expiration issue is the root cause of the problem. However, further validation is required to confirm the diagnosis.",
+    "predicted_product_id": null,
+    "product_confidence": null,
+    "predicted_component_id": null,
+    "component_confidence": null,
+    "predicted_category_id": null,
+    "category_confidence": null,
+    "predicted_subcategory_id": null,
+    "predicted_root_cause_family": null,
+    "root_cause_confidence": null,
+    "predicted_causal_change_id": null,
+    "causal_change_confidence": null,
+    "predicted_severity": null,
+    "severity_confidence": null,
+    "recommended_team_id": null,
+    "routing_confidence": null,
+    "evidence_sufficiency": "partial",
+    "overall_confidence": 0.3,
+    "recommended_next_action": "Validate the certificate configuration for the Secret Store deployment",
+    "human_review_required": false,
+    "human_review_reason": null,
+    "evidence_summary": "Based on the recent changes and customer deployment, it is likely that the certificate expiration issue is the root cause of the problem. However, further validation is required to confirm the diagnosis.",
+    "unresolved_uncertainties": []
+  },
+  "citation_violations": [],
+  "evidence_ids_seen": [
+    "CH030810"
+  ],
+  "repair_events": [
+    {
+      "step": 6,
+      "kind": "final_diagnosis_repair",
+      "detail": "direct validation failed (4 validation errors for FinalDiagnosis\nhypotheses.0\n  Input should be a valid dictionary or instance of HypothesisUpdate [type=model_type, input_value='capacity_limitation_issue:0.2', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/model_type\nhypotheses.1\n  Input should be a valid dictionary or instance of HypothesisUpdate [type=model_type, input_value='certificate_expiration_issue:0.8', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/model_type\noverall_confidence\n  Field required [type=missing, input_value={'case_id': 'CS01363', 'd...confirm the diagnosis.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\nevidence_summary\n  Field required [type=missing, input_value={'case_id': 'CS01363', 'd...confirm the diagnosis.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing); repaired args validated"
+    }
+  ]
+}

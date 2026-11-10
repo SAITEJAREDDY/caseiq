@@ -1,0 +1,2646 @@
+{
+ "run_id": "verified_CS00014_20260924T215044Z_abd032",
+ "case_id": "CS00014",
+ "created_at": "2026-09-24T21:50:44.858776+00:00",
+ "config": {
+  "missed_evidence_threshold": 0.75,
+  "distractor_threshold": 0.75,
+  "priority_review_threshold": 0.5,
+  "min_confidence": 0.55,
+  "extra_steps": 4,
+  "premature_min_steps_left": 2,
+  "require_jev_to_accept": true
+ },
+ "early_triage_used": true,
+ "early_triage_config": {
+  "min_probability": 0.3,
+  "moderate_probability": 0.4,
+  "strong_probability": 0.7,
+  "top_alternatives": 3,
+  "timeout_s": 20.0
+ },
+ "early_triage": {
+  "version": "early_triage_v1",
+  "role": "triage_guidance",
+  "source": "jev_early_triage",
+  "question_version": "early_triage_category_v1",
+  "state_version": "early_triage_state_v1",
+  "status": "hint",
+  "fallback": false,
+  "fallback_reason": null,
+  "category_id": "IC09",
+  "category_name": "Integration / API",
+  "probability": 0.96,
+  "margin": 0.94,
+  "uncertainty": "low",
+  "alternatives": [
+   {
+    "category_id": "IC05",
+    "name": "Reliability / Availability",
+    "probability": 0.02
+   },
+   {
+    "category_id": "IC16",
+    "name": "Capacity / Scaling",
+    "probability": 0.01
+   },
+   {
+    "category_id": "IC01",
+    "name": "Identity / Authentication",
+    "probability": 0.0
+   }
+  ],
+  "distribution_top": [
+   {
+    "category_id": "IC09",
+    "name": "Integration / API",
+    "probability": 0.96
+   },
+   {
+    "category_id": "IC05",
+    "name": "Reliability / Availability",
+    "probability": 0.02
+   },
+   {
+    "category_id": "IC16",
+    "name": "Capacity / Scaling",
+    "probability": 0.01
+   },
+   {
+    "category_id": "IC01",
+    "name": "Identity / Authentication",
+    "probability": 0.0
+   }
+  ],
+  "abstain_probability": 0.01,
+  "suggested_tools": [
+   "get_technical_signals",
+   "get_telemetry (metric_category Integration)",
+   "get_recent_changes"
+  ],
+  "jev_model": "jev-1.13.0",
+  "input_tokens": 896,
+  "latency_ms": 191.7,
+  "error": null,
+  "config": {
+   "min_probability": 0.3,
+   "moderate_probability": 0.4,
+   "strong_probability": 0.7,
+   "top_alternatives": 3,
+   "timeout_s": 20.0
+  }
+ },
+ "triage_outcome": {
+  "outcome": "confirmed",
+  "hint_shown": true,
+  "suggested_category_id": "IC09",
+  "suggested_category": "Integration / API",
+  "final_category_id": "IC09",
+  "final_category": "Integration / API",
+  "final_in_alternatives": false
+ },
+ "triage_outcome_initial": {
+  "outcome": "confirmed",
+  "hint_shown": true,
+  "suggested_category_id": "IC09",
+  "suggested_category": "Integration / API",
+  "final_category_id": "IC09",
+  "final_category": "Integration / API",
+  "final_in_alternatives": false
+ },
+ "agent_initial_result": {
+  "status": "DIAGNOSIS_PROPOSED",
+  "confidence": 0.96,
+  "evidence_sufficiency": "sufficient",
+  "human_review_required": false,
+  "review_reason": null,
+  "selections": {
+   "issue_category": {
+    "alias": "CATEGORY_VXZ",
+    "name": "Integration / API",
+    "source_id": "IC09"
+   },
+   "root_cause": {
+    "alias": "CAUSE_BJQ",
+    "name": "breaking API contract change",
+    "source_id": "RC28"
+   },
+   "affected_component": {
+    "alias": "COMPONENT_TQJ",
+    "name": "Webhook Dispatch Service",
+    "source_id": "CM236"
+   },
+   "causal_change": {
+    "alias": "CHANGE_CKC",
+    "name": "api_contract_change on COMPONENT_TQJ started 2025-09-08 22:58:00, status completed, 1.0h before case",
+    "source_id": "CH030406"
+   },
+   "owning_team": {
+    "alias": "TEAM_ZXT",
+    "name": "Integration",
+    "source_id": "TM13"
+   }
+  },
+  "summary": "The Analytics Dashboard API errors and webhook retries in the EU-Central development environment are likely caused by an integration/API issue, specifically a breaking API contract change that affected the Webhook Dispatch Service. The evidence suggests that the API schema validation failures and version mismatches are related to this change. The recommended next action is to verify the API contract change and its impact on the Webhook Dispatch Service.",
+  "recommended_next_action": "Verify the API contract change and its impact on the Webhook Dispatch Service",
+  "hypotheses": [
+   {
+    "label": "Integration / API issue",
+    "confidence": 0.96,
+    "status": "confirmed"
+   }
+  ]
+ },
+ "verification_rounds": [
+  {
+   "round": 1,
+   "deterministic_checks": {
+    "D1": {
+     "id": "D1",
+     "name": "valid_final_contract",
+     "passed": true,
+     "applicable": true,
+     "detail": "schema, bounds and every reference are valid"
+    },
+    "D2": {
+     "id": "D2",
+     "name": "evidence_support",
+     "passed": true,
+     "applicable": true,
+     "detail": "6 cited evidence item(s), 1 supported hypothesis(es)"
+    },
+    "D3": {
+     "id": "D3",
+     "name": "final_consistency",
+     "passed": true,
+     "applicable": true,
+     "detail": "consistent with the last stated hypotheses and its own confidence"
+    },
+    "D4": {
+     "id": "D4",
+     "name": "premature_finalization",
+     "passed": true,
+     "applicable": true,
+     "detail": "evidence was retrieved and either a hypothesis is supported or the tool budget is used up"
+    },
+    "all_passed": true
+   },
+   "jev_missed_evidence": 0.45,
+   "jev_distractor_anchor": 0.22,
+   "jev_review": {
+    "label": "REVIEW",
+    "probabilities": {
+     "PRIORITY_REVIEW": 0.38,
+     "REVIEW": 0.62,
+     "NORMAL": 0.0
+    }
+   },
+   "jev_available": true,
+   "policy_decision": "ACCEPT",
+   "reason": "deterministic checks passed and no Jev signal crossed a threshold",
+   "triggers": [],
+   "message_to_agent": null
+  }
+ ],
+ "policy_decision": "ACCEPT",
+ "additional_investigation_performed": false,
+ "agent_final_result": {
+  "status": "DIAGNOSIS_PROPOSED",
+  "confidence": 0.96,
+  "evidence_sufficiency": "sufficient",
+  "human_review_required": false,
+  "review_reason": null,
+  "selections": {
+   "issue_category": {
+    "alias": "CATEGORY_VXZ",
+    "name": "Integration / API",
+    "source_id": "IC09"
+   },
+   "root_cause": {
+    "alias": "CAUSE_BJQ",
+    "name": "breaking API contract change",
+    "source_id": "RC28"
+   },
+   "affected_component": {
+    "alias": "COMPONENT_TQJ",
+    "name": "Webhook Dispatch Service",
+    "source_id": "CM236"
+   },
+   "causal_change": {
+    "alias": "CHANGE_CKC",
+    "name": "api_contract_change on COMPONENT_TQJ started 2025-09-08 22:58:00, status completed, 1.0h before case",
+    "source_id": "CH030406"
+   },
+   "owning_team": {
+    "alias": "TEAM_ZXT",
+    "name": "Integration",
+    "source_id": "TM13"
+   }
+  },
+  "summary": "The Analytics Dashboard API errors and webhook retries in the EU-Central development environment are likely caused by an integration/API issue, specifically a breaking API contract change that affected the Webhook Dispatch Service. The evidence suggests that the API schema validation failures and version mismatches are related to this change. The recommended next action is to verify the API contract change and its impact on the Webhook Dispatch Service.",
+  "recommended_next_action": "Verify the API contract change and its impact on the Webhook Dispatch Service",
+  "hypotheses": [
+   {
+    "label": "Integration / API issue",
+    "confidence": 0.96,
+    "status": "confirmed"
+   }
+  ]
+ },
+ "final_policy_decision": "ACCEPT",
+ "final_reason": "deterministic checks passed and no Jev signal crossed a threshold",
+ "review_packet": null,
+ "latency_s": 102.2,
+ "cost_usd_estimate": 0.02407,
+ "cost_note": "estimate: agent tokens x Together list price + Jev input tokens x Jev list price",
+ "agent_tokens": 26333,
+ "jev_input_tokens": 21435,
+ "agent_run": {
+  "case_id": "CS00014",
+  "stop_reason": "model_submitted",
+  "num_tool_calls": 10,
+  "num_llm_calls": 10,
+  "token_usage": {
+   "prompt_tokens": 25047,
+   "completion_tokens": 1286,
+   "total_tokens": 26333
+  },
+  "trace_steps": [
+   {
+    "step": 1,
+    "sim_clock": "2025-09-09 00:00:00",
+    "tool_name": "get_case_context",
+    "args": {},
+    "args_alias": {},
+    "hypotheses": [],
+    "hypothesis_state": [],
+    "rationale": "",
+    "result_summary": {
+     "case_id": "CS00014",
+     "title": "Analytics Dashboard API errors and webhook retries in Dev (EU-Central)",
+     "description": "We are seeing webhook retries exhausted, HTTP 429 errors, and API schema errors when using the Analytics Dashboard in our EU-Central development environment. We're not sure if the dashboard is returning these errors due to internal processing issues or if a job scheduler is failing to feed it data correctly. No immediate impact, but blocking development.",
+     "environment": "development",
+     "region": "EU-Central",
+     "reported_business_impact": "none",
+     "reported_affected_users": 0,
+     "priority": "medium",
+     "created_date": "2025-09-09",
+     "status": "resolved",
+     "customer_id": "C02801",
+     "customer_tier": "bronze",
+     "customer_industry": "Telecom",
+     "customer_company_size": "mid",
+     "reported_product_id": "P003",
+     "reported_product_name": "Analytics Dashboard",
+     "reported_symptoms": [
+      "HTTP 429",
+      "webhook retries exhausted",
+      "API schema error"
+     ]
+    },
+    "latency_ms": 0.0,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "harness"
+   },
+   {
+    "step": 2,
+    "sim_clock": "2025-09-09 00:15:00",
+    "tool_name": "get_customer_deployment",
+    "args": {},
+    "args_alias": {},
+    "hypotheses": [
+     "Integration / API issue:0.96"
+    ],
+    "hypothesis_state": [
+     {
+      "label": "Integration / API issue",
+      "confidence": 0.96,
+      "status": "active",
+      "supporting_evidence": [],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "result_summary": {
+     "deployments": [
+      {
+       "product_id": "P003",
+       "product_name": "Analytics Dashboard",
+       "version": "1.3",
+       "environment": "production",
+       "region": "EU-Central",
+       "status": "decommissioned",
+       "deployed_at": "2025-05-25",
+       "product_components": [
+        "CM095",
+        "CM098",
+        "CM100",
+        "CM106",
+        "CM114",
+        "CM120",
+        "CM229",
+        "CM236"
+       ]
+      },
+      {
+       "product_id": "P001",
+       "product_name": "Payment Gateway v2",
+       "version": "1.7",
+       "environment": "production",
+       "region": "EU-Central",
+       "status": "active",
+       "deployed_at": "2025-01-25",
+       "product_components": [
+        "CM046",
+        "CM050",
+        "CM054",
+        "CM057",
+        "CM074",
+        "CM077",
+        "CM227",
+        "CM229"
+       ]
+      }
+     ]
+    },
+    "latency_ms": 5621.0,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "model"
+   },
+   {
+    "step": 3,
+    "sim_clock": "2025-09-09 00:30:00",
+    "tool_name": "get_technical_signals",
+    "args": {},
+    "args_alias": {},
+    "hypotheses": [
+     "Integration / API issue:0.96"
+    ],
+    "hypothesis_state": [
+     {
+      "label": "Integration / API issue",
+      "confidence": 0.96,
+      "status": "active",
+      "supporting_evidence": [],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "result_summary": {
+     "signals": [
+      {
+       "evidence_id": "SG0000075",
+       "signal_type": "HTTP_500",
+       "message": "HTTP 500 spike on Authentication Service",
+       "timestamp": "2025-09-08 21:02:00",
+       "component_id": "CM001"
+      },
+      {
+       "evidence_id": "SG0000076",
+       "signal_type": "DATA_SYNC_LAG",
+       "message": "data sync lag detected on Database Connection Pooler",
+       "timestamp": "2025-09-08 21:16:00",
+       "component_id": "CM153"
+      },
+      {
+       "evidence_id": "SG0000072",
+       "signal_type": "API_SCHEMA_VALIDATION_FAILED",
+       "message": "API schema validation failures on Webhook Dispatch Service",
+       "timestamp": "2025-09-08 22:57:00",
+       "component_id": "CM236"
+      },
+      {
+       "evidence_id": "SG0000073",
+       "signal_type": "API_VERSION_MISMATCH",
+       "message": "API version mismatch detected on Webhook Dispatch Service",
+       "timestamp": "2025-09-08 23:22:00",
+       "component_id": "CM236"
+      },
+      {
+       "evidence_id": "SG0000071",
+       "signal_type": "API_SCHEMA_VALIDATION_FAILED",
+       "message": "API schema validation failures on Webhook Dispatch Service",
+       "timestamp": "2025-09-08 23:31:00",
+       "component_id": "CM236"
+      },
+      {
+       "evidence_id": "SG0000074",
+       "signal_type": "API_VERSION_MISMATCH",
+       "message": "API version mismatch detected on Webhook Dispatch Service",
+       "timestamp": "2025-09-08 23:44:00",
+       "component_id": "CM236"
+      }
+     ],
+     "count": 6
+    },
+    "latency_ms": 4135.7,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "model"
+   },
+   {
+    "step": 4,
+    "sim_clock": "2025-09-09 00:45:00",
+    "tool_name": "get_component_topology",
+    "args": {
+     "component_id": "CM236"
+    },
+    "args_alias": {
+     "component": "COMPONENT_TQJ"
+    },
+    "hypotheses": [
+     "Integration / API issue:0.96"
+    ],
+    "hypothesis_state": [
+     {
+      "label": "Integration / API issue",
+      "confidence": 0.96,
+      "status": "active",
+      "supporting_evidence": [],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "result_summary": {
+     "component_id": "CM236",
+     "component_name": "Webhook Dispatch Service",
+     "upstream_dependencies": [
+      {
+       "name": "Federation Gateway",
+       "id": "CM010"
+      },
+      {
+       "name": "Service Registry",
+       "id": "CM144"
+      },
+      {
+       "name": "Ingress Controller",
+       "id": "CM164"
+      },
+      {
+       "name": "Internal DNS Zone Manager",
+       "id": "CM172"
+      },
+      {
+       "name": "Global Load Balancer",
+       "id": "CM232"
+      },
+      {
+       "name": "SSO Broker (Shared)",
+       "id": "CM237"
+      }
+     ],
+     "downstream_dependents": [
+      {
+       "name": "Receipt Generator",
+       "id": "CM061"
+      },
+      {
+       "name": "Reporting Service",
+       "id": "CM091"
+      },
+      {
+       "name": "Customer Portal UI",
+       "id": "CM173"
+      },
+      {
+       "name": "Help Center UI",
+       "id": "CM177"
+      },
+      {
+       "name": "Deep Link Handler",
+       "id": "CM206"
+      }
+     ],
+     "external_dependencies": [],
+     "owning_teams": [
+      {
+       "name": "Integration",
+       "id": "TM13"
+      },
+      {
+       "name": "Developer Platform / API",
+       "id": "TM14"
+      }
+     ]
+    },
+    "latency_ms": 3596.1,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "model"
+   },
+   {
+    "step": 5,
+    "sim_clock": "2025-09-09 01:00:00",
+    "tool_name": "get_telemetry",
+    "args": {
+     "metric_category": "Integration"
+    },
+    "args_alias": {
+     "metric_category": "Integration"
+    },
+    "hypotheses": [
+     "Integration / API issue:0.96"
+    ],
+    "hypothesis_state": [
+     {
+      "label": "Integration / API issue",
+      "confidence": 0.96,
+      "status": "active",
+      "supporting_evidence": [],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "result_summary": {
+     "telemetry_findings": [
+      {
+       "evidence_id": "CS00014:CM236:api_error_rate_pct",
+       "metric_code": "api_error_rate_pct",
+       "component_id": "CM236",
+       "baseline": 0.2888,
+       "observed_min": 0.098,
+       "observed_max": 2.194,
+       "status": "abnormal",
+       "direction": "above_baseline",
+       "anomaly_start": "2025-09-08 22:40:00",
+       "anomaly_end": "2025-09-09 00:00:00"
+      }
+     ],
+     "count": 1
+    },
+    "latency_ms": 8727.6,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "model"
+   },
+   {
+    "step": 6,
+    "sim_clock": "2025-09-09 01:15:00",
+    "tool_name": "get_recent_changes",
+    "args": {
+     "component_id": "CM236"
+    },
+    "args_alias": {
+     "component": "COMPONENT_TQJ"
+    },
+    "hypotheses": [
+     "Integration / API issue:0.96"
+    ],
+    "hypothesis_state": [
+     {
+      "label": "Integration / API issue",
+      "confidence": 0.96,
+      "status": "active",
+      "supporting_evidence": [
+       "EVIDENCE_PJB",
+       "EVIDENCE_NQD",
+       "EVIDENCE_WVJ",
+       "EVIDENCE_QRH",
+       "EVIDENCE_SNH"
+      ],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "result_summary": {
+     "recent_changes": [
+      {
+       "evidence_id": "CH030406",
+       "change_type": "api_contract_change",
+       "component_id": "CM236",
+       "started_at": "2025-09-08 22:58:00",
+       "completed_at": "2025-09-08 23:36:00",
+       "status": "completed",
+       "initiated_by": "system:automation",
+       "time_proximity_hours": 1.0,
+       "scope_match": "same_customer"
+      }
+     ],
+     "count": 1
+    },
+    "latency_ms": 4612.6,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "model"
+   },
+   {
+    "step": 7,
+    "sim_clock": "2025-09-09 01:30:00",
+    "tool_name": "get_service_health",
+    "args": {
+     "component_id": "CM236"
+    },
+    "args_alias": {
+     "component": "COMPONENT_TQJ"
+    },
+    "hypotheses": [
+     "Integration / API issue:0.96"
+    ],
+    "hypothesis_state": [
+     {
+      "label": "Integration / API issue",
+      "confidence": 0.96,
+      "status": "active",
+      "supporting_evidence": [
+       "EVIDENCE_PJB",
+       "EVIDENCE_NQD",
+       "EVIDENCE_WVJ",
+       "EVIDENCE_QRH",
+       "EVIDENCE_SNH"
+      ],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "result_summary": {
+     "health_events": [
+      {
+       "evidence_id": "SHE04782",
+       "started_at": "2025-08-29 05:03:00",
+       "ended_at": "2025-08-29 05:33:00",
+       "severity": "minor",
+       "description": "Transient minor availability dip on Webhook Dispatch Service, recovered within 30 minutes."
+      },
+      {
+       "evidence_id": "SHE04793",
+       "started_at": "2025-06-27 01:12:00",
+       "ended_at": "2025-06-27 01:42:00",
+       "severity": "minor",
+       "description": "Brief minor health blip on Webhook Dispatch Service: elevated error rate for 30 minutes."
+      },
+      {
+       "evidence_id": "SHE04777",
+       "started_at": "2025-05-26 23:07:00",
+       "ended_at": "2025-05-26 23:52:00",
+       "severity": "minor",
+       "description": "minor latency spike observed on Webhook Dispatch Service, self-resolved after 45 minutes."
+      },
+      {
+       "evidence_id": "SHE04774",
+       "started_at": "2025-05-17 04:54:00",
+       "ended_at": "2025-05-17 05:09:00",
+       "severity": "minor",
+       "description": "Brief minor health blip on Webhook Dispatch Service: elevated error rate for 15 minutes."
+      },
+      {
+       "evidence_id": "SHE04791",
+       "started_at": "2025-05-11 21:37:00",
+       "ended_at": "2025-05-11 21:47:00",
+       "severity": "minor",
+       "description": "Automated health check flagged Webhook Dispatch Service as degraded (minor) for 10 minutes."
+      },
+      {
+       "evidence_id": "SHE04770",
+       "started_at": "2025-04-03 07:19:00",
+       "ended_at": "2025-04-03 07:39:00",
+       "severity": "minor",
+       "description": "minor latency spike observed on Webhook Dispatch Service, self-resolved after 20 minutes."
+      },
+      {
+       "evidence_id": "SHE04771",
+       "started_at": "2025-02-19 10:54:00",
+       "ended_at": "2025-02-19 11:04:00",
+       "severity": "minor",
+       "description": "minor latency spike observed on Webhook Dispatch Service, self-resolved after 10 minutes."
+      },
+      {
+       "evidence_id": "SHE04778",
+       "started_at": "2025-01-07 05:11:00",
+       "ended_at": "2025-01-07 05:41:00",
+       "severity": "minor",
+       "description": "minor latency spike observed on Webhook Dispatch Service, self-resolved after 30 minutes."
+      }
+     ],
+     "count": 8
+    },
+    "latency_ms": 3030.8,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "model"
+   },
+   {
+    "step": 8,
+    "sim_clock": "2025-09-09 01:45:00",
+    "tool_name": "get_deployment_history",
+    "args": {
+     "component_id": "CM236"
+    },
+    "args_alias": {
+     "component": "COMPONENT_TQJ"
+    },
+    "hypotheses": [
+     "Integration / API issue:0.96"
+    ],
+    "hypothesis_state": [
+     {
+      "label": "Integration / API issue",
+      "confidence": 0.96,
+      "status": "active",
+      "supporting_evidence": [
+       "EVIDENCE_PJB",
+       "EVIDENCE_NQD",
+       "EVIDENCE_WVJ",
+       "EVIDENCE_QRH",
+       "EVIDENCE_SNH"
+      ],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "result_summary": {
+     "deployments": [],
+     "count": 0
+    },
+    "latency_ms": 2661.4,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "model"
+   },
+   {
+    "step": 9,
+    "sim_clock": "2025-09-09 02:00:00",
+    "tool_name": "get_team_capability",
+    "args": {
+     "component_id": "CM236"
+    },
+    "args_alias": {
+     "component": "COMPONENT_TQJ"
+    },
+    "hypotheses": [
+     "Integration / API issue:0.96"
+    ],
+    "hypothesis_state": [
+     {
+      "label": "Integration / API issue",
+      "confidence": 0.96,
+      "status": "active",
+      "supporting_evidence": [
+       "EVIDENCE_PJB",
+       "EVIDENCE_NQD",
+       "EVIDENCE_WVJ",
+       "EVIDENCE_QRH",
+       "EVIDENCE_SNH"
+      ],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "result_summary": {
+     "teams": [
+      {
+       "team_id": "TM13",
+       "team_name": "Integration",
+       "role": "primary",
+       "weight": 3.0
+      },
+      {
+       "team_id": "TM14",
+       "team_name": "Developer Platform / API",
+       "role": "secondary",
+       "weight": 2.0
+      }
+     ],
+     "skills": []
+    },
+    "latency_ms": 2847.6,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "model"
+   },
+   {
+    "step": 10,
+    "sim_clock": "2025-09-09 02:15:00",
+    "tool_name": "submit_diagnosis",
+    "args": {},
+    "args_alias": {},
+    "hypotheses": [
+     "Integration / API issue:0.96"
+    ],
+    "hypothesis_state": [
+     {
+      "label": "Integration / API issue",
+      "confidence": 0.96,
+      "status": "confirmed",
+      "supporting_evidence": [
+       "EVIDENCE_PJB",
+       "EVIDENCE_NQD",
+       "EVIDENCE_WVJ",
+       "EVIDENCE_QRH",
+       "EVIDENCE_SNH"
+      ],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "result_summary": "submitted",
+    "latency_ms": 61063.1,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "model"
+   }
+  ],
+  "final_diagnosis": {
+   "hypotheses": [
+    {
+     "label": "Integration / API issue",
+     "description": "",
+     "confidence": 0.96,
+     "status": "confirmed",
+     "supporting_evidence": [
+      "SG0000072",
+      "SG0000073",
+      "SG0000071",
+      "SG0000074",
+      "CS00014:CM236:api_error_rate_pct"
+     ],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "predicted_product_id": null,
+   "product_confidence": null,
+   "predicted_component_id": "CM236",
+   "component_confidence": 0.9,
+   "predicted_category_id": "IC09",
+   "category_confidence": 0.96,
+   "predicted_subcategory_id": null,
+   "predicted_root_cause_family": "breaking API contract change",
+   "root_cause_confidence": 0.8,
+   "predicted_causal_change_id": "CH030406",
+   "causal_change_confidence": 0.7,
+   "predicted_severity": null,
+   "severity_confidence": null,
+   "recommended_team_id": "TM13",
+   "routing_confidence": 0.85,
+   "evidence_sufficiency": "sufficient",
+   "overall_confidence": 0.96,
+   "recommended_next_action": "Verify the API contract change and its impact on the Webhook Dispatch Service",
+   "human_review_required": false,
+   "human_review_reason": null,
+   "evidence_summary": "The Analytics Dashboard API errors and webhook retries in the EU-Central development environment are likely caused by an integration/API issue, specifically a breaking API contract change that affected the Webhook Dispatch Service. The evidence suggests that the API schema validation failures and version mismatches are related to this change. The recommended next action is to verify the API contract change and its impact on the Webhook Dispatch Service.",
+   "unresolved_uncertainties": [],
+   "status": "DIAGNOSIS_PROPOSED",
+   "evidence_ids": [
+    "SG0000072",
+    "SG0000073",
+    "SG0000071",
+    "SG0000074",
+    "CS00014:CM236:api_error_rate_pct",
+    "CH030406"
+   ]
+  },
+  "final_status": "DIAGNOSIS_PROPOSED",
+  "final_alias_form": {
+   "hypotheses": [
+    {
+     "label": "Integration / API issue",
+     "confidence": 0.96,
+     "status": "confirmed",
+     "supporting_evidence": [
+      "EVIDENCE_PJB",
+      "EVIDENCE_NQD",
+      "EVIDENCE_WVJ",
+      "EVIDENCE_QRH",
+      "EVIDENCE_SNH"
+     ],
+     "contradicting_evidence": []
+    }
+   ],
+   "evidence_ids": [
+    "EVIDENCE_PJB",
+    "EVIDENCE_NQD",
+    "EVIDENCE_WVJ",
+    "EVIDENCE_QRH",
+    "EVIDENCE_SNH",
+    "CHANGE_CKC"
+   ],
+   "issue_category": "CATEGORY_VXZ",
+   "category_confidence": 0.96,
+   "root_cause": "CAUSE_BJQ",
+   "root_cause_confidence": 0.8,
+   "affected_component": "COMPONENT_TQJ",
+   "component_confidence": 0.9,
+   "causal_change": "CHANGE_CKC",
+   "causal_change_confidence": 0.7,
+   "owning_team": "TEAM_ZXT",
+   "routing_confidence": 0.85,
+   "confidence": 0.96,
+   "evidence_sufficiency": "sufficient",
+   "human_review_required": false,
+   "review_reason": null,
+   "status": "DIAGNOSIS_PROPOSED",
+   "recommended_next_action": "Verify the API contract change and its impact on the Webhook Dispatch Service",
+   "unresolved_uncertainties": [],
+   "summary": "The Analytics Dashboard API errors and webhook retries in the EU-Central development environment are likely caused by an integration/API issue, specifically a breaking API contract change that affected the Webhook Dispatch Service. The evidence suggests that the API schema validation failures and version mismatches are related to this change. The recommended next action is to verify the API contract change and its impact on the Webhook Dispatch Service."
+  },
+  "citation_violations": [],
+  "evidence_ids_seen": [
+   "CH030406",
+   "CS00014:CM236:api_error_rate_pct",
+   "SG0000071",
+   "SG0000072",
+   "SG0000073",
+   "SG0000074",
+   "SG0000075",
+   "SG0000076",
+   "SHE04770",
+   "SHE04771",
+   "SHE04774",
+   "SHE04777",
+   "SHE04778",
+   "SHE04782",
+   "SHE04791",
+   "SHE04793"
+  ],
+  "repair_events": [],
+  "tool_proposals": 9,
+  "tool_contract_errors": [],
+  "tool_contract_repairs": [],
+  "final_contract_errors": [],
+  "final_contract_repair": null,
+  "registry_snapshots": [
+   {
+    "step": 1,
+    "n_entities": 59,
+    "counts": {
+     "CATEGORY": 18,
+     "CAUSE": 40,
+     "PRODUCT": 1
+    },
+    "aliases_sha256_16": "04019e15b097ac8c"
+   },
+   {
+    "step": 2,
+    "n_entities": 75,
+    "counts": {
+     "CATEGORY": 18,
+     "CAUSE": 40,
+     "PRODUCT": 2,
+     "COMPONENT": 15
+    },
+    "aliases_sha256_16": "5de0c359061a071c"
+   },
+   {
+    "step": 3,
+    "n_entities": 83,
+    "counts": {
+     "CATEGORY": 18,
+     "CAUSE": 40,
+     "PRODUCT": 2,
+     "COMPONENT": 17,
+     "EVIDENCE": 6
+    },
+    "aliases_sha256_16": "15dd99f49ab1bd39"
+   },
+   {
+    "step": 4,
+    "n_entities": 96,
+    "counts": {
+     "CATEGORY": 18,
+     "CAUSE": 40,
+     "PRODUCT": 2,
+     "COMPONENT": 28,
+     "EVIDENCE": 6,
+     "TEAM": 2
+    },
+    "aliases_sha256_16": "1c0caa6cb92364b9"
+   },
+   {
+    "step": 5,
+    "n_entities": 97,
+    "counts": {
+     "CATEGORY": 18,
+     "CAUSE": 40,
+     "PRODUCT": 2,
+     "COMPONENT": 28,
+     "EVIDENCE": 7,
+     "TEAM": 2
+    },
+    "aliases_sha256_16": "9d0ff4b6c915de9b"
+   },
+   {
+    "step": 6,
+    "n_entities": 98,
+    "counts": {
+     "CATEGORY": 18,
+     "CAUSE": 40,
+     "PRODUCT": 2,
+     "COMPONENT": 28,
+     "EVIDENCE": 7,
+     "TEAM": 2,
+     "CHANGE": 1
+    },
+    "aliases_sha256_16": "de1ce7e5da283696"
+   },
+   {
+    "step": 7,
+    "n_entities": 106,
+    "counts": {
+     "CATEGORY": 18,
+     "CAUSE": 40,
+     "PRODUCT": 2,
+     "COMPONENT": 28,
+     "EVIDENCE": 15,
+     "TEAM": 2,
+     "CHANGE": 1
+    },
+    "aliases_sha256_16": "10eb83e6eeb6ed68"
+   },
+   {
+    "step": 8,
+    "n_entities": 106,
+    "counts": {
+     "CATEGORY": 18,
+     "CAUSE": 40,
+     "PRODUCT": 2,
+     "COMPONENT": 28,
+     "EVIDENCE": 15,
+     "TEAM": 2,
+     "CHANGE": 1
+    },
+    "aliases_sha256_16": "10eb83e6eeb6ed68"
+   },
+   {
+    "step": 9,
+    "n_entities": 106,
+    "counts": {
+     "CATEGORY": 18,
+     "CAUSE": 40,
+     "PRODUCT": 2,
+     "COMPONENT": 28,
+     "EVIDENCE": 15,
+     "TEAM": 2,
+     "CHANGE": 1
+    },
+    "aliases_sha256_16": "10eb83e6eeb6ed68"
+   }
+  ],
+  "alias_mappings": {
+   "CATEGORY_TBL": {
+    "alias": "CATEGORY_TBL",
+    "canonical_id": "IC01",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Identity / Authentication",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-09-09 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_GPW": {
+    "alias": "CATEGORY_GPW",
+    "canonical_id": "IC02",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Authorization / Permissions",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-09-09 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_SZJ": {
+    "alias": "CATEGORY_SZJ",
+    "canonical_id": "IC03",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Networking / Connectivity",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-09-09 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_SKL": {
+    "alias": "CATEGORY_SKL",
+    "canonical_id": "IC04",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Performance / Latency",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-09-09 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_RNC": {
+    "alias": "CATEGORY_RNC",
+    "canonical_id": "IC05",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Reliability / Availability",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-09-09 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_QWQ": {
+    "alias": "CATEGORY_QWQ",
+    "canonical_id": "IC06",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Deployment / Upgrade",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-09-09 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_JLM": {
+    "alias": "CATEGORY_JLM",
+    "canonical_id": "IC07",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Configuration",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-09-09 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_VMD": {
+    "alias": "CATEGORY_VMD",
+    "canonical_id": "IC08",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Data / Corruption",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-09-09 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_VXZ": {
+    "alias": "CATEGORY_VXZ",
+    "canonical_id": "IC09",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Integration / API",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-09-09 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_TLH": {
+    "alias": "CATEGORY_TLH",
+    "canonical_id": "IC10",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Provisioning / Onboarding",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-09-09 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_GFB": {
+    "alias": "CATEGORY_GFB",
+    "canonical_id": "IC11",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Security",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-09-09 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_PLZ": {
+    "alias": "CATEGORY_PLZ",
+    "canonical_id": "IC12",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Compliance",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-09-09 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_RKV": {
+    "alias": "CATEGORY_RKV",
+    "canonical_id": "IC13",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Billing / Commerce",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-09-09 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_ZWS": {
+    "alias": "CATEGORY_ZWS",
+    "canonical_id": "IC14",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "User Experience / Functional Defect",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-09-09 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_VNS": {
+    "alias": "CATEGORY_VNS",
+    "canonical_id": "IC15",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Storage / Database",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-09-09 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_HGM": {
+    "alias": "CATEGORY_HGM",
+    "canonical_id": "IC16",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Capacity / Scaling",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-09-09 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_QZQ": {
+    "alias": "CATEGORY_QZQ",
+    "canonical_id": "IC17",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Third-Party / Dependency",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-09-09 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_FZJ": {
+    "alias": "CATEGORY_FZJ",
+    "canonical_id": "IC18",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Unknown / Other",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-09-09 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_DLD": {
+    "alias": "CAUSE_DLD",
+    "canonical_id": "RC01",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "product defect",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-09-09 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_TBB": {
+    "alias": "CAUSE_TBB",
+    "canonical_id": "RC02",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "customer configuration error",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-09-09 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_TRS": {
+    "alias": "CAUSE_TRS",
+    "canonical_id": "RC03",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "incorrect permissions",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-09-09 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_HDS": {
+    "alias": "CAUSE_HDS",
+    "canonical_id": "RC04",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "policy misconfiguration",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-09-09 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_SGF": {
+    "alias": "CAUSE_SGF",
+    "canonical_id": "RC05",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "expired certificate",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-09-09 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_JSC": {
+    "alias": "CAUSE_JSC",
+    "canonical_id": "RC06",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "version incompatibility",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-09-09 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_QGD": {
+    "alias": "CAUSE_QGD",
+    "canonical_id": "RC07",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "dependency failure",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-09-09 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_XXM": {
+    "alias": "CAUSE_XXM",
+    "canonical_id": "RC08",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "network configuration error",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-09-09 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_KNK": {
+    "alias": "CAUSE_KNK",
+    "canonical_id": "RC09",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "resource exhaustion",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-09-09 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_NZM": {
+    "alias": "CAUSE_NZM",
+    "canonical_id": "RC10",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "database contention",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-09-09 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_MPG": {
+    "alias": "CAUSE_MPG",
+    "canonical_id": "RC11",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "bad deployment",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-09-09 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_ZKL": {
+    "alias": "CAUSE_ZKL",
+    "canonical_id": "RC12",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "incomplete migration",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-09-09 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_FVF": {
+    "alias": "CAUSE_FVF",
+    "canonical_id": "RC13",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "stale cache",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-09-09 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_SVV": {
+    "alias": "CAUSE_SVV",
+    "canonical_id": "RC14",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "third-party service failure",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-09-09 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_VKM": {
+    "alias": "CAUSE_VKM",
+    "canonical_id": "RC15",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "unsupported configuration",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-09-09 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_TJJ": {
+    "alias": "CAUSE_TJJ",
+    "canonical_id": "RC16",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "incorrect DNS configuration",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-09-09 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_TXH": {
+    "alias": "CAUSE_TXH",
+    "canonical_id": "RC17",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "data quality issue",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-09-09 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_LFX": {
+    "alias": "CAUSE_LFX",
+    "canonical_id": "RC18",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "operator error",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-09-09 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_PDV": {
+    "alias": "CAUSE_PDV",
+    "canonical_id": "RC19",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "capacity limitation",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-09-09 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_GRX": {
+    "alias": "CAUSE_GRX",
+    "canonical_id": "RC20",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "known product limitation",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-09-09 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_CMN": {
+    "alias": "CAUSE_CMN",
+    "canonical_id": "RC21",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "race condition",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-09-09 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_MTJ": {
+    "alias": "CAUSE_MTJ",
+    "canonical_id": "RC22",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "identity provider outage",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-09-09 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_DLV": {
+    "alias": "CAUSE_DLV",
+    "canonical_id": "RC23",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "token expiration handling bug",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-09-09 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_ZDQ": {
+    "alias": "CAUSE_ZDQ",
+    "canonical_id": "RC24",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "insufficient monitoring/alerting",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-09-09 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_NVM": {
+    "alias": "CAUSE_NVM",
+    "canonical_id": "RC25",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "incorrect load balancer routing",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-09-09 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_FLN": {
+    "alias": "CAUSE_FLN",
+    "canonical_id": "RC26",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "firewall misconfiguration",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-09-09 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_ZFK": {
+    "alias": "CAUSE_ZFK",
+    "canonical_id": "RC27",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "schema mismatch",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-09-09 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_BJQ": {
+    "alias": "CAUSE_BJQ",
+    "canonical_id": "RC28",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "breaking API contract change",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-09-09 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_XXH": {
+    "alias": "CAUSE_XXH",
+    "canonical_id": "RC29",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "credential rotation not propagated",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-09-09 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_QLP": {
+    "alias": "CAUSE_QLP",
+    "canonical_id": "RC30",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "stale internal documentation followed",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-09-09 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_GJS": {
+    "alias": "CAUSE_GJS",
+    "canonical_id": "RC31",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "incomplete rollback",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-09-09 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_XSD": {
+    "alias": "CAUSE_XSD",
+    "canonical_id": "RC32",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "infrastructure hardware failure",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-09-09 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_WNN": {
+    "alias": "CAUSE_WNN",
+    "canonical_id": "RC33",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "rate limit misconfiguration",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-09-09 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_FPR": {
+    "alias": "CAUSE_FPR",
+    "canonical_id": "RC34",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "insufficient capacity planning",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-09-09 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_LKD": {
+    "alias": "CAUSE_LKD",
+    "canonical_id": "RC35",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "data migration defect",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-09-09 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_XWL": {
+    "alias": "CAUSE_XWL",
+    "canonical_id": "RC36",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "improper access review",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-09-09 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_MFM": {
+    "alias": "CAUSE_MFM",
+    "canonical_id": "RC37",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "expired API key",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-09-09 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_CNK": {
+    "alias": "CAUSE_CNK",
+    "canonical_id": "RC38",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "clock/time synchronization issue",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-09-09 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_LBX": {
+    "alias": "CAUSE_LBX",
+    "canonical_id": "RC39",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "idempotency/duplicate-processing failure",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-09-09 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_GZP": {
+    "alias": "CAUSE_GZP",
+    "canonical_id": "RC40",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "insufficient information to determine root cause",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2025-09-09 00:00:00",
+    "summary": ""
+   },
+   "PRODUCT_WKX": {
+    "alias": "PRODUCT_WKX",
+    "canonical_id": "P003",
+    "kind": "PRODUCT",
+    "type": "product",
+    "display_name": "Analytics Dashboard",
+    "source_tool": "get_case_context",
+    "first_observed_step": 1,
+    "first_observed_clock": "2025-09-09 00:00:00",
+    "summary": ""
+   },
+   "COMPONENT_ZPT": {
+    "alias": "COMPONENT_ZPT",
+    "canonical_id": "CM095",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Analytics API Gateway",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2025-09-09 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_XKM": {
+    "alias": "COMPONENT_XKM",
+    "canonical_id": "CM098",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Query Engine",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2025-09-09 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_VCK": {
+    "alias": "COMPONENT_VCK",
+    "canonical_id": "CM100",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Job Scheduler",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2025-09-09 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_KFL": {
+    "alias": "COMPONENT_KFL",
+    "canonical_id": "CM106",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Data Catalog Service",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2025-09-09 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_NTV": {
+    "alias": "COMPONENT_NTV",
+    "canonical_id": "CM114",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Segment Builder Service",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2025-09-09 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_XGN": {
+    "alias": "COMPONENT_XGN",
+    "canonical_id": "CM120",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Event Schema Registry",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2025-09-09 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_CVB": {
+    "alias": "COMPONENT_CVB",
+    "canonical_id": "CM229",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Audit Log Service",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2025-09-09 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_TQJ": {
+    "alias": "COMPONENT_TQJ",
+    "canonical_id": "CM236",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Webhook Dispatch Service",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2025-09-09 00:15:00",
+    "summary": ""
+   },
+   "PRODUCT_JNL": {
+    "alias": "PRODUCT_JNL",
+    "canonical_id": "P001",
+    "kind": "PRODUCT",
+    "type": "product",
+    "display_name": "Payment Gateway v2",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2025-09-09 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_TZP": {
+    "alias": "COMPONENT_TZP",
+    "canonical_id": "CM046",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Refund Service",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2025-09-09 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_VXZ": {
+    "alias": "COMPONENT_VXZ",
+    "canonical_id": "CM050",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Currency Conversion Service",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2025-09-09 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_TJQ": {
+    "alias": "COMPONENT_TJQ",
+    "canonical_id": "CM054",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Payment Gateway API",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2025-09-09 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_NSF": {
+    "alias": "COMPONENT_NSF",
+    "canonical_id": "CM057",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Settlement Service",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2025-09-09 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_BNR": {
+    "alias": "COMPONENT_BNR",
+    "canonical_id": "CM074",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Tax Jurisdiction Resolver",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2025-09-09 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_JTW": {
+    "alias": "COMPONENT_JTW",
+    "canonical_id": "CM077",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Usage Metering Service",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2025-09-09 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_NNH": {
+    "alias": "COMPONENT_NNH",
+    "canonical_id": "CM227",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Global API Gateway",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2025-09-09 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_MFR": {
+    "alias": "COMPONENT_MFR",
+    "canonical_id": "CM001",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Authentication Service",
+    "source_tool": "get_technical_signals",
+    "first_observed_step": 3,
+    "first_observed_clock": "2025-09-09 00:30:00",
+    "summary": ""
+   },
+   "EVIDENCE_CPG": {
+    "alias": "EVIDENCE_CPG",
+    "canonical_id": "SG0000075",
+    "kind": "EVIDENCE",
+    "type": "signal",
+    "display_name": "",
+    "source_tool": "get_technical_signals",
+    "first_observed_step": 3,
+    "first_observed_clock": "2025-09-09 00:30:00",
+    "summary": "HTTP_500: HTTP 500 spike on Authentication Service on COMPONENT_MFR @ 2025-09-08 21:02:00"
+   },
+   "COMPONENT_ZQP": {
+    "alias": "COMPONENT_ZQP",
+    "canonical_id": "CM153",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Database Connection Pooler",
+    "source_tool": "get_technical_signals",
+    "first_observed_step": 3,
+    "first_observed_clock": "2025-09-09 00:30:00",
+    "summary": ""
+   },
+   "EVIDENCE_CRC": {
+    "alias": "EVIDENCE_CRC",
+    "canonical_id": "SG0000076",
+    "kind": "EVIDENCE",
+    "type": "signal",
+    "display_name": "",
+    "source_tool": "get_technical_signals",
+    "first_observed_step": 3,
+    "first_observed_clock": "2025-09-09 00:30:00",
+    "summary": "DATA_SYNC_LAG: data sync lag detected on Database Connection Pooler on COMPONENT_ZQP @ 2025-09-08 21:16:00"
+   },
+   "EVIDENCE_PJB": {
+    "alias": "EVIDENCE_PJB",
+    "canonical_id": "SG0000072",
+    "kind": "EVIDENCE",
+    "type": "signal",
+    "display_name": "",
+    "source_tool": "get_technical_signals",
+    "first_observed_step": 3,
+    "first_observed_clock": "2025-09-09 00:30:00",
+    "summary": "API_SCHEMA_VALIDATION_FAILED: API schema validation failures on Webhook Dispatch Service on COMPONENT_TQJ @ 2025-09-08 22:57:00"
+   },
+   "EVIDENCE_NQD": {
+    "alias": "EVIDENCE_NQD",
+    "canonical_id": "SG0000073",
+    "kind": "EVIDENCE",
+    "type": "signal",
+    "display_name": "",
+    "source_tool": "get_technical_signals",
+    "first_observed_step": 3,
+    "first_observed_clock": "2025-09-09 00:30:00",
+    "summary": "API_VERSION_MISMATCH: API version mismatch detected on Webhook Dispatch Service on COMPONENT_TQJ @ 2025-09-08 23:22:00"
+   },
+   "EVIDENCE_WVJ": {
+    "alias": "EVIDENCE_WVJ",
+    "canonical_id": "SG0000071",
+    "kind": "EVIDENCE",
+    "type": "signal",
+    "display_name": "",
+    "source_tool": "get_technical_signals",
+    "first_observed_step": 3,
+    "first_observed_clock": "2025-09-09 00:30:00",
+    "summary": "API_SCHEMA_VALIDATION_FAILED: API schema validation failures on Webhook Dispatch Service on COMPONENT_TQJ @ 2025-09-08 23:31:00"
+   },
+   "EVIDENCE_QRH": {
+    "alias": "EVIDENCE_QRH",
+    "canonical_id": "SG0000074",
+    "kind": "EVIDENCE",
+    "type": "signal",
+    "display_name": "",
+    "source_tool": "get_technical_signals",
+    "first_observed_step": 3,
+    "first_observed_clock": "2025-09-09 00:30:00",
+    "summary": "API_VERSION_MISMATCH: API version mismatch detected on Webhook Dispatch Service on COMPONENT_TQJ @ 2025-09-08 23:44:00"
+   },
+   "COMPONENT_NMF": {
+    "alias": "COMPONENT_NMF",
+    "canonical_id": "CM010",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Federation Gateway",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 4,
+    "first_observed_clock": "2025-09-09 00:45:00",
+    "summary": ""
+   },
+   "COMPONENT_SCV": {
+    "alias": "COMPONENT_SCV",
+    "canonical_id": "CM144",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Service Registry",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 4,
+    "first_observed_clock": "2025-09-09 00:45:00",
+    "summary": ""
+   },
+   "COMPONENT_MTS": {
+    "alias": "COMPONENT_MTS",
+    "canonical_id": "CM164",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Ingress Controller",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 4,
+    "first_observed_clock": "2025-09-09 00:45:00",
+    "summary": ""
+   },
+   "COMPONENT_XRC": {
+    "alias": "COMPONENT_XRC",
+    "canonical_id": "CM172",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Internal DNS Zone Manager",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 4,
+    "first_observed_clock": "2025-09-09 00:45:00",
+    "summary": ""
+   },
+   "COMPONENT_FXL": {
+    "alias": "COMPONENT_FXL",
+    "canonical_id": "CM232",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Global Load Balancer",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 4,
+    "first_observed_clock": "2025-09-09 00:45:00",
+    "summary": ""
+   },
+   "COMPONENT_TBP": {
+    "alias": "COMPONENT_TBP",
+    "canonical_id": "CM237",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "SSO Broker (Shared)",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 4,
+    "first_observed_clock": "2025-09-09 00:45:00",
+    "summary": ""
+   },
+   "COMPONENT_QJX": {
+    "alias": "COMPONENT_QJX",
+    "canonical_id": "CM061",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Receipt Generator",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 4,
+    "first_observed_clock": "2025-09-09 00:45:00",
+    "summary": ""
+   },
+   "COMPONENT_HDH": {
+    "alias": "COMPONENT_HDH",
+    "canonical_id": "CM091",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Reporting Service",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 4,
+    "first_observed_clock": "2025-09-09 00:45:00",
+    "summary": ""
+   },
+   "COMPONENT_HCW": {
+    "alias": "COMPONENT_HCW",
+    "canonical_id": "CM173",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Customer Portal UI",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 4,
+    "first_observed_clock": "2025-09-09 00:45:00",
+    "summary": ""
+   },
+   "COMPONENT_GBJ": {
+    "alias": "COMPONENT_GBJ",
+    "canonical_id": "CM177",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Help Center UI",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 4,
+    "first_observed_clock": "2025-09-09 00:45:00",
+    "summary": ""
+   },
+   "COMPONENT_FCR": {
+    "alias": "COMPONENT_FCR",
+    "canonical_id": "CM206",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Deep Link Handler",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 4,
+    "first_observed_clock": "2025-09-09 00:45:00",
+    "summary": ""
+   },
+   "TEAM_ZXT": {
+    "alias": "TEAM_ZXT",
+    "canonical_id": "TM13",
+    "kind": "TEAM",
+    "type": "team",
+    "display_name": "Integration",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 4,
+    "first_observed_clock": "2025-09-09 00:45:00",
+    "summary": ""
+   },
+   "TEAM_VWZ": {
+    "alias": "TEAM_VWZ",
+    "canonical_id": "TM14",
+    "kind": "TEAM",
+    "type": "team",
+    "display_name": "Developer Platform / API",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 4,
+    "first_observed_clock": "2025-09-09 00:45:00",
+    "summary": ""
+   },
+   "EVIDENCE_SNH": {
+    "alias": "EVIDENCE_SNH",
+    "canonical_id": "CS00014:CM236:api_error_rate_pct",
+    "kind": "EVIDENCE",
+    "type": "telemetry",
+    "display_name": "",
+    "source_tool": "get_telemetry",
+    "first_observed_step": 5,
+    "first_observed_clock": "2025-09-09 01:00:00",
+    "summary": "api_error_rate_pct on COMPONENT_TQJ: status abnormal, direction above_baseline, baseline 0.2888, observed 0.098..2.194"
+   },
+   "CHANGE_CKC": {
+    "alias": "CHANGE_CKC",
+    "canonical_id": "CH030406",
+    "kind": "CHANGE",
+    "type": "change",
+    "display_name": "",
+    "source_tool": "get_recent_changes",
+    "first_observed_step": 6,
+    "first_observed_clock": "2025-09-09 01:15:00",
+    "summary": "api_contract_change on COMPONENT_TQJ started 2025-09-08 22:58:00, status completed, 1.0h before case"
+   },
+   "EVIDENCE_ZJW": {
+    "alias": "EVIDENCE_ZJW",
+    "canonical_id": "SHE04782",
+    "kind": "EVIDENCE",
+    "type": "health_event",
+    "display_name": "",
+    "source_tool": "get_service_health",
+    "first_observed_step": 7,
+    "first_observed_clock": "2025-09-09 01:30:00",
+    "summary": "health event severity minor 2025-08-29 05:03:00..2025-08-29 05:33:00: Transient minor availability dip on Webhook Dispatch Service, recovered within 30 minutes."
+   },
+   "EVIDENCE_JJZ": {
+    "alias": "EVIDENCE_JJZ",
+    "canonical_id": "SHE04793",
+    "kind": "EVIDENCE",
+    "type": "health_event",
+    "display_name": "",
+    "source_tool": "get_service_health",
+    "first_observed_step": 7,
+    "first_observed_clock": "2025-09-09 01:30:00",
+    "summary": "health event severity minor 2025-06-27 01:12:00..2025-06-27 01:42:00: Brief minor health blip on Webhook Dispatch Service: elevated error rate for 30 minutes."
+   },
+   "EVIDENCE_VVM": {
+    "alias": "EVIDENCE_VVM",
+    "canonical_id": "SHE04777",
+    "kind": "EVIDENCE",
+    "type": "health_event",
+    "display_name": "",
+    "source_tool": "get_service_health",
+    "first_observed_step": 7,
+    "first_observed_clock": "2025-09-09 01:30:00",
+    "summary": "health event severity minor 2025-05-26 23:07:00..2025-05-26 23:52:00: minor latency spike observed on Webhook Dispatch Service, self-resolved after 45 minutes."
+   },
+   "EVIDENCE_DJP": {
+    "alias": "EVIDENCE_DJP",
+    "canonical_id": "SHE04774",
+    "kind": "EVIDENCE",
+    "type": "health_event",
+    "display_name": "",
+    "source_tool": "get_service_health",
+    "first_observed_step": 7,
+    "first_observed_clock": "2025-09-09 01:30:00",
+    "summary": "health event severity minor 2025-05-17 04:54:00..2025-05-17 05:09:00: Brief minor health blip on Webhook Dispatch Service: elevated error rate for 15 minutes."
+   },
+   "EVIDENCE_HZZ": {
+    "alias": "EVIDENCE_HZZ",
+    "canonical_id": "SHE04791",
+    "kind": "EVIDENCE",
+    "type": "health_event",
+    "display_name": "",
+    "source_tool": "get_service_health",
+    "first_observed_step": 7,
+    "first_observed_clock": "2025-09-09 01:30:00",
+    "summary": "health event severity minor 2025-05-11 21:37:00..2025-05-11 21:47:00: Automated health check flagged Webhook Dispatch Service as degraded (minor) for 10 minutes."
+   },
+   "EVIDENCE_GSS": {
+    "alias": "EVIDENCE_GSS",
+    "canonical_id": "SHE04770",
+    "kind": "EVIDENCE",
+    "type": "health_event",
+    "display_name": "",
+    "source_tool": "get_service_health",
+    "first_observed_step": 7,
+    "first_observed_clock": "2025-09-09 01:30:00",
+    "summary": "health event severity minor 2025-04-03 07:19:00..2025-04-03 07:39:00: minor latency spike observed on Webhook Dispatch Service, self-resolved after 20 minutes."
+   },
+   "EVIDENCE_HTJ": {
+    "alias": "EVIDENCE_HTJ",
+    "canonical_id": "SHE04771",
+    "kind": "EVIDENCE",
+    "type": "health_event",
+    "display_name": "",
+    "source_tool": "get_service_health",
+    "first_observed_step": 7,
+    "first_observed_clock": "2025-09-09 01:30:00",
+    "summary": "health event severity minor 2025-02-19 10:54:00..2025-02-19 11:04:00: minor latency spike observed on Webhook Dispatch Service, self-resolved after 10 minutes."
+   },
+   "EVIDENCE_LVF": {
+    "alias": "EVIDENCE_LVF",
+    "canonical_id": "SHE04778",
+    "kind": "EVIDENCE",
+    "type": "health_event",
+    "display_name": "",
+    "source_tool": "get_service_health",
+    "first_observed_step": 7,
+    "first_observed_clock": "2025-09-09 01:30:00",
+    "summary": "health event severity minor 2025-01-07 05:11:00..2025-01-07 05:41:00: minor latency spike observed on Webhook Dispatch Service, self-resolved after 30 minutes."
+   }
+  },
+  "validation_result": {
+   "first_pass_ok": true,
+   "errors_first": [],
+   "repair_used": false,
+   "final_ok": true,
+   "errors_final": []
+  },
+  "contract_failure": null,
+  "llm_calls": [
+   {
+    "phase": "action",
+    "step": 2,
+    "attempt": 0,
+    "prompt_tokens": 1458,
+    "completion_tokens": 76,
+    "latency_ms": 5501.4,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Integration / API issue\", \"confidence\": 0.96, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_customer_deployment\", \"component\": null, \"metric_category\": null, \"keyword\": null, \"team\": null}"
+   },
+   {
+    "phase": "action",
+    "step": 3,
+    "attempt": 0,
+    "prompt_tokens": 1868,
+    "completion_tokens": 77,
+    "latency_ms": 3889.5,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Integration / API issue\", \"confidence\": 0.96, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_technical_signals\", \"component\": null, \"metric_category\": null, \"keyword\": null, \"team\": null}"
+   },
+   {
+    "phase": "action",
+    "step": 4,
+    "attempt": 0,
+    "prompt_tokens": 2329,
+    "completion_tokens": 80,
+    "latency_ms": 3536.7,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Integration / API issue\", \"confidence\": 0.96, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_component_topology\", \"component\": \"COMPONENT_TQJ\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+   },
+   {
+    "phase": "action",
+    "step": 5,
+    "attempt": 0,
+    "prompt_tokens": 2325,
+    "completion_tokens": 77,
+    "latency_ms": 8549.1,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Integration / API issue\", \"confidence\": 0.96, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_telemetry\", \"component\": null, \"metric_category\": \"Integration\", \"keyword\": null, \"team\": null}"
+   },
+   {
+    "phase": "action",
+    "step": 6,
+    "attempt": 0,
+    "prompt_tokens": 2252,
+    "completion_tokens": 116,
+    "latency_ms": 4517.1,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Integration / API issue\", \"confidence\": 0.96, \"status\": \"active\", \"supporting_evidence\": [\"EVIDENCE_PJB\", \"EVIDENCE_NQD\", \"EVIDENCE_WVJ\", \"EVIDENCE_QRH\", \"EVIDENCE_SNH\"], \"contradicting_evidence\": []}], \"tool\": \"get_recent_changes\", \"component\": \"COMPONENT_TQJ\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+   },
+   {
+    "phase": "action",
+    "step": 7,
+    "attempt": 0,
+    "prompt_tokens": 2338,
+    "completion_tokens": 116,
+    "latency_ms": 2970.5,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Integration / API issue\", \"confidence\": 0.96, \"status\": \"active\", \"supporting_evidence\": [\"EVIDENCE_PJB\", \"EVIDENCE_NQD\", \"EVIDENCE_WVJ\", \"EVIDENCE_QRH\", \"EVIDENCE_SNH\"], \"contradicting_evidence\": []}], \"tool\": \"get_service_health\", \"component\": \"COMPONENT_TQJ\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+   },
+   {
+    "phase": "action",
+    "step": 8,
+    "attempt": 0,
+    "prompt_tokens": 3376,
+    "completion_tokens": 117,
+    "latency_ms": 2494.7,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Integration / API issue\", \"confidence\": 0.96, \"status\": \"active\", \"supporting_evidence\": [\"EVIDENCE_PJB\", \"EVIDENCE_NQD\", \"EVIDENCE_WVJ\", \"EVIDENCE_QRH\", \"EVIDENCE_SNH\"], \"contradicting_evidence\": []}], \"tool\": \"get_deployment_history\", \"component\": \"COMPONENT_TQJ\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+   },
+   {
+    "phase": "action",
+    "step": 9,
+    "attempt": 0,
+    "prompt_tokens": 2776,
+    "completion_tokens": 116,
+    "latency_ms": 2764.8,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Integration / API issue\", \"confidence\": 0.96, \"status\": \"active\", \"supporting_evidence\": [\"EVIDENCE_PJB\", \"EVIDENCE_NQD\", \"EVIDENCE_WVJ\", \"EVIDENCE_QRH\", \"EVIDENCE_SNH\"], \"contradicting_evidence\": []}], \"tool\": \"get_team_capability\", \"component\": \"COMPONENT_TQJ\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+   },
+   {
+    "phase": "action",
+    "step": 10,
+    "attempt": 0,
+    "prompt_tokens": 2852,
+    "completion_tokens": 111,
+    "latency_ms": 3430.5,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Integration / API issue\", \"confidence\": 0.96, \"status\": \"active\", \"supporting_evidence\": [\"EVIDENCE_PJB\", \"EVIDENCE_NQD\", \"EVIDENCE_WVJ\", \"EVIDENCE_QRH\", \"EVIDENCE_SNH\"], \"contradicting_evidence\": []}], \"tool\": \"submit_diagnosis\", \"component\": null, \"metric_category\": null, \"keyword\": null, \"team\": null}"
+   },
+   {
+    "phase": "final",
+    "step": 10,
+    "attempt": 0,
+    "prompt_tokens": 3473,
+    "completion_tokens": 400,
+    "latency_ms": 61063.1,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Integration / API issue\", \"confidence\": 0.96, \"status\": \"confirmed\", \"supporting_evidence\": [\"EVIDENCE_PJB\", \"EVIDENCE_NQD\", \"EVIDENCE_WVJ\", \"EVIDENCE_QRH\", \"EVIDENCE_SNH\"], \"contradicting_evidence\": []}], \"evidence_ids\": [\"EVIDENCE_PJB\", \"EVIDENCE_NQD\", \"EVIDENCE_WVJ\", \"EVIDENCE_QRH\", \"EVIDENCE_SNH\", \"CHANGE_CKC\"], \"issue_category\": \"CATEGORY_VXZ\", \"category_confidence\": 0.96, \"root_cause\": \"CAUSE_BJQ\", \"root_cause_confidence\": 0.8, \"affected_component\": \"COMPONENT_TQJ\", \"component_confidence\": 0.9, \"causal_change\": \"CHANGE_CKC\", \"causal_change_confidence\": 0.7, \"owning_team\": \"TEAM_ZXT\", \"routing_confidence\": 0.85, \"confidence\": 0.96, \"evidence_sufficiency\": \"sufficient\", \"human_review_required\": false, \"review_reason\": null, \"status\": \"DIAGNOSIS_PROPOSED\", \"recommended_next_action\": \"Verify the API contract change and its impact on the Webhook Dispatch Service\", \"unresolved_uncertainties\": [], \"summary\": \"The Analytics Dashboard API errors and webhook retries in the EU-Central development environment are likely caused by an integration/API issue, specifically a breaking API contract change that affected the Webhook Dispatch Service. The evidence suggests that the API schema validation failures and version mismatches are related to this change. The recommended next action is to verify the API contract change and its impact on the Webhook Dispatch Service.\"}"
+   }
+  ],
+  "sim_clock_end": "2025-09-09 02:15:00",
+  "tool_budget": 10,
+  "verification_rounds": [
+   {
+    "round": 1,
+    "decision": "ACCEPT",
+    "reason": "deterministic checks passed and no Jev signal crossed a threshold",
+    "triggers": [],
+    "deterministic_checks": {
+     "D1": {
+      "id": "D1",
+      "name": "valid_final_contract",
+      "passed": true,
+      "applicable": true,
+      "detail": "schema, bounds and every reference are valid"
+     },
+     "D2": {
+      "id": "D2",
+      "name": "evidence_support",
+      "passed": true,
+      "applicable": true,
+      "detail": "6 cited evidence item(s), 1 supported hypothesis(es)"
+     },
+     "D3": {
+      "id": "D3",
+      "name": "final_consistency",
+      "passed": true,
+      "applicable": true,
+      "detail": "consistent with the last stated hypotheses and its own confidence"
+     },
+     "D4": {
+      "id": "D4",
+      "name": "premature_finalization",
+      "passed": true,
+      "applicable": true,
+      "detail": "evidence was retrieved and either a hypothesis is supported or the tool budget is used up"
+     },
+     "all_passed": true
+    },
+    "jev": {
+     "missed_evidence_probability": 0.45,
+     "distractor_anchor_probability": 0.22,
+     "review_probabilities": {
+      "PRIORITY_REVIEW": 0.38,
+      "REVIEW": 0.62,
+      "NORMAL": 0.0
+     },
+     "review": "REVIEW",
+     "available": true,
+     "errors": [],
+     "jev_model": "jev-1.13.0",
+     "input_tokens": 20539,
+     "latency_ms": 523.4,
+     "question_versions": {
+      "missed_evidence": "missed_evidence_v1",
+      "distractor_anchor": "distractor_anchor_v1",
+      "review": "human_review_v1"
+     }
+    },
+    "verifier_latency_ms": 1495.4
+   }
+  ],
+  "initial_result": {
+   "final_status": "DIAGNOSIS_PROPOSED",
+   "final_alias_form": {
+    "hypotheses": [
+     {
+      "label": "Integration / API issue",
+      "confidence": 0.96,
+      "status": "confirmed",
+      "supporting_evidence": [
+       "EVIDENCE_PJB",
+       "EVIDENCE_NQD",
+       "EVIDENCE_WVJ",
+       "EVIDENCE_QRH",
+       "EVIDENCE_SNH"
+      ],
+      "contradicting_evidence": []
+     }
+    ],
+    "evidence_ids": [
+     "EVIDENCE_PJB",
+     "EVIDENCE_NQD",
+     "EVIDENCE_WVJ",
+     "EVIDENCE_QRH",
+     "EVIDENCE_SNH",
+     "CHANGE_CKC"
+    ],
+    "issue_category": "CATEGORY_VXZ",
+    "category_confidence": 0.96,
+    "root_cause": "CAUSE_BJQ",
+    "root_cause_confidence": 0.8,
+    "affected_component": "COMPONENT_TQJ",
+    "component_confidence": 0.9,
+    "causal_change": "CHANGE_CKC",
+    "causal_change_confidence": 0.7,
+    "owning_team": "TEAM_ZXT",
+    "routing_confidence": 0.85,
+    "confidence": 0.96,
+    "evidence_sufficiency": "sufficient",
+    "human_review_required": false,
+    "review_reason": null,
+    "status": "DIAGNOSIS_PROPOSED",
+    "recommended_next_action": "Verify the API contract change and its impact on the Webhook Dispatch Service",
+    "unresolved_uncertainties": [],
+    "summary": "The Analytics Dashboard API errors and webhook retries in the EU-Central development environment are likely caused by an integration/API issue, specifically a breaking API contract change that affected the Webhook Dispatch Service. The evidence suggests that the API schema validation failures and version mismatches are related to this change. The recommended next action is to verify the API contract change and its impact on the Webhook Dispatch Service."
+   },
+   "final_diagnosis": {
+    "hypotheses": [
+     {
+      "label": "Integration / API issue",
+      "description": "",
+      "confidence": 0.96,
+      "status": "confirmed",
+      "supporting_evidence": [
+       "SG0000072",
+       "SG0000073",
+       "SG0000071",
+       "SG0000074",
+       "CS00014:CM236:api_error_rate_pct"
+      ],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "predicted_product_id": null,
+    "product_confidence": null,
+    "predicted_component_id": "CM236",
+    "component_confidence": 0.9,
+    "predicted_category_id": "IC09",
+    "category_confidence": 0.96,
+    "predicted_subcategory_id": null,
+    "predicted_root_cause_family": "breaking API contract change",
+    "root_cause_confidence": 0.8,
+    "predicted_causal_change_id": "CH030406",
+    "causal_change_confidence": 0.7,
+    "predicted_severity": null,
+    "severity_confidence": null,
+    "recommended_team_id": "TM13",
+    "routing_confidence": 0.85,
+    "evidence_sufficiency": "sufficient",
+    "overall_confidence": 0.96,
+    "recommended_next_action": "Verify the API contract change and its impact on the Webhook Dispatch Service",
+    "human_review_required": false,
+    "human_review_reason": null,
+    "evidence_summary": "The Analytics Dashboard API errors and webhook retries in the EU-Central development environment are likely caused by an integration/API issue, specifically a breaking API contract change that affected the Webhook Dispatch Service. The evidence suggests that the API schema validation failures and version mismatches are related to this change. The recommended next action is to verify the API contract change and its impact on the Webhook Dispatch Service.",
+    "unresolved_uncertainties": [],
+    "status": "DIAGNOSIS_PROPOSED",
+    "evidence_ids": [
+     "SG0000072",
+     "SG0000073",
+     "SG0000071",
+     "SG0000074",
+     "CS00014:CM236:api_error_rate_pct",
+     "CH030406"
+    ]
+   },
+   "validation_result": {
+    "first_pass_ok": true,
+    "errors_first": [],
+    "repair_used": false,
+    "final_ok": true,
+    "errors_final": []
+   },
+   "num_tool_calls": 10,
+   "evidence_ids_seen": [
+    "CH030406",
+    "CS00014:CM236:api_error_rate_pct",
+    "SG0000071",
+    "SG0000072",
+    "SG0000073",
+    "SG0000074",
+    "SG0000075",
+    "SG0000076",
+    "SHE04770",
+    "SHE04771",
+    "SHE04774",
+    "SHE04777",
+    "SHE04778",
+    "SHE04782",
+    "SHE04791",
+    "SHE04793"
+   ],
+   "triage_outcome": {
+    "outcome": "confirmed",
+    "hint_shown": true,
+    "suggested_category_id": "IC09",
+    "suggested_category": "Integration / API",
+    "final_category_id": "IC09",
+    "final_category": "Integration / API",
+    "final_in_alternatives": false
+   }
+  },
+  "additional_investigation_performed": false,
+  "early_triage": {
+   "version": "early_triage_v1",
+   "role": "triage_guidance",
+   "source": "jev_early_triage",
+   "question_version": "early_triage_category_v1",
+   "state_version": "early_triage_state_v1",
+   "status": "hint",
+   "fallback": false,
+   "fallback_reason": null,
+   "category_id": "IC09",
+   "category_name": "Integration / API",
+   "probability": 0.96,
+   "margin": 0.94,
+   "uncertainty": "low",
+   "alternatives": [
+    {
+     "category_id": "IC05",
+     "name": "Reliability / Availability",
+     "probability": 0.02
+    },
+    {
+     "category_id": "IC16",
+     "name": "Capacity / Scaling",
+     "probability": 0.01
+    },
+    {
+     "category_id": "IC01",
+     "name": "Identity / Authentication",
+     "probability": 0.0
+    }
+   ],
+   "distribution_top": [
+    {
+     "category_id": "IC09",
+     "name": "Integration / API",
+     "probability": 0.96
+    },
+    {
+     "category_id": "IC05",
+     "name": "Reliability / Availability",
+     "probability": 0.02
+    },
+    {
+     "category_id": "IC16",
+     "name": "Capacity / Scaling",
+     "probability": 0.01
+    },
+    {
+     "category_id": "IC01",
+     "name": "Identity / Authentication",
+     "probability": 0.0
+    }
+   ],
+   "abstain_probability": 0.01,
+   "suggested_tools": [
+    "get_technical_signals",
+    "get_telemetry (metric_category Integration)",
+    "get_recent_changes"
+   ],
+   "jev_model": "jev-1.13.0",
+   "input_tokens": 896,
+   "latency_ms": 191.7,
+   "error": null,
+   "config": {
+    "min_probability": 0.3,
+    "moderate_probability": 0.4,
+    "strong_probability": 0.7,
+    "top_alternatives": 3,
+    "timeout_s": 20.0
+   }
+  },
+  "triage_hint_text": "EARLY TRIAGE HINT (provisional and unverified)\nSource: Jev early triage. It read only the ticket text and basic customer/product details; no tool, log, telemetry or graph evidence had been examined.\nSuggested issue category: CATEGORY_VXZ = Integration / API (probability 0.96, low uncertainty).\nOther categories Jev considered: CATEGORY_RNC = Reliability / Availability (0.02); CATEGORY_HGM = Capacity / Scaling (0.01); CATEGORY_TBL = Identity / Authentication (0.00).\nThis is a prior, not a finding, and it may be wrong. Test it against the evidence you retrieve, weigh the competing categories, and reject or replace it if the evidence points elsewhere. It is not evidence and cannot be cited. Choose your final issue_category from the evidence.\nSuggested starting points for this category (advisory only: every tool stays available and no category or evidence is ruled out): get_technical_signals; get_telemetry (metric_category Integration); get_recent_changes.",
+  "triage_prompt_version": "early_triage_prompt_v1",
+  "triage_outcome": {
+   "outcome": "confirmed",
+   "hint_shown": true,
+   "suggested_category_id": "IC09",
+   "suggested_category": "Integration / API",
+   "final_category_id": "IC09",
+   "final_category": "Integration / API",
+   "final_in_alternatives": false
+  }
+ }
+}

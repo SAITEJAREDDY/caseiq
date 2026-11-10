@@ -1,0 +1,60 @@
+{
+ "run_id": "llmonly_CS01877_20260924T181048Z_dcc2dd",
+ "case_id": "CS01877",
+ "created_at": "2026-09-24T18:10:48.631005+00:00",
+ "prompt_version": "llm_only_v1",
+ "model_name": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+ "temperature": 0.1,
+ "ticket_shown_to_model": {
+  "title": "Billing Engine performance degradation due to index rebuild",
+  "description": "Hello Support,\n\nWe are experiencing significant slowdowns with the Billing Engine in the EU-Central production environment. It appears that the underlying database index requires a rebuild, as queries are timing out and taking much longer than usual to process. This is impacting approximately 20 users who are unable to generate invoices in a timely manner. Please assist us in triggering or scheduling an index rebuild to restore normal performance levels.",
+  "environment": "production",
+  "region": "EU-Central",
+  "priority": "medium",
+  "reported_business_impact": "moderate",
+  "reported_affected_users": 20,
+  "created_date": "2025-01-02",
+  "customer_tier": "silver",
+  "customer_industry": "Public Sector",
+  "customer_company_size": "mid",
+  "reported_product_name": "Billing Engine",
+  "reported_symptoms": [
+   "index rebuild required"
+  ]
+ },
+ "n_categories_offered": 18,
+ "n_root_causes_offered": 40,
+ "parsed": {
+  "issue_category": "Performance / Latency",
+  "root_cause": "database contention",
+  "affected_component": "Billing Engine",
+  "causal_change": null,
+  "owning_team": null,
+  "confidence": 0.8,
+  "status": "DIAGNOSIS_PROPOSED",
+  "summary": "The Billing Engine is experiencing performance degradation due to a required index rebuild in the EU-Central production environment, impacting 20 users."
+ },
+ "status": "DIAGNOSIS_PROPOSED",
+ "validation_errors": [],
+ "repair_used": false,
+ "llm_calls": [
+  {
+   "attempt": 0,
+   "latency_ms": 34163.3,
+   "finish_reason": "stop",
+   "raw_output": "{\"issue_category\": \"Performance \\/ Latency\", \"root_cause\": \"database contention\", \"affected_component\": \"Billing Engine\", \"causal_change\": null, \"owning_team\": null, \"confidence\": 0.8, \"status\": \"DIAGNOSIS_PROPOSED\", \"summary\": \"The Billing Engine is experiencing performance degradation due to a required index rebuild in the EU-Central production environment, impacting 20 users.\"}"
+  }
+ ],
+ "tokens": {
+  "prompt": 732,
+  "completion": 94,
+  "total": 826
+ },
+ "latency_ms": 34163.3,
+ "wall_ms": 34165.5,
+ "cost_usd_estimate": 0.000727,
+ "tool_calls": 0,
+ "evidence_count": 0,
+ "graph_used": false,
+ "jev_used": false
+}

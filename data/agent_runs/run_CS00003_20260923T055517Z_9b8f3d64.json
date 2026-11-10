@@ -1,0 +1,382 @@
+{
+  "run_id": "run_CS00003_20260923T055517Z_9b8f3d64",
+  "case_id": "CS00003",
+  "created_at": "2026-09-23T05:55:17.824735+00:00",
+  "model_provider": "groq",
+  "model_name": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "temperature": 0.1,
+  "prompt_version": "v1",
+  "toolset_version": "v1",
+  "output_schema_version": "v1",
+  "graph_version": "phase4-2500case-2026-09-22",
+  "sim_clock_step_minutes": 15,
+  "max_tool_calls": 10,
+  "max_repeated_same_tool": 2,
+  "stop_reason": "model_submitted",
+  "num_tool_calls": 7,
+  "num_llm_calls": 7,
+  "token_usage": {
+    "prompt_tokens": 13026,
+    "completion_tokens": 606,
+    "total_tokens": 13632
+  },
+  "approx_cost_usd": 0.001363,
+  "approx_cost_note": "Estimated from a configurable placeholder rate, not exact provider billing -- see config.py",
+  "trace_steps": [
+    {
+      "step": 1,
+      "sim_clock": "2025-01-21 00:00:00",
+      "tool_name": "get_case_context",
+      "args": {
+        "hypotheses": [],
+        "rationale": "Starting the investigation of case CS00003"
+      },
+      "hypotheses": [],
+      "rationale": "Starting the investigation of case CS00003",
+      "result_summary": {
+        "case_id": "CS00003",
+        "title": "Data Export Service causing high latency and slow mobile app performance",
+        "description": "We are seeing extremely slow response times from the Data Export Service in production (ANZ region). This is causing significant high latency and making our mobile app perform poorly for about 199 users. We think this is definitely a breaking API contract change on your end, as the data formats seem misaligned. Please investigate this urgently as it's impacting business operations.",
+        "environment": "production",
+        "region": "ANZ",
+        "reported_business_impact": "high",
+        "reported_affected_users": 199,
+        "priority": "medium",
+        "created_date": "2025-01-21",
+        "status": "open",
+        "customer_id": "C03979",
+        "customer_tier": "bronze",
+        "customer_industry": "Insurance",
+        "customer_company_size": "mid",
+        "reported_product_id": "P005",
+        "reported_product_name": "Data Export Service",
+        "reported_symptoms": [
+          "slow response",
+          "high latency",
+          "slow mobile app performance"
+        ]
+      },
+      "latency_ms": 1591.6,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 2,
+      "sim_clock": "2025-01-21 00:15:00",
+      "tool_name": "get_system_logs",
+      "args": {
+        "hypotheses": [
+          "breaking_api_contract_change:0.5",
+          "data_export_service_issue:0.3",
+          "mobile_app_problem:0.2"
+        ],
+        "rationale": "Checking system logs to identify any errors or issues related to the Data Export Service in the ANZ region"
+      },
+      "hypotheses": [
+        "breaking_api_contract_change:0.5",
+        "data_export_service_issue:0.3",
+        "mobile_app_problem:0.2"
+      ],
+      "rationale": "Checking system logs to identify any errors or issues related to the Data Export Service in the ANZ region",
+      "result_summary": {
+        "error": "unknown tool 'get_system_logs'. Valid tools are: ['get_active_incidents', 'get_agent_availability', 'get_case_context', 'get_component_topology', 'get_configuration_history', 'get_customer_deployment', 'get_deployment_history', 'get_recent_changes', 'get_service_health', 'get_similar_cases', 'get_team_capability', 'get_technical_signals', 'get_telemetry', 'search_knowledge_base', 'submit_diagnosis']"
+      },
+      "latency_ms": 1509.3,
+      "status": "error",
+      "redundant": false
+    },
+    {
+      "step": 3,
+      "sim_clock": "2025-01-21 00:30:00",
+      "tool_name": "get_recent_changes",
+      "args": {
+        "hypotheses": [
+          "breaking_api_contract_change:0.5",
+          "data_export_service_issue:0.3",
+          "mobile_app_problem:0.2"
+        ],
+        "rationale": "Checking recent changes to identify any potential causes of the issue"
+      },
+      "hypotheses": [
+        "breaking_api_contract_change:0.5",
+        "data_export_service_issue:0.3",
+        "mobile_app_problem:0.2"
+      ],
+      "rationale": "Checking recent changes to identify any potential causes of the issue",
+      "result_summary": {
+        "recent_changes": [],
+        "count": 0
+      },
+      "latency_ms": 1231.5,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 4,
+      "sim_clock": "2025-01-21 00:45:00",
+      "tool_name": "get_service_health",
+      "args": {
+        "hypotheses": [
+          "breaking_api_contract_change:0.5",
+          "data_export_service_issue:0.3",
+          "mobile_app_problem:0.2"
+        ],
+        "rationale": "Checking the health of the Data Export Service to see if there are any ongoing issues"
+      },
+      "hypotheses": [
+        "breaking_api_contract_change:0.5",
+        "data_export_service_issue:0.3",
+        "mobile_app_problem:0.2"
+      ],
+      "rationale": "Checking the health of the Data Export Service to see if there are any ongoing issues",
+      "result_summary": {
+        "error": "1 validation error for ComponentScopedArgs\ncomponent_id\n  Field required [type=missing, input_value={'hypotheses': ['breaking...are any ongoing issues'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      },
+      "latency_ms": 1156.0,
+      "status": "error",
+      "redundant": false
+    },
+    {
+      "step": 5,
+      "sim_clock": "2025-01-21 01:00:00",
+      "tool_name": "get_component_topology",
+      "args": {
+        "hypotheses": [
+          "breaking_api_contract_change:0.5",
+          "data_export_service_issue:0.3",
+          "mobile_app_problem:0.2"
+        ],
+        "rationale": "Checking the component topology to understand the relationships between components"
+      },
+      "hypotheses": [
+        "breaking_api_contract_change:0.5",
+        "data_export_service_issue:0.3",
+        "mobile_app_problem:0.2"
+      ],
+      "rationale": "Checking the component topology to understand the relationships between components",
+      "result_summary": {
+        "error": "1 validation error for ComponentScopedArgs\ncomponent_id\n  Field required [type=missing, input_value={'hypotheses': ['breaking...ips between components'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      },
+      "latency_ms": 1229.1,
+      "status": "error",
+      "redundant": false
+    },
+    {
+      "step": 6,
+      "sim_clock": "2025-01-21 01:15:00",
+      "tool_name": "get_customer_deployment",
+      "args": {
+        "hypotheses": [
+          "breaking_api_contract_change:0.5",
+          "data_export_service_issue:0.3",
+          "mobile_app_problem:0.2"
+        ],
+        "rationale": "Checking the customer deployment to understand the environment and configuration"
+      },
+      "hypotheses": [
+        "breaking_api_contract_change:0.5",
+        "data_export_service_issue:0.3",
+        "mobile_app_problem:0.2"
+      ],
+      "rationale": "Checking the customer deployment to understand the environment and configuration",
+      "result_summary": {
+        "deployments": [
+          {
+            "product_id": "P003",
+            "product_name": "Analytics Dashboard",
+            "version": "1.4",
+            "environment": "production",
+            "region": "ANZ",
+            "status": "active",
+            "deployed_at": "2025-06-08",
+            "product_components": [
+              "CM095",
+              "CM098",
+              "CM100",
+              "CM106",
+              "CM114",
+              "CM120",
+              "CM229",
+              "CM236"
+            ]
+          },
+          {
+            "product_id": "P011",
+            "product_name": "Billing Disputes Handler",
+            "version": "1.0",
+            "environment": "production",
+            "region": "ANZ",
+            "status": "active",
+            "deployed_at": "2025-02-14",
+            "product_components": [
+              "CM049",
+              "CM056",
+              "CM068",
+              "CM073",
+              "CM074",
+              "CM075",
+              "CM086",
+              "CM227"
+            ]
+          },
+          {
+            "product_id": "P005",
+            "product_name": "Data Export Service",
+            "version": "1.1",
+            "environment": "staging",
+            "region": "ANZ",
+            "status": "active",
+            "deployed_at": "2025-01-02",
+            "product_components": [
+              "CM089",
+              "CM090",
+              "CM092",
+              "CM093",
+              "CM098",
+              "CM101",
+              "CM104",
+              "CM113"
+            ]
+          },
+          {
+            "product_id": "P005",
+            "product_name": "Data Export Service",
+            "version": "1.1",
+            "environment": "production",
+            "region": "ANZ",
+            "status": "active",
+            "deployed_at": "2024-12-24",
+            "product_components": [
+              "CM089",
+              "CM090",
+              "CM092",
+              "CM093",
+              "CM098",
+              "CM101",
+              "CM104",
+              "CM113"
+            ]
+          }
+        ]
+      },
+      "latency_ms": 1303.9,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 7,
+      "sim_clock": "2025-01-21 01:30:00",
+      "tool_name": "submit_diagnosis",
+      "args": {
+        "hypotheses": [
+          {
+            "label": "breaking_api_contract_change",
+            "confidence": 0.5,
+            "supporting_evidence_ids": [],
+            "contradicting_evidence_ids": [],
+            "status": "open"
+          },
+          {
+            "label": "data_export_service_issue",
+            "confidence": 0.3,
+            "supporting_evidence_ids": [],
+            "contradicting_evidence_ids": [],
+            "status": "open"
+          },
+          {
+            "label": "mobile_app_problem",
+            "confidence": 0.2,
+            "supporting_evidence_ids": [],
+            "contradicting_evidence_ids": [],
+            "status": "open"
+          }
+        ],
+        "evidence_sufficiency": "insufficient",
+        "human_review_required": true,
+        "recommended_next_action": "Inspect the Data Export Service configuration and check for any issues with the API contract",
+        "rationale": "The investigation has not yielded sufficient evidence to confirm a root cause, and human review is required to further investigate the issue"
+      },
+      "hypotheses": [
+        {
+          "label": "breaking_api_contract_change",
+          "confidence": 0.5,
+          "supporting_evidence_ids": [],
+          "contradicting_evidence_ids": [],
+          "status": "open"
+        },
+        {
+          "label": "data_export_service_issue",
+          "confidence": 0.3,
+          "supporting_evidence_ids": [],
+          "contradicting_evidence_ids": [],
+          "status": "open"
+        },
+        {
+          "label": "mobile_app_problem",
+          "confidence": 0.2,
+          "supporting_evidence_ids": [],
+          "contradicting_evidence_ids": [],
+          "status": "open"
+        }
+      ],
+      "rationale": "The investigation has not yielded sufficient evidence to confirm a root cause, and human review is required to further investigate the issue",
+      "result_summary": "submitted",
+      "latency_ms": 2919.8,
+      "status": "ok",
+      "redundant": false
+    }
+  ],
+  "final_diagnosis": {
+    "hypotheses": [
+      {
+        "label": "breaking_api_contract_change",
+        "description": "",
+        "confidence": 0.5,
+        "supporting_evidence": [],
+        "contradicting_evidence": [],
+        "status": "active"
+      },
+      {
+        "label": "data_export_service_issue",
+        "description": "",
+        "confidence": 0.3,
+        "supporting_evidence": [],
+        "contradicting_evidence": [],
+        "status": "active"
+      },
+      {
+        "label": "mobile_app_problem",
+        "description": "",
+        "confidence": 0.2,
+        "supporting_evidence": [],
+        "contradicting_evidence": [],
+        "status": "active"
+      }
+    ],
+    "rationale": "The investigation has not yielded sufficient evidence to confirm a root cause, and human review is required to further investigate the issue",
+    "predicted_product_id": null,
+    "product_confidence": null,
+    "predicted_component_id": null,
+    "component_confidence": null,
+    "predicted_category_id": null,
+    "category_confidence": null,
+    "predicted_subcategory_id": null,
+    "predicted_root_cause_family": null,
+    "root_cause_confidence": null,
+    "predicted_causal_change_id": null,
+    "causal_change_confidence": null,
+    "predicted_severity": null,
+    "severity_confidence": null,
+    "recommended_team_id": null,
+    "routing_confidence": null,
+    "evidence_sufficiency": "insufficient",
+    "overall_confidence": 0.5,
+    "recommended_next_action": "Inspect the Data Export Service configuration and check for any issues with the API contract",
+    "human_review_required": true,
+    "human_review_reason": null,
+    "evidence_summary": "The investigation has not yielded sufficient evidence to confirm a root cause, and human review is required to further investigate the issue",
+    "unresolved_uncertainties": []
+  },
+  "citation_violations": [],
+  "evidence_ids_seen": []
+}

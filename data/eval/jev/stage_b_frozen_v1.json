@@ -1,0 +1,95 @@
+{
+  "phase": 7,
+  "stage": "B_frozen",
+  "freeze_version": "stage_b_frozen_v1",
+  "description": "The exact per-decision settings Stage C (validation) must use, unmodified. Every version is explicit; there is no 'auto' or 'latest' setting. This file is immutable once its manifest exists: the manifest records its sha256 and the sha256 of every model-input-defining source file, and run_experiment --frozen-config refuses to run if any of them differ.",
+  "cohort": {
+    "split": "dev",
+    "n_cases": 100,
+    "selection": "the first 100 case ids of the dev split in stored order (the Stage B v1/v2 cohort)",
+    "decision_time": "as_of = the case's own created_date (T0, ticket-only)"
+  },
+  "split_version": "case_splits_v1",
+  "decisions": {
+    "issue_category": {
+      "primitive": "choice",
+      "question_version": "issue_category_v1",
+      "candidate_generation_version": "v1",
+      "candidate_strategy": "all_canonical_categories (18)",
+      "context_version": null,
+      "state_projection": "issue_category_state: ticket, customer tier/industry/size, reported product, visible signal count and types"
+    },
+    "root_cause": {
+      "primitive": "choice",
+      "question_version": "root_cause_v1",
+      "candidate_generation_version": "v2",
+      "candidate_strategy": "v2_weighted_product_signal_symptom_topology (top 15 + RC40 abstention)",
+      "context_version": "v4_operational",
+      "state_projection": "root_cause_state at v4_operational: ticket, reported product, deployed components, technical evidence, operational events"
+    },
+    "causal_change": {
+      "primitive": "choice",
+      "question_version": "causal_change_v1",
+      "candidate_generation_version": "v3",
+      "candidate_strategy": "changes_plus_deployments_plus_none_option",
+      "key_mode": "canonical",
+      "context_version": null,
+      "state_projection": "causal_change_state: ticket, reported product, deployed components, technical evidence (changes and deployments are offered only as candidates)"
+    },
+    "owning_team": {
+      "primitive": "choice",
+      "question_version": "owning_team_v1",
+      "candidate_generation_version": "v2",
+      "candidate_strategy": "v2_weighted_deployment_product_signal_symptom_support (top 12)",
+      "context_version": null,
+      "state_projection": "owning_team_state: ticket, reported product, deployed components, evidence summary"
+    },
+    "evidence_sufficiency": {
+      "primitive": "choice",
+      "question_version": "evidence_sufficiency_v2",
+      "candidate_generation_version": "v1",
+      "candidate_strategy": "fixed_three_way_evidence_sufficiency",
+      "context_version": null,
+      "state_projection_version": "v2",
+      "state_projection": "evidence_sufficiency_state with the time-gated observable telemetry-anomaly summary (evidence_sufficiency_v2)"
+    },
+    "incident_relationship": {
+      "primitive": "noul",
+      "question_version": "incident_relationship_v1",
+      "candidate_generation_version": "v1",
+      "candidate_strategy": "active_incidents_overlapping_case (one Noul question per overlapping incident)",
+      "context_version": null,
+      "state_projection": "incident_relationship_state: ticket, reported product, case signal count, candidate incident"
+    }
+  },
+  "context_version_note": "context_version is a root-cause-only setting; every other decision ignores it.",
+  "jev": {
+    "model_requested": "jev-1.13.0",
+    "model_resolved_at_freeze": "jev-1.13.0",
+    "api_endpoint": "/v1/systemone",
+    "api_version": "v1",
+    "note": "Pinned to the explicit version id (accepted by the API and resolving identically to the jev-latest alias on 2026-09-23); the alias is not used."
+  },
+  "llm_baseline": {
+    "provider": "together",
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "temperature": 0.1,
+    "max_tokens": 400,
+    "repair_max_attempts": 1
+  },
+  "evaluator_version": "v2.1",
+  "question_set_version": "v2",
+  "candidate_strategy_bundle": "v3",
+  "pricing_version": "2026-09-23",
+  "rationale": {
+    "root_cause_context_v4": "On the dev-100 cohort v5_graph reached 46% and v4_operational 45% (one case apart), while v4 sends about 18% fewer input tokens (1,479 vs 1,807 mean) at lower latency; v3_technical reached 32%. v4 is the preferred default. The choice rests on dev data only and is validated, not tuned, in Stage C.",
+    "root_cause_candidates_v2": "Raised candidate recall from 68% to 100% on dev-100 at the cost of conditional accuracy (38.2% to 32.0%); end-to-end accuracy rose 26% to 32%. The cutoffs were chosen on this same cohort, so the recall is in-sample until Stage C (JEV-019).",
+    "owning_team_candidates_v2": "Raised acceptable-team recall from 61% to 100% and acceptable accuracy from 38% to 49% on dev-100; in-sample for the same reason.",
+    "causal_change_candidates_v3": "Fixes JEV-013: deployment-type causal changes were never offered under v2 (6 of 100 dev cases). Recall 94% to 100%, average candidate count 1.73 to 1.80.",
+    "evidence_sufficiency_v2": "Kept although accuracy is low: the v1 result was a state-projection mismatch (no observable telemetry anomalies), which v2 corrects. The remaining weakness is a measured result that Stage C should test rather than a defect to keep tuning on dev.",
+    "issue_category_and_incident_relationship": "Unchanged since Stage B; not retuned.",
+    "jev_model_pin": "Removes alias drift as a source of change between Stage B and Stage C.",
+    "canonical_change_ids": "Stage B v1/v2 and the v3 rerun all showed Jev the canonical change ids, so the freeze keeps them for comparability. The change-id number range separates true from non-true candidates in the dev cohort (see docs/JEV_EVALUATION.md); the opaque-key control run measures whether that matters."
+  },
+  "stage_c_rule": "Stage C must run with --frozen-config stage_b_frozen_v1 and no overrides. Any change to a version above requires a new freeze_version, not an edit to this file."
+}

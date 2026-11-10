@@ -1,0 +1,1992 @@
+{
+ "run_id": "run_CS00607_20260924T042919Z_c35279a4",
+ "case_id": "CS00607",
+ "created_at": "2026-09-24T04:29:19.852571+00:00",
+ "run_tag": "iter50_b",
+ "model_provider": "together",
+ "model_name": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+ "temperature": 0.1,
+ "graph_version": "phase4-2500case-2026-09-22",
+ "sim_clock_step_minutes": 15,
+ "max_tool_calls": 10,
+ "max_repeated_same_tool": 2,
+ "max_tool_contract_repairs": 2,
+ "max_final_contract_repairs": 1,
+ "agent_version": "agent_v3_contract_hardened",
+ "contract_version": "agent_contract_v1.1",
+ "prompt_version": "v3.1",
+ "tool_catalog_version": "tool_catalog_v3",
+ "action_schema_version": "action_v3.1",
+ "final_schema_version": "final_diagnosis_v3.1",
+ "registry_version": "observed_registry_v1",
+ "alias_scheme": "agent_alias_v1",
+ "repair_policy_version": "repair_policy_v1",
+ "decoding": "json_schema_strict",
+ "code_digest": "54bbbe51a58dbb43883bd743c2476a93b418373888d06e2cc60c30dc2b1b7cf2",
+ "toolset_version": "tool_catalog_v3",
+ "output_schema_version": "final_diagnosis_v3.1",
+ "agent_loop_version": "agent_v3_contract_hardened",
+ "repair_layer_version": "repair_policy_v1",
+ "approx_cost_usd": 0.001987,
+ "stop_reason": "model_submitted",
+ "num_tool_calls": 10,
+ "num_llm_calls": 10,
+ "token_usage": {
+  "prompt_tokens": 18811,
+  "completion_tokens": 1062,
+  "total_tokens": 19873
+ },
+ "trace_steps": [
+  {
+   "step": 1,
+   "sim_clock": "2024-10-21 00:00:00",
+   "tool_name": "get_case_context",
+   "args": {},
+   "args_alias": {},
+   "hypotheses": [],
+   "hypothesis_state": [],
+   "rationale": "",
+   "result_summary": {
+    "case_id": "CS00607",
+    "title": "Deploy Manager memory spikes and rate limits in US-West Dev",
+    "description": "We're seeing high memory usage on the Deploy Manager instances in our US-West development environment. Autoscaling isn't kicking in to handle the load, and we are hitting rate limit exceeded errors. This is definitely an insufficient capacity planning issue on our end, or perhaps the environment wasn't sized correctly during the last deploy. We need more resources allocated to handle the current traffic.",
+    "environment": "development",
+    "region": "US-West",
+    "reported_business_impact": "moderate",
+    "reported_affected_users": 20,
+    "priority": "low",
+    "created_date": "2024-10-21",
+    "status": "open",
+    "customer_id": "C01957",
+    "customer_tier": "bronze",
+    "customer_industry": "Education",
+    "customer_company_size": "small",
+    "reported_product_id": "P049",
+    "reported_product_name": "Deploy Manager",
+    "reported_symptoms": [
+     "rate limit exceeded",
+     "memory usage spike",
+     "autoscaling not triggering"
+    ]
+   },
+   "latency_ms": 0.0,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "harness"
+  },
+  {
+   "step": 2,
+   "sim_clock": "2024-10-21 00:15:00",
+   "tool_name": "get_customer_deployment",
+   "args": {},
+   "args_alias": {},
+   "hypotheses": [
+    "Insufficient capacity planning:0.5"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Insufficient capacity planning",
+     "confidence": 0.5,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "deployments": [
+     {
+      "product_id": "P049",
+      "product_name": "Deploy Manager",
+      "version": "2.7",
+      "environment": "production",
+      "region": "US-West",
+      "status": "active",
+      "deployed_at": "2026-07-28",
+      "product_components": [
+       "CM133",
+       "CM140",
+       "CM145",
+       "CM150",
+       "CM162",
+       "CM166",
+       "CM170",
+       "CM171"
+      ]
+     }
+    ]
+   },
+   "latency_ms": 4153.0,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 3,
+   "sim_clock": "2024-10-21 00:30:00",
+   "tool_name": "get_component_topology",
+   "args": {
+    "component_id": "CM133"
+   },
+   "args_alias": {
+    "component": "COMPONENT_NGC"
+   },
+   "hypotheses": [
+    "Insufficient capacity planning:0.5"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Insufficient capacity planning",
+     "confidence": 0.5,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "component_id": "CM133",
+    "component_name": "Rate Limiter",
+    "upstream_dependencies": [
+     {
+      "name": "Session Store",
+      "id": "CM009"
+     },
+     {
+      "name": "Billing Notification Service",
+      "id": "CM072"
+     },
+     {
+      "name": "Data Warehouse Store",
+      "id": "CM093"
+     },
+     {
+      "name": "Cube/OLAP Engine",
+      "id": "CM124"
+     },
+     {
+      "name": "Service Registry",
+      "id": "CM144"
+     },
+     {
+      "name": "Primary Database Cluster",
+      "id": "CM151"
+     },
+     {
+      "name": "Read Replica Service",
+      "id": "CM152"
+     },
+     {
+      "name": "Time-Series Metrics Store",
+      "id": "CM168"
+     },
+     {
+      "name": "Internal DNS Zone Manager",
+      "id": "CM172"
+     },
+     {
+      "name": "File Upload Widget",
+      "id": "CM199"
+     },
+     {
+      "name": "Directory Sync Connector (Shared)",
+      "id": "CM238"
+     }
+    ],
+    "downstream_dependents": [
+     {
+      "name": "Login Analytics Service",
+      "id": "CM037"
+     },
+     {
+      "name": "Stream Processing Engine",
+      "id": "CM090"
+     },
+     {
+      "name": "Job Scheduler",
+      "id": "CM100"
+     },
+     {
+      "name": "Real-Time Metrics Stream",
+      "id": "CM113"
+     },
+     {
+      "name": "Cube/OLAP Engine",
+      "id": "CM124"
+     },
+     {
+      "name": "Queue Manager",
+      "id": "CM135"
+     },
+     {
+      "name": "Service Registry",
+      "id": "CM144"
+     },
+     {
+      "name": "Log Aggregator",
+      "id": "CM145"
+     },
+     {
+      "name": "Metrics Pipeline",
+      "id": "CM146"
+     },
+     {
+      "name": "Container Runtime",
+      "id": "CM147"
+     },
+     {
+      "name": "Database Connection Pooler",
+      "id": "CM153"
+     },
+     {
+      "name": "Chat Widget",
+      "id": "CM178"
+     },
+     {
+      "name": "State Management Store",
+      "id": "CM194"
+     },
+     {
+      "name": "Print/Export View Renderer",
+      "id": "CM203"
+     },
+     {
+      "name": "Email Delivery Worker",
+      "id": "CM215"
+     },
+     {
+      "name": "Delivery Tracking Service",
+      "id": "CM220"
+     },
+     {
+      "name": "Global Load Balancer",
+      "id": "CM232"
+     },
+     {
+      "name": "CDN Edge Layer",
+      "id": "CM243"
+     }
+    ],
+    "external_dependencies": [],
+    "owning_teams": [
+     {
+      "name": "Reliability / SRE",
+      "id": "TM10"
+     },
+     {
+      "name": "Infrastructure / Cloud Ops",
+      "id": "TM21"
+     }
+    ]
+   },
+   "latency_ms": 3367.0,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 4,
+   "sim_clock": "2024-10-21 00:45:00",
+   "tool_name": "get_telemetry",
+   "args": {},
+   "args_alias": {},
+   "hypotheses": [
+    "Insufficient capacity planning:0.5"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Insufficient capacity planning",
+     "confidence": 0.5,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "available_metric_categories": [
+     "Compute"
+    ],
+    "note": "Call again with one of these metric_category values to see actual readings."
+   },
+   "latency_ms": 2415.2,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 5,
+   "sim_clock": "2024-10-21 01:00:00",
+   "tool_name": "get_telemetry",
+   "args": {
+    "metric_category": "Compute"
+   },
+   "args_alias": {
+    "metric_category": "Compute"
+   },
+   "hypotheses": [
+    "Insufficient capacity planning:0.5"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Insufficient capacity planning",
+     "confidence": 0.5,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "telemetry_findings": [
+     {
+      "evidence_id": "CS00607:CM133:cpu_pct",
+      "metric_code": "cpu_pct",
+      "component_id": "CM133",
+      "baseline": 39.9927,
+      "observed_min": 35.098,
+      "observed_max": 111.512,
+      "status": "abnormal",
+      "direction": "above_baseline",
+      "anomaly_start": "2024-10-20 23:00:00",
+      "anomaly_end": "2024-10-21 00:00:00"
+     }
+    ],
+    "count": 1
+   },
+   "latency_ms": 7060.0,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 6,
+   "sim_clock": "2024-10-21 01:15:00",
+   "tool_name": "get_technical_signals",
+   "args": {
+    "component_id": "CM133"
+   },
+   "args_alias": {
+    "component": "COMPONENT_NGC"
+   },
+   "hypotheses": [
+    "Insufficient capacity planning:0.5"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Insufficient capacity planning",
+     "confidence": 0.5,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "signals": [
+     {
+      "evidence_id": "SG0002980",
+      "signal_type": "CPU_THROTTLED",
+      "message": "CPU throttling observed on Rate Limiter",
+      "timestamp": "2024-10-20 22:44:00",
+      "component_id": "CM133"
+     },
+     {
+      "evidence_id": "SG0002979",
+      "signal_type": "MEMORY_PRESSURE",
+      "message": "memory pressure detected on Rate Limiter",
+      "timestamp": "2024-10-20 22:50:00",
+      "component_id": "CM133"
+     }
+    ],
+    "count": 2
+   },
+   "latency_ms": 2821.7,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 7,
+   "sim_clock": "2024-10-21 01:30:00",
+   "tool_name": "get_recent_changes",
+   "args": {
+    "component_id": "CM133"
+   },
+   "args_alias": {
+    "component": "COMPONENT_NGC"
+   },
+   "hypotheses": [
+    "Insufficient capacity planning:0.5"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Insufficient capacity planning",
+     "confidence": 0.5,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "recent_changes": [
+     {
+      "evidence_id": "CH016170",
+      "change_type": "manual_config_change",
+      "component_id": "CM133",
+      "started_at": "2024-10-19 23:09:00",
+      "completed_at": "2024-10-19 23:26:00",
+      "status": "failed",
+      "initiated_by": "system:automation",
+      "time_proximity_hours": 24.9,
+      "scope_match": "same_component"
+     }
+    ],
+    "count": 1
+   },
+   "latency_ms": 44830.2,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 8,
+   "sim_clock": "2024-10-21 01:45:00",
+   "tool_name": "get_deployment_history",
+   "args": {
+    "component_id": "CM133"
+   },
+   "args_alias": {
+    "component": "COMPONENT_NGC"
+   },
+   "hypotheses": [
+    "Insufficient capacity planning:0.5"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Insufficient capacity planning",
+     "confidence": 0.5,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "deployments": [],
+    "count": 0
+   },
+   "latency_ms": 24786.9,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 9,
+   "sim_clock": "2024-10-21 02:00:00",
+   "tool_name": "get_service_health",
+   "args": {
+    "component_id": "CM133"
+   },
+   "args_alias": {
+    "component": "COMPONENT_NGC"
+   },
+   "hypotheses": [
+    "Insufficient capacity planning:0.5"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Insufficient capacity planning",
+     "confidence": 0.5,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "health_events": [
+     {
+      "evidence_id": "SHE02681",
+      "started_at": "2024-10-17 00:08:00",
+      "ended_at": "2024-10-17 00:28:00",
+      "severity": "minor",
+      "description": "Automated health check flagged Rate Limiter as degraded (minor) for 20 minutes."
+     }
+    ],
+    "count": 1
+   },
+   "latency_ms": 3239.1,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 10,
+   "sim_clock": "2024-10-21 02:15:00",
+   "tool_name": "submit_diagnosis",
+   "args": {},
+   "args_alias": {},
+   "hypotheses": [
+    "Insufficient capacity planning:0.8"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "Insufficient capacity planning",
+     "confidence": 0.8,
+     "status": "confirmed",
+     "supporting_evidence": [
+      "EVIDENCE_MKG",
+      "EVIDENCE_NVP",
+      "EVIDENCE_HNP"
+     ],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": "submitted",
+   "latency_ms": 74343.0,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  }
+ ],
+ "final_diagnosis": {
+  "hypotheses": [
+   {
+    "label": "Insufficient capacity planning",
+    "description": "",
+    "confidence": 0.8,
+    "status": "confirmed",
+    "supporting_evidence": [
+     "CS00607:CM133:cpu_pct",
+     "SG0002980",
+     "SG0002979"
+    ],
+    "contradicting_evidence": []
+   }
+  ],
+  "rationale": "",
+  "predicted_product_id": null,
+  "product_confidence": null,
+  "predicted_component_id": "CM133",
+  "component_confidence": 0.9,
+  "predicted_category_id": "IC16",
+  "category_confidence": 0.8,
+  "predicted_subcategory_id": null,
+  "predicted_root_cause_family": "insufficient capacity planning",
+  "root_cause_confidence": 0.8,
+  "predicted_causal_change_id": "CH016170",
+  "causal_change_confidence": 0.7,
+  "predicted_severity": null,
+  "severity_confidence": null,
+  "recommended_team_id": "TM10",
+  "routing_confidence": 0.7,
+  "evidence_sufficiency": "sufficient",
+  "overall_confidence": 0.8,
+  "recommended_next_action": "Increase capacity allocation for Deploy Manager instances in US-West development environment and review autoscaling configuration to handle high memory usage.",
+  "human_review_required": false,
+  "human_review_reason": null,
+  "evidence_summary": "The investigation suggests that insufficient capacity planning is the root cause of the high memory usage and rate limit exceeded errors on the Deploy Manager instances in the US-West development environment. The evidence from telemetry, technical signals, and recent changes supports this hypothesis. It is recommended to increase capacity allocation and review autoscaling configuration to handle high memory usage.",
+  "unresolved_uncertainties": [],
+  "status": "DIAGNOSIS_PROPOSED",
+  "evidence_ids": [
+   "CS00607:CM133:cpu_pct",
+   "SG0002980",
+   "SG0002979",
+   "CH016170"
+  ]
+ },
+ "final_status": "DIAGNOSIS_PROPOSED",
+ "final_alias_form": {
+  "hypotheses": [
+   {
+    "label": "Insufficient capacity planning",
+    "confidence": 0.8,
+    "status": "confirmed",
+    "supporting_evidence": [
+     "EVIDENCE_MKG",
+     "EVIDENCE_NVP",
+     "EVIDENCE_HNP"
+    ],
+    "contradicting_evidence": []
+   }
+  ],
+  "evidence_ids": [
+   "EVIDENCE_MKG",
+   "EVIDENCE_NVP",
+   "EVIDENCE_HNP",
+   "CHANGE_XXV"
+  ],
+  "issue_category": "CATEGORY_MNL",
+  "category_confidence": 0.8,
+  "root_cause": "CAUSE_WDR",
+  "root_cause_confidence": 0.8,
+  "affected_component": "COMPONENT_NGC",
+  "component_confidence": 0.9,
+  "causal_change": "CHANGE_XXV",
+  "causal_change_confidence": 0.7,
+  "owning_team": "TEAM_XZX",
+  "routing_confidence": 0.7,
+  "confidence": 0.8,
+  "evidence_sufficiency": "sufficient",
+  "human_review_required": false,
+  "review_reason": null,
+  "status": "DIAGNOSIS_PROPOSED",
+  "recommended_next_action": "Increase capacity allocation for Deploy Manager instances in US-West development environment and review autoscaling configuration to handle high memory usage.",
+  "unresolved_uncertainties": [],
+  "summary": "The investigation suggests that insufficient capacity planning is the root cause of the high memory usage and rate limit exceeded errors on the Deploy Manager instances in the US-West development environment. The evidence from telemetry, technical signals, and recent changes supports this hypothesis. It is recommended to increase capacity allocation and review autoscaling configuration to handle high memory usage."
+ },
+ "citation_violations": [],
+ "evidence_ids_seen": [
+  "CH016170",
+  "CS00607:CM133:cpu_pct",
+  "SG0002979",
+  "SG0002980",
+  "SHE02681"
+ ],
+ "repair_events": [],
+ "tool_proposals": 9,
+ "tool_contract_errors": [],
+ "tool_contract_repairs": [],
+ "final_contract_errors": [],
+ "final_contract_repair": null,
+ "registry_snapshots": [
+  {
+   "step": 1,
+   "n_entities": 59,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 1
+   },
+   "aliases_sha256_16": "22b52b94b1095153"
+  },
+  {
+   "step": 2,
+   "n_entities": 67,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 1,
+    "COMPONENT": 8
+   },
+   "aliases_sha256_16": "f458995d6ed95fd2"
+  },
+  {
+   "step": 3,
+   "n_entities": 95,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 1,
+    "COMPONENT": 34,
+    "TEAM": 2
+   },
+   "aliases_sha256_16": "3038071f8ecd30bd"
+  },
+  {
+   "step": 4,
+   "n_entities": 95,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 1,
+    "COMPONENT": 34,
+    "TEAM": 2
+   },
+   "aliases_sha256_16": "3038071f8ecd30bd"
+  },
+  {
+   "step": 5,
+   "n_entities": 96,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 1,
+    "COMPONENT": 34,
+    "TEAM": 2,
+    "EVIDENCE": 1
+   },
+   "aliases_sha256_16": "645401e1277a0add"
+  },
+  {
+   "step": 6,
+   "n_entities": 98,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 1,
+    "COMPONENT": 34,
+    "TEAM": 2,
+    "EVIDENCE": 3
+   },
+   "aliases_sha256_16": "1cddf72500dc4d43"
+  },
+  {
+   "step": 7,
+   "n_entities": 99,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 1,
+    "COMPONENT": 34,
+    "TEAM": 2,
+    "EVIDENCE": 3,
+    "CHANGE": 1
+   },
+   "aliases_sha256_16": "17de6abd2a3ffe33"
+  },
+  {
+   "step": 8,
+   "n_entities": 99,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 1,
+    "COMPONENT": 34,
+    "TEAM": 2,
+    "EVIDENCE": 3,
+    "CHANGE": 1
+   },
+   "aliases_sha256_16": "17de6abd2a3ffe33"
+  },
+  {
+   "step": 9,
+   "n_entities": 100,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 1,
+    "COMPONENT": 34,
+    "TEAM": 2,
+    "EVIDENCE": 4,
+    "CHANGE": 1
+   },
+   "aliases_sha256_16": "c687151f28efed9e"
+  }
+ ],
+ "alias_mappings": {
+  "CATEGORY_GMP": {
+   "alias": "CATEGORY_GMP",
+   "canonical_id": "IC01",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Identity / Authentication",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-10-21 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_LBB": {
+   "alias": "CATEGORY_LBB",
+   "canonical_id": "IC02",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Authorization / Permissions",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-10-21 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_LLL": {
+   "alias": "CATEGORY_LLL",
+   "canonical_id": "IC03",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Networking / Connectivity",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-10-21 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_SPC": {
+   "alias": "CATEGORY_SPC",
+   "canonical_id": "IC04",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Performance / Latency",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-10-21 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_KPM": {
+   "alias": "CATEGORY_KPM",
+   "canonical_id": "IC05",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Reliability / Availability",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-10-21 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_SHB": {
+   "alias": "CATEGORY_SHB",
+   "canonical_id": "IC06",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Deployment / Upgrade",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-10-21 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_ZCZ": {
+   "alias": "CATEGORY_ZCZ",
+   "canonical_id": "IC07",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Configuration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-10-21 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_BXM": {
+   "alias": "CATEGORY_BXM",
+   "canonical_id": "IC08",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Data / Corruption",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-10-21 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_JWR": {
+   "alias": "CATEGORY_JWR",
+   "canonical_id": "IC09",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Integration / API",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-10-21 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_KWF": {
+   "alias": "CATEGORY_KWF",
+   "canonical_id": "IC10",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Provisioning / Onboarding",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-10-21 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_PDC": {
+   "alias": "CATEGORY_PDC",
+   "canonical_id": "IC11",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Security",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-10-21 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_RWV": {
+   "alias": "CATEGORY_RWV",
+   "canonical_id": "IC12",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Compliance",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-10-21 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_QSX": {
+   "alias": "CATEGORY_QSX",
+   "canonical_id": "IC13",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Billing / Commerce",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-10-21 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_HZZ": {
+   "alias": "CATEGORY_HZZ",
+   "canonical_id": "IC14",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "User Experience / Functional Defect",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-10-21 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_KGT": {
+   "alias": "CATEGORY_KGT",
+   "canonical_id": "IC15",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Storage / Database",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-10-21 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_MNL": {
+   "alias": "CATEGORY_MNL",
+   "canonical_id": "IC16",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Capacity / Scaling",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-10-21 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_SBF": {
+   "alias": "CATEGORY_SBF",
+   "canonical_id": "IC17",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Third-Party / Dependency",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-10-21 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_XWQ": {
+   "alias": "CATEGORY_XWQ",
+   "canonical_id": "IC18",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Unknown / Other",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-10-21 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_LZL": {
+   "alias": "CAUSE_LZL",
+   "canonical_id": "RC01",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "product defect",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-10-21 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_RNL": {
+   "alias": "CAUSE_RNL",
+   "canonical_id": "RC02",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "customer configuration error",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-10-21 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_RGD": {
+   "alias": "CAUSE_RGD",
+   "canonical_id": "RC03",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "incorrect permissions",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-10-21 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_STJ": {
+   "alias": "CAUSE_STJ",
+   "canonical_id": "RC04",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "policy misconfiguration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-10-21 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_QBQ": {
+   "alias": "CAUSE_QBQ",
+   "canonical_id": "RC05",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "expired certificate",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-10-21 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_NQF": {
+   "alias": "CAUSE_NQF",
+   "canonical_id": "RC06",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "version incompatibility",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-10-21 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_DGJ": {
+   "alias": "CAUSE_DGJ",
+   "canonical_id": "RC07",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "dependency failure",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-10-21 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_FGW": {
+   "alias": "CAUSE_FGW",
+   "canonical_id": "RC08",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "network configuration error",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-10-21 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_SHX": {
+   "alias": "CAUSE_SHX",
+   "canonical_id": "RC09",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "resource exhaustion",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-10-21 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_MGW": {
+   "alias": "CAUSE_MGW",
+   "canonical_id": "RC10",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "database contention",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-10-21 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_NSK": {
+   "alias": "CAUSE_NSK",
+   "canonical_id": "RC11",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "bad deployment",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-10-21 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_JNF": {
+   "alias": "CAUSE_JNF",
+   "canonical_id": "RC12",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "incomplete migration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-10-21 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_VKP": {
+   "alias": "CAUSE_VKP",
+   "canonical_id": "RC13",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "stale cache",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-10-21 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_VGP": {
+   "alias": "CAUSE_VGP",
+   "canonical_id": "RC14",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "third-party service failure",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-10-21 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_LBV": {
+   "alias": "CAUSE_LBV",
+   "canonical_id": "RC15",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "unsupported configuration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-10-21 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_CZR": {
+   "alias": "CAUSE_CZR",
+   "canonical_id": "RC16",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "incorrect DNS configuration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-10-21 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_NXR": {
+   "alias": "CAUSE_NXR",
+   "canonical_id": "RC17",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "data quality issue",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-10-21 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_ZBQ": {
+   "alias": "CAUSE_ZBQ",
+   "canonical_id": "RC18",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "operator error",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-10-21 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_LDL": {
+   "alias": "CAUSE_LDL",
+   "canonical_id": "RC19",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "capacity limitation",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-10-21 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_LXZ": {
+   "alias": "CAUSE_LXZ",
+   "canonical_id": "RC20",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "known product limitation",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-10-21 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_JKP": {
+   "alias": "CAUSE_JKP",
+   "canonical_id": "RC21",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "race condition",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-10-21 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_JMK": {
+   "alias": "CAUSE_JMK",
+   "canonical_id": "RC22",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "identity provider outage",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-10-21 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_QPG": {
+   "alias": "CAUSE_QPG",
+   "canonical_id": "RC23",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "token expiration handling bug",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-10-21 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_PVK": {
+   "alias": "CAUSE_PVK",
+   "canonical_id": "RC24",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "insufficient monitoring/alerting",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-10-21 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_SZB": {
+   "alias": "CAUSE_SZB",
+   "canonical_id": "RC25",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "incorrect load balancer routing",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-10-21 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_RDD": {
+   "alias": "CAUSE_RDD",
+   "canonical_id": "RC26",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "firewall misconfiguration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-10-21 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_XQR": {
+   "alias": "CAUSE_XQR",
+   "canonical_id": "RC27",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "schema mismatch",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-10-21 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_VGJ": {
+   "alias": "CAUSE_VGJ",
+   "canonical_id": "RC28",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "breaking API contract change",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-10-21 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_XKD": {
+   "alias": "CAUSE_XKD",
+   "canonical_id": "RC29",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "credential rotation not propagated",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-10-21 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_FDS": {
+   "alias": "CAUSE_FDS",
+   "canonical_id": "RC30",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "stale internal documentation followed",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-10-21 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_CCT": {
+   "alias": "CAUSE_CCT",
+   "canonical_id": "RC31",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "incomplete rollback",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-10-21 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_SRJ": {
+   "alias": "CAUSE_SRJ",
+   "canonical_id": "RC32",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "infrastructure hardware failure",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-10-21 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_ZXF": {
+   "alias": "CAUSE_ZXF",
+   "canonical_id": "RC33",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "rate limit misconfiguration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-10-21 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_WDR": {
+   "alias": "CAUSE_WDR",
+   "canonical_id": "RC34",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "insufficient capacity planning",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-10-21 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_HJD": {
+   "alias": "CAUSE_HJD",
+   "canonical_id": "RC35",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "data migration defect",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-10-21 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_QCW": {
+   "alias": "CAUSE_QCW",
+   "canonical_id": "RC36",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "improper access review",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-10-21 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_BWC": {
+   "alias": "CAUSE_BWC",
+   "canonical_id": "RC37",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "expired API key",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-10-21 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_NKF": {
+   "alias": "CAUSE_NKF",
+   "canonical_id": "RC38",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "clock/time synchronization issue",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-10-21 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_WRH": {
+   "alias": "CAUSE_WRH",
+   "canonical_id": "RC39",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "idempotency/duplicate-processing failure",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-10-21 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_SKK": {
+   "alias": "CAUSE_SKK",
+   "canonical_id": "RC40",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "insufficient information to determine root cause",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2024-10-21 00:00:00",
+   "summary": ""
+  },
+  "PRODUCT_ZSM": {
+   "alias": "PRODUCT_ZSM",
+   "canonical_id": "P049",
+   "kind": "PRODUCT",
+   "type": "product",
+   "display_name": "Deploy Manager",
+   "source_tool": "get_case_context",
+   "first_observed_step": 1,
+   "first_observed_clock": "2024-10-21 00:00:00",
+   "summary": ""
+  },
+  "COMPONENT_NGC": {
+   "alias": "COMPONENT_NGC",
+   "canonical_id": "CM133",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Rate Limiter",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2024-10-21 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_SPL": {
+   "alias": "COMPONENT_SPL",
+   "canonical_id": "CM140",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Health Monitor",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2024-10-21 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_HSJ": {
+   "alias": "COMPONENT_HSJ",
+   "canonical_id": "CM145",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Log Aggregator",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2024-10-21 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_VPH": {
+   "alias": "COMPONENT_VPH",
+   "canonical_id": "CM150",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Backup & Restore Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2024-10-21 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_KNX": {
+   "alias": "COMPONENT_KNX",
+   "canonical_id": "CM162",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Artifact Registry",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2024-10-21 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_SSK": {
+   "alias": "COMPONENT_SSK",
+   "canonical_id": "CM166",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Disaster Recovery Orchestrator",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2024-10-21 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_PLM": {
+   "alias": "COMPONENT_PLM",
+   "canonical_id": "CM170",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Region Failover Controller",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2024-10-21 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_VVZ": {
+   "alias": "COMPONENT_VVZ",
+   "canonical_id": "CM171",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Resource Quota Manager",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2024-10-21 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_HMP": {
+   "alias": "COMPONENT_HMP",
+   "canonical_id": "CM009",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Session Store",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2024-10-21 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_CMJ": {
+   "alias": "COMPONENT_CMJ",
+   "canonical_id": "CM072",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Billing Notification Service",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2024-10-21 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_DVL": {
+   "alias": "COMPONENT_DVL",
+   "canonical_id": "CM093",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Data Warehouse Store",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2024-10-21 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_DDS": {
+   "alias": "COMPONENT_DDS",
+   "canonical_id": "CM124",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Cube/OLAP Engine",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2024-10-21 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_ZLQ": {
+   "alias": "COMPONENT_ZLQ",
+   "canonical_id": "CM144",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Service Registry",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2024-10-21 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_DQR": {
+   "alias": "COMPONENT_DQR",
+   "canonical_id": "CM151",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Primary Database Cluster",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2024-10-21 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_TCZ": {
+   "alias": "COMPONENT_TCZ",
+   "canonical_id": "CM152",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Read Replica Service",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2024-10-21 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_RDF": {
+   "alias": "COMPONENT_RDF",
+   "canonical_id": "CM168",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Time-Series Metrics Store",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2024-10-21 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_HPC": {
+   "alias": "COMPONENT_HPC",
+   "canonical_id": "CM172",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Internal DNS Zone Manager",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2024-10-21 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_SML": {
+   "alias": "COMPONENT_SML",
+   "canonical_id": "CM199",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "File Upload Widget",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2024-10-21 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_LHD": {
+   "alias": "COMPONENT_LHD",
+   "canonical_id": "CM238",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Directory Sync Connector (Shared)",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2024-10-21 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_NMN": {
+   "alias": "COMPONENT_NMN",
+   "canonical_id": "CM037",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Login Analytics Service",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2024-10-21 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_FQH": {
+   "alias": "COMPONENT_FQH",
+   "canonical_id": "CM090",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Stream Processing Engine",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2024-10-21 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_MDW": {
+   "alias": "COMPONENT_MDW",
+   "canonical_id": "CM100",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Job Scheduler",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2024-10-21 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_SLN": {
+   "alias": "COMPONENT_SLN",
+   "canonical_id": "CM113",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Real-Time Metrics Stream",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2024-10-21 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_RTB": {
+   "alias": "COMPONENT_RTB",
+   "canonical_id": "CM135",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Queue Manager",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2024-10-21 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_PKK": {
+   "alias": "COMPONENT_PKK",
+   "canonical_id": "CM146",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Metrics Pipeline",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2024-10-21 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_DNM": {
+   "alias": "COMPONENT_DNM",
+   "canonical_id": "CM147",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Container Runtime",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2024-10-21 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_FZM": {
+   "alias": "COMPONENT_FZM",
+   "canonical_id": "CM153",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Database Connection Pooler",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2024-10-21 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_GZT": {
+   "alias": "COMPONENT_GZT",
+   "canonical_id": "CM178",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Chat Widget",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2024-10-21 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_WZB": {
+   "alias": "COMPONENT_WZB",
+   "canonical_id": "CM194",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "State Management Store",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2024-10-21 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_NPP": {
+   "alias": "COMPONENT_NPP",
+   "canonical_id": "CM203",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Print/Export View Renderer",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2024-10-21 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_JCF": {
+   "alias": "COMPONENT_JCF",
+   "canonical_id": "CM215",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Email Delivery Worker",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2024-10-21 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_RBH": {
+   "alias": "COMPONENT_RBH",
+   "canonical_id": "CM220",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Delivery Tracking Service",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2024-10-21 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_WCV": {
+   "alias": "COMPONENT_WCV",
+   "canonical_id": "CM232",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Global Load Balancer",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2024-10-21 00:30:00",
+   "summary": ""
+  },
+  "COMPONENT_QWB": {
+   "alias": "COMPONENT_QWB",
+   "canonical_id": "CM243",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "CDN Edge Layer",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2024-10-21 00:30:00",
+   "summary": ""
+  },
+  "TEAM_XZX": {
+   "alias": "TEAM_XZX",
+   "canonical_id": "TM10",
+   "kind": "TEAM",
+   "type": "team",
+   "display_name": "Reliability / SRE",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2024-10-21 00:30:00",
+   "summary": ""
+  },
+  "TEAM_NVG": {
+   "alias": "TEAM_NVG",
+   "canonical_id": "TM21",
+   "kind": "TEAM",
+   "type": "team",
+   "display_name": "Infrastructure / Cloud Ops",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 3,
+   "first_observed_clock": "2024-10-21 00:30:00",
+   "summary": ""
+  },
+  "EVIDENCE_MKG": {
+   "alias": "EVIDENCE_MKG",
+   "canonical_id": "CS00607:CM133:cpu_pct",
+   "kind": "EVIDENCE",
+   "type": "telemetry",
+   "display_name": "",
+   "source_tool": "get_telemetry",
+   "first_observed_step": 5,
+   "first_observed_clock": "2024-10-21 01:00:00",
+   "summary": "cpu_pct on COMPONENT_NGC: status abnormal, direction above_baseline, baseline 39.9927, observed 35.098..111.512"
+  },
+  "EVIDENCE_NVP": {
+   "alias": "EVIDENCE_NVP",
+   "canonical_id": "SG0002980",
+   "kind": "EVIDENCE",
+   "type": "signal",
+   "display_name": "",
+   "source_tool": "get_technical_signals",
+   "first_observed_step": 6,
+   "first_observed_clock": "2024-10-21 01:15:00",
+   "summary": "CPU_THROTTLED: CPU throttling observed on Rate Limiter on COMPONENT_NGC @ 2024-10-20 22:44:00"
+  },
+  "EVIDENCE_HNP": {
+   "alias": "EVIDENCE_HNP",
+   "canonical_id": "SG0002979",
+   "kind": "EVIDENCE",
+   "type": "signal",
+   "display_name": "",
+   "source_tool": "get_technical_signals",
+   "first_observed_step": 6,
+   "first_observed_clock": "2024-10-21 01:15:00",
+   "summary": "MEMORY_PRESSURE: memory pressure detected on Rate Limiter on COMPONENT_NGC @ 2024-10-20 22:50:00"
+  },
+  "CHANGE_XXV": {
+   "alias": "CHANGE_XXV",
+   "canonical_id": "CH016170",
+   "kind": "CHANGE",
+   "type": "change",
+   "display_name": "",
+   "source_tool": "get_recent_changes",
+   "first_observed_step": 7,
+   "first_observed_clock": "2024-10-21 01:30:00",
+   "summary": "manual_config_change on COMPONENT_NGC started 2024-10-19 23:09:00, status failed, 24.9h before case"
+  },
+  "EVIDENCE_XHB": {
+   "alias": "EVIDENCE_XHB",
+   "canonical_id": "SHE02681",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 9,
+   "first_observed_clock": "2024-10-21 02:00:00",
+   "summary": "health event severity minor 2024-10-17 00:08:00..2024-10-17 00:28:00: Automated health check flagged Rate Limiter as degraded (minor) for 20 minutes."
+  }
+ },
+ "validation_result": {
+  "first_pass_ok": true,
+  "errors_first": [],
+  "repair_used": false,
+  "final_ok": true,
+  "errors_final": []
+ },
+ "contract_failure": null,
+ "llm_calls": [
+  {
+   "phase": "action",
+   "step": 2,
+   "attempt": 0,
+   "prompt_tokens": 1247,
+   "completion_tokens": 76,
+   "latency_ms": 4057.5,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Insufficient capacity planning\", \"confidence\": 0.5, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_customer_deployment\", \"component\": null, \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 3,
+   "attempt": 0,
+   "prompt_tokens": 1472,
+   "completion_tokens": 79,
+   "latency_ms": 3317.2,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Insufficient capacity planning\", \"confidence\": 0.5, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_component_topology\", \"component\": \"COMPONENT_NGC\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 4,
+   "attempt": 0,
+   "prompt_tokens": 2192,
+   "completion_tokens": 76,
+   "latency_ms": 2367.4,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Insufficient capacity planning\", \"confidence\": 0.5, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_telemetry\", \"component\": null, \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 5,
+   "attempt": 0,
+   "prompt_tokens": 1648,
+   "completion_tokens": 77,
+   "latency_ms": 7012.3,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Insufficient capacity planning\", \"confidence\": 0.5, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_telemetry\", \"component\": null, \"metric_category\": \"Compute\", \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 6,
+   "attempt": 0,
+   "prompt_tokens": 1803,
+   "completion_tokens": 81,
+   "latency_ms": 2773.8,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Insufficient capacity planning\", \"confidence\": 0.5, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_technical_signals\", \"component\": \"COMPONENT_NGC\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 7,
+   "attempt": 0,
+   "prompt_tokens": 1923,
+   "completion_tokens": 79,
+   "latency_ms": 44778.9,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Insufficient capacity planning\", \"confidence\": 0.5, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_recent_changes\", \"component\": \"COMPONENT_NGC\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 8,
+   "attempt": 0,
+   "prompt_tokens": 1965,
+   "completion_tokens": 80,
+   "latency_ms": 24729.4,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Insufficient capacity planning\", \"confidence\": 0.5, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_deployment_history\", \"component\": \"COMPONENT_NGC\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 9,
+   "attempt": 0,
+   "prompt_tokens": 1881,
+   "completion_tokens": 79,
+   "latency_ms": 3190.5,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Insufficient capacity planning\", \"confidence\": 0.5, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_service_health\", \"component\": \"COMPONENT_NGC\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 10,
+   "attempt": 0,
+   "prompt_tokens": 2038,
+   "completion_tokens": 75,
+   "latency_ms": 4020.8,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Insufficient capacity planning\", \"confidence\": 0.5, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"submit_diagnosis\", \"component\": null, \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "final",
+   "step": 10,
+   "attempt": 0,
+   "prompt_tokens": 2642,
+   "completion_tokens": 360,
+   "latency_ms": 74343.0,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"Insufficient capacity planning\", \"confidence\": 0.8, \"status\": \"confirmed\", \"supporting_evidence\": [\"EVIDENCE_MKG\", \"EVIDENCE_NVP\", \"EVIDENCE_HNP\"], \"contradicting_evidence\": []}], \"evidence_ids\": [\"EVIDENCE_MKG\", \"EVIDENCE_NVP\", \"EVIDENCE_HNP\", \"CHANGE_XXV\"], \"issue_category\": \"CATEGORY_MNL\", \"category_confidence\": 0.8, \"root_cause\": \"CAUSE_WDR\", \"root_cause_confidence\": 0.8, \"affected_component\": \"COMPONENT_NGC\", \"component_confidence\": 0.9, \"causal_change\": \"CHANGE_XXV\", \"causal_change_confidence\": 0.7, \"owning_team\": \"TEAM_XZX\", \"routing_confidence\": 0.7, \"confidence\": 0.8, \"evidence_sufficiency\": \"sufficient\", \"human_review_required\": false, \"review_reason\": null, \"status\": \"DIAGNOSIS_PROPOSED\", \"recommended_next_action\": \"Increase capacity allocation for Deploy Manager instances in US-West development environment and review autoscaling configuration to handle high memory usage.\", \"unresolved_uncertainties\": [], \"summary\": \"The investigation suggests that insufficient capacity planning is the root cause of the high memory usage and rate limit exceeded errors on the Deploy Manager instances in the US-West development environment. The evidence from telemetry, technical signals, and recent changes supports this hypothesis. It is recommended to increase capacity allocation and review autoscaling configuration to handle high memory usage.\"}"
+  }
+ ]
+}

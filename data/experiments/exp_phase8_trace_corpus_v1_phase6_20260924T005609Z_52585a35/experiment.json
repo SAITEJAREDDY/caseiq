@@ -1,0 +1,5636 @@
+{
+  "experiment_id": "exp_phase8_trace_corpus_v1_phase6_20260924T005609Z_52585a35",
+  "name": "phase8_trace_corpus_v1_phase6",
+  "created_at": "2026-09-24T00:56:09.105952+00:00",
+  "kind": "engineering",
+  "dataset_split": "dev",
+  "split_version": "v1",
+  "case_ids": [
+    "CS00014",
+    "CS00016",
+    "CS00034",
+    "CS00059",
+    "CS00081",
+    "CS00084",
+    "CS00100",
+    "CS00139",
+    "CS00151",
+    "CS00155",
+    "CS00166",
+    "CS00180",
+    "CS00182",
+    "CS00195",
+    "CS00210",
+    "CS00239",
+    "CS00244",
+    "CS00252",
+    "CS00266",
+    "CS00275",
+    "CS00278",
+    "CS00290",
+    "CS00319",
+    "CS00332",
+    "CS00385",
+    "CS00409",
+    "CS00415",
+    "CS00441",
+    "CS00455",
+    "CS00472",
+    "CS00475",
+    "CS00477",
+    "CS00543",
+    "CS00563",
+    "CS00594",
+    "CS00607",
+    "CS00621",
+    "CS00623",
+    "CS00638",
+    "CS00643",
+    "CS00670",
+    "CS00680",
+    "CS00732",
+    "CS00740",
+    "CS00752",
+    "CS00763",
+    "CS00770",
+    "CS00795",
+    "CS00801",
+    "CS00806",
+    "CS00808",
+    "CS00812",
+    "CS00868",
+    "CS00873",
+    "CS00880",
+    "CS00893",
+    "CS00895",
+    "CS00901",
+    "CS00964",
+    "CS00965",
+    "CS00993",
+    "CS01031",
+    "CS01049",
+    "CS01055",
+    "CS01068",
+    "CS01083",
+    "CS01093",
+    "CS01115",
+    "CS01152",
+    "CS01193",
+    "CS01201",
+    "CS01214",
+    "CS01267",
+    "CS01275",
+    "CS01294",
+    "CS01295",
+    "CS01299",
+    "CS01314",
+    "CS01335",
+    "CS01344",
+    "CS01363",
+    "CS01366",
+    "CS01379",
+    "CS01395",
+    "CS01440",
+    "CS01447",
+    "CS01482",
+    "CS01495",
+    "CS01517",
+    "CS01562",
+    "CS01587",
+    "CS01591",
+    "CS01596",
+    "CS01601",
+    "CS01632",
+    "CS01638",
+    "CS01644",
+    "CS01652",
+    "CS01657",
+    "CS01691",
+    "CS01766",
+    "CS01788",
+    "CS01793",
+    "CS01798",
+    "CS01799",
+    "CS01802",
+    "CS01821",
+    "CS01844",
+    "CS01877",
+    "CS01911",
+    "CS01922",
+    "CS01982",
+    "CS01991",
+    "CS01995",
+    "CS01997",
+    "CS02002",
+    "CS02018",
+    "CS02022",
+    "CS02025",
+    "CS02029",
+    "CS02036",
+    "CS02037",
+    "CS02040",
+    "CS02062",
+    "CS02082",
+    "CS02093",
+    "CS02098",
+    "CS02104",
+    "CS02110",
+    "CS02114",
+    "CS02115",
+    "CS02164",
+    "CS02189",
+    "CS02201",
+    "CS02208",
+    "CS02222",
+    "CS02278",
+    "CS02295",
+    "CS02374",
+    "CS02391",
+    "CS02412",
+    "CS02417",
+    "CS02420",
+    "CS02425",
+    "CS02432",
+    "CS02440",
+    "CS02472",
+    "CS02477",
+    "CS02485",
+    "CS02492"
+  ],
+  "num_cases": 150,
+  "agent": {
+    "model_provider": "together",
+    "model_name": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "temperature": 0.1,
+    "prompt_version": "v1",
+    "toolset_version": "v1",
+    "output_schema_version": "v1",
+    "agent_loop_version": "v1",
+    "repair_layer_version": "v1",
+    "graph_version": "phase4-2500case-2026-09-22",
+    "homogeneous": true
+  },
+  "dataset_checksum_digest": "51e4d7d3ff9f9645",
+  "evaluator_version": "v1",
+  "run_mode": "evaluate_existing",
+  "run_ids": [
+    "run_CS00014_20260923T064528Z_8dd6dd25",
+    "run_CS00016_20260923T064542Z_b0a44d6f",
+    "run_CS00034_20260923T064217Z_2299068e",
+    "run_CS00059_20260924T002535Z_b5bcab43",
+    "run_CS00081_20260924T002540Z_148b6076",
+    "run_CS00084_20260924T002602Z_b08f3b6b",
+    "run_CS00100_20260924T002549Z_9ed6dc9c",
+    "run_CS00139_20260924T002605Z_0ff31624",
+    "run_CS00151_20260924T002605Z_a43c2240",
+    "run_CS00155_20260924T002606Z_ca3827b9",
+    "run_CS00166_20260923T064142Z_74fdbd6d",
+    "run_CS00180_20260924T002622Z_909ba12e",
+    "run_CS00182_20260924T002622Z_5f94ec09",
+    "run_CS00195_20260924T002621Z_acfc4414",
+    "run_CS00210_20260924T002629Z_486cc9d0",
+    "run_CS00239_20260924T002631Z_3eb45a30",
+    "run_CS00244_20260924T002634Z_741a3d7f",
+    "run_CS00252_20260924T002635Z_a4a8da45",
+    "run_CS00266_20260924T002633Z_b16ea90b",
+    "run_CS00275_20260924T002647Z_e4273460",
+    "run_CS00278_20260923T064228Z_8878a119",
+    "run_CS00290_20260924T002649Z_53a42a58",
+    "run_CS00319_20260924T002647Z_59737523",
+    "run_CS00332_20260924T002654Z_32dd47d9",
+    "run_CS00385_20260924T002704Z_52ada802",
+    "run_CS00409_20260924T002721Z_a724f375",
+    "run_CS00415_20260924T002715Z_7790ff8c",
+    "run_CS00441_20260924T002730Z_5d16bf5d",
+    "run_CS00455_20260924T002743Z_ef18a8fd",
+    "run_CS00472_20260924T002747Z_3a947934",
+    "run_CS00475_20260924T002740Z_3d35ab96",
+    "run_CS00477_20260924T002753Z_6477b087",
+    "run_CS00543_20260924T002803Z_9f1d4aa7",
+    "run_CS00563_20260924T002827Z_4a0f2647",
+    "run_CS00594_20260924T002825Z_044843af",
+    "run_CS00607_20260924T002848Z_48f30e11",
+    "run_CS00621_20260924T004447Z_c81177a1",
+    "run_CS00623_20260924T002849Z_fcd189d7",
+    "run_CS00638_20260924T002903Z_bf8cd599",
+    "run_CS00643_20260924T002909Z_a3fd435b",
+    "run_CS00670_20260924T002925Z_77c26540",
+    "run_CS00680_20260924T002935Z_922d12e5",
+    "run_CS00732_20260924T002959Z_c41b2579",
+    "run_CS00740_20260924T003029Z_0c722603",
+    "run_CS00752_20260924T003045Z_decdb02b",
+    "run_CS00763_20260924T003058Z_f1922e94",
+    "run_CS00770_20260924T003127Z_c9daedbb",
+    "run_CS00795_20260924T003046Z_17be348f",
+    "run_CS00801_20260924T003134Z_62f355ad",
+    "run_CS00806_20260924T003124Z_9d173730",
+    "run_CS00808_20260924T003126Z_ee6e8a84",
+    "run_CS00812_20260924T003129Z_c6109693",
+    "run_CS00868_20260924T003156Z_a0fe281f",
+    "run_CS00873_20260924T003155Z_1e6a0671",
+    "run_CS00880_20260924T003209Z_60946129",
+    "run_CS00893_20260924T003229Z_084340e6",
+    "run_CS00895_20260924T003229Z_2edb1f8f",
+    "run_CS00901_20260924T003237Z_645574b4",
+    "run_CS00964_20260924T003249Z_8767bbb8",
+    "run_CS00965_20260924T003307Z_6447d0b1",
+    "run_CS00993_20260924T003301Z_d7dbff91",
+    "run_CS01031_20260924T003357Z_f789412c",
+    "run_CS01049_20260924T003341Z_5f0e6b14",
+    "run_CS01055_20260924T003321Z_f462aec7",
+    "run_CS01068_20260924T003348Z_d315ce2e",
+    "run_CS01083_20260924T003348Z_639840c7",
+    "run_CS01093_20260924T003435Z_3c474f75",
+    "run_CS01115_20260924T003414Z_8716c6a8",
+    "run_CS01152_20260924T003419Z_af787eb3",
+    "run_CS01193_20260924T003453Z_e143ca18",
+    "run_CS01201_20260924T003459Z_d7d0270b",
+    "run_CS01214_20260924T003510Z_f566a50f",
+    "run_CS01267_20260924T004442Z_961e5ccf",
+    "run_CS01275_20260924T003600Z_205a1856",
+    "run_CS01294_20260924T003637Z_44bc3b52",
+    "run_CS01295_20260924T003652Z_d46d1770",
+    "run_CS01299_20260924T004446Z_e2659100",
+    "run_CS01314_20260924T003646Z_1d5d9c25",
+    "run_CS01335_20260924T003657Z_5b28e3f4",
+    "run_CS01344_20260924T003751Z_b5deeb55",
+    "run_CS01363_20260924T003743Z_11540915",
+    "run_CS01366_20260924T003755Z_8c019b6e",
+    "run_CS01379_20260924T003755Z_dd382576",
+    "run_CS01395_20260924T003759Z_351b059b",
+    "run_CS01440_20260924T003805Z_e5bec355",
+    "run_CS01447_20260924T003814Z_6c773dff",
+    "run_CS01482_20260924T003837Z_aa492319",
+    "run_CS01495_20260924T003907Z_f33bd8c7",
+    "run_CS01517_20260924T003901Z_2c2e2f07",
+    "run_CS01562_20260924T003932Z_5836406b",
+    "run_CS01587_20260924T003932Z_4bf0f6c0",
+    "run_CS01591_20260924T003933Z_92c76729",
+    "run_CS01596_20260924T003942Z_facab771",
+    "run_CS01601_20260924T003950Z_28a0cee2",
+    "run_CS01632_20260924T003947Z_f817c6ac",
+    "run_CS01638_20260924T003953Z_fd98c944",
+    "run_CS01644_20260924T004019Z_ca1e954c",
+    "run_CS01652_20260924T004044Z_b390c807",
+    "run_CS01657_20260924T004008Z_4c2c1fac",
+    "run_CS01691_20260924T004038Z_336183da",
+    "run_CS01766_20260924T004109Z_8764135a",
+    "run_CS01788_20260924T004053Z_eb1df65b",
+    "run_CS01793_20260924T004056Z_cc1ab1d0",
+    "run_CS01798_20260924T004052Z_2953bcd3",
+    "run_CS01799_20260924T004056Z_0ca79a22",
+    "run_CS01802_20260924T004103Z_75d97e0c",
+    "run_CS01821_20260924T004113Z_8df41a8b",
+    "run_CS01844_20260924T004121Z_f558cde9",
+    "run_CS01877_20260924T004138Z_5a102cc2",
+    "run_CS01911_20260924T004135Z_cec874d1",
+    "run_CS01922_20260924T004141Z_1e83cf38",
+    "run_CS01982_20260924T004151Z_76a91ad3",
+    "run_CS01991_20260924T004201Z_d377f013",
+    "run_CS01995_20260924T004204Z_b0644800",
+    "run_CS01997_20260924T004204Z_cf0bf9fc",
+    "run_CS02002_20260924T004205Z_644b9487",
+    "run_CS02018_20260924T004208Z_e0d20686",
+    "run_CS02022_20260924T004212Z_e19af6e5",
+    "run_CS02025_20260924T004216Z_0ef4c101",
+    "run_CS02029_20260924T004219Z_7f904c57",
+    "run_CS02036_20260924T004217Z_f78d92e9",
+    "run_CS02037_20260924T004219Z_b7d2aec9",
+    "run_CS02040_20260924T004224Z_efabf7b5",
+    "run_CS02062_20260924T004227Z_0973db3c",
+    "run_CS02082_20260924T004228Z_289c1930",
+    "run_CS02093_20260924T004230Z_2d5a4702",
+    "run_CS02098_20260924T004237Z_31ea385c",
+    "run_CS02104_20260924T004241Z_0a66634f",
+    "run_CS02110_20260924T004242Z_d68469fe",
+    "run_CS02114_20260924T004243Z_2c7a2061",
+    "run_CS02115_20260924T004241Z_5dfd56fb",
+    "run_CS02164_20260924T004253Z_50035379",
+    "run_CS02189_20260924T004309Z_829134af",
+    "run_CS02201_20260924T004310Z_bb05b12f",
+    "run_CS02208_20260924T004314Z_6c09db42",
+    "run_CS02222_20260924T004320Z_e90016cb",
+    "run_CS02278_20260924T004321Z_9c3606d8",
+    "run_CS02295_20260924T004324Z_ac8e5bd0",
+    "run_CS02374_20260924T004341Z_b0f19f8c",
+    "run_CS02391_20260924T004350Z_4eb25a44",
+    "run_CS02412_20260924T004350Z_9af99197",
+    "run_CS02417_20260924T004354Z_c000e2bf",
+    "run_CS02420_20260924T004355Z_4c192065",
+    "run_CS02425_20260924T004357Z_ee47b6a3",
+    "run_CS02432_20260924T004405Z_26455d50",
+    "run_CS02440_20260924T004402Z_a9eaea94",
+    "run_CS02472_20260924T004410Z_5a04fe43",
+    "run_CS02477_20260924T004411Z_0dfc4426",
+    "run_CS02485_20260924T004411Z_13833037",
+    "run_CS02492_20260924T004417Z_311e613d"
+  ],
+  "aggregate": {
+    "n_cases": 150,
+    "outcome": {
+      "product": {
+        "accuracy": null,
+        "n_correct": 0,
+        "n_scored": 0,
+        "n_total": 150,
+        "prediction_rate": 0.0
+      },
+      "component": {
+        "accuracy": null,
+        "n_correct": 0,
+        "n_scored": 0,
+        "n_total": 150,
+        "prediction_rate": 0.0
+      },
+      "issue_category": {
+        "accuracy": null,
+        "n_correct": 0,
+        "n_scored": 0,
+        "n_total": 150,
+        "prediction_rate": 0.0
+      },
+      "issue_subcategory": {
+        "accuracy": null,
+        "n_correct": 0,
+        "n_scored": 0,
+        "n_total": 150,
+        "prediction_rate": 0.0
+      },
+      "root_cause_exact": {
+        "accuracy": null,
+        "n_correct": 0,
+        "n_scored": 0,
+        "n_total": 150,
+        "prediction_rate": 0.0
+      },
+      "root_cause_containment": {
+        "accuracy": null,
+        "n_correct": 0,
+        "n_scored": 0,
+        "n_total": 150,
+        "prediction_rate": 0.0
+      },
+      "causal_change": {
+        "accuracy": null,
+        "n_correct": 0,
+        "n_scored": 0,
+        "n_total": 150,
+        "prediction_rate": 0.0
+      },
+      "severity_exact": {
+        "accuracy": null,
+        "n_correct": 0,
+        "n_scored": 0,
+        "n_total": 150,
+        "prediction_rate": 0.0
+      },
+      "severity_within_one": {
+        "accuracy": null,
+        "n_correct": 0,
+        "n_scored": 0,
+        "n_total": 150,
+        "prediction_rate": 0.0
+      },
+      "team_primary": {
+        "accuracy": null,
+        "n_correct": 0,
+        "n_scored": 0,
+        "n_total": 150,
+        "prediction_rate": 0.0
+      },
+      "team_acceptable": {
+        "accuracy": null,
+        "n_correct": 0,
+        "n_scored": 0,
+        "n_total": 150,
+        "prediction_rate": 0.0
+      },
+      "evidence_sufficiency": {
+        "accuracy": 0.14,
+        "n_correct": 21,
+        "n_scored": 150,
+        "n_total": 150,
+        "prediction_rate": 1.0
+      },
+      "human_review_agreement": {
+        "accuracy": 0.6533333333333333,
+        "n_correct": 98,
+        "n_scored": 150,
+        "n_total": 150,
+        "prediction_rate": 1.0
+      }
+    },
+    "slices": {
+      "difficulty_archetype": {
+        "clear": {
+          "n_cases": 81,
+          "outcome": {
+            "product": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 81,
+              "prediction_rate": 0.0
+            },
+            "component": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 81,
+              "prediction_rate": 0.0
+            },
+            "issue_category": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 81,
+              "prediction_rate": 0.0
+            },
+            "issue_subcategory": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 81,
+              "prediction_rate": 0.0
+            },
+            "root_cause_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 81,
+              "prediction_rate": 0.0
+            },
+            "root_cause_containment": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 81,
+              "prediction_rate": 0.0
+            },
+            "causal_change": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 81,
+              "prediction_rate": 0.0
+            },
+            "severity_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 81,
+              "prediction_rate": 0.0
+            },
+            "severity_within_one": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 81,
+              "prediction_rate": 0.0
+            },
+            "team_primary": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 81,
+              "prediction_rate": 0.0
+            },
+            "team_acceptable": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 81,
+              "prediction_rate": 0.0
+            },
+            "evidence_sufficiency": {
+              "accuracy": 0.14814814814814814,
+              "n_correct": 12,
+              "n_scored": 81,
+              "n_total": 81,
+              "prediction_rate": 1.0
+            },
+            "human_review_agreement": {
+              "accuracy": 0.6790123456790124,
+              "n_correct": 55,
+              "n_scored": 81,
+              "n_total": 81,
+              "prediction_rate": 1.0
+            }
+          },
+          "human_review_rate_agent": 0.3950617283950617,
+          "mean_overall_confidence": 0.591358024691358
+        },
+        "customer_misdiagnosis": {
+          "n_cases": 24,
+          "outcome": {
+            "product": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 24,
+              "prediction_rate": 0.0
+            },
+            "component": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 24,
+              "prediction_rate": 0.0
+            },
+            "issue_category": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 24,
+              "prediction_rate": 0.0
+            },
+            "issue_subcategory": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 24,
+              "prediction_rate": 0.0
+            },
+            "root_cause_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 24,
+              "prediction_rate": 0.0
+            },
+            "root_cause_containment": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 24,
+              "prediction_rate": 0.0
+            },
+            "causal_change": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 24,
+              "prediction_rate": 0.0
+            },
+            "severity_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 24,
+              "prediction_rate": 0.0
+            },
+            "severity_within_one": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 24,
+              "prediction_rate": 0.0
+            },
+            "team_primary": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 24,
+              "prediction_rate": 0.0
+            },
+            "team_acceptable": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 24,
+              "prediction_rate": 0.0
+            },
+            "evidence_sufficiency": {
+              "accuracy": 0.16666666666666666,
+              "n_correct": 4,
+              "n_scored": 24,
+              "n_total": 24,
+              "prediction_rate": 1.0
+            },
+            "human_review_agreement": {
+              "accuracy": 0.5833333333333334,
+              "n_correct": 14,
+              "n_scored": 24,
+              "n_total": 24,
+              "prediction_rate": 1.0
+            }
+          },
+          "human_review_rate_agent": 0.375,
+          "mean_overall_confidence": 0.7000000000000001
+        },
+        "dependency_root_cause": {
+          "n_cases": 10,
+          "outcome": {
+            "product": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 10,
+              "prediction_rate": 0.0
+            },
+            "component": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 10,
+              "prediction_rate": 0.0
+            },
+            "issue_category": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 10,
+              "prediction_rate": 0.0
+            },
+            "issue_subcategory": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 10,
+              "prediction_rate": 0.0
+            },
+            "root_cause_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 10,
+              "prediction_rate": 0.0
+            },
+            "root_cause_containment": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 10,
+              "prediction_rate": 0.0
+            },
+            "causal_change": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 10,
+              "prediction_rate": 0.0
+            },
+            "severity_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 10,
+              "prediction_rate": 0.0
+            },
+            "severity_within_one": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 10,
+              "prediction_rate": 0.0
+            },
+            "team_primary": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 10,
+              "prediction_rate": 0.0
+            },
+            "team_acceptable": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 10,
+              "prediction_rate": 0.0
+            },
+            "evidence_sufficiency": {
+              "accuracy": 0.1,
+              "n_correct": 1,
+              "n_scored": 10,
+              "n_total": 10,
+              "prediction_rate": 1.0
+            },
+            "human_review_agreement": {
+              "accuracy": 0.4,
+              "n_correct": 4,
+              "n_scored": 10,
+              "n_total": 10,
+              "prediction_rate": 1.0
+            }
+          },
+          "human_review_rate_agent": 0.0,
+          "mean_overall_confidence": 0.67
+        },
+        "multi_component_symptoms": {
+          "n_cases": 8,
+          "outcome": {
+            "product": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 8,
+              "prediction_rate": 0.0
+            },
+            "component": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 8,
+              "prediction_rate": 0.0
+            },
+            "issue_category": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 8,
+              "prediction_rate": 0.0
+            },
+            "issue_subcategory": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 8,
+              "prediction_rate": 0.0
+            },
+            "root_cause_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 8,
+              "prediction_rate": 0.0
+            },
+            "root_cause_containment": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 8,
+              "prediction_rate": 0.0
+            },
+            "causal_change": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 8,
+              "prediction_rate": 0.0
+            },
+            "severity_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 8,
+              "prediction_rate": 0.0
+            },
+            "severity_within_one": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 8,
+              "prediction_rate": 0.0
+            },
+            "team_primary": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 8,
+              "prediction_rate": 0.0
+            },
+            "team_acceptable": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 8,
+              "prediction_rate": 0.0
+            },
+            "evidence_sufficiency": {
+              "accuracy": 0.0,
+              "n_correct": 0,
+              "n_scored": 8,
+              "n_total": 8,
+              "prediction_rate": 1.0
+            },
+            "human_review_agreement": {
+              "accuracy": 0.75,
+              "n_correct": 6,
+              "n_scored": 8,
+              "n_total": 8,
+              "prediction_rate": 1.0
+            }
+          },
+          "human_review_rate_agent": 0.375,
+          "mean_overall_confidence": 0.5125
+        },
+        "vague": {
+          "n_cases": 16,
+          "outcome": {
+            "product": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 16,
+              "prediction_rate": 0.0
+            },
+            "component": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 16,
+              "prediction_rate": 0.0
+            },
+            "issue_category": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 16,
+              "prediction_rate": 0.0
+            },
+            "issue_subcategory": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 16,
+              "prediction_rate": 0.0
+            },
+            "root_cause_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 16,
+              "prediction_rate": 0.0
+            },
+            "root_cause_containment": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 16,
+              "prediction_rate": 0.0
+            },
+            "causal_change": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 16,
+              "prediction_rate": 0.0
+            },
+            "severity_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 16,
+              "prediction_rate": 0.0
+            },
+            "severity_within_one": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 16,
+              "prediction_rate": 0.0
+            },
+            "team_primary": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 16,
+              "prediction_rate": 0.0
+            },
+            "team_acceptable": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 16,
+              "prediction_rate": 0.0
+            },
+            "evidence_sufficiency": {
+              "accuracy": 0.1875,
+              "n_correct": 3,
+              "n_scored": 16,
+              "n_total": 16,
+              "prediction_rate": 1.0
+            },
+            "human_review_agreement": {
+              "accuracy": 0.6875,
+              "n_correct": 11,
+              "n_scored": 16,
+              "n_total": 16,
+              "prediction_rate": 1.0
+            }
+          },
+          "human_review_rate_agent": 0.4375,
+          "mean_overall_confidence": 0.49375
+        },
+        "wrong_product_mentioned": {
+          "n_cases": 11,
+          "outcome": {
+            "product": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 11,
+              "prediction_rate": 0.0
+            },
+            "component": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 11,
+              "prediction_rate": 0.0
+            },
+            "issue_category": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 11,
+              "prediction_rate": 0.0
+            },
+            "issue_subcategory": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 11,
+              "prediction_rate": 0.0
+            },
+            "root_cause_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 11,
+              "prediction_rate": 0.0
+            },
+            "root_cause_containment": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 11,
+              "prediction_rate": 0.0
+            },
+            "causal_change": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 11,
+              "prediction_rate": 0.0
+            },
+            "severity_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 11,
+              "prediction_rate": 0.0
+            },
+            "severity_within_one": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 11,
+              "prediction_rate": 0.0
+            },
+            "team_primary": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 11,
+              "prediction_rate": 0.0
+            },
+            "team_acceptable": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 11,
+              "prediction_rate": 0.0
+            },
+            "evidence_sufficiency": {
+              "accuracy": 0.09090909090909091,
+              "n_correct": 1,
+              "n_scored": 11,
+              "n_total": 11,
+              "prediction_rate": 1.0
+            },
+            "human_review_agreement": {
+              "accuracy": 0.7272727272727273,
+              "n_correct": 8,
+              "n_scored": 11,
+              "n_total": 11,
+              "prediction_rate": 1.0
+            }
+          },
+          "human_review_rate_agent": 0.36363636363636365,
+          "mean_overall_confidence": 0.6272727272727273
+        }
+      },
+      "issue_category_id": {
+        "IC01": {
+          "n_cases": 14,
+          "outcome": {
+            "product": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 14,
+              "prediction_rate": 0.0
+            },
+            "component": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 14,
+              "prediction_rate": 0.0
+            },
+            "issue_category": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 14,
+              "prediction_rate": 0.0
+            },
+            "issue_subcategory": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 14,
+              "prediction_rate": 0.0
+            },
+            "root_cause_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 14,
+              "prediction_rate": 0.0
+            },
+            "root_cause_containment": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 14,
+              "prediction_rate": 0.0
+            },
+            "causal_change": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 14,
+              "prediction_rate": 0.0
+            },
+            "severity_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 14,
+              "prediction_rate": 0.0
+            },
+            "severity_within_one": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 14,
+              "prediction_rate": 0.0
+            },
+            "team_primary": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 14,
+              "prediction_rate": 0.0
+            },
+            "team_acceptable": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 14,
+              "prediction_rate": 0.0
+            },
+            "evidence_sufficiency": {
+              "accuracy": 0.21428571428571427,
+              "n_correct": 3,
+              "n_scored": 14,
+              "n_total": 14,
+              "prediction_rate": 1.0
+            },
+            "human_review_agreement": {
+              "accuracy": 0.7142857142857143,
+              "n_correct": 10,
+              "n_scored": 14,
+              "n_total": 14,
+              "prediction_rate": 1.0
+            }
+          },
+          "human_review_rate_agent": 0.35714285714285715,
+          "mean_overall_confidence": 0.5214285714285715
+        },
+        "IC02": {
+          "n_cases": 4,
+          "outcome": {
+            "product": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 4,
+              "prediction_rate": 0.0
+            },
+            "component": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 4,
+              "prediction_rate": 0.0
+            },
+            "issue_category": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 4,
+              "prediction_rate": 0.0
+            },
+            "issue_subcategory": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 4,
+              "prediction_rate": 0.0
+            },
+            "root_cause_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 4,
+              "prediction_rate": 0.0
+            },
+            "root_cause_containment": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 4,
+              "prediction_rate": 0.0
+            },
+            "causal_change": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 4,
+              "prediction_rate": 0.0
+            },
+            "severity_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 4,
+              "prediction_rate": 0.0
+            },
+            "severity_within_one": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 4,
+              "prediction_rate": 0.0
+            },
+            "team_primary": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 4,
+              "prediction_rate": 0.0
+            },
+            "team_acceptable": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 4,
+              "prediction_rate": 0.0
+            },
+            "evidence_sufficiency": {
+              "accuracy": 0.0,
+              "n_correct": 0,
+              "n_scored": 4,
+              "n_total": 4,
+              "prediction_rate": 1.0
+            },
+            "human_review_agreement": {
+              "accuracy": 0.75,
+              "n_correct": 3,
+              "n_scored": 4,
+              "n_total": 4,
+              "prediction_rate": 1.0
+            }
+          },
+          "human_review_rate_agent": 0.0,
+          "mean_overall_confidence": 0.7
+        },
+        "IC03": {
+          "n_cases": 3,
+          "outcome": {
+            "product": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 3,
+              "prediction_rate": 0.0
+            },
+            "component": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 3,
+              "prediction_rate": 0.0
+            },
+            "issue_category": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 3,
+              "prediction_rate": 0.0
+            },
+            "issue_subcategory": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 3,
+              "prediction_rate": 0.0
+            },
+            "root_cause_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 3,
+              "prediction_rate": 0.0
+            },
+            "root_cause_containment": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 3,
+              "prediction_rate": 0.0
+            },
+            "causal_change": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 3,
+              "prediction_rate": 0.0
+            },
+            "severity_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 3,
+              "prediction_rate": 0.0
+            },
+            "severity_within_one": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 3,
+              "prediction_rate": 0.0
+            },
+            "team_primary": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 3,
+              "prediction_rate": 0.0
+            },
+            "team_acceptable": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 3,
+              "prediction_rate": 0.0
+            },
+            "evidence_sufficiency": {
+              "accuracy": 0.0,
+              "n_correct": 0,
+              "n_scored": 3,
+              "n_total": 3,
+              "prediction_rate": 1.0
+            },
+            "human_review_agreement": {
+              "accuracy": 0.6666666666666666,
+              "n_correct": 2,
+              "n_scored": 3,
+              "n_total": 3,
+              "prediction_rate": 1.0
+            }
+          },
+          "human_review_rate_agent": 0.3333333333333333,
+          "mean_overall_confidence": 0.5
+        },
+        "IC04": {
+          "n_cases": 6,
+          "outcome": {
+            "product": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 6,
+              "prediction_rate": 0.0
+            },
+            "component": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 6,
+              "prediction_rate": 0.0
+            },
+            "issue_category": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 6,
+              "prediction_rate": 0.0
+            },
+            "issue_subcategory": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 6,
+              "prediction_rate": 0.0
+            },
+            "root_cause_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 6,
+              "prediction_rate": 0.0
+            },
+            "root_cause_containment": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 6,
+              "prediction_rate": 0.0
+            },
+            "causal_change": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 6,
+              "prediction_rate": 0.0
+            },
+            "severity_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 6,
+              "prediction_rate": 0.0
+            },
+            "severity_within_one": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 6,
+              "prediction_rate": 0.0
+            },
+            "team_primary": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 6,
+              "prediction_rate": 0.0
+            },
+            "team_acceptable": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 6,
+              "prediction_rate": 0.0
+            },
+            "evidence_sufficiency": {
+              "accuracy": 0.16666666666666666,
+              "n_correct": 1,
+              "n_scored": 6,
+              "n_total": 6,
+              "prediction_rate": 1.0
+            },
+            "human_review_agreement": {
+              "accuracy": 0.6666666666666666,
+              "n_correct": 4,
+              "n_scored": 6,
+              "n_total": 6,
+              "prediction_rate": 1.0
+            }
+          },
+          "human_review_rate_agent": 0.16666666666666666,
+          "mean_overall_confidence": 0.6333333333333333
+        },
+        "IC05": {
+          "n_cases": 9,
+          "outcome": {
+            "product": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 9,
+              "prediction_rate": 0.0
+            },
+            "component": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 9,
+              "prediction_rate": 0.0
+            },
+            "issue_category": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 9,
+              "prediction_rate": 0.0
+            },
+            "issue_subcategory": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 9,
+              "prediction_rate": 0.0
+            },
+            "root_cause_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 9,
+              "prediction_rate": 0.0
+            },
+            "root_cause_containment": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 9,
+              "prediction_rate": 0.0
+            },
+            "causal_change": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 9,
+              "prediction_rate": 0.0
+            },
+            "severity_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 9,
+              "prediction_rate": 0.0
+            },
+            "severity_within_one": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 9,
+              "prediction_rate": 0.0
+            },
+            "team_primary": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 9,
+              "prediction_rate": 0.0
+            },
+            "team_acceptable": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 9,
+              "prediction_rate": 0.0
+            },
+            "evidence_sufficiency": {
+              "accuracy": 0.2222222222222222,
+              "n_correct": 2,
+              "n_scored": 9,
+              "n_total": 9,
+              "prediction_rate": 1.0
+            },
+            "human_review_agreement": {
+              "accuracy": 0.4444444444444444,
+              "n_correct": 4,
+              "n_scored": 9,
+              "n_total": 9,
+              "prediction_rate": 1.0
+            }
+          },
+          "human_review_rate_agent": 0.6666666666666666,
+          "mean_overall_confidence": 0.5222222222222223
+        },
+        "IC06": {
+          "n_cases": 1,
+          "outcome": {
+            "product": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 1,
+              "prediction_rate": 0.0
+            },
+            "component": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 1,
+              "prediction_rate": 0.0
+            },
+            "issue_category": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 1,
+              "prediction_rate": 0.0
+            },
+            "issue_subcategory": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 1,
+              "prediction_rate": 0.0
+            },
+            "root_cause_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 1,
+              "prediction_rate": 0.0
+            },
+            "root_cause_containment": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 1,
+              "prediction_rate": 0.0
+            },
+            "causal_change": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 1,
+              "prediction_rate": 0.0
+            },
+            "severity_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 1,
+              "prediction_rate": 0.0
+            },
+            "severity_within_one": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 1,
+              "prediction_rate": 0.0
+            },
+            "team_primary": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 1,
+              "prediction_rate": 0.0
+            },
+            "team_acceptable": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 1,
+              "prediction_rate": 0.0
+            },
+            "evidence_sufficiency": {
+              "accuracy": 0.0,
+              "n_correct": 0,
+              "n_scored": 1,
+              "n_total": 1,
+              "prediction_rate": 1.0
+            },
+            "human_review_agreement": {
+              "accuracy": 1.0,
+              "n_correct": 1,
+              "n_scored": 1,
+              "n_total": 1,
+              "prediction_rate": 1.0
+            }
+          },
+          "human_review_rate_agent": 0.0,
+          "mean_overall_confidence": 0.5
+        },
+        "IC07": {
+          "n_cases": 7,
+          "outcome": {
+            "product": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 7,
+              "prediction_rate": 0.0
+            },
+            "component": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 7,
+              "prediction_rate": 0.0
+            },
+            "issue_category": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 7,
+              "prediction_rate": 0.0
+            },
+            "issue_subcategory": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 7,
+              "prediction_rate": 0.0
+            },
+            "root_cause_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 7,
+              "prediction_rate": 0.0
+            },
+            "root_cause_containment": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 7,
+              "prediction_rate": 0.0
+            },
+            "causal_change": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 7,
+              "prediction_rate": 0.0
+            },
+            "severity_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 7,
+              "prediction_rate": 0.0
+            },
+            "severity_within_one": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 7,
+              "prediction_rate": 0.0
+            },
+            "team_primary": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 7,
+              "prediction_rate": 0.0
+            },
+            "team_acceptable": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 7,
+              "prediction_rate": 0.0
+            },
+            "evidence_sufficiency": {
+              "accuracy": 0.0,
+              "n_correct": 0,
+              "n_scored": 7,
+              "n_total": 7,
+              "prediction_rate": 1.0
+            },
+            "human_review_agreement": {
+              "accuracy": 0.8571428571428571,
+              "n_correct": 6,
+              "n_scored": 7,
+              "n_total": 7,
+              "prediction_rate": 1.0
+            }
+          },
+          "human_review_rate_agent": 0.0,
+          "mean_overall_confidence": 0.7000000000000001
+        },
+        "IC08": {
+          "n_cases": 7,
+          "outcome": {
+            "product": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 7,
+              "prediction_rate": 0.0
+            },
+            "component": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 7,
+              "prediction_rate": 0.0
+            },
+            "issue_category": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 7,
+              "prediction_rate": 0.0
+            },
+            "issue_subcategory": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 7,
+              "prediction_rate": 0.0
+            },
+            "root_cause_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 7,
+              "prediction_rate": 0.0
+            },
+            "root_cause_containment": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 7,
+              "prediction_rate": 0.0
+            },
+            "causal_change": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 7,
+              "prediction_rate": 0.0
+            },
+            "severity_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 7,
+              "prediction_rate": 0.0
+            },
+            "severity_within_one": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 7,
+              "prediction_rate": 0.0
+            },
+            "team_primary": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 7,
+              "prediction_rate": 0.0
+            },
+            "team_acceptable": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 7,
+              "prediction_rate": 0.0
+            },
+            "evidence_sufficiency": {
+              "accuracy": 0.0,
+              "n_correct": 0,
+              "n_scored": 7,
+              "n_total": 7,
+              "prediction_rate": 1.0
+            },
+            "human_review_agreement": {
+              "accuracy": 0.42857142857142855,
+              "n_correct": 3,
+              "n_scored": 7,
+              "n_total": 7,
+              "prediction_rate": 1.0
+            }
+          },
+          "human_review_rate_agent": 0.2857142857142857,
+          "mean_overall_confidence": 0.5857142857142856
+        },
+        "IC09": {
+          "n_cases": 21,
+          "outcome": {
+            "product": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 21,
+              "prediction_rate": 0.0
+            },
+            "component": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 21,
+              "prediction_rate": 0.0
+            },
+            "issue_category": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 21,
+              "prediction_rate": 0.0
+            },
+            "issue_subcategory": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 21,
+              "prediction_rate": 0.0
+            },
+            "root_cause_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 21,
+              "prediction_rate": 0.0
+            },
+            "root_cause_containment": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 21,
+              "prediction_rate": 0.0
+            },
+            "causal_change": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 21,
+              "prediction_rate": 0.0
+            },
+            "severity_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 21,
+              "prediction_rate": 0.0
+            },
+            "severity_within_one": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 21,
+              "prediction_rate": 0.0
+            },
+            "team_primary": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 21,
+              "prediction_rate": 0.0
+            },
+            "team_acceptable": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 21,
+              "prediction_rate": 0.0
+            },
+            "evidence_sufficiency": {
+              "accuracy": 0.047619047619047616,
+              "n_correct": 1,
+              "n_scored": 21,
+              "n_total": 21,
+              "prediction_rate": 1.0
+            },
+            "human_review_agreement": {
+              "accuracy": 0.7142857142857143,
+              "n_correct": 15,
+              "n_scored": 21,
+              "n_total": 21,
+              "prediction_rate": 1.0
+            }
+          },
+          "human_review_rate_agent": 0.19047619047619047,
+          "mean_overall_confidence": 0.6476190476190476
+        },
+        "IC10": {
+          "n_cases": 8,
+          "outcome": {
+            "product": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 8,
+              "prediction_rate": 0.0
+            },
+            "component": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 8,
+              "prediction_rate": 0.0
+            },
+            "issue_category": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 8,
+              "prediction_rate": 0.0
+            },
+            "issue_subcategory": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 8,
+              "prediction_rate": 0.0
+            },
+            "root_cause_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 8,
+              "prediction_rate": 0.0
+            },
+            "root_cause_containment": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 8,
+              "prediction_rate": 0.0
+            },
+            "causal_change": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 8,
+              "prediction_rate": 0.0
+            },
+            "severity_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 8,
+              "prediction_rate": 0.0
+            },
+            "severity_within_one": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 8,
+              "prediction_rate": 0.0
+            },
+            "team_primary": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 8,
+              "prediction_rate": 0.0
+            },
+            "team_acceptable": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 8,
+              "prediction_rate": 0.0
+            },
+            "evidence_sufficiency": {
+              "accuracy": 0.0,
+              "n_correct": 0,
+              "n_scored": 8,
+              "n_total": 8,
+              "prediction_rate": 1.0
+            },
+            "human_review_agreement": {
+              "accuracy": 0.5,
+              "n_correct": 4,
+              "n_scored": 8,
+              "n_total": 8,
+              "prediction_rate": 1.0
+            }
+          },
+          "human_review_rate_agent": 0.375,
+          "mean_overall_confidence": 0.6125
+        },
+        "IC11": {
+          "n_cases": 14,
+          "outcome": {
+            "product": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 14,
+              "prediction_rate": 0.0
+            },
+            "component": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 14,
+              "prediction_rate": 0.0
+            },
+            "issue_category": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 14,
+              "prediction_rate": 0.0
+            },
+            "issue_subcategory": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 14,
+              "prediction_rate": 0.0
+            },
+            "root_cause_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 14,
+              "prediction_rate": 0.0
+            },
+            "root_cause_containment": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 14,
+              "prediction_rate": 0.0
+            },
+            "causal_change": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 14,
+              "prediction_rate": 0.0
+            },
+            "severity_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 14,
+              "prediction_rate": 0.0
+            },
+            "severity_within_one": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 14,
+              "prediction_rate": 0.0
+            },
+            "team_primary": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 14,
+              "prediction_rate": 0.0
+            },
+            "team_acceptable": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 14,
+              "prediction_rate": 0.0
+            },
+            "evidence_sufficiency": {
+              "accuracy": 0.14285714285714285,
+              "n_correct": 2,
+              "n_scored": 14,
+              "n_total": 14,
+              "prediction_rate": 1.0
+            },
+            "human_review_agreement": {
+              "accuracy": 0.7857142857142857,
+              "n_correct": 11,
+              "n_scored": 14,
+              "n_total": 14,
+              "prediction_rate": 1.0
+            }
+          },
+          "human_review_rate_agent": 0.5714285714285714,
+          "mean_overall_confidence": 0.6142857142857142
+        },
+        "IC12": {
+          "n_cases": 15,
+          "outcome": {
+            "product": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 15,
+              "prediction_rate": 0.0
+            },
+            "component": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 15,
+              "prediction_rate": 0.0
+            },
+            "issue_category": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 15,
+              "prediction_rate": 0.0
+            },
+            "issue_subcategory": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 15,
+              "prediction_rate": 0.0
+            },
+            "root_cause_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 15,
+              "prediction_rate": 0.0
+            },
+            "root_cause_containment": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 15,
+              "prediction_rate": 0.0
+            },
+            "causal_change": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 15,
+              "prediction_rate": 0.0
+            },
+            "severity_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 15,
+              "prediction_rate": 0.0
+            },
+            "severity_within_one": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 15,
+              "prediction_rate": 0.0
+            },
+            "team_primary": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 15,
+              "prediction_rate": 0.0
+            },
+            "team_acceptable": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 15,
+              "prediction_rate": 0.0
+            },
+            "evidence_sufficiency": {
+              "accuracy": 0.2,
+              "n_correct": 3,
+              "n_scored": 15,
+              "n_total": 15,
+              "prediction_rate": 1.0
+            },
+            "human_review_agreement": {
+              "accuracy": 0.4666666666666667,
+              "n_correct": 7,
+              "n_scored": 15,
+              "n_total": 15,
+              "prediction_rate": 1.0
+            }
+          },
+          "human_review_rate_agent": 0.6,
+          "mean_overall_confidence": 0.5466666666666666
+        },
+        "IC13": {
+          "n_cases": 17,
+          "outcome": {
+            "product": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 17,
+              "prediction_rate": 0.0
+            },
+            "component": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 17,
+              "prediction_rate": 0.0
+            },
+            "issue_category": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 17,
+              "prediction_rate": 0.0
+            },
+            "issue_subcategory": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 17,
+              "prediction_rate": 0.0
+            },
+            "root_cause_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 17,
+              "prediction_rate": 0.0
+            },
+            "root_cause_containment": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 17,
+              "prediction_rate": 0.0
+            },
+            "causal_change": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 17,
+              "prediction_rate": 0.0
+            },
+            "severity_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 17,
+              "prediction_rate": 0.0
+            },
+            "severity_within_one": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 17,
+              "prediction_rate": 0.0
+            },
+            "team_primary": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 17,
+              "prediction_rate": 0.0
+            },
+            "team_acceptable": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 17,
+              "prediction_rate": 0.0
+            },
+            "evidence_sufficiency": {
+              "accuracy": 0.058823529411764705,
+              "n_correct": 1,
+              "n_scored": 17,
+              "n_total": 17,
+              "prediction_rate": 1.0
+            },
+            "human_review_agreement": {
+              "accuracy": 0.7058823529411765,
+              "n_correct": 12,
+              "n_scored": 17,
+              "n_total": 17,
+              "prediction_rate": 1.0
+            }
+          },
+          "human_review_rate_agent": 0.35294117647058826,
+          "mean_overall_confidence": 0.6529411764705882
+        },
+        "IC14": {
+          "n_cases": 13,
+          "outcome": {
+            "product": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 13,
+              "prediction_rate": 0.0
+            },
+            "component": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 13,
+              "prediction_rate": 0.0
+            },
+            "issue_category": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 13,
+              "prediction_rate": 0.0
+            },
+            "issue_subcategory": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 13,
+              "prediction_rate": 0.0
+            },
+            "root_cause_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 13,
+              "prediction_rate": 0.0
+            },
+            "root_cause_containment": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 13,
+              "prediction_rate": 0.0
+            },
+            "causal_change": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 13,
+              "prediction_rate": 0.0
+            },
+            "severity_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 13,
+              "prediction_rate": 0.0
+            },
+            "severity_within_one": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 13,
+              "prediction_rate": 0.0
+            },
+            "team_primary": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 13,
+              "prediction_rate": 0.0
+            },
+            "team_acceptable": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 13,
+              "prediction_rate": 0.0
+            },
+            "evidence_sufficiency": {
+              "accuracy": 0.5384615384615384,
+              "n_correct": 7,
+              "n_scored": 13,
+              "n_total": 13,
+              "prediction_rate": 1.0
+            },
+            "human_review_agreement": {
+              "accuracy": 0.5384615384615384,
+              "n_correct": 7,
+              "n_scored": 13,
+              "n_total": 13,
+              "prediction_rate": 1.0
+            }
+          },
+          "human_review_rate_agent": 0.46153846153846156,
+          "mean_overall_confidence": 0.5846153846153846
+        },
+        "IC15": {
+          "n_cases": 4,
+          "outcome": {
+            "product": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 4,
+              "prediction_rate": 0.0
+            },
+            "component": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 4,
+              "prediction_rate": 0.0
+            },
+            "issue_category": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 4,
+              "prediction_rate": 0.0
+            },
+            "issue_subcategory": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 4,
+              "prediction_rate": 0.0
+            },
+            "root_cause_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 4,
+              "prediction_rate": 0.0
+            },
+            "root_cause_containment": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 4,
+              "prediction_rate": 0.0
+            },
+            "causal_change": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 4,
+              "prediction_rate": 0.0
+            },
+            "severity_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 4,
+              "prediction_rate": 0.0
+            },
+            "severity_within_one": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 4,
+              "prediction_rate": 0.0
+            },
+            "team_primary": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 4,
+              "prediction_rate": 0.0
+            },
+            "team_acceptable": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 4,
+              "prediction_rate": 0.0
+            },
+            "evidence_sufficiency": {
+              "accuracy": 0.0,
+              "n_correct": 0,
+              "n_scored": 4,
+              "n_total": 4,
+              "prediction_rate": 1.0
+            },
+            "human_review_agreement": {
+              "accuracy": 0.75,
+              "n_correct": 3,
+              "n_scored": 4,
+              "n_total": 4,
+              "prediction_rate": 1.0
+            }
+          },
+          "human_review_rate_agent": 0.25,
+          "mean_overall_confidence": 0.75
+        },
+        "IC16": {
+          "n_cases": 1,
+          "outcome": {
+            "product": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 1,
+              "prediction_rate": 0.0
+            },
+            "component": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 1,
+              "prediction_rate": 0.0
+            },
+            "issue_category": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 1,
+              "prediction_rate": 0.0
+            },
+            "issue_subcategory": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 1,
+              "prediction_rate": 0.0
+            },
+            "root_cause_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 1,
+              "prediction_rate": 0.0
+            },
+            "root_cause_containment": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 1,
+              "prediction_rate": 0.0
+            },
+            "causal_change": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 1,
+              "prediction_rate": 0.0
+            },
+            "severity_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 1,
+              "prediction_rate": 0.0
+            },
+            "severity_within_one": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 1,
+              "prediction_rate": 0.0
+            },
+            "team_primary": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 1,
+              "prediction_rate": 0.0
+            },
+            "team_acceptable": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 1,
+              "prediction_rate": 0.0
+            },
+            "evidence_sufficiency": {
+              "accuracy": 0.0,
+              "n_correct": 0,
+              "n_scored": 1,
+              "n_total": 1,
+              "prediction_rate": 1.0
+            },
+            "human_review_agreement": {
+              "accuracy": 1.0,
+              "n_correct": 1,
+              "n_scored": 1,
+              "n_total": 1,
+              "prediction_rate": 1.0
+            }
+          },
+          "human_review_rate_agent": 0.0,
+          "mean_overall_confidence": 0.8
+        },
+        "IC17": {
+          "n_cases": 6,
+          "outcome": {
+            "product": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 6,
+              "prediction_rate": 0.0
+            },
+            "component": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 6,
+              "prediction_rate": 0.0
+            },
+            "issue_category": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 6,
+              "prediction_rate": 0.0
+            },
+            "issue_subcategory": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 6,
+              "prediction_rate": 0.0
+            },
+            "root_cause_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 6,
+              "prediction_rate": 0.0
+            },
+            "root_cause_containment": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 6,
+              "prediction_rate": 0.0
+            },
+            "causal_change": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 6,
+              "prediction_rate": 0.0
+            },
+            "severity_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 6,
+              "prediction_rate": 0.0
+            },
+            "severity_within_one": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 6,
+              "prediction_rate": 0.0
+            },
+            "team_primary": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 6,
+              "prediction_rate": 0.0
+            },
+            "team_acceptable": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 6,
+              "prediction_rate": 0.0
+            },
+            "evidence_sufficiency": {
+              "accuracy": 0.16666666666666666,
+              "n_correct": 1,
+              "n_scored": 6,
+              "n_total": 6,
+              "prediction_rate": 1.0
+            },
+            "human_review_agreement": {
+              "accuracy": 0.8333333333333334,
+              "n_correct": 5,
+              "n_scored": 6,
+              "n_total": 6,
+              "prediction_rate": 1.0
+            }
+          },
+          "human_review_rate_agent": 0.5,
+          "mean_overall_confidence": 0.48333333333333334
+        }
+      },
+      "evidence_sufficiency": {
+        "insufficient": {
+          "n_cases": 16,
+          "outcome": {
+            "product": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 16,
+              "prediction_rate": 0.0
+            },
+            "component": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 16,
+              "prediction_rate": 0.0
+            },
+            "issue_category": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 16,
+              "prediction_rate": 0.0
+            },
+            "issue_subcategory": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 16,
+              "prediction_rate": 0.0
+            },
+            "root_cause_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 16,
+              "prediction_rate": 0.0
+            },
+            "root_cause_containment": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 16,
+              "prediction_rate": 0.0
+            },
+            "causal_change": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 16,
+              "prediction_rate": 0.0
+            },
+            "severity_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 16,
+              "prediction_rate": 0.0
+            },
+            "severity_within_one": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 16,
+              "prediction_rate": 0.0
+            },
+            "team_primary": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 16,
+              "prediction_rate": 0.0
+            },
+            "team_acceptable": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 16,
+              "prediction_rate": 0.0
+            },
+            "evidence_sufficiency": {
+              "accuracy": 0.6875,
+              "n_correct": 11,
+              "n_scored": 16,
+              "n_total": 16,
+              "prediction_rate": 1.0
+            },
+            "human_review_agreement": {
+              "accuracy": 0.75,
+              "n_correct": 12,
+              "n_scored": 16,
+              "n_total": 16,
+              "prediction_rate": 1.0
+            }
+          },
+          "human_review_rate_agent": 0.75,
+          "mean_overall_confidence": 0.41875
+        },
+        "partially_sufficient": {
+          "n_cases": 17,
+          "outcome": {
+            "product": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 17,
+              "prediction_rate": 0.0
+            },
+            "component": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 17,
+              "prediction_rate": 0.0
+            },
+            "issue_category": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 17,
+              "prediction_rate": 0.0
+            },
+            "issue_subcategory": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 17,
+              "prediction_rate": 0.0
+            },
+            "root_cause_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 17,
+              "prediction_rate": 0.0
+            },
+            "root_cause_containment": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 17,
+              "prediction_rate": 0.0
+            },
+            "causal_change": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 17,
+              "prediction_rate": 0.0
+            },
+            "severity_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 17,
+              "prediction_rate": 0.0
+            },
+            "severity_within_one": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 17,
+              "prediction_rate": 0.0
+            },
+            "team_primary": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 17,
+              "prediction_rate": 0.0
+            },
+            "team_acceptable": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 17,
+              "prediction_rate": 0.0
+            },
+            "evidence_sufficiency": {
+              "accuracy": 0.5882352941176471,
+              "n_correct": 10,
+              "n_scored": 17,
+              "n_total": 17,
+              "prediction_rate": 1.0
+            },
+            "human_review_agreement": {
+              "accuracy": 0.47058823529411764,
+              "n_correct": 8,
+              "n_scored": 17,
+              "n_total": 17,
+              "prediction_rate": 1.0
+            }
+          },
+          "human_review_rate_agent": 0.7058823529411765,
+          "mean_overall_confidence": 0.5941176470588235
+        },
+        "sufficient": {
+          "n_cases": 117,
+          "outcome": {
+            "product": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 117,
+              "prediction_rate": 0.0
+            },
+            "component": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 117,
+              "prediction_rate": 0.0
+            },
+            "issue_category": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 117,
+              "prediction_rate": 0.0
+            },
+            "issue_subcategory": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 117,
+              "prediction_rate": 0.0
+            },
+            "root_cause_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 117,
+              "prediction_rate": 0.0
+            },
+            "root_cause_containment": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 117,
+              "prediction_rate": 0.0
+            },
+            "causal_change": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 117,
+              "prediction_rate": 0.0
+            },
+            "severity_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 117,
+              "prediction_rate": 0.0
+            },
+            "severity_within_one": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 117,
+              "prediction_rate": 0.0
+            },
+            "team_primary": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 117,
+              "prediction_rate": 0.0
+            },
+            "team_acceptable": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 117,
+              "prediction_rate": 0.0
+            },
+            "evidence_sufficiency": {
+              "accuracy": 0.0,
+              "n_correct": 0,
+              "n_scored": 117,
+              "n_total": 117,
+              "prediction_rate": 1.0
+            },
+            "human_review_agreement": {
+              "accuracy": 0.6666666666666666,
+              "n_correct": 78,
+              "n_scored": 117,
+              "n_total": 117,
+              "prediction_rate": 1.0
+            }
+          },
+          "human_review_rate_agent": 0.26495726495726496,
+          "mean_overall_confidence": 0.6282051282051282
+        }
+      },
+      "incident_relationship": {
+        "coincidental_unrelated": {
+          "n_cases": 16,
+          "outcome": {
+            "product": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 16,
+              "prediction_rate": 0.0
+            },
+            "component": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 16,
+              "prediction_rate": 0.0
+            },
+            "issue_category": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 16,
+              "prediction_rate": 0.0
+            },
+            "issue_subcategory": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 16,
+              "prediction_rate": 0.0
+            },
+            "root_cause_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 16,
+              "prediction_rate": 0.0
+            },
+            "root_cause_containment": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 16,
+              "prediction_rate": 0.0
+            },
+            "causal_change": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 16,
+              "prediction_rate": 0.0
+            },
+            "severity_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 16,
+              "prediction_rate": 0.0
+            },
+            "severity_within_one": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 16,
+              "prediction_rate": 0.0
+            },
+            "team_primary": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 16,
+              "prediction_rate": 0.0
+            },
+            "team_acceptable": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 16,
+              "prediction_rate": 0.0
+            },
+            "evidence_sufficiency": {
+              "accuracy": 0.25,
+              "n_correct": 4,
+              "n_scored": 16,
+              "n_total": 16,
+              "prediction_rate": 1.0
+            },
+            "human_review_agreement": {
+              "accuracy": 0.6875,
+              "n_correct": 11,
+              "n_scored": 16,
+              "n_total": 16,
+              "prediction_rate": 1.0
+            }
+          },
+          "human_review_rate_agent": 0.5,
+          "mean_overall_confidence": 0.6125
+        },
+        "customer_assumed_incorrectly": {
+          "n_cases": 9,
+          "outcome": {
+            "product": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 9,
+              "prediction_rate": 0.0
+            },
+            "component": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 9,
+              "prediction_rate": 0.0
+            },
+            "issue_category": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 9,
+              "prediction_rate": 0.0
+            },
+            "issue_subcategory": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 9,
+              "prediction_rate": 0.0
+            },
+            "root_cause_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 9,
+              "prediction_rate": 0.0
+            },
+            "root_cause_containment": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 9,
+              "prediction_rate": 0.0
+            },
+            "causal_change": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 9,
+              "prediction_rate": 0.0
+            },
+            "severity_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 9,
+              "prediction_rate": 0.0
+            },
+            "severity_within_one": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 9,
+              "prediction_rate": 0.0
+            },
+            "team_primary": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 9,
+              "prediction_rate": 0.0
+            },
+            "team_acceptable": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 9,
+              "prediction_rate": 0.0
+            },
+            "evidence_sufficiency": {
+              "accuracy": 0.1111111111111111,
+              "n_correct": 1,
+              "n_scored": 9,
+              "n_total": 9,
+              "prediction_rate": 1.0
+            },
+            "human_review_agreement": {
+              "accuracy": 0.6666666666666666,
+              "n_correct": 6,
+              "n_scored": 9,
+              "n_total": 9,
+              "prediction_rate": 1.0
+            }
+          },
+          "human_review_rate_agent": 0.3333333333333333,
+          "mean_overall_confidence": 0.6111111111111112
+        },
+        "directly_caused": {
+          "n_cases": 5,
+          "outcome": {
+            "product": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 5,
+              "prediction_rate": 0.0
+            },
+            "component": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 5,
+              "prediction_rate": 0.0
+            },
+            "issue_category": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 5,
+              "prediction_rate": 0.0
+            },
+            "issue_subcategory": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 5,
+              "prediction_rate": 0.0
+            },
+            "root_cause_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 5,
+              "prediction_rate": 0.0
+            },
+            "root_cause_containment": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 5,
+              "prediction_rate": 0.0
+            },
+            "causal_change": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 5,
+              "prediction_rate": 0.0
+            },
+            "severity_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 5,
+              "prediction_rate": 0.0
+            },
+            "severity_within_one": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 5,
+              "prediction_rate": 0.0
+            },
+            "team_primary": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 5,
+              "prediction_rate": 0.0
+            },
+            "team_acceptable": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 5,
+              "prediction_rate": 0.0
+            },
+            "evidence_sufficiency": {
+              "accuracy": 0.4,
+              "n_correct": 2,
+              "n_scored": 5,
+              "n_total": 5,
+              "prediction_rate": 1.0
+            },
+            "human_review_agreement": {
+              "accuracy": 0.6,
+              "n_correct": 3,
+              "n_scored": 5,
+              "n_total": 5,
+              "prediction_rate": 1.0
+            }
+          },
+          "human_review_rate_agent": 0.6,
+          "mean_overall_confidence": 0.36
+        },
+        "none": {
+          "n_cases": 119,
+          "outcome": {
+            "product": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 119,
+              "prediction_rate": 0.0
+            },
+            "component": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 119,
+              "prediction_rate": 0.0
+            },
+            "issue_category": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 119,
+              "prediction_rate": 0.0
+            },
+            "issue_subcategory": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 119,
+              "prediction_rate": 0.0
+            },
+            "root_cause_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 119,
+              "prediction_rate": 0.0
+            },
+            "root_cause_containment": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 119,
+              "prediction_rate": 0.0
+            },
+            "causal_change": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 119,
+              "prediction_rate": 0.0
+            },
+            "severity_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 119,
+              "prediction_rate": 0.0
+            },
+            "severity_within_one": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 119,
+              "prediction_rate": 0.0
+            },
+            "team_primary": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 119,
+              "prediction_rate": 0.0
+            },
+            "team_acceptable": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 119,
+              "prediction_rate": 0.0
+            },
+            "evidence_sufficiency": {
+              "accuracy": 0.11764705882352941,
+              "n_correct": 14,
+              "n_scored": 119,
+              "n_total": 119,
+              "prediction_rate": 1.0
+            },
+            "human_review_agreement": {
+              "accuracy": 0.6470588235294118,
+              "n_correct": 77,
+              "n_scored": 119,
+              "n_total": 119,
+              "prediction_rate": 1.0
+            }
+          },
+          "human_review_rate_agent": 0.33613445378151263,
+          "mean_overall_confidence": 0.6126050420168068
+        },
+        "partially_influenced": {
+          "n_cases": 1,
+          "outcome": {
+            "product": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 1,
+              "prediction_rate": 0.0
+            },
+            "component": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 1,
+              "prediction_rate": 0.0
+            },
+            "issue_category": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 1,
+              "prediction_rate": 0.0
+            },
+            "issue_subcategory": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 1,
+              "prediction_rate": 0.0
+            },
+            "root_cause_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 1,
+              "prediction_rate": 0.0
+            },
+            "root_cause_containment": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 1,
+              "prediction_rate": 0.0
+            },
+            "causal_change": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 1,
+              "prediction_rate": 0.0
+            },
+            "severity_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 1,
+              "prediction_rate": 0.0
+            },
+            "severity_within_one": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 1,
+              "prediction_rate": 0.0
+            },
+            "team_primary": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 1,
+              "prediction_rate": 0.0
+            },
+            "team_acceptable": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 1,
+              "prediction_rate": 0.0
+            },
+            "evidence_sufficiency": {
+              "accuracy": 0.0,
+              "n_correct": 0,
+              "n_scored": 1,
+              "n_total": 1,
+              "prediction_rate": 1.0
+            },
+            "human_review_agreement": {
+              "accuracy": 1.0,
+              "n_correct": 1,
+              "n_scored": 1,
+              "n_total": 1,
+              "prediction_rate": 1.0
+            }
+          },
+          "human_review_rate_agent": 1.0,
+          "mean_overall_confidence": 0.3
+        }
+      },
+      "dependency_driven": {
+        "False": {
+          "n_cases": 134,
+          "outcome": {
+            "product": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 134,
+              "prediction_rate": 0.0
+            },
+            "component": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 134,
+              "prediction_rate": 0.0
+            },
+            "issue_category": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 134,
+              "prediction_rate": 0.0
+            },
+            "issue_subcategory": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 134,
+              "prediction_rate": 0.0
+            },
+            "root_cause_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 134,
+              "prediction_rate": 0.0
+            },
+            "root_cause_containment": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 134,
+              "prediction_rate": 0.0
+            },
+            "causal_change": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 134,
+              "prediction_rate": 0.0
+            },
+            "severity_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 134,
+              "prediction_rate": 0.0
+            },
+            "severity_within_one": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 134,
+              "prediction_rate": 0.0
+            },
+            "team_primary": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 134,
+              "prediction_rate": 0.0
+            },
+            "team_acceptable": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 134,
+              "prediction_rate": 0.0
+            },
+            "evidence_sufficiency": {
+              "accuracy": 0.1417910447761194,
+              "n_correct": 19,
+              "n_scored": 134,
+              "n_total": 134,
+              "prediction_rate": 1.0
+            },
+            "human_review_agreement": {
+              "accuracy": 0.6343283582089553,
+              "n_correct": 85,
+              "n_scored": 134,
+              "n_total": 134,
+              "prediction_rate": 1.0
+            }
+          },
+          "human_review_rate_agent": 0.3582089552238806,
+          "mean_overall_confidence": 0.6059701492537314
+        },
+        "True": {
+          "n_cases": 16,
+          "outcome": {
+            "product": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 16,
+              "prediction_rate": 0.0
+            },
+            "component": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 16,
+              "prediction_rate": 0.0
+            },
+            "issue_category": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 16,
+              "prediction_rate": 0.0
+            },
+            "issue_subcategory": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 16,
+              "prediction_rate": 0.0
+            },
+            "root_cause_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 16,
+              "prediction_rate": 0.0
+            },
+            "root_cause_containment": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 16,
+              "prediction_rate": 0.0
+            },
+            "causal_change": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 16,
+              "prediction_rate": 0.0
+            },
+            "severity_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 16,
+              "prediction_rate": 0.0
+            },
+            "severity_within_one": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 16,
+              "prediction_rate": 0.0
+            },
+            "team_primary": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 16,
+              "prediction_rate": 0.0
+            },
+            "team_acceptable": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 16,
+              "prediction_rate": 0.0
+            },
+            "evidence_sufficiency": {
+              "accuracy": 0.125,
+              "n_correct": 2,
+              "n_scored": 16,
+              "n_total": 16,
+              "prediction_rate": 1.0
+            },
+            "human_review_agreement": {
+              "accuracy": 0.8125,
+              "n_correct": 13,
+              "n_scored": 16,
+              "n_total": 16,
+              "prediction_rate": 1.0
+            }
+          },
+          "human_review_rate_agent": 0.4375,
+          "mean_overall_confidence": 0.56875
+        }
+      },
+      "customer_misdiagnosis": {
+        "False": {
+          "n_cases": 126,
+          "outcome": {
+            "product": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 126,
+              "prediction_rate": 0.0
+            },
+            "component": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 126,
+              "prediction_rate": 0.0
+            },
+            "issue_category": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 126,
+              "prediction_rate": 0.0
+            },
+            "issue_subcategory": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 126,
+              "prediction_rate": 0.0
+            },
+            "root_cause_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 126,
+              "prediction_rate": 0.0
+            },
+            "root_cause_containment": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 126,
+              "prediction_rate": 0.0
+            },
+            "causal_change": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 126,
+              "prediction_rate": 0.0
+            },
+            "severity_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 126,
+              "prediction_rate": 0.0
+            },
+            "severity_within_one": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 126,
+              "prediction_rate": 0.0
+            },
+            "team_primary": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 126,
+              "prediction_rate": 0.0
+            },
+            "team_acceptable": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 126,
+              "prediction_rate": 0.0
+            },
+            "evidence_sufficiency": {
+              "accuracy": 0.1349206349206349,
+              "n_correct": 17,
+              "n_scored": 126,
+              "n_total": 126,
+              "prediction_rate": 1.0
+            },
+            "human_review_agreement": {
+              "accuracy": 0.6666666666666666,
+              "n_correct": 84,
+              "n_scored": 126,
+              "n_total": 126,
+              "prediction_rate": 1.0
+            }
+          },
+          "human_review_rate_agent": 0.36507936507936506,
+          "mean_overall_confidence": 0.5833333333333334
+        },
+        "True": {
+          "n_cases": 24,
+          "outcome": {
+            "product": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 24,
+              "prediction_rate": 0.0
+            },
+            "component": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 24,
+              "prediction_rate": 0.0
+            },
+            "issue_category": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 24,
+              "prediction_rate": 0.0
+            },
+            "issue_subcategory": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 24,
+              "prediction_rate": 0.0
+            },
+            "root_cause_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 24,
+              "prediction_rate": 0.0
+            },
+            "root_cause_containment": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 24,
+              "prediction_rate": 0.0
+            },
+            "causal_change": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 24,
+              "prediction_rate": 0.0
+            },
+            "severity_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 24,
+              "prediction_rate": 0.0
+            },
+            "severity_within_one": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 24,
+              "prediction_rate": 0.0
+            },
+            "team_primary": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 24,
+              "prediction_rate": 0.0
+            },
+            "team_acceptable": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 24,
+              "prediction_rate": 0.0
+            },
+            "evidence_sufficiency": {
+              "accuracy": 0.16666666666666666,
+              "n_correct": 4,
+              "n_scored": 24,
+              "n_total": 24,
+              "prediction_rate": 1.0
+            },
+            "human_review_agreement": {
+              "accuracy": 0.5833333333333334,
+              "n_correct": 14,
+              "n_scored": 24,
+              "n_total": 24,
+              "prediction_rate": 1.0
+            }
+          },
+          "human_review_rate_agent": 0.375,
+          "mean_overall_confidence": 0.7000000000000001
+        }
+      },
+      "multi_component": {
+        "False": {
+          "n_cases": 142,
+          "outcome": {
+            "product": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 142,
+              "prediction_rate": 0.0
+            },
+            "component": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 142,
+              "prediction_rate": 0.0
+            },
+            "issue_category": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 142,
+              "prediction_rate": 0.0
+            },
+            "issue_subcategory": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 142,
+              "prediction_rate": 0.0
+            },
+            "root_cause_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 142,
+              "prediction_rate": 0.0
+            },
+            "root_cause_containment": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 142,
+              "prediction_rate": 0.0
+            },
+            "causal_change": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 142,
+              "prediction_rate": 0.0
+            },
+            "severity_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 142,
+              "prediction_rate": 0.0
+            },
+            "severity_within_one": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 142,
+              "prediction_rate": 0.0
+            },
+            "team_primary": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 142,
+              "prediction_rate": 0.0
+            },
+            "team_acceptable": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 142,
+              "prediction_rate": 0.0
+            },
+            "evidence_sufficiency": {
+              "accuracy": 0.14788732394366197,
+              "n_correct": 21,
+              "n_scored": 142,
+              "n_total": 142,
+              "prediction_rate": 1.0
+            },
+            "human_review_agreement": {
+              "accuracy": 0.647887323943662,
+              "n_correct": 92,
+              "n_scored": 142,
+              "n_total": 142,
+              "prediction_rate": 1.0
+            }
+          },
+          "human_review_rate_agent": 0.36619718309859156,
+          "mean_overall_confidence": 0.6070422535211267
+        },
+        "True": {
+          "n_cases": 8,
+          "outcome": {
+            "product": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 8,
+              "prediction_rate": 0.0
+            },
+            "component": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 8,
+              "prediction_rate": 0.0
+            },
+            "issue_category": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 8,
+              "prediction_rate": 0.0
+            },
+            "issue_subcategory": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 8,
+              "prediction_rate": 0.0
+            },
+            "root_cause_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 8,
+              "prediction_rate": 0.0
+            },
+            "root_cause_containment": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 8,
+              "prediction_rate": 0.0
+            },
+            "causal_change": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 8,
+              "prediction_rate": 0.0
+            },
+            "severity_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 8,
+              "prediction_rate": 0.0
+            },
+            "severity_within_one": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 8,
+              "prediction_rate": 0.0
+            },
+            "team_primary": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 8,
+              "prediction_rate": 0.0
+            },
+            "team_acceptable": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 8,
+              "prediction_rate": 0.0
+            },
+            "evidence_sufficiency": {
+              "accuracy": 0.0,
+              "n_correct": 0,
+              "n_scored": 8,
+              "n_total": 8,
+              "prediction_rate": 1.0
+            },
+            "human_review_agreement": {
+              "accuracy": 0.75,
+              "n_correct": 6,
+              "n_scored": 8,
+              "n_total": 8,
+              "prediction_rate": 1.0
+            }
+          },
+          "human_review_rate_agent": 0.375,
+          "mean_overall_confidence": 0.5125
+        }
+      },
+      "ambiguous": {
+        "False": {
+          "n_cases": 123,
+          "outcome": {
+            "product": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 123,
+              "prediction_rate": 0.0
+            },
+            "component": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 123,
+              "prediction_rate": 0.0
+            },
+            "issue_category": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 123,
+              "prediction_rate": 0.0
+            },
+            "issue_subcategory": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 123,
+              "prediction_rate": 0.0
+            },
+            "root_cause_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 123,
+              "prediction_rate": 0.0
+            },
+            "root_cause_containment": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 123,
+              "prediction_rate": 0.0
+            },
+            "causal_change": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 123,
+              "prediction_rate": 0.0
+            },
+            "severity_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 123,
+              "prediction_rate": 0.0
+            },
+            "severity_within_one": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 123,
+              "prediction_rate": 0.0
+            },
+            "team_primary": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 123,
+              "prediction_rate": 0.0
+            },
+            "team_acceptable": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 123,
+              "prediction_rate": 0.0
+            },
+            "evidence_sufficiency": {
+              "accuracy": 0.13821138211382114,
+              "n_correct": 17,
+              "n_scored": 123,
+              "n_total": 123,
+              "prediction_rate": 1.0
+            },
+            "human_review_agreement": {
+              "accuracy": 0.6422764227642277,
+              "n_correct": 79,
+              "n_scored": 123,
+              "n_total": 123,
+              "prediction_rate": 1.0
+            }
+          },
+          "human_review_rate_agent": 0.35772357723577236,
+          "mean_overall_confidence": 0.6138211382113821
+        },
+        "True": {
+          "n_cases": 27,
+          "outcome": {
+            "product": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 27,
+              "prediction_rate": 0.0
+            },
+            "component": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 27,
+              "prediction_rate": 0.0
+            },
+            "issue_category": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 27,
+              "prediction_rate": 0.0
+            },
+            "issue_subcategory": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 27,
+              "prediction_rate": 0.0
+            },
+            "root_cause_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 27,
+              "prediction_rate": 0.0
+            },
+            "root_cause_containment": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 27,
+              "prediction_rate": 0.0
+            },
+            "causal_change": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 27,
+              "prediction_rate": 0.0
+            },
+            "severity_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 27,
+              "prediction_rate": 0.0
+            },
+            "severity_within_one": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 27,
+              "prediction_rate": 0.0
+            },
+            "team_primary": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 27,
+              "prediction_rate": 0.0
+            },
+            "team_acceptable": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 27,
+              "prediction_rate": 0.0
+            },
+            "evidence_sufficiency": {
+              "accuracy": 0.14814814814814814,
+              "n_correct": 4,
+              "n_scored": 27,
+              "n_total": 27,
+              "prediction_rate": 1.0
+            },
+            "human_review_agreement": {
+              "accuracy": 0.7037037037037037,
+              "n_correct": 19,
+              "n_scored": 27,
+              "n_total": 27,
+              "prediction_rate": 1.0
+            }
+          },
+          "human_review_rate_agent": 0.4074074074074074,
+          "mean_overall_confidence": 0.5481481481481482
+        }
+      },
+      "low_evidence": {
+        "False": {
+          "n_cases": 134,
+          "outcome": {
+            "product": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 134,
+              "prediction_rate": 0.0
+            },
+            "component": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 134,
+              "prediction_rate": 0.0
+            },
+            "issue_category": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 134,
+              "prediction_rate": 0.0
+            },
+            "issue_subcategory": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 134,
+              "prediction_rate": 0.0
+            },
+            "root_cause_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 134,
+              "prediction_rate": 0.0
+            },
+            "root_cause_containment": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 134,
+              "prediction_rate": 0.0
+            },
+            "causal_change": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 134,
+              "prediction_rate": 0.0
+            },
+            "severity_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 134,
+              "prediction_rate": 0.0
+            },
+            "severity_within_one": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 134,
+              "prediction_rate": 0.0
+            },
+            "team_primary": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 134,
+              "prediction_rate": 0.0
+            },
+            "team_acceptable": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 134,
+              "prediction_rate": 0.0
+            },
+            "evidence_sufficiency": {
+              "accuracy": 0.07462686567164178,
+              "n_correct": 10,
+              "n_scored": 134,
+              "n_total": 134,
+              "prediction_rate": 1.0
+            },
+            "human_review_agreement": {
+              "accuracy": 0.6417910447761194,
+              "n_correct": 86,
+              "n_scored": 134,
+              "n_total": 134,
+              "prediction_rate": 1.0
+            }
+          },
+          "human_review_rate_agent": 0.3208955223880597,
+          "mean_overall_confidence": 0.6238805970149255
+        },
+        "True": {
+          "n_cases": 16,
+          "outcome": {
+            "product": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 16,
+              "prediction_rate": 0.0
+            },
+            "component": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 16,
+              "prediction_rate": 0.0
+            },
+            "issue_category": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 16,
+              "prediction_rate": 0.0
+            },
+            "issue_subcategory": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 16,
+              "prediction_rate": 0.0
+            },
+            "root_cause_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 16,
+              "prediction_rate": 0.0
+            },
+            "root_cause_containment": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 16,
+              "prediction_rate": 0.0
+            },
+            "causal_change": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 16,
+              "prediction_rate": 0.0
+            },
+            "severity_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 16,
+              "prediction_rate": 0.0
+            },
+            "severity_within_one": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 16,
+              "prediction_rate": 0.0
+            },
+            "team_primary": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 16,
+              "prediction_rate": 0.0
+            },
+            "team_acceptable": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 16,
+              "prediction_rate": 0.0
+            },
+            "evidence_sufficiency": {
+              "accuracy": 0.6875,
+              "n_correct": 11,
+              "n_scored": 16,
+              "n_total": 16,
+              "prediction_rate": 1.0
+            },
+            "human_review_agreement": {
+              "accuracy": 0.75,
+              "n_correct": 12,
+              "n_scored": 16,
+              "n_total": 16,
+              "prediction_rate": 1.0
+            }
+          },
+          "human_review_rate_agent": 0.75,
+          "mean_overall_confidence": 0.41875
+        }
+      },
+      "reopened": {
+        "False": {
+          "n_cases": 147,
+          "outcome": {
+            "product": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 147,
+              "prediction_rate": 0.0
+            },
+            "component": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 147,
+              "prediction_rate": 0.0
+            },
+            "issue_category": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 147,
+              "prediction_rate": 0.0
+            },
+            "issue_subcategory": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 147,
+              "prediction_rate": 0.0
+            },
+            "root_cause_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 147,
+              "prediction_rate": 0.0
+            },
+            "root_cause_containment": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 147,
+              "prediction_rate": 0.0
+            },
+            "causal_change": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 147,
+              "prediction_rate": 0.0
+            },
+            "severity_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 147,
+              "prediction_rate": 0.0
+            },
+            "severity_within_one": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 147,
+              "prediction_rate": 0.0
+            },
+            "team_primary": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 147,
+              "prediction_rate": 0.0
+            },
+            "team_acceptable": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 147,
+              "prediction_rate": 0.0
+            },
+            "evidence_sufficiency": {
+              "accuracy": 0.14285714285714285,
+              "n_correct": 21,
+              "n_scored": 147,
+              "n_total": 147,
+              "prediction_rate": 1.0
+            },
+            "human_review_agreement": {
+              "accuracy": 0.6530612244897959,
+              "n_correct": 96,
+              "n_scored": 147,
+              "n_total": 147,
+              "prediction_rate": 1.0
+            }
+          },
+          "human_review_rate_agent": 0.3741496598639456,
+          "mean_overall_confidence": 0.5993197278911565
+        },
+        "True": {
+          "n_cases": 3,
+          "outcome": {
+            "product": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 3,
+              "prediction_rate": 0.0
+            },
+            "component": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 3,
+              "prediction_rate": 0.0
+            },
+            "issue_category": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 3,
+              "prediction_rate": 0.0
+            },
+            "issue_subcategory": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 3,
+              "prediction_rate": 0.0
+            },
+            "root_cause_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 3,
+              "prediction_rate": 0.0
+            },
+            "root_cause_containment": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 3,
+              "prediction_rate": 0.0
+            },
+            "causal_change": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 3,
+              "prediction_rate": 0.0
+            },
+            "severity_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 3,
+              "prediction_rate": 0.0
+            },
+            "severity_within_one": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 3,
+              "prediction_rate": 0.0
+            },
+            "team_primary": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 3,
+              "prediction_rate": 0.0
+            },
+            "team_acceptable": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 3,
+              "prediction_rate": 0.0
+            },
+            "evidence_sufficiency": {
+              "accuracy": 0.0,
+              "n_correct": 0,
+              "n_scored": 3,
+              "n_total": 3,
+              "prediction_rate": 1.0
+            },
+            "human_review_agreement": {
+              "accuracy": 0.6666666666666666,
+              "n_correct": 2,
+              "n_scored": 3,
+              "n_total": 3,
+              "prediction_rate": 1.0
+            }
+          },
+          "human_review_rate_agent": 0.0,
+          "mean_overall_confidence": 0.7333333333333334
+        }
+      },
+      "escalated": {
+        "False": {
+          "n_cases": 129,
+          "outcome": {
+            "product": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 129,
+              "prediction_rate": 0.0
+            },
+            "component": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 129,
+              "prediction_rate": 0.0
+            },
+            "issue_category": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 129,
+              "prediction_rate": 0.0
+            },
+            "issue_subcategory": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 129,
+              "prediction_rate": 0.0
+            },
+            "root_cause_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 129,
+              "prediction_rate": 0.0
+            },
+            "root_cause_containment": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 129,
+              "prediction_rate": 0.0
+            },
+            "causal_change": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 129,
+              "prediction_rate": 0.0
+            },
+            "severity_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 129,
+              "prediction_rate": 0.0
+            },
+            "severity_within_one": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 129,
+              "prediction_rate": 0.0
+            },
+            "team_primary": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 129,
+              "prediction_rate": 0.0
+            },
+            "team_acceptable": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 129,
+              "prediction_rate": 0.0
+            },
+            "evidence_sufficiency": {
+              "accuracy": 0.16279069767441862,
+              "n_correct": 21,
+              "n_scored": 129,
+              "n_total": 129,
+              "prediction_rate": 1.0
+            },
+            "human_review_agreement": {
+              "accuracy": 0.6511627906976745,
+              "n_correct": 84,
+              "n_scored": 129,
+              "n_total": 129,
+              "prediction_rate": 1.0
+            }
+          },
+          "human_review_rate_agent": 0.3643410852713178,
+          "mean_overall_confidence": 0.6093023255813954
+        },
+        "True": {
+          "n_cases": 21,
+          "outcome": {
+            "product": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 21,
+              "prediction_rate": 0.0
+            },
+            "component": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 21,
+              "prediction_rate": 0.0
+            },
+            "issue_category": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 21,
+              "prediction_rate": 0.0
+            },
+            "issue_subcategory": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 21,
+              "prediction_rate": 0.0
+            },
+            "root_cause_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 21,
+              "prediction_rate": 0.0
+            },
+            "root_cause_containment": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 21,
+              "prediction_rate": 0.0
+            },
+            "causal_change": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 21,
+              "prediction_rate": 0.0
+            },
+            "severity_exact": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 21,
+              "prediction_rate": 0.0
+            },
+            "severity_within_one": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 21,
+              "prediction_rate": 0.0
+            },
+            "team_primary": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 21,
+              "prediction_rate": 0.0
+            },
+            "team_acceptable": {
+              "accuracy": null,
+              "n_correct": 0,
+              "n_scored": 0,
+              "n_total": 21,
+              "prediction_rate": 0.0
+            },
+            "evidence_sufficiency": {
+              "accuracy": 0.0,
+              "n_correct": 0,
+              "n_scored": 21,
+              "n_total": 21,
+              "prediction_rate": 1.0
+            },
+            "human_review_agreement": {
+              "accuracy": 0.6666666666666666,
+              "n_correct": 14,
+              "n_scored": 21,
+              "n_total": 21,
+              "prediction_rate": 1.0
+            }
+          },
+          "human_review_rate_agent": 0.38095238095238093,
+          "mean_overall_confidence": 0.5571428571428572
+        }
+      }
+    },
+    "confidence_and_calibration": {
+      "product": {
+        "calibration_table": [
+          {
+            "bucket": "0.00-0.50",
+            "n_cases": 0,
+            "mean_predicted_confidence": null,
+            "observed_accuracy": null
+          },
+          {
+            "bucket": "0.50-0.60",
+            "n_cases": 0,
+            "mean_predicted_confidence": null,
+            "observed_accuracy": null
+          },
+          {
+            "bucket": "0.60-0.70",
+            "n_cases": 0,
+            "mean_predicted_confidence": null,
+            "observed_accuracy": null
+          },
+          {
+            "bucket": "0.70-0.80",
+            "n_cases": 0,
+            "mean_predicted_confidence": null,
+            "observed_accuracy": null
+          },
+          {
+            "bucket": "0.80-0.90",
+            "n_cases": 0,
+            "mean_predicted_confidence": null,
+            "observed_accuracy": null
+          },
+          {
+            "bucket": "0.90-0.95",
+            "n_cases": 0,
+            "mean_predicted_confidence": null,
+            "observed_accuracy": null
+          },
+          {
+            "bucket": "0.95-1.00",
+            "n_cases": 0,
+            "mean_predicted_confidence": null,
+            "observed_accuracy": null
+          }
+        ],
+        "brier_and_ece": {
+          "brier_score": null,
+          "ece": null,
+          "n_scored": 0
+        },
+        "false_confident": {
+          "rate": null,
+          "count": 0,
+          "denominator": 0,
+          "threshold": 0.9
+        }
+      },
+      "component": {
+        "calibration_table": [
+          {
+            "bucket": "0.00-0.50",
+            "n_cases": 0,
+            "mean_predicted_confidence": null,
+            "observed_accuracy": null
+          },
+          {
+            "bucket": "0.50-0.60",
+            "n_cases": 0,
+            "mean_predicted_confidence": null,
+            "observed_accuracy": null
+          },
+          {
+            "bucket": "0.60-0.70",
+            "n_cases": 0,
+            "mean_predicted_confidence": null,
+            "observed_accuracy": null
+          },
+          {
+            "bucket": "0.70-0.80",
+            "n_cases": 0,
+            "mean_predicted_confidence": null,
+            "observed_accuracy": null
+          },
+          {
+            "bucket": "0.80-0.90",
+            "n_cases": 0,
+            "mean_predicted_confidence": null,
+            "observed_accuracy": null
+          },
+          {
+            "bucket": "0.90-0.95",
+            "n_cases": 0,
+            "mean_predicted_confidence": null,
+            "observed_accuracy": null
+          },
+          {
+            "bucket": "0.95-1.00",
+            "n_cases": 0,
+            "mean_predicted_confidence": null,
+            "observed_accuracy": null
+          }
+        ],
+        "brier_and_ece": {
+          "brier_score": null,
+          "ece": null,
+          "n_scored": 0
+        },
+        "false_confident": {
+          "rate": null,
+          "count": 0,
+          "denominator": 0,
+          "threshold": 0.9
+        }
+      },
+      "root_cause": {
+        "calibration_table": [
+          {
+            "bucket": "0.00-0.50",
+            "n_cases": 0,
+            "mean_predicted_confidence": null,
+            "observed_accuracy": null
+          },
+          {
+            "bucket": "0.50-0.60",
+            "n_cases": 0,
+            "mean_predicted_confidence": null,
+            "observed_accuracy": null
+          },
+          {
+            "bucket": "0.60-0.70",
+            "n_cases": 0,
+            "mean_predicted_confidence": null,
+            "observed_accuracy": null
+          },
+          {
+            "bucket": "0.70-0.80",
+            "n_cases": 0,
+            "mean_predicted_confidence": null,
+            "observed_accuracy": null
+          },
+          {
+            "bucket": "0.80-0.90",
+            "n_cases": 0,
+            "mean_predicted_confidence": null,
+            "observed_accuracy": null
+          },
+          {
+            "bucket": "0.90-0.95",
+            "n_cases": 0,
+            "mean_predicted_confidence": null,
+            "observed_accuracy": null
+          },
+          {
+            "bucket": "0.95-1.00",
+            "n_cases": 0,
+            "mean_predicted_confidence": null,
+            "observed_accuracy": null
+          }
+        ],
+        "brier_and_ece": {
+          "brier_score": null,
+          "ece": null,
+          "n_scored": 0
+        },
+        "false_confident": {
+          "rate": null,
+          "count": 0,
+          "denominator": 0,
+          "threshold": 0.9
+        }
+      },
+      "causal_change": {
+        "calibration_table": [
+          {
+            "bucket": "0.00-0.50",
+            "n_cases": 0,
+            "mean_predicted_confidence": null,
+            "observed_accuracy": null
+          },
+          {
+            "bucket": "0.50-0.60",
+            "n_cases": 0,
+            "mean_predicted_confidence": null,
+            "observed_accuracy": null
+          },
+          {
+            "bucket": "0.60-0.70",
+            "n_cases": 0,
+            "mean_predicted_confidence": null,
+            "observed_accuracy": null
+          },
+          {
+            "bucket": "0.70-0.80",
+            "n_cases": 0,
+            "mean_predicted_confidence": null,
+            "observed_accuracy": null
+          },
+          {
+            "bucket": "0.80-0.90",
+            "n_cases": 0,
+            "mean_predicted_confidence": null,
+            "observed_accuracy": null
+          },
+          {
+            "bucket": "0.90-0.95",
+            "n_cases": 0,
+            "mean_predicted_confidence": null,
+            "observed_accuracy": null
+          },
+          {
+            "bucket": "0.95-1.00",
+            "n_cases": 0,
+            "mean_predicted_confidence": null,
+            "observed_accuracy": null
+          }
+        ],
+        "brier_and_ece": {
+          "brier_score": null,
+          "ece": null,
+          "n_scored": 0
+        },
+        "false_confident": {
+          "rate": null,
+          "count": 0,
+          "denominator": 0,
+          "threshold": 0.9
+        }
+      },
+      "team": {
+        "calibration_table": [
+          {
+            "bucket": "0.00-0.50",
+            "n_cases": 0,
+            "mean_predicted_confidence": null,
+            "observed_accuracy": null
+          },
+          {
+            "bucket": "0.50-0.60",
+            "n_cases": 0,
+            "mean_predicted_confidence": null,
+            "observed_accuracy": null
+          },
+          {
+            "bucket": "0.60-0.70",
+            "n_cases": 0,
+            "mean_predicted_confidence": null,
+            "observed_accuracy": null
+          },
+          {
+            "bucket": "0.70-0.80",
+            "n_cases": 0,
+            "mean_predicted_confidence": null,
+            "observed_accuracy": null
+          },
+          {
+            "bucket": "0.80-0.90",
+            "n_cases": 0,
+            "mean_predicted_confidence": null,
+            "observed_accuracy": null
+          },
+          {
+            "bucket": "0.90-0.95",
+            "n_cases": 0,
+            "mean_predicted_confidence": null,
+            "observed_accuracy": null
+          },
+          {
+            "bucket": "0.95-1.00",
+            "n_cases": 0,
+            "mean_predicted_confidence": null,
+            "observed_accuracy": null
+          }
+        ],
+        "brier_and_ece": {
+          "brier_score": null,
+          "ece": null,
+          "n_scored": 0
+        },
+        "false_confident": {
+          "rate": null,
+          "count": 0,
+          "denominator": 0,
+          "threshold": 0.9
+        }
+      },
+      "severity": {
+        "calibration_table": [
+          {
+            "bucket": "0.00-0.50",
+            "n_cases": 0,
+            "mean_predicted_confidence": null,
+            "observed_accuracy": null
+          },
+          {
+            "bucket": "0.50-0.60",
+            "n_cases": 0,
+            "mean_predicted_confidence": null,
+            "observed_accuracy": null
+          },
+          {
+            "bucket": "0.60-0.70",
+            "n_cases": 0,
+            "mean_predicted_confidence": null,
+            "observed_accuracy": null
+          },
+          {
+            "bucket": "0.70-0.80",
+            "n_cases": 0,
+            "mean_predicted_confidence": null,
+            "observed_accuracy": null
+          },
+          {
+            "bucket": "0.80-0.90",
+            "n_cases": 0,
+            "mean_predicted_confidence": null,
+            "observed_accuracy": null
+          },
+          {
+            "bucket": "0.90-0.95",
+            "n_cases": 0,
+            "mean_predicted_confidence": null,
+            "observed_accuracy": null
+          },
+          {
+            "bucket": "0.95-1.00",
+            "n_cases": 0,
+            "mean_predicted_confidence": null,
+            "observed_accuracy": null
+          }
+        ],
+        "brier_and_ece": {
+          "brier_score": null,
+          "ece": null,
+          "n_scored": 0
+        },
+        "false_confident": {
+          "rate": null,
+          "count": 0,
+          "denominator": 0,
+          "threshold": 0.9
+        }
+      },
+      "overall": {
+        "calibration_table": [
+          {
+            "bucket": "0.00-0.50",
+            "n_cases": 0,
+            "mean_predicted_confidence": null,
+            "observed_accuracy": null
+          },
+          {
+            "bucket": "0.50-0.60",
+            "n_cases": 0,
+            "mean_predicted_confidence": null,
+            "observed_accuracy": null
+          },
+          {
+            "bucket": "0.60-0.70",
+            "n_cases": 0,
+            "mean_predicted_confidence": null,
+            "observed_accuracy": null
+          },
+          {
+            "bucket": "0.70-0.80",
+            "n_cases": 0,
+            "mean_predicted_confidence": null,
+            "observed_accuracy": null
+          },
+          {
+            "bucket": "0.80-0.90",
+            "n_cases": 0,
+            "mean_predicted_confidence": null,
+            "observed_accuracy": null
+          },
+          {
+            "bucket": "0.90-0.95",
+            "n_cases": 0,
+            "mean_predicted_confidence": null,
+            "observed_accuracy": null
+          },
+          {
+            "bucket": "0.95-1.00",
+            "n_cases": 0,
+            "mean_predicted_confidence": null,
+            "observed_accuracy": null
+          }
+        ],
+        "brier_and_ece": {
+          "brier_score": null,
+          "ece": null,
+          "n_scored": 0
+        },
+        "false_confident": {
+          "rate": null,
+          "count": 0,
+          "denominator": 0,
+          "threshold": 0.9
+        }
+      }
+    },
+    "false_confident_by_scenario": {
+      "insufficient_evidence": {
+        "rate": null,
+        "count": 0,
+        "denominator": 0,
+        "threshold": 0.9
+      },
+      "ambiguous": {
+        "rate": null,
+        "count": 0,
+        "denominator": 0,
+        "threshold": 0.9
+      },
+      "customer_misdiagnosis": {
+        "rate": null,
+        "count": 0,
+        "denominator": 0,
+        "threshold": 0.9
+      }
+    },
+    "automation_coverage_simulation": [
+      {
+        "threshold": 0.7,
+        "pct_eligible": 0.43333333333333335,
+        "n_eligible": 65,
+        "accuracy_among_eligible": 0.0,
+        "wrong_auto_action_rate": 1.0,
+        "human_review_pct_below_threshold": 0.5058823529411764
+      },
+      {
+        "threshold": 0.8,
+        "pct_eligible": 0.4066666666666667,
+        "n_eligible": 61,
+        "accuracy_among_eligible": 0.0,
+        "wrong_auto_action_rate": 1.0,
+        "human_review_pct_below_threshold": 0.48314606741573035
+      },
+      {
+        "threshold": 0.85,
+        "pct_eligible": 0.06666666666666667,
+        "n_eligible": 10,
+        "accuracy_among_eligible": 0.0,
+        "wrong_auto_action_rate": 1.0,
+        "human_review_pct_below_threshold": 0.38571428571428573
+      },
+      {
+        "threshold": 0.9,
+        "pct_eligible": 0.06666666666666667,
+        "n_eligible": 10,
+        "accuracy_among_eligible": 0.0,
+        "wrong_auto_action_rate": 1.0,
+        "human_review_pct_below_threshold": 0.38571428571428573
+      },
+      {
+        "threshold": 0.95,
+        "pct_eligible": 0.006666666666666667,
+        "n_eligible": 1,
+        "accuracy_among_eligible": 0.0,
+        "wrong_auto_action_rate": 1.0,
+        "human_review_pct_below_threshold": 0.3624161073825503
+      }
+    ],
+    "evidence": {
+      "critical_all_retrieved_rate": 0.07079646017699115,
+      "critical_all_cited_rate": 0.0,
+      "distractor_selected_as_causal_change_rate": 0.0
+    },
+    "process_and_contract": {
+      "mean_tool_calls": 6.88,
+      "p95_tool_calls": 8.0,
+      "redundant_call_rate": 0.0,
+      "tool_error_rate": 1.0,
+      "unknown_tool_call_rate": 1.0,
+      "unsupported_evidence_rate": 0.02666666666666667,
+      "budget_exhaustion_rate": 0.0,
+      "clean_run_rate": 0.0,
+      "n_repair_status_unknown": 0,
+      "root_cause_accuracy_among_clean_runs": {
+        "accuracy": null,
+        "n_correct": 0,
+        "n_scored": 0,
+        "n_total": 0,
+        "prediction_rate": null
+      },
+      "root_cause_accuracy_among_repaired_runs": {
+        "accuracy": null,
+        "n_correct": 0,
+        "n_scored": 0,
+        "n_total": 150,
+        "prediction_rate": 0.0
+      },
+      "hypothesis_recovery": {
+        "recovered_from_wrong_initial_rate": 0.06,
+        "abandoned_correct_hypothesis_rate": 0.0
+      }
+    },
+    "efficiency": {
+      "mean_tokens": 14117.093333333334,
+      "mean_cost_usd": 0.00141172,
+      "total_cost_usd": 0.211758,
+      "mean_llm_latency_ms": 18578.807333333334,
+      "p95_llm_latency_ms": 32648.254999999983,
+      "cost_per_correct_root_cause_diagnosis": null
+    },
+    "failure_taxonomy": {
+      "tag_counts": {
+        "contract_schema_problem": 150,
+        "critical_evidence_missed": 105,
+        "tool_failure": 81,
+        "wrong_causal_change": 64,
+        "missed_incident": 6
+      },
+      "tag_rates": {
+        "wrong_causal_change": 0.4266666666666667,
+        "contract_schema_problem": 1.0,
+        "tool_failure": 0.54,
+        "critical_evidence_missed": 0.7,
+        "missed_incident": 0.04
+      },
+      "pct_cases_with_any_failure_tag": 1.0
+    },
+    "confusion_matrices": {
+      "issue_category": {
+        "IC09": {
+          "no_prediction": 21
+        },
+        "IC14": {
+          "no_prediction": 13
+        },
+        "IC01": {
+          "no_prediction": 14
+        },
+        "IC13": {
+          "no_prediction": 17
+        },
+        "IC07": {
+          "no_prediction": 7
+        },
+        "IC10": {
+          "no_prediction": 8
+        },
+        "IC04": {
+          "no_prediction": 6
+        },
+        "IC12": {
+          "no_prediction": 15
+        },
+        "IC11": {
+          "no_prediction": 14
+        },
+        "IC08": {
+          "no_prediction": 7
+        },
+        "IC05": {
+          "no_prediction": 9
+        },
+        "IC02": {
+          "no_prediction": 4
+        },
+        "IC17": {
+          "no_prediction": 6
+        },
+        "IC15": {
+          "no_prediction": 4
+        },
+        "IC16": {
+          "no_prediction": 1
+        },
+        "IC03": {
+          "no_prediction": 3
+        },
+        "IC06": {
+          "no_prediction": 1
+        }
+      },
+      "root_cause": {
+        "RC28": {
+          "no_prediction": 8
+        },
+        "RC20": {
+          "no_prediction": 15
+        },
+        "RC22": {
+          "no_prediction": 5
+        },
+        "RC17": {
+          "no_prediction": 10
+        },
+        "RC18": {
+          "no_prediction": 19
+        },
+        "RC33": {
+          "no_prediction": 6
+        },
+        "RC15": {
+          "no_prediction": 7
+        },
+        "RC10": {
+          "no_prediction": 5
+        },
+        "RC29": {
+          "no_prediction": 8
+        },
+        "RC35": {
+          "no_prediction": 4
+        },
+        "RC36": {
+          "no_prediction": 3
+        },
+        "RC21": {
+          "no_prediction": 3
+        },
+        "RC38": {
+          "no_prediction": 2
+        },
+        "RC14": {
+          "no_prediction": 8
+        },
+        "RC07": {
+          "no_prediction": 3
+        },
+        "RC27": {
+          "no_prediction": 4
+        },
+        "RC05": {
+          "no_prediction": 2
+        },
+        "RC09": {
+          "no_prediction": 2
+        },
+        "RC01": {
+          "no_prediction": 6
+        },
+        "RC32": {
+          "no_prediction": 6
+        },
+        "RC23": {
+          "no_prediction": 5
+        },
+        "RC24": {
+          "no_prediction": 6
+        },
+        "RC39": {
+          "no_prediction": 1
+        },
+        "RC26": {
+          "no_prediction": 1
+        },
+        "RC12": {
+          "no_prediction": 2
+        },
+        "RC08": {
+          "no_prediction": 1
+        },
+        "RC02": {
+          "no_prediction": 3
+        },
+        "RC11": {
+          "no_prediction": 3
+        },
+        "RC04": {
+          "no_prediction": 1
+        },
+        "RC19": {
+          "no_prediction": 1
+        }
+      },
+      "team": {
+        "TM04": {
+          "no_prediction": 11
+        },
+        "TM16": {
+          "no_prediction": 7
+        },
+        "TM12": {
+          "no_prediction": 7
+        },
+        "TM18": {
+          "no_prediction": 3
+        },
+        "TM11": {
+          "no_prediction": 4
+        },
+        "TM08": {
+          "no_prediction": 14
+        },
+        "TM13": {
+          "no_prediction": 12
+        },
+        "TM10": {
+          "no_prediction": 12
+        },
+        "TM19": {
+          "no_prediction": 16
+        },
+        "TM05": {
+          "no_prediction": 1
+        },
+        "TM01": {
+          "no_prediction": 15
+        },
+        "TM07": {
+          "no_prediction": 13
+        },
+        "TM17": {
+          "no_prediction": 9
+        },
+        "TM23": {
+          "no_prediction": 4
+        },
+        "TM22": {
+          "no_prediction": 3
+        },
+        "TM06": {
+          "no_prediction": 3
+        },
+        "TM21": {
+          "no_prediction": 8
+        },
+        "TM14": {
+          "no_prediction": 2
+        },
+        "TM02": {
+          "no_prediction": 3
+        },
+        "TM09": {
+          "no_prediction": 2
+        },
+        "TM24": {
+          "no_prediction": 1
+        }
+      },
+      "severity": {
+        "Sev3": {
+          "no_prediction": 52
+        },
+        "Sev4": {
+          "no_prediction": 46
+        },
+        "Sev2": {
+          "no_prediction": 27
+        },
+        "Sev1": {
+          "no_prediction": 25
+        }
+      }
+    },
+    "bootstrap_confidence_intervals": {
+      "root_cause_containment": {
+        "point_estimate": null,
+        "ci_low": null,
+        "ci_high": null,
+        "n_scored": 0,
+        "note": "too few scored cases for a meaningful bootstrap CI"
+      },
+      "component": {
+        "point_estimate": null,
+        "ci_low": null,
+        "ci_high": null,
+        "n_scored": 0,
+        "note": "too few scored cases for a meaningful bootstrap CI"
+      },
+      "team_acceptable": {
+        "point_estimate": null,
+        "ci_low": null,
+        "ci_high": null,
+        "n_scored": 0,
+        "note": "too few scored cases for a meaningful bootstrap CI"
+      },
+      "issue_category": {
+        "point_estimate": null,
+        "ci_low": null,
+        "ci_high": null,
+        "n_scored": 0,
+        "note": "too few scored cases for a meaningful bootstrap CI"
+      }
+    }
+  }
+}

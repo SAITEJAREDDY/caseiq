@@ -1,0 +1,265 @@
+{
+  "run_id": "run_CS00195_20260924T002621Z_acfc4414",
+  "case_id": "CS00195",
+  "created_at": "2026-09-24T00:26:21.995487+00:00",
+  "model_provider": "together",
+  "model_name": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "temperature": 0.1,
+  "prompt_version": "v1",
+  "toolset_version": "v1",
+  "output_schema_version": "v1",
+  "agent_loop_version": "v1",
+  "repair_layer_version": "v1",
+  "graph_version": "phase4-2500case-2026-09-22",
+  "sim_clock_step_minutes": 15,
+  "max_tool_calls": 10,
+  "max_repeated_same_tool": 2,
+  "stop_reason": "model_submitted",
+  "num_tool_calls": 7,
+  "num_llm_calls": 7,
+  "token_usage": {
+    "prompt_tokens": 12415,
+    "completion_tokens": 521,
+    "total_tokens": 12936
+  },
+  "approx_cost_usd": 0.001294,
+  "approx_cost_note": "Estimated from a configurable placeholder rate, not exact provider billing -- see config.py",
+  "trace_steps": [
+    {
+      "step": 1,
+      "sim_clock": "2025-05-05 00:00:00",
+      "tool_name": "get_case_context",
+      "args": {
+        "hypotheses": [],
+        "rationale": "Starting the investigation of case CS00195"
+      },
+      "hypotheses": [],
+      "rationale": "Starting the investigation of case CS00195",
+      "result_summary": {
+        "case_id": "CS00195",
+        "title": "Active Directory Sync showing certificate warnings in ME Dev",
+        "description": "We are observing persistent certificate warning messages within the Active Directory Sync component in our Middle East development environment. The sync seems to continue, but the security alerts are concerning for our compliance checks. 7 users are seeing this warning. Please verify the certificate chain validity for the sync endpoints.",
+        "environment": "development",
+        "region": "ME",
+        "reported_business_impact": "low",
+        "reported_affected_users": 7,
+        "priority": "low",
+        "created_date": "2025-05-05",
+        "status": "resolved",
+        "customer_id": "C01086",
+        "customer_tier": "gold",
+        "customer_industry": "Energy & Utilities",
+        "customer_company_size": "mid",
+        "reported_product_id": "P017",
+        "reported_product_name": "Active Directory Sync",
+        "reported_symptoms": [
+          "certificate warning",
+          "certificate expired warning"
+        ]
+      },
+      "latency_ms": 1178.7,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 2,
+      "sim_clock": "2025-05-05 00:15:00",
+      "tool_name": "get_system_logs",
+      "args": {
+        "hypotheses": [
+          "certificate_issue:0.5"
+        ],
+        "rationale": "To investigate the certificate warnings in the Active Directory Sync component, we need to review the system logs for any relevant error messages or warnings related to certificate validation or expiration."
+      },
+      "hypotheses": [
+        "certificate_issue:0.5"
+      ],
+      "rationale": "To investigate the certificate warnings in the Active Directory Sync component, we need to review the system logs for any relevant error messages or warnings related to certificate validation or expiration.",
+      "result_summary": {
+        "error": "unknown tool 'get_system_logs'. Valid tools are: ['get_active_incidents', 'get_agent_availability', 'get_case_context', 'get_component_topology', 'get_configuration_history', 'get_customer_deployment', 'get_deployment_history', 'get_recent_changes', 'get_service_health', 'get_similar_cases', 'get_team_capability', 'get_technical_signals', 'get_telemetry', 'search_knowledge_base', 'submit_diagnosis']"
+      },
+      "latency_ms": 2144.0,
+      "status": "error",
+      "redundant": false
+    },
+    {
+      "step": 3,
+      "sim_clock": "2025-05-05 00:30:00",
+      "tool_name": "get_telemetry",
+      "args": {
+        "hypotheses": [
+          "certificate_issue:0.5"
+        ],
+        "rationale": "To investigate the certificate warnings in the Active Directory Sync component, we need to review the telemetry data for any relevant information about certificate validation or expiration."
+      },
+      "hypotheses": [
+        "certificate_issue:0.5"
+      ],
+      "rationale": "To investigate the certificate warnings in the Active Directory Sync component, we need to review the telemetry data for any relevant information about certificate validation or expiration.",
+      "result_summary": {
+        "available_metric_categories": [],
+        "note": "Call again with one of these metric_category values to see actual readings."
+      },
+      "latency_ms": 1295.5,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 4,
+      "sim_clock": "2025-05-05 00:45:00",
+      "tool_name": "get_telemetry",
+      "args": {
+        "metric_category": "certificate",
+        "hypotheses": [
+          "certificate_issue:0.5"
+        ],
+        "rationale": "To investigate the certificate warnings in the Active Directory Sync component, we need to review the telemetry data for any relevant information about certificate validation or expiration."
+      },
+      "hypotheses": [
+        "certificate_issue:0.5"
+      ],
+      "rationale": "To investigate the certificate warnings in the Active Directory Sync component, we need to review the telemetry data for any relevant information about certificate validation or expiration.",
+      "result_summary": {
+        "error": "unknown metric_category 'certificate'",
+        "valid_categories": [
+          "Application",
+          "Capacity",
+          "Compute",
+          "Data",
+          "Database",
+          "Identity",
+          "Integration",
+          "Networking",
+          "Security",
+          "Storage"
+        ]
+      },
+      "latency_ms": 1247.0,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 5,
+      "sim_clock": "2025-05-05 01:00:00",
+      "tool_name": "get_telemetry",
+      "args": {
+        "metric_category": "Security",
+        "hypotheses": [
+          "certificate_issue:0.5"
+        ],
+        "rationale": "To investigate the certificate warnings in the Active Directory Sync component, we need to review the telemetry data for any relevant information about security-related metrics, which may include certificate validation or expiration."
+      },
+      "hypotheses": [
+        "certificate_issue:0.5"
+      ],
+      "rationale": "To investigate the certificate warnings in the Active Directory Sync component, we need to review the telemetry data for any relevant information about security-related metrics, which may include certificate validation or expiration.",
+      "result_summary": {
+        "telemetry_findings": [],
+        "count": 0
+      },
+      "latency_ms": 1481.8,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 6,
+      "sim_clock": "2025-05-05 01:15:00",
+      "tool_name": "get_recent_changes",
+      "args": {
+        "hypotheses": [
+          "certificate_issue:0.5"
+        ],
+        "rationale": "Since there is no relevant telemetry data, we should investigate recent changes to the system or configuration that may have caused the issue with the Active Directory Sync component."
+      },
+      "hypotheses": [
+        "certificate_issue:0.5"
+      ],
+      "rationale": "Since there is no relevant telemetry data, we should investigate recent changes to the system or configuration that may have caused the issue with the Active Directory Sync component.",
+      "result_summary": {
+        "recent_changes": [],
+        "count": 0
+      },
+      "latency_ms": 3045.1,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 7,
+      "sim_clock": "2025-05-05 01:30:00",
+      "tool_name": "submit_diagnosis",
+      "args": {
+        "hypotheses": [
+          {
+            "label": "certificate_issue",
+            "confidence": 0.5,
+            "supporting_evidence": [],
+            "contradicting_evidence": [],
+            "status": "unconfirmed"
+          }
+        ],
+        "evidence_sufficiency": "insufficient",
+        "human_review_required": true,
+        "recommended_next_action": "Request additional information from the customer about recent changes or updates to their system or configuration.",
+        "rationale": "Based on the lack of relevant telemetry data and recent changes, we cannot confirm the root cause of the issue. Additional information is needed to further investigate the case."
+      },
+      "hypotheses": [
+        {
+          "label": "certificate_issue",
+          "confidence": 0.5,
+          "supporting_evidence": [],
+          "contradicting_evidence": [],
+          "status": "unconfirmed"
+        }
+      ],
+      "rationale": "Based on the lack of relevant telemetry data and recent changes, we cannot confirm the root cause of the issue. Additional information is needed to further investigate the case.",
+      "result_summary": "submitted",
+      "latency_ms": 4605.2,
+      "status": "ok",
+      "redundant": false
+    }
+  ],
+  "final_diagnosis": {
+    "hypotheses": [
+      {
+        "label": "certificate_issue",
+        "description": "",
+        "confidence": 0.5,
+        "supporting_evidence": [],
+        "contradicting_evidence": [],
+        "status": "active"
+      }
+    ],
+    "rationale": "Based on the lack of relevant telemetry data and recent changes, we cannot confirm the root cause of the issue. Additional information is needed to further investigate the case.",
+    "predicted_product_id": null,
+    "product_confidence": null,
+    "predicted_component_id": null,
+    "component_confidence": null,
+    "predicted_category_id": null,
+    "category_confidence": null,
+    "predicted_subcategory_id": null,
+    "predicted_root_cause_family": null,
+    "root_cause_confidence": null,
+    "predicted_causal_change_id": null,
+    "causal_change_confidence": null,
+    "predicted_severity": null,
+    "severity_confidence": null,
+    "recommended_team_id": null,
+    "routing_confidence": null,
+    "evidence_sufficiency": "insufficient",
+    "overall_confidence": 0.5,
+    "recommended_next_action": "Request additional information from the customer about recent changes or updates to their system or configuration.",
+    "human_review_required": true,
+    "human_review_reason": null,
+    "evidence_summary": "Based on the lack of relevant telemetry data and recent changes, we cannot confirm the root cause of the issue. Additional information is needed to further investigate the case.",
+    "unresolved_uncertainties": []
+  },
+  "citation_violations": [],
+  "evidence_ids_seen": [],
+  "repair_events": [
+    {
+      "step": 7,
+      "kind": "final_diagnosis_repair",
+      "detail": "direct validation failed (3 validation errors for FinalDiagnosis\nhypotheses.0.status\n  Input should be 'active', 'rejected' or 'confirmed' [type=literal_error, input_value='unconfirmed', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/literal_error\noverall_confidence\n  Field required [type=missing, input_value={'hypotheses': [{'label':... investigate the case.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\nevidence_summary\n  Field required [type=missing, input_value={'hypotheses': [{'label':... investigate the case.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing); repaired args validated"
+    }
+  ]
+}

@@ -1,0 +1,334 @@
+{
+  "run_id": "run_CS00385_20260924T002704Z_52ada802",
+  "case_id": "CS00385",
+  "created_at": "2026-09-24T00:27:04.233621+00:00",
+  "model_provider": "together",
+  "model_name": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "temperature": 0.1,
+  "prompt_version": "v1",
+  "toolset_version": "v1",
+  "output_schema_version": "v1",
+  "agent_loop_version": "v1",
+  "repair_layer_version": "v1",
+  "graph_version": "phase4-2500case-2026-09-22",
+  "sim_clock_step_minutes": 15,
+  "max_tool_calls": 10,
+  "max_repeated_same_tool": 2,
+  "stop_reason": "model_submitted",
+  "num_tool_calls": 6,
+  "num_llm_calls": 6,
+  "token_usage": {
+    "prompt_tokens": 12512,
+    "completion_tokens": 740,
+    "total_tokens": 13252
+  },
+  "approx_cost_usd": 0.001325,
+  "approx_cost_note": "Estimated from a configurable placeholder rate, not exact provider billing -- see config.py",
+  "trace_steps": [
+    {
+      "step": 1,
+      "sim_clock": "2024-10-20 00:00:00",
+      "tool_name": "get_case_context",
+      "args": {
+        "hypotheses": [],
+        "rationale": "Starting the investigation of case CS00385"
+      },
+      "hypotheses": [],
+      "rationale": "Starting the investigation of case CS00385",
+      "result_summary": {
+        "case_id": "CS00385",
+        "title": "Webhook timeouts and retry exhaustion in US-West Production Dashboard",
+        "description": "We are experiencing frequent timeouts and exhausted webhook retries when pushing data from the Analytics Dashboard in the US-West production environment. This is impacting 31 users who depend on these webhooks for automated reporting. The issue causes moderate business impact due to delayed data availability.",
+        "environment": "production",
+        "region": "US-West",
+        "reported_business_impact": "moderate",
+        "reported_affected_users": 31,
+        "priority": "medium",
+        "created_date": "2024-10-20",
+        "status": "resolved",
+        "customer_id": "C03737",
+        "customer_tier": "silver",
+        "customer_industry": "Public Sector",
+        "customer_company_size": "small",
+        "reported_product_id": "P003",
+        "reported_product_name": "Analytics Dashboard",
+        "reported_symptoms": [
+          "timeout",
+          "webhook retries exhausted"
+        ]
+      },
+      "latency_ms": 1147.5,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 2,
+      "sim_clock": "2024-10-20 00:15:00",
+      "tool_name": "get_system_logs",
+      "args": {
+        "case_id": "CS00385",
+        "start_time": "2024-10-19",
+        "end_time": "2024-10-21",
+        "hypotheses": [
+          "network_connectivity_issue:0.4",
+          "webhook_configuration_error:0.3",
+          "server_resource_exhaustion:0.3"
+        ],
+        "rationale": "To investigate the cause of webhook timeouts and retry exhaustion, we need to examine system logs for any errors or anomalies related to network connectivity, webhook configuration, or server resource utilization."
+      },
+      "hypotheses": [
+        "network_connectivity_issue:0.4",
+        "webhook_configuration_error:0.3",
+        "server_resource_exhaustion:0.3"
+      ],
+      "rationale": "To investigate the cause of webhook timeouts and retry exhaustion, we need to examine system logs for any errors or anomalies related to network connectivity, webhook configuration, or server resource utilization.",
+      "result_summary": {
+        "error": "unknown tool 'get_system_logs'. Valid tools are: ['get_active_incidents', 'get_agent_availability', 'get_case_context', 'get_component_topology', 'get_configuration_history', 'get_customer_deployment', 'get_deployment_history', 'get_recent_changes', 'get_service_health', 'get_similar_cases', 'get_team_capability', 'get_technical_signals', 'get_telemetry', 'search_knowledge_base', 'submit_diagnosis']"
+      },
+      "latency_ms": 3466.3,
+      "status": "error",
+      "redundant": false
+    },
+    {
+      "step": 3,
+      "sim_clock": "2024-10-20 00:30:00",
+      "tool_name": "get_recent_changes",
+      "args": {
+        "case_id": "CS00385",
+        "time_window": "1 week",
+        "hypotheses": [
+          "network_connectivity_issue:0.4",
+          "webhook_configuration_error:0.3",
+          "server_resource_exhaustion:0.3"
+        ],
+        "rationale": "To identify potential causes of the webhook timeouts and retry exhaustion, we should review recent changes made to the system, such as updates, patches, or configuration modifications, within the last week."
+      },
+      "hypotheses": [
+        "network_connectivity_issue:0.4",
+        "webhook_configuration_error:0.3",
+        "server_resource_exhaustion:0.3"
+      ],
+      "rationale": "To identify potential causes of the webhook timeouts and retry exhaustion, we should review recent changes made to the system, such as updates, patches, or configuration modifications, within the last week.",
+      "result_summary": {
+        "recent_changes": [
+          {
+            "evidence_id": "CH030520",
+            "change_type": "api_contract_change",
+            "component_id": "CM236",
+            "started_at": "2024-10-19 21:16:00",
+            "completed_at": "2024-10-19 22:06:00",
+            "status": "completed",
+            "initiated_by": "system:automation",
+            "time_proximity_hours": 2.7,
+            "scope_match": "same_customer"
+          }
+        ],
+        "count": 1
+      },
+      "latency_ms": 2119.4,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 4,
+      "sim_clock": "2024-10-20 00:45:00",
+      "tool_name": "get_component_topology",
+      "args": {
+        "case_id": "CS00385",
+        "component_id": "CM236",
+        "hypotheses": [
+          "network_connectivity_issue:0.4",
+          "webhook_configuration_error:0.3",
+          "server_resource_exhaustion:0.3",
+          "api_contract_change:0.1"
+        ],
+        "rationale": "Given the recent API contract change, understanding the component topology will help identify how this change might impact the webhook functionality and if it could be the root cause of the timeouts and retry exhaustion."
+      },
+      "hypotheses": [
+        "network_connectivity_issue:0.4",
+        "webhook_configuration_error:0.3",
+        "server_resource_exhaustion:0.3",
+        "api_contract_change:0.1"
+      ],
+      "rationale": "Given the recent API contract change, understanding the component topology will help identify how this change might impact the webhook functionality and if it could be the root cause of the timeouts and retry exhaustion.",
+      "result_summary": {
+        "component_id": "CM236",
+        "component_name": "Webhook Dispatch Service",
+        "upstream_dependencies": [
+          {
+            "name": "Federation Gateway",
+            "id": "CM010"
+          },
+          {
+            "name": "Service Registry",
+            "id": "CM144"
+          },
+          {
+            "name": "Ingress Controller",
+            "id": "CM164"
+          },
+          {
+            "name": "Internal DNS Zone Manager",
+            "id": "CM172"
+          },
+          {
+            "name": "Global Load Balancer",
+            "id": "CM232"
+          },
+          {
+            "name": "SSO Broker (Shared)",
+            "id": "CM237"
+          }
+        ],
+        "downstream_dependents": [
+          {
+            "name": "Receipt Generator",
+            "id": "CM061"
+          },
+          {
+            "name": "Reporting Service",
+            "id": "CM091"
+          },
+          {
+            "name": "Customer Portal UI",
+            "id": "CM173"
+          },
+          {
+            "name": "Help Center UI",
+            "id": "CM177"
+          },
+          {
+            "name": "Deep Link Handler",
+            "id": "CM206"
+          }
+        ],
+        "external_dependencies": [],
+        "owning_teams": [
+          {
+            "name": "Integration",
+            "id": "TM13"
+          },
+          {
+            "name": "Developer Platform / API",
+            "id": "TM14"
+          }
+        ]
+      },
+      "latency_ms": 2816.7,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 5,
+      "sim_clock": "2024-10-20 01:00:00",
+      "tool_name": "get_telemetry",
+      "args": {
+        "case_id": "CS00385",
+        "component_id": "CM236",
+        "metric": "request_latency",
+        "start_time": "2024-10-19 20:00:00",
+        "end_time": "2024-10-20 20:00:00",
+        "hypotheses": [
+          "network_connectivity_issue:0.4",
+          "webhook_configuration_error:0.3",
+          "server_resource_exhaustion:0.3",
+          "api_contract_change:0.1"
+        ],
+        "rationale": "To further investigate the impact of the API contract change on the Webhook Dispatch Service, we need to analyze the request latency telemetry for the time period surrounding the change to see if there were any significant increases in latency that could indicate the root cause of the timeouts."
+      },
+      "hypotheses": [
+        "network_connectivity_issue:0.4",
+        "webhook_configuration_error:0.3",
+        "server_resource_exhaustion:0.3",
+        "api_contract_change:0.1"
+      ],
+      "rationale": "To further investigate the impact of the API contract change on the Webhook Dispatch Service, we need to analyze the request latency telemetry for the time period surrounding the change to see if there were any significant increases in latency that could indicate the root cause of the timeouts.",
+      "result_summary": {
+        "available_metric_categories": [],
+        "note": "Call again with one of these metric_category values to see actual readings."
+      },
+      "latency_ms": 2726.6,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 6,
+      "sim_clock": "2024-10-20 01:15:00",
+      "tool_name": "submit_diagnosis",
+      "args": {
+        "case_id": "CS00385",
+        "diagnosis": {
+          "label": "api_contract_change",
+          "confidence": 0.6,
+          "supporting_evidence_ids": [
+            "CH030520"
+          ],
+          "contradicting_evidence_ids": [],
+          "status": "investigation_ongoing"
+        },
+        "evidence_sufficiency": "partial",
+        "human_review_required": true,
+        "recommended_next_action": "Review API contract change details and assess impact on Webhook Dispatch Service",
+        "hypotheses": [
+          "network_connectivity_issue:0.4",
+          "webhook_configuration_error:0.3",
+          "server_resource_exhaustion:0.3",
+          "api_contract_change:0.6"
+        ]
+      },
+      "hypotheses": [
+        "network_connectivity_issue:0.4",
+        "webhook_configuration_error:0.3",
+        "server_resource_exhaustion:0.3",
+        "api_contract_change:0.6"
+      ],
+      "rationale": "",
+      "result_summary": "submitted",
+      "latency_ms": 2301.6,
+      "status": "ok",
+      "redundant": false
+    }
+  ],
+  "final_diagnosis": {
+    "hypotheses": [],
+    "rationale": "",
+    "predicted_product_id": null,
+    "product_confidence": null,
+    "predicted_component_id": null,
+    "component_confidence": null,
+    "predicted_category_id": null,
+    "category_confidence": null,
+    "predicted_subcategory_id": null,
+    "predicted_root_cause_family": null,
+    "root_cause_confidence": null,
+    "predicted_causal_change_id": null,
+    "causal_change_confidence": null,
+    "predicted_severity": null,
+    "severity_confidence": null,
+    "recommended_team_id": null,
+    "routing_confidence": null,
+    "evidence_sufficiency": "partial",
+    "overall_confidence": 0.3,
+    "recommended_next_action": "Review API contract change details and assess impact on Webhook Dispatch Service",
+    "human_review_required": true,
+    "human_review_reason": null,
+    "evidence_summary": "No summary provided by the agent.",
+    "unresolved_uncertainties": []
+  },
+  "citation_violations": [],
+  "evidence_ids_seen": [
+    "CH030520"
+  ],
+  "repair_events": [
+    {
+      "step": 2,
+      "kind": "hypothesis_normalization",
+      "detail": "tool=get_system_logs: hypotheses arg was str, not a list; coerced"
+    },
+    {
+      "step": 6,
+      "kind": "final_diagnosis_repair",
+      "detail": "direct validation failed (7 validation errors for FinalDiagnosis\nhypotheses.0\n  Input should be a valid dictionary or instance of HypothesisUpdate [type=model_type, input_value='network_connectivity_issue:0.4', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/model_type\nhypotheses.1\n  Input should be a valid dictionary or instance of HypothesisUpdate [type=model_type, input_value='webhook_configuration_error:0.3', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/model_type\nhypotheses.2\n  Input should be a valid dictionary or instance of HypothesisUpdate [type=model_type, input_value='server_resource_exhaustion:0.3', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/model_type\nhypotheses.3\n  Input should be a valid dictionary or instance of HypothesisUpdate [type=model_type, input_value='api_contract_change:0.6', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/model_type\nrationale\n  Field required [type=missing, input_value={'case_id': 'CS00385', 'd...i_contract_change:0.6']}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\noverall_confidence\n  Field required [type=missing, input_value={'case_id': 'CS00385', 'd...i_contract_change:0.6']}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\nevidence_summary\n  Field required [type=missing, input_value={'case_id': 'CS00385', 'd...i_contract_change:0.6']}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing); repaired args validated"
+    }
+  ]
+}

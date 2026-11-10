@@ -1,0 +1,321 @@
+{
+  "run_id": "run_CS00079_20260923T064206Z_642eb330",
+  "case_id": "CS00079",
+  "created_at": "2026-09-23T06:42:06.588318+00:00",
+  "model_provider": "together",
+  "model_name": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "temperature": 0.1,
+  "prompt_version": "v1",
+  "toolset_version": "v1",
+  "output_schema_version": "v1",
+  "agent_loop_version": "v1",
+  "repair_layer_version": "v1",
+  "graph_version": "phase4-2500case-2026-09-22",
+  "sim_clock_step_minutes": 15,
+  "max_tool_calls": 10,
+  "max_repeated_same_tool": 2,
+  "stop_reason": "model_submitted",
+  "num_tool_calls": 6,
+  "num_llm_calls": 6,
+  "token_usage": {
+    "prompt_tokens": 12833,
+    "completion_tokens": 688,
+    "total_tokens": 13521
+  },
+  "approx_cost_usd": 0.001352,
+  "approx_cost_note": "Estimated from a configurable placeholder rate, not exact provider billing -- see config.py",
+  "trace_steps": [
+    {
+      "step": 1,
+      "sim_clock": "2026-07-28 00:00:00",
+      "tool_name": "get_case_context",
+      "args": {
+        "hypotheses": [],
+        "rationale": "Starting the investigation of case CS00079"
+      },
+      "hypotheses": [],
+      "rationale": "Starting the investigation of case CS00079",
+      "result_summary": {
+        "case_id": "CS00079",
+        "title": "CRITICAL: SSO Error Page and Unexpected Session Expiry in EU-Central Production",
+        "description": "We are facing a critical authentication issue with the SSO Integration Module in the EU-Central production environment. Users are being presented with an SSO error page and are experiencing unexpected session expirations shortly after login. This issue is severely impacting accessibility, with approximately 13,946 users currently affected. Immediate resolution is required to restore stable access for our customer base.",
+        "environment": "production",
+        "region": "EU-Central",
+        "reported_business_impact": "critical",
+        "reported_affected_users": 13946,
+        "priority": "high",
+        "created_date": "2026-07-28",
+        "status": "open",
+        "customer_id": "C04943",
+        "customer_tier": "gold",
+        "customer_industry": "Retail & E-commerce",
+        "customer_company_size": "enterprise",
+        "reported_product_id": "P002",
+        "reported_product_name": "SSO Integration Module",
+        "reported_symptoms": [
+          "session expired unexpectedly",
+          "SSO error page"
+        ]
+      },
+      "latency_ms": 1476.5,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 2,
+      "sim_clock": "2026-07-28 00:15:00",
+      "tool_name": "get_system_logs",
+      "args": {
+        "case_id": "CS00079",
+        "start_time": "2026-07-28 00:00:00",
+        "end_time": "2026-07-28 23:59:59",
+        "hypotheses": [
+          "sso_integration_module_issue:0.5",
+          "session_expiration_issue:0.3",
+          "environmental_factor:0.2"
+        ],
+        "rationale": "To investigate the SSO error page and unexpected session expiry issue in the EU-Central production environment, we need to analyze the system logs for any errors or anomalies that may be related to the issue."
+      },
+      "hypotheses": [
+        "sso_integration_module_issue:0.5",
+        "session_expiration_issue:0.3",
+        "environmental_factor:0.2"
+      ],
+      "rationale": "To investigate the SSO error page and unexpected session expiry issue in the EU-Central production environment, we need to analyze the system logs for any errors or anomalies that may be related to the issue.",
+      "result_summary": {
+        "error": "unknown tool 'get_system_logs'. Valid tools are: ['get_active_incidents', 'get_agent_availability', 'get_case_context', 'get_component_topology', 'get_configuration_history', 'get_customer_deployment', 'get_deployment_history', 'get_recent_changes', 'get_service_health', 'get_similar_cases', 'get_team_capability', 'get_technical_signals', 'get_telemetry', 'search_knowledge_base', 'submit_diagnosis']"
+      },
+      "latency_ms": 1995.7,
+      "status": "error",
+      "redundant": false
+    },
+    {
+      "step": 3,
+      "sim_clock": "2026-07-28 00:30:00",
+      "tool_name": "get_recent_changes",
+      "args": {
+        "case_id": "CS00079",
+        "time_window": "1 week",
+        "hypotheses": [
+          "sso_integration_module_issue:0.5",
+          "session_expiration_issue:0.3",
+          "environmental_factor:0.2"
+        ],
+        "rationale": "To investigate the SSO error page and unexpected session expiry issue in the EU-Central production environment, we need to identify any recent changes that may have contributed to the issue."
+      },
+      "hypotheses": [
+        "sso_integration_module_issue:0.5",
+        "session_expiration_issue:0.3",
+        "environmental_factor:0.2"
+      ],
+      "rationale": "To investigate the SSO error page and unexpected session expiry issue in the EU-Central production environment, we need to identify any recent changes that may have contributed to the issue.",
+      "result_summary": {
+        "recent_changes": [
+          {
+            "evidence_id": "CH004120",
+            "change_type": "policy_change",
+            "component_id": "CM031",
+            "started_at": "2026-07-27 00:45:00",
+            "completed_at": "2026-07-27 00:55:00",
+            "status": "completed",
+            "initiated_by": "system:automation",
+            "time_proximity_hours": 23.2,
+            "scope_match": "same_product"
+          },
+          {
+            "evidence_id": "CH003577",
+            "change_type": "manual_config_change",
+            "component_id": "CM027",
+            "started_at": "2026-07-25 05:13:00",
+            "completed_at": "2026-07-25 05:18:00",
+            "status": "completed",
+            "initiated_by": "agent:support_ops",
+            "time_proximity_hours": 66.8,
+            "scope_match": "same_product"
+          }
+        ],
+        "count": 2
+      },
+      "latency_ms": 2367.3,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 4,
+      "sim_clock": "2026-07-28 00:45:00",
+      "tool_name": "get_component_topology",
+      "args": {
+        "case_id": "CS00079",
+        "component_id": "CM031",
+        "hypotheses": [
+          "sso_integration_module_issue:0.6",
+          "session_expiration_issue:0.3",
+          "environmental_factor:0.1",
+          "policy_change_issue:0.5"
+        ],
+        "rationale": "To further investigate the recent policy change (CH004120) on component CM031, we need to understand the component topology and its relationships with other components in the EU-Central production environment."
+      },
+      "hypotheses": [
+        "sso_integration_module_issue:0.6",
+        "session_expiration_issue:0.3",
+        "environmental_factor:0.1",
+        "policy_change_issue:0.5"
+      ],
+      "rationale": "To further investigate the recent policy change (CH004120) on component CM031, we need to understand the component topology and its relationships with other components in the EU-Central production environment.",
+      "result_summary": {
+        "component_id": "CM031",
+        "component_name": "Identity Lifecycle Manager",
+        "upstream_dependencies": [
+          {
+            "name": "Directory Connector",
+            "id": "CM004"
+          },
+          {
+            "name": "User Directory Service",
+            "id": "CM013"
+          },
+          {
+            "name": "Login UI",
+            "id": "CM018"
+          },
+          {
+            "name": "Device Trust Service",
+            "id": "CM023"
+          },
+          {
+            "name": "Cross-Domain SSO Relay",
+            "id": "CM042"
+          },
+          {
+            "name": "SSO Broker (Shared)",
+            "id": "CM237"
+          }
+        ],
+        "downstream_dependents": [],
+        "external_dependencies": [],
+        "owning_teams": [
+          {
+            "name": "Identity",
+            "id": "TM01"
+          },
+          {
+            "name": "Onboarding & Provisioning",
+            "id": "TM24"
+          }
+        ]
+      },
+      "latency_ms": 2384.2,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 5,
+      "sim_clock": "2026-07-28 01:00:00",
+      "tool_name": "get_service_health",
+      "args": {
+        "case_id": "CS00079",
+        "service_id": "SSO Broker (Shared)",
+        "hypotheses": [
+          "sso_integration_module_issue:0.6",
+          "session_expiration_issue:0.3",
+          "environmental_factor:0.1",
+          "policy_change_issue:0.5"
+        ],
+        "rationale": "To investigate the SSO error page and unexpected session expiry issue in the EU-Central production environment, we need to check the health of the SSO Broker (Shared) service."
+      },
+      "hypotheses": [
+        "sso_integration_module_issue:0.6",
+        "session_expiration_issue:0.3",
+        "environmental_factor:0.1",
+        "policy_change_issue:0.5"
+      ],
+      "rationale": "To investigate the SSO error page and unexpected session expiry issue in the EU-Central production environment, we need to check the health of the SSO Broker (Shared) service.",
+      "result_summary": {
+        "error": "1 validation error for ComponentScopedArgs\ncomponent_id\n  Field required [type=missing, input_value={'case_id': 'CS00079', 's...oker (Shared) service.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      },
+      "latency_ms": 1765.3,
+      "status": "error",
+      "redundant": false
+    },
+    {
+      "step": 6,
+      "sim_clock": "2026-07-28 01:15:00",
+      "tool_name": "submit_diagnosis",
+      "args": {
+        "case_id": "CS00079",
+        "diagnosis": {
+          "label": "sso_integration_module_issue",
+          "confidence": 0.6,
+          "supporting_evidence_ids": [
+            "CH004120"
+          ],
+          "contradicting_evidence_ids": [],
+          "status": "unconfirmed"
+        },
+        "evidence_sufficiency": "partial",
+        "human_review_required": true,
+        "recommended_next_action": "Route to Identity team for further investigation",
+        "hypotheses": [
+          "sso_integration_module_issue:0.6",
+          "session_expiration_issue:0.3",
+          "environmental_factor:0.1",
+          "policy_change_issue:0.5"
+        ]
+      },
+      "hypotheses": [
+        "sso_integration_module_issue:0.6",
+        "session_expiration_issue:0.3",
+        "environmental_factor:0.1",
+        "policy_change_issue:0.5"
+      ],
+      "rationale": "",
+      "result_summary": "submitted",
+      "latency_ms": 2305.9,
+      "status": "ok",
+      "redundant": false
+    }
+  ],
+  "final_diagnosis": {
+    "hypotheses": [],
+    "rationale": "",
+    "predicted_product_id": null,
+    "product_confidence": null,
+    "predicted_component_id": null,
+    "component_confidence": null,
+    "predicted_category_id": null,
+    "category_confidence": null,
+    "predicted_subcategory_id": null,
+    "predicted_root_cause_family": null,
+    "root_cause_confidence": null,
+    "predicted_causal_change_id": null,
+    "causal_change_confidence": null,
+    "predicted_severity": null,
+    "severity_confidence": null,
+    "recommended_team_id": null,
+    "routing_confidence": null,
+    "evidence_sufficiency": "partial",
+    "overall_confidence": 0.3,
+    "recommended_next_action": "Route to Identity team for further investigation",
+    "human_review_required": true,
+    "human_review_reason": null,
+    "evidence_summary": "No summary provided by the agent.",
+    "unresolved_uncertainties": []
+  },
+  "citation_violations": [],
+  "evidence_ids_seen": [
+    "CH003577",
+    "CH004120"
+  ],
+  "repair_events": [
+    {
+      "step": 2,
+      "kind": "hypothesis_normalization",
+      "detail": "tool=get_system_logs: hypotheses arg was str, not a list; coerced"
+    },
+    {
+      "step": 6,
+      "kind": "final_diagnosis_repair",
+      "detail": "direct validation failed (7 validation errors for FinalDiagnosis\nhypotheses.0\n  Input should be a valid dictionary or instance of HypothesisUpdate [type=model_type, input_value='sso_integration_module_issue:0.6', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/model_type\nhypotheses.1\n  Input should be a valid dictionary or instance of HypothesisUpdate [type=model_type, input_value='session_expiration_issue:0.3', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/model_type\nhypotheses.2\n  Input should be a valid dictionary or instance of HypothesisUpdate [type=model_type, input_value='environmental_factor:0.1', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/model_type\nhypotheses.3\n  Input should be a valid dictionary or instance of HypothesisUpdate [type=model_type, input_value='policy_change_issue:0.5', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/model_type\nrationale\n  Field required [type=missing, input_value={'case_id': 'CS00079', 'd...licy_change_issue:0.5']}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\noverall_confidence\n  Field required [type=missing, input_value={'case_id': 'CS00079', 'd...licy_change_issue:0.5']}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\nevidence_summary\n  Field required [type=missing, input_value={'case_id': 'CS00079', 'd...licy_change_issue:0.5']}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing); repaired args validated"
+    }
+  ]
+}

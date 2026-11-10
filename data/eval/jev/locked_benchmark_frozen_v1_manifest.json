@@ -1,0 +1,101 @@
+{
+  "freeze_version": "locked_benchmark_frozen_v1",
+  "sealed_at": "2026-09-23T23:02:33.993804+00:00",
+  "config_sha256": "27236d36b17844f1e7bf95b58fcd9f488e5f1eafc69abae9486e4f454103b82d",
+  "split_file_sha256": "eb335c06db53f4391282b5decadc18bc1aca6e45cf33204152f79df0fce83e02",
+  "split_manifest_sha256": "80c45d128dfff35a8a9e1aff942731fd4fa54a44ae7f7403beb3526394d7e975",
+  "source_file_sha256": {
+    "agent/agent_v2/config.py": "829361c4116f051e530961e7db9861288dbb1cbbea5979ba53c772c72b00a702",
+    "agent/agent_v2/schemas.py": "776bdfb978ef49fb84ae852a7b57cd02b7eaa98bcffd0603cfea4a7e8760b307",
+    "agent/agent_v2/tools.py": "050d2844103042271c8a484a5903ddd20ab398bab38d758e944eb6cac0d5591f",
+    "agent/eval_v2/aggregate.py": "cae4aaae38e32afadf9c79df64ff875e56be8559717d48a66339e4a3b220f487",
+    "agent/eval_v2/config.py": "6f299940e0b47d2b2b887b240a355caf18e8466bc4d94b4653efe6181b46d48c",
+    "agent/eval_v2/confusion.py": "d119086f79015fd6771c1d06c00d8dfe916f38607256ac0fd1f5221bc8915933",
+    "agent/eval_v2/ground_truth.py": "9e0fad65c5e74a3c5ff4e2232a74e417561ad115282b7fa3098951632147934d",
+    "agent/eval_v2/registry.py": "41e713fae95e627828540c04038be239b7a6f8bc62f138dc8477fa036e0a8692",
+    "agent/eval_v2/regression_cases.py": "b25bfb80792f5478224bf8713819dd92d2d60dad2e3324adf369d2c0c50b455a",
+    "agent/eval_v2/splits.py": "c62832bd390784cec4446a05978f9d8fa4caf5511053f8be8b8396471dbb0ef0",
+    "agent/eval_v2/stratify.py": "63e75d1fa67041fe5ce2c67f60213074f112c58d7cd2b83e6f0194f1369fc96b",
+    "agent/eval_v2/text_match.py": "2f9815745bdad1e5b9b3000db51912854a97c3cc27d1fbddf0ab8474fb655921",
+    "agent/graph_v2/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "agent/graph_v2/checksums.py": "70888a7734c845e81065a49f33255ab997cca64c8e086fe88d70f3a5fc55afe9",
+    "agent/graph_v2/config.py": "5cbd8d09689be71329dd9277ae53208575254268c37fa43bdc6ca3dbc368599e",
+    "agent/graph_v2/db.py": "9d590ec82b37acca1af6275d35c00b9eb7a46e56713311ac241fd70fe585e374",
+    "agent/graph_v2/telemetry_summarize.py": "c2e17098205ca41a592be3649258eecb1612158206048ea7f0d0af04437ea226",
+    "agent/jev_v2/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "agent/jev_v2/aggregate.py": "8e51771881efb95c2e32e35c9087feaf23abeeb3080196f25770957241d02812",
+    "agent/jev_v2/candidates.py": "716bcef4e8f5a1559873c475df269e926ab3be530d85dabf804525cac3805099",
+    "agent/jev_v2/client.py": "008b3c7fa8d152ced7c270d015a189366ef80c79f8e9501293e87c2d45fa0f90",
+    "agent/jev_v2/compare_jev_llm.py": "fac36b36089779eae1e834929261fc2cad7b946e00707c9c768404eb4873cd96",
+    "agent/jev_v2/config.py": "0bd484eb80a508a1627a3ea0f54344feb5cd4ed3333bcc8d0734616ce324c1f9",
+    "agent/jev_v2/decisions.py": "5bb4f2be94d495c0d081e81463ee9dd275342dbbd6a24653c13b76d0f782f8cf",
+    "agent/jev_v2/frozen_config.py": "a02738a92567d01356050e05cbe85182f07fe8dd5f26b0e6ff02980cce502b86",
+    "agent/jev_v2/llm_baseline.py": "381eb345914c3ff5b85424929962b72aed6e3656cd2039053fcb1fcc207d1924",
+    "agent/jev_v2/locked_benchmark.py": "8ad11b08b5ad3d002ebb1c5b256ad8f3f7ff2c4328380eb28c4b3b4bfed12f36",
+    "agent/jev_v2/locked_report.py": "2d37afe8b9094da792126acf9373afa724c0033a55c4497909fd71ff47529da9",
+    "agent/jev_v2/paired_stats.py": "e71c3949ddb84a3a86c1ca76d3a19f802cede050d877cff3cf5b5ed8114e3a28",
+    "agent/jev_v2/parallel_runner.py": "3c5d915a99f53f682b276e97f6be2ad874f4f8c05302bf2a2f88f1fb5a31fb77",
+    "agent/jev_v2/questions.py": "4ed4bbf26d3ee7b1f176da2531837da3aa5b73d29c6ced997b23179db1cb565d",
+    "agent/jev_v2/reference_data.py": "55662ff10df98b93511a5105fece64c84d708a62bc22f6e15ac616da75001440",
+    "agent/jev_v2/registry.py": "57bb718cf8e4c7903b0028941e9bf4bd8db70e751e2da021c517123756276ecf",
+    "agent/jev_v2/regression_decisions.py": "32c1af7623e669d65068d37465068d68c9ac2f7755f15af03039b0f442a9e1a4",
+    "agent/jev_v2/reports.py": "765a1cc0ef69710d9f2e0805d8ba13cf451e1c9c0056f51fa5ccdb52efd0a61c",
+    "agent/jev_v2/run_experiment.py": "ae62953826b96128270114131993e9948ad1d0e4b1457ac172d1057001fd3252",
+    "agent/jev_v2/scoring.py": "2dedce5e1239b144bc26456920171eb36d7b41d1c177eda176e15e15d12b436c",
+    "agent/jev_v2/stage_c_posthoc.py": "eca279bfedbe27df1770fd71e35d4b31b1a160c931b203a69e9fa32c90ec63a1",
+    "agent/jev_v2/stage_c_report.py": "50ed2047faf7746773d739cdce1bfa94a621be3d1018912e57fb829eaed0a820",
+    "agent/jev_v2/state_builder.py": "5743d45ae5221d65a7e7063ac88035a624043080975023c2fe24b9f7d1f88422",
+    "agent/jev_v2/threshold_policy.py": "288ba6b0d33b00ec530cfa813312fac063ff946b263e4b2e6a7e2c9c21528228",
+    "config/settings.py": "37c37801333bf36e07335b91ee9d9d37de385783585bd0eab40d32889c869cdd",
+    "data/eval/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "data/eval/eval_store.py": "28355bf136b78e3e2d1cb9886b652de8c29af1476c48e26e0edd5684a5b07e37"
+  },
+  "pinned_files": {
+    "protocol": {
+      "path": "docs/JEV_LOCKED_BENCHMARK_PROTOCOL.md",
+      "sha256": "3e0c0007187d610e1a49b183c12b21f822421beef08e4a35512e817ab8555c6f"
+    },
+    "stage_b_config": {
+      "path": "data/eval/jev/stage_b_frozen_v1.json",
+      "sha256": "0f72b8e2734b37b4bd0518bcc6dd9d376c1e39e9187b4470b3a95c32cc51d788"
+    },
+    "stage_b_manifest": {
+      "path": "data/eval/jev/stage_b_frozen_v1_manifest.json",
+      "sha256": "a565f07d775ff59c1f5292d316999a3f1f658d68d39b57532f28bb84a0cf2919"
+    },
+    "stage_c_protocol": {
+      "path": "docs/JEV_STAGE_C_PROTOCOL.md",
+      "sha256": "4c950c80104804ba37b4c8f5e9b06ea3e12437e4924b12319422a6f224cd95e2"
+    },
+    "stage_c_jev_experiment": {
+      "path": "data/experiments/exp_stage_c_validation_jev_20260923T184036Z_fa984004/experiment.json",
+      "sha256": "93acaa1043046e31d6febd2145dfa8dc302462125b37e4fba9db9f77799dc579"
+    },
+    "stage_c_jev_decisions": {
+      "path": "data/experiments/exp_stage_c_validation_jev_20260923T184036Z_fa984004/decisions.jsonl",
+      "sha256": "c034af5bd47db21add600cf4df95f573f54d7ad947eb3bbb34e00d5bc394b51c"
+    },
+    "stage_c_llm_experiment": {
+      "path": "data/experiments/exp_stage_c_validation_llm_20260923T184040Z_9fc75b1a/experiment.json",
+      "sha256": "b42399832ba0697eef9a3e6c33beda1da27c055dac6ac036173ea2954f13b6ea"
+    },
+    "stage_c_llm_decisions": {
+      "path": "data/experiments/exp_stage_c_validation_llm_20260923T184040Z_9fc75b1a/decisions.jsonl",
+      "sha256": "0e16c7eb5fbcb7dca7e538734e83fc5454532e20104f7be63cec2522a669f841"
+    },
+    "stage_c_report": {
+      "path": "data/experiments/exp_stage_c_validation_jev_20260923T184036Z_fa984004/stage_c_report.json",
+      "sha256": "ce980cb6ff810db038f0be16a06c76cf21513fdd992cb2847b7d8a1710d1a2e5"
+    }
+  },
+  "dataset_checksum_digest": "51e4d7d3ff9f9645",
+  "environment_at_seal": {
+    "tenacity": "8.5.0",
+    "langchain": "0.2.16",
+    "langchain-core": "0.2.43",
+    "langchain-community": "0.2.16",
+    "streamlit": "1.35.0",
+    "typesafe-sdk": null
+  },
+  "note": "The locked run must use --frozen-config locked_benchmark_frozen_v1 with no overrides. Editing this configuration or any pinned file makes verification fail; after the run starts that invalidates the benchmark."
+}

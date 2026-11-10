@@ -1,0 +1,64 @@
+{
+  "freeze_version": "locked_benchmark_frozen_v1",
+  "status": "superseded_before_use",
+  "superseded_at": "2026-09-23T23:50:52.984879+00:00",
+  "reason_short": "opaque-key control: Jev's causal-change predictions depend on the option-key identity",
+  "reason": "The pre-registered validation control (docs/JEV_OPAQUE_KEY_CONTROL_PROTOCOL.md, rule R2) found that Jev's choices change systematically when the canonical change ids are replaced by opaque keys, beyond run-to-run noise. The pre-registered consequence, and the task instruction, is that a freeze whose causal-change decision runs on canonical ids is not used for the locked benchmark. Aggregate accuracy was preserved (R1), so this is a sensitivity finding, not an accuracy loss; see docs/JEV_OPAQUE_KEY_CONTROL.md.",
+  "evidence": {
+    "experiments": {
+      "reference_jev": "exp_stage_c_validation_jev_20260923T184036Z_fa984004",
+      "reference_llm": "exp_stage_c_validation_llm_20260923T184040Z_9fc75b1a",
+      "control_jev": "exp_stage_c_causal_opaque_control_jev_20260923T233920Z_e3b82da8",
+      "control_llm": "exp_stage_c_causal_opaque_control_llm_20260923T233921Z_cbd00df9",
+      "replicate_jev": "exp_stage_c_causal_canonical_replicate_jev_20260923T234310Z_1c65a600",
+      "replicate_llm": "exp_stage_c_causal_canonical_replicate_llm_20260923T234310Z_6c94f589"
+    },
+    "protocol": "docs/JEV_OPAQUE_KEY_CONTROL_PROTOCOL.md",
+    "protocol_sha256": "214e46688e4a6042f3fe6091fc58eea23b35beea218619288b6d94b1d2dfc4ac",
+    "jev_verdict": "MATERIAL ID DEPENDENCE DETECTED",
+    "llm_verdict": "POSSIBLE ID SENSITIVITY / INCONCLUSIVE",
+    "jev": {
+      "population_P": 443,
+      "semantic_disagreements_opaque": 16,
+      "semantic_disagreements_canonical_replicate": 2,
+      "excess_disagreement": 0.03160270880361174,
+      "only_under_opaque": 16,
+      "only_under_replicate": 2,
+      "mcnemar_p": 0.001312255859375,
+      "direction_of_changed_answers": {
+        "real change -> none": 16
+      },
+      "accuracy_P_canonical": 0.8194130925507901,
+      "accuracy_P_opaque": 0.8148984198645598,
+      "r1_b_c_p": [
+        9,
+        7,
+        0.803619384765625
+      ]
+    },
+    "jev_minus_llm_all_decisions": {
+      "canonical_keys": 0.04533333333333334,
+      "opaque_keys": 0.008
+    }
+  },
+  "preserved": {
+    "config_sha256": "27236d36b17844f1e7bf95b58fcd9f488e5f1eafc69abae9486e4f454103b82d",
+    "manifest_sha256": "138c12f6c0bbe2f39fe3c58e451ffa727e189da79b574521ba662d584788684a",
+    "matches_manifest_recorded_config_sha256": true,
+    "note": "the sealed configuration, its manifest and every pinned source were not modified"
+  },
+  "locked_split": {
+    "opened": false,
+    "run_state_marker": null,
+    "note": "no locked experiment exists and no locked case was run, counted or previewed"
+  },
+  "enforcement": {
+    "machine_enforced": false,
+    "note": "this record is a declaration. The sealed run_experiment/locked_benchmark do not read it, so the runner would still accept the v1 command. Making verify() refuse a superseded freeze requires editing the sealed locked_benchmark.py; that edit was blocked and is left as a user decision (JEV-036)."
+  },
+  "successor": {
+    "status": "proposed, not created",
+    "proposal": "docs/JEV_OPAQUE_KEY_CONTROL.md, section 'Proposed replacement configuration'"
+  },
+  "reversal": "Only by an explicit user decision that is logged in docs/JEV_ISSUE_LOG.md; deleting this record without one would be tampering with the audit trail."
+}

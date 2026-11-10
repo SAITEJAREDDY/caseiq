@@ -1,0 +1,127 @@
+id,category_id,name
+IS001,IC01,MFA failure
+IS002,IC01,token acquisition failure
+IS003,IC01,federation failure
+IS004,IC01,expired credentials
+IS005,IC01,login loop
+IS006,IC01,password reset failure
+IS007,IC01,session expiration issue
+IS008,IC01,SSO redirect failure
+IS009,IC02,RBAC failure
+IS010,IC02,access denied
+IS011,IC02,conditional access block
+IS012,IC02,incorrect role assignment
+IS013,IC02,permissions propagation delay
+IS014,IC02,policy misapplication
+IS015,IC02,scope/consent mismatch
+IS016,IC03,DNS resolution failure
+IS017,IC03,firewall rule block
+IS018,IC03,packet loss
+IS019,IC03,proxy issue
+IS020,IC03,TLS connectivity failure
+IS021,IC03,routing problem
+IS022,IC03,VPN connectivity failure
+IS023,IC03,network partition
+IS024,IC04,slow page load
+IS025,IC04,slow API response
+IS026,IC04,database query slowness
+IS027,IC04,batch job slowness
+IS028,IC04,report generation delay
+IS029,IC04,high latency under load
+IS030,IC04,intermittent slow responses
+IS031,IC05,service outage
+IS032,IC05,partial outage
+IS033,IC05,crash loop
+IS034,IC05,degraded availability
+IS035,IC05,failover failure
+IS036,IC05,health check failure
+IS037,IC05,intermittent 5xx errors
+IS038,IC06,failed deployment
+IS039,IC06,rollback required
+IS040,IC06,version incompatibility after upgrade
+IS041,IC06,migration script failure
+IS042,IC06,feature flag misconfiguration post-deploy
+IS043,IC06,canary release failure
+IS044,IC06,config drift after deploy
+IS045,IC07,incorrect environment variable
+IS046,IC07,misconfigured integration
+IS047,IC07,missing configuration value
+IS048,IC07,conflicting configuration settings
+IS049,IC07,default configuration not overridden
+IS050,IC07,configuration not propagated
+IS051,IC07,template misconfiguration
+IS052,IC08,missing records
+IS053,IC08,duplicate records
+IS054,IC08,corrupted export file
+IS055,IC08,data truncation
+IS056,IC08,encoding mismatch
+IS057,IC08,data out of sync
+IS058,IC08,referential integrity violation
+IS059,IC09,webhook delivery failure
+IS060,IC09,API rate limiting
+IS061,IC09,API versioning mismatch
+IS062,IC09,malformed API request
+IS063,IC09,third-party API timeout
+IS064,IC09,API authentication failure
+IS065,IC09,pagination bug
+IS066,IC09,schema validation failure
+IS067,IC10,provisioning stuck
+IS068,IC10,account creation failure
+IS069,IC10,license assignment failure
+IS070,IC10,initial sync failure
+IS071,IC10,welcome email not delivered
+IS072,IC10,tenant setup incomplete
+IS073,IC10,bulk import failure
+IS074,IC11,suspicious login activity
+IS075,IC11,brute-force attempt detected
+IS076,IC11,certificate expiration
+IS077,IC11,vulnerability disclosure
+IS078,IC11,unauthorized access attempt
+IS079,IC11,security policy violation
+IS080,IC11,exposed credential
+IS081,IC12,audit log gap
+IS082,IC12,data residency violation
+IS083,IC12,retention policy violation
+IS084,IC12,missing consent record
+IS085,IC12,non-compliant configuration
+IS086,IC12,regulatory reporting error
+IS087,IC13,overcharge
+IS088,IC13,failed payment
+IS089,IC13,invoice discrepancy
+IS090,IC13,subscription renewal failure
+IS091,IC13,proration error
+IS092,IC13,tax calculation error
+IS093,IC13,chargeback dispute
+IS094,IC13,refund not processed
+IS095,IC14,UI rendering issue
+IS096,IC14,broken workflow step
+IS097,IC14,incorrect calculation displayed
+IS098,IC14,missing feature functionality
+IS099,IC14,accessibility defect
+IS100,IC14,localization defect
+IS101,IC14,form submission failure
+IS102,IC15,database contention
+IS103,IC15,disk space exhaustion
+IS104,IC15,index corruption
+IS105,IC15,replication lag
+IS106,IC15,backup failure
+IS107,IC15,connection pool exhaustion
+IS108,IC15,query timeout
+IS109,IC15,deadlock
+IS110,IC16,autoscaling failure
+IS111,IC16,resource exhaustion
+IS112,IC16,throttling under peak load
+IS113,IC16,quota exceeded
+IS114,IC16,capacity planning gap
+IS115,IC16,scale-down data loss
+IS116,IC17,third-party outage
+IS117,IC17,dependency version conflict
+IS118,IC17,upstream rate limiting
+IS119,IC17,vendor API deprecated
+IS120,IC17,dependency license issue
+IS121,IC17,downstream service degradation
+IS122,IC18,unclassified issue
+IS123,IC18,intermittent unreproducible issue
+IS124,IC18,customer process error
+IS125,IC18,duplicate ticket
+IS126,IC18,informational request

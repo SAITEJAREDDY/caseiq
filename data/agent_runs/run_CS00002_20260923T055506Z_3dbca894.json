@@ -1,0 +1,310 @@
+{
+  "run_id": "run_CS00002_20260923T055506Z_3dbca894",
+  "case_id": "CS00002",
+  "created_at": "2026-09-23T05:55:06.582865+00:00",
+  "model_provider": "groq",
+  "model_name": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "temperature": 0.1,
+  "prompt_version": "v1",
+  "toolset_version": "v1",
+  "output_schema_version": "v1",
+  "graph_version": "phase4-2500case-2026-09-22",
+  "sim_clock_step_minutes": 15,
+  "max_tool_calls": 10,
+  "max_repeated_same_tool": 2,
+  "stop_reason": "model_submitted",
+  "num_tool_calls": 7,
+  "num_llm_calls": 7,
+  "token_usage": {
+    "prompt_tokens": 12587,
+    "completion_tokens": 566,
+    "total_tokens": 13153
+  },
+  "approx_cost_usd": 0.001315,
+  "approx_cost_note": "Estimated from a configurable placeholder rate, not exact provider billing -- see config.py",
+  "trace_steps": [
+    {
+      "step": 1,
+      "sim_clock": "2025-12-31 00:00:00",
+      "tool_name": "get_case_context",
+      "args": {
+        "hypotheses": [],
+        "rationale": "Starting the investigation of case CS00002"
+      },
+      "hypotheses": [],
+      "rationale": "Starting the investigation of case CS00002",
+      "result_summary": {
+        "case_id": "CS00002",
+        "title": "Status Page showing third-party API unavailable and SMS issues",
+        "description": "Hi, I noticed on the Status Page that there are reports of a third-party API being unavailable and SMS messages not being delivered. I'm the only one seeing this right now, so it might be isolated, but could you confirm if this is affecting my account or just a general status update? Impact seems low for now.",
+        "environment": "production",
+        "region": "US-East",
+        "reported_business_impact": "low",
+        "reported_affected_users": 1,
+        "priority": "low",
+        "created_date": "2025-12-31",
+        "status": "resolved",
+        "customer_id": "C00412",
+        "customer_tier": "silver",
+        "customer_industry": "Logistics & Transportation",
+        "customer_company_size": "small",
+        "reported_product_id": "P040",
+        "reported_product_name": "Status Page",
+        "reported_symptoms": [
+          "SMS not delivered",
+          "third-party API unavailable"
+        ]
+      },
+      "latency_ms": 1633.7,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 2,
+      "sim_clock": "2025-12-31 00:15:00",
+      "tool_name": "get_customer_info",
+      "args": {
+        "customer_id": "C00412",
+        "hypotheses": [],
+        "rationale": ""
+      },
+      "hypotheses": [],
+      "rationale": "",
+      "result_summary": {
+        "error": "unknown tool 'get_customer_info'. Valid tools are: ['get_active_incidents', 'get_agent_availability', 'get_case_context', 'get_component_topology', 'get_configuration_history', 'get_customer_deployment', 'get_deployment_history', 'get_recent_changes', 'get_service_health', 'get_similar_cases', 'get_team_capability', 'get_technical_signals', 'get_telemetry', 'search_knowledge_base', 'submit_diagnosis']"
+      },
+      "latency_ms": 1699.6,
+      "status": "error",
+      "redundant": false
+    },
+    {
+      "step": 3,
+      "sim_clock": "2025-12-31 00:30:00",
+      "tool_name": "get_recent_changes",
+      "args": {
+        "hypotheses": [
+          "third-party_api_issue:0.5",
+          "sms_delivery_issue:0.5"
+        ],
+        "rationale": "Checking recent changes to see if any correlate with the reported symptoms"
+      },
+      "hypotheses": [
+        "third-party_api_issue:0.5",
+        "sms_delivery_issue:0.5"
+      ],
+      "rationale": "Checking recent changes to see if any correlate with the reported symptoms",
+      "result_summary": {
+        "recent_changes": [],
+        "count": 0
+      },
+      "latency_ms": 1118.4,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 4,
+      "sim_clock": "2025-12-31 00:45:00",
+      "tool_name": "get_service_health",
+      "args": {
+        "hypotheses": [
+          "third-party_api_issue:0.5",
+          "sms_delivery_issue:0.5"
+        ],
+        "rationale": "Checking service health to see if there are any ongoing issues"
+      },
+      "hypotheses": [
+        "third-party_api_issue:0.5",
+        "sms_delivery_issue:0.5"
+      ],
+      "rationale": "Checking service health to see if there are any ongoing issues",
+      "result_summary": {
+        "error": "1 validation error for ComponentScopedArgs\ncomponent_id\n  Field required [type=missing, input_value={'hypotheses': ['third-pa...are any ongoing issues'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      },
+      "latency_ms": 973.0,
+      "status": "error",
+      "redundant": false
+    },
+    {
+      "step": 5,
+      "sim_clock": "2025-12-31 01:00:00",
+      "tool_name": "get_component_topology",
+      "args": {
+        "hypotheses": [
+          "third-party_api_issue:0.5",
+          "sms_delivery_issue:0.5"
+        ],
+        "rationale": "Checking component topology to see if there are any issues with the third-party API or SMS delivery"
+      },
+      "hypotheses": [
+        "third-party_api_issue:0.5",
+        "sms_delivery_issue:0.5"
+      ],
+      "rationale": "Checking component topology to see if there are any issues with the third-party API or SMS delivery",
+      "result_summary": {
+        "error": "1 validation error for ComponentScopedArgs\ncomponent_id\n  Field required [type=missing, input_value={'hypotheses': ['third-pa...ty API or SMS delivery'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      },
+      "latency_ms": 756.6,
+      "status": "error",
+      "redundant": false
+    },
+    {
+      "step": 6,
+      "sim_clock": "2025-12-31 01:15:00",
+      "tool_name": "get_technical_signals",
+      "args": {
+        "hypotheses": [
+          "third-party_api_issue:0.5",
+          "sms_delivery_issue:0.5"
+        ],
+        "rationale": "Checking technical signals to see if there are any issues with the third-party API or SMS delivery"
+      },
+      "hypotheses": [
+        "third-party_api_issue:0.5",
+        "sms_delivery_issue:0.5"
+      ],
+      "rationale": "Checking technical signals to see if there are any issues with the third-party API or SMS delivery",
+      "result_summary": {
+        "signals": [
+          {
+            "evidence_id": "SG0000007",
+            "signal_type": "AUDIT_LOG_GAP",
+            "message": "audit log gap detected for Config Management Service",
+            "timestamp": "2025-12-30 20:56:00",
+            "component_id": "CM136"
+          },
+          {
+            "evidence_id": "SG0000006",
+            "signal_type": "CIRCUIT_BREAKER_OPEN",
+            "message": "circuit breaker opened in front of Ingestion Service",
+            "timestamp": "2025-12-30 23:10:00",
+            "component_id": "CM089"
+          },
+          {
+            "evidence_id": "SG0000004",
+            "signal_type": "CIRCUIT_BREAKER_OPEN",
+            "message": "circuit breaker opened in front of Ingestion Service",
+            "timestamp": "2025-12-30 23:28:00",
+            "component_id": "CM089"
+          },
+          {
+            "evidence_id": "SG0000005",
+            "signal_type": "UPSTREAM_TIMEOUT",
+            "message": "upstream dependency timeouts from Ingestion Service",
+            "timestamp": "2025-12-30 23:43:00",
+            "component_id": "CM089"
+          }
+        ],
+        "count": 4
+      },
+      "latency_ms": 1076.4,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 7,
+      "sim_clock": "2025-12-31 01:30:00",
+      "tool_name": "submit_diagnosis",
+      "args": {
+        "hypotheses": [
+          {
+            "label": "third-party_api_issue",
+            "confidence": 0.7,
+            "supporting_evidence_ids": [
+              "SG0000007"
+            ],
+            "contradicting_evidence_ids": [],
+            "status": "open"
+          },
+          {
+            "label": "sms_delivery_issue",
+            "confidence": 0.3,
+            "supporting_evidence_ids": [
+              "SG0000006"
+            ],
+            "contradicting_evidence_ids": [],
+            "status": "open"
+          }
+        ],
+        "evidence_sufficiency": "partial",
+        "human_review_required": false,
+        "recommended_next_action": "inspect policy configuration",
+        "rationale": "Based on the technical signals, it appears that there are issues with the third-party API and SMS delivery. The audit log gap detected for Config Management Service and the circuit breaker opened in front of Ingestion Service suggest that there may be a problem with the third-party API. The upstream dependency timeouts from Ingestion Service also suggest that there may be a problem with SMS delivery. However, the evidence is not conclusive, and further investigation is needed to determine the root cause of the issue."
+      },
+      "hypotheses": [
+        {
+          "label": "third-party_api_issue",
+          "confidence": 0.7,
+          "supporting_evidence_ids": [
+            "SG0000007"
+          ],
+          "contradicting_evidence_ids": [],
+          "status": "open"
+        },
+        {
+          "label": "sms_delivery_issue",
+          "confidence": 0.3,
+          "supporting_evidence_ids": [
+            "SG0000006"
+          ],
+          "contradicting_evidence_ids": [],
+          "status": "open"
+        }
+      ],
+      "rationale": "Based on the technical signals, it appears that there are issues with the third-party API and SMS delivery. The audit log gap detected for Config Management Service and the circuit breaker opened in front of Ingestion Service suggest that there may be a problem with the third-party API. The upstream dependency timeouts from Ingestion Service also suggest that there may be a problem with SMS delivery. However, the evidence is not conclusive, and further investigation is needed to determine the root cause of the issue.",
+      "result_summary": "submitted",
+      "latency_ms": 2815.2,
+      "status": "ok",
+      "redundant": false
+    }
+  ],
+  "final_diagnosis": {
+    "hypotheses": [
+      {
+        "label": "third-party_api_issue",
+        "description": "",
+        "confidence": 0.7,
+        "supporting_evidence": [],
+        "contradicting_evidence": [],
+        "status": "active"
+      },
+      {
+        "label": "sms_delivery_issue",
+        "description": "",
+        "confidence": 0.3,
+        "supporting_evidence": [],
+        "contradicting_evidence": [],
+        "status": "active"
+      }
+    ],
+    "rationale": "Based on the technical signals, it appears that there are issues with the third-party API and SMS delivery. The audit log gap detected for Config Management Service and the circuit breaker opened in front of Ingestion Service suggest that there may be a problem with the third-party API. The upstream dependency timeouts from Ingestion Service also suggest that there may be a problem with SMS delivery. However, the evidence is not conclusive, and further investigation is needed to determine the root cause of the issue.",
+    "predicted_product_id": null,
+    "product_confidence": null,
+    "predicted_component_id": null,
+    "component_confidence": null,
+    "predicted_category_id": null,
+    "category_confidence": null,
+    "predicted_subcategory_id": null,
+    "predicted_root_cause_family": null,
+    "root_cause_confidence": null,
+    "predicted_causal_change_id": null,
+    "causal_change_confidence": null,
+    "predicted_severity": null,
+    "severity_confidence": null,
+    "recommended_team_id": null,
+    "routing_confidence": null,
+    "evidence_sufficiency": "partial",
+    "overall_confidence": 0.7,
+    "recommended_next_action": "inspect policy configuration",
+    "human_review_required": false,
+    "human_review_reason": null,
+    "evidence_summary": "Based on the technical signals, it appears that there are issues with the third-party API and SMS delivery. The audit log gap detected for Config Management Service and the circuit breaker opened in front of Ingestion Service suggest that there may be a problem with the third-party API. The upstream dependency timeouts from Ingestion Service also suggest that there may be a problem with SMS delivery. However, the evidence is not conclusive, and further investigation is needed to determine the root cause of the issue.",
+    "unresolved_uncertainties": []
+  },
+  "citation_violations": [],
+  "evidence_ids_seen": [
+    "SG0000004",
+    "SG0000005",
+    "SG0000006",
+    "SG0000007"
+  ]
+}

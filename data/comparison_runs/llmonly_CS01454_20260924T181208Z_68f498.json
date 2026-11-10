@@ -1,0 +1,61 @@
+{
+ "run_id": "llmonly_CS01454_20260924T181208Z_68f498",
+ "case_id": "CS01454",
+ "created_at": "2026-09-24T18:12:08.011783+00:00",
+ "prompt_version": "llm_only_v1",
+ "model_name": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+ "temperature": 0.1,
+ "ticket_shown_to_model": {
+  "title": "Overcharges and renewal failures in Billing Disputes",
+  "description": "We have identified that some customers are being overcharged and their subscriptions are not renewing correctly. We have traced this to database contention issues within your platform. The locks on the billing tables are causing transaction delays and rollbacks, which results in double-charges or missed renewals. This is definitely a database performance and locking problem on your side. Please optimize the database queries or fix the locking mechanism immediately.",
+  "environment": "production",
+  "region": "US-East",
+  "priority": "medium",
+  "reported_business_impact": "moderate",
+  "reported_affected_users": 18,
+  "created_date": "2025-05-01",
+  "customer_tier": "bronze",
+  "customer_industry": "Manufacturing",
+  "customer_company_size": "small",
+  "reported_product_name": "Billing Disputes Handler",
+  "reported_symptoms": [
+   "overcharge",
+   "subscription not renewed"
+  ]
+ },
+ "n_categories_offered": 18,
+ "n_root_causes_offered": 40,
+ "parsed": {
+  "issue_category": "Storage / Database",
+  "root_cause": "database contention",
+  "affected_component": "Billing Disputes Handler",
+  "causal_change": null,
+  "owning_team": null,
+  "confidence": 0.8,
+  "status": "DIAGNOSIS_PROPOSED",
+  "summary": "Database contention issues within the Billing Disputes Handler are causing overcharges and renewal failures due to locking mechanism problems."
+ },
+ "status": "DIAGNOSIS_PROPOSED",
+ "validation_errors": [],
+ "repair_used": false,
+ "llm_calls": [
+  {
+   "attempt": 0,
+   "latency_ms": 18610.0,
+   "finish_reason": "stop",
+   "raw_output": "{\"issue_category\": \"Storage \\/ Database\", \"root_cause\": \"database contention\", \"affected_component\": \"Billing Disputes Handler\", \"causal_change\": null, \"owning_team\": null, \"confidence\": 0.8, \"status\": \"DIAGNOSIS_PROPOSED\", \"summary\": \"Database contention issues within the Billing Disputes Handler are causing overcharges and renewal failures due to locking mechanism problems.\"}"
+  }
+ ],
+ "tokens": {
+  "prompt": 740,
+  "completion": 94,
+  "total": 834
+ },
+ "latency_ms": 18610.0,
+ "wall_ms": 18624.5,
+ "cost_usd_estimate": 0.000734,
+ "tool_calls": 0,
+ "evidence_count": 0,
+ "graph_used": false,
+ "jev_used": false
+}

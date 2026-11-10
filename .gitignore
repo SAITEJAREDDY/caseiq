@@ -1,0 +1,25 @@
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Local tooling / environments
+.venv/
+venv/
+.claude/
+.idea/
+.vscode/
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+
+# Generated graph renders (recreated at runtime)
+static/graph_*.html
+
+# Non-code files (presentations, docs, recordings)
+*.pptx
+*.pdf
+*.docx
+*.mp4

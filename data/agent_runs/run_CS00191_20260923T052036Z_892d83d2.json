@@ -1,0 +1,739 @@
+{
+  "run_id": "run_CS00191_20260923T052036Z_892d83d2",
+  "case_id": "CS00191",
+  "created_at": "2026-09-23T05:20:36.976576+00:00",
+  "model_provider": "groq",
+  "model_name": "openai/gpt-oss-120b",
+  "temperature": 0.1,
+  "prompt_version": "v1",
+  "toolset_version": "v1",
+  "output_schema_version": "v1",
+  "graph_version": "phase4-2500case-2026-09-22",
+  "sim_clock_step_minutes": 15,
+  "max_tool_calls": 10,
+  "max_repeated_same_tool": 2,
+  "stop_reason": "tool_budget_exhausted",
+  "num_tool_calls": 10,
+  "num_llm_calls": 11,
+  "token_usage": {
+    "prompt_tokens": 40847,
+    "completion_tokens": 2700,
+    "total_tokens": 43547
+  },
+  "approx_cost_usd": 0.004355,
+  "approx_cost_note": "Estimated from a configurable placeholder rate, not exact provider billing -- see config.py",
+  "trace_steps": [
+    {
+      "step": 1,
+      "sim_clock": "2024-10-11 00:00:00",
+      "tool_name": "get_case_context",
+      "args": {
+        "hypotheses": [],
+        "rationale": "Obtain the customer's reported symptoms and context for case CS00191."
+      },
+      "hypotheses": [],
+      "rationale": "Obtain the customer's reported symptoms and context for case CS00191.",
+      "result_summary": {
+        "case_id": "CS00191",
+        "title": "Wrong tenant data shown and access denied errors in SSO Production",
+        "description": "Users in our US-East production environment are reporting that the SSO Integration Module is displaying data from the wrong tenant. Additionally, they are receiving unexpected 'permission denied' and 'access denied' errors when trying to perform actions that should be authorized. This is affecting 297 users with high business impact. We need to isolate if this is a session caching issue or a permission mapping error.",
+        "environment": "production",
+        "region": "US-East",
+        "reported_business_impact": "high",
+        "reported_affected_users": 297,
+        "priority": "high",
+        "created_date": "2024-10-11",
+        "status": "open",
+        "customer_id": "C00131",
+        "customer_tier": "bronze",
+        "customer_industry": "Energy & Utilities",
+        "customer_company_size": "enterprise",
+        "reported_product_id": "P002",
+        "reported_product_name": "SSO Integration Module",
+        "reported_symptoms": [
+          "access denied",
+          "permission denied unexpectedly",
+          "wrong tenant data shown"
+        ]
+      },
+      "latency_ms": 600.5,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 2,
+      "sim_clock": "2024-10-11 00:15:00",
+      "tool_name": "get_customer_deployment",
+      "args": {
+        "hypotheses": [
+          "session_caching_issue:0.5",
+          "permission_mapping_error:0.5",
+          "tenant_misconfiguration:0.4",
+          "recent_deployment_change:0.4",
+          "recent_policy_change:0.3"
+        ],
+        "rationale": "Identify deployed components, versions, and relevant SSO module details."
+      },
+      "hypotheses": [
+        "session_caching_issue:0.5",
+        "permission_mapping_error:0.5",
+        "tenant_misconfiguration:0.4",
+        "recent_deployment_change:0.4",
+        "recent_policy_change:0.3"
+      ],
+      "rationale": "Identify deployed components, versions, and relevant SSO module details.",
+      "result_summary": {
+        "deployments": [
+          {
+            "product_id": "P013",
+            "product_name": "Webhook Engine",
+            "version": "1.6",
+            "environment": "staging",
+            "region": "US-East",
+            "status": "active",
+            "deployed_at": "2026-06-13",
+            "product_components": [
+              "CM135",
+              "CM143",
+              "CM146",
+              "CM151",
+              "CM156",
+              "CM165",
+              "CM172",
+              "CM232"
+            ]
+          },
+          {
+            "product_id": "P013",
+            "product_name": "Webhook Engine",
+            "version": "1.6",
+            "environment": "production",
+            "region": "US-East",
+            "status": "active",
+            "deployed_at": "2026-03-13",
+            "product_components": [
+              "CM135",
+              "CM143",
+              "CM146",
+              "CM151",
+              "CM156",
+              "CM165",
+              "CM172",
+              "CM232"
+            ]
+          },
+          {
+            "product_id": "P019",
+            "product_name": "Load Balancer",
+            "version": "1.4",
+            "environment": "production",
+            "region": "US-East",
+            "status": "active",
+            "deployed_at": "2026-01-10",
+            "product_components": [
+              "CM135",
+              "CM136",
+              "CM138",
+              "CM139",
+              "CM150",
+              "CM153",
+              "CM164",
+              "CM237"
+            ]
+          },
+          {
+            "product_id": "P045",
+            "product_name": "Mobile App",
+            "version": "4.3",
+            "environment": "sandbox",
+            "region": "US-East",
+            "status": "active",
+            "deployed_at": "2025-12-08",
+            "product_components": [
+              "CM173",
+              "CM176",
+              "CM184",
+              "CM188",
+              "CM192",
+              "CM194",
+              "CM196",
+              "CM197"
+            ]
+          },
+          {
+            "product_id": "P002",
+            "product_name": "SSO Integration Module",
+            "version": "3.0",
+            "environment": "production",
+            "region": "US-East",
+            "status": "active",
+            "deployed_at": "2025-05-18",
+            "product_components": [
+              "CM011",
+              "CM019",
+              "CM025",
+              "CM027",
+              "CM031",
+              "CM032",
+              "CM241",
+              "CM246"
+            ]
+          },
+          {
+            "product_id": "P007",
+            "product_name": "Customer Portal",
+            "version": "4.2",
+            "environment": "production",
+            "region": "US-East",
+            "status": "active",
+            "deployed_at": "2025-01-08",
+            "product_components": [
+              "CM179",
+              "CM188",
+              "CM195",
+              "CM198",
+              "CM200",
+              "CM212",
+              "CM232"
+            ]
+          },
+          {
+            "product_id": "P045",
+            "product_name": "Mobile App",
+            "version": "4.3",
+            "environment": "production",
+            "region": "US-East",
+            "status": "active",
+            "deployed_at": "2024-12-12",
+            "product_components": [
+              "CM173",
+              "CM176",
+              "CM184",
+              "CM188",
+              "CM192",
+              "CM194",
+              "CM196",
+              "CM197"
+            ]
+          }
+        ]
+      },
+      "latency_ms": 749.1,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 3,
+      "sim_clock": "2024-10-11 00:30:00",
+      "tool_name": "get_recent_changes",
+      "args": {
+        "component_id": "CM011",
+        "hypotheses": [
+          "session_caching_issue:0.5",
+          "permission_mapping_error:0.5",
+          "tenant_misconfiguration:0.4",
+          "recent_deployment_change:0.4",
+          "recent_policy_change:0.3"
+        ],
+        "rationale": "Identify any recent policy or config changes affecting SSO auth component."
+      },
+      "hypotheses": [
+        "session_caching_issue:0.5",
+        "permission_mapping_error:0.5",
+        "tenant_misconfiguration:0.4",
+        "recent_deployment_change:0.4",
+        "recent_policy_change:0.3"
+      ],
+      "rationale": "Identify any recent policy or config changes affecting SSO auth component.",
+      "result_summary": {
+        "recent_changes": [],
+        "count": 0
+      },
+      "latency_ms": 17768.1,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 4,
+      "sim_clock": "2024-10-11 00:45:00",
+      "tool_name": "get_technical_signals",
+      "args": {
+        "component_id": "CM011",
+        "hypotheses": [
+          "session_caching_issue:0.5",
+          "permission_mapping_error:0.5",
+          "tenant_misconfiguration:0.4",
+          "recent_deployment_change:0.4",
+          "recent_policy_change:0.3"
+        ],
+        "rationale": "Look for auth errors, permission denied, tenant mismatch signals."
+      },
+      "hypotheses": [
+        "session_caching_issue:0.5",
+        "permission_mapping_error:0.5",
+        "tenant_misconfiguration:0.4",
+        "recent_deployment_change:0.4",
+        "recent_policy_change:0.3"
+      ],
+      "rationale": "Look for auth errors, permission denied, tenant mismatch signals.",
+      "result_summary": {
+        "signals": [],
+        "count": 0
+      },
+      "latency_ms": 8820.9,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 5,
+      "sim_clock": "2024-10-11 01:00:00",
+      "tool_name": "get_component_topology",
+      "args": {
+        "component_id": "CM011",
+        "hypotheses": [
+          "session_caching_issue:0.5",
+          "permission_mapping_error:0.5",
+          "tenant_misconfiguration:0.4",
+          "recent_deployment_change:0.4",
+          "recent_policy_change:0.3"
+        ],
+        "rationale": "Understand dependencies of SSO auth component to see where tenant data may be sourced."
+      },
+      "hypotheses": [
+        "session_caching_issue:0.5",
+        "permission_mapping_error:0.5",
+        "tenant_misconfiguration:0.4",
+        "recent_deployment_change:0.4",
+        "recent_policy_change:0.3"
+      ],
+      "rationale": "Understand dependencies of SSO auth component to see where tenant data may be sourced.",
+      "result_summary": {
+        "component_id": "CM011",
+        "component_name": "SSO Broker",
+        "upstream_dependencies": [],
+        "downstream_dependents": [
+          {
+            "name": "Identity Audit Logger",
+            "id": "CM020"
+          },
+          {
+            "name": "Risk-Based Authentication Engine",
+            "id": "CM022"
+          },
+          {
+            "name": "Device Trust Service",
+            "id": "CM023"
+          },
+          {
+            "name": "Attribute Mapping Service",
+            "id": "CM033"
+          },
+          {
+            "name": "Emergency Access (Break-Glass) Service",
+            "id": "CM040"
+          },
+          {
+            "name": "Reporting Service",
+            "id": "CM091"
+          },
+          {
+            "name": "Dashboard Sharing Service",
+            "id": "CM118"
+          },
+          {
+            "name": "Secret Store",
+            "id": "CM137"
+          },
+          {
+            "name": "TLS Termination Service",
+            "id": "CM149"
+          },
+          {
+            "name": "Accessibility Layer",
+            "id": "CM190"
+          },
+          {
+            "name": "Mobile Push Token Manager",
+            "id": "CM205"
+          },
+          {
+            "name": "Secret & Config Store",
+            "id": "CM230"
+          },
+          {
+            "name": "Directory Sync Connector (Shared)",
+            "id": "CM238"
+          }
+        ],
+        "external_dependencies": [
+          "Primary Identity Provider"
+        ],
+        "owning_teams": [
+          {
+            "name": "Identity",
+            "id": "TM01"
+          },
+          {
+            "name": "Security",
+            "id": "TM07"
+          }
+        ]
+      },
+      "latency_ms": 32833.2,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 6,
+      "sim_clock": "2024-10-11 01:15:00",
+      "tool_name": "get_case_context",
+      "args": {
+        "hypotheses": [
+          "session_caching_issue:0.5",
+          "permission_mapping_error:0.5",
+          "tenant_misconfiguration:0.4",
+          "recent_deployment_change:0.4",
+          "recent_policy_change:0.3"
+        ],
+        "rationale": "Need full case description and reported symptoms for CS00191."
+      },
+      "hypotheses": [
+        "session_caching_issue:0.5",
+        "permission_mapping_error:0.5",
+        "tenant_misconfiguration:0.4",
+        "recent_deployment_change:0.4",
+        "recent_policy_change:0.3"
+      ],
+      "rationale": "Need full case description and reported symptoms for CS00191.",
+      "result_summary": {
+        "case_id": "CS00191",
+        "title": "Wrong tenant data shown and access denied errors in SSO Production",
+        "description": "Users in our US-East production environment are reporting that the SSO Integration Module is displaying data from the wrong tenant. Additionally, they are receiving unexpected 'permission denied' and 'access denied' errors when trying to perform actions that should be authorized. This is affecting 297 users with high business impact. We need to isolate if this is a session caching issue or a permission mapping error.",
+        "environment": "production",
+        "region": "US-East",
+        "reported_business_impact": "high",
+        "reported_affected_users": 297,
+        "priority": "high",
+        "created_date": "2024-10-11",
+        "status": "open",
+        "customer_id": "C00131",
+        "customer_tier": "bronze",
+        "customer_industry": "Energy & Utilities",
+        "customer_company_size": "enterprise",
+        "reported_product_id": "P002",
+        "reported_product_name": "SSO Integration Module",
+        "reported_symptoms": [
+          "access denied",
+          "permission denied unexpectedly",
+          "wrong tenant data shown"
+        ]
+      },
+      "latency_ms": 29772.1,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 7,
+      "sim_clock": "2024-10-11 01:30:00",
+      "tool_name": "get_telemetry",
+      "args": {
+        "component_id": "CM011",
+        "hypotheses": [
+          "session_caching_issue:0.5",
+          "permission_mapping_error:0.5",
+          "tenant_misconfiguration:0.4",
+          "recent_deployment_change:0.4",
+          "recent_policy_change:0.3"
+        ],
+        "metric_category": null,
+        "rationale": "Identify which telemetry categories have data for SSO Broker to focus further queries."
+      },
+      "hypotheses": [
+        "session_caching_issue:0.5",
+        "permission_mapping_error:0.5",
+        "tenant_misconfiguration:0.4",
+        "recent_deployment_change:0.4",
+        "recent_policy_change:0.3"
+      ],
+      "rationale": "Identify which telemetry categories have data for SSO Broker to focus further queries.",
+      "result_summary": {
+        "available_metric_categories": [],
+        "note": "Call again with one of these metric_category values to see actual readings."
+      },
+      "latency_ms": 31047.9,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 8,
+      "sim_clock": "2024-10-11 01:45:00",
+      "tool_name": "get_recent_changes",
+      "args": {
+        "component_id": "CM011",
+        "hypotheses": [
+          "session_caching_issue:0.5",
+          "permission_mapping_error:0.5",
+          "tenant_misconfiguration:0.4",
+          "recent_deployment_change:0.4",
+          "recent_policy_change:0.3"
+        ],
+        "rationale": "Examine specific recent policy/config changes for SSO Broker that could cause tenant data mix-up."
+      },
+      "hypotheses": [
+        "session_caching_issue:0.5",
+        "permission_mapping_error:0.5",
+        "tenant_misconfiguration:0.4",
+        "recent_deployment_change:0.4",
+        "recent_policy_change:0.3"
+      ],
+      "rationale": "Examine specific recent policy/config changes for SSO Broker that could cause tenant data mix-up.",
+      "result_summary": {
+        "recent_changes": [],
+        "count": 0
+      },
+      "latency_ms": 31859.3,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 9,
+      "sim_clock": "2024-10-11 02:00:00",
+      "tool_name": "get_deployment_history",
+      "args": {
+        "component_id": "CM011",
+        "hypotheses": [
+          "session_caching_issue:0.5",
+          "permission_mapping_error:0.5",
+          "tenant_misconfiguration:0.4",
+          "recent_deployment_change:0.4",
+          "recent_policy_change:0.3"
+        ],
+        "rationale": "Check if a recent version rollout of SSO Broker aligns with case timeframe and could introduce tenant mapping bug."
+      },
+      "hypotheses": [
+        "session_caching_issue:0.5",
+        "permission_mapping_error:0.5",
+        "tenant_misconfiguration:0.4",
+        "recent_deployment_change:0.4",
+        "recent_policy_change:0.3"
+      ],
+      "rationale": "Check if a recent version rollout of SSO Broker aligns with case timeframe and could introduce tenant mapping bug.",
+      "result_summary": {
+        "deployments": [],
+        "count": 0
+      },
+      "latency_ms": 12424.2,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 10,
+      "sim_clock": "2024-10-11 02:15:00",
+      "tool_name": "get_technical_signals",
+      "args": {
+        "component_id": "CM011",
+        "hypotheses": [
+          "session_caching_issue:0.5",
+          "permission_mapping_error:0.5",
+          "tenant_misconfiguration:0.4",
+          "recent_deployment_change:0.4",
+          "recent_policy_change:0.3"
+        ],
+        "rationale": "Obtain detailed error logs and signal IDs for auth failures and tenant mismatches."
+      },
+      "hypotheses": [
+        "session_caching_issue:0.5",
+        "permission_mapping_error:0.5",
+        "tenant_misconfiguration:0.4",
+        "recent_deployment_change:0.4",
+        "recent_policy_change:0.3"
+      ],
+      "rationale": "Obtain detailed error logs and signal IDs for auth failures and tenant mismatches.",
+      "result_summary": {
+        "signals": [],
+        "count": 0
+      },
+      "latency_ms": 10125.5,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 11,
+      "sim_clock": "2024-10-11 02:30:00",
+      "tool_name": "submit_diagnosis",
+      "args": {
+        "category_confidence": null,
+        "causal_change_confidence": null,
+        "component_confidence": null,
+        "evidence_sufficiency": "insufficient",
+        "evidence_summary": "All queries for telemetry, recent changes, deployment history, and technical signals for component CM011 returned no data. No recent policy or configuration changes were recorded. The case description was not available in the provided context. Consequently, there is no concrete evidence to support any specific root cause.",
+        "human_review_reason": "Lack of observable evidence prevents a confident diagnosis; further data collection is required.",
+        "human_review_required": true,
+        "hypotheses": [
+          {
+            "confidence": 0.3,
+            "description": "Potential issue with session cache causing authentication failures.",
+            "label": "session_caching_issue",
+            "status": "active"
+          },
+          {
+            "confidence": 0.3,
+            "description": "Incorrect permission mapping leading to access denials.",
+            "label": "permission_mapping_error",
+            "status": "active"
+          },
+          {
+            "confidence": 0.3,
+            "description": "Tenant configuration mismatch causing authentication problems.",
+            "label": "tenant_misconfiguration",
+            "status": "active"
+          },
+          {
+            "confidence": 0.2,
+            "description": "A recent deployment may have introduced a bug.",
+            "label": "recent_deployment_change",
+            "status": "active"
+          },
+          {
+            "confidence": 0.2,
+            "description": "A recent policy change could be affecting SSO behavior.",
+            "label": "recent_policy_change",
+            "status": "active"
+          }
+        ],
+        "overall_confidence": 0.3,
+        "predicted_category_id": null,
+        "predicted_causal_change_id": null,
+        "predicted_component_id": "CM011",
+        "predicted_product_id": null,
+        "predicted_root_cause_family": null,
+        "predicted_severity": null,
+        "predicted_subcategory_id": null,
+        "product_confidence": null,
+        "rationale": "No observable data was returned from telemetry, change logs, or deployment history for the SSO Broker component, making it impossible to confirm any hypothesis.",
+        "recommended_next_action": "request detailed authentication logs and recent configuration snapshots from the customer",
+        "recommended_team_id": null,
+        "root_cause_confidence": null,
+        "routing_confidence": null,
+        "severity_confidence": null,
+        "unresolved_uncertainties": [
+          "Exact symptoms reported by the customer",
+          "Any error messages or codes observed",
+          "Timing of the issue relative to deployments or policy changes",
+          "Configuration details of the tenant and permissions"
+        ]
+      },
+      "hypotheses": [
+        {
+          "confidence": 0.3,
+          "description": "Potential issue with session cache causing authentication failures.",
+          "label": "session_caching_issue",
+          "status": "active"
+        },
+        {
+          "confidence": 0.3,
+          "description": "Incorrect permission mapping leading to access denials.",
+          "label": "permission_mapping_error",
+          "status": "active"
+        },
+        {
+          "confidence": 0.3,
+          "description": "Tenant configuration mismatch causing authentication problems.",
+          "label": "tenant_misconfiguration",
+          "status": "active"
+        },
+        {
+          "confidence": 0.2,
+          "description": "A recent deployment may have introduced a bug.",
+          "label": "recent_deployment_change",
+          "status": "active"
+        },
+        {
+          "confidence": 0.2,
+          "description": "A recent policy change could be affecting SSO behavior.",
+          "label": "recent_policy_change",
+          "status": "active"
+        }
+      ],
+      "rationale": "No observable data was returned from telemetry, change logs, or deployment history for the SSO Broker component, making it impossible to confirm any hypothesis.",
+      "result_summary": "submitted (forced)",
+      "latency_ms": 22757.1,
+      "status": "ok",
+      "redundant": false
+    }
+  ],
+  "final_diagnosis": {
+    "hypotheses": [
+      {
+        "label": "session_caching_issue",
+        "description": "Potential issue with session cache causing authentication failures.",
+        "confidence": 0.3,
+        "supporting_evidence": [],
+        "contradicting_evidence": [],
+        "status": "active"
+      },
+      {
+        "label": "permission_mapping_error",
+        "description": "Incorrect permission mapping leading to access denials.",
+        "confidence": 0.3,
+        "supporting_evidence": [],
+        "contradicting_evidence": [],
+        "status": "active"
+      },
+      {
+        "label": "tenant_misconfiguration",
+        "description": "Tenant configuration mismatch causing authentication problems.",
+        "confidence": 0.3,
+        "supporting_evidence": [],
+        "contradicting_evidence": [],
+        "status": "active"
+      },
+      {
+        "label": "recent_deployment_change",
+        "description": "A recent deployment may have introduced a bug.",
+        "confidence": 0.2,
+        "supporting_evidence": [],
+        "contradicting_evidence": [],
+        "status": "active"
+      },
+      {
+        "label": "recent_policy_change",
+        "description": "A recent policy change could be affecting SSO behavior.",
+        "confidence": 0.2,
+        "supporting_evidence": [],
+        "contradicting_evidence": [],
+        "status": "active"
+      }
+    ],
+    "rationale": "No observable data was returned from telemetry, change logs, or deployment history for the SSO Broker component, making it impossible to confirm any hypothesis.",
+    "predicted_product_id": null,
+    "product_confidence": null,
+    "predicted_component_id": "CM011",
+    "component_confidence": null,
+    "predicted_category_id": null,
+    "category_confidence": null,
+    "predicted_subcategory_id": null,
+    "predicted_root_cause_family": null,
+    "root_cause_confidence": null,
+    "predicted_causal_change_id": null,
+    "causal_change_confidence": null,
+    "predicted_severity": null,
+    "severity_confidence": null,
+    "recommended_team_id": null,
+    "routing_confidence": null,
+    "evidence_sufficiency": "insufficient",
+    "overall_confidence": 0.3,
+    "recommended_next_action": "request detailed authentication logs and recent configuration snapshots from the customer",
+    "human_review_required": true,
+    "human_review_reason": "Lack of observable evidence prevents a confident diagnosis; further data collection is required.",
+    "evidence_summary": "All queries for telemetry, recent changes, deployment history, and technical signals for component CM011 returned no data. No recent policy or configuration changes were recorded. The case description was not available in the provided context. Consequently, there is no concrete evidence to support any specific root cause.",
+    "unresolved_uncertainties": [
+      "Exact symptoms reported by the customer",
+      "Any error messages or codes observed",
+      "Timing of the issue relative to deployments or policy changes",
+      "Configuration details of the tenant and permissions"
+    ]
+  },
+  "citation_violations": [],
+  "evidence_ids_seen": []
+}

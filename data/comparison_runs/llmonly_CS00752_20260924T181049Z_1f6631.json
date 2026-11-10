@@ -1,0 +1,61 @@
+{
+ "run_id": "llmonly_CS00752_20260924T181049Z_1f6631",
+ "case_id": "CS00752",
+ "created_at": "2026-09-24T18:10:49.274215+00:00",
+ "prompt_version": "llm_only_v1",
+ "model_name": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+ "temperature": 0.1,
+ "ticket_shown_to_model": {
+  "title": "MFA prompts failing and accounts locking in Staging (LATAM)",
+  "description": "We are experiencing a critical issue in our staging environment where the Session Controller is not presenting MFA prompts during login attempts. Consequently, users are being locked out of their accounts after failed attempts without seeing the authentication challenge. This is impacting over 16,000 test users and blocking our release validation. Region is LATAM. Please advise.",
+  "environment": "staging",
+  "region": "LATAM",
+  "priority": "high",
+  "reported_business_impact": "critical",
+  "reported_affected_users": 16312,
+  "created_date": "2026-05-07",
+  "customer_tier": "silver",
+  "customer_industry": "Manufacturing",
+  "customer_company_size": "enterprise",
+  "reported_product_name": "Session Controller",
+  "reported_symptoms": [
+   "MFA prompt not appearing",
+   "account locked out"
+  ]
+ },
+ "n_categories_offered": 18,
+ "n_root_causes_offered": 40,
+ "parsed": {
+  "issue_category": "Identity / Authentication",
+  "root_cause": null,
+  "affected_component": "Session Controller",
+  "causal_change": null,
+  "owning_team": null,
+  "confidence": 0.8,
+  "status": "DIAGNOSIS_PROPOSED",
+  "summary": "The issue appears to be related to the Session Controller not presenting MFA prompts during login attempts, resulting in account lockouts. The root cause is unclear, but it may be related to a product defect, configuration error, or other identity/authentication issue."
+ },
+ "status": "DIAGNOSIS_PROPOSED",
+ "validation_errors": [],
+ "repair_used": false,
+ "llm_calls": [
+  {
+   "attempt": 0,
+   "latency_ms": 72265.7,
+   "finish_reason": "stop",
+   "raw_output": "{\"issue_category\": \"Identity \\/ Authentication\", \"root_cause\": null, \"affected_component\": \"Session Controller\", \"causal_change\": null, \"owning_team\": null, \"confidence\": 0.8, \"status\": \"DIAGNOSIS_PROPOSED\", \"summary\": \"The issue appears to be related to the Session Controller not presenting MFA prompts during login attempts, resulting in account lockouts. The root cause is unclear, but it may be related to a product defect, configuration error, or other identity/authentication issue.\"}"
+  }
+ ],
+ "tokens": {
+  "prompt": 729,
+  "completion": 115,
+  "total": 844
+ },
+ "latency_ms": 72265.7,
+ "wall_ms": 72267.3,
+ "cost_usd_estimate": 0.000743,
+ "tool_calls": 0,
+ "evidence_count": 0,
+ "graph_used": false,
+ "jev_used": false
+}

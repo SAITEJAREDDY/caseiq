@@ -1,0 +1,2453 @@
+{
+ "run_id": "run_CS01684_20260924T051400Z_175b705e",
+ "case_id": "CS01684",
+ "created_at": "2026-09-24T05:14:00.220924+00:00",
+ "run_tag": "verify100_final",
+ "model_provider": "together",
+ "model_name": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+ "temperature": 0.1,
+ "graph_version": "phase4-2500case-2026-09-22",
+ "sim_clock_step_minutes": 15,
+ "max_tool_calls": 10,
+ "max_repeated_same_tool": 2,
+ "max_tool_contract_repairs": 2,
+ "max_final_contract_repairs": 1,
+ "agent_version": "agent_v3_contract_hardened",
+ "contract_version": "agent_contract_v1.1",
+ "prompt_version": "v3.1",
+ "tool_catalog_version": "tool_catalog_v3",
+ "action_schema_version": "action_v3.1",
+ "final_schema_version": "final_diagnosis_v3.1",
+ "registry_version": "observed_registry_v1",
+ "alias_scheme": "agent_alias_v1",
+ "repair_policy_version": "repair_policy_v1",
+ "decoding": "json_schema_strict",
+ "code_digest": "54bbbe51a58dbb43883bd743c2476a93b418373888d06e2cc60c30dc2b1b7cf2",
+ "toolset_version": "tool_catalog_v3",
+ "output_schema_version": "final_diagnosis_v3.1",
+ "agent_loop_version": "agent_v3_contract_hardened",
+ "repair_layer_version": "repair_policy_v1",
+ "approx_cost_usd": 0.002293,
+ "stop_reason": "model_submitted",
+ "num_tool_calls": 10,
+ "num_llm_calls": 10,
+ "token_usage": {
+  "prompt_tokens": 21476,
+  "completion_tokens": 1455,
+  "total_tokens": 22931
+ },
+ "trace_steps": [
+  {
+   "step": 1,
+   "sim_clock": "2025-08-04 00:00:00",
+   "tool_name": "get_case_context",
+   "args": {},
+   "args_alias": {},
+   "hypotheses": [],
+   "hypothesis_state": [],
+   "rationale": "",
+   "result_summary": {
+    "case_id": "CS01684",
+    "title": "Connection failures: TLS errors and DNS lookups failing in ANZ",
+    "description": "We are seeing intermittent connection failures in the ANZ production environment. Our systems are throwing TLS handshake errors and occasional DNS lookup failures when trying to communicate with external services. It is difficult to tell if the issue lies within the Rate Limiter configuration or if it is related to our Object Storage Service endpoints, as both are affected during these windows. We have only 2 users impacted currently, but the error type is confusing.",
+    "environment": "production",
+    "region": "ANZ",
+    "reported_business_impact": "low",
+    "reported_affected_users": 2,
+    "priority": "low",
+    "created_date": "2025-08-04",
+    "status": "resolved",
+    "customer_id": "C04851",
+    "customer_tier": "silver",
+    "customer_industry": "Energy & Utilities",
+    "customer_company_size": "small",
+    "reported_product_id": "P024",
+    "reported_product_name": "Rate Limiter",
+    "reported_symptoms": [
+     "DNS lookup failure",
+     "TLS handshake error"
+    ]
+   },
+   "latency_ms": 0.0,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "harness"
+  },
+  {
+   "step": 2,
+   "sim_clock": "2025-08-04 00:15:00",
+   "tool_name": "get_customer_deployment",
+   "args": {},
+   "args_alias": {},
+   "hypotheses": [
+    "TLS configuration issue:0.2",
+    "DNS resolution issue:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "TLS configuration issue",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    },
+    {
+     "label": "DNS resolution issue",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "deployments": [
+     {
+      "product_id": "P024",
+      "product_name": "Rate Limiter",
+      "version": "2.0",
+      "environment": "production",
+      "region": "ANZ",
+      "status": "active",
+      "deployed_at": "2026-07-23",
+      "product_components": [
+       "CM136",
+       "CM141",
+       "CM142",
+       "CM144",
+       "CM150",
+       "CM154",
+       "CM158",
+       "CM159"
+      ]
+     },
+     {
+      "product_id": "P024",
+      "product_name": "Rate Limiter",
+      "version": "2.0",
+      "environment": "staging",
+      "region": "ANZ",
+      "status": "active",
+      "deployed_at": "2026-05-13",
+      "product_components": [
+       "CM136",
+       "CM141",
+       "CM142",
+       "CM144",
+       "CM150",
+       "CM154",
+       "CM158",
+       "CM159"
+      ]
+     },
+     {
+      "product_id": "P002",
+      "product_name": "SSO Integration Module",
+      "version": "1.7",
+      "environment": "staging",
+      "region": "ANZ",
+      "status": "active",
+      "deployed_at": "2026-02-01",
+      "product_components": [
+       "CM011",
+       "CM019",
+       "CM025",
+       "CM027",
+       "CM031",
+       "CM032",
+       "CM241",
+       "CM246"
+      ]
+     },
+     {
+      "product_id": "P002",
+      "product_name": "SSO Integration Module",
+      "version": "1.7",
+      "environment": "production",
+      "region": "ANZ",
+      "status": "active",
+      "deployed_at": "2025-10-20",
+      "product_components": [
+       "CM011",
+       "CM019",
+       "CM025",
+       "CM027",
+       "CM031",
+       "CM032",
+       "CM241",
+       "CM246"
+      ]
+     }
+    ]
+   },
+   "latency_ms": 4669.4,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 3,
+   "sim_clock": "2025-08-04 00:30:00",
+   "tool_name": "get_technical_signals",
+   "args": {},
+   "args_alias": {},
+   "hypotheses": [
+    "TLS configuration issue:0.2",
+    "DNS resolution issue:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "TLS configuration issue",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    },
+    {
+     "label": "DNS resolution issue",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "signals": [
+     {
+      "evidence_id": "SG0008220",
+      "signal_type": "CLOCK_SKEW_DETECTED",
+      "message": "clock skew detected affecting Report Subscription Service",
+      "timestamp": "2025-08-03 20:05:00",
+      "component_id": "CM119"
+     },
+     {
+      "evidence_id": "SG0008221",
+      "signal_type": "CPU_THROTTLED",
+      "message": "CPU throttling observed on Frontend Session Manager",
+      "timestamp": "2025-08-03 22:39:00",
+      "component_id": "CM187"
+     },
+     {
+      "evidence_id": "SG0008222",
+      "signal_type": "HTTP_429",
+      "message": "HTTP 429 Too Many Requests on Merchant Onboarding Service",
+      "timestamp": "2025-08-03 22:45:00",
+      "component_id": "CM069"
+     },
+     {
+      "evidence_id": "SG0008223",
+      "signal_type": "HEALTH_CHECK_FAILED",
+      "message": "health check failing for Ingress Controller",
+      "timestamp": "2025-08-03 23:09:00",
+      "component_id": "CM164"
+     }
+    ],
+    "count": 4
+   },
+   "latency_ms": 6068.2,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 4,
+   "sim_clock": "2025-08-04 00:45:00",
+   "tool_name": "get_component_topology",
+   "args": {
+    "component_id": "CM119"
+   },
+   "args_alias": {
+    "component": "COMPONENT_FQJ"
+   },
+   "hypotheses": [
+    "TLS configuration issue:0.2",
+    "DNS resolution issue:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "TLS configuration issue",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    },
+    {
+     "label": "DNS resolution issue",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "component_id": "CM119",
+    "component_name": "Report Subscription Service",
+    "upstream_dependencies": [
+     {
+      "name": "Cross-Product Analytics Connector",
+      "id": "CM122"
+     },
+     {
+      "name": "Queue Manager",
+      "id": "CM135"
+     },
+     {
+      "name": "Deep Link Handler",
+      "id": "CM206"
+     },
+     {
+      "name": "Global API Gateway",
+      "id": "CM227"
+     },
+     {
+      "name": "Central Message Queue",
+      "id": "CM241"
+     }
+    ],
+    "downstream_dependents": [
+     {
+      "name": "Refund Service",
+      "id": "CM046"
+     },
+     {
+      "name": "Chargeback Handler",
+      "id": "CM047"
+     },
+     {
+      "name": "Receipt Generator",
+      "id": "CM061"
+     },
+     {
+      "name": "Subscription Plan Catalog",
+      "id": "CM076"
+     },
+     {
+      "name": "Usage Metering Service",
+      "id": "CM077"
+     },
+     {
+      "name": "Credit/Debit Adjustment Service",
+      "id": "CM079"
+     },
+     {
+      "name": "Message Broker",
+      "id": "CM155"
+     },
+     {
+      "name": "Analytics Instrumentation SDK",
+      "id": "CM200"
+     }
+    ],
+    "external_dependencies": [
+     "Payment Processor Network",
+     "SMS Gateway Vendor"
+    ],
+    "owning_teams": [
+     {
+      "name": "Integration",
+      "id": "TM13"
+     },
+     {
+      "name": "Third-Party Vendor Management",
+      "id": "TM23"
+     }
+    ]
+   },
+   "latency_ms": 8400.7,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 5,
+   "sim_clock": "2025-08-04 01:00:00",
+   "tool_name": "get_technical_signals",
+   "args": {
+    "component_id": "CM154"
+   },
+   "args_alias": {
+    "component": "COMPONENT_BLZ"
+   },
+   "hypotheses": [
+    "TLS configuration issue:0.2",
+    "DNS resolution issue:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "TLS configuration issue",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    },
+    {
+     "label": "DNS resolution issue",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "signals": [],
+    "count": 0
+   },
+   "latency_ms": 4177.4,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 6,
+   "sim_clock": "2025-08-04 01:15:00",
+   "tool_name": "get_recent_changes",
+   "args": {
+    "component_id": "CM154"
+   },
+   "args_alias": {
+    "component": "COMPONENT_BLZ"
+   },
+   "hypotheses": [
+    "TLS configuration issue:0.2",
+    "DNS resolution issue:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "TLS configuration issue",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    },
+    {
+     "label": "DNS resolution issue",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "recent_changes": [],
+    "count": 0
+   },
+   "latency_ms": 34810.2,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 7,
+   "sim_clock": "2025-08-04 01:30:00",
+   "tool_name": "get_deployment_history",
+   "args": {
+    "component_id": "CM154"
+   },
+   "args_alias": {
+    "component": "COMPONENT_BLZ"
+   },
+   "hypotheses": [
+    "TLS configuration issue:0.2",
+    "DNS resolution issue:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "TLS configuration issue",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    },
+    {
+     "label": "DNS resolution issue",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "deployments": [],
+    "count": 0
+   },
+   "latency_ms": 4431.7,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 8,
+   "sim_clock": "2025-08-04 01:45:00",
+   "tool_name": "get_service_health",
+   "args": {
+    "component_id": "CM154"
+   },
+   "args_alias": {
+    "component": "COMPONENT_BLZ"
+   },
+   "hypotheses": [
+    "TLS configuration issue:0.2",
+    "DNS resolution issue:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "TLS configuration issue",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    },
+    {
+     "label": "DNS resolution issue",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "health_events": [
+     {
+      "evidence_id": "SHE03113",
+      "started_at": "2025-07-18 18:18:00",
+      "ended_at": "2025-07-18 19:18:00",
+      "severity": "minor",
+      "description": "Automated health check flagged Object Storage Service as degraded (minor) for 60 minutes."
+     },
+     {
+      "evidence_id": "SHE03107",
+      "started_at": "2025-05-10 10:38:00",
+      "ended_at": "2025-05-10 11:08:00",
+      "severity": "minor",
+      "description": "Transient minor availability dip on Object Storage Service, recovered within 30 minutes."
+     },
+     {
+      "evidence_id": "SHE03102",
+      "started_at": "2025-04-13 15:11:00",
+      "ended_at": "2025-04-13 15:16:00",
+      "severity": "minor",
+      "description": "Brief minor health blip on Object Storage Service: elevated error rate for 5 minutes."
+     },
+     {
+      "evidence_id": "SHE03101",
+      "started_at": "2025-03-14 04:59:00",
+      "ended_at": "2025-03-14 05:29:00",
+      "severity": "minor",
+      "description": "Brief minor health blip on Object Storage Service: elevated error rate for 30 minutes."
+     },
+     {
+      "evidence_id": "SHE03118",
+      "started_at": "2025-02-22 05:04:00",
+      "ended_at": "2025-02-22 05:24:00",
+      "severity": "major",
+      "description": "Brief major health blip on Object Storage Service: elevated error rate for 20 minutes."
+     },
+     {
+      "evidence_id": "SHE03116",
+      "started_at": "2025-02-09 16:14:00",
+      "ended_at": "2025-02-09 16:59:00",
+      "severity": "minor",
+      "description": "Automated health check flagged Object Storage Service as degraded (minor) for 45 minutes."
+     }
+    ],
+    "count": 6
+   },
+   "latency_ms": 5992.4,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 9,
+   "sim_clock": "2025-08-04 02:00:00",
+   "tool_name": "get_component_topology",
+   "args": {
+    "component_id": "CM154"
+   },
+   "args_alias": {
+    "component": "COMPONENT_BLZ"
+   },
+   "hypotheses": [
+    "TLS configuration issue:0.2",
+    "DNS resolution issue:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "TLS configuration issue",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    },
+    {
+     "label": "DNS resolution issue",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": {
+    "component_id": "CM154",
+    "component_name": "Object Storage Service",
+    "upstream_dependencies": [],
+    "downstream_dependents": [
+     {
+      "name": "Reconciliation Engine",
+      "id": "CM052"
+     },
+     {
+      "name": "Subscription Billing Engine",
+      "id": "CM055"
+     },
+     {
+      "name": "Wallet Service",
+      "id": "CM059"
+     },
+     {
+      "name": "Revenue Recognition Engine",
+      "id": "CM068"
+     },
+     {
+      "name": "Ingestion Service",
+      "id": "CM089"
+     },
+     {
+      "name": "Export Service",
+      "id": "CM092"
+     },
+     {
+      "name": "Aggregation Engine",
+      "id": "CM097"
+     },
+     {
+      "name": "Metrics Collector",
+      "id": "CM104"
+     },
+     {
+      "name": "Alerting Engine",
+      "id": "CM105"
+     },
+     {
+      "name": "Data Retention Manager",
+      "id": "CM111"
+     },
+     {
+      "name": "Anomaly Detection Engine",
+      "id": "CM116"
+     },
+     {
+      "name": "Data Pipeline Orchestrator",
+      "id": "CM121"
+     },
+     {
+      "name": "Infra API Gateway",
+      "id": "CM131"
+     },
+     {
+      "name": "Log Aggregator",
+      "id": "CM145"
+     },
+     {
+      "name": "Offline Sync Cache",
+      "id": "CM197"
+     },
+     {
+      "name": "Rate-Limited Sender Pool",
+      "id": "CM222"
+     },
+     {
+      "name": "Suppression List Manager",
+      "id": "CM225"
+     },
+     {
+      "name": "Central Billing Ledger",
+      "id": "CM249"
+     }
+    ],
+    "external_dependencies": [],
+    "owning_teams": [
+     {
+      "name": "Database",
+      "id": "TM06"
+     },
+     {
+      "name": "Storage",
+      "id": "TM09"
+     }
+    ]
+   },
+   "latency_ms": 4138.6,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  },
+  {
+   "step": 10,
+   "sim_clock": "2025-08-04 02:15:00",
+   "tool_name": "submit_diagnosis",
+   "args": {},
+   "args_alias": {},
+   "hypotheses": [
+    "TLS configuration issue:0.2",
+    "DNS resolution issue:0.2"
+   ],
+   "hypothesis_state": [
+    {
+     "label": "TLS configuration issue",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    },
+    {
+     "label": "DNS resolution issue",
+     "confidence": 0.2,
+     "status": "active",
+     "supporting_evidence": [],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "result_summary": "submitted",
+   "latency_ms": 52219.1,
+   "status": "ok",
+   "redundant": false,
+   "proposed_by": "model"
+  }
+ ],
+ "final_diagnosis": {
+  "hypotheses": [
+   {
+    "label": "TLS configuration issue",
+    "description": "",
+    "confidence": 0.2,
+    "status": "active",
+    "supporting_evidence": [],
+    "contradicting_evidence": []
+   },
+   {
+    "label": "DNS resolution issue",
+    "description": "",
+    "confidence": 0.2,
+    "status": "active",
+    "supporting_evidence": [],
+    "contradicting_evidence": []
+   }
+  ],
+  "rationale": "",
+  "predicted_product_id": null,
+  "product_confidence": null,
+  "predicted_component_id": null,
+  "component_confidence": null,
+  "predicted_category_id": null,
+  "category_confidence": null,
+  "predicted_subcategory_id": null,
+  "predicted_root_cause_family": null,
+  "root_cause_confidence": null,
+  "predicted_causal_change_id": null,
+  "causal_change_confidence": null,
+  "predicted_severity": null,
+  "severity_confidence": null,
+  "recommended_team_id": null,
+  "routing_confidence": null,
+  "evidence_sufficiency": "insufficient",
+  "overall_confidence": 0.2,
+  "recommended_next_action": "Gather more evidence and perform further investigation to determine the root cause of the issue.",
+  "human_review_required": true,
+  "human_review_reason": "The evidence collected does not provide a clear indication of the root cause of the issue, and further investigation is required to determine the cause of the\u8fde\u63a5",
+  "evidence_summary": "The case report indicates intermittent connection failures in the ANZ production environment, with TLS handshake errors and occasional DNS lookup failures. The evidence collected does not provide a clear indication of the root cause of the issue.",
+  "unresolved_uncertainties": [
+   "The root cause of the TLS configuration issue and DNS resolution issue is still unknown."
+  ],
+  "status": "INSUFFICIENT_EVIDENCE",
+  "evidence_ids": [
+   "SG0008220",
+   "SG0008221",
+   "SG0008222",
+   "SG0008223",
+   "SHE03113",
+   "SHE03107",
+   "SHE03102",
+   "SHE03101",
+   "SHE03118",
+   "SHE03116"
+  ]
+ },
+ "final_status": "INSUFFICIENT_EVIDENCE",
+ "final_alias_form": {
+  "hypotheses": [
+   {
+    "label": "TLS configuration issue",
+    "confidence": 0.2,
+    "status": "active",
+    "supporting_evidence": [],
+    "contradicting_evidence": []
+   },
+   {
+    "label": "DNS resolution issue",
+    "confidence": 0.2,
+    "status": "active",
+    "supporting_evidence": [],
+    "contradicting_evidence": []
+   }
+  ],
+  "evidence_ids": [
+   "EVIDENCE_SMJ",
+   "EVIDENCE_HGL",
+   "EVIDENCE_DTH",
+   "EVIDENCE_QXM",
+   "EVIDENCE_LTN",
+   "EVIDENCE_VHL",
+   "EVIDENCE_FNN",
+   "EVIDENCE_PLG",
+   "EVIDENCE_TMC",
+   "EVIDENCE_PLN"
+  ],
+  "issue_category": null,
+  "category_confidence": null,
+  "root_cause": null,
+  "root_cause_confidence": null,
+  "affected_component": null,
+  "component_confidence": null,
+  "causal_change": null,
+  "causal_change_confidence": null,
+  "owning_team": null,
+  "routing_confidence": null,
+  "confidence": 0.2,
+  "evidence_sufficiency": "insufficient",
+  "human_review_required": true,
+  "review_reason": "The evidence collected does not provide a clear indication of the root cause of the issue, and further investigation is required to determine the cause of the\u8fde\u63a5",
+  "status": "INSUFFICIENT_EVIDENCE",
+  "recommended_next_action": "Gather more evidence and perform further investigation to determine the root cause of the issue.",
+  "unresolved_uncertainties": [
+   "The root cause of the TLS configuration issue and DNS resolution issue is still unknown."
+  ],
+  "summary": "The case report indicates intermittent connection failures in the ANZ production environment, with TLS handshake errors and occasional DNS lookup failures. The evidence collected does not provide a clear indication of the root cause of the issue."
+ },
+ "citation_violations": [],
+ "evidence_ids_seen": [
+  "SG0008220",
+  "SG0008221",
+  "SG0008222",
+  "SG0008223",
+  "SHE03101",
+  "SHE03102",
+  "SHE03107",
+  "SHE03113",
+  "SHE03116",
+  "SHE03118"
+ ],
+ "repair_events": [],
+ "tool_proposals": 9,
+ "tool_contract_errors": [],
+ "tool_contract_repairs": [],
+ "final_contract_errors": [],
+ "final_contract_repair": null,
+ "registry_snapshots": [
+  {
+   "step": 1,
+   "n_entities": 59,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 1
+   },
+   "aliases_sha256_16": "66745fd1fbf5b91c"
+  },
+  {
+   "step": 2,
+   "n_entities": 76,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 2,
+    "COMPONENT": 16
+   },
+   "aliases_sha256_16": "81c4d43f0e92f79d"
+  },
+  {
+   "step": 3,
+   "n_entities": 84,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 2,
+    "COMPONENT": 20,
+    "EVIDENCE": 4
+   },
+   "aliases_sha256_16": "430af0a4ba1773e0"
+  },
+  {
+   "step": 4,
+   "n_entities": 98,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 2,
+    "COMPONENT": 32,
+    "EVIDENCE": 4,
+    "TEAM": 2
+   },
+   "aliases_sha256_16": "f749f3dc9342c84c"
+  },
+  {
+   "step": 5,
+   "n_entities": 98,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 2,
+    "COMPONENT": 32,
+    "EVIDENCE": 4,
+    "TEAM": 2
+   },
+   "aliases_sha256_16": "f749f3dc9342c84c"
+  },
+  {
+   "step": 6,
+   "n_entities": 98,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 2,
+    "COMPONENT": 32,
+    "EVIDENCE": 4,
+    "TEAM": 2
+   },
+   "aliases_sha256_16": "f749f3dc9342c84c"
+  },
+  {
+   "step": 7,
+   "n_entities": 98,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 2,
+    "COMPONENT": 32,
+    "EVIDENCE": 4,
+    "TEAM": 2
+   },
+   "aliases_sha256_16": "f749f3dc9342c84c"
+  },
+  {
+   "step": 8,
+   "n_entities": 104,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 2,
+    "COMPONENT": 32,
+    "EVIDENCE": 10,
+    "TEAM": 2
+   },
+   "aliases_sha256_16": "fcfdb55deeddfe4a"
+  },
+  {
+   "step": 9,
+   "n_entities": 124,
+   "counts": {
+    "CATEGORY": 18,
+    "CAUSE": 40,
+    "PRODUCT": 2,
+    "COMPONENT": 50,
+    "EVIDENCE": 10,
+    "TEAM": 4
+   },
+   "aliases_sha256_16": "c0946467e5a64aa3"
+  }
+ ],
+ "alias_mappings": {
+  "CATEGORY_PSG": {
+   "alias": "CATEGORY_PSG",
+   "canonical_id": "IC01",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Identity / Authentication",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-04 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_FQG": {
+   "alias": "CATEGORY_FQG",
+   "canonical_id": "IC02",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Authorization / Permissions",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-04 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_CCT": {
+   "alias": "CATEGORY_CCT",
+   "canonical_id": "IC03",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Networking / Connectivity",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-04 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_TDT": {
+   "alias": "CATEGORY_TDT",
+   "canonical_id": "IC04",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Performance / Latency",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-04 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_TTW": {
+   "alias": "CATEGORY_TTW",
+   "canonical_id": "IC05",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Reliability / Availability",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-04 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_WQH": {
+   "alias": "CATEGORY_WQH",
+   "canonical_id": "IC06",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Deployment / Upgrade",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-04 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_CZK": {
+   "alias": "CATEGORY_CZK",
+   "canonical_id": "IC07",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Configuration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-04 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_SRV": {
+   "alias": "CATEGORY_SRV",
+   "canonical_id": "IC08",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Data / Corruption",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-04 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_GNL": {
+   "alias": "CATEGORY_GNL",
+   "canonical_id": "IC09",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Integration / API",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-04 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_XXZ": {
+   "alias": "CATEGORY_XXZ",
+   "canonical_id": "IC10",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Provisioning / Onboarding",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-04 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_HNZ": {
+   "alias": "CATEGORY_HNZ",
+   "canonical_id": "IC11",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Security",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-04 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_NGQ": {
+   "alias": "CATEGORY_NGQ",
+   "canonical_id": "IC12",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Compliance",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-04 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_MSX": {
+   "alias": "CATEGORY_MSX",
+   "canonical_id": "IC13",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Billing / Commerce",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-04 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_MKX": {
+   "alias": "CATEGORY_MKX",
+   "canonical_id": "IC14",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "User Experience / Functional Defect",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-04 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_RTX": {
+   "alias": "CATEGORY_RTX",
+   "canonical_id": "IC15",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Storage / Database",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-04 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_DLL": {
+   "alias": "CATEGORY_DLL",
+   "canonical_id": "IC16",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Capacity / Scaling",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-04 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_TSD": {
+   "alias": "CATEGORY_TSD",
+   "canonical_id": "IC17",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Third-Party / Dependency",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-04 00:00:00",
+   "summary": ""
+  },
+  "CATEGORY_KTM": {
+   "alias": "CATEGORY_KTM",
+   "canonical_id": "IC18",
+   "kind": "CATEGORY",
+   "type": "issue_category",
+   "display_name": "Unknown / Other",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_BQR": {
+   "alias": "CAUSE_BQR",
+   "canonical_id": "RC01",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "product defect",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_KNL": {
+   "alias": "CAUSE_KNL",
+   "canonical_id": "RC02",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "customer configuration error",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_KSD": {
+   "alias": "CAUSE_KSD",
+   "canonical_id": "RC03",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "incorrect permissions",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_FJH": {
+   "alias": "CAUSE_FJH",
+   "canonical_id": "RC04",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "policy misconfiguration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_DTJ": {
+   "alias": "CAUSE_DTJ",
+   "canonical_id": "RC05",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "expired certificate",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_CMW": {
+   "alias": "CAUSE_CMW",
+   "canonical_id": "RC06",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "version incompatibility",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_VQQ": {
+   "alias": "CAUSE_VQQ",
+   "canonical_id": "RC07",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "dependency failure",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_QMC": {
+   "alias": "CAUSE_QMC",
+   "canonical_id": "RC08",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "network configuration error",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_DGB": {
+   "alias": "CAUSE_DGB",
+   "canonical_id": "RC09",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "resource exhaustion",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_TXD": {
+   "alias": "CAUSE_TXD",
+   "canonical_id": "RC10",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "database contention",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_WDV": {
+   "alias": "CAUSE_WDV",
+   "canonical_id": "RC11",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "bad deployment",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_JMK": {
+   "alias": "CAUSE_JMK",
+   "canonical_id": "RC12",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "incomplete migration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_BRL": {
+   "alias": "CAUSE_BRL",
+   "canonical_id": "RC13",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "stale cache",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_LDN": {
+   "alias": "CAUSE_LDN",
+   "canonical_id": "RC14",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "third-party service failure",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_NSK": {
+   "alias": "CAUSE_NSK",
+   "canonical_id": "RC15",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "unsupported configuration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_NPN": {
+   "alias": "CAUSE_NPN",
+   "canonical_id": "RC16",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "incorrect DNS configuration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_LZW": {
+   "alias": "CAUSE_LZW",
+   "canonical_id": "RC17",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "data quality issue",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_KNH": {
+   "alias": "CAUSE_KNH",
+   "canonical_id": "RC18",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "operator error",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_SBS": {
+   "alias": "CAUSE_SBS",
+   "canonical_id": "RC19",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "capacity limitation",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_FGV": {
+   "alias": "CAUSE_FGV",
+   "canonical_id": "RC20",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "known product limitation",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_CLS": {
+   "alias": "CAUSE_CLS",
+   "canonical_id": "RC21",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "race condition",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_ZBK": {
+   "alias": "CAUSE_ZBK",
+   "canonical_id": "RC22",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "identity provider outage",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_CXN": {
+   "alias": "CAUSE_CXN",
+   "canonical_id": "RC23",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "token expiration handling bug",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_LCQ": {
+   "alias": "CAUSE_LCQ",
+   "canonical_id": "RC24",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "insufficient monitoring/alerting",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_FHR": {
+   "alias": "CAUSE_FHR",
+   "canonical_id": "RC25",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "incorrect load balancer routing",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_JSQ": {
+   "alias": "CAUSE_JSQ",
+   "canonical_id": "RC26",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "firewall misconfiguration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_PNS": {
+   "alias": "CAUSE_PNS",
+   "canonical_id": "RC27",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "schema mismatch",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_LLG": {
+   "alias": "CAUSE_LLG",
+   "canonical_id": "RC28",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "breaking API contract change",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_SNP": {
+   "alias": "CAUSE_SNP",
+   "canonical_id": "RC29",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "credential rotation not propagated",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_XJT": {
+   "alias": "CAUSE_XJT",
+   "canonical_id": "RC30",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "stale internal documentation followed",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_XNP": {
+   "alias": "CAUSE_XNP",
+   "canonical_id": "RC31",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "incomplete rollback",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_HDV": {
+   "alias": "CAUSE_HDV",
+   "canonical_id": "RC32",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "infrastructure hardware failure",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_FRF": {
+   "alias": "CAUSE_FRF",
+   "canonical_id": "RC33",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "rate limit misconfiguration",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_JZJ": {
+   "alias": "CAUSE_JZJ",
+   "canonical_id": "RC34",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "insufficient capacity planning",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_QDH": {
+   "alias": "CAUSE_QDH",
+   "canonical_id": "RC35",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "data migration defect",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_NRZ": {
+   "alias": "CAUSE_NRZ",
+   "canonical_id": "RC36",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "improper access review",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_DQS": {
+   "alias": "CAUSE_DQS",
+   "canonical_id": "RC37",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "expired API key",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_LNF": {
+   "alias": "CAUSE_LNF",
+   "canonical_id": "RC38",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "clock/time synchronization issue",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_VWQ": {
+   "alias": "CAUSE_VWQ",
+   "canonical_id": "RC39",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "idempotency/duplicate-processing failure",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-04 00:00:00",
+   "summary": ""
+  },
+  "CAUSE_ZZR": {
+   "alias": "CAUSE_ZZR",
+   "canonical_id": "RC40",
+   "kind": "CAUSE",
+   "type": "root_cause",
+   "display_name": "insufficient information to determine root cause",
+   "source_tool": "taxonomy",
+   "first_observed_step": 0,
+   "first_observed_clock": "2025-08-04 00:00:00",
+   "summary": ""
+  },
+  "PRODUCT_CMS": {
+   "alias": "PRODUCT_CMS",
+   "canonical_id": "P024",
+   "kind": "PRODUCT",
+   "type": "product",
+   "display_name": "Rate Limiter",
+   "source_tool": "get_case_context",
+   "first_observed_step": 1,
+   "first_observed_clock": "2025-08-04 00:00:00",
+   "summary": ""
+  },
+  "COMPONENT_NTR": {
+   "alias": "COMPONENT_NTR",
+   "canonical_id": "CM136",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Config Management Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-04 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_MKH": {
+   "alias": "COMPONENT_MKH",
+   "canonical_id": "CM141",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Autoscaler",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-04 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_JZN": {
+   "alias": "COMPONENT_JZN",
+   "canonical_id": "CM142",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Circuit Breaker",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-04 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_XGB": {
+   "alias": "COMPONENT_XGB",
+   "canonical_id": "CM144",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Service Registry",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-04 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_QQK": {
+   "alias": "COMPONENT_QQK",
+   "canonical_id": "CM150",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Backup & Restore Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-04 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_BLZ": {
+   "alias": "COMPONENT_BLZ",
+   "canonical_id": "CM154",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Object Storage Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-04 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_TWX": {
+   "alias": "COMPONENT_TWX",
+   "canonical_id": "CM158",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Secrets Rotation Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-04 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_SCR": {
+   "alias": "COMPONENT_SCR",
+   "canonical_id": "CM159",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "VPN Gateway",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-04 00:15:00",
+   "summary": ""
+  },
+  "PRODUCT_ZDD": {
+   "alias": "PRODUCT_ZDD",
+   "canonical_id": "P002",
+   "kind": "PRODUCT",
+   "type": "product",
+   "display_name": "SSO Integration Module",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-04 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_XGN": {
+   "alias": "COMPONENT_XGN",
+   "canonical_id": "CM011",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "SSO Broker",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-04 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_RZM": {
+   "alias": "COMPONENT_RZM",
+   "canonical_id": "CM019",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Account Recovery Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-04 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_PQM": {
+   "alias": "COMPONENT_PQM",
+   "canonical_id": "CM025",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Social Login Connector",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-04 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_BSZ": {
+   "alias": "COMPONENT_BSZ",
+   "canonical_id": "CM027",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "OAuth Authorization Server",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-04 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_RCN": {
+   "alias": "COMPONENT_RCN",
+   "canonical_id": "CM031",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Identity Lifecycle Manager",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-04 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_WQJ": {
+   "alias": "COMPONENT_WQJ",
+   "canonical_id": "CM032",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Group Sync Service",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-04 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_FGS": {
+   "alias": "COMPONENT_FGS",
+   "canonical_id": "CM241",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Central Message Queue",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-04 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_RGL": {
+   "alias": "COMPONENT_RGL",
+   "canonical_id": "CM246",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Central Identity Vault",
+   "source_tool": "get_customer_deployment",
+   "first_observed_step": 2,
+   "first_observed_clock": "2025-08-04 00:15:00",
+   "summary": ""
+  },
+  "COMPONENT_FQJ": {
+   "alias": "COMPONENT_FQJ",
+   "canonical_id": "CM119",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Report Subscription Service",
+   "source_tool": "get_technical_signals",
+   "first_observed_step": 3,
+   "first_observed_clock": "2025-08-04 00:30:00",
+   "summary": ""
+  },
+  "EVIDENCE_SMJ": {
+   "alias": "EVIDENCE_SMJ",
+   "canonical_id": "SG0008220",
+   "kind": "EVIDENCE",
+   "type": "signal",
+   "display_name": "",
+   "source_tool": "get_technical_signals",
+   "first_observed_step": 3,
+   "first_observed_clock": "2025-08-04 00:30:00",
+   "summary": "CLOCK_SKEW_DETECTED: clock skew detected affecting Report Subscription Service on COMPONENT_FQJ @ 2025-08-03 20:05:00"
+  },
+  "COMPONENT_HZZ": {
+   "alias": "COMPONENT_HZZ",
+   "canonical_id": "CM187",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Frontend Session Manager",
+   "source_tool": "get_technical_signals",
+   "first_observed_step": 3,
+   "first_observed_clock": "2025-08-04 00:30:00",
+   "summary": ""
+  },
+  "EVIDENCE_HGL": {
+   "alias": "EVIDENCE_HGL",
+   "canonical_id": "SG0008221",
+   "kind": "EVIDENCE",
+   "type": "signal",
+   "display_name": "",
+   "source_tool": "get_technical_signals",
+   "first_observed_step": 3,
+   "first_observed_clock": "2025-08-04 00:30:00",
+   "summary": "CPU_THROTTLED: CPU throttling observed on Frontend Session Manager on COMPONENT_HZZ @ 2025-08-03 22:39:00"
+  },
+  "COMPONENT_GVQ": {
+   "alias": "COMPONENT_GVQ",
+   "canonical_id": "CM069",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Merchant Onboarding Service",
+   "source_tool": "get_technical_signals",
+   "first_observed_step": 3,
+   "first_observed_clock": "2025-08-04 00:30:00",
+   "summary": ""
+  },
+  "EVIDENCE_DTH": {
+   "alias": "EVIDENCE_DTH",
+   "canonical_id": "SG0008222",
+   "kind": "EVIDENCE",
+   "type": "signal",
+   "display_name": "",
+   "source_tool": "get_technical_signals",
+   "first_observed_step": 3,
+   "first_observed_clock": "2025-08-04 00:30:00",
+   "summary": "HTTP_429: HTTP 429 Too Many Requests on Merchant Onboarding Service on COMPONENT_GVQ @ 2025-08-03 22:45:00"
+  },
+  "COMPONENT_BNS": {
+   "alias": "COMPONENT_BNS",
+   "canonical_id": "CM164",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Ingress Controller",
+   "source_tool": "get_technical_signals",
+   "first_observed_step": 3,
+   "first_observed_clock": "2025-08-04 00:30:00",
+   "summary": ""
+  },
+  "EVIDENCE_QXM": {
+   "alias": "EVIDENCE_QXM",
+   "canonical_id": "SG0008223",
+   "kind": "EVIDENCE",
+   "type": "signal",
+   "display_name": "",
+   "source_tool": "get_technical_signals",
+   "first_observed_step": 3,
+   "first_observed_clock": "2025-08-04 00:30:00",
+   "summary": "HEALTH_CHECK_FAILED: health check failing for Ingress Controller on COMPONENT_BNS @ 2025-08-03 23:09:00"
+  },
+  "COMPONENT_JVQ": {
+   "alias": "COMPONENT_JVQ",
+   "canonical_id": "CM122",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Cross-Product Analytics Connector",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 4,
+   "first_observed_clock": "2025-08-04 00:45:00",
+   "summary": ""
+  },
+  "COMPONENT_XFF": {
+   "alias": "COMPONENT_XFF",
+   "canonical_id": "CM135",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Queue Manager",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 4,
+   "first_observed_clock": "2025-08-04 00:45:00",
+   "summary": ""
+  },
+  "COMPONENT_GWF": {
+   "alias": "COMPONENT_GWF",
+   "canonical_id": "CM206",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Deep Link Handler",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 4,
+   "first_observed_clock": "2025-08-04 00:45:00",
+   "summary": ""
+  },
+  "COMPONENT_KCF": {
+   "alias": "COMPONENT_KCF",
+   "canonical_id": "CM227",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Global API Gateway",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 4,
+   "first_observed_clock": "2025-08-04 00:45:00",
+   "summary": ""
+  },
+  "COMPONENT_XKC": {
+   "alias": "COMPONENT_XKC",
+   "canonical_id": "CM046",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Refund Service",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 4,
+   "first_observed_clock": "2025-08-04 00:45:00",
+   "summary": ""
+  },
+  "COMPONENT_MLT": {
+   "alias": "COMPONENT_MLT",
+   "canonical_id": "CM047",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Chargeback Handler",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 4,
+   "first_observed_clock": "2025-08-04 00:45:00",
+   "summary": ""
+  },
+  "COMPONENT_VMH": {
+   "alias": "COMPONENT_VMH",
+   "canonical_id": "CM061",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Receipt Generator",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 4,
+   "first_observed_clock": "2025-08-04 00:45:00",
+   "summary": ""
+  },
+  "COMPONENT_KMG": {
+   "alias": "COMPONENT_KMG",
+   "canonical_id": "CM076",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Subscription Plan Catalog",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 4,
+   "first_observed_clock": "2025-08-04 00:45:00",
+   "summary": ""
+  },
+  "COMPONENT_HKS": {
+   "alias": "COMPONENT_HKS",
+   "canonical_id": "CM077",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Usage Metering Service",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 4,
+   "first_observed_clock": "2025-08-04 00:45:00",
+   "summary": ""
+  },
+  "COMPONENT_BZF": {
+   "alias": "COMPONENT_BZF",
+   "canonical_id": "CM079",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Credit/Debit Adjustment Service",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 4,
+   "first_observed_clock": "2025-08-04 00:45:00",
+   "summary": ""
+  },
+  "COMPONENT_NJR": {
+   "alias": "COMPONENT_NJR",
+   "canonical_id": "CM155",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Message Broker",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 4,
+   "first_observed_clock": "2025-08-04 00:45:00",
+   "summary": ""
+  },
+  "COMPONENT_CJS": {
+   "alias": "COMPONENT_CJS",
+   "canonical_id": "CM200",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Analytics Instrumentation SDK",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 4,
+   "first_observed_clock": "2025-08-04 00:45:00",
+   "summary": ""
+  },
+  "TEAM_KRL": {
+   "alias": "TEAM_KRL",
+   "canonical_id": "TM13",
+   "kind": "TEAM",
+   "type": "team",
+   "display_name": "Integration",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 4,
+   "first_observed_clock": "2025-08-04 00:45:00",
+   "summary": ""
+  },
+  "TEAM_QSC": {
+   "alias": "TEAM_QSC",
+   "canonical_id": "TM23",
+   "kind": "TEAM",
+   "type": "team",
+   "display_name": "Third-Party Vendor Management",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 4,
+   "first_observed_clock": "2025-08-04 00:45:00",
+   "summary": ""
+  },
+  "EVIDENCE_LTN": {
+   "alias": "EVIDENCE_LTN",
+   "canonical_id": "SHE03113",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 8,
+   "first_observed_clock": "2025-08-04 01:45:00",
+   "summary": "health event severity minor 2025-07-18 18:18:00..2025-07-18 19:18:00: Automated health check flagged Object Storage Service as degraded (minor) for 60 minutes."
+  },
+  "EVIDENCE_VHL": {
+   "alias": "EVIDENCE_VHL",
+   "canonical_id": "SHE03107",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 8,
+   "first_observed_clock": "2025-08-04 01:45:00",
+   "summary": "health event severity minor 2025-05-10 10:38:00..2025-05-10 11:08:00: Transient minor availability dip on Object Storage Service, recovered within 30 minutes."
+  },
+  "EVIDENCE_FNN": {
+   "alias": "EVIDENCE_FNN",
+   "canonical_id": "SHE03102",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 8,
+   "first_observed_clock": "2025-08-04 01:45:00",
+   "summary": "health event severity minor 2025-04-13 15:11:00..2025-04-13 15:16:00: Brief minor health blip on Object Storage Service: elevated error rate for 5 minutes."
+  },
+  "EVIDENCE_PLG": {
+   "alias": "EVIDENCE_PLG",
+   "canonical_id": "SHE03101",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 8,
+   "first_observed_clock": "2025-08-04 01:45:00",
+   "summary": "health event severity minor 2025-03-14 04:59:00..2025-03-14 05:29:00: Brief minor health blip on Object Storage Service: elevated error rate for 30 minutes."
+  },
+  "EVIDENCE_TMC": {
+   "alias": "EVIDENCE_TMC",
+   "canonical_id": "SHE03118",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 8,
+   "first_observed_clock": "2025-08-04 01:45:00",
+   "summary": "health event severity major 2025-02-22 05:04:00..2025-02-22 05:24:00: Brief major health blip on Object Storage Service: elevated error rate for 20 minutes."
+  },
+  "EVIDENCE_PLN": {
+   "alias": "EVIDENCE_PLN",
+   "canonical_id": "SHE03116",
+   "kind": "EVIDENCE",
+   "type": "health_event",
+   "display_name": "",
+   "source_tool": "get_service_health",
+   "first_observed_step": 8,
+   "first_observed_clock": "2025-08-04 01:45:00",
+   "summary": "health event severity minor 2025-02-09 16:14:00..2025-02-09 16:59:00: Automated health check flagged Object Storage Service as degraded (minor) for 45 minutes."
+  },
+  "COMPONENT_TDK": {
+   "alias": "COMPONENT_TDK",
+   "canonical_id": "CM052",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Reconciliation Engine",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 9,
+   "first_observed_clock": "2025-08-04 02:00:00",
+   "summary": ""
+  },
+  "COMPONENT_FJS": {
+   "alias": "COMPONENT_FJS",
+   "canonical_id": "CM055",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Subscription Billing Engine",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 9,
+   "first_observed_clock": "2025-08-04 02:00:00",
+   "summary": ""
+  },
+  "COMPONENT_RNG": {
+   "alias": "COMPONENT_RNG",
+   "canonical_id": "CM059",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Wallet Service",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 9,
+   "first_observed_clock": "2025-08-04 02:00:00",
+   "summary": ""
+  },
+  "COMPONENT_NRV": {
+   "alias": "COMPONENT_NRV",
+   "canonical_id": "CM068",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Revenue Recognition Engine",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 9,
+   "first_observed_clock": "2025-08-04 02:00:00",
+   "summary": ""
+  },
+  "COMPONENT_HFL": {
+   "alias": "COMPONENT_HFL",
+   "canonical_id": "CM089",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Ingestion Service",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 9,
+   "first_observed_clock": "2025-08-04 02:00:00",
+   "summary": ""
+  },
+  "COMPONENT_ZGB": {
+   "alias": "COMPONENT_ZGB",
+   "canonical_id": "CM092",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Export Service",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 9,
+   "first_observed_clock": "2025-08-04 02:00:00",
+   "summary": ""
+  },
+  "COMPONENT_HMP": {
+   "alias": "COMPONENT_HMP",
+   "canonical_id": "CM097",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Aggregation Engine",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 9,
+   "first_observed_clock": "2025-08-04 02:00:00",
+   "summary": ""
+  },
+  "COMPONENT_RDK": {
+   "alias": "COMPONENT_RDK",
+   "canonical_id": "CM104",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Metrics Collector",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 9,
+   "first_observed_clock": "2025-08-04 02:00:00",
+   "summary": ""
+  },
+  "COMPONENT_WCN": {
+   "alias": "COMPONENT_WCN",
+   "canonical_id": "CM105",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Alerting Engine",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 9,
+   "first_observed_clock": "2025-08-04 02:00:00",
+   "summary": ""
+  },
+  "COMPONENT_ZJZ": {
+   "alias": "COMPONENT_ZJZ",
+   "canonical_id": "CM111",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Data Retention Manager",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 9,
+   "first_observed_clock": "2025-08-04 02:00:00",
+   "summary": ""
+  },
+  "COMPONENT_FJP": {
+   "alias": "COMPONENT_FJP",
+   "canonical_id": "CM116",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Anomaly Detection Engine",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 9,
+   "first_observed_clock": "2025-08-04 02:00:00",
+   "summary": ""
+  },
+  "COMPONENT_MWM": {
+   "alias": "COMPONENT_MWM",
+   "canonical_id": "CM121",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Data Pipeline Orchestrator",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 9,
+   "first_observed_clock": "2025-08-04 02:00:00",
+   "summary": ""
+  },
+  "COMPONENT_CXJ": {
+   "alias": "COMPONENT_CXJ",
+   "canonical_id": "CM131",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Infra API Gateway",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 9,
+   "first_observed_clock": "2025-08-04 02:00:00",
+   "summary": ""
+  },
+  "COMPONENT_FBN": {
+   "alias": "COMPONENT_FBN",
+   "canonical_id": "CM145",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Log Aggregator",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 9,
+   "first_observed_clock": "2025-08-04 02:00:00",
+   "summary": ""
+  },
+  "COMPONENT_RZC": {
+   "alias": "COMPONENT_RZC",
+   "canonical_id": "CM197",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Offline Sync Cache",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 9,
+   "first_observed_clock": "2025-08-04 02:00:00",
+   "summary": ""
+  },
+  "COMPONENT_BTJ": {
+   "alias": "COMPONENT_BTJ",
+   "canonical_id": "CM222",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Rate-Limited Sender Pool",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 9,
+   "first_observed_clock": "2025-08-04 02:00:00",
+   "summary": ""
+  },
+  "COMPONENT_BGV": {
+   "alias": "COMPONENT_BGV",
+   "canonical_id": "CM225",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Suppression List Manager",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 9,
+   "first_observed_clock": "2025-08-04 02:00:00",
+   "summary": ""
+  },
+  "COMPONENT_VDG": {
+   "alias": "COMPONENT_VDG",
+   "canonical_id": "CM249",
+   "kind": "COMPONENT",
+   "type": "component",
+   "display_name": "Central Billing Ledger",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 9,
+   "first_observed_clock": "2025-08-04 02:00:00",
+   "summary": ""
+  },
+  "TEAM_ZWN": {
+   "alias": "TEAM_ZWN",
+   "canonical_id": "TM06",
+   "kind": "TEAM",
+   "type": "team",
+   "display_name": "Database",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 9,
+   "first_observed_clock": "2025-08-04 02:00:00",
+   "summary": ""
+  },
+  "TEAM_FPL": {
+   "alias": "TEAM_FPL",
+   "canonical_id": "TM09",
+   "kind": "TEAM",
+   "type": "team",
+   "display_name": "Storage",
+   "source_tool": "get_component_topology",
+   "first_observed_step": 9,
+   "first_observed_clock": "2025-08-04 02:00:00",
+   "summary": ""
+  }
+ },
+ "validation_result": {
+  "first_pass_ok": true,
+  "errors_first": [],
+  "repair_used": false,
+  "final_ok": true,
+  "errors_final": []
+ },
+ "contract_failure": null,
+ "llm_calls": [
+  {
+   "phase": "action",
+   "step": 2,
+   "attempt": 0,
+   "prompt_tokens": 1255,
+   "completion_tokens": 114,
+   "latency_ms": 4567.1,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"TLS configuration issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"DNS resolution issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_customer_deployment\", \"component\": null, \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 3,
+   "attempt": 0,
+   "prompt_tokens": 1907,
+   "completion_tokens": 115,
+   "latency_ms": 5906.9,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"TLS configuration issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"DNS resolution issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_technical_signals\", \"component\": null, \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 4,
+   "attempt": 0,
+   "prompt_tokens": 1947,
+   "completion_tokens": 118,
+   "latency_ms": 8329.8,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"TLS configuration issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"DNS resolution issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_component_topology\", \"component\": \"COMPONENT_FQJ\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 5,
+   "attempt": 0,
+   "prompt_tokens": 2127,
+   "completion_tokens": 119,
+   "latency_ms": 4128.7,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"TLS configuration issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"DNS resolution issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_technical_signals\", \"component\": \"COMPONENT_BLZ\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 6,
+   "attempt": 0,
+   "prompt_tokens": 1844,
+   "completion_tokens": 117,
+   "latency_ms": 34695.4,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"TLS configuration issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"DNS resolution issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_recent_changes\", \"component\": \"COMPONENT_BLZ\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 7,
+   "attempt": 0,
+   "prompt_tokens": 1858,
+   "completion_tokens": 118,
+   "latency_ms": 4383.1,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"TLS configuration issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"DNS resolution issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_deployment_history\", \"component\": \"COMPONENT_BLZ\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 8,
+   "attempt": 0,
+   "prompt_tokens": 1875,
+   "completion_tokens": 117,
+   "latency_ms": 5886.9,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"TLS configuration issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"DNS resolution issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_service_health\", \"component\": \"COMPONENT_BLZ\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 9,
+   "attempt": 0,
+   "prompt_tokens": 2721,
+   "completion_tokens": 117,
+   "latency_ms": 4086.8,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"TLS configuration issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"DNS resolution issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_component_topology\", \"component\": \"COMPONENT_BLZ\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "action",
+   "step": 10,
+   "attempt": 0,
+   "prompt_tokens": 2819,
+   "completion_tokens": 113,
+   "latency_ms": 8381.7,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"TLS configuration issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"DNS resolution issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"submit_diagnosis\", \"component\": null, \"metric_category\": null, \"keyword\": null, \"team\": null}"
+  },
+  {
+   "phase": "final",
+   "step": 10,
+   "attempt": 0,
+   "prompt_tokens": 3123,
+   "completion_tokens": 407,
+   "latency_ms": 52219.1,
+   "finish_reason": "stop",
+   "http_retries": 0,
+   "raw_output": "{\"hypotheses\": [{\"label\": \"TLS configuration issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}, {\"label\": \"DNS resolution issue\", \"confidence\": 0.2, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"evidence_ids\": [\"EVIDENCE_SMJ\", \"EVIDENCE_HGL\", \"EVIDENCE_DTH\", \"EVIDENCE_QXM\", \"EVIDENCE_LTN\", \"EVIDENCE_VHL\", \"EVIDENCE_FNN\", \"EVIDENCE_PLG\", \"EVIDENCE_TMC\", \"EVIDENCE_PLN\"], \"issue_category\": null, \"category_confidence\": null, \"root_cause\": null, \"root_cause_confidence\": null, \"affected_component\": null, \"component_confidence\": null, \"causal_change\": null, \"causal_change_confidence\": null, \"owning_team\": null, \"routing_confidence\": null, \"confidence\": 0.2, \"evidence_sufficiency\": \"insufficient\", \"human_review_required\": true, \"review_reason\": \"The evidence collected does not provide a clear indication of the root cause of the issue, and further investigation is required to determine the cause of the\u8fde\u63a5\", \"status\": \"INSUFFICIENT_EVIDENCE\", \"recommended_next_action\": \"Gather more evidence and perform further investigation to determine the root cause of the issue.\", \"unresolved_uncertainties\": [\"The root cause of the TLS configuration issue and DNS resolution issue is still unknown.\"], \"summary\": \"The case report indicates intermittent connection failures in the ANZ production environment, with TLS handshake errors and occasional DNS lookup failures. The evidence collected does not provide a clear indication of the root cause of the issue.\"}"
+  }
+ ]
+}

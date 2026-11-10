@@ -1,0 +1,309 @@
+{
+  "run_id": "run_CS02201_20260924T004310Z_bb05b12f",
+  "case_id": "CS02201",
+  "created_at": "2026-09-24T00:43:10.504669+00:00",
+  "model_provider": "together",
+  "model_name": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "temperature": 0.1,
+  "prompt_version": "v1",
+  "toolset_version": "v1",
+  "output_schema_version": "v1",
+  "agent_loop_version": "v1",
+  "repair_layer_version": "v1",
+  "graph_version": "phase4-2500case-2026-09-22",
+  "sim_clock_step_minutes": 15,
+  "max_tool_calls": 10,
+  "max_repeated_same_tool": 2,
+  "stop_reason": "model_submitted",
+  "num_tool_calls": 7,
+  "num_llm_calls": 7,
+  "token_usage": {
+    "prompt_tokens": 12289,
+    "completion_tokens": 591,
+    "total_tokens": 12880
+  },
+  "approx_cost_usd": 0.001288,
+  "approx_cost_note": "Estimated from a configurable placeholder rate, not exact provider billing -- see config.py",
+  "trace_steps": [
+    {
+      "step": 1,
+      "sim_clock": "2025-12-21 00:00:00",
+      "tool_name": "get_case_context",
+      "args": {
+        "hypotheses": [],
+        "rationale": "Starting the investigation of case CS02201"
+      },
+      "hypotheses": [],
+      "rationale": "Starting the investigation of case CS02201",
+      "result_summary": {
+        "case_id": "CS02201",
+        "title": "Missing localization text on Status Page",
+        "description": "In the ANZ staging environment, the Status Page is failing to load localized text strings for the Japanese locale. The field is showing empty. This is currently affecting my single test user account. Please update the language pack for the Status Page module.",
+        "environment": "staging",
+        "region": "ANZ",
+        "reported_business_impact": "low",
+        "reported_affected_users": 1,
+        "priority": "low",
+        "created_date": "2025-12-21",
+        "status": "resolved",
+        "customer_id": "C03007",
+        "customer_tier": "silver",
+        "customer_industry": "Education",
+        "customer_company_size": "small",
+        "reported_product_id": "P040",
+        "reported_product_name": "Status Page",
+        "reported_symptoms": [
+          "localization text missing"
+        ]
+      },
+      "latency_ms": 728.2,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 2,
+      "sim_clock": "2025-12-21 00:15:00",
+      "tool_name": "get_customer_info",
+      "args": {
+        "customer_id": "C03007",
+        "hypotheses": [
+          "localization_text_missing:0.8",
+          "language_pack_issue:0.2"
+        ],
+        "rationale": "To understand the customer environment and potential causes of the missing localization text"
+      },
+      "hypotheses": [
+        "localization_text_missing:0.8",
+        "language_pack_issue:0.2"
+      ],
+      "rationale": "To understand the customer environment and potential causes of the missing localization text",
+      "result_summary": {
+        "error": "unknown tool 'get_customer_info'. Valid tools are: ['get_active_incidents', 'get_agent_availability', 'get_case_context', 'get_component_topology', 'get_configuration_history', 'get_customer_deployment', 'get_deployment_history', 'get_recent_changes', 'get_service_health', 'get_similar_cases', 'get_team_capability', 'get_technical_signals', 'get_telemetry', 'search_knowledge_base', 'submit_diagnosis']"
+      },
+      "latency_ms": 2245.4,
+      "status": "error",
+      "redundant": false
+    },
+    {
+      "step": 3,
+      "sim_clock": "2025-12-21 00:30:00",
+      "tool_name": "get_component_topology",
+      "args": {
+        "component_id": "P040",
+        "hypotheses": [
+          "localization_text_missing:0.8",
+          "language_pack_issue:0.2"
+        ],
+        "rationale": "To understand the component interactions and potential causes of the missing localization text"
+      },
+      "hypotheses": [
+        "localization_text_missing:0.8",
+        "language_pack_issue:0.2"
+      ],
+      "rationale": "To understand the component interactions and potential causes of the missing localization text",
+      "result_summary": {
+        "error": "component P040 not found"
+      },
+      "latency_ms": 906.9,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 4,
+      "sim_clock": "2025-12-21 00:45:00",
+      "tool_name": "get_recent_changes",
+      "args": {
+        "environment": "staging",
+        "region": "ANZ",
+        "hypotheses": [
+          "localization_text_missing:0.8",
+          "language_pack_issue:0.2"
+        ],
+        "rationale": "To identify any recent changes that may have caused the missing localization text"
+      },
+      "hypotheses": [
+        "localization_text_missing:0.8",
+        "language_pack_issue:0.2"
+      ],
+      "rationale": "To identify any recent changes that may have caused the missing localization text",
+      "result_summary": {
+        "recent_changes": [],
+        "count": 0
+      },
+      "latency_ms": 932.2,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 5,
+      "sim_clock": "2025-12-21 01:00:00",
+      "tool_name": "get_telemetry",
+      "args": {
+        "product_id": "P040",
+        "telemetry_type": "errors",
+        "hypotheses": [
+          "localization_text_missing:0.8",
+          "language_pack_issue:0.2"
+        ],
+        "rationale": "To check for any error telemetry related to the Status Page module"
+      },
+      "hypotheses": [
+        "localization_text_missing:0.8",
+        "language_pack_issue:0.2"
+      ],
+      "rationale": "To check for any error telemetry related to the Status Page module",
+      "result_summary": {
+        "available_metric_categories": [],
+        "note": "Call again with one of these metric_category values to see actual readings."
+      },
+      "latency_ms": 1858.0,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 6,
+      "sim_clock": "2025-12-21 01:15:00",
+      "tool_name": "get_telemetry",
+      "args": {
+        "product_id": "P040",
+        "telemetry_type": "errors",
+        "metric_category": "errors",
+        "hypotheses": [
+          "localization_text_missing:0.8",
+          "language_pack_issue:0.2"
+        ],
+        "rationale": "To check for any error telemetry related to the Status Page module"
+      },
+      "hypotheses": [
+        "localization_text_missing:0.8",
+        "language_pack_issue:0.2"
+      ],
+      "rationale": "To check for any error telemetry related to the Status Page module",
+      "result_summary": {
+        "error": "unknown metric_category 'errors'",
+        "valid_categories": [
+          "Application",
+          "Capacity",
+          "Compute",
+          "Data",
+          "Database",
+          "Identity",
+          "Integration",
+          "Networking",
+          "Security",
+          "Storage"
+        ]
+      },
+      "latency_ms": 1969.9,
+      "status": "ok",
+      "redundant": false
+    },
+    {
+      "step": 7,
+      "sim_clock": "2025-12-21 01:30:00",
+      "tool_name": "submit_diagnosis",
+      "args": {
+        "case_id": "CS02201",
+        "diagnosis": null,
+        "evidence_sufficiency": "insufficient",
+        "human_review_required": true,
+        "recommended_next_action": "escalate to engineering",
+        "hypotheses": [
+          {
+            "label": "localization_text_missing",
+            "confidence": 0.8,
+            "supporting_evidence_ids": [],
+            "contradicting_evidence_ids": [],
+            "status": "unconfirmed"
+          },
+          {
+            "label": "language_pack_issue",
+            "confidence": 0.2,
+            "supporting_evidence_ids": [],
+            "contradicting_evidence_ids": [],
+            "status": "unconfirmed"
+          }
+        ],
+        "rationale": "The investigation did not yield sufficient evidence to determine the root cause of the issue. Further analysis by the engineering team is required to resolve the case."
+      },
+      "hypotheses": [
+        {
+          "label": "localization_text_missing",
+          "confidence": 0.8,
+          "supporting_evidence_ids": [],
+          "contradicting_evidence_ids": [],
+          "status": "unconfirmed"
+        },
+        {
+          "label": "language_pack_issue",
+          "confidence": 0.2,
+          "supporting_evidence_ids": [],
+          "contradicting_evidence_ids": [],
+          "status": "unconfirmed"
+        }
+      ],
+      "rationale": "The investigation did not yield sufficient evidence to determine the root cause of the issue. Further analysis by the engineering team is required to resolve the case.",
+      "result_summary": "submitted",
+      "latency_ms": 2296.3,
+      "status": "ok",
+      "redundant": false
+    }
+  ],
+  "final_diagnosis": {
+    "hypotheses": [
+      {
+        "label": "localization_text_missing",
+        "description": "",
+        "confidence": 0.8,
+        "supporting_evidence": [],
+        "contradicting_evidence": [],
+        "status": "active"
+      },
+      {
+        "label": "language_pack_issue",
+        "description": "",
+        "confidence": 0.2,
+        "supporting_evidence": [],
+        "contradicting_evidence": [],
+        "status": "active"
+      }
+    ],
+    "rationale": "The investigation did not yield sufficient evidence to determine the root cause of the issue. Further analysis by the engineering team is required to resolve the case.",
+    "predicted_product_id": null,
+    "product_confidence": null,
+    "predicted_component_id": null,
+    "component_confidence": null,
+    "predicted_category_id": null,
+    "category_confidence": null,
+    "predicted_subcategory_id": null,
+    "predicted_root_cause_family": null,
+    "root_cause_confidence": null,
+    "predicted_causal_change_id": null,
+    "causal_change_confidence": null,
+    "predicted_severity": null,
+    "severity_confidence": null,
+    "recommended_team_id": null,
+    "routing_confidence": null,
+    "evidence_sufficiency": "insufficient",
+    "overall_confidence": 0.8,
+    "recommended_next_action": "escalate to engineering",
+    "human_review_required": true,
+    "human_review_reason": null,
+    "evidence_summary": "The investigation did not yield sufficient evidence to determine the root cause of the issue. Further analysis by the engineering team is required to resolve the case.",
+    "unresolved_uncertainties": []
+  },
+  "citation_violations": [],
+  "evidence_ids_seen": [],
+  "repair_events": [
+    {
+      "step": 2,
+      "kind": "hypothesis_normalization",
+      "detail": "tool=get_customer_info: hypotheses arg was str, not a list; coerced"
+    },
+    {
+      "step": 7,
+      "kind": "final_diagnosis_repair",
+      "detail": "direct validation failed (4 validation errors for FinalDiagnosis\nhypotheses.0.status\n  Input should be 'active', 'rejected' or 'confirmed' [type=literal_error, input_value='unconfirmed', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/literal_error\nhypotheses.1.status\n  Input should be 'active', 'rejected' or 'confirmed' [type=literal_error, input_value='unconfirmed', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/literal_error\noverall_confidence\n  Field required [type=missing, input_value={'case_id': 'CS02201', 'd...d to resolve the case.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\nevidence_summary\n  Field required [type=missing, input_value={'case_id': 'CS02201', 'd...d to resolve the case.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing); repaired args validated"
+    }
+  ]
+}

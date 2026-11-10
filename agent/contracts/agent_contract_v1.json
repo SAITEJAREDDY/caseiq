@@ -1,0 +1,374 @@
+{
+ "contract_version": "agent_contract_v1.1",
+ "versions": {
+  "agent": "agent_v3_contract_hardened",
+  "prompt": "v3.1",
+  "tool_catalog": "tool_catalog_v3",
+  "action_schema": "action_v3.1",
+  "final_schema": "final_diagnosis_v3.1",
+  "registry": "observed_registry_v1",
+  "alias_scheme": "agent_alias_v1",
+  "repair_policy": "repair_policy_v1"
+ },
+ "model": {
+  "provider": "together",
+  "name": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "temperature": 0.1,
+  "note": "unchanged from the Phase 5 baseline"
+ },
+ "decoding": {
+  "mode": "json_schema_strict",
+  "note": "the provider enforces the schema at decode time; every output is nevertheless validated deterministically and never repaired silently"
+ },
+ "budgets": {
+  "max_tool_calls": 10,
+  "note": "counts the harness-issued case-context step; the submit step is extra",
+  "max_repeated_same_tool": 2
+ },
+ "tools": [
+  {
+   "name": "get_customer_deployment",
+   "purpose": "What the customer runs: products, versions, environments, regions and each product's components.",
+   "required": [],
+   "optional": [],
+   "returns": "deployments with PRODUCT and COMPONENT aliases",
+   "available_when": "always",
+   "error_semantics": "an invalid proposal is rejected before execution with a structured error and does not consume tool budget; it consumes one of the tool-contract repairs"
+  },
+  {
+   "name": "get_component_topology",
+   "purpose": "A component's dependency graph and owning teams.",
+   "required": [
+    "component"
+   ],
+   "optional": [],
+   "returns": "upstream/downstream COMPONENT aliases, external dependencies, TEAM aliases",
+   "available_when": "a component alias has been observed",
+   "error_semantics": "an invalid proposal is rejected before execution with a structured error and does not consume tool budget; it consumes one of the tool-contract repairs"
+  },
+  {
+   "name": "get_technical_signals",
+   "purpose": "Observed technical error signals for this case (HTTP errors, auth/authz and TLS failures, database errors, timeouts). This is the closest thing to a log feed; there is no raw log search.",
+   "required": [],
+   "optional": [
+    "component"
+   ],
+   "returns": "signal evidence items with timestamps",
+   "available_when": "always",
+   "error_semantics": "an invalid proposal is rejected before execution with a structured error and does not consume tool budget; it consumes one of the tool-contract repairs"
+  },
+  {
+   "name": "get_telemetry",
+   "purpose": "Summarised telemetry findings by metric category. Call once with metric_category null to list the categories that have data, then again with one category.",
+   "required": [],
+   "optional": [
+    "metric_category",
+    "component"
+   ],
+   "returns": "a category list, or telemetry finding evidence items",
+   "available_when": "always",
+   "error_semantics": "an invalid proposal is rejected before execution with a structured error and does not consume tool budget; it consumes one of the tool-contract repairs"
+  },
+  {
+   "name": "get_recent_changes",
+   "purpose": "Non-deployment changes near this case's time (policy, config, firewall, DNS, certificate, feature flag, capacity). May include changes unrelated to this case.",
+   "required": [],
+   "optional": [
+    "component"
+   ],
+   "returns": "change evidence items (CHANGE aliases)",
+   "available_when": "always",
+   "error_semantics": "an invalid proposal is rejected before execution with a structured error and does not consume tool budget; it consumes one of the tool-contract repairs"
+  },
+  {
+   "name": "get_deployment_history",
+   "purpose": "Recent deployments (version changes) near this case's time. May include unrelated deployments.",
+   "required": [],
+   "optional": [
+    "component"
+   ],
+   "returns": "deployment evidence items (CHANGE aliases)",
+   "available_when": "always",
+   "error_semantics": "an invalid proposal is rejected before execution with a structured error and does not consume tool budget; it consumes one of the tool-contract repairs"
+  },
+  {
+   "name": "get_configuration_history",
+   "purpose": "Configuration snapshots captured for this case (flags, limits, TLS versions, pool sizes).",
+   "required": [],
+   "optional": [
+    "component"
+   ],
+   "returns": "configuration evidence items",
+   "available_when": "always",
+   "error_semantics": "an invalid proposal is rejected before execution with a structured error and does not consume tool budget; it consumes one of the tool-contract repairs"
+  },
+  {
+   "name": "get_service_health",
+   "purpose": "Platform service-health events for one component.",
+   "required": [
+    "component"
+   ],
+   "optional": [],
+   "returns": "health-event evidence items",
+   "available_when": "a component alias has been observed",
+   "error_semantics": "an invalid proposal is rejected before execution with a structured error and does not consume tool budget; it consumes one of the tool-contract repairs"
+  },
+  {
+   "name": "get_active_incidents",
+   "purpose": "Incidents whose time and region overlap this case. Overlap does not imply relevance.",
+   "required": [],
+   "optional": [],
+   "returns": "incident evidence items (INCIDENT aliases)",
+   "available_when": "always",
+   "error_semantics": "an invalid proposal is rejected before execution with a structured error and does not consume tool budget; it consumes one of the tool-contract repairs"
+  },
+  {
+   "name": "get_similar_cases",
+   "purpose": "Similar already-resolved cases and how they were diagnosed. A similar case's outcome is not proof for this case.",
+   "required": [],
+   "optional": [],
+   "returns": "similar-case evidence items",
+   "available_when": "always",
+   "error_semantics": "an invalid proposal is rejected before execution with a structured error and does not consume tool budget; it consumes one of the tool-contract repairs"
+  },
+  {
+   "name": "search_knowledge_base",
+   "purpose": "Knowledge-base articles by keyword and/or component. Some are outdated or only partly applicable.",
+   "required": [],
+   "optional": [
+    "keyword",
+    "component"
+   ],
+   "returns": "article evidence items",
+   "available_when": "always",
+   "error_semantics": "an invalid proposal is rejected before execution with a structured error and does not consume tool budget; it consumes one of the tool-contract repairs"
+  },
+  {
+   "name": "get_team_capability",
+   "purpose": "Which teams typically own a component and what skills they use.",
+   "required": [
+    "component"
+   ],
+   "optional": [],
+   "returns": "TEAM aliases with roles and weights",
+   "available_when": "a component alias has been observed",
+   "error_semantics": "an invalid proposal is rejected before execution with a structured error and does not consume tool budget; it consumes one of the tool-contract repairs"
+  },
+  {
+   "name": "get_agent_availability",
+   "purpose": "Support-agent availability and skills within one team.",
+   "required": [
+    "team"
+   ],
+   "optional": [],
+   "returns": "agent availability rows",
+   "available_when": "a team alias has been observed",
+   "error_semantics": "an invalid proposal is rejected before execution with a structured error and does not consume tool budget; it consumes one of the tool-contract repairs"
+  },
+  {
+   "name": "submit_diagnosis",
+   "purpose": "End the investigation. You will then be asked for the structured diagnosis. Choose it when you can conclude, when the evidence is insufficient, or when a person should review.",
+   "required": [],
+   "optional": [],
+   "returns": "(ends the run)",
+   "available_when": "always",
+   "error_semantics": "an invalid proposal is rejected before execution with a structured error and does not consume tool budget; it consumes one of the tool-contract repairs"
+  },
+  {
+   "name": "get_case_context",
+   "purpose": "The case as reported. Executed by the harness as step 1; not model-selectable.",
+   "required": [],
+   "optional": [],
+   "returns": "case report",
+   "available_when": "harness only",
+   "error_semantics": "n/a"
+  }
+ ],
+ "harness_only_tools": [
+  "get_case_context"
+ ],
+ "action_schema": {
+  "fields": [
+   "hypotheses",
+   "tool",
+   "component",
+   "metric_category",
+   "keyword",
+   "team"
+  ],
+  "argument_fields": [
+   "component",
+   "metric_category",
+   "keyword",
+   "team"
+  ],
+  "hypothesis_statuses": [
+   "active",
+   "rejected",
+   "confirmed"
+  ],
+  "metric_categories": [
+   "Application",
+   "Capacity",
+   "Compute",
+   "Data",
+   "Database",
+   "Identity",
+   "Integration",
+   "Networking",
+   "Security",
+   "Storage"
+  ],
+  "min_hypotheses": 1,
+  "max_hypotheses": 4,
+  "unused_arguments": "must be null"
+ },
+ "final_schema": {
+  "fields": [
+   "hypotheses",
+   "evidence_ids",
+   "issue_category",
+   "category_confidence",
+   "root_cause",
+   "root_cause_confidence",
+   "affected_component",
+   "component_confidence",
+   "causal_change",
+   "causal_change_confidence",
+   "owning_team",
+   "routing_confidence",
+   "confidence",
+   "evidence_sufficiency",
+   "human_review_required",
+   "review_reason",
+   "status",
+   "recommended_next_action",
+   "unresolved_uncertainties",
+   "summary"
+  ],
+  "statuses": {
+   "model_selectable": [
+    "DIAGNOSIS_PROPOSED",
+    "INSUFFICIENT_EVIDENCE",
+    "HUMAN_REVIEW_REQUIRED"
+   ],
+   "harness_only": [
+    "CONTRACT_FAILURE"
+   ]
+  },
+  "evidence_sufficiency": [
+   "sufficient",
+   "partial",
+   "insufficient"
+  ],
+  "confidence_bounds": [
+   0,
+   1
+  ],
+  "selections": [
+   {
+    "field": "issue_category",
+    "confidence_field": "category_confidence",
+    "alias_kinds": [
+     "CATEGORY"
+    ],
+    "nullable": true
+   },
+   {
+    "field": "root_cause",
+    "confidence_field": "root_cause_confidence",
+    "alias_kinds": [
+     "CAUSE"
+    ],
+    "nullable": true
+   },
+   {
+    "field": "affected_component",
+    "confidence_field": "component_confidence",
+    "alias_kinds": [
+     "COMPONENT"
+    ],
+    "nullable": true
+   },
+   {
+    "field": "causal_change",
+    "confidence_field": "causal_change_confidence",
+    "alias_kinds": [
+     "CHANGE"
+    ],
+    "nullable": true
+   },
+   {
+    "field": "owning_team",
+    "confidence_field": "routing_confidence",
+    "alias_kinds": [
+     "TEAM"
+    ],
+    "nullable": true
+   }
+  ],
+  "nullable_fields": [
+   "issue_category",
+   "root_cause",
+   "affected_component",
+   "causal_change",
+   "owning_team",
+   "category_confidence",
+   "root_cause_confidence",
+   "component_confidence",
+   "causal_change_confidence",
+   "routing_confidence",
+   "review_reason"
+  ],
+  "status_rules": {
+   "DIAGNOSIS_PROPOSED": "at least one non-rejected hypothesis with cited support; valid citations; evidence_sufficiency is not 'insufficient'",
+   "INSUFFICIENT_EVIDENCE": "every selection may be null; evidence_sufficiency is not 'sufficient'",
+   "HUMAN_REVIEW_REQUIRED": "human_review_required is true and review_reason is present",
+   "CONTRACT_FAILURE": "assigned by the harness only; no diagnosis is pretended, human review required"
+  },
+  "grounding_rules": [
+   "every cited alias is an evidence alias retrieved during the run, cited once",
+   "a non-null selection needs a confidence; a null selection needs a null confidence",
+   "any selection needs at least one cited evidence item",
+   "causal_change must also be cited in evidence_ids",
+   "every hypothesis citation is also listed in evidence_ids",
+   "no internal id appears anywhere in the output"
+  ]
+ },
+ "alias_constraints": {
+  "scheme": "agent_alias_v1",
+  "kinds": [
+   "PRODUCT",
+   "COMPONENT",
+   "CATEGORY",
+   "CAUSE",
+   "CHANGE",
+   "INCIDENT",
+   "TEAM",
+   "EVIDENCE",
+   "REF"
+  ],
+  "citable_kinds": [
+   "EVIDENCE",
+   "CHANGE",
+   "INCIDENT"
+  ],
+  "code_alphabet": "BCDFGHJKLMNPQRSTVWXZ",
+  "code_length": 3,
+  "pattern": "^(PRODUCT|COMPONENT|CATEGORY|CAUSE|CHANGE|INCIDENT|TEAM|EVIDENCE|REF)_[BCDFGHJKLMNPQRSTVWXZ]{3}$",
+  "keyed_on": "(scheme, case, kind, canonical id)",
+  "properties": "no order, recency, number or role is encoded; canonical ids are never shown to the model"
+ },
+ "repair_policy": {
+  "max_tool_contract_repairs": 2,
+  "max_final_contract_repairs": 1,
+  "on_exhaustion": "CONTRACT_FAILURE with human review required",
+  "silent_rewriting": false,
+  "recorded_as": [
+   "tool_contract_errors",
+   "tool_contract_repairs",
+   "final_contract_errors",
+   "final_contract_repair"
+  ]
+ }
+}

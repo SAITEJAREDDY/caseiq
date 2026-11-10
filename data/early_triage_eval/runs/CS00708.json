@@ -1,0 +1,3010 @@
+{
+ "case_id": "CS00708",
+ "created_at": "2026-09-24T22:22:49.793670+00:00",
+ "config": {
+  "missed_evidence_threshold": 0.75,
+  "distractor_threshold": 0.75,
+  "priority_review_threshold": 0.5,
+  "min_confidence": 0.55,
+  "extra_steps": 4,
+  "premature_min_steps_left": 2,
+  "require_jev_to_accept": true
+ },
+ "early_triage_used": true,
+ "early_triage_config": {
+  "min_probability": 0.3,
+  "moderate_probability": 0.4,
+  "strong_probability": 0.7,
+  "top_alternatives": 3,
+  "timeout_s": 20.0
+ },
+ "early_triage": {
+  "version": "early_triage_v1",
+  "role": "triage_guidance",
+  "source": "jev_early_triage",
+  "question_version": "early_triage_category_v1",
+  "state_version": "early_triage_state_v1",
+  "status": "hint",
+  "fallback": false,
+  "fallback_reason": null,
+  "category_id": "IC10",
+  "category_name": "Provisioning / Onboarding",
+  "probability": 0.88,
+  "margin": 0.81,
+  "uncertainty": "low",
+  "alternatives": [
+   {
+    "category_id": "IC09",
+    "name": "Integration / API",
+    "probability": 0.07
+   },
+   {
+    "category_id": "IC01",
+    "name": "Identity / Authentication",
+    "probability": 0.05
+   },
+   {
+    "category_id": "IC02",
+    "name": "Authorization / Permissions",
+    "probability": 0.0
+   }
+  ],
+  "distribution_top": [
+   {
+    "category_id": "IC10",
+    "name": "Provisioning / Onboarding",
+    "probability": 0.88
+   },
+   {
+    "category_id": "IC09",
+    "name": "Integration / API",
+    "probability": 0.07
+   },
+   {
+    "category_id": "IC01",
+    "name": "Identity / Authentication",
+    "probability": 0.05
+   },
+   {
+    "category_id": "IC02",
+    "name": "Authorization / Permissions",
+    "probability": 0.0
+   }
+  ],
+  "abstain_probability": 0.0,
+  "suggested_tools": [
+   "get_customer_deployment",
+   "get_configuration_history"
+  ],
+  "jev_model": "jev-1.13.0",
+  "input_tokens": 867,
+  "latency_ms": 163.3,
+  "error": null,
+  "config": {
+   "min_probability": 0.3,
+   "moderate_probability": 0.4,
+   "strong_probability": 0.7,
+   "top_alternatives": 3,
+   "timeout_s": 20.0
+  }
+ },
+ "triage_outcome": {
+  "outcome": "no_final_answer",
+  "hint_shown": true,
+  "suggested_category_id": "IC10",
+  "suggested_category": "Provisioning / Onboarding",
+  "final_category_id": null,
+  "final_category": null,
+  "final_in_alternatives": false
+ },
+ "triage_outcome_initial": {
+  "outcome": "dropped",
+  "hint_shown": true,
+  "suggested_category_id": "IC10",
+  "suggested_category": "Provisioning / Onboarding",
+  "final_category_id": null,
+  "final_category": null,
+  "final_in_alternatives": false
+ },
+ "agent_initial_result": {
+  "status": "INSUFFICIENT_EVIDENCE",
+  "confidence": 0.88,
+  "evidence_sufficiency": "insufficient",
+  "human_review_required": true,
+  "review_reason": "Investigation budget exhausted, unable to gather sufficient evidence to support a diagnosis",
+  "selections": {
+   "issue_category": null,
+   "root_cause": null,
+   "affected_component": null,
+   "causal_change": null,
+   "owning_team": null
+  },
+  "summary": "The investigation was unable to gather sufficient evidence to support a diagnosis due to the exhausted budget. Human review is required to analyze the case further and gather additional evidence.",
+  "recommended_next_action": "Human review required to analyze the case further and gather additional evidence to support a diagnosis",
+  "hypotheses": [
+   {
+    "label": "Provisioning/Onboarding issue",
+    "confidence": 0.88,
+    "status": "active"
+   }
+  ]
+ },
+ "verification_rounds": [
+  {
+   "round": 1,
+   "deterministic_checks": {
+    "D1": {
+     "id": "D1",
+     "name": "valid_final_contract",
+     "passed": true,
+     "applicable": true,
+     "detail": "schema, bounds and every reference are valid"
+    },
+    "D2": {
+     "id": "D2",
+     "name": "evidence_support",
+     "passed": true,
+     "applicable": false,
+     "detail": "no diagnosis was proposed, so there is nothing to support"
+    },
+    "D3": {
+     "id": "D3",
+     "name": "final_consistency",
+     "passed": false,
+     "applicable": true,
+     "detail": "confidence >= 0.8 despite stated uncertainty or insufficient evidence"
+    },
+    "D4": {
+     "id": "D4",
+     "name": "premature_finalization",
+     "passed": true,
+     "applicable": true,
+     "detail": "evidence was retrieved and either a hypothesis is supported or the tool budget is used up"
+    },
+    "all_passed": false
+   },
+   "jev_missed_evidence": 0.93,
+   "jev_distractor_anchor": 0.22,
+   "jev_review": {
+    "label": "REVIEW",
+    "probabilities": {
+     "NORMAL": 0.0,
+     "REVIEW": 0.71,
+     "PRIORITY_REVIEW": 0.29
+    }
+   },
+   "jev_available": true,
+   "policy_decision": "CONTINUE_INVESTIGATION",
+   "reason": "possible missed evidence",
+   "triggers": [
+    "jev_missed_evidence"
+   ],
+   "message_to_agent": "Verification result:\nMore investigation required.\nReasons:\n- possible missed evidence\nTools you have not used yet: get_recent_changes, get_deployment_history, get_service_health, get_active_incidents, get_similar_cases, search_knowledge_base, get_team_capability, get_agent_availability.\nContinue investigating using available tools. Do not repeat already completed tool calls unless necessary. You have up to 4 more tool calls; then you will be asked for your final diagnosis again."
+  }
+ ],
+ "policy_decision": "CONTINUE_INVESTIGATION",
+ "additional_investigation_performed": true,
+ "agent_final_result": null,
+ "final_policy_decision": "HUMAN_REVIEW",
+ "final_reason": "the agent's answer stayed invalid after its one repair: final answer failed validation after the one allowed repair",
+ "review_packet": {
+  "decision": "HUMAN_REVIEW",
+  "reason": "the agent's answer stayed invalid after its one repair: final answer failed validation after the one allowed repair",
+  "triggers": [
+   "contract_failure"
+  ],
+  "agent_diagnosis": {
+   "status": "INSUFFICIENT_EVIDENCE",
+   "confidence": 0.88,
+   "evidence_sufficiency": "insufficient",
+   "human_review_required": true,
+   "review_reason": "Investigation budget exhausted, unable to gather sufficient evidence to support a diagnosis",
+   "selections": {
+    "issue_category": null,
+    "root_cause": null,
+    "affected_component": null,
+    "causal_change": null,
+    "owning_team": null
+   },
+   "summary": "The investigation was unable to gather sufficient evidence to support a diagnosis due to the exhausted budget. Human review is required to analyze the case further and gather additional evidence.",
+   "recommended_next_action": "Human review required to analyze the case further and gather additional evidence to support a diagnosis",
+   "hypotheses": [
+    {
+     "label": "Provisioning/Onboarding issue",
+     "confidence": 0.88,
+     "status": "active"
+    }
+   ]
+  },
+  "key_evidence": [
+   {
+    "alias": "EVIDENCE_RHC",
+    "type": "signal",
+    "summary": "SCHEMA_MIGRATION_ERROR: schema migration error on Segment Builder Service on COMPONENT_FWC @ 2026-02-12 20:18:00",
+    "source_id": "SG0003476"
+   },
+   {
+    "alias": "EVIDENCE_GSH",
+    "type": "signal",
+    "summary": "DUPLICATE_RECORD_DETECTED: duplicate records detected in Accessibility Layer on COMPONENT_LLZ @ 2026-02-12 22:14:00",
+    "source_id": "SG0003475"
+   },
+   {
+    "alias": "EVIDENCE_QJB",
+    "type": "signal",
+    "summary": "ENV_VAR_MISSING: required environment variable missing on Emergency Access (Break-Glass) Service on COMPONENT_GFT @ 2026-02-12 23:28:00",
+    "source_id": "SG0003477"
+   },
+   {
+    "alias": "EVIDENCE_ZXF",
+    "type": "signal",
+    "summary": "FEATURE_FLAG_MISMATCH: feature flag state mismatch on Metrics Pipeline on COMPONENT_VDD @ 2026-02-12 23:34:00",
+    "source_id": "SG0003474"
+   },
+   {
+    "alias": "EVIDENCE_LWQ",
+    "type": "signal",
+    "summary": "ENV_VAR_MISSING: required environment variable missing on Group Sync Service on COMPONENT_FFW @ 2026-02-12 23:40:00",
+    "source_id": "SG0003473"
+   }
+  ],
+  "missed_evidence_probability": null,
+  "distractor_anchor_probability": null,
+  "review_signal": null,
+  "contract_failure": "final answer failed validation after the one allowed repair"
+ },
+ "latency_s": 321.5,
+ "cost_usd_estimate": 0.0391,
+ "cost_note": "estimate: agent tokens x Together list price + Jev input tokens x Jev list price",
+ "agent_tokens": 43539,
+ "jev_input_tokens": 18796,
+ "agent_run": {
+  "case_id": "CS00708",
+  "stop_reason": "final_contract_failure",
+  "num_tool_calls": 14,
+  "num_llm_calls": 17,
+  "token_usage": {
+   "prompt_tokens": 41231,
+   "completion_tokens": 2308,
+   "total_tokens": 43539
+  },
+  "trace_steps": [
+   {
+    "step": 1,
+    "sim_clock": "2026-02-13 00:00:00",
+    "tool_name": "get_case_context",
+    "args": {},
+    "args_alias": {},
+    "hypotheses": [],
+    "hypothesis_state": [],
+    "rationale": "",
+    "result_summary": {
+     "case_id": "CS00708",
+     "title": "SSO Integration issues",
+     "description": "Hi, we have problems with the SSO module in staging (LATAM). It seems to be creating duplicate accounts and the provisioning is stuck. Also, the bulk import failed completely. This is affecting around 80 users. Please check.",
+     "environment": "staging",
+     "region": "LATAM",
+     "reported_business_impact": "moderate",
+     "reported_affected_users": 80,
+     "priority": "medium",
+     "created_date": "2026-02-13",
+     "status": "resolved",
+     "customer_id": "C02907",
+     "customer_tier": "silver",
+     "customer_industry": "Media & Entertainment",
+     "customer_company_size": "mid",
+     "reported_product_id": "P002",
+     "reported_product_name": "SSO Integration Module",
+     "reported_symptoms": [
+      "provisioning stuck",
+      "duplicate account created",
+      "bulk import fully failed"
+     ]
+    },
+    "latency_ms": 0.0,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "harness"
+   },
+   {
+    "step": 2,
+    "sim_clock": "2026-02-13 00:15:00",
+    "tool_name": "get_customer_deployment",
+    "args": {},
+    "args_alias": {},
+    "hypotheses": [
+     "Provisioning/Onboarding issue:0.88"
+    ],
+    "hypothesis_state": [
+     {
+      "label": "Provisioning/Onboarding issue",
+      "confidence": 0.88,
+      "status": "active",
+      "supporting_evidence": [],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "result_summary": {
+     "deployments": [
+      {
+       "product_id": "P002",
+       "product_name": "SSO Integration Module",
+       "version": "3.0",
+       "environment": "production",
+       "region": "LATAM",
+       "status": "active",
+       "deployed_at": "2025-07-21",
+       "product_components": [
+        "CM011",
+        "CM019",
+        "CM025",
+        "CM027",
+        "CM031",
+        "CM032",
+        "CM241",
+        "CM246"
+       ]
+      },
+      {
+       "product_id": "P001",
+       "product_name": "Payment Gateway v2",
+       "version": "2.1",
+       "environment": "production",
+       "region": "LATAM",
+       "status": "active",
+       "deployed_at": "2025-07-13",
+       "product_components": [
+        "CM046",
+        "CM050",
+        "CM054",
+        "CM057",
+        "CM074",
+        "CM077",
+        "CM227",
+        "CM229"
+       ]
+      },
+      {
+       "product_id": "P001",
+       "product_name": "Payment Gateway v2",
+       "version": "2.1",
+       "environment": "staging",
+       "region": "LATAM",
+       "status": "active",
+       "deployed_at": "2024-11-28",
+       "product_components": [
+        "CM046",
+        "CM050",
+        "CM054",
+        "CM057",
+        "CM074",
+        "CM077",
+        "CM227",
+        "CM229"
+       ]
+      }
+     ]
+    },
+    "latency_ms": 5048.7,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "model"
+   },
+   {
+    "step": 3,
+    "sim_clock": "2026-02-13 00:30:00",
+    "tool_name": "get_component_topology",
+    "args": {
+     "component_id": "CM011"
+    },
+    "args_alias": {
+     "component": "COMPONENT_QDB"
+    },
+    "hypotheses": [
+     "Provisioning/Onboarding issue:0.88"
+    ],
+    "hypothesis_state": [
+     {
+      "label": "Provisioning/Onboarding issue",
+      "confidence": 0.88,
+      "status": "active",
+      "supporting_evidence": [],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "result_summary": {
+     "component_id": "CM011",
+     "component_name": "SSO Broker",
+     "upstream_dependencies": [],
+     "downstream_dependents": [
+      {
+       "name": "Identity Audit Logger",
+       "id": "CM020"
+      },
+      {
+       "name": "Risk-Based Authentication Engine",
+       "id": "CM022"
+      },
+      {
+       "name": "Device Trust Service",
+       "id": "CM023"
+      },
+      {
+       "name": "Attribute Mapping Service",
+       "id": "CM033"
+      },
+      {
+       "name": "Emergency Access (Break-Glass) Service",
+       "id": "CM040"
+      },
+      {
+       "name": "Reporting Service",
+       "id": "CM091"
+      },
+      {
+       "name": "Dashboard Sharing Service",
+       "id": "CM118"
+      },
+      {
+       "name": "Secret Store",
+       "id": "CM137"
+      },
+      {
+       "name": "TLS Termination Service",
+       "id": "CM149"
+      },
+      {
+       "name": "Accessibility Layer",
+       "id": "CM190"
+      },
+      {
+       "name": "Mobile Push Token Manager",
+       "id": "CM205"
+      },
+      {
+       "name": "Secret & Config Store",
+       "id": "CM230"
+      },
+      {
+       "name": "Directory Sync Connector (Shared)",
+       "id": "CM238"
+      }
+     ],
+     "external_dependencies": [
+      "Primary Identity Provider"
+     ],
+     "owning_teams": [
+      {
+       "name": "Identity",
+       "id": "TM01"
+      },
+      {
+       "name": "Security",
+       "id": "TM07"
+      }
+     ]
+    },
+    "latency_ms": 3904.0,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "model"
+   },
+   {
+    "step": 4,
+    "sim_clock": "2026-02-13 00:45:00",
+    "tool_name": "get_technical_signals",
+    "args": {
+     "component_id": "CM011"
+    },
+    "args_alias": {
+     "component": "COMPONENT_QDB"
+    },
+    "hypotheses": [
+     "Provisioning/Onboarding issue:0.88"
+    ],
+    "hypothesis_state": [
+     {
+      "label": "Provisioning/Onboarding issue",
+      "confidence": 0.88,
+      "status": "active",
+      "supporting_evidence": [],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "result_summary": {
+     "signals": [],
+     "count": 0
+    },
+    "latency_ms": 3738.2,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "model"
+   },
+   {
+    "step": 5,
+    "sim_clock": "2026-02-13 01:00:00",
+    "tool_name": "get_configuration_history",
+    "args": {
+     "component_id": "CM011"
+    },
+    "args_alias": {
+     "component": "COMPONENT_QDB"
+    },
+    "hypotheses": [
+     "Provisioning/Onboarding issue:0.88"
+    ],
+    "hypothesis_state": [
+     {
+      "label": "Provisioning/Onboarding issue",
+      "confidence": 0.88,
+      "status": "active",
+      "supporting_evidence": [],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "result_summary": {
+     "configuration_snapshots": [],
+     "count": 0
+    },
+    "latency_ms": 4155.5,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "model"
+   },
+   {
+    "step": 6,
+    "sim_clock": "2026-02-13 01:15:00",
+    "tool_name": "get_technical_signals",
+    "args": {},
+    "args_alias": {},
+    "hypotheses": [
+     "Provisioning/Onboarding issue:0.88"
+    ],
+    "hypothesis_state": [
+     {
+      "label": "Provisioning/Onboarding issue",
+      "confidence": 0.88,
+      "status": "active",
+      "supporting_evidence": [],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "result_summary": {
+     "signals": [
+      {
+       "evidence_id": "SG0003476",
+       "signal_type": "SCHEMA_MIGRATION_ERROR",
+       "message": "schema migration error on Segment Builder Service",
+       "timestamp": "2026-02-12 20:18:00",
+       "component_id": "CM114"
+      },
+      {
+       "evidence_id": "SG0003475",
+       "signal_type": "DUPLICATE_RECORD_DETECTED",
+       "message": "duplicate records detected in Accessibility Layer",
+       "timestamp": "2026-02-12 22:14:00",
+       "component_id": "CM190"
+      },
+      {
+       "evidence_id": "SG0003477",
+       "signal_type": "ENV_VAR_MISSING",
+       "message": "required environment variable missing on Emergency Access (Break-Glass) Service",
+       "timestamp": "2026-02-12 23:28:00",
+       "component_id": "CM040"
+      },
+      {
+       "evidence_id": "SG0003474",
+       "signal_type": "FEATURE_FLAG_MISMATCH",
+       "message": "feature flag state mismatch on Metrics Pipeline",
+       "timestamp": "2026-02-12 23:34:00",
+       "component_id": "CM146"
+      },
+      {
+       "evidence_id": "SG0003473",
+       "signal_type": "ENV_VAR_MISSING",
+       "message": "required environment variable missing on Group Sync Service",
+       "timestamp": "2026-02-12 23:40:00",
+       "component_id": "CM032"
+      }
+     ],
+     "count": 5
+    },
+    "latency_ms": 4269.3,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "model"
+   },
+   {
+    "step": 7,
+    "sim_clock": "2026-02-13 01:30:00",
+    "tool_name": "get_component_topology",
+    "args": {
+     "component_id": "CM114"
+    },
+    "args_alias": {
+     "component": "COMPONENT_FWC"
+    },
+    "hypotheses": [
+     "Provisioning/Onboarding issue:0.88"
+    ],
+    "hypothesis_state": [
+     {
+      "label": "Provisioning/Onboarding issue",
+      "confidence": 0.88,
+      "status": "active",
+      "supporting_evidence": [],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "result_summary": {
+     "component_id": "CM114",
+     "component_name": "Segment Builder Service",
+     "upstream_dependencies": [
+      {
+       "name": "Cube/OLAP Engine",
+       "id": "CM124"
+      },
+      {
+       "name": "Multi-Tenant Data Partitioning Layer",
+       "id": "CM130"
+      },
+      {
+       "name": "Backup & Disaster Recovery Service",
+       "id": "CM235"
+      },
+      {
+       "name": "File Storage Service",
+       "id": "CM240"
+      }
+     ],
+     "downstream_dependents": [],
+     "external_dependencies": [],
+     "owning_teams": [
+      {
+       "name": "Data Platform",
+       "id": "TM05"
+      },
+      {
+       "name": "Database",
+       "id": "TM06"
+      }
+     ]
+    },
+    "latency_ms": 3247.0,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "model"
+   },
+   {
+    "step": 8,
+    "sim_clock": "2026-02-13 01:45:00",
+    "tool_name": "get_technical_signals",
+    "args": {
+     "component_id": "CM114"
+    },
+    "args_alias": {
+     "component": "COMPONENT_FWC"
+    },
+    "hypotheses": [
+     "Provisioning/Onboarding issue:0.88"
+    ],
+    "hypothesis_state": [
+     {
+      "label": "Provisioning/Onboarding issue",
+      "confidence": 0.88,
+      "status": "active",
+      "supporting_evidence": [],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "result_summary": {
+     "signals": [
+      {
+       "evidence_id": "SG0003476",
+       "signal_type": "SCHEMA_MIGRATION_ERROR",
+       "message": "schema migration error on Segment Builder Service",
+       "timestamp": "2026-02-12 20:18:00",
+       "component_id": "CM114"
+      }
+     ],
+     "count": 1
+    },
+    "latency_ms": 5969.9,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "model"
+   },
+   {
+    "step": 9,
+    "sim_clock": "2026-02-13 02:00:00",
+    "tool_name": "get_telemetry",
+    "args": {
+     "component_id": "CM011"
+    },
+    "args_alias": {
+     "component": "COMPONENT_QDB"
+    },
+    "hypotheses": [
+     "Provisioning/Onboarding issue:0.88"
+    ],
+    "hypothesis_state": [
+     {
+      "label": "Provisioning/Onboarding issue",
+      "confidence": 0.88,
+      "status": "active",
+      "supporting_evidence": [],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "result_summary": {
+     "available_metric_categories": [
+      "Application"
+     ],
+     "note": "Call again with one of these metric_category values to see actual readings."
+    },
+    "latency_ms": 6620.8,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "model"
+   },
+   {
+    "step": 10,
+    "sim_clock": "2026-02-13 02:15:00",
+    "tool_name": "get_telemetry",
+    "args": {
+     "component_id": "CM011",
+     "metric_category": "Application"
+    },
+    "args_alias": {
+     "component": "COMPONENT_QDB",
+     "metric_category": "Application"
+    },
+    "hypotheses": [
+     "Provisioning/Onboarding issue:0.88"
+    ],
+    "hypothesis_state": [
+     {
+      "label": "Provisioning/Onboarding issue",
+      "confidence": 0.88,
+      "status": "active",
+      "supporting_evidence": [],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "result_summary": {
+     "telemetry_findings": [],
+     "count": 0
+    },
+    "latency_ms": 7400.4,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "model"
+   },
+   {
+    "step": 11,
+    "sim_clock": "2026-02-13 02:30:00",
+    "tool_name": "get_recent_changes",
+    "args": {
+     "component_id": "CM011"
+    },
+    "args_alias": {
+     "component": "COMPONENT_QDB"
+    },
+    "hypotheses": [
+     "Provisioning/Onboarding issue:0.88"
+    ],
+    "hypothesis_state": [
+     {
+      "label": "Provisioning/Onboarding issue",
+      "confidence": 0.88,
+      "status": "active",
+      "supporting_evidence": [],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "result_summary": {
+     "recent_changes": [],
+     "count": 0
+    },
+    "latency_ms": 3639.6,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "model"
+   },
+   {
+    "step": 12,
+    "sim_clock": "2026-02-13 02:45:00",
+    "tool_name": "get_deployment_history",
+    "args": {
+     "component_id": "CM011"
+    },
+    "args_alias": {
+     "component": "COMPONENT_QDB"
+    },
+    "hypotheses": [
+     "Provisioning/Onboarding issue:0.88"
+    ],
+    "hypothesis_state": [
+     {
+      "label": "Provisioning/Onboarding issue",
+      "confidence": 0.88,
+      "status": "active",
+      "supporting_evidence": [],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "result_summary": {
+     "deployments": [],
+     "count": 0
+    },
+    "latency_ms": 5970.6,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "model"
+   },
+   {
+    "step": 13,
+    "sim_clock": "2026-02-13 03:00:00",
+    "tool_name": "get_service_health",
+    "args": {
+     "component_id": "CM011"
+    },
+    "args_alias": {
+     "component": "COMPONENT_QDB"
+    },
+    "hypotheses": [
+     "Provisioning/Onboarding issue:0.88"
+    ],
+    "hypothesis_state": [
+     {
+      "label": "Provisioning/Onboarding issue",
+      "confidence": 0.88,
+      "status": "active",
+      "supporting_evidence": [],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "result_summary": {
+     "health_events": [
+      {
+       "evidence_id": "SHE00234",
+       "started_at": "2025-11-24 08:13:00",
+       "ended_at": "2025-11-24 09:13:00",
+       "severity": "minor",
+       "description": "Automated health check flagged SSO Broker as degraded (minor) for 60 minutes."
+      },
+      {
+       "evidence_id": "SHE00231",
+       "started_at": "2025-11-05 09:28:00",
+       "ended_at": "2025-11-05 09:33:00",
+       "severity": "critical",
+       "description": "Automated health check flagged SSO Broker as degraded (critical) for 5 minutes."
+      },
+      {
+       "evidence_id": "SHE00212",
+       "started_at": "2025-10-29 17:58:00",
+       "ended_at": "2025-10-29 18:43:00",
+       "severity": "minor",
+       "description": "Brief minor health blip on SSO Broker: elevated error rate for 45 minutes."
+      },
+      {
+       "evidence_id": "SHE00230",
+       "started_at": "2025-10-26 07:55:00",
+       "ended_at": "2025-10-26 08:10:00",
+       "severity": "minor",
+       "description": "Automated health check flagged SSO Broker as degraded (minor) for 15 minutes."
+      },
+      {
+       "evidence_id": "SHE00225",
+       "started_at": "2025-10-16 23:53:00",
+       "ended_at": "2025-10-17 00:38:00",
+       "severity": "critical",
+       "description": "Transient critical availability dip on SSO Broker, recovered within 45 minutes."
+      },
+      {
+       "evidence_id": "SHE00217",
+       "started_at": "2025-07-31 06:27:00",
+       "ended_at": "2025-07-31 07:12:00",
+       "severity": "major",
+       "description": "Brief major health blip on SSO Broker: elevated error rate for 45 minutes."
+      },
+      {
+       "evidence_id": "SHE00228",
+       "started_at": "2025-07-20 15:35:00",
+       "ended_at": "2025-07-20 16:20:00",
+       "severity": "minor",
+       "description": "minor latency spike observed on SSO Broker, self-resolved after 45 minutes."
+      },
+      {
+       "evidence_id": "SHE00222",
+       "started_at": "2025-07-16 02:23:00",
+       "ended_at": "2025-07-16 02:43:00",
+       "severity": "minor",
+       "description": "Transient minor availability dip on SSO Broker, recovered within 20 minutes."
+      }
+     ],
+     "count": 8
+    },
+    "latency_ms": 3988.4,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "model"
+   },
+   {
+    "step": 14,
+    "sim_clock": "2026-02-13 03:15:00",
+    "tool_name": "get_active_incidents",
+    "args": {},
+    "args_alias": {},
+    "hypotheses": [
+     "Provisioning/Onboarding issue:0.88"
+    ],
+    "hypothesis_state": [
+     {
+      "label": "Provisioning/Onboarding issue",
+      "confidence": 0.88,
+      "status": "active",
+      "supporting_evidence": [],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "result_summary": {
+     "incidents": [
+      {
+       "evidence_id": "INC0343",
+       "region": "global",
+       "started_at": "2026-02-12 23:01:00",
+       "ended_at": "2026-02-13 00:01:00",
+       "severity": "major",
+       "status": "resolved",
+       "summary": "Global VPN Gateway outage for 1 hour blocked remote access.",
+       "affected_components": [
+        "CM159"
+       ]
+      }
+     ],
+     "count": 1
+    },
+    "latency_ms": 4599.9,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "model"
+   }
+  ],
+  "final_diagnosis": {
+   "hypotheses": [],
+   "rationale": "",
+   "predicted_product_id": null,
+   "product_confidence": null,
+   "predicted_component_id": null,
+   "component_confidence": null,
+   "predicted_category_id": null,
+   "category_confidence": null,
+   "predicted_subcategory_id": null,
+   "predicted_root_cause_family": null,
+   "root_cause_confidence": null,
+   "predicted_causal_change_id": null,
+   "causal_change_confidence": null,
+   "predicted_severity": null,
+   "severity_confidence": null,
+   "recommended_team_id": null,
+   "routing_confidence": null,
+   "evidence_sufficiency": "insufficient",
+   "overall_confidence": 0.0,
+   "recommended_next_action": "route to a human investigator",
+   "human_review_required": true,
+   "human_review_reason": "final answer failed validation after the one allowed repair",
+   "evidence_summary": "The run ended in a contract failure; no diagnosis was produced.",
+   "unresolved_uncertainties": [
+    "final answer failed validation after the one allowed repair"
+   ],
+   "status": "CONTRACT_FAILURE",
+   "evidence_ids": []
+  },
+  "final_status": "CONTRACT_FAILURE",
+  "final_alias_form": null,
+  "citation_violations": [],
+  "evidence_ids_seen": [
+   "INC0343",
+   "SG0003473",
+   "SG0003474",
+   "SG0003475",
+   "SG0003476",
+   "SG0003477",
+   "SHE00212",
+   "SHE00217",
+   "SHE00222",
+   "SHE00225",
+   "SHE00228",
+   "SHE00230",
+   "SHE00231",
+   "SHE00234"
+  ],
+  "repair_events": [
+   {
+    "step": 15,
+    "kind": "final_contract_repair",
+    "detail": "selection_without_citation -> rejected"
+   }
+  ],
+  "tool_proposals": 13,
+  "tool_contract_errors": [],
+  "tool_contract_repairs": [],
+  "final_contract_errors": [
+   {
+    "step": 11,
+    "attempt": 1,
+    "errors": [
+     {
+      "code": "selection_without_citation",
+      "field": "evidence_ids",
+      "detail": "a diagnostic selection needs at least one cited evidence item"
+     },
+     {
+      "code": "proposed_without_supported_hypothesis",
+      "field": "status",
+      "detail": "DIAGNOSIS_PROPOSED needs a non-rejected hypothesis with cited support"
+     },
+     {
+      "code": "status_sufficiency_conflict",
+      "field": "evidence_sufficiency",
+      "detail": "a diagnosis cannot be proposed while claiming insufficient evidence"
+     }
+    ],
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Provisioning/Onboarding issue\", \"confidence\": 0.88, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"evidence_ids\": [], \"issue_category\": \"CATEGORY_ZCH\", \"category_confidence\": 0.88, \"root_cause\": null, \"root_cause_confidence\": null, \"affected_component\": \"COMPONENT_QDB\", \"component_confidence\": 0.5, \"causal_change\": null, \"causal_change_confidence\": null, \"owning_team\": \"TEAM_PSP\", \"routing_confidence\": 0.5, \"confidence\": 0.88, \"evidence_sufficiency\": \"insufficient\", \"human_review_required\": true, \"review_reason\": \"inconclusive evidence and exhausted investigation budget\", \"status\": \"DIAGNOSIS_PROPOSED\", \"recommended_next_action\": \"human review and further investigation\", \"unresolved_uncertainties\": [\"root cause\", \"causal change\", \"affected component confidence\"], \"summary\": \"Provisioning/Onboarding issue with SSO Integration Module in staging (LATAM) environment, affecting 80 users, with moderate business impact. Investigation budget exhausted, and evidence is insufficient to determine the root cause and causal change.\"}",
+    "finish_reason": "stop"
+   },
+   {
+    "step": 15,
+    "attempt": 1,
+    "errors": [
+     {
+      "code": "selection_without_citation",
+      "field": "evidence_ids",
+      "detail": "a diagnostic selection needs at least one cited evidence item"
+     }
+    ],
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Provisioning/Onboarding issue\", \"confidence\": 0.88, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"evidence_ids\": [], \"issue_category\": \"CATEGORY_ZCH\", \"category_confidence\": 0.88, \"root_cause\": null, \"root_cause_confidence\": null, \"affected_component\": \"COMPONENT_QDB\", \"component_confidence\": 0.8, \"causal_change\": null, \"causal_change_confidence\": null, \"owning_team\": \"TEAM_PSP\", \"routing_confidence\": 0.8, \"confidence\": 0.88, \"evidence_sufficiency\": \"insufficient\", \"human_review_required\": true, \"review_reason\": \"The investigation budget is exhausted and there is not enough evidence to confirm the root cause of the issue.\", \"status\": \"INSUFFICIENT_EVIDENCE\", \"recommended_next_action\": \"Human review required to further investigate the issue and determine the root cause.\", \"unresolved_uncertainties\": [\"The root cause of the Provisioning/Onboarding issue is unknown.\", \"The causal change that led to the issue is unknown.\"], \"summary\": \"The case report describes issues with the SSO Integration module in the staging environment, including duplicate account creation, provisioning stuck, and bulk import failure. The investigation suggests a Provisioning/Onboarding issue, but the root cause and causal change are unknown due to insufficient evidence.\"}",
+    "finish_reason": "stop"
+   },
+   {
+    "step": 15,
+    "attempt": 2,
+    "errors": [
+     {
+      "code": "status_sufficiency_conflict",
+      "field": "evidence_sufficiency",
+      "detail": "a diagnosis cannot be proposed while claiming insufficient evidence"
+     }
+    ],
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Provisioning/Onboarding issue\", \"confidence\": 0.88, \"status\": \"active\", \"supporting_evidence\": [\"EVIDENCE_RHC\", \"EVIDENCE_GSH\", \"EVIDENCE_QJB\", \"EVIDENCE_ZXF\", \"EVIDENCE_LWQ\"], \"contradicting_evidence\": []}], \"evidence_ids\": [\"EVIDENCE_RHC\", \"EVIDENCE_GSH\", \"EVIDENCE_QJB\", \"EVIDENCE_ZXF\", \"EVIDENCE_LWQ\"], \"issue_category\": \"CATEGORY_ZCH\", \"category_confidence\": 0.88, \"root_cause\": null, \"root_cause_confidence\": null, \"affected_component\": \"COMPONENT_QDB\", \"component_confidence\": 0.88, \"causal_change\": null, \"causal_change_confidence\": null, \"owning_team\": \"TEAM_PSP\", \"routing_confidence\": 0.88, \"confidence\": 0.88, \"evidence_sufficiency\": \"insufficient\", \"human_review_required\": true, \"review_reason\": \"inconclusive evidence and lack of clear causal change\", \"status\": \"DIAGNOSIS_PROPOSED\", \"recommended_next_action\": \"human review and further investigation\", \"unresolved_uncertainties\": [\"root cause\", \"causal change\"], \"summary\": \"The investigation suggests a provisioning/onboarding issue, but the evidence is not conclusive, and further review is required to determine the root cause and causal change.\"}",
+    "finish_reason": "stop"
+   }
+  ],
+  "final_contract_repair": {
+   "step": 15,
+   "error_codes": [
+    "selection_without_citation"
+   ],
+   "outcome": "rejected"
+  },
+  "registry_snapshots": [
+   {
+    "step": 1,
+    "n_entities": 59,
+    "counts": {
+     "CATEGORY": 18,
+     "CAUSE": 40,
+     "PRODUCT": 1
+    },
+    "aliases_sha256_16": "8084a70f619df013"
+   },
+   {
+    "step": 2,
+    "n_entities": 76,
+    "counts": {
+     "CATEGORY": 18,
+     "CAUSE": 40,
+     "PRODUCT": 2,
+     "COMPONENT": 16
+    },
+    "aliases_sha256_16": "afdb6c380e4e5711"
+   },
+   {
+    "step": 3,
+    "n_entities": 91,
+    "counts": {
+     "CATEGORY": 18,
+     "CAUSE": 40,
+     "PRODUCT": 2,
+     "COMPONENT": 29,
+     "TEAM": 2
+    },
+    "aliases_sha256_16": "f6776ee3c229b4a9"
+   },
+   {
+    "step": 4,
+    "n_entities": 91,
+    "counts": {
+     "CATEGORY": 18,
+     "CAUSE": 40,
+     "PRODUCT": 2,
+     "COMPONENT": 29,
+     "TEAM": 2
+    },
+    "aliases_sha256_16": "f6776ee3c229b4a9"
+   },
+   {
+    "step": 5,
+    "n_entities": 91,
+    "counts": {
+     "CATEGORY": 18,
+     "CAUSE": 40,
+     "PRODUCT": 2,
+     "COMPONENT": 29,
+     "TEAM": 2
+    },
+    "aliases_sha256_16": "f6776ee3c229b4a9"
+   },
+   {
+    "step": 6,
+    "n_entities": 98,
+    "counts": {
+     "CATEGORY": 18,
+     "CAUSE": 40,
+     "PRODUCT": 2,
+     "COMPONENT": 31,
+     "TEAM": 2,
+     "EVIDENCE": 5
+    },
+    "aliases_sha256_16": "ecc6ec4435b5289c"
+   },
+   {
+    "step": 7,
+    "n_entities": 104,
+    "counts": {
+     "CATEGORY": 18,
+     "CAUSE": 40,
+     "PRODUCT": 2,
+     "COMPONENT": 35,
+     "TEAM": 4,
+     "EVIDENCE": 5
+    },
+    "aliases_sha256_16": "0aa571a9d60defa4"
+   },
+   {
+    "step": 8,
+    "n_entities": 104,
+    "counts": {
+     "CATEGORY": 18,
+     "CAUSE": 40,
+     "PRODUCT": 2,
+     "COMPONENT": 35,
+     "TEAM": 4,
+     "EVIDENCE": 5
+    },
+    "aliases_sha256_16": "0aa571a9d60defa4"
+   },
+   {
+    "step": 9,
+    "n_entities": 104,
+    "counts": {
+     "CATEGORY": 18,
+     "CAUSE": 40,
+     "PRODUCT": 2,
+     "COMPONENT": 35,
+     "TEAM": 4,
+     "EVIDENCE": 5
+    },
+    "aliases_sha256_16": "0aa571a9d60defa4"
+   },
+   {
+    "step": 10,
+    "n_entities": 104,
+    "counts": {
+     "CATEGORY": 18,
+     "CAUSE": 40,
+     "PRODUCT": 2,
+     "COMPONENT": 35,
+     "TEAM": 4,
+     "EVIDENCE": 5
+    },
+    "aliases_sha256_16": "0aa571a9d60defa4"
+   },
+   {
+    "step": 11,
+    "n_entities": 104,
+    "counts": {
+     "CATEGORY": 18,
+     "CAUSE": 40,
+     "PRODUCT": 2,
+     "COMPONENT": 35,
+     "TEAM": 4,
+     "EVIDENCE": 5
+    },
+    "aliases_sha256_16": "0aa571a9d60defa4"
+   },
+   {
+    "step": 12,
+    "n_entities": 104,
+    "counts": {
+     "CATEGORY": 18,
+     "CAUSE": 40,
+     "PRODUCT": 2,
+     "COMPONENT": 35,
+     "TEAM": 4,
+     "EVIDENCE": 5
+    },
+    "aliases_sha256_16": "0aa571a9d60defa4"
+   },
+   {
+    "step": 13,
+    "n_entities": 112,
+    "counts": {
+     "CATEGORY": 18,
+     "CAUSE": 40,
+     "PRODUCT": 2,
+     "COMPONENT": 35,
+     "TEAM": 4,
+     "EVIDENCE": 13
+    },
+    "aliases_sha256_16": "526bd530d885cdf4"
+   },
+   {
+    "step": 14,
+    "n_entities": 114,
+    "counts": {
+     "CATEGORY": 18,
+     "CAUSE": 40,
+     "PRODUCT": 2,
+     "COMPONENT": 36,
+     "TEAM": 4,
+     "EVIDENCE": 13,
+     "INCIDENT": 1
+    },
+    "aliases_sha256_16": "685553fe7486f22c"
+   }
+  ],
+  "alias_mappings": {
+   "CATEGORY_KXR": {
+    "alias": "CATEGORY_KXR",
+    "canonical_id": "IC01",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Identity / Authentication",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-02-13 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_XSH": {
+    "alias": "CATEGORY_XSH",
+    "canonical_id": "IC02",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Authorization / Permissions",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-02-13 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_JHQ": {
+    "alias": "CATEGORY_JHQ",
+    "canonical_id": "IC03",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Networking / Connectivity",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-02-13 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_PQZ": {
+    "alias": "CATEGORY_PQZ",
+    "canonical_id": "IC04",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Performance / Latency",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-02-13 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_SWB": {
+    "alias": "CATEGORY_SWB",
+    "canonical_id": "IC05",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Reliability / Availability",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-02-13 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_RJJ": {
+    "alias": "CATEGORY_RJJ",
+    "canonical_id": "IC06",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Deployment / Upgrade",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-02-13 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_CBW": {
+    "alias": "CATEGORY_CBW",
+    "canonical_id": "IC07",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Configuration",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-02-13 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_HBV": {
+    "alias": "CATEGORY_HBV",
+    "canonical_id": "IC08",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Data / Corruption",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-02-13 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_LTD": {
+    "alias": "CATEGORY_LTD",
+    "canonical_id": "IC09",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Integration / API",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-02-13 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_ZCH": {
+    "alias": "CATEGORY_ZCH",
+    "canonical_id": "IC10",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Provisioning / Onboarding",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-02-13 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_CSQ": {
+    "alias": "CATEGORY_CSQ",
+    "canonical_id": "IC11",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Security",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-02-13 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_JMP": {
+    "alias": "CATEGORY_JMP",
+    "canonical_id": "IC12",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Compliance",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-02-13 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_XCV": {
+    "alias": "CATEGORY_XCV",
+    "canonical_id": "IC13",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Billing / Commerce",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-02-13 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_MZR": {
+    "alias": "CATEGORY_MZR",
+    "canonical_id": "IC14",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "User Experience / Functional Defect",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-02-13 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_RLQ": {
+    "alias": "CATEGORY_RLQ",
+    "canonical_id": "IC15",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Storage / Database",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-02-13 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_WPN": {
+    "alias": "CATEGORY_WPN",
+    "canonical_id": "IC16",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Capacity / Scaling",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-02-13 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_KBX": {
+    "alias": "CATEGORY_KBX",
+    "canonical_id": "IC17",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Third-Party / Dependency",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-02-13 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_LTQ": {
+    "alias": "CATEGORY_LTQ",
+    "canonical_id": "IC18",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Unknown / Other",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-02-13 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_MCD": {
+    "alias": "CAUSE_MCD",
+    "canonical_id": "RC01",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "product defect",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-02-13 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_CXJ": {
+    "alias": "CAUSE_CXJ",
+    "canonical_id": "RC02",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "customer configuration error",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-02-13 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_WHQ": {
+    "alias": "CAUSE_WHQ",
+    "canonical_id": "RC03",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "incorrect permissions",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-02-13 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_TSZ": {
+    "alias": "CAUSE_TSZ",
+    "canonical_id": "RC04",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "policy misconfiguration",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-02-13 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_SLX": {
+    "alias": "CAUSE_SLX",
+    "canonical_id": "RC05",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "expired certificate",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-02-13 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_KZD": {
+    "alias": "CAUSE_KZD",
+    "canonical_id": "RC06",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "version incompatibility",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-02-13 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_MFP": {
+    "alias": "CAUSE_MFP",
+    "canonical_id": "RC07",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "dependency failure",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-02-13 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_QRT": {
+    "alias": "CAUSE_QRT",
+    "canonical_id": "RC08",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "network configuration error",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-02-13 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_JTW": {
+    "alias": "CAUSE_JTW",
+    "canonical_id": "RC09",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "resource exhaustion",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-02-13 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_DRF": {
+    "alias": "CAUSE_DRF",
+    "canonical_id": "RC10",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "database contention",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-02-13 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_QJJ": {
+    "alias": "CAUSE_QJJ",
+    "canonical_id": "RC11",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "bad deployment",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-02-13 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_HBX": {
+    "alias": "CAUSE_HBX",
+    "canonical_id": "RC12",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "incomplete migration",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-02-13 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_GLJ": {
+    "alias": "CAUSE_GLJ",
+    "canonical_id": "RC13",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "stale cache",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-02-13 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_DZC": {
+    "alias": "CAUSE_DZC",
+    "canonical_id": "RC14",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "third-party service failure",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-02-13 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_NHH": {
+    "alias": "CAUSE_NHH",
+    "canonical_id": "RC15",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "unsupported configuration",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-02-13 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_RCW": {
+    "alias": "CAUSE_RCW",
+    "canonical_id": "RC16",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "incorrect DNS configuration",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-02-13 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_BBK": {
+    "alias": "CAUSE_BBK",
+    "canonical_id": "RC17",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "data quality issue",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-02-13 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_XFN": {
+    "alias": "CAUSE_XFN",
+    "canonical_id": "RC18",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "operator error",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-02-13 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_NJZ": {
+    "alias": "CAUSE_NJZ",
+    "canonical_id": "RC19",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "capacity limitation",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-02-13 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_ZNZ": {
+    "alias": "CAUSE_ZNZ",
+    "canonical_id": "RC20",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "known product limitation",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-02-13 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_XTX": {
+    "alias": "CAUSE_XTX",
+    "canonical_id": "RC21",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "race condition",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-02-13 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_CJT": {
+    "alias": "CAUSE_CJT",
+    "canonical_id": "RC22",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "identity provider outage",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-02-13 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_PNM": {
+    "alias": "CAUSE_PNM",
+    "canonical_id": "RC23",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "token expiration handling bug",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-02-13 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_JLH": {
+    "alias": "CAUSE_JLH",
+    "canonical_id": "RC24",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "insufficient monitoring/alerting",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-02-13 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_RXZ": {
+    "alias": "CAUSE_RXZ",
+    "canonical_id": "RC25",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "incorrect load balancer routing",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-02-13 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_GBL": {
+    "alias": "CAUSE_GBL",
+    "canonical_id": "RC26",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "firewall misconfiguration",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-02-13 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_HMZ": {
+    "alias": "CAUSE_HMZ",
+    "canonical_id": "RC27",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "schema mismatch",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-02-13 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_QRN": {
+    "alias": "CAUSE_QRN",
+    "canonical_id": "RC28",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "breaking API contract change",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-02-13 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_JWL": {
+    "alias": "CAUSE_JWL",
+    "canonical_id": "RC29",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "credential rotation not propagated",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-02-13 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_FMF": {
+    "alias": "CAUSE_FMF",
+    "canonical_id": "RC30",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "stale internal documentation followed",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-02-13 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_DNR": {
+    "alias": "CAUSE_DNR",
+    "canonical_id": "RC31",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "incomplete rollback",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-02-13 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_JBH": {
+    "alias": "CAUSE_JBH",
+    "canonical_id": "RC32",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "infrastructure hardware failure",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-02-13 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_KHM": {
+    "alias": "CAUSE_KHM",
+    "canonical_id": "RC33",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "rate limit misconfiguration",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-02-13 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_DHF": {
+    "alias": "CAUSE_DHF",
+    "canonical_id": "RC34",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "insufficient capacity planning",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-02-13 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_BCN": {
+    "alias": "CAUSE_BCN",
+    "canonical_id": "RC35",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "data migration defect",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-02-13 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_CVW": {
+    "alias": "CAUSE_CVW",
+    "canonical_id": "RC36",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "improper access review",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-02-13 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_TXW": {
+    "alias": "CAUSE_TXW",
+    "canonical_id": "RC37",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "expired API key",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-02-13 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_CNS": {
+    "alias": "CAUSE_CNS",
+    "canonical_id": "RC38",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "clock/time synchronization issue",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-02-13 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_LFW": {
+    "alias": "CAUSE_LFW",
+    "canonical_id": "RC39",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "idempotency/duplicate-processing failure",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-02-13 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_MKK": {
+    "alias": "CAUSE_MKK",
+    "canonical_id": "RC40",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "insufficient information to determine root cause",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-02-13 00:00:00",
+    "summary": ""
+   },
+   "PRODUCT_SDN": {
+    "alias": "PRODUCT_SDN",
+    "canonical_id": "P002",
+    "kind": "PRODUCT",
+    "type": "product",
+    "display_name": "SSO Integration Module",
+    "source_tool": "get_case_context",
+    "first_observed_step": 1,
+    "first_observed_clock": "2026-02-13 00:00:00",
+    "summary": ""
+   },
+   "COMPONENT_QDB": {
+    "alias": "COMPONENT_QDB",
+    "canonical_id": "CM011",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "SSO Broker",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2026-02-13 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_MCH": {
+    "alias": "COMPONENT_MCH",
+    "canonical_id": "CM019",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Account Recovery Service",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2026-02-13 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_WCX": {
+    "alias": "COMPONENT_WCX",
+    "canonical_id": "CM025",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Social Login Connector",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2026-02-13 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_FVB": {
+    "alias": "COMPONENT_FVB",
+    "canonical_id": "CM027",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "OAuth Authorization Server",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2026-02-13 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_PKK": {
+    "alias": "COMPONENT_PKK",
+    "canonical_id": "CM031",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Identity Lifecycle Manager",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2026-02-13 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_FFW": {
+    "alias": "COMPONENT_FFW",
+    "canonical_id": "CM032",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Group Sync Service",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2026-02-13 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_TKN": {
+    "alias": "COMPONENT_TKN",
+    "canonical_id": "CM241",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Central Message Queue",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2026-02-13 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_RQK": {
+    "alias": "COMPONENT_RQK",
+    "canonical_id": "CM246",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Central Identity Vault",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2026-02-13 00:15:00",
+    "summary": ""
+   },
+   "PRODUCT_PLK": {
+    "alias": "PRODUCT_PLK",
+    "canonical_id": "P001",
+    "kind": "PRODUCT",
+    "type": "product",
+    "display_name": "Payment Gateway v2",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2026-02-13 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_HFX": {
+    "alias": "COMPONENT_HFX",
+    "canonical_id": "CM046",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Refund Service",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2026-02-13 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_NVB": {
+    "alias": "COMPONENT_NVB",
+    "canonical_id": "CM050",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Currency Conversion Service",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2026-02-13 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_MZJ": {
+    "alias": "COMPONENT_MZJ",
+    "canonical_id": "CM054",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Payment Gateway API",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2026-02-13 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_LGC": {
+    "alias": "COMPONENT_LGC",
+    "canonical_id": "CM057",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Settlement Service",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2026-02-13 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_GGD": {
+    "alias": "COMPONENT_GGD",
+    "canonical_id": "CM074",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Tax Jurisdiction Resolver",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2026-02-13 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_HXK": {
+    "alias": "COMPONENT_HXK",
+    "canonical_id": "CM077",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Usage Metering Service",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2026-02-13 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_KDX": {
+    "alias": "COMPONENT_KDX",
+    "canonical_id": "CM227",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Global API Gateway",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2026-02-13 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_NQG": {
+    "alias": "COMPONENT_NQG",
+    "canonical_id": "CM229",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Audit Log Service",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2026-02-13 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_MGD": {
+    "alias": "COMPONENT_MGD",
+    "canonical_id": "CM020",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Identity Audit Logger",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 3,
+    "first_observed_clock": "2026-02-13 00:30:00",
+    "summary": ""
+   },
+   "COMPONENT_QZT": {
+    "alias": "COMPONENT_QZT",
+    "canonical_id": "CM022",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Risk-Based Authentication Engine",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 3,
+    "first_observed_clock": "2026-02-13 00:30:00",
+    "summary": ""
+   },
+   "COMPONENT_CZM": {
+    "alias": "COMPONENT_CZM",
+    "canonical_id": "CM023",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Device Trust Service",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 3,
+    "first_observed_clock": "2026-02-13 00:30:00",
+    "summary": ""
+   },
+   "COMPONENT_NPZ": {
+    "alias": "COMPONENT_NPZ",
+    "canonical_id": "CM033",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Attribute Mapping Service",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 3,
+    "first_observed_clock": "2026-02-13 00:30:00",
+    "summary": ""
+   },
+   "COMPONENT_GFT": {
+    "alias": "COMPONENT_GFT",
+    "canonical_id": "CM040",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Emergency Access (Break-Glass) Service",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 3,
+    "first_observed_clock": "2026-02-13 00:30:00",
+    "summary": ""
+   },
+   "COMPONENT_MBV": {
+    "alias": "COMPONENT_MBV",
+    "canonical_id": "CM091",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Reporting Service",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 3,
+    "first_observed_clock": "2026-02-13 00:30:00",
+    "summary": ""
+   },
+   "COMPONENT_QWF": {
+    "alias": "COMPONENT_QWF",
+    "canonical_id": "CM118",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Dashboard Sharing Service",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 3,
+    "first_observed_clock": "2026-02-13 00:30:00",
+    "summary": ""
+   },
+   "COMPONENT_DTH": {
+    "alias": "COMPONENT_DTH",
+    "canonical_id": "CM137",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Secret Store",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 3,
+    "first_observed_clock": "2026-02-13 00:30:00",
+    "summary": ""
+   },
+   "COMPONENT_HDK": {
+    "alias": "COMPONENT_HDK",
+    "canonical_id": "CM149",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "TLS Termination Service",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 3,
+    "first_observed_clock": "2026-02-13 00:30:00",
+    "summary": ""
+   },
+   "COMPONENT_LLZ": {
+    "alias": "COMPONENT_LLZ",
+    "canonical_id": "CM190",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Accessibility Layer",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 3,
+    "first_observed_clock": "2026-02-13 00:30:00",
+    "summary": ""
+   },
+   "COMPONENT_JCX": {
+    "alias": "COMPONENT_JCX",
+    "canonical_id": "CM205",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Mobile Push Token Manager",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 3,
+    "first_observed_clock": "2026-02-13 00:30:00",
+    "summary": ""
+   },
+   "COMPONENT_SBK": {
+    "alias": "COMPONENT_SBK",
+    "canonical_id": "CM230",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Secret & Config Store",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 3,
+    "first_observed_clock": "2026-02-13 00:30:00",
+    "summary": ""
+   },
+   "COMPONENT_VMS": {
+    "alias": "COMPONENT_VMS",
+    "canonical_id": "CM238",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Directory Sync Connector (Shared)",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 3,
+    "first_observed_clock": "2026-02-13 00:30:00",
+    "summary": ""
+   },
+   "TEAM_PSP": {
+    "alias": "TEAM_PSP",
+    "canonical_id": "TM01",
+    "kind": "TEAM",
+    "type": "team",
+    "display_name": "Identity",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 3,
+    "first_observed_clock": "2026-02-13 00:30:00",
+    "summary": ""
+   },
+   "TEAM_MSW": {
+    "alias": "TEAM_MSW",
+    "canonical_id": "TM07",
+    "kind": "TEAM",
+    "type": "team",
+    "display_name": "Security",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 3,
+    "first_observed_clock": "2026-02-13 00:30:00",
+    "summary": ""
+   },
+   "COMPONENT_FWC": {
+    "alias": "COMPONENT_FWC",
+    "canonical_id": "CM114",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Segment Builder Service",
+    "source_tool": "get_technical_signals",
+    "first_observed_step": 6,
+    "first_observed_clock": "2026-02-13 01:15:00",
+    "summary": ""
+   },
+   "EVIDENCE_RHC": {
+    "alias": "EVIDENCE_RHC",
+    "canonical_id": "SG0003476",
+    "kind": "EVIDENCE",
+    "type": "signal",
+    "display_name": "",
+    "source_tool": "get_technical_signals",
+    "first_observed_step": 6,
+    "first_observed_clock": "2026-02-13 01:15:00",
+    "summary": "SCHEMA_MIGRATION_ERROR: schema migration error on Segment Builder Service on COMPONENT_FWC @ 2026-02-12 20:18:00"
+   },
+   "EVIDENCE_GSH": {
+    "alias": "EVIDENCE_GSH",
+    "canonical_id": "SG0003475",
+    "kind": "EVIDENCE",
+    "type": "signal",
+    "display_name": "",
+    "source_tool": "get_technical_signals",
+    "first_observed_step": 6,
+    "first_observed_clock": "2026-02-13 01:15:00",
+    "summary": "DUPLICATE_RECORD_DETECTED: duplicate records detected in Accessibility Layer on COMPONENT_LLZ @ 2026-02-12 22:14:00"
+   },
+   "EVIDENCE_QJB": {
+    "alias": "EVIDENCE_QJB",
+    "canonical_id": "SG0003477",
+    "kind": "EVIDENCE",
+    "type": "signal",
+    "display_name": "",
+    "source_tool": "get_technical_signals",
+    "first_observed_step": 6,
+    "first_observed_clock": "2026-02-13 01:15:00",
+    "summary": "ENV_VAR_MISSING: required environment variable missing on Emergency Access (Break-Glass) Service on COMPONENT_GFT @ 2026-02-12 23:28:00"
+   },
+   "COMPONENT_VDD": {
+    "alias": "COMPONENT_VDD",
+    "canonical_id": "CM146",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Metrics Pipeline",
+    "source_tool": "get_technical_signals",
+    "first_observed_step": 6,
+    "first_observed_clock": "2026-02-13 01:15:00",
+    "summary": ""
+   },
+   "EVIDENCE_ZXF": {
+    "alias": "EVIDENCE_ZXF",
+    "canonical_id": "SG0003474",
+    "kind": "EVIDENCE",
+    "type": "signal",
+    "display_name": "",
+    "source_tool": "get_technical_signals",
+    "first_observed_step": 6,
+    "first_observed_clock": "2026-02-13 01:15:00",
+    "summary": "FEATURE_FLAG_MISMATCH: feature flag state mismatch on Metrics Pipeline on COMPONENT_VDD @ 2026-02-12 23:34:00"
+   },
+   "EVIDENCE_LWQ": {
+    "alias": "EVIDENCE_LWQ",
+    "canonical_id": "SG0003473",
+    "kind": "EVIDENCE",
+    "type": "signal",
+    "display_name": "",
+    "source_tool": "get_technical_signals",
+    "first_observed_step": 6,
+    "first_observed_clock": "2026-02-13 01:15:00",
+    "summary": "ENV_VAR_MISSING: required environment variable missing on Group Sync Service on COMPONENT_FFW @ 2026-02-12 23:40:00"
+   },
+   "COMPONENT_ZND": {
+    "alias": "COMPONENT_ZND",
+    "canonical_id": "CM124",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Cube/OLAP Engine",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 7,
+    "first_observed_clock": "2026-02-13 01:30:00",
+    "summary": ""
+   },
+   "COMPONENT_QSR": {
+    "alias": "COMPONENT_QSR",
+    "canonical_id": "CM130",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Multi-Tenant Data Partitioning Layer",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 7,
+    "first_observed_clock": "2026-02-13 01:30:00",
+    "summary": ""
+   },
+   "COMPONENT_QVD": {
+    "alias": "COMPONENT_QVD",
+    "canonical_id": "CM235",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Backup & Disaster Recovery Service",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 7,
+    "first_observed_clock": "2026-02-13 01:30:00",
+    "summary": ""
+   },
+   "COMPONENT_RRP": {
+    "alias": "COMPONENT_RRP",
+    "canonical_id": "CM240",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "File Storage Service",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 7,
+    "first_observed_clock": "2026-02-13 01:30:00",
+    "summary": ""
+   },
+   "TEAM_JZK": {
+    "alias": "TEAM_JZK",
+    "canonical_id": "TM05",
+    "kind": "TEAM",
+    "type": "team",
+    "display_name": "Data Platform",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 7,
+    "first_observed_clock": "2026-02-13 01:30:00",
+    "summary": ""
+   },
+   "TEAM_XHR": {
+    "alias": "TEAM_XHR",
+    "canonical_id": "TM06",
+    "kind": "TEAM",
+    "type": "team",
+    "display_name": "Database",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 7,
+    "first_observed_clock": "2026-02-13 01:30:00",
+    "summary": ""
+   },
+   "EVIDENCE_DJS": {
+    "alias": "EVIDENCE_DJS",
+    "canonical_id": "SHE00234",
+    "kind": "EVIDENCE",
+    "type": "health_event",
+    "display_name": "",
+    "source_tool": "get_service_health",
+    "first_observed_step": 13,
+    "first_observed_clock": "2026-02-13 03:00:00",
+    "summary": "health event severity minor 2025-11-24 08:13:00..2025-11-24 09:13:00: Automated health check flagged SSO Broker as degraded (minor) for 60 minutes."
+   },
+   "EVIDENCE_WCB": {
+    "alias": "EVIDENCE_WCB",
+    "canonical_id": "SHE00231",
+    "kind": "EVIDENCE",
+    "type": "health_event",
+    "display_name": "",
+    "source_tool": "get_service_health",
+    "first_observed_step": 13,
+    "first_observed_clock": "2026-02-13 03:00:00",
+    "summary": "health event severity critical 2025-11-05 09:28:00..2025-11-05 09:33:00: Automated health check flagged SSO Broker as degraded (critical) for 5 minutes."
+   },
+   "EVIDENCE_WMH": {
+    "alias": "EVIDENCE_WMH",
+    "canonical_id": "SHE00212",
+    "kind": "EVIDENCE",
+    "type": "health_event",
+    "display_name": "",
+    "source_tool": "get_service_health",
+    "first_observed_step": 13,
+    "first_observed_clock": "2026-02-13 03:00:00",
+    "summary": "health event severity minor 2025-10-29 17:58:00..2025-10-29 18:43:00: Brief minor health blip on SSO Broker: elevated error rate for 45 minutes."
+   },
+   "EVIDENCE_TPZ": {
+    "alias": "EVIDENCE_TPZ",
+    "canonical_id": "SHE00230",
+    "kind": "EVIDENCE",
+    "type": "health_event",
+    "display_name": "",
+    "source_tool": "get_service_health",
+    "first_observed_step": 13,
+    "first_observed_clock": "2026-02-13 03:00:00",
+    "summary": "health event severity minor 2025-10-26 07:55:00..2025-10-26 08:10:00: Automated health check flagged SSO Broker as degraded (minor) for 15 minutes."
+   },
+   "EVIDENCE_LJJ": {
+    "alias": "EVIDENCE_LJJ",
+    "canonical_id": "SHE00225",
+    "kind": "EVIDENCE",
+    "type": "health_event",
+    "display_name": "",
+    "source_tool": "get_service_health",
+    "first_observed_step": 13,
+    "first_observed_clock": "2026-02-13 03:00:00",
+    "summary": "health event severity critical 2025-10-16 23:53:00..2025-10-17 00:38:00: Transient critical availability dip on SSO Broker, recovered within 45 minutes."
+   },
+   "EVIDENCE_BHS": {
+    "alias": "EVIDENCE_BHS",
+    "canonical_id": "SHE00217",
+    "kind": "EVIDENCE",
+    "type": "health_event",
+    "display_name": "",
+    "source_tool": "get_service_health",
+    "first_observed_step": 13,
+    "first_observed_clock": "2026-02-13 03:00:00",
+    "summary": "health event severity major 2025-07-31 06:27:00..2025-07-31 07:12:00: Brief major health blip on SSO Broker: elevated error rate for 45 minutes."
+   },
+   "EVIDENCE_SWB": {
+    "alias": "EVIDENCE_SWB",
+    "canonical_id": "SHE00228",
+    "kind": "EVIDENCE",
+    "type": "health_event",
+    "display_name": "",
+    "source_tool": "get_service_health",
+    "first_observed_step": 13,
+    "first_observed_clock": "2026-02-13 03:00:00",
+    "summary": "health event severity minor 2025-07-20 15:35:00..2025-07-20 16:20:00: minor latency spike observed on SSO Broker, self-resolved after 45 minutes."
+   },
+   "EVIDENCE_KLX": {
+    "alias": "EVIDENCE_KLX",
+    "canonical_id": "SHE00222",
+    "kind": "EVIDENCE",
+    "type": "health_event",
+    "display_name": "",
+    "source_tool": "get_service_health",
+    "first_observed_step": 13,
+    "first_observed_clock": "2026-02-13 03:00:00",
+    "summary": "health event severity minor 2025-07-16 02:23:00..2025-07-16 02:43:00: Transient minor availability dip on SSO Broker, recovered within 20 minutes."
+   },
+   "COMPONENT_WSN": {
+    "alias": "COMPONENT_WSN",
+    "canonical_id": "CM159",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "VPN Gateway",
+    "source_tool": "get_active_incidents",
+    "first_observed_step": 14,
+    "first_observed_clock": "2026-02-13 03:15:00",
+    "summary": ""
+   },
+   "INCIDENT_MTD": {
+    "alias": "INCIDENT_MTD",
+    "canonical_id": "INC0343",
+    "kind": "INCIDENT",
+    "type": "incident",
+    "display_name": "",
+    "source_tool": "get_active_incidents",
+    "first_observed_step": 14,
+    "first_observed_clock": "2026-02-13 03:15:00",
+    "summary": "incident severity major, status resolved, 2026-02-12 23:01:00..2026-02-13 00:01:00, affects ['COMPONENT_WSN']: Global VPN Gateway outage for 1 hour blocked remote access."
+   }
+  },
+  "validation_result": {
+   "first_pass_ok": false,
+   "errors_first": [
+    {
+     "code": "selection_without_citation",
+     "field": "evidence_ids",
+     "detail": "a diagnostic selection needs at least one cited evidence item"
+    }
+   ],
+   "repair_used": true,
+   "final_ok": false,
+   "errors_final": [
+    {
+     "code": "status_sufficiency_conflict",
+     "field": "evidence_sufficiency",
+     "detail": "a diagnosis cannot be proposed while claiming insufficient evidence"
+    }
+   ]
+  },
+  "contract_failure": "final answer failed validation after the one allowed repair",
+  "llm_calls": [
+   {
+    "phase": "action",
+    "step": 2,
+    "attempt": 0,
+    "prompt_tokens": 1414,
+    "completion_tokens": 79,
+    "latency_ms": 4920.1,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Provisioning/Onboarding issue\", \"confidence\": 0.88, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_customer_deployment\", \"component\": null, \"metric_category\": null, \"keyword\": null, \"team\": null}"
+   },
+   {
+    "phase": "action",
+    "step": 3,
+    "attempt": 0,
+    "prompt_tokens": 1948,
+    "completion_tokens": 82,
+    "latency_ms": 3841.5,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Provisioning/Onboarding issue\", \"confidence\": 0.88, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_component_topology\", \"component\": \"COMPONENT_QDB\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+   },
+   {
+    "phase": "action",
+    "step": 4,
+    "attempt": 0,
+    "prompt_tokens": 2050,
+    "completion_tokens": 84,
+    "latency_ms": 3617.4,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Provisioning/Onboarding issue\", \"confidence\": 0.88, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_technical_signals\", \"component\": \"COMPONENT_QDB\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+   },
+   {
+    "phase": "action",
+    "step": 5,
+    "attempt": 0,
+    "prompt_tokens": 1771,
+    "completion_tokens": 82,
+    "latency_ms": 4094.5,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Provisioning/Onboarding issue\", \"confidence\": 0.88, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_configuration_history\", \"component\": \"COMPONENT_QDB\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+   },
+   {
+    "phase": "action",
+    "step": 6,
+    "attempt": 0,
+    "prompt_tokens": 1786,
+    "completion_tokens": 80,
+    "latency_ms": 4148.3,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Provisioning/Onboarding issue\", \"confidence\": 0.88, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_technical_signals\", \"component\": null, \"metric_category\": null, \"keyword\": null, \"team\": null}"
+   },
+   {
+    "phase": "action",
+    "step": 7,
+    "attempt": 0,
+    "prompt_tokens": 2351,
+    "completion_tokens": 82,
+    "latency_ms": 3115.4,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Provisioning/Onboarding issue\", \"confidence\": 0.88, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_component_topology\", \"component\": \"COMPONENT_FWC\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+   },
+   {
+    "phase": "action",
+    "step": 8,
+    "attempt": 0,
+    "prompt_tokens": 2245,
+    "completion_tokens": 84,
+    "latency_ms": 5907.2,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Provisioning/Onboarding issue\", \"confidence\": 0.88, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_technical_signals\", \"component\": \"COMPONENT_FWC\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+   },
+   {
+    "phase": "action",
+    "step": 9,
+    "attempt": 0,
+    "prompt_tokens": 2187,
+    "completion_tokens": 83,
+    "latency_ms": 6501.0,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Provisioning/Onboarding issue\", \"confidence\": 0.88, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_telemetry\", \"component\": \"COMPONENT_QDB\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+   },
+   {
+    "phase": "action",
+    "step": 10,
+    "attempt": 0,
+    "prompt_tokens": 2156,
+    "completion_tokens": 84,
+    "latency_ms": 7338.5,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Provisioning/Onboarding issue\", \"confidence\": 0.88, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_telemetry\", \"component\": \"COMPONENT_QDB\", \"metric_category\": \"Application\", \"keyword\": null, \"team\": null}"
+   },
+   {
+    "phase": "final",
+    "step": 11,
+    "attempt": 0,
+    "prompt_tokens": 2844,
+    "completion_tokens": 286,
+    "latency_ms": 85877.3,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Provisioning/Onboarding issue\", \"confidence\": 0.88, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"evidence_ids\": [], \"issue_category\": \"CATEGORY_ZCH\", \"category_confidence\": 0.88, \"root_cause\": null, \"root_cause_confidence\": null, \"affected_component\": \"COMPONENT_QDB\", \"component_confidence\": 0.5, \"causal_change\": null, \"causal_change_confidence\": null, \"owning_team\": \"TEAM_PSP\", \"routing_confidence\": 0.5, \"confidence\": 0.88, \"evidence_sufficiency\": \"insufficient\", \"human_review_required\": true, \"review_reason\": \"inconclusive evidence and exhausted investigation budget\", \"status\": \"DIAGNOSIS_PROPOSED\", \"recommended_next_action\": \"human review and further investigation\", \"unresolved_uncertainties\": [\"root cause\", \"causal change\", \"affected component confidence\"], \"summary\": \"Provisioning/Onboarding issue with SSO Integration Module in staging (LATAM) environment, affecting 80 users, with moderate business impact. Investigation budget exhausted, and evidence is insufficient to determine the root cause and causal change.\"}"
+   },
+   {
+    "phase": "final",
+    "step": 11,
+    "attempt": 1,
+    "prompt_tokens": 2984,
+    "completion_tokens": 293,
+    "latency_ms": 56186.6,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Provisioning/Onboarding issue\", \"confidence\": 0.88, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"evidence_ids\": [], \"issue_category\": null, \"category_confidence\": null, \"root_cause\": null, \"root_cause_confidence\": null, \"affected_component\": null, \"component_confidence\": null, \"causal_change\": null, \"causal_change_confidence\": null, \"owning_team\": null, \"routing_confidence\": null, \"confidence\": 0.88, \"evidence_sufficiency\": \"insufficient\", \"human_review_required\": true, \"review_reason\": \"Investigation budget exhausted, unable to gather sufficient evidence to support a diagnosis\", \"status\": \"INSUFFICIENT_EVIDENCE\", \"recommended_next_action\": \"Human review required to analyze the case further and gather additional evidence to support a diagnosis\", \"unresolved_uncertainties\": [\"Unable to identify the root cause of the Provisioning/Onboarding issue due to insufficient evidence\", \"Unable to determine the affected component and owning team due to lack of evidence\"], \"summary\": \"The investigation was unable to gather sufficient evidence to support a diagnosis due to the exhausted budget. Human review is required to analyze the case further and gather additional evidence.\"}"
+   },
+   {
+    "phase": "action",
+    "step": 11,
+    "attempt": 0,
+    "prompt_tokens": 2270,
+    "completion_tokens": 82,
+    "latency_ms": 3546.9,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Provisioning/Onboarding issue\", \"confidence\": 0.88, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_recent_changes\", \"component\": \"COMPONENT_QDB\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+   },
+   {
+    "phase": "action",
+    "step": 12,
+    "attempt": 0,
+    "prompt_tokens": 2282,
+    "completion_tokens": 83,
+    "latency_ms": 5911.1,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Provisioning/Onboarding issue\", \"confidence\": 0.88, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_deployment_history\", \"component\": \"COMPONENT_QDB\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+   },
+   {
+    "phase": "action",
+    "step": 13,
+    "attempt": 0,
+    "prompt_tokens": 2299,
+    "completion_tokens": 82,
+    "latency_ms": 3929.1,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Provisioning/Onboarding issue\", \"confidence\": 0.88, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_service_health\", \"component\": \"COMPONENT_QDB\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+   },
+   {
+    "phase": "action",
+    "step": 14,
+    "attempt": 0,
+    "prompt_tokens": 3417,
+    "completion_tokens": 79,
+    "latency_ms": 4402.7,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Provisioning/Onboarding issue\", \"confidence\": 0.88, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_active_incidents\", \"component\": null, \"metric_category\": null, \"keyword\": null, \"team\": null}"
+   },
+   {
+    "phase": "final",
+    "step": 15,
+    "attempt": 0,
+    "prompt_tokens": 3581,
+    "completion_tokens": 326,
+    "latency_ms": 78751.9,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Provisioning/Onboarding issue\", \"confidence\": 0.88, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"evidence_ids\": [], \"issue_category\": \"CATEGORY_ZCH\", \"category_confidence\": 0.88, \"root_cause\": null, \"root_cause_confidence\": null, \"affected_component\": \"COMPONENT_QDB\", \"component_confidence\": 0.8, \"causal_change\": null, \"causal_change_confidence\": null, \"owning_team\": \"TEAM_PSP\", \"routing_confidence\": 0.8, \"confidence\": 0.88, \"evidence_sufficiency\": \"insufficient\", \"human_review_required\": true, \"review_reason\": \"The investigation budget is exhausted and there is not enough evidence to confirm the root cause of the issue.\", \"status\": \"INSUFFICIENT_EVIDENCE\", \"recommended_next_action\": \"Human review required to further investigate the issue and determine the root cause.\", \"unresolved_uncertainties\": [\"The root cause of the Provisioning/Onboarding issue is unknown.\", \"The causal change that led to the issue is unknown.\"], \"summary\": \"The case report describes issues with the SSO Integration module in the staging environment, including duplicate account creation, provisioning stuck, and bulk import failure. The investigation suggests a Provisioning/Onboarding issue, but the root cause and causal change are unknown due to insufficient evidence.\"}"
+   },
+   {
+    "phase": "final",
+    "step": 15,
+    "attempt": 1,
+    "prompt_tokens": 3646,
+    "completion_tokens": 337,
+    "latency_ms": 36795.7,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Provisioning/Onboarding issue\", \"confidence\": 0.88, \"status\": \"active\", \"supporting_evidence\": [\"EVIDENCE_RHC\", \"EVIDENCE_GSH\", \"EVIDENCE_QJB\", \"EVIDENCE_ZXF\", \"EVIDENCE_LWQ\"], \"contradicting_evidence\": []}], \"evidence_ids\": [\"EVIDENCE_RHC\", \"EVIDENCE_GSH\", \"EVIDENCE_QJB\", \"EVIDENCE_ZXF\", \"EVIDENCE_LWQ\"], \"issue_category\": \"CATEGORY_ZCH\", \"category_confidence\": 0.88, \"root_cause\": null, \"root_cause_confidence\": null, \"affected_component\": \"COMPONENT_QDB\", \"component_confidence\": 0.88, \"causal_change\": null, \"causal_change_confidence\": null, \"owning_team\": \"TEAM_PSP\", \"routing_confidence\": 0.88, \"confidence\": 0.88, \"evidence_sufficiency\": \"insufficient\", \"human_review_required\": true, \"review_reason\": \"inconclusive evidence and lack of clear causal change\", \"status\": \"DIAGNOSIS_PROPOSED\", \"recommended_next_action\": \"human review and further investigation\", \"unresolved_uncertainties\": [\"root cause\", \"causal change\"], \"summary\": \"The investigation suggests a provisioning/onboarding issue, but the evidence is not conclusive, and further review is required to determine the root cause and causal change.\"}"
+   }
+  ],
+  "sim_clock_end": "2026-02-13 03:30:00",
+  "tool_budget": 14,
+  "verification_rounds": [
+   {
+    "round": 1,
+    "decision": "CONTINUE_INVESTIGATION",
+    "reason": "possible missed evidence",
+    "triggers": [
+     "jev_missed_evidence"
+    ],
+    "message": "Verification result:\nMore investigation required.\nReasons:\n- possible missed evidence\nTools you have not used yet: get_recent_changes, get_deployment_history, get_service_health, get_active_incidents, get_similar_cases, search_knowledge_base, get_team_capability, get_agent_availability.\nContinue investigating using available tools. Do not repeat already completed tool calls unless necessary. You have up to 4 more tool calls; then you will be asked for your final diagnosis again.",
+    "deterministic_checks": {
+     "D1": {
+      "id": "D1",
+      "name": "valid_final_contract",
+      "passed": true,
+      "applicable": true,
+      "detail": "schema, bounds and every reference are valid"
+     },
+     "D2": {
+      "id": "D2",
+      "name": "evidence_support",
+      "passed": true,
+      "applicable": false,
+      "detail": "no diagnosis was proposed, so there is nothing to support"
+     },
+     "D3": {
+      "id": "D3",
+      "name": "final_consistency",
+      "passed": false,
+      "applicable": true,
+      "detail": "confidence >= 0.8 despite stated uncertainty or insufficient evidence"
+     },
+     "D4": {
+      "id": "D4",
+      "name": "premature_finalization",
+      "passed": true,
+      "applicable": true,
+      "detail": "evidence was retrieved and either a hypothesis is supported or the tool budget is used up"
+     },
+     "all_passed": false
+    },
+    "jev": {
+     "missed_evidence_probability": 0.93,
+     "distractor_anchor_probability": 0.22,
+     "review_probabilities": {
+      "NORMAL": 0.0,
+      "REVIEW": 0.71,
+      "PRIORITY_REVIEW": 0.29
+     },
+     "review": "REVIEW",
+     "available": true,
+     "errors": [],
+     "jev_model": "jev-1.13.0",
+     "input_tokens": 17929,
+     "latency_ms": 470.1,
+     "question_versions": {
+      "missed_evidence": "missed_evidence_v1",
+      "distractor_anchor": "distractor_anchor_v1",
+      "review": "human_review_v1"
+     }
+    },
+    "verifier_latency_ms": 889.8
+   }
+  ],
+  "initial_result": {
+   "final_status": "INSUFFICIENT_EVIDENCE",
+   "final_alias_form": {
+    "hypotheses": [
+     {
+      "label": "Provisioning/Onboarding issue",
+      "confidence": 0.88,
+      "status": "active",
+      "supporting_evidence": [],
+      "contradicting_evidence": []
+     }
+    ],
+    "evidence_ids": [],
+    "issue_category": null,
+    "category_confidence": null,
+    "root_cause": null,
+    "root_cause_confidence": null,
+    "affected_component": null,
+    "component_confidence": null,
+    "causal_change": null,
+    "causal_change_confidence": null,
+    "owning_team": null,
+    "routing_confidence": null,
+    "confidence": 0.88,
+    "evidence_sufficiency": "insufficient",
+    "human_review_required": true,
+    "review_reason": "Investigation budget exhausted, unable to gather sufficient evidence to support a diagnosis",
+    "status": "INSUFFICIENT_EVIDENCE",
+    "recommended_next_action": "Human review required to analyze the case further and gather additional evidence to support a diagnosis",
+    "unresolved_uncertainties": [
+     "Unable to identify the root cause of the Provisioning/Onboarding issue due to insufficient evidence",
+     "Unable to determine the affected component and owning team due to lack of evidence"
+    ],
+    "summary": "The investigation was unable to gather sufficient evidence to support a diagnosis due to the exhausted budget. Human review is required to analyze the case further and gather additional evidence."
+   },
+   "final_diagnosis": {
+    "hypotheses": [
+     {
+      "label": "Provisioning/Onboarding issue",
+      "description": "",
+      "confidence": 0.88,
+      "status": "active",
+      "supporting_evidence": [],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "predicted_product_id": null,
+    "product_confidence": null,
+    "predicted_component_id": null,
+    "component_confidence": null,
+    "predicted_category_id": null,
+    "category_confidence": null,
+    "predicted_subcategory_id": null,
+    "predicted_root_cause_family": null,
+    "root_cause_confidence": null,
+    "predicted_causal_change_id": null,
+    "causal_change_confidence": null,
+    "predicted_severity": null,
+    "severity_confidence": null,
+    "recommended_team_id": null,
+    "routing_confidence": null,
+    "evidence_sufficiency": "insufficient",
+    "overall_confidence": 0.88,
+    "recommended_next_action": "Human review required to analyze the case further and gather additional evidence to support a diagnosis",
+    "human_review_required": true,
+    "human_review_reason": "Investigation budget exhausted, unable to gather sufficient evidence to support a diagnosis",
+    "evidence_summary": "The investigation was unable to gather sufficient evidence to support a diagnosis due to the exhausted budget. Human review is required to analyze the case further and gather additional evidence.",
+    "unresolved_uncertainties": [
+     "Unable to identify the root cause of the Provisioning/Onboarding issue due to insufficient evidence",
+     "Unable to determine the affected component and owning team due to lack of evidence"
+    ],
+    "status": "INSUFFICIENT_EVIDENCE",
+    "evidence_ids": []
+   },
+   "validation_result": {
+    "first_pass_ok": false,
+    "errors_first": [
+     {
+      "code": "selection_without_citation",
+      "field": "evidence_ids",
+      "detail": "a diagnostic selection needs at least one cited evidence item"
+     },
+     {
+      "code": "proposed_without_supported_hypothesis",
+      "field": "status",
+      "detail": "DIAGNOSIS_PROPOSED needs a non-rejected hypothesis with cited support"
+     },
+     {
+      "code": "status_sufficiency_conflict",
+      "field": "evidence_sufficiency",
+      "detail": "a diagnosis cannot be proposed while claiming insufficient evidence"
+     }
+    ],
+    "repair_used": true,
+    "final_ok": true,
+    "errors_final": []
+   },
+   "num_tool_calls": 11,
+   "evidence_ids_seen": [
+    "SG0003473",
+    "SG0003474",
+    "SG0003475",
+    "SG0003476",
+    "SG0003477"
+   ],
+   "triage_outcome": {
+    "outcome": "dropped",
+    "hint_shown": true,
+    "suggested_category_id": "IC10",
+    "suggested_category": "Provisioning / Onboarding",
+    "final_category_id": null,
+    "final_category": null,
+    "final_in_alternatives": false
+   }
+  },
+  "additional_investigation_performed": true,
+  "early_triage": {
+   "version": "early_triage_v1",
+   "role": "triage_guidance",
+   "source": "jev_early_triage",
+   "question_version": "early_triage_category_v1",
+   "state_version": "early_triage_state_v1",
+   "status": "hint",
+   "fallback": false,
+   "fallback_reason": null,
+   "category_id": "IC10",
+   "category_name": "Provisioning / Onboarding",
+   "probability": 0.88,
+   "margin": 0.81,
+   "uncertainty": "low",
+   "alternatives": [
+    {
+     "category_id": "IC09",
+     "name": "Integration / API",
+     "probability": 0.07
+    },
+    {
+     "category_id": "IC01",
+     "name": "Identity / Authentication",
+     "probability": 0.05
+    },
+    {
+     "category_id": "IC02",
+     "name": "Authorization / Permissions",
+     "probability": 0.0
+    }
+   ],
+   "distribution_top": [
+    {
+     "category_id": "IC10",
+     "name": "Provisioning / Onboarding",
+     "probability": 0.88
+    },
+    {
+     "category_id": "IC09",
+     "name": "Integration / API",
+     "probability": 0.07
+    },
+    {
+     "category_id": "IC01",
+     "name": "Identity / Authentication",
+     "probability": 0.05
+    },
+    {
+     "category_id": "IC02",
+     "name": "Authorization / Permissions",
+     "probability": 0.0
+    }
+   ],
+   "abstain_probability": 0.0,
+   "suggested_tools": [
+    "get_customer_deployment",
+    "get_configuration_history"
+   ],
+   "jev_model": "jev-1.13.0",
+   "input_tokens": 867,
+   "latency_ms": 163.3,
+   "error": null,
+   "config": {
+    "min_probability": 0.3,
+    "moderate_probability": 0.4,
+    "strong_probability": 0.7,
+    "top_alternatives": 3,
+    "timeout_s": 20.0
+   }
+  },
+  "triage_hint_text": "EARLY TRIAGE HINT (provisional and unverified)\nSource: Jev early triage. It read only the ticket text and basic customer/product details; no tool, log, telemetry or graph evidence had been examined.\nSuggested issue category: CATEGORY_ZCH = Provisioning / Onboarding (probability 0.88, low uncertainty).\nOther categories Jev considered: CATEGORY_LTD = Integration / API (0.07); CATEGORY_KXR = Identity / Authentication (0.05).\nThis is a prior, not a finding, and it may be wrong. Test it against the evidence you retrieve, weigh the competing categories, and reject or replace it if the evidence points elsewhere. It is not evidence and cannot be cited. Choose your final issue_category from the evidence.\nSuggested starting points for this category (advisory only: every tool stays available and no category or evidence is ruled out): get_customer_deployment; get_configuration_history.",
+  "triage_prompt_version": "early_triage_prompt_v1",
+  "triage_outcome": {
+   "outcome": "no_final_answer",
+   "hint_shown": true,
+   "suggested_category_id": "IC10",
+   "suggested_category": "Provisioning / Onboarding",
+   "final_category_id": null,
+   "final_category": null,
+   "final_in_alternatives": false
+  }
+ }
+}

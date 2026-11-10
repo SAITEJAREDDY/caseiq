@@ -1,0 +1,2829 @@
+{
+ "case_id": "CS00624",
+ "created_at": "2026-09-24T22:16:30.732190+00:00",
+ "config": {
+  "missed_evidence_threshold": 0.75,
+  "distractor_threshold": 0.75,
+  "priority_review_threshold": 0.5,
+  "min_confidence": 0.55,
+  "extra_steps": 4,
+  "premature_min_steps_left": 2,
+  "require_jev_to_accept": true
+ },
+ "early_triage_used": true,
+ "early_triage_config": {
+  "min_probability": 0.3,
+  "moderate_probability": 0.4,
+  "strong_probability": 0.7,
+  "top_alternatives": 3,
+  "timeout_s": 20.0
+ },
+ "early_triage": {
+  "version": "early_triage_v1",
+  "role": "triage_guidance",
+  "source": "jev_early_triage",
+  "question_version": "early_triage_category_v1",
+  "state_version": "early_triage_state_v1",
+  "status": "hint",
+  "fallback": false,
+  "fallback_reason": null,
+  "category_id": "IC04",
+  "category_name": "Performance / Latency",
+  "probability": 1.0,
+  "margin": 1.0,
+  "uncertainty": "low",
+  "alternatives": [
+   {
+    "category_id": "IC01",
+    "name": "Identity / Authentication",
+    "probability": 0.0
+   },
+   {
+    "category_id": "IC02",
+    "name": "Authorization / Permissions",
+    "probability": 0.0
+   },
+   {
+    "category_id": "IC03",
+    "name": "Networking / Connectivity",
+    "probability": 0.0
+   }
+  ],
+  "distribution_top": [
+   {
+    "category_id": "IC04",
+    "name": "Performance / Latency",
+    "probability": 1.0
+   },
+   {
+    "category_id": "IC01",
+    "name": "Identity / Authentication",
+    "probability": 0.0
+   },
+   {
+    "category_id": "IC02",
+    "name": "Authorization / Permissions",
+    "probability": 0.0
+   },
+   {
+    "category_id": "IC03",
+    "name": "Networking / Connectivity",
+    "probability": 0.0
+   }
+  ],
+  "abstain_probability": 0.0,
+  "suggested_tools": [
+   "get_telemetry (metric_category Application)",
+   "get_technical_signals",
+   "get_deployment_history"
+  ],
+  "jev_model": "jev-1.13.0",
+  "input_tokens": 848,
+  "latency_ms": 111.3,
+  "error": null,
+  "config": {
+   "min_probability": 0.3,
+   "moderate_probability": 0.4,
+   "strong_probability": 0.7,
+   "top_alternatives": 3,
+   "timeout_s": 20.0
+  }
+ },
+ "triage_outcome": {
+  "outcome": "confirmed",
+  "hint_shown": true,
+  "suggested_category_id": "IC04",
+  "suggested_category": "Performance / Latency",
+  "final_category_id": "IC04",
+  "final_category": "Performance / Latency",
+  "final_in_alternatives": false
+ },
+ "triage_outcome_initial": {
+  "outcome": "confirmed",
+  "hint_shown": true,
+  "suggested_category_id": "IC04",
+  "suggested_category": "Performance / Latency",
+  "final_category_id": "IC04",
+  "final_category": "Performance / Latency",
+  "final_in_alternatives": false
+ },
+ "agent_initial_result": {
+  "status": "DIAGNOSIS_PROPOSED",
+  "confidence": 0.8,
+  "evidence_sufficiency": "sufficient",
+  "human_review_required": false,
+  "review_reason": null,
+  "selections": {
+   "issue_category": {
+    "alias": "CATEGORY_VVV",
+    "name": "Performance / Latency",
+    "source_id": "IC04"
+   },
+   "root_cause": {
+    "alias": "CAUSE_CCZ",
+    "name": "resource exhaustion",
+    "source_id": "RC09"
+   },
+   "affected_component": {
+    "alias": "COMPONENT_SHK",
+    "name": "Query Engine",
+    "source_id": "CM098"
+   },
+   "causal_change": null,
+   "owning_team": {
+    "alias": "TEAM_HWX",
+    "name": "Application Platform",
+    "source_id": "TM04"
+   }
+  },
+  "summary": "High latency in Analytics Dashboard is caused by capacity limit reached on Query Engine, which is owned by the Application Platform team. The recommended next action is to optimize the Query Engine configuration to improve performance and reduce latency.",
+  "recommended_next_action": "Optimize Query Engine configuration to improve performance and reduce latency.",
+  "hypotheses": [
+   {
+    "label": "Performance/Latency issue in Analytics Dashboard",
+    "confidence": 0.8,
+    "status": "confirmed"
+   }
+  ]
+ },
+ "verification_rounds": [
+  {
+   "round": 1,
+   "deterministic_checks": {
+    "D1": {
+     "id": "D1",
+     "name": "valid_final_contract",
+     "passed": true,
+     "applicable": true,
+     "detail": "schema, bounds and every reference are valid"
+    },
+    "D2": {
+     "id": "D2",
+     "name": "evidence_support",
+     "passed": true,
+     "applicable": true,
+     "detail": "3 cited evidence item(s), 1 supported hypothesis(es)"
+    },
+    "D3": {
+     "id": "D3",
+     "name": "final_consistency",
+     "passed": true,
+     "applicable": true,
+     "detail": "consistent with the last stated hypotheses and its own confidence"
+    },
+    "D4": {
+     "id": "D4",
+     "name": "premature_finalization",
+     "passed": true,
+     "applicable": true,
+     "detail": "evidence was retrieved and either a hypothesis is supported or the tool budget is used up"
+    },
+    "all_passed": true
+   },
+   "jev_missed_evidence": 0.57,
+   "jev_distractor_anchor": 0.31,
+   "jev_review": {
+    "label": "PRIORITY_REVIEW",
+    "probabilities": {
+     "PRIORITY_REVIEW": 0.59,
+     "REVIEW": 0.41,
+     "NORMAL": 0.0
+    }
+   },
+   "jev_available": true,
+   "policy_decision": "PRIORITY_REVIEW",
+   "reason": "Jev flags this investigation for priority review",
+   "triggers": [
+    "jev_priority_review"
+   ],
+   "message_to_agent": null
+  }
+ ],
+ "policy_decision": "PRIORITY_REVIEW",
+ "additional_investigation_performed": false,
+ "agent_final_result": {
+  "status": "DIAGNOSIS_PROPOSED",
+  "confidence": 0.8,
+  "evidence_sufficiency": "sufficient",
+  "human_review_required": false,
+  "review_reason": null,
+  "selections": {
+   "issue_category": {
+    "alias": "CATEGORY_VVV",
+    "name": "Performance / Latency",
+    "source_id": "IC04"
+   },
+   "root_cause": {
+    "alias": "CAUSE_CCZ",
+    "name": "resource exhaustion",
+    "source_id": "RC09"
+   },
+   "affected_component": {
+    "alias": "COMPONENT_SHK",
+    "name": "Query Engine",
+    "source_id": "CM098"
+   },
+   "causal_change": null,
+   "owning_team": {
+    "alias": "TEAM_HWX",
+    "name": "Application Platform",
+    "source_id": "TM04"
+   }
+  },
+  "summary": "High latency in Analytics Dashboard is caused by capacity limit reached on Query Engine, which is owned by the Application Platform team. The recommended next action is to optimize the Query Engine configuration to improve performance and reduce latency.",
+  "recommended_next_action": "Optimize Query Engine configuration to improve performance and reduce latency.",
+  "hypotheses": [
+   {
+    "label": "Performance/Latency issue in Analytics Dashboard",
+    "confidence": 0.8,
+    "status": "confirmed"
+   }
+  ]
+ },
+ "final_policy_decision": "PRIORITY_REVIEW",
+ "final_reason": "Jev flags this investigation for priority review",
+ "review_packet": {
+  "decision": "PRIORITY_REVIEW",
+  "reason": "Jev flags this investigation for priority review",
+  "triggers": [
+   "jev_priority_review"
+  ],
+  "agent_diagnosis": {
+   "status": "DIAGNOSIS_PROPOSED",
+   "confidence": 0.8,
+   "evidence_sufficiency": "sufficient",
+   "human_review_required": false,
+   "review_reason": null,
+   "selections": {
+    "issue_category": {
+     "alias": "CATEGORY_VVV",
+     "name": "Performance / Latency",
+     "source_id": "IC04"
+    },
+    "root_cause": {
+     "alias": "CAUSE_CCZ",
+     "name": "resource exhaustion",
+     "source_id": "RC09"
+    },
+    "affected_component": {
+     "alias": "COMPONENT_SHK",
+     "name": "Query Engine",
+     "source_id": "CM098"
+    },
+    "causal_change": null,
+    "owning_team": {
+     "alias": "TEAM_HWX",
+     "name": "Application Platform",
+     "source_id": "TM04"
+    }
+   },
+   "summary": "High latency in Analytics Dashboard is caused by capacity limit reached on Query Engine, which is owned by the Application Platform team. The recommended next action is to optimize the Query Engine configuration to improve performance and reduce latency.",
+   "recommended_next_action": "Optimize Query Engine configuration to improve performance and reduce latency.",
+   "hypotheses": [
+    {
+     "label": "Performance/Latency issue in Analytics Dashboard",
+     "confidence": 0.8,
+     "status": "confirmed"
+    }
+   ]
+  },
+  "key_evidence": [
+   {
+    "alias": "EVIDENCE_HQJ",
+    "type": "signal",
+    "summary": "CAPACITY_LIMIT_REACHED: capacity limit reached on Query Engine on COMPONENT_SHK @ 2026-01-19 23:41:00",
+    "source_id": "SG0003062"
+   },
+   {
+    "alias": "EVIDENCE_HVS",
+    "type": "signal",
+    "summary": "CAPACITY_LIMIT_REACHED: capacity limit reached on Query Engine on COMPONENT_SHK @ 2026-01-19 23:53:00",
+    "source_id": "SG0003064"
+   },
+   {
+    "alias": "EVIDENCE_FBH",
+    "type": "telemetry",
+    "summary": "capacity_utilization_pct on COMPONENT_SHK: status abnormal, direction above_baseline, baseline 52.2877, observed 50.631..107.295",
+    "source_id": "CS00624:CM098:capacity_utilization_pct"
+   }
+  ],
+  "missed_evidence_probability": 0.57,
+  "distractor_anchor_probability": 0.31,
+  "review_signal": "PRIORITY_REVIEW",
+  "contract_failure": null
+ },
+ "latency_s": 109.2,
+ "cost_usd_estimate": 0.02238,
+ "cost_note": "estimate: agent tokens x Together list price + Jev input tokens x Jev list price",
+ "agent_tokens": 24435,
+ "jev_input_tokens": 20937,
+ "agent_run": {
+  "case_id": "CS00624",
+  "stop_reason": "model_submitted",
+  "num_tool_calls": 10,
+  "num_llm_calls": 10,
+  "token_usage": {
+   "prompt_tokens": 23382,
+   "completion_tokens": 1053,
+   "total_tokens": 24435
+  },
+  "trace_steps": [
+   {
+    "step": 1,
+    "sim_clock": "2026-01-20 00:00:00",
+    "tool_name": "get_case_context",
+    "args": {},
+    "args_alias": {},
+    "hypotheses": [],
+    "hypothesis_state": [],
+    "rationale": "",
+    "result_summary": {
+     "case_id": "CS00624",
+     "title": "High latency in Analytics Dashboard (Sandbox, ME)",
+     "description": "In the ME sandbox environment, the Analytics Dashboard is exhibiting high latency, affecting about 48 users. The performance issues are moderately impacting our ability to analyze data quickly. We need help optimizing the dashboard's response times.",
+     "environment": "sandbox",
+     "region": "ME",
+     "reported_business_impact": "moderate",
+     "reported_affected_users": 48,
+     "priority": "medium",
+     "created_date": "2026-01-20",
+     "status": "resolved",
+     "customer_id": "C04772",
+     "customer_tier": "bronze",
+     "customer_industry": "Education",
+     "customer_company_size": "mid",
+     "reported_product_id": "P003",
+     "reported_product_name": "Analytics Dashboard",
+     "reported_symptoms": [
+      "high latency"
+     ]
+    },
+    "latency_ms": 0.0,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "harness"
+   },
+   {
+    "step": 2,
+    "sim_clock": "2026-01-20 00:15:00",
+    "tool_name": "get_customer_deployment",
+    "args": {},
+    "args_alias": {},
+    "hypotheses": [
+     "Performance/Latency issue in Analytics Dashboard:0.5"
+    ],
+    "hypothesis_state": [
+     {
+      "label": "Performance/Latency issue in Analytics Dashboard",
+      "confidence": 0.5,
+      "status": "active",
+      "supporting_evidence": [],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "result_summary": {
+     "deployments": [
+      {
+       "product_id": "P003",
+       "product_name": "Analytics Dashboard",
+       "version": "1.4",
+       "environment": "production",
+       "region": "ME",
+       "status": "decommissioned",
+       "deployed_at": "2026-05-02",
+       "product_components": [
+        "CM095",
+        "CM098",
+        "CM100",
+        "CM106",
+        "CM114",
+        "CM120",
+        "CM229",
+        "CM236"
+       ]
+      },
+      {
+       "product_id": "P003",
+       "product_name": "Analytics Dashboard",
+       "version": "1.4",
+       "environment": "sandbox",
+       "region": "ME",
+       "status": "active",
+       "deployed_at": "2025-05-03",
+       "product_components": [
+        "CM095",
+        "CM098",
+        "CM100",
+        "CM106",
+        "CM114",
+        "CM120",
+        "CM229",
+        "CM236"
+       ]
+      },
+      {
+       "product_id": "P003",
+       "product_name": "Analytics Dashboard",
+       "version": "1.4",
+       "environment": "staging",
+       "region": "ME",
+       "status": "active",
+       "deployed_at": "2025-01-29",
+       "product_components": [
+        "CM095",
+        "CM098",
+        "CM100",
+        "CM106",
+        "CM114",
+        "CM120",
+        "CM229",
+        "CM236"
+       ]
+      },
+      {
+       "product_id": "P007",
+       "product_name": "Customer Portal",
+       "version": "3.7",
+       "environment": "production",
+       "region": "ME",
+       "status": "active",
+       "deployed_at": "2024-12-01",
+       "product_components": [
+        "CM179",
+        "CM188",
+        "CM195",
+        "CM198",
+        "CM200",
+        "CM212",
+        "CM232"
+       ]
+      }
+     ]
+    },
+    "latency_ms": 4451.2,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "model"
+   },
+   {
+    "step": 3,
+    "sim_clock": "2026-01-20 00:30:00",
+    "tool_name": "get_telemetry",
+    "args": {
+     "metric_category": "Application"
+    },
+    "args_alias": {
+     "metric_category": "Application"
+    },
+    "hypotheses": [
+     "Performance/Latency issue in Analytics Dashboard:0.5"
+    ],
+    "hypothesis_state": [
+     {
+      "label": "Performance/Latency issue in Analytics Dashboard",
+      "confidence": 0.5,
+      "status": "active",
+      "supporting_evidence": [],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "result_summary": {
+     "telemetry_findings": [],
+     "count": 0
+    },
+    "latency_ms": 5299.2,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "model"
+   },
+   {
+    "step": 4,
+    "sim_clock": "2026-01-20 00:45:00",
+    "tool_name": "get_technical_signals",
+    "args": {},
+    "args_alias": {},
+    "hypotheses": [
+     "Performance/Latency issue in Analytics Dashboard:0.5"
+    ],
+    "hypothesis_state": [
+     {
+      "label": "Performance/Latency issue in Analytics Dashboard",
+      "confidence": 0.5,
+      "status": "active",
+      "supporting_evidence": [],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "result_summary": {
+     "signals": [
+      {
+       "evidence_id": "SG0003065",
+       "signal_type": "DISK_SPACE_CRITICAL",
+       "message": "disk space critical on Ledger Service",
+       "timestamp": "2026-01-19 22:14:00",
+       "component_id": "CM051"
+      },
+      {
+       "evidence_id": "SG0003066",
+       "signal_type": "POD_RESTART_LOOP",
+       "message": "restart loop detected on Global API Gateway",
+       "timestamp": "2026-01-19 22:45:00",
+       "component_id": "CM227"
+      },
+      {
+       "evidence_id": "SG0003063",
+       "signal_type": "HTTP_503",
+       "message": "HTTP 503 Service Unavailable on Query Engine",
+       "timestamp": "2026-01-19 23:11:00",
+       "component_id": "CM098"
+      },
+      {
+       "evidence_id": "SG0003068",
+       "signal_type": "CONFIG_DRIFT_DETECTED",
+       "message": "configuration drift detected on Refund Approval Workflow",
+       "timestamp": "2026-01-19 23:22:00",
+       "component_id": "CM083"
+      },
+      {
+       "evidence_id": "SG0003067",
+       "signal_type": "DB_QUERY_TIMEOUT",
+       "message": "database query timeouts on Data Warehouse Store",
+       "timestamp": "2026-01-19 23:39:00",
+       "component_id": "CM093"
+      },
+      {
+       "evidence_id": "SG0003062",
+       "signal_type": "CAPACITY_LIMIT_REACHED",
+       "message": "capacity limit reached on Query Engine",
+       "timestamp": "2026-01-19 23:41:00",
+       "component_id": "CM098"
+      },
+      {
+       "evidence_id": "SG0003064",
+       "signal_type": "CAPACITY_LIMIT_REACHED",
+       "message": "capacity limit reached on Query Engine",
+       "timestamp": "2026-01-19 23:53:00",
+       "component_id": "CM098"
+      }
+     ],
+     "count": 7
+    },
+    "latency_ms": 5145.9,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "model"
+   },
+   {
+    "step": 5,
+    "sim_clock": "2026-01-20 01:00:00",
+    "tool_name": "get_component_topology",
+    "args": {
+     "component_id": "CM098"
+    },
+    "args_alias": {
+     "component": "COMPONENT_SHK"
+    },
+    "hypotheses": [
+     "Performance/Latency issue in Analytics Dashboard:0.5"
+    ],
+    "hypothesis_state": [
+     {
+      "label": "Performance/Latency issue in Analytics Dashboard",
+      "confidence": 0.5,
+      "status": "active",
+      "supporting_evidence": [],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "result_summary": {
+     "component_id": "CM098",
+     "component_name": "Query Engine",
+     "upstream_dependencies": [
+      {
+       "name": "Data Retention Manager",
+       "id": "CM111"
+      },
+      {
+       "name": "Database Connection Pooler",
+       "id": "CM153"
+      },
+      {
+       "name": "Rate-Limited Sender Pool",
+       "id": "CM222"
+      },
+      {
+       "name": "Central Reporting Data Store",
+       "id": "CM239"
+      }
+     ],
+     "downstream_dependents": [
+      {
+       "name": "Reconciliation Engine",
+       "id": "CM052"
+      },
+      {
+       "name": "Revenue Recognition Engine",
+       "id": "CM068"
+      },
+      {
+       "name": "Refund Approval Workflow",
+       "id": "CM083"
+      },
+      {
+       "name": "Payment Retry Scheduler",
+       "id": "CM086"
+      },
+      {
+       "name": "Ingestion Service",
+       "id": "CM089"
+      },
+      {
+       "name": "Export Service",
+       "id": "CM092"
+      },
+      {
+       "name": "Attribution Engine",
+       "id": "CM103"
+      },
+      {
+       "name": "Data Sampling Engine",
+       "id": "CM115"
+      },
+      {
+       "name": "Anomaly Detection Engine",
+       "id": "CM116"
+      },
+      {
+       "name": "Data Freshness Monitor",
+       "id": "CM125"
+      },
+      {
+       "name": "Infra API Gateway",
+       "id": "CM131"
+      },
+      {
+       "name": "Autoscaler",
+       "id": "CM141"
+      },
+      {
+       "name": "Kubernetes Cluster Manager",
+       "id": "CM163"
+      },
+      {
+       "name": "CDN Asset Layer",
+       "id": "CM188"
+      },
+      {
+       "name": "Consent/Cookie Banner Service",
+       "id": "CM202"
+      },
+      {
+       "name": "Notification Deduplication Service",
+       "id": "CM223"
+      },
+      {
+       "name": "Audit Log Service",
+       "id": "CM229"
+      },
+      {
+       "name": "Central Rate Limiter",
+       "id": "CM244"
+      }
+     ],
+     "external_dependencies": [],
+     "owning_teams": [
+      {
+       "name": "Application Platform",
+       "id": "TM04"
+      },
+      {
+       "name": "Reliability / SRE",
+       "id": "TM10"
+      }
+     ]
+    },
+    "latency_ms": 6111.6,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "model"
+   },
+   {
+    "step": 6,
+    "sim_clock": "2026-01-20 01:15:00",
+    "tool_name": "get_telemetry",
+    "args": {
+     "metric_category": "Capacity"
+    },
+    "args_alias": {
+     "metric_category": "Capacity"
+    },
+    "hypotheses": [
+     "Performance/Latency issue in Analytics Dashboard:0.5"
+    ],
+    "hypothesis_state": [
+     {
+      "label": "Performance/Latency issue in Analytics Dashboard",
+      "confidence": 0.5,
+      "status": "active",
+      "supporting_evidence": [],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "result_summary": {
+     "telemetry_findings": [
+      {
+       "evidence_id": "CS00624:CM098:capacity_utilization_pct",
+       "metric_code": "capacity_utilization_pct",
+       "component_id": "CM098",
+       "baseline": 52.2877,
+       "observed_min": 50.631,
+       "observed_max": 107.295,
+       "status": "abnormal",
+       "direction": "above_baseline",
+       "anomaly_start": "2026-01-19 23:00:00",
+       "anomaly_end": "2026-01-20 00:00:00"
+      }
+     ],
+     "count": 1
+    },
+    "latency_ms": 36123.3,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "model"
+   },
+   {
+    "step": 7,
+    "sim_clock": "2026-01-20 01:30:00",
+    "tool_name": "get_recent_changes",
+    "args": {
+     "component_id": "CM098"
+    },
+    "args_alias": {
+     "component": "COMPONENT_SHK"
+    },
+    "hypotheses": [
+     "Performance/Latency issue in Analytics Dashboard:0.5"
+    ],
+    "hypothesis_state": [
+     {
+      "label": "Performance/Latency issue in Analytics Dashboard",
+      "confidence": 0.5,
+      "status": "active",
+      "supporting_evidence": [],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "result_summary": {
+     "recent_changes": [],
+     "count": 0
+    },
+    "latency_ms": 3591.3,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "model"
+   },
+   {
+    "step": 8,
+    "sim_clock": "2026-01-20 01:45:00",
+    "tool_name": "get_deployment_history",
+    "args": {
+     "component_id": "CM098"
+    },
+    "args_alias": {
+     "component": "COMPONENT_SHK"
+    },
+    "hypotheses": [
+     "Performance/Latency issue in Analytics Dashboard:0.5"
+    ],
+    "hypothesis_state": [
+     {
+      "label": "Performance/Latency issue in Analytics Dashboard",
+      "confidence": 0.5,
+      "status": "active",
+      "supporting_evidence": [],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "result_summary": {
+     "deployments": [],
+     "count": 0
+    },
+    "latency_ms": 5225.6,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "model"
+   },
+   {
+    "step": 9,
+    "sim_clock": "2026-01-20 02:00:00",
+    "tool_name": "get_service_health",
+    "args": {
+     "component_id": "CM098"
+    },
+    "args_alias": {
+     "component": "COMPONENT_SHK"
+    },
+    "hypotheses": [
+     "Performance/Latency issue in Analytics Dashboard:0.5"
+    ],
+    "hypothesis_state": [
+     {
+      "label": "Performance/Latency issue in Analytics Dashboard",
+      "confidence": 0.5,
+      "status": "active",
+      "supporting_evidence": [],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "result_summary": {
+     "health_events": [
+      {
+       "evidence_id": "SHE01988",
+       "started_at": "2025-11-17 05:02:00",
+       "ended_at": "2025-11-17 05:12:00",
+       "severity": "minor",
+       "description": "Transient minor availability dip on Query Engine, recovered within 10 minutes."
+      },
+      {
+       "evidence_id": "SHE01986",
+       "started_at": "2025-11-04 08:17:00",
+       "ended_at": "2025-11-04 09:02:00",
+       "severity": "major",
+       "description": "Brief major health blip on Query Engine: elevated error rate for 45 minutes."
+      },
+      {
+       "evidence_id": "SHE01982",
+       "started_at": "2025-09-10 10:50:00",
+       "ended_at": "2025-09-10 10:55:00",
+       "severity": "minor",
+       "description": "minor latency spike observed on Query Engine, self-resolved after 5 minutes."
+      },
+      {
+       "evidence_id": "SHE01981",
+       "started_at": "2025-08-27 23:13:00",
+       "ended_at": "2025-08-27 23:28:00",
+       "severity": "minor",
+       "description": "Brief minor health blip on Query Engine: elevated error rate for 15 minutes."
+      },
+      {
+       "evidence_id": "SHE01980",
+       "started_at": "2025-07-16 05:38:00",
+       "ended_at": "2025-07-16 05:58:00",
+       "severity": "minor",
+       "description": "Brief minor health blip on Query Engine: elevated error rate for 20 minutes."
+      },
+      {
+       "evidence_id": "SHE01990",
+       "started_at": "2025-07-14 02:27:00",
+       "ended_at": "2025-07-14 03:12:00",
+       "severity": "minor",
+       "description": "minor latency spike observed on Query Engine, self-resolved after 45 minutes."
+      },
+      {
+       "evidence_id": "SHE01985",
+       "started_at": "2025-03-06 11:33:00",
+       "ended_at": "2025-03-06 11:53:00",
+       "severity": "minor",
+       "description": "minor latency spike observed on Query Engine, self-resolved after 20 minutes."
+      },
+      {
+       "evidence_id": "SHE01976",
+       "started_at": "2025-02-28 11:00:00",
+       "ended_at": "2025-02-28 11:20:00",
+       "severity": "minor",
+       "description": "Automated health check flagged Query Engine as degraded (minor) for 20 minutes."
+      }
+     ],
+     "count": 8
+    },
+    "latency_ms": 3570.0,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "model"
+   },
+   {
+    "step": 10,
+    "sim_clock": "2026-01-20 02:15:00",
+    "tool_name": "submit_diagnosis",
+    "args": {},
+    "args_alias": {},
+    "hypotheses": [
+     "Performance/Latency issue in Analytics Dashboard:0.8"
+    ],
+    "hypothesis_state": [
+     {
+      "label": "Performance/Latency issue in Analytics Dashboard",
+      "confidence": 0.8,
+      "status": "confirmed",
+      "supporting_evidence": [
+       "EVIDENCE_HQJ",
+       "EVIDENCE_HVS",
+       "EVIDENCE_FBH"
+      ],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "result_summary": "submitted",
+    "latency_ms": 34758.4,
+    "status": "ok",
+    "redundant": false,
+    "proposed_by": "model"
+   }
+  ],
+  "final_diagnosis": {
+   "hypotheses": [
+    {
+     "label": "Performance/Latency issue in Analytics Dashboard",
+     "description": "",
+     "confidence": 0.8,
+     "status": "confirmed",
+     "supporting_evidence": [
+      "SG0003062",
+      "SG0003064",
+      "CS00624:CM098:capacity_utilization_pct"
+     ],
+     "contradicting_evidence": []
+    }
+   ],
+   "rationale": "",
+   "predicted_product_id": null,
+   "product_confidence": null,
+   "predicted_component_id": "CM098",
+   "component_confidence": 0.8,
+   "predicted_category_id": "IC04",
+   "category_confidence": 0.9,
+   "predicted_subcategory_id": null,
+   "predicted_root_cause_family": "resource exhaustion",
+   "root_cause_confidence": 0.7,
+   "predicted_causal_change_id": null,
+   "causal_change_confidence": null,
+   "predicted_severity": null,
+   "severity_confidence": null,
+   "recommended_team_id": "TM04",
+   "routing_confidence": 0.6,
+   "evidence_sufficiency": "sufficient",
+   "overall_confidence": 0.8,
+   "recommended_next_action": "Optimize Query Engine configuration to improve performance and reduce latency.",
+   "human_review_required": false,
+   "human_review_reason": null,
+   "evidence_summary": "High latency in Analytics Dashboard is caused by capacity limit reached on Query Engine, which is owned by the Application Platform team. The recommended next action is to optimize the Query Engine configuration to improve performance and reduce latency.",
+   "unresolved_uncertainties": [],
+   "status": "DIAGNOSIS_PROPOSED",
+   "evidence_ids": [
+    "SG0003062",
+    "SG0003064",
+    "CS00624:CM098:capacity_utilization_pct"
+   ]
+  },
+  "final_status": "DIAGNOSIS_PROPOSED",
+  "final_alias_form": {
+   "hypotheses": [
+    {
+     "label": "Performance/Latency issue in Analytics Dashboard",
+     "confidence": 0.8,
+     "status": "confirmed",
+     "supporting_evidence": [
+      "EVIDENCE_HQJ",
+      "EVIDENCE_HVS",
+      "EVIDENCE_FBH"
+     ],
+     "contradicting_evidence": []
+    }
+   ],
+   "evidence_ids": [
+    "EVIDENCE_HQJ",
+    "EVIDENCE_HVS",
+    "EVIDENCE_FBH"
+   ],
+   "issue_category": "CATEGORY_VVV",
+   "category_confidence": 0.9,
+   "root_cause": "CAUSE_CCZ",
+   "root_cause_confidence": 0.7,
+   "affected_component": "COMPONENT_SHK",
+   "component_confidence": 0.8,
+   "causal_change": null,
+   "causal_change_confidence": null,
+   "owning_team": "TEAM_HWX",
+   "routing_confidence": 0.6,
+   "confidence": 0.8,
+   "evidence_sufficiency": "sufficient",
+   "human_review_required": false,
+   "review_reason": null,
+   "status": "DIAGNOSIS_PROPOSED",
+   "recommended_next_action": "Optimize Query Engine configuration to improve performance and reduce latency.",
+   "unresolved_uncertainties": [],
+   "summary": "High latency in Analytics Dashboard is caused by capacity limit reached on Query Engine, which is owned by the Application Platform team. The recommended next action is to optimize the Query Engine configuration to improve performance and reduce latency."
+  },
+  "citation_violations": [],
+  "evidence_ids_seen": [
+   "CS00624:CM098:capacity_utilization_pct",
+   "SG0003062",
+   "SG0003063",
+   "SG0003064",
+   "SG0003065",
+   "SG0003066",
+   "SG0003067",
+   "SG0003068",
+   "SHE01976",
+   "SHE01980",
+   "SHE01981",
+   "SHE01982",
+   "SHE01985",
+   "SHE01986",
+   "SHE01988",
+   "SHE01990"
+  ],
+  "repair_events": [],
+  "tool_proposals": 9,
+  "tool_contract_errors": [],
+  "tool_contract_repairs": [],
+  "final_contract_errors": [],
+  "final_contract_repair": null,
+  "registry_snapshots": [
+   {
+    "step": 1,
+    "n_entities": 59,
+    "counts": {
+     "CATEGORY": 18,
+     "CAUSE": 40,
+     "PRODUCT": 1
+    },
+    "aliases_sha256_16": "0d33b5388823bf15"
+   },
+   {
+    "step": 2,
+    "n_entities": 75,
+    "counts": {
+     "CATEGORY": 18,
+     "CAUSE": 40,
+     "PRODUCT": 2,
+     "COMPONENT": 15
+    },
+    "aliases_sha256_16": "bf7f00877f7d34c1"
+   },
+   {
+    "step": 3,
+    "n_entities": 75,
+    "counts": {
+     "CATEGORY": 18,
+     "CAUSE": 40,
+     "PRODUCT": 2,
+     "COMPONENT": 15
+    },
+    "aliases_sha256_16": "bf7f00877f7d34c1"
+   },
+   {
+    "step": 4,
+    "n_entities": 86,
+    "counts": {
+     "CATEGORY": 18,
+     "CAUSE": 40,
+     "PRODUCT": 2,
+     "COMPONENT": 19,
+     "EVIDENCE": 7
+    },
+    "aliases_sha256_16": "46747b9cfbd0c013"
+   },
+   {
+    "step": 5,
+    "n_entities": 107,
+    "counts": {
+     "CATEGORY": 18,
+     "CAUSE": 40,
+     "PRODUCT": 2,
+     "COMPONENT": 38,
+     "EVIDENCE": 7,
+     "TEAM": 2
+    },
+    "aliases_sha256_16": "08747c2e8744f110"
+   },
+   {
+    "step": 6,
+    "n_entities": 108,
+    "counts": {
+     "CATEGORY": 18,
+     "CAUSE": 40,
+     "PRODUCT": 2,
+     "COMPONENT": 38,
+     "EVIDENCE": 8,
+     "TEAM": 2
+    },
+    "aliases_sha256_16": "c99324491888a506"
+   },
+   {
+    "step": 7,
+    "n_entities": 108,
+    "counts": {
+     "CATEGORY": 18,
+     "CAUSE": 40,
+     "PRODUCT": 2,
+     "COMPONENT": 38,
+     "EVIDENCE": 8,
+     "TEAM": 2
+    },
+    "aliases_sha256_16": "c99324491888a506"
+   },
+   {
+    "step": 8,
+    "n_entities": 108,
+    "counts": {
+     "CATEGORY": 18,
+     "CAUSE": 40,
+     "PRODUCT": 2,
+     "COMPONENT": 38,
+     "EVIDENCE": 8,
+     "TEAM": 2
+    },
+    "aliases_sha256_16": "c99324491888a506"
+   },
+   {
+    "step": 9,
+    "n_entities": 116,
+    "counts": {
+     "CATEGORY": 18,
+     "CAUSE": 40,
+     "PRODUCT": 2,
+     "COMPONENT": 38,
+     "EVIDENCE": 16,
+     "TEAM": 2
+    },
+    "aliases_sha256_16": "64fdbe63cc4a5da2"
+   }
+  ],
+  "alias_mappings": {
+   "CATEGORY_SHG": {
+    "alias": "CATEGORY_SHG",
+    "canonical_id": "IC01",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Identity / Authentication",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-01-20 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_DHF": {
+    "alias": "CATEGORY_DHF",
+    "canonical_id": "IC02",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Authorization / Permissions",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-01-20 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_PJK": {
+    "alias": "CATEGORY_PJK",
+    "canonical_id": "IC03",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Networking / Connectivity",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-01-20 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_VVV": {
+    "alias": "CATEGORY_VVV",
+    "canonical_id": "IC04",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Performance / Latency",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-01-20 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_GHC": {
+    "alias": "CATEGORY_GHC",
+    "canonical_id": "IC05",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Reliability / Availability",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-01-20 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_WZD": {
+    "alias": "CATEGORY_WZD",
+    "canonical_id": "IC06",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Deployment / Upgrade",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-01-20 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_TGN": {
+    "alias": "CATEGORY_TGN",
+    "canonical_id": "IC07",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Configuration",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-01-20 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_JGJ": {
+    "alias": "CATEGORY_JGJ",
+    "canonical_id": "IC08",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Data / Corruption",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-01-20 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_QPW": {
+    "alias": "CATEGORY_QPW",
+    "canonical_id": "IC09",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Integration / API",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-01-20 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_VDQ": {
+    "alias": "CATEGORY_VDQ",
+    "canonical_id": "IC10",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Provisioning / Onboarding",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-01-20 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_BMB": {
+    "alias": "CATEGORY_BMB",
+    "canonical_id": "IC11",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Security",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-01-20 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_MDM": {
+    "alias": "CATEGORY_MDM",
+    "canonical_id": "IC12",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Compliance",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-01-20 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_TXL": {
+    "alias": "CATEGORY_TXL",
+    "canonical_id": "IC13",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Billing / Commerce",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-01-20 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_SDN": {
+    "alias": "CATEGORY_SDN",
+    "canonical_id": "IC14",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "User Experience / Functional Defect",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-01-20 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_BCS": {
+    "alias": "CATEGORY_BCS",
+    "canonical_id": "IC15",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Storage / Database",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-01-20 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_QLG": {
+    "alias": "CATEGORY_QLG",
+    "canonical_id": "IC16",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Capacity / Scaling",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-01-20 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_LRK": {
+    "alias": "CATEGORY_LRK",
+    "canonical_id": "IC17",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Third-Party / Dependency",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-01-20 00:00:00",
+    "summary": ""
+   },
+   "CATEGORY_TKG": {
+    "alias": "CATEGORY_TKG",
+    "canonical_id": "IC18",
+    "kind": "CATEGORY",
+    "type": "issue_category",
+    "display_name": "Unknown / Other",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-01-20 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_JST": {
+    "alias": "CAUSE_JST",
+    "canonical_id": "RC01",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "product defect",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-01-20 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_PKB": {
+    "alias": "CAUSE_PKB",
+    "canonical_id": "RC02",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "customer configuration error",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-01-20 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_KQD": {
+    "alias": "CAUSE_KQD",
+    "canonical_id": "RC03",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "incorrect permissions",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-01-20 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_SLF": {
+    "alias": "CAUSE_SLF",
+    "canonical_id": "RC04",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "policy misconfiguration",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-01-20 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_JWT": {
+    "alias": "CAUSE_JWT",
+    "canonical_id": "RC05",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "expired certificate",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-01-20 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_WSC": {
+    "alias": "CAUSE_WSC",
+    "canonical_id": "RC06",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "version incompatibility",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-01-20 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_HRG": {
+    "alias": "CAUSE_HRG",
+    "canonical_id": "RC07",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "dependency failure",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-01-20 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_PNP": {
+    "alias": "CAUSE_PNP",
+    "canonical_id": "RC08",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "network configuration error",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-01-20 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_CCZ": {
+    "alias": "CAUSE_CCZ",
+    "canonical_id": "RC09",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "resource exhaustion",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-01-20 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_WKW": {
+    "alias": "CAUSE_WKW",
+    "canonical_id": "RC10",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "database contention",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-01-20 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_RZF": {
+    "alias": "CAUSE_RZF",
+    "canonical_id": "RC11",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "bad deployment",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-01-20 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_SHT": {
+    "alias": "CAUSE_SHT",
+    "canonical_id": "RC12",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "incomplete migration",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-01-20 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_WZH": {
+    "alias": "CAUSE_WZH",
+    "canonical_id": "RC13",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "stale cache",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-01-20 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_HPV": {
+    "alias": "CAUSE_HPV",
+    "canonical_id": "RC14",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "third-party service failure",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-01-20 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_JCP": {
+    "alias": "CAUSE_JCP",
+    "canonical_id": "RC15",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "unsupported configuration",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-01-20 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_DCP": {
+    "alias": "CAUSE_DCP",
+    "canonical_id": "RC16",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "incorrect DNS configuration",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-01-20 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_ZPM": {
+    "alias": "CAUSE_ZPM",
+    "canonical_id": "RC17",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "data quality issue",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-01-20 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_ZVK": {
+    "alias": "CAUSE_ZVK",
+    "canonical_id": "RC18",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "operator error",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-01-20 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_CLP": {
+    "alias": "CAUSE_CLP",
+    "canonical_id": "RC19",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "capacity limitation",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-01-20 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_NGF": {
+    "alias": "CAUSE_NGF",
+    "canonical_id": "RC20",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "known product limitation",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-01-20 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_KZG": {
+    "alias": "CAUSE_KZG",
+    "canonical_id": "RC21",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "race condition",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-01-20 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_SZH": {
+    "alias": "CAUSE_SZH",
+    "canonical_id": "RC22",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "identity provider outage",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-01-20 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_JFC": {
+    "alias": "CAUSE_JFC",
+    "canonical_id": "RC23",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "token expiration handling bug",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-01-20 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_BZS": {
+    "alias": "CAUSE_BZS",
+    "canonical_id": "RC24",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "insufficient monitoring/alerting",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-01-20 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_NLL": {
+    "alias": "CAUSE_NLL",
+    "canonical_id": "RC25",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "incorrect load balancer routing",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-01-20 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_QWT": {
+    "alias": "CAUSE_QWT",
+    "canonical_id": "RC26",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "firewall misconfiguration",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-01-20 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_HRV": {
+    "alias": "CAUSE_HRV",
+    "canonical_id": "RC27",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "schema mismatch",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-01-20 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_NST": {
+    "alias": "CAUSE_NST",
+    "canonical_id": "RC28",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "breaking API contract change",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-01-20 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_NLT": {
+    "alias": "CAUSE_NLT",
+    "canonical_id": "RC29",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "credential rotation not propagated",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-01-20 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_WVK": {
+    "alias": "CAUSE_WVK",
+    "canonical_id": "RC30",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "stale internal documentation followed",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-01-20 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_FTV": {
+    "alias": "CAUSE_FTV",
+    "canonical_id": "RC31",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "incomplete rollback",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-01-20 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_BMV": {
+    "alias": "CAUSE_BMV",
+    "canonical_id": "RC32",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "infrastructure hardware failure",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-01-20 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_QRN": {
+    "alias": "CAUSE_QRN",
+    "canonical_id": "RC33",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "rate limit misconfiguration",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-01-20 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_XGL": {
+    "alias": "CAUSE_XGL",
+    "canonical_id": "RC34",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "insufficient capacity planning",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-01-20 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_HHD": {
+    "alias": "CAUSE_HHD",
+    "canonical_id": "RC35",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "data migration defect",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-01-20 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_HHL": {
+    "alias": "CAUSE_HHL",
+    "canonical_id": "RC36",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "improper access review",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-01-20 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_BGV": {
+    "alias": "CAUSE_BGV",
+    "canonical_id": "RC37",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "expired API key",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-01-20 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_TDN": {
+    "alias": "CAUSE_TDN",
+    "canonical_id": "RC38",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "clock/time synchronization issue",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-01-20 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_MFZ": {
+    "alias": "CAUSE_MFZ",
+    "canonical_id": "RC39",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "idempotency/duplicate-processing failure",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-01-20 00:00:00",
+    "summary": ""
+   },
+   "CAUSE_QNT": {
+    "alias": "CAUSE_QNT",
+    "canonical_id": "RC40",
+    "kind": "CAUSE",
+    "type": "root_cause",
+    "display_name": "insufficient information to determine root cause",
+    "source_tool": "taxonomy",
+    "first_observed_step": 0,
+    "first_observed_clock": "2026-01-20 00:00:00",
+    "summary": ""
+   },
+   "PRODUCT_DGK": {
+    "alias": "PRODUCT_DGK",
+    "canonical_id": "P003",
+    "kind": "PRODUCT",
+    "type": "product",
+    "display_name": "Analytics Dashboard",
+    "source_tool": "get_case_context",
+    "first_observed_step": 1,
+    "first_observed_clock": "2026-01-20 00:00:00",
+    "summary": ""
+   },
+   "COMPONENT_NJC": {
+    "alias": "COMPONENT_NJC",
+    "canonical_id": "CM095",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Analytics API Gateway",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2026-01-20 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_SHK": {
+    "alias": "COMPONENT_SHK",
+    "canonical_id": "CM098",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Query Engine",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2026-01-20 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_WPW": {
+    "alias": "COMPONENT_WPW",
+    "canonical_id": "CM100",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Job Scheduler",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2026-01-20 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_DCB": {
+    "alias": "COMPONENT_DCB",
+    "canonical_id": "CM106",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Data Catalog Service",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2026-01-20 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_CMW": {
+    "alias": "COMPONENT_CMW",
+    "canonical_id": "CM114",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Segment Builder Service",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2026-01-20 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_DRK": {
+    "alias": "COMPONENT_DRK",
+    "canonical_id": "CM120",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Event Schema Registry",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2026-01-20 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_FJB": {
+    "alias": "COMPONENT_FJB",
+    "canonical_id": "CM229",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Audit Log Service",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2026-01-20 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_CWW": {
+    "alias": "COMPONENT_CWW",
+    "canonical_id": "CM236",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Webhook Dispatch Service",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2026-01-20 00:15:00",
+    "summary": ""
+   },
+   "PRODUCT_WDC": {
+    "alias": "PRODUCT_WDC",
+    "canonical_id": "P007",
+    "kind": "PRODUCT",
+    "type": "product",
+    "display_name": "Customer Portal",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2026-01-20 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_VDF": {
+    "alias": "COMPONENT_VDF",
+    "canonical_id": "CM179",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Status Page UI",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2026-01-20 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_HQS": {
+    "alias": "COMPONENT_HQS",
+    "canonical_id": "CM188",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "CDN Asset Layer",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2026-01-20 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_CMB": {
+    "alias": "COMPONENT_CMB",
+    "canonical_id": "CM195",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Design System Component Library",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2026-01-20 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_VWH": {
+    "alias": "COMPONENT_VWH",
+    "canonical_id": "CM198",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "In-App Messaging Widget",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2026-01-20 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_CNH": {
+    "alias": "COMPONENT_CNH",
+    "canonical_id": "CM200",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Analytics Instrumentation SDK",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2026-01-20 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_MQZ": {
+    "alias": "COMPONENT_MQZ",
+    "canonical_id": "CM212",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Browser Compatibility Shim",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2026-01-20 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_VBN": {
+    "alias": "COMPONENT_VBN",
+    "canonical_id": "CM232",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Global Load Balancer",
+    "source_tool": "get_customer_deployment",
+    "first_observed_step": 2,
+    "first_observed_clock": "2026-01-20 00:15:00",
+    "summary": ""
+   },
+   "COMPONENT_MVK": {
+    "alias": "COMPONENT_MVK",
+    "canonical_id": "CM051",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Ledger Service",
+    "source_tool": "get_technical_signals",
+    "first_observed_step": 4,
+    "first_observed_clock": "2026-01-20 00:45:00",
+    "summary": ""
+   },
+   "EVIDENCE_BVH": {
+    "alias": "EVIDENCE_BVH",
+    "canonical_id": "SG0003065",
+    "kind": "EVIDENCE",
+    "type": "signal",
+    "display_name": "",
+    "source_tool": "get_technical_signals",
+    "first_observed_step": 4,
+    "first_observed_clock": "2026-01-20 00:45:00",
+    "summary": "DISK_SPACE_CRITICAL: disk space critical on Ledger Service on COMPONENT_MVK @ 2026-01-19 22:14:00"
+   },
+   "COMPONENT_GBL": {
+    "alias": "COMPONENT_GBL",
+    "canonical_id": "CM227",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Global API Gateway",
+    "source_tool": "get_technical_signals",
+    "first_observed_step": 4,
+    "first_observed_clock": "2026-01-20 00:45:00",
+    "summary": ""
+   },
+   "EVIDENCE_CGV": {
+    "alias": "EVIDENCE_CGV",
+    "canonical_id": "SG0003066",
+    "kind": "EVIDENCE",
+    "type": "signal",
+    "display_name": "",
+    "source_tool": "get_technical_signals",
+    "first_observed_step": 4,
+    "first_observed_clock": "2026-01-20 00:45:00",
+    "summary": "POD_RESTART_LOOP: restart loop detected on Global API Gateway on COMPONENT_GBL @ 2026-01-19 22:45:00"
+   },
+   "EVIDENCE_MRM": {
+    "alias": "EVIDENCE_MRM",
+    "canonical_id": "SG0003063",
+    "kind": "EVIDENCE",
+    "type": "signal",
+    "display_name": "",
+    "source_tool": "get_technical_signals",
+    "first_observed_step": 4,
+    "first_observed_clock": "2026-01-20 00:45:00",
+    "summary": "HTTP_503: HTTP 503 Service Unavailable on Query Engine on COMPONENT_SHK @ 2026-01-19 23:11:00"
+   },
+   "COMPONENT_LBN": {
+    "alias": "COMPONENT_LBN",
+    "canonical_id": "CM083",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Refund Approval Workflow",
+    "source_tool": "get_technical_signals",
+    "first_observed_step": 4,
+    "first_observed_clock": "2026-01-20 00:45:00",
+    "summary": ""
+   },
+   "EVIDENCE_PQR": {
+    "alias": "EVIDENCE_PQR",
+    "canonical_id": "SG0003068",
+    "kind": "EVIDENCE",
+    "type": "signal",
+    "display_name": "",
+    "source_tool": "get_technical_signals",
+    "first_observed_step": 4,
+    "first_observed_clock": "2026-01-20 00:45:00",
+    "summary": "CONFIG_DRIFT_DETECTED: configuration drift detected on Refund Approval Workflow on COMPONENT_LBN @ 2026-01-19 23:22:00"
+   },
+   "COMPONENT_NKC": {
+    "alias": "COMPONENT_NKC",
+    "canonical_id": "CM093",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Data Warehouse Store",
+    "source_tool": "get_technical_signals",
+    "first_observed_step": 4,
+    "first_observed_clock": "2026-01-20 00:45:00",
+    "summary": ""
+   },
+   "EVIDENCE_NBG": {
+    "alias": "EVIDENCE_NBG",
+    "canonical_id": "SG0003067",
+    "kind": "EVIDENCE",
+    "type": "signal",
+    "display_name": "",
+    "source_tool": "get_technical_signals",
+    "first_observed_step": 4,
+    "first_observed_clock": "2026-01-20 00:45:00",
+    "summary": "DB_QUERY_TIMEOUT: database query timeouts on Data Warehouse Store on COMPONENT_NKC @ 2026-01-19 23:39:00"
+   },
+   "EVIDENCE_HQJ": {
+    "alias": "EVIDENCE_HQJ",
+    "canonical_id": "SG0003062",
+    "kind": "EVIDENCE",
+    "type": "signal",
+    "display_name": "",
+    "source_tool": "get_technical_signals",
+    "first_observed_step": 4,
+    "first_observed_clock": "2026-01-20 00:45:00",
+    "summary": "CAPACITY_LIMIT_REACHED: capacity limit reached on Query Engine on COMPONENT_SHK @ 2026-01-19 23:41:00"
+   },
+   "EVIDENCE_HVS": {
+    "alias": "EVIDENCE_HVS",
+    "canonical_id": "SG0003064",
+    "kind": "EVIDENCE",
+    "type": "signal",
+    "display_name": "",
+    "source_tool": "get_technical_signals",
+    "first_observed_step": 4,
+    "first_observed_clock": "2026-01-20 00:45:00",
+    "summary": "CAPACITY_LIMIT_REACHED: capacity limit reached on Query Engine on COMPONENT_SHK @ 2026-01-19 23:53:00"
+   },
+   "COMPONENT_XML": {
+    "alias": "COMPONENT_XML",
+    "canonical_id": "CM111",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Data Retention Manager",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 5,
+    "first_observed_clock": "2026-01-20 01:00:00",
+    "summary": ""
+   },
+   "COMPONENT_CFF": {
+    "alias": "COMPONENT_CFF",
+    "canonical_id": "CM153",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Database Connection Pooler",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 5,
+    "first_observed_clock": "2026-01-20 01:00:00",
+    "summary": ""
+   },
+   "COMPONENT_PFW": {
+    "alias": "COMPONENT_PFW",
+    "canonical_id": "CM222",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Rate-Limited Sender Pool",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 5,
+    "first_observed_clock": "2026-01-20 01:00:00",
+    "summary": ""
+   },
+   "COMPONENT_VZD": {
+    "alias": "COMPONENT_VZD",
+    "canonical_id": "CM239",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Central Reporting Data Store",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 5,
+    "first_observed_clock": "2026-01-20 01:00:00",
+    "summary": ""
+   },
+   "COMPONENT_KZS": {
+    "alias": "COMPONENT_KZS",
+    "canonical_id": "CM052",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Reconciliation Engine",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 5,
+    "first_observed_clock": "2026-01-20 01:00:00",
+    "summary": ""
+   },
+   "COMPONENT_WNK": {
+    "alias": "COMPONENT_WNK",
+    "canonical_id": "CM068",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Revenue Recognition Engine",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 5,
+    "first_observed_clock": "2026-01-20 01:00:00",
+    "summary": ""
+   },
+   "COMPONENT_SGN": {
+    "alias": "COMPONENT_SGN",
+    "canonical_id": "CM086",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Payment Retry Scheduler",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 5,
+    "first_observed_clock": "2026-01-20 01:00:00",
+    "summary": ""
+   },
+   "COMPONENT_BXN": {
+    "alias": "COMPONENT_BXN",
+    "canonical_id": "CM089",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Ingestion Service",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 5,
+    "first_observed_clock": "2026-01-20 01:00:00",
+    "summary": ""
+   },
+   "COMPONENT_RKS": {
+    "alias": "COMPONENT_RKS",
+    "canonical_id": "CM092",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Export Service",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 5,
+    "first_observed_clock": "2026-01-20 01:00:00",
+    "summary": ""
+   },
+   "COMPONENT_KJN": {
+    "alias": "COMPONENT_KJN",
+    "canonical_id": "CM103",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Attribution Engine",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 5,
+    "first_observed_clock": "2026-01-20 01:00:00",
+    "summary": ""
+   },
+   "COMPONENT_CTG": {
+    "alias": "COMPONENT_CTG",
+    "canonical_id": "CM115",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Data Sampling Engine",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 5,
+    "first_observed_clock": "2026-01-20 01:00:00",
+    "summary": ""
+   },
+   "COMPONENT_FCK": {
+    "alias": "COMPONENT_FCK",
+    "canonical_id": "CM116",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Anomaly Detection Engine",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 5,
+    "first_observed_clock": "2026-01-20 01:00:00",
+    "summary": ""
+   },
+   "COMPONENT_HBW": {
+    "alias": "COMPONENT_HBW",
+    "canonical_id": "CM125",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Data Freshness Monitor",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 5,
+    "first_observed_clock": "2026-01-20 01:00:00",
+    "summary": ""
+   },
+   "COMPONENT_XVR": {
+    "alias": "COMPONENT_XVR",
+    "canonical_id": "CM131",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Infra API Gateway",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 5,
+    "first_observed_clock": "2026-01-20 01:00:00",
+    "summary": ""
+   },
+   "COMPONENT_ZCR": {
+    "alias": "COMPONENT_ZCR",
+    "canonical_id": "CM141",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Autoscaler",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 5,
+    "first_observed_clock": "2026-01-20 01:00:00",
+    "summary": ""
+   },
+   "COMPONENT_NCJ": {
+    "alias": "COMPONENT_NCJ",
+    "canonical_id": "CM163",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Kubernetes Cluster Manager",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 5,
+    "first_observed_clock": "2026-01-20 01:00:00",
+    "summary": ""
+   },
+   "COMPONENT_XNZ": {
+    "alias": "COMPONENT_XNZ",
+    "canonical_id": "CM202",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Consent/Cookie Banner Service",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 5,
+    "first_observed_clock": "2026-01-20 01:00:00",
+    "summary": ""
+   },
+   "COMPONENT_NBV": {
+    "alias": "COMPONENT_NBV",
+    "canonical_id": "CM223",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Notification Deduplication Service",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 5,
+    "first_observed_clock": "2026-01-20 01:00:00",
+    "summary": ""
+   },
+   "COMPONENT_NJN": {
+    "alias": "COMPONENT_NJN",
+    "canonical_id": "CM244",
+    "kind": "COMPONENT",
+    "type": "component",
+    "display_name": "Central Rate Limiter",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 5,
+    "first_observed_clock": "2026-01-20 01:00:00",
+    "summary": ""
+   },
+   "TEAM_HWX": {
+    "alias": "TEAM_HWX",
+    "canonical_id": "TM04",
+    "kind": "TEAM",
+    "type": "team",
+    "display_name": "Application Platform",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 5,
+    "first_observed_clock": "2026-01-20 01:00:00",
+    "summary": ""
+   },
+   "TEAM_PHZ": {
+    "alias": "TEAM_PHZ",
+    "canonical_id": "TM10",
+    "kind": "TEAM",
+    "type": "team",
+    "display_name": "Reliability / SRE",
+    "source_tool": "get_component_topology",
+    "first_observed_step": 5,
+    "first_observed_clock": "2026-01-20 01:00:00",
+    "summary": ""
+   },
+   "EVIDENCE_FBH": {
+    "alias": "EVIDENCE_FBH",
+    "canonical_id": "CS00624:CM098:capacity_utilization_pct",
+    "kind": "EVIDENCE",
+    "type": "telemetry",
+    "display_name": "",
+    "source_tool": "get_telemetry",
+    "first_observed_step": 6,
+    "first_observed_clock": "2026-01-20 01:15:00",
+    "summary": "capacity_utilization_pct on COMPONENT_SHK: status abnormal, direction above_baseline, baseline 52.2877, observed 50.631..107.295"
+   },
+   "EVIDENCE_XKT": {
+    "alias": "EVIDENCE_XKT",
+    "canonical_id": "SHE01988",
+    "kind": "EVIDENCE",
+    "type": "health_event",
+    "display_name": "",
+    "source_tool": "get_service_health",
+    "first_observed_step": 9,
+    "first_observed_clock": "2026-01-20 02:00:00",
+    "summary": "health event severity minor 2025-11-17 05:02:00..2025-11-17 05:12:00: Transient minor availability dip on Query Engine, recovered within 10 minutes."
+   },
+   "EVIDENCE_BZM": {
+    "alias": "EVIDENCE_BZM",
+    "canonical_id": "SHE01986",
+    "kind": "EVIDENCE",
+    "type": "health_event",
+    "display_name": "",
+    "source_tool": "get_service_health",
+    "first_observed_step": 9,
+    "first_observed_clock": "2026-01-20 02:00:00",
+    "summary": "health event severity major 2025-11-04 08:17:00..2025-11-04 09:02:00: Brief major health blip on Query Engine: elevated error rate for 45 minutes."
+   },
+   "EVIDENCE_CHQ": {
+    "alias": "EVIDENCE_CHQ",
+    "canonical_id": "SHE01982",
+    "kind": "EVIDENCE",
+    "type": "health_event",
+    "display_name": "",
+    "source_tool": "get_service_health",
+    "first_observed_step": 9,
+    "first_observed_clock": "2026-01-20 02:00:00",
+    "summary": "health event severity minor 2025-09-10 10:50:00..2025-09-10 10:55:00: minor latency spike observed on Query Engine, self-resolved after 5 minutes."
+   },
+   "EVIDENCE_WLM": {
+    "alias": "EVIDENCE_WLM",
+    "canonical_id": "SHE01981",
+    "kind": "EVIDENCE",
+    "type": "health_event",
+    "display_name": "",
+    "source_tool": "get_service_health",
+    "first_observed_step": 9,
+    "first_observed_clock": "2026-01-20 02:00:00",
+    "summary": "health event severity minor 2025-08-27 23:13:00..2025-08-27 23:28:00: Brief minor health blip on Query Engine: elevated error rate for 15 minutes."
+   },
+   "EVIDENCE_RPZ": {
+    "alias": "EVIDENCE_RPZ",
+    "canonical_id": "SHE01980",
+    "kind": "EVIDENCE",
+    "type": "health_event",
+    "display_name": "",
+    "source_tool": "get_service_health",
+    "first_observed_step": 9,
+    "first_observed_clock": "2026-01-20 02:00:00",
+    "summary": "health event severity minor 2025-07-16 05:38:00..2025-07-16 05:58:00: Brief minor health blip on Query Engine: elevated error rate for 20 minutes."
+   },
+   "EVIDENCE_XGL": {
+    "alias": "EVIDENCE_XGL",
+    "canonical_id": "SHE01990",
+    "kind": "EVIDENCE",
+    "type": "health_event",
+    "display_name": "",
+    "source_tool": "get_service_health",
+    "first_observed_step": 9,
+    "first_observed_clock": "2026-01-20 02:00:00",
+    "summary": "health event severity minor 2025-07-14 02:27:00..2025-07-14 03:12:00: minor latency spike observed on Query Engine, self-resolved after 45 minutes."
+   },
+   "EVIDENCE_SVD": {
+    "alias": "EVIDENCE_SVD",
+    "canonical_id": "SHE01985",
+    "kind": "EVIDENCE",
+    "type": "health_event",
+    "display_name": "",
+    "source_tool": "get_service_health",
+    "first_observed_step": 9,
+    "first_observed_clock": "2026-01-20 02:00:00",
+    "summary": "health event severity minor 2025-03-06 11:33:00..2025-03-06 11:53:00: minor latency spike observed on Query Engine, self-resolved after 20 minutes."
+   },
+   "EVIDENCE_WFP": {
+    "alias": "EVIDENCE_WFP",
+    "canonical_id": "SHE01976",
+    "kind": "EVIDENCE",
+    "type": "health_event",
+    "display_name": "",
+    "source_tool": "get_service_health",
+    "first_observed_step": 9,
+    "first_observed_clock": "2026-01-20 02:00:00",
+    "summary": "health event severity minor 2025-02-28 11:00:00..2025-02-28 11:20:00: Automated health check flagged Query Engine as degraded (minor) for 20 minutes."
+   }
+  },
+  "validation_result": {
+   "first_pass_ok": true,
+   "errors_first": [],
+   "repair_used": false,
+   "final_ok": true,
+   "errors_final": []
+  },
+  "contract_failure": null,
+  "llm_calls": [
+   {
+    "phase": "action",
+    "step": 2,
+    "attempt": 0,
+    "prompt_tokens": 1377,
+    "completion_tokens": 80,
+    "latency_ms": 4351.8,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Performance/Latency issue in Analytics Dashboard\", \"confidence\": 0.5, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_customer_deployment\", \"component\": null, \"metric_category\": null, \"keyword\": null, \"team\": null}"
+   },
+   {
+    "phase": "action",
+    "step": 3,
+    "attempt": 0,
+    "prompt_tokens": 1996,
+    "completion_tokens": 81,
+    "latency_ms": 5247.4,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Performance/Latency issue in Analytics Dashboard\", \"confidence\": 0.5, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_telemetry\", \"component\": null, \"metric_category\": \"Application\", \"keyword\": null, \"team\": null}"
+   },
+   {
+    "phase": "action",
+    "step": 4,
+    "attempt": 0,
+    "prompt_tokens": 1581,
+    "completion_tokens": 81,
+    "latency_ms": 5047.7,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Performance/Latency issue in Analytics Dashboard\", \"confidence\": 0.5, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_technical_signals\", \"component\": null, \"metric_category\": null, \"keyword\": null, \"team\": null}"
+   },
+   {
+    "phase": "action",
+    "step": 5,
+    "attempt": 0,
+    "prompt_tokens": 2360,
+    "completion_tokens": 83,
+    "latency_ms": 6058.5,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Performance/Latency issue in Analytics Dashboard\", \"confidence\": 0.5, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_component_topology\", \"component\": \"COMPONENT_SHK\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+   },
+   {
+    "phase": "action",
+    "step": 6,
+    "attempt": 0,
+    "prompt_tokens": 2587,
+    "completion_tokens": 81,
+    "latency_ms": 35998.9,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Performance/Latency issue in Analytics Dashboard\", \"confidence\": 0.5, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_telemetry\", \"component\": null, \"metric_category\": \"Capacity\", \"keyword\": null, \"team\": null}"
+   },
+   {
+    "phase": "action",
+    "step": 7,
+    "attempt": 0,
+    "prompt_tokens": 2309,
+    "completion_tokens": 83,
+    "latency_ms": 3537.3,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Performance/Latency issue in Analytics Dashboard\", \"confidence\": 0.5, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_recent_changes\", \"component\": \"COMPONENT_SHK\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+   },
+   {
+    "phase": "action",
+    "step": 8,
+    "attempt": 0,
+    "prompt_tokens": 2208,
+    "completion_tokens": 84,
+    "latency_ms": 5166.8,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Performance/Latency issue in Analytics Dashboard\", \"confidence\": 0.5, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_deployment_history\", \"component\": \"COMPONENT_SHK\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+   },
+   {
+    "phase": "action",
+    "step": 9,
+    "attempt": 0,
+    "prompt_tokens": 2225,
+    "completion_tokens": 83,
+    "latency_ms": 3518.4,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Performance/Latency issue in Analytics Dashboard\", \"confidence\": 0.5, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"get_service_health\", \"component\": \"COMPONENT_SHK\", \"metric_category\": null, \"keyword\": null, \"team\": null}"
+   },
+   {
+    "phase": "action",
+    "step": 10,
+    "attempt": 0,
+    "prompt_tokens": 3332,
+    "completion_tokens": 79,
+    "latency_ms": 3470.4,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Performance/Latency issue in Analytics Dashboard\", \"confidence\": 0.5, \"status\": \"active\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"tool\": \"submit_diagnosis\", \"component\": null, \"metric_category\": null, \"keyword\": null, \"team\": null}"
+   },
+   {
+    "phase": "final",
+    "step": 10,
+    "attempt": 0,
+    "prompt_tokens": 3407,
+    "completion_tokens": 318,
+    "latency_ms": 34758.4,
+    "finish_reason": "stop",
+    "http_retries": 0,
+    "raw_output": "{\"hypotheses\": [{\"label\": \"Performance/Latency issue in Analytics Dashboard\", \"confidence\": 0.8, \"status\": \"confirmed\", \"supporting_evidence\": [\"EVIDENCE_HQJ\", \"EVIDENCE_HVS\", \"EVIDENCE_FBH\"], \"contradicting_evidence\": []}], \"evidence_ids\": [\"EVIDENCE_HQJ\", \"EVIDENCE_HVS\", \"EVIDENCE_FBH\"], \"issue_category\": \"CATEGORY_VVV\", \"category_confidence\": 0.9, \"root_cause\": \"CAUSE_CCZ\", \"root_cause_confidence\": 0.7, \"affected_component\": \"COMPONENT_SHK\", \"component_confidence\": 0.8, \"causal_change\": null, \"causal_change_confidence\": null, \"owning_team\": \"TEAM_HWX\", \"routing_confidence\": 0.6, \"confidence\": 0.8, \"evidence_sufficiency\": \"sufficient\", \"human_review_required\": false, \"review_reason\": null, \"status\": \"DIAGNOSIS_PROPOSED\", \"recommended_next_action\": \"Optimize Query Engine configuration to improve performance and reduce latency.\", \"unresolved_uncertainties\": [], \"summary\": \"High latency in Analytics Dashboard is caused by capacity limit reached on Query Engine, which is owned by the Application Platform team. The recommended next action is to optimize the Query Engine configuration to improve performance and reduce latency.\"}"
+   }
+  ],
+  "sim_clock_end": "2026-01-20 02:15:00",
+  "tool_budget": 10,
+  "verification_rounds": [
+   {
+    "round": 1,
+    "decision": "PRIORITY_REVIEW",
+    "reason": "Jev flags this investigation for priority review",
+    "triggers": [
+     "jev_priority_review"
+    ],
+    "deterministic_checks": {
+     "D1": {
+      "id": "D1",
+      "name": "valid_final_contract",
+      "passed": true,
+      "applicable": true,
+      "detail": "schema, bounds and every reference are valid"
+     },
+     "D2": {
+      "id": "D2",
+      "name": "evidence_support",
+      "passed": true,
+      "applicable": true,
+      "detail": "3 cited evidence item(s), 1 supported hypothesis(es)"
+     },
+     "D3": {
+      "id": "D3",
+      "name": "final_consistency",
+      "passed": true,
+      "applicable": true,
+      "detail": "consistent with the last stated hypotheses and its own confidence"
+     },
+     "D4": {
+      "id": "D4",
+      "name": "premature_finalization",
+      "passed": true,
+      "applicable": true,
+      "detail": "evidence was retrieved and either a hypothesis is supported or the tool budget is used up"
+     },
+     "all_passed": true
+    },
+    "jev": {
+     "missed_evidence_probability": 0.57,
+     "distractor_anchor_probability": 0.31,
+     "review_probabilities": {
+      "PRIORITY_REVIEW": 0.59,
+      "REVIEW": 0.41,
+      "NORMAL": 0.0
+     },
+     "review": "PRIORITY_REVIEW",
+     "available": true,
+     "errors": [],
+     "jev_model": "jev-1.13.0",
+     "input_tokens": 20089,
+     "latency_ms": 566.3,
+     "question_versions": {
+      "missed_evidence": "missed_evidence_v1",
+      "distractor_anchor": "distractor_anchor_v1",
+      "review": "human_review_v1"
+     }
+    },
+    "verifier_latency_ms": 1055.1
+   }
+  ],
+  "initial_result": {
+   "final_status": "DIAGNOSIS_PROPOSED",
+   "final_alias_form": {
+    "hypotheses": [
+     {
+      "label": "Performance/Latency issue in Analytics Dashboard",
+      "confidence": 0.8,
+      "status": "confirmed",
+      "supporting_evidence": [
+       "EVIDENCE_HQJ",
+       "EVIDENCE_HVS",
+       "EVIDENCE_FBH"
+      ],
+      "contradicting_evidence": []
+     }
+    ],
+    "evidence_ids": [
+     "EVIDENCE_HQJ",
+     "EVIDENCE_HVS",
+     "EVIDENCE_FBH"
+    ],
+    "issue_category": "CATEGORY_VVV",
+    "category_confidence": 0.9,
+    "root_cause": "CAUSE_CCZ",
+    "root_cause_confidence": 0.7,
+    "affected_component": "COMPONENT_SHK",
+    "component_confidence": 0.8,
+    "causal_change": null,
+    "causal_change_confidence": null,
+    "owning_team": "TEAM_HWX",
+    "routing_confidence": 0.6,
+    "confidence": 0.8,
+    "evidence_sufficiency": "sufficient",
+    "human_review_required": false,
+    "review_reason": null,
+    "status": "DIAGNOSIS_PROPOSED",
+    "recommended_next_action": "Optimize Query Engine configuration to improve performance and reduce latency.",
+    "unresolved_uncertainties": [],
+    "summary": "High latency in Analytics Dashboard is caused by capacity limit reached on Query Engine, which is owned by the Application Platform team. The recommended next action is to optimize the Query Engine configuration to improve performance and reduce latency."
+   },
+   "final_diagnosis": {
+    "hypotheses": [
+     {
+      "label": "Performance/Latency issue in Analytics Dashboard",
+      "description": "",
+      "confidence": 0.8,
+      "status": "confirmed",
+      "supporting_evidence": [
+       "SG0003062",
+       "SG0003064",
+       "CS00624:CM098:capacity_utilization_pct"
+      ],
+      "contradicting_evidence": []
+     }
+    ],
+    "rationale": "",
+    "predicted_product_id": null,
+    "product_confidence": null,
+    "predicted_component_id": "CM098",
+    "component_confidence": 0.8,
+    "predicted_category_id": "IC04",
+    "category_confidence": 0.9,
+    "predicted_subcategory_id": null,
+    "predicted_root_cause_family": "resource exhaustion",
+    "root_cause_confidence": 0.7,
+    "predicted_causal_change_id": null,
+    "causal_change_confidence": null,
+    "predicted_severity": null,
+    "severity_confidence": null,
+    "recommended_team_id": "TM04",
+    "routing_confidence": 0.6,
+    "evidence_sufficiency": "sufficient",
+    "overall_confidence": 0.8,
+    "recommended_next_action": "Optimize Query Engine configuration to improve performance and reduce latency.",
+    "human_review_required": false,
+    "human_review_reason": null,
+    "evidence_summary": "High latency in Analytics Dashboard is caused by capacity limit reached on Query Engine, which is owned by the Application Platform team. The recommended next action is to optimize the Query Engine configuration to improve performance and reduce latency.",
+    "unresolved_uncertainties": [],
+    "status": "DIAGNOSIS_PROPOSED",
+    "evidence_ids": [
+     "SG0003062",
+     "SG0003064",
+     "CS00624:CM098:capacity_utilization_pct"
+    ]
+   },
+   "validation_result": {
+    "first_pass_ok": true,
+    "errors_first": [],
+    "repair_used": false,
+    "final_ok": true,
+    "errors_final": []
+   },
+   "num_tool_calls": 10,
+   "evidence_ids_seen": [
+    "CS00624:CM098:capacity_utilization_pct",
+    "SG0003062",
+    "SG0003063",
+    "SG0003064",
+    "SG0003065",
+    "SG0003066",
+    "SG0003067",
+    "SG0003068",
+    "SHE01976",
+    "SHE01980",
+    "SHE01981",
+    "SHE01982",
+    "SHE01985",
+    "SHE01986",
+    "SHE01988",
+    "SHE01990"
+   ],
+   "triage_outcome": {
+    "outcome": "confirmed",
+    "hint_shown": true,
+    "suggested_category_id": "IC04",
+    "suggested_category": "Performance / Latency",
+    "final_category_id": "IC04",
+    "final_category": "Performance / Latency",
+    "final_in_alternatives": false
+   }
+  },
+  "additional_investigation_performed": false,
+  "early_triage": {
+   "version": "early_triage_v1",
+   "role": "triage_guidance",
+   "source": "jev_early_triage",
+   "question_version": "early_triage_category_v1",
+   "state_version": "early_triage_state_v1",
+   "status": "hint",
+   "fallback": false,
+   "fallback_reason": null,
+   "category_id": "IC04",
+   "category_name": "Performance / Latency",
+   "probability": 1.0,
+   "margin": 1.0,
+   "uncertainty": "low",
+   "alternatives": [
+    {
+     "category_id": "IC01",
+     "name": "Identity / Authentication",
+     "probability": 0.0
+    },
+    {
+     "category_id": "IC02",
+     "name": "Authorization / Permissions",
+     "probability": 0.0
+    },
+    {
+     "category_id": "IC03",
+     "name": "Networking / Connectivity",
+     "probability": 0.0
+    }
+   ],
+   "distribution_top": [
+    {
+     "category_id": "IC04",
+     "name": "Performance / Latency",
+     "probability": 1.0
+    },
+    {
+     "category_id": "IC01",
+     "name": "Identity / Authentication",
+     "probability": 0.0
+    },
+    {
+     "category_id": "IC02",
+     "name": "Authorization / Permissions",
+     "probability": 0.0
+    },
+    {
+     "category_id": "IC03",
+     "name": "Networking / Connectivity",
+     "probability": 0.0
+    }
+   ],
+   "abstain_probability": 0.0,
+   "suggested_tools": [
+    "get_telemetry (metric_category Application)",
+    "get_technical_signals",
+    "get_deployment_history"
+   ],
+   "jev_model": "jev-1.13.0",
+   "input_tokens": 848,
+   "latency_ms": 111.3,
+   "error": null,
+   "config": {
+    "min_probability": 0.3,
+    "moderate_probability": 0.4,
+    "strong_probability": 0.7,
+    "top_alternatives": 3,
+    "timeout_s": 20.0
+   }
+  },
+  "triage_hint_text": "EARLY TRIAGE HINT (provisional and unverified)\nSource: Jev early triage. It read only the ticket text and basic customer/product details; no tool, log, telemetry or graph evidence had been examined.\nSuggested issue category: CATEGORY_VVV = Performance / Latency (probability 1.00, low uncertainty).\nThis is a prior, not a finding, and it may be wrong. Test it against the evidence you retrieve, weigh the competing categories, and reject or replace it if the evidence points elsewhere. It is not evidence and cannot be cited. Choose your final issue_category from the evidence.\nSuggested starting points for this category (advisory only: every tool stays available and no category or evidence is ruled out): get_telemetry (metric_category Application); get_technical_signals; get_deployment_history.",
+  "triage_prompt_version": "early_triage_prompt_v1",
+  "triage_outcome": {
+   "outcome": "confirmed",
+   "hint_shown": true,
+   "suggested_category_id": "IC04",
+   "suggested_category": "Performance / Latency",
+   "final_category_id": "IC04",
+   "final_category": "Performance / Latency",
+   "final_in_alternatives": false
+  }
+ }
+}
