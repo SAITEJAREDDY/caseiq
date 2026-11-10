@@ -1,4 +1,4 @@
-# CaseIQ
+# Customer Support Agents
 
 *Graph-powered support intelligence · Microsoft AI Graphs TPM Demo · June 2026*
 
